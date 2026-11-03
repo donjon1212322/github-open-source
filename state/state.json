@@ -41,6 +41,7 @@
         "devto": {
           "id": 4968877,
           "published_at": "2026-11-03T12:03:03.464291Z",
+          "updated_at": "2026-11-03T12:39:59.457995Z",
           "url": "https://dev.to/githubopensource/local-video-tools-for-ai-coding-assistants-ffmpeg-integration-5e7a"
         }
       },
@@ -62,6 +63,7 @@
       },
       "description": "Local video editor for coding agents: 42 FFmpeg tools with a machine-readable contract and an MCP server, for Claude Code, Cursor and Codex. Cut, captions, reframe, loudness, platform exports. No cloud, no API keys.",
       "description_fp": "0d1bf7665adfce8f",
+      "devto_cover_url": "https://i.ibb.co/LdQWVJwx/kajisho5-ffmpeg-skill-devto-cover-461ad771039f.png",
       "forks": 349,
       "full_name": "kajisho5/ffmpeg-skill",
       "generated": {
