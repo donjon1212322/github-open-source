@@ -47,6 +47,11 @@
           "attempts": 0,
           "due_at": "2026-11-03T18:00:00+00:00",
           "status": "pending"
+        },
+        "facebook_sheet": {
+          "at": "2026-11-03T12:01:25.750149Z",
+          "status": "queued",
+          "via": "make.com"
         }
       },
       "description": "Local video editor for coding agents: 42 FFmpeg tools with a machine-readable contract and an MCP server, for Claude Code, Cursor and Codex. Cut, captions, reframe, loudness, platform exports. No cloud, no API keys.",
