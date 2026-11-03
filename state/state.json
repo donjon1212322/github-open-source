@@ -53,7 +53,10 @@
         "bluesky": {
           "attempts": 0,
           "due_at": "2026-11-03T18:00:00+00:00",
-          "status": "pending"
+          "error": "",
+          "published_at": "2026-11-03T19:24:54.225549Z",
+          "status": "published",
+          "url": "https://bsky.app/profile/githubopensource.bsky.social/post/3mzgkvs5ud22z"
         },
         "facebook_sheet": {
           "at": "2026-11-03T12:01:25.750149Z",
