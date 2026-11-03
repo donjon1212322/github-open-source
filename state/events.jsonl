@@ -12,3 +12,4 @@
 {"preview_host": "imgbb", "repo": "horizon-rust/horizon", "ts": "2026-11-03T19:45:44.037782Z", "type": "published_as_text"}
 {"repo": "horizon-rust/horizon", "score": 91.149, "telegram_message_id": 3551, "telegraph_url": "https://telegra.ph/Horizon-A-Minecraft-Java-Edition-Reimplementation-in-Rust-11-03", "ts": "2026-11-03T19:45:44.038124Z", "type": "project_published"}
 {"deleted": 0, "ts": "2026-11-03T19:49:10.362126Z", "type": "moderation_completed", "updates": 0}
+{"platform": "devto", "repo": "horizon-rust/horizon", "ts": "2026-11-03T20:11:46.258846Z", "type": "article_published", "url": "https://dev.to/githubopensource/play-minecraft-in-rust-open-source-engine-3djc"}
