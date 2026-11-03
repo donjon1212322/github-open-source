@@ -2,5 +2,5 @@
 # Development and CI only. Never installed by the publishing job.
 pytest>=9,<10
 pytest-cov>=6,<8
-ruff>=0.17,<1
+ruff>=0.17.3,<1
 mypy>=1.18,<3
