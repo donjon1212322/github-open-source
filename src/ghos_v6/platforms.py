@@ -69,6 +69,15 @@ class DevToClient:
     def _tags(record: dict[str, Any], generated: dict[str, Any] | None = None) -> list[str]:
         return devto_tags(record, generated)
 
+    @staticmethod
+    def _main_image(record: dict[str, Any]) -> str:
+        """dev.to crops main_image to 1000x420; prefer the letterboxed cover."""
+        for key in ("devto_cover_url", "image_url"):
+            url = str(record.get(key) or "")
+            if url.startswith("https://"):
+                return url
+        return ""
+
     def publish_article(self, record: dict[str, Any], generated: dict[str, Any]) -> dict[str, Any]:
         if not self.configured:
             raise PlatformError("DEV_API_KEY is not set")
@@ -85,8 +94,9 @@ class DevToClient:
         # No canonical_url to Telegraph: the dev.to version is adapted
         # with its own TL;DR/discussion wrapper and should be indexable
         # as the public article surface.
-        if str(record.get("image_url") or "").startswith("https://"):
-            article["main_image"] = record["image_url"]
+        cover = self._main_image(record)
+        if cover:
+            article["main_image"] = cover
         response = self._request(
             "POST", "https://dev.to/api/articles", json={"article": article}
         )
@@ -131,6 +141,9 @@ class DevToClient:
             "published": True,
             "tags": self._tags(record, generated),
         }
+        cover = self._main_image(record)
+        if cover:
+            article["main_image"] = cover
         response = self._request(
             "PUT", f"https://dev.to/api/articles/{article_id}",
             json={"article": article},

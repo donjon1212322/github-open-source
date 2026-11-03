@@ -95,6 +95,12 @@ MUTATIONS: list[tuple[str, str, str, str]] = [
      '            "PUT", f"https://dev.to/api/articles/{article_id}",',
      '            "POST", "https://dev.to/api/articles",',
      "article update creates a duplicate post"),
+    ("src/ghos_v6/platforms.py", '        for key in ("devto_cover_url", "image_url"):',
+     '        for key in ("image_url",):',
+     "dev.to cover ignored and the card is cropped again"),
+    ("src/ghos_v6/devto_cover.py", "COVER_W, COVER_H = 1000, 420",
+     "COVER_W, COVER_H = 1200, 630",
+     "dev.to cover returns to the ratio dev.to crops"),
 ]
 
 COPY_ITEMS = (

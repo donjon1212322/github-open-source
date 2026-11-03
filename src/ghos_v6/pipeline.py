@@ -15,6 +15,7 @@ from typing import Any
 from . import dedup, insights, polls
 from .cards import render_ai_brief_card, render_digest_card
 from .config import Config, telegram_message_link
+from .devto_cover import build_devto_cover
 from .content_adapters import build_crosspost_text, image_alt_text, public_telegram_link
 from .formatter import format_project_post
 from .gate import GateConfig, evaluate
@@ -682,6 +683,34 @@ def _download_record_image(record: dict[str, Any]) -> tuple[bytes, str]:
     return data, "image/png"
 
 
+def _ensure_devto_cover(config: Config, record: dict[str, Any]) -> str:
+    """Host a 1000x420 cover so dev.to's fixed fit=cover cannot cut the card.
+
+    The Telegram/Bluesky ``image_url`` stays untouched: it is a 1200x630
+    card, which is correct there. Only dev.to needs its own aspect ratio.
+    """
+    existing = str(record.get("devto_cover_url") or "")
+    if existing.startswith("https://"):
+        return existing
+    data, _content_type = _download_record_image(record)
+    if not data:
+        return ""
+    try:
+        cover = build_devto_cover(data)
+    except Exception as exc:  # noqa: BLE001 - fall back to the plain card
+        logger.warning("dev.to cover render failed: %s", sanitize(str(exc))[:200])
+        return ""
+    url, _host = _host_local_image(
+        config,
+        cover,
+        filename=_safe_image_stem(record) + "-devto-cover.png",
+        content_type="image/png",
+    )
+    if url:
+        record["devto_cover_url"] = url
+    return url
+
+
 def process_crossposts(config: Config, store: StateStore) -> dict[str, Any]:
     now = datetime.now(timezone.utc)
     summary = {"ok": True, "processed": 0, "published": 0, "failed": 0, "dead": 0}
@@ -841,6 +870,7 @@ def article_of_day(config: Config, store: StateStore) -> dict[str, Any]:
             store.save()
             return {"ok": True, "published": False, "reason": "feature_devto_disabled", "repo": key}
         client = DevToClient(config.dev_api_key)
+        _ensure_devto_cover(config, record)
         result = client.publish_article(record, record.get("generated") or {})
         record.setdefault("articles", {})["devto"] = {
             "id": result.get("id"),
@@ -879,6 +909,7 @@ def update_recent_article(config: Config, store: StateStore) -> dict[str, Any]:
     article_id, id_source = client.resolve_article_id(
         owned, str(info.get("url") or ""), info.get("id") or 0
     )
+    _ensure_devto_cover(config, record)
     try:
         result = client.update_article(
             article_id, record, record.get("generated") or {}
