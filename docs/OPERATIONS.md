@@ -2,13 +2,20 @@
 
 Что делать каждый день, что делать, когда сломалось, и как откатить.
 
+> **State.** Живой `state/state.json` и `state/events.jsonl` лежат в
+> orphan-ветке `state`, а не в `main`. Перед любой локальной командой ниже
+> загрузите их: `python tools/state_branch.py read` (нужен `GH_TOKEN`).
+> Файлы `state/` в `main` — пустой bootstrap; править их бессмысленно,
+> изменения всё равно придут CAS-записью из workflow.
+
 ---
 
 ## Ежедневно (2 минуты)
 
 1. Открыть канал, посмотреть три поста.
 2. Проверить, что превью отображается (значит ImgBB жив).
-3. Если пост выглядит не так — `state/events.jsonl`, последние строки.
+3. Если пост выглядит не так — `tools/state_branch.py read`, затем
+   `state/events.jsonl`, последние строки.
 
 Ничего запускать руками не нужно: 13 кронов делают всё сами.
 
@@ -51,6 +58,7 @@ PYTHONPATH=src python3 -m ghos_v6.cli doctor
 
 **Пост не вышел.**
 ```bash
+python tools/state_branch.py read
 tail -20 state/events.jsonl | grep publish
 ```
 `no_candidate` → очередь пуста, `collect` не отработал.
@@ -86,15 +94,10 @@ PYTHONPATH=src python3 -m ghos_v6.cli news --force
 ### Опубликован плохой пост
 
 Telegram-канал: удалить сообщение руками. Бот не умеет отзывать.
-Затем пометить в состоянии:
-```bash
-PYTHONPATH=src python3 -c "
-import json,pathlib
-p=pathlib.Path('state/state.json'); d=json.loads(p.read_text())
-d['published']['owner/repo']['removed_by_owner']=True
-p.write_text(json.dumps(d,ensure_ascii=False,indent=1))
-"
-```
+Затем запустить `Publishing pipeline → moderation` (или `report`) — состояние
+запишется в ветку `state` штатным CAS-коммитом. **Не правьте bootstrap в
+`main`**: workflow его всё равно перезапишет при чтении, а CI запретит
+появление там реальных записей.
 
 ### Утёк секрет
 
@@ -115,7 +118,7 @@ p.write_text(json.dumps(d,ensure_ascii=False,indent=1))
 ```bash
 gh api repos/{owner}/{repo}/actions/workflows
 ```
-**С the current release владелец разрешил включать `Doctor` и `Publishing pipeline`.**
+**С 03.11.2026 владелец разрешил включать `Doctor` и `Publishing pipeline`.**
 До переключения на `main` держим `APP_ENV=test` / `PUBLISH_TARGET=test`;
 если workflow снова окажутся выключены после 60 дней без коммитов — включить
 повторно (`Lifecycle guard` создаёт issue по этому поводу).
@@ -123,7 +126,7 @@ gh api repos/{owner}/{repo}/actions/workflows
 **Не запускайте ручные dispatch пачкой.** У `pipeline.yml` общая группа
 `concurrency: state-writer` с `cancel-in-progress: false`: GitHub держит не
 более одного выполняющегося и одного ожидающего запуска, поэтому из 10
-одновременно отправленных команд 8 были `cancelled` (проверено the current release).
+одновременно отправленных команд 8 были `cancelled` (проверено 03.11.2026).
 Отправляйте по одной и дожидайтесь завершения; штатные cron не конфликтуют,
 потому что идут по расписанию.
 
@@ -150,12 +153,18 @@ PUBLISH_TARGET=test
 
 ### Откатить состояние
 
-`state/state.json` в гите, история коммитов `chore(state):`.
+Живой state лежит в orphan-ветке `state`, история коммитов `chore(state):`.
 ```bash
-git log --oneline -- state/state.json | head
-git checkout <commit> -- state/state.json
+git fetch origin state
+git log --oneline FETCH_HEAD -- state/state.json | head
+git show FETCH_HEAD:state/state.json | head
+export GH_TOKEN=... GITHUB_REPOSITORY=donjon1212322/github-open-source
+python tools/state_branch.py read --out /tmp/live-state   # текущее состояние
+python tools/state_branch.py status                        # размер, свежесть, main
 ```
-Осторожно: откат вернёт проекты в очередь, и они могут выйти повторно.
+Восстановление файла делается через `tools/state_branch.py squash` после
+ручной правки в `/tmp/live-state`; `main` при этом не трогается. Осторожно:
+откат вернёт проекты в очередь, и они могут выйти повторно.
 
 ---
 
@@ -183,15 +192,15 @@ git checkout <commit> -- state/state.json
 
 ---
 
-## Безопасность (после аудита the current release)
+## Безопасность (после аудита 03.11.2026)
 
 - `pipeline.yml` разделён на два job: `run` (read-only, секреты, без
   `persist-credentials`) и `commit-state` (write, без секретов и без запуска
   кода проекта). Не сливайте их обратно в один job.
 - `requirements.lock` обязателен: `pip install --require-hashes -r
   requirements.lock`. Не заменяйте его на `pip install -e .` в CI.
-- `main` защищён ruleset: force-push и удаление запрещены. State-коммиты
-  делает `github-actions[bot]`; не меняйте это без обхода ruleset.
+- `main` защищён ruleset: force-push и удаление запрещены. Единственный
+  force-update во всём проекте — ежемесячный `squash` ветки `state`.
 - Dependabot, CodeQL и gitleaks включены. Не отключайте их.
 - При инциденте: `git revert` + новый релиз. Не правьте `state/state.json`
   руками при работающих кронах.
@@ -209,21 +218,23 @@ git checkout <commit> -- state/state.json
 | `20 18 * * *` | Facebook handoff (make.com) |
 | `10 16 * * 0`, `50 18 * * 4`, `20 20 * * *`, `40 16 * * 0` | digest / poll / metrics / report |
 
-Перед запуском `run` делает `git fetch origin main` и `reset --hard FETCH_HEAD`,
-поэтому отложенный запуск видит свежий state. Не убирайте этот шаг: без него
-возможна повторная публикация.
+Перед запуском `run` делает `python tools/state_branch.py read`: отложенный
+запуск видит свежий state с ветки `state`, хотя `main` чекаутится на
+`fetch-depth: 1`. Не убирайте этот шаг: без него возможна повторная публикация.
+Запись идёт CAS-коммитом в ту же ветку, поэтому гонка не теряет данные.
 
 
 ---
 
-## Мониторинг и долгосрочная эксплуатация (с the current release)
+## Мониторинг и долгосрочная эксплуатация (с 03.11.2026)
 
 | Сигнал | Где смотреть | Действие |
 |---|---|---|
-| `state.json` > 10 МиБ | шаг «State size guard» в CI, `Lifecycle guard` | проверить компактирование, при необходимости архивировать полные записи |
-| Нет коммитов > 45 дней | `Lifecycle guard` | коммит/issue создаёт активность; иначе через 60 дней GitHub отключит все schedule |
+| `state.json` > 8 МиБ | `tools/state_branch.py status` в `Lifecycle guard` и `Doctor` | проверить компактирование, при необходимости архивировать полные записи; жёсткий отказ записи на 90 МиБ |
+| Ветка `state` не менялась > 2 дней | heartbeat в `status` | `Lifecycle guard` создаёт issue; иначе через 60 дней GitHub отключит все schedule |
+| state снова в `main` | CI `check-bootstrap`, `Doctor` | сборка красная: вернуть bootstrap и проверить, что `commit-state` пишет в ветку |
 | `GEMINI_MODEL` исчез из API | `doctor` → `Gemini_models`, `Lifecycle guard` | сменить Variable на актуальную модель; проект fail-closed и молча перестанет публиковать |
-| Рост `Publish to Platforms` ошибок | Actions the previous bot/v6 | разобрать до включения флагов Bluesky |
-| Приближение к квоте артефактов | Billing → Usage, Budgets and alerts | 64 артефакта/день × размер state; триггер — размер, не число запусков |
+| Рост ошибок кросс-постов | Actions → Publishing pipeline | разобрать `dead_letters`; Bluesky включён |
+| Приближение к квоте артефактов | Billing → Usage, Budgets and alerts | артефакт создаётся только при изменении state (не на каждом из 64 запусков); триггер — размер, не число запусков |
 
-Полный разбор: the operations runbook.
+Полный разбор: `docs/RUNBOOK.md` и отчёт о долгосрочных рисках.

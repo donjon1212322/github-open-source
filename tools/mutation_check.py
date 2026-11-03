@@ -101,6 +101,23 @@ MUTATIONS: list[tuple[str, str, str, str]] = [
     ("src/ghos_v6/devto_cover.py", "COVER_W, COVER_H = 1000, 420",
      "COVER_W, COVER_H = 1200, 630",
      "dev.to cover returns to the ratio dev.to crops"),
+    ("tools/state_branch.py", 'STATE_BRANCH = "state"',
+     'STATE_BRANCH = "main"',
+     "live state written back into main's history"),
+    ("tools/state_branch.py", '{"sha": commit, "force": False})',
+     '{"sha": commit, "force": True})',
+     "state ref updated without compare-and-swap, concurrent writes lost"),
+    ("tools/state_branch.py", "        if after < before:",
+     "        if False:",
+     "a state that lost published records is committed"),
+    ("tools/state_branch.py",
+     '    commit = _commit_tree(files, "chore(state): monthly squash [skip ci]", [])',
+     '    commit = _commit_tree(files, "chore(state): monthly squash [skip ci]", ["0" * 40])',
+     "monthly squash no longer produces a parentless root commit"),
+    (".github/workflows/pipeline.yml",
+     "          fetch-depth: 1\n          persist-credentials: false",
+     "          fetch-depth: 0\n          persist-credentials: false",
+     "publishing pipeline clones the whole history again"),
 ]
 
 COPY_ITEMS = (

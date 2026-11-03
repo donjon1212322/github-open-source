@@ -86,16 +86,20 @@ Out of scope:
 
 ## Known operational risks
 
-- The repository is a **test** rollout. The owner instructed that publishing
-  from this account stop. Do not re-enable `pipeline.yml` or `doctor.yml`
-  without a written decision from the owner.
-  When moving to a production repository, revoke and re-issue every key.
-- `state/state.json` is committed to `main`. It contains no credentials and
-  no private test-channel id, but it is public; keep it that way.
-- `TELEGRAM_OWNER_CHAT_ID` is configured in Actions Variables; verify it still
-  points at the owner's chat before switching to production.
-- `GOOGLE_SERVICE_ACCOUNT_JSON` is not set, so the Facebook Sheets handoff
-  cannot write rows. Set it before enabling `FEATURE_SHEETS_HANDOFF`.
+- This is the **production** repository (`donjon1212322/github-open-source`).
+  The old v5/v6 accounts are disabled. Revoke the setup PATs that were used
+  during migration and rotate every key that passed through the chat.
+- Live state lives on the public orphan `state` branch, not in `main`. It
+  contains no credentials and no private `t.me/c/` ids; keep it that way.
+  `main` holds only an empty bootstrap, enforced by a CI guard.
+- `commit-state` has `contents: write` but no publishing secrets and runs no
+  project code. It writes only `refs/heads/state`; the monthly `squash` is
+  the only force-update and only ever targets that branch. `main` is never
+  force-pushed.
+- `TELEGRAM_OWNER_CHAT_ID` is an Actions Variable; verify it still points at
+  the owner's chat after any account change.
+- Facebook publishing goes through make.com + a Google Sheet. No Page token
+  exists in this repository by design.
 
 ## Disclosure
 

@@ -93,23 +93,23 @@ jobs:
     steps:
       - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
         with:
-          fetch-depth: 0
+          fetch-depth: 1
           persist-credentials: false
       - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6
         with:
           python-version: "3.13"
           cache: pip
-      # A queued run starts from the commit that was current when it was
-      # scheduled. If the previous run already committed its state, this
-      # run must see it, otherwise it republishes the same project.
-      - name: Sync latest state
+      # A queued run must see the state the previous run committed. The live
+      # state lives on the orphan `state` branch; main is a shallow,
+      # code-only checkout that is never rewritten at runtime.
+      - name: Load state from state branch
         shell: bash
         env:
           GH_TOKEN: ${{ github.token }}
-        run: |
-          AUTH=$(printf 'x-access-token:%s' "$GH_TOKEN" | base64 -w0)
-          git -c http.extraheader="Authorization: Basic $AUTH" fetch origin "$GITHUB_REF_NAME"
-          git reset --hard FETCH_HEAD
+        run: python tools/state_branch.py read
+      - name: State digest baseline
+        id: state_baseline
+        run: echo "digest=$(python tools/state_branch.py digest)" >> "$GITHUB_OUTPUT"
       - name: Install
         run: |
           python -m pip install --require-hashes -r requirements.lock
@@ -146,8 +146,19 @@ jobs:
           else
             ghos-v6 scheduled --schedule "$SCHEDULE"
           fi
-      - name: Upload state
+      - name: Detect state change
+        id: state_change
         if: always()
+        run: |
+          now=$(python tools/state_branch.py digest)
+          before="${{ steps.state_baseline.outputs.digest }}"
+          if [[ "$now" != "$before" ]]; then
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          fi
+      - name: Upload state
+        if: ${{ always() && steps.state_change.outputs.changed == 'true' }}
         uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # v6
         with:
           name: state
@@ -156,8 +167,8 @@ jobs:
           if-no-files-found: warn
 
   # Commits the state. This job has write access, but it does not run project
-  # code and it does not receive any publishing secret. It validates the
-  # projection and refuses to commit a state that lost published records.
+  # code and it does not receive any publishing secret. One atomic CAS
+  # commit goes to the orphan `state` branch; main is never touched.
   commit-state:
     needs: run
     if: always()
@@ -167,7 +178,7 @@ jobs:
     steps:
       - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
         with:
-          fetch-depth: 0
+          fetch-depth: 1
           persist-credentials: false
       - name: Download state artifact
         continue-on-error: true
@@ -175,66 +186,8 @@ jobs:
         with:
           name: state
           path: state-new
-      # The workflow was queued on an older commit. Another run may have
-      # committed state since. Reset to the tip of main before comparing and
-      # committing, otherwise the rebase conflicts and the state is lost.
-      - name: Sync latest main
+      - name: Commit state to the state branch
         shell: bash
         env:
           GH_TOKEN: ${{ github.token }}
-        run: |
-          AUTH=$(printf 'x-access-token:%s' "$GH_TOKEN" | base64 -w0)
-          git -c http.extraheader="Authorization: Basic $AUTH" fetch origin "$GITHUB_REF_NAME"
-          git reset --hard FETCH_HEAD
-      - name: Validate and commit state
-        shell: bash
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: |
-          if [[ ! -f state-new/state.json ]]; then
-            echo "No new state was produced; nothing to commit."
-            exit 0
-          fi
-          python - <<'PY'
-          import json
-          import sys
-
-          new = json.load(open("state-new/state.json", encoding="utf-8"))
-          old = json.load(open("state/state.json", encoding="utf-8"))
-          if not isinstance(new.get("published"), dict):
-              sys.exit("invalid state: published is not an object")
-          if not isinstance(new.get("queue"), list):
-              sys.exit("invalid state: queue is not a list")
-          if len(new["published"]) < len(old.get("published", {})):
-              sys.exit(
-                  f"refusing to commit: published count decreased "
-                  f"{len(old.get('published', {}))} -> {len(new['published'])}"
-              )
-          print(f"state ok: published={len(new['published'])} queue={len(new['queue'])}")
-          PY
-          cp state-new/state.json state/state.json
-          if [[ -f state-new/events.jsonl ]]; then
-            cp state-new/events.jsonl state/events.jsonl
-          fi
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add state/state.json state/events.jsonl
-          if git diff --cached --quiet; then
-            echo "No state changes"
-            exit 0
-          fi
-          git commit -m "chore(state): update publishing state [skip ci]"
-          AUTH=$(printf 'x-access-token:%s' "$GH_TOKEN" | base64 -w0)
-          # Retry a transient push failure. The state artifact is retained
-          # for a day, so a failed commit is recoverable by hand.
-          for attempt in 1 2 3; do
-            if git -c http.extraheader="Authorization: Basic $AUTH" pull --rebase origin "$GITHUB_REF_NAME" \
-               && git -c http.extraheader="Authorization: Basic $AUTH" push origin "HEAD:$GITHUB_REF_NAME"; then
-              echo "state committed on attempt $attempt"
-              exit 0
-            fi
-            echo "state push attempt $attempt failed; retrying in 10s"
-            sleep 10
-          done
-          echo "failed to commit state after 3 attempts"
-          exit 1
+        run: python tools/state_branch.py write --from state-new

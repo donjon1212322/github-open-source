@@ -71,9 +71,12 @@ WorldofAI RSS -> strict filters -> primary source -> Gemini verify
 ```
 
 State is deliberately boring: an append-only `state/events.jsonl`
-review log plus a deterministic `state/state.json` projection committed
-by GitHub Actions. All scheduled state writers share one concurrency
-group.
+review log plus a deterministic `state/state.json` projection. The live files
+live on an **orphan `state` branch**, not in `main`: workflows read them with
+`tools/state_branch.py read` and write them with one atomic compare-and-swap
+commit (`fetch-depth: 1` everywhere). `main` carries only an empty bootstrap,
+checked in CI; a weekly guard squashes the `state` branch and watches its size
+and freshness. All state writers share the `state-writer` concurrency group.
 
 ## Repository layout
 

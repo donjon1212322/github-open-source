@@ -41,10 +41,25 @@ or a measurable «done», because a roadmap item without both is a wish.
 - Dead-letter queue stays at zero; moderation removes spam from discussions.
 - State growth monitored; compaction keeps the projection reviewable.
 
-## 4. Later phases (owner decision, not started)
+## 4. Production hardening — done 2026-11-03 (was a "later phase")
 
-- Move `state/` into a separate branch or storage and drop `fetch-depth: 0`
-  from `commit-state`.
+| Item | Done when |
+|---|---|
+| `state/` moved out of `main` | orphan branch `state` holds the live files; `main` holds only an empty bootstrap, guarded by CI |
+| `fetch-depth: 0` removed | both `run` and `commit-state` use `fetch-depth: 1`; no `reset --hard`, no `pull --rebase` |
+| Atomic state writes | one CAS commit per run via Git Data API; `published count decreased` guard |
+| Bounded state history | monthly `squash` to one parentless commit on `state` |
+| Heartbeat | weekly `status`: size, staleness, bootstrap invariant; Doctor runs it too |
+| Artifact bloat | state artifact uploaded only when the digest changed |
+| dev.to cover | dedicated 1000×420 cover, PUT on the existing article id |
+
+The phrase "фаза B/C" in older reports referred to these deferred items.
+The numbered Phase B (three autonomous days) and Phase C (steady state)
+above are **acceptance milestones**, not code tasks; they still need calendar
+time and are being observed now.
+
+## 5. Later phases (owner decision, not started)
+
 - Key rotation schedule and a short-lived setup token policy.
 - Gemini model migration before its deprecation window; Python runtime
   upgrade before EOL.

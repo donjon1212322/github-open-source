@@ -50,15 +50,11 @@ jobs:
           if len(pngs) < 100:
               sys.exit('card icons are missing from the built wheel')
           PY
-      - name: State size guard
-        run: |
-          python - <<'PY'
-          import pathlib, sys
-          size = pathlib.Path('state/state.json').stat().st_size
-          print(f'state.json: {size / 1024 / 1024:.2f} MiB (guard: 10 MiB)')
-          if size > 10 * 1024 * 1024:
-              sys.exit('state.json exceeds the guard; compact or archive it')
-          PY
+      # Live state lives on the orphan `state` branch. If real records ever
+      # come back into main, the build must fail instead of quietly growing
+      # the code history again.
+      - name: Main state bootstrap guard
+        run: python tools/state_branch.py check-bootstrap
 
   gitleaks:
     runs-on: ubuntu-latest

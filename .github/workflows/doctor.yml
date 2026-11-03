@@ -59,6 +59,11 @@ jobs:
         run: |
           python -m pip install --require-hashes -r requirements.lock
           python -m pip install --no-deps -e .
+      - name: State branch health
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python tools/state_branch.py status
       - name: Doctor
         shell: bash
         env:

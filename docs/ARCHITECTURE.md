@@ -187,7 +187,12 @@ make.com. Прямого Graph API в v6 нет.
 
 ## Состояние
 
-`state/state.json` — единый JSON, коммитится после каждого запуска.
+`state/state.json` — единый JSON. Живые данные лежат в orphan-ветке `state`,
+а не в `main`: `run` читает их через `tools/state_branch.py read`, а
+`commit-state` пишет одним атомарным CAS-коммитом через Git Data API.
+`main` содержит только пустой bootstrap (проверяется в CI). Раз в месяц
+`Lifecycle guard` схлопывает историю ветки `state` в один parentless-коммит.
+Полного клона (`fetch-depth: 0`) и `git reset --hard` больше нет.
 
 | Ключ | Что |
 |---|---|

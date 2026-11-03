@@ -34,6 +34,10 @@ jobs:
         run: |
           python -m pip install --require-hashes -r requirements.lock
           python -m pip install --no-deps -e .
+      - name: Load state from state branch
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python tools/state_branch.py read
       - name: Cleanup
         shell: bash
         env:

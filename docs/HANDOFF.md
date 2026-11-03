@@ -21,9 +21,9 @@
 
 | | Состояние |
 |---|---|
-| Код | готов: 305 тестов, 66.09 % branch-inclusive coverage, 30/30 мутаций убито |
-| История | репозиторий создан с чистого листа: один коммит, пустой state, пустой event log |
-| Публикация | включается после записи всех Secrets и Variables |
+| Код | готов: 328 тестов, 66.40 % branch-inclusive coverage, 37/37 мутаций убито |
+| История | чистый старт `2093a5a`; живой state вынесен в orphan-ветку `state`, в `main` только пустой bootstrap |
+| Публикация | включена: `APP_ENV=production`, `PUBLISH_TARGET=main` |
 | Режим | `main` требует `APP_ENV=production`, `PUBLISH_TARGET=main` и реального `TELEGRAM_MAIN_CHANNEL_ID` |
 | GitHub Actions | CI и CodeQL активны; публикующие workflow включаются на этапе запуска |
 
@@ -80,7 +80,8 @@ ghos-v6 scheduled --schedule "10 7 * * *"   # маршрутизация по к
 2. `ghos-v6 doctor` — убедиться, что 13/13 отвечают.
 3. Включить `Doctor` и `Publishing pipeline`.
 4. Один `publish`, визуальная проверка поста и статьи.
-5. Проверить, что `commit-state` пишет state, CI и CodeQL зелёные.
+5. Проверить, что `commit-state` пишет в ветку `state`, а `main` остаётся
+   пустым bootstrap; CI, CodeQL и `Doctor → State branch health` зелёные.
 
 Порядок операций и откат — [`RUNBOOK.md`](RUNBOOK.md), ежедневная работа —
 [`OPERATIONS.md`](OPERATIONS.md), устройство модулей —

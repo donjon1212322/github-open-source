@@ -74,7 +74,10 @@ def test_state_writer_guards_survive_in_the_pipeline_workflow():
     text = (WORKFLOW_DIR / "pipeline.yml").read_text(encoding="utf-8")
     assert "persist-credentials: false" in text
     assert "retention-days: 1" in text
-    assert "published count decreased" in text, "do not commit a state that lost dedup keys"
+    tool = (REPO / "tools" / "state_branch.py").read_text(encoding="utf-8")
+    assert "published count decreased" in tool, "do not commit a state that lost dedup keys"
+    assert "tools/state_branch.py write" in text, "the guard must be the actual writer"
+    assert "fetch-depth: 0" not in text, "phase B removed the full-history clone"
     assert "concurrency:" in text and "state-writer" in text
     assert "TELEGRAM_MAIN_CHANNEL_ID" in text
     assert "MAIN_TELEGRAM_CHANNEL" in text, "legacy alias stays as a fallback"

@@ -78,6 +78,43 @@ Telegram, Bluesky и Telegraph продолжают получать исход�
 Проверка: `GET /api/articles/{id}` → поле `cover_image` должно содержать
 URL с `-devto-cover.png`.
 
+### 4.2 Отдельная ветка `state` (фаза B/C, 03.11.2026)
+
+Живое состояние **не лежит в `main`**. В `main` только пустой bootstrap
+(`state/state.json` = `DEFAULT_STATE`, `state/events.jsonl` пуст), а
+`state/state.json` и `state/events.jsonl` с реальными данными находятся в
+orphan-ветке `state` того же репозитория.
+
+| Кто | Что делает |
+|---|---|
+| `run` | `fetch-depth: 1`, затем `python tools/state_branch.py read` — скачивает два файла с ветки `state` через API. Никакого полного клона и `git reset --hard`. |
+| `Upload state` | артефакт создаётся **только если хэш состояния изменился** (`state_branch.py digest`), а не на каждом из 64 запусков в сутки. |
+| `commit-state` | `contents: write`, один атомарный CAS-коммит на ветку `state` через Git Data API (`PATCH git/refs/heads/state`, `force: false`). При гонке — повтор до 5 раз. В `main` не пишет ничего. |
+| `Lifecycle guard` | раз в неделю `status` (размер, свежесть, «не протёк ли state обратно в main»); первый понедельник месяца — `squash` ветки в один parentless-коммит. Общая группа `state-writer` не даёт squash пересечься с записью. |
+| CI | `check-bootstrap`: если в `main` снова появились записи — сборка красная. |
+| Doctor | `status` как живой heartbeat. |
+
+Инварианты, которые нельзя нарушать:
+
+- `state_branch.py` — stdlib только, без секретов публикации; авторизация
+  исключительно `github.token`.
+- `write` отказывается коммитить state, где число `published` уменьшилось,
+  и state больше 90 МиБ (GitHub отклоняет файлы ≥ 100 МиБ).
+- `state` — orphan-ветка; squash делает `force: true` **только** для неё.
+  `main` force-push не применяется никогда.
+
+Восстановление/просмотр вручную (нужен токен с `contents: read`):
+
+```bash
+export GH_TOKEN=... GITHUB_REPOSITORY=donjon1212322/github-open-source
+python tools/state_branch.py read --out /tmp/live-state
+python tools/state_branch.py status
+```
+
+Откат состояния: `git log` по ветке `state` (не по `main`), затем
+`python tools/state_branch.py squash` после ручного восстановления файлов.
+Осторожно: откат возвращает проекты в очередь и они могут выйти повторно.
+
 ---
 
 ## 5. Откат

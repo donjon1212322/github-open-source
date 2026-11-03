@@ -1,21 +1,26 @@
 name: Lifecycle guard
 
-# Weekly, non-publishing health check. It watches the three failure modes that
-# would otherwise stop the bot silently: a state file that outgrows GitHub's
-# 100 MB file limit, a repository that goes quiet for 60 days (GitHub disables
-# scheduled workflows), and a Gemini model that Google retires.
+# Weekly, non-publishing health check. It watches the failure modes that would
+# otherwise stop the bot silently: a state file that outgrows GitHub's 100 MB
+# file limit, a stale state branch (heartbeat), live state leaking back into
+# main, a repository that goes quiet for 60 days (GitHub disables scheduled
+# workflows), and a Gemini model that Google retires.
+#
+# On the first Monday of the month it also squashes the orphan `state` branch
+# into one parentless commit. This keeps that branch's history bounded forever.
 on:
   schedule:
     - cron: "17 6 * * 1"
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
   issues: write
 
+# Squash must not race a state writer. Both workflows share this group.
 concurrency:
-  group: lifecycle-guard
-  cancel-in-progress: true
+  group: state-writer
+  cancel-in-progress: false
 
 jobs:
   guard:
@@ -28,7 +33,14 @@ jobs:
       - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6
         with:
           python-version: "3.13"
-      - name: Check state size, repository activity and model lifecycle
+      - name: State branch heartbeat
+        id: state_status
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          python tools/state_branch.py status > state-status.json || true
+          cat state-status.json
+      - name: Check state branch health, repository activity and model lifecycle
         id: guard
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
@@ -38,27 +50,27 @@ jobs:
           import datetime
           import json
           import os
-          import pathlib
-          import subprocess
           import urllib.request
 
           problems = []
-          size = pathlib.Path("state/state.json").stat().st_size
-          print(f"state.json: {size / 1024 / 1024:.2f} MiB")
-          if size > 10 * 1024 * 1024:
-              problems.append(
-                  f"state.json is {size / 1024 / 1024:.1f} MiB (guard 10 MiB); "
-                  "archive full published records"
-              )
-
-          epoch = int(subprocess.check_output(["git", "log", "-1", "--format=%ct"], text=True).strip())
-          days = (datetime.datetime.now(datetime.timezone.utc).timestamp() - epoch) / 86400
-          print(f"last commit: {days:.1f} days ago")
-          if days > 45:
-              problems.append(
-                  f"no repository activity for {days:.0f} days; GitHub disables "
-                  "scheduled workflows after 60 days"
-              )
+          try:
+              with open("state-status.json", encoding="utf-8") as fh:
+                  report = json.load(fh)
+          except (OSError, ValueError):
+              report = {}
+          if not report:
+              problems.append("state branch status unavailable")
+          else:
+              print("state branch:", json.dumps(report, ensure_ascii=False))
+              if not report.get("exists"):
+                  problems.append("state branch is missing; run tools/state_branch.py init")
+              problems.extend(f"state: {p}" for p in report.get("problems", []))
+              age = report.get("age_days", 0)
+              if isinstance(age, (int, float)) and age > 45:
+                  problems.append(
+                      f"no repository activity for {age:.0f} days; GitHub disables "
+                      "scheduled workflows after 60 days"
+                  )
 
           key = os.environ.get("GEMINI_API_KEY", "")
           model = (os.environ.get("GEMINI_MODEL") or "gemini-3.5-flash-lite").strip()
@@ -83,14 +95,23 @@ jobs:
           else:
               print("GEMINI_API_KEY not set; model check skipped")
 
+          # The first Monday of the month always falls on day 1..7.
+          squash = "true" if datetime.datetime.now(datetime.timezone.utc).day <= 7 else "false"
+          print("monthly squash:", squash)
           with open(os.environ["GITHUB_OUTPUT"], "a", encoding="utf-8") as fh:
               fh.write("problems<<EOF\n")
               fh.write("\n".join(f"- {p}" for p in problems) + "\n")
               fh.write("EOF\n")
               fh.write(f"alert={'true' if problems else 'false'}\n")
+              fh.write(f"squash={squash}\n")
           for problem in problems:
               print("ALERT:", problem)
           PY
+      - name: Monthly state branch squash
+        if: steps.guard.outputs.squash == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python tools/state_branch.py squash
       - name: Open a tracking issue
         if: steps.guard.outputs.alert == 'true'
         env:
@@ -102,6 +123,6 @@ jobs:
           if [ -n "$EXISTING" ]; then
             echo "issue #$EXISTING is already open"
           else
-            printf 'Automated weekly guard found:\n\n%s\n\nSee docs/RUNBOOK.md and docs/RELIABILITY_2026-11-03.md.\n' "$PROBLEMS" \
+            printf 'Automated weekly guard found:\n\n%s\n\nSee docs/RUNBOOK.md.\n' "$PROBLEMS" \
               | gh issue create --title "$TITLE" --body-file -
           fi
