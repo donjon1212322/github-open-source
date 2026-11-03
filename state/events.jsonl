@@ -16,3 +16,4 @@
 {"fallback": "opengraph", "repo": "wangzan101/mika", "ts": "2026-11-03T22:20:22.372910Z", "type": "card_host_failed"}
 {"preview_host": "opengraph", "repo": "wangzan101/mika", "ts": "2026-11-03T22:20:23.568763Z", "type": "published_as_text"}
 {"repo": "wangzan101/mika", "score": 88.843, "telegram_message_id": 3552, "telegraph_url": "https://telegra.ph/Mika-An-On-Device-AI-Agent-for-Android-App-and-Web-Automation-11-03", "ts": "2026-11-03T22:20:23.569121Z", "type": "project_published"}
+{"range": "facebook!A3:E3", "rows": 1, "ts": "2026-11-03T23:26:36.171222Z", "type": "facebook_handoff_queued"}
