@@ -37,6 +37,11 @@
       "repo": "kajisho5/ffmpeg-skill",
       "telegram_message_id": 3550
     },
+    "publish:us_peak": {
+      "finished_at": "2026-11-03T22:20:23.569206Z",
+      "repo": "wangzan101/mika",
+      "telegram_message_id": 3552
+    },
     "telegram_update_offset": 0
   },
   "news_topics": [],
@@ -320,6 +325,120 @@
       ],
       "visual_host": "imgbb",
       "visual_kind": "card"
+    },
+    "wangzan101/mika": {
+      "articles": {},
+      "card_style": "editorial_daily",
+      "category": "AI",
+      "contributors_count": 42,
+      "created_at": "2026-10-29T14:34:07Z",
+      "crossposts": {
+        "bluesky": {
+          "attempts": 0,
+          "due_at": "2026-11-03T22:50:23.568895+00:00",
+          "status": "pending"
+        }
+      },
+      "description": "An on-device AI agent for Android that operates apps and the web to get things done for you.",
+      "description_fp": "f8894375c6eb0ebb",
+      "forks": 1172,
+      "full_name": "wangzan101/Mika",
+      "generated": {
+        "article_markdown": "## What it is\n\nMika is an open-source on-device AI agent for Android designed to execute tasks across mobile applications and the web. Built with Kotlin and Jetpack Compose, it interprets user requests and interacts directly with UI elements on a hidden background screen. This design allows the assistant to perform multi-step workflows while the user continues normal operations on the primary interface.\n\n## Why it matters\n\nTraditional mobile automation often depends on rigid APIs or brittle scripts tailored to specific applications. Mika adopts a visual approach by parsing screens directly, enabling it to work across arbitrary apps and websites without dedicated integrations. Because it runs locally with user-supplied model endpoints or account logins, conversation logs and preferences remain on the device rather than routing through a centralized intermediary server.\n\n## Key features\n\n- Execute UI actions like tapping, typing, and scrolling across any installed Android application.\n- Render execution steps on a hidden background screen to leave the main phone display free.\n- Maintain conversation history and encrypted memories directly on the local device storage.\n- Integrate with numerous model providers including Anthropic, Gemini, OpenAI, DeepSeek, and custom endpoints.\n- Run Python, Node, and shell scripts inside an isolated arm64 Linux sandbox per conversation.\n\n## Quick start\n\nTo install and configure Mika on your device, follow these steps:\n\n1. Download the latest APK from the GitHub releases page.\n2. Open Settings, navigate to Model, and configure your preferred provider API key or sign in.\n3. Complete the phone control setup wizard to enable wireless debugging for app automation.\n\n## Who should try it\n\nThis tool suits Android 11+ users, developers, and automation enthusiasts who want to experiment with local AI agents capable of interacting with mobile apps and web pages autonomously.\n\n## Verdict\n\nMika offers an intriguing look into local mobile AI agents with strong privacy boundaries, provided you are comfortable with the initial setup steps like wireless debugging pairing.",
+        "article_title": "Mika: An On-Device AI Agent for Android App and Web Automation",
+        "card_hook": "AI agent that operates Android apps",
+        "card_subline": "Run apps and web tasks automatically on a background screen while using your phone normally",
+        "category": "AI",
+        "discussion_question": "Which Android app would you automate first with Mika?",
+        "hook": "Mika runs an on-device AI agent for Android 11+ that controls apps and the web on a hidden background screen.",
+        "key_features": [
+          "Operate any Android app or website through visual screen parsing without app-specific APIs",
+          "Run tasks on a hidden background screen so you can continue using your phone normally",
+          "Execute Python, Node, and shell scripts in an arm64 Linux sandbox per conversation",
+          "Turn completed tasks into reusable skills and remember user preferences over time",
+          "Support preset configurations for major model providers or custom OpenAI-compatible endpoints"
+        ],
+        "llm_used": true,
+        "quick_start": "Download the APK from the GitHub releases page, configure your model provider in Settings, and follow the wireless debugging setup wizard.",
+        "safety": "ok",
+        "safety_reason": "The project is an open-source on-device AI assistant and automation tool for Android, which is safe and legitimate software.",
+        "scene": "You need to pull data across multiple mobile apps or complete repetitive forms, constantly switching windows and tapping through menus by hand.",
+        "social_text": "Mika is an on-device AI agent for Android that executes tasks across apps and the web on a background screen.",
+        "summary": "Mika functions as an on-device AI assistant for Android by combining a background screen rendering engine with visual UI parsing and custom model integrations. Instead of relying on rigid per-app APIs, it observes screen elements to interact with any application or website directly. It supports various provider API keys or direct account logins, storing all user data and conversation history locally on the device.",
+        "surfaces": {
+          "Facebook_body": "Stop doing repetitive tasks on your phone by letting an intelligent assistant handle them for you in the background. It works by looking at your phone screen and interacting with apps directly, meaning it does not need special integrations for every single app you use. While it runs tasks on a hidden screen, you are free to keep using your phone normally for other things.\n\nIt is designed for Android users who want to automate workflows without sending their personal data to the cloud. Everything stays stored right on your device, and you can connect your preferred account or model keys to power it. Setting it up requires a bit of technical configuration like wireless debugging, making it ideal for power users who want full control over their mobile automation.",
+          "Facebook_headline": "Automate your phone tasks with AI",
+          "Facebook_lead": "Let an on-device assistant handle repetitive tasks across your Android apps while you use your phone normally.",
+          "bluesky_headline": "Control any Android app with local AI",
+          "bluesky_lead": "An on-device assistant that operates apps and websites on a hidden background screen.",
+          "devto_body": "## What it is\n\nMika is an open-source on-device AI agent built for Android 11 and above. Written in Kotlin, it allows users to automate tasks across mobile applications and web pages by visually parsing UI elements rather than relying on app-specific APIs.\n\n## How it works\n\nThe core architecture combines a background screen rendering engine with visual UI parsing and custom model integrations. Mika runs tasks on a hidden background screen, allowing users to continue interacting with their device normally while automation sequences execute. Additionally, it features an arm64 Linux sandbox to run Python, Node, and shell scripts per conversation.\n\n## Key features\n\n- Operates any Android app or website through visual screen parsing\n- Runs tasks on a hidden background screen for uninterrupted phone usage\n- Executes Python, Node, and shell scripts in a local sandbox\n- Turns completed tasks into reusable skills with local memory\n- Supports preset configurations or custom OpenAI-compatible endpoints\n\n## Getting started\n\nTo run Mika, you will need an Android device running version 11 or higher, wireless debugging enabled, and your own model provider API keys or account login. Clone the repository from GitHub and follow the setup instructions to build and install the APK.\n\n## When not to use it\n\nSkip this tool if you prefer plug-and-play consumer apps that require zero configuration, or if you are not comfortable setting up wireless debugging and managing API keys.",
+          "seo_description": "An open-source on-device AI agent for Android that operates apps and the web in the background. Built for power users.",
+          "seo_query": "open source android ai agent",
+          "seo_title": "Open-Source Android AI Agent - Mika",
+          "telegraph_angle": "Explain the problem it solves and who it is for, with the trade-offs"
+        },
+        "tension": "Every minor automation task forces you to manually drive each app interface, wasting time on repetitive taps, scrolls, and text entry.",
+        "turn": "Mika takes over the app navigation on a separate background screen while keeping your main interface free, though payments and logins still require your explicit confirmation.",
+        "verdict": "A powerful local automation tool for Android power users who don't mind setting up wireless debugging and API keys.",
+        "who_for": "Android users and developers looking for a local AI agent to automate mobile app workflows.",
+        "why_now": "On-device processing improvements and flexible LLM providers make fully autonomous mobile UI agents practical on modern Android hardware."
+      },
+      "homepage": "",
+      "id": 1438540053,
+      "image_url": "https://opengraph.githubassets.com/1/wangzan101/Mika",
+      "is_dual_use": false,
+      "is_hidden_gem": false,
+      "language": "Kotlin",
+      "license": {
+        "key": "apache-2.0",
+        "name": "Apache License 2.0",
+        "node_id": "MDc6TGljZW5zZTI=",
+        "spdx_id": "Apache-2.0",
+        "url": "https://api.github.com/licenses/apache-2.0"
+      },
+      "media_urls": [
+        "https://raw.githubusercontent.com/wangzan101/Mika/main/docs/media/wechat-send-side.gif",
+        "https://raw.githubusercontent.com/wangzan101/Mika/main/docs/media/wechat-group.gif",
+        "https://raw.githubusercontent.com/wangzan101/Mika/main/docs/media/amazon-cart.gif",
+        "https://raw.githubusercontent.com/wangzan101/Mika/main/docs/media/xhs-summary.gif",
+        "https://raw.githubusercontent.com/wangzan101/Mika/main/docs/media/boss-greet.gif",
+        "https://raw.githubusercontent.com/wangzan101/Mika/main/docs/media/google-flights.gif",
+        "https://raw.githubusercontent.com/wangzan101/Mika/main/docs/media/hacker-news.gif",
+        "https://raw.githubusercontent.com/wangzan101/Mika/main/docs/media/job-greet.jpg"
+      ],
+      "name": "Mika",
+      "open_issues": 105,
+      "published_at": "2026-11-03T22:20:23.568918Z",
+      "pushed_at": "2026-11-03T20:49:20Z",
+      "readme_fp": "9af6677a20e398cd",
+      "repo_id": 1438540053,
+      "revisit_of": "",
+      "revisit_reason": "",
+      "score": 88.843,
+      "slot": "us_peak",
+      "sources": [
+        "telegram:github_repos",
+        "telegram:gitbless"
+      ],
+      "stars": 6024,
+      "telegram_chat_id": "@GitHub_Open_Source",
+      "telegram_link": "https://t.me/GitHub_Open_Source/3552",
+      "telegram_message_id": 3552,
+      "telegraph_url": "https://telegra.ph/Mika-An-On-Device-AI-Agent-for-Android-App-and-Web-Automation-11-03",
+      "topics": [
+        "accessibility",
+        "ai-agent",
+        "android",
+        "automation",
+        "jetpack-compose",
+        "kotlin",
+        "llm",
+        "mobile-agent"
+      ],
+      "updated_at": "2026-11-03T22:10:24Z",
+      "url": "https://github.com/wangzan101/Mika",
+      "visual_host": "opengraph",
+      "visual_kind": "opengraph"
     }
   },
   "queue": [
@@ -521,71 +640,6 @@
       ],
       "updated_at": "2026-11-03T11:42:50Z",
       "url": "https://github.com/elie222/rakazo"
-    },
-    {
-      "archived": false,
-      "contributors_count": 42,
-      "created_at": "2026-10-29T14:34:07Z",
-      "default_branch": "main",
-      "description": "An on-device AI agent for Android that operates apps and the web to get things done for you.",
-      "disabled": false,
-      "fork": false,
-      "forks": 1138,
-      "forks_count": 1138,
-      "full_name": "wangzan101/Mika",
-      "has_readme": true,
-      "homepage": "",
-      "id": 1438540053,
-      "is_dual_use": false,
-      "is_hidden_gem": false,
-      "language": "Kotlin",
-      "license": {
-        "key": "apache-2.0",
-        "name": "Apache License 2.0",
-        "node_id": "MDc6TGljZW5zZTI=",
-        "spdx_id": "Apache-2.0",
-        "url": "https://api.github.com/licenses/apache-2.0"
-      },
-      "media_urls": [
-        "https://raw.githubusercontent.com/wangzan101/Mika/main/docs/media/wechat-send-side.gif",
-        "https://raw.githubusercontent.com/wangzan101/Mika/main/docs/media/wechat-group.gif",
-        "https://raw.githubusercontent.com/wangzan101/Mika/main/docs/media/amazon-cart.gif",
-        "https://raw.githubusercontent.com/wangzan101/Mika/main/docs/media/xhs-summary.gif",
-        "https://raw.githubusercontent.com/wangzan101/Mika/main/docs/media/boss-greet.gif",
-        "https://raw.githubusercontent.com/wangzan101/Mika/main/docs/media/google-flights.gif",
-        "https://raw.githubusercontent.com/wangzan101/Mika/main/docs/media/hacker-news.gif",
-        "https://raw.githubusercontent.com/wangzan101/Mika/main/docs/media/job-greet.jpg"
-      ],
-      "name": "Mika",
-      "non_software_reason": "",
-      "open_issues": 114,
-      "open_issues_count": 114,
-      "owner_repo_count": 1,
-      "pushed_at": "2026-11-03T10:07:24Z",
-      "readme": "",
-      "readme_excerpt": "<div align=\"center\">\n\n<img src=\"docs/media/logo.png\" alt=\"Mika\" width=\"88\" />\n\n# Mika\n\n**An AI assistant on your phone: say what you need, and it works your apps and the web until it's done.**\n\nIt works on a hidden background screen, so you can keep using your phone.\n\n<a href=\"https://github.com/wangzan101/Mika/releases/latest\"><img src=\"https://img.shields.io/badge/Download%20APK-Android%2011%2B-2ea043?style=for-the-badge&logo=android&logoColor=white\" alt=\"Download APK\" /></a>\n\n<a href=\"https://github.com/wangzan101/Mika/stargazers\"><img src=\"https://img.shields.io/github/stars/wangzan101/Mika?style=flat&logo=github&label=Star&color=1f6feb\" alt=\"stars\" /></a>\n<a href=\"https://github.com/wangzan101/Mika/releases\"><img src=\"https://img.shields.io/github/downloads/wangzan101/Mika/total?label=downloads&color=2ea043\" alt=\"downloads\" /></a>\n<a href=\"https://github.com/wangzan101/Mika/releases/latest\"><img src=\"https://img.shields.io/github/v/release/wangzan101/Mika?include_prereleases&label=version\" alt=\"version\" /></a>\n<a href=\"LICENSE\"><img src=\"https://img.shields.io/badge/license-Apache--2.0-lightgrey\" alt=\"license\" /></a>\n\nEnglish · [简体中文](docs/readme/README.zh-CN.md) · [繁體中文](docs",
-      "readme_len": 12777,
-      "repo_id": 1438540053,
-      "score": 88.843,
-      "source_name": "telegram:github_repos",
-      "sources": [
-        "telegram:github_repos",
-        "telegram:gitbless"
-      ],
-      "stargazers_count": 5844,
-      "stars": 5844,
-      "topics": [
-        "accessibility",
-        "ai-agent",
-        "android",
-        "automation",
-        "jetpack-compose",
-        "kotlin",
-        "llm",
-        "mobile-agent"
-      ],
-      "updated_at": "2026-11-03T11:56:24Z",
-      "url": "https://github.com/wangzan101/Mika"
     },
     {
       "archived": false,
@@ -3033,8 +3087,8 @@
     "wangzan101/mika": {
       "first_seen_at": "2026-11-03T11:59:59.714136Z",
       "full_name": "wangzan101/Mika",
-      "last_decision": "queued",
-      "last_seen_at": "2026-11-03T11:59:59.714139Z",
+      "last_decision": "published",
+      "last_seen_at": "2026-11-03T22:20:23.569194Z",
       "repo_id": 1438540053,
       "sources": [
         "telegram:gitbless",
