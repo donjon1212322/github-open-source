@@ -1,0 +1,107 @@
+name: Lifecycle guard
+
+# Weekly, non-publishing health check. It watches the three failure modes that
+# would otherwise stop the bot silently: a state file that outgrows GitHub's
+# 100 MB file limit, a repository that goes quiet for 60 days (GitHub disables
+# scheduled workflows), and a Gemini model that Google retires.
+on:
+  schedule:
+    - cron: "17 6 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+concurrency:
+  group: lifecycle-guard
+  cancel-in-progress: true
+
+jobs:
+  guard:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          fetch-depth: 1
+          persist-credentials: false
+      - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6
+        with:
+          python-version: "3.13"
+      - name: Check state size, repository activity and model lifecycle
+        id: guard
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GEMINI_MODEL: ${{ vars.GEMINI_MODEL }}
+        run: |
+          python - <<'PY'
+          import datetime
+          import json
+          import os
+          import pathlib
+          import subprocess
+          import urllib.request
+
+          problems = []
+          size = pathlib.Path("state/state.json").stat().st_size
+          print(f"state.json: {size / 1024 / 1024:.2f} MiB")
+          if size > 10 * 1024 * 1024:
+              problems.append(
+                  f"state.json is {size / 1024 / 1024:.1f} MiB (guard 10 MiB); "
+                  "archive full published records"
+              )
+
+          epoch = int(subprocess.check_output(["git", "log", "-1", "--format=%ct"], text=True).strip())
+          days = (datetime.datetime.now(datetime.timezone.utc).timestamp() - epoch) / 86400
+          print(f"last commit: {days:.1f} days ago")
+          if days > 45:
+              problems.append(
+                  f"no repository activity for {days:.0f} days; GitHub disables "
+                  "scheduled workflows after 60 days"
+              )
+
+          key = os.environ.get("GEMINI_API_KEY", "")
+          model = (os.environ.get("GEMINI_MODEL") or "gemini-3.5-flash-lite").strip()
+          if key:
+              try:
+                  url = f"https://generativelanguage.googleapis.com/v1beta/models?key={key}"
+                  with urllib.request.urlopen(url, timeout=30) as response:
+                      data = json.load(response)
+                  names = {
+                      str(item.get("name", "")).removeprefix("models/")
+                      for item in data.get("models", [])
+                  }
+                  if model not in names:
+                      problems.append(
+                          f"GEMINI_MODEL={model} is not listed by the API; update the "
+                          "Variable before the model is retired"
+                      )
+                  else:
+                      print(f"model {model}: available")
+              except Exception as exc:  # noqa: BLE001
+                  problems.append(f"could not verify the Gemini model list ({type(exc).__name__})")
+          else:
+              print("GEMINI_API_KEY not set; model check skipped")
+
+          with open(os.environ["GITHUB_OUTPUT"], "a", encoding="utf-8") as fh:
+              fh.write("problems<<EOF\n")
+              fh.write("\n".join(f"- {p}" for p in problems) + "\n")
+              fh.write("EOF\n")
+              fh.write(f"alert={'true' if problems else 'false'}\n")
+          for problem in problems:
+              print("ALERT:", problem)
+          PY
+      - name: Open a tracking issue
+        if: steps.guard.outputs.alert == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PROBLEMS: ${{ steps.guard.outputs.problems }}
+        run: |
+          TITLE="Lifecycle guard: action needed"
+          EXISTING=$(gh issue list --state open --search "$TITLE in:title" --json number --jq '.[0].number // empty')
+          if [ -n "$EXISTING" ]; then
+            echo "issue #$EXISTING is already open"
+          else
+            printf 'Automated weekly guard found:\n\n%s\n\nSee docs/RUNBOOK.md and docs/RELIABILITY_2026-11-03.md.\n' "$PROBLEMS" \
+              | gh issue create --title "$TITLE" --body-file -
+          fi

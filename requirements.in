@@ -1,0 +1,7 @@
+# Runtime dependencies, compiled to requirements.lock with hashes.
+requests>=2.32,<3
+Pillow>=13,<14
+defusedxml>=0.7,<1
+# Facebook Sheets handoff (optional feature, but the workflow installs it).
+google-auth>=2.30
+google-api-python-client>=2.120

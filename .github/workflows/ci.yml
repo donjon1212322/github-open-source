@@ -1,0 +1,72 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6
+        with:
+          python-version: "3.13"
+          cache: pip
+      - name: Install
+        run: |
+          python -m pip install --require-hashes -r requirements-dev.lock
+          python -m pip install --no-deps -e .
+      - name: Ruff
+        run: ruff check .
+      - name: Mypy
+        run: mypy src
+      - name: Tests (line + branch coverage)
+        run: pytest
+      - name: Mutation gate
+        # A green suite must fail when an owner decision is broken. 18 fixed
+        # mutations are applied one at a time; any survivor fails the build.
+        run: python tools/mutation_check.py
+      - name: Secret scan
+        run: python tools/secret_scan.py
+      - name: Wheel contains the icon assets
+        run: |
+          python -m pip wheel --no-deps -w /tmp/wheels .
+          python - <<'PY'
+          import glob, sys, zipfile
+          wheel = glob.glob('/tmp/wheels/*.whl')[0]
+          pngs = [n for n in zipfile.ZipFile(wheel).namelist() if n.endswith('.png')]
+          print(f'wheel assets: {len(pngs)} PNG files')
+          if len(pngs) < 100:
+              sys.exit('card icons are missing from the built wheel')
+          PY
+      - name: State size guard
+        run: |
+          python - <<'PY'
+          import pathlib, sys
+          size = pathlib.Path('state/state.json').stat().st_size
+          print(f'state.json: {size / 1024 / 1024:.2f} MiB (guard: 10 MiB)')
+          if size > 10 * 1024 * 1024:
+              sys.exit('state.json exceeds the guard; compact or archive it')
+          PY
+
+  gitleaks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: gitleaks/gitleaks-action@e0c47f4f8be36e29cdc102c57e68cb5cbf0e8d1e # v3
+        env:
+          GITHUB_TOKEN: ${{ github.token }}

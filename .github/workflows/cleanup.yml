@@ -1,0 +1,72 @@
+name: Cleanup test posts
+
+# Temporary workflow used to remove the posts created by the publication
+# test. It only touches the private test channel and only messages that the
+# bot itself published. Delete this file after the cleanup.
+
+on:
+  workflow_dispatch:
+    inputs:
+      confirm:
+        description: Actually delete the test posts
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+
+jobs:
+  cleanup:
+    runs-on: ubuntu-latest
+    env:
+      APP_ENV: test
+      PUBLISH_TARGET: test
+      TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+      TELEGRAM_TEST_CHANNEL_ID: ${{ vars.TELEGRAM_TEST_CHANNEL_ID }}
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6
+        with:
+          python-version: "3.13"
+      - name: Install
+        run: |
+          python -m pip install --require-hashes -r requirements.lock
+          python -m pip install --no-deps -e .
+      - name: Cleanup
+        shell: bash
+        env:
+          CONFIRM: ${{ inputs.confirm }}
+        run: |
+          if [ "$CONFIRM" = "true" ]; then
+            ghos-v6 cleanup --confirm
+          else
+            ghos-v6 cleanup --dry-run
+          fi
+      - name: Delete ImgBB test images
+        if: ${{ inputs.confirm }}
+        env:
+          IMGBB_API_KEY: ${{ secrets.IMGBB_API_KEY }}
+        run: |
+          python - <<'PY'
+          import json, os, urllib.request
+          key = os.environ.get("IMGBB_API_KEY", "")
+          if not key:
+              raise SystemExit("IMGBB_API_KEY is not set")
+          state = json.load(open("state/state.json", encoding="utf-8"))
+          ids = []
+          for record in state.get("published", {}).values():
+              url = str(record.get("image_url") or "")
+              if "i.ibb.co/" in url:
+                  ids.append(url.rstrip("/").rsplit("/", 1)[-1])
+          for image_id in ids:
+              req = urllib.request.Request(
+                  f"https://api.imgbb.com/1/delete/{image_id}?key={key}"
+              )
+              try:
+                  with urllib.request.urlopen(req, timeout=30) as response:
+                      print(image_id, response.status)
+              except Exception as exc:
+                  print(image_id, "failed", type(exc).__name__)
+          PY

@@ -1,0 +1,73 @@
+name: Doctor
+
+on:
+  workflow_dispatch:
+    inputs:
+      hello:
+        description: Send a hello message to the resolved test channel
+        type: boolean
+        default: false
+      configure_bot:
+        description: Set bot commands and descriptions
+        type: boolean
+        default: false
+      news_spike:
+        description: Try Gemini analysis of the latest WorldofAI YouTube URL
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+
+concurrency:
+  group: doctor
+  cancel-in-progress: false
+
+jobs:
+  doctor:
+    runs-on: ubuntu-latest
+    env:
+      APP_ENV: ${{ vars.APP_ENV }}
+      PUBLISH_TARGET: ${{ vars.PUBLISH_TARGET }}
+      TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+      TELEGRAM_TEST_CHANNEL_ID: ${{ vars.TELEGRAM_TEST_CHANNEL_ID }}
+      TELEGRAM_MAIN_CHANNEL_ID: ${{ vars.TELEGRAM_MAIN_CHANNEL_ID }}
+      # Legacy name kept as a fallback for older setups; config.py reads both.
+      MAIN_TELEGRAM_CHANNEL: ${{ vars.MAIN_TELEGRAM_CHANNEL }}
+      TELEGRAM_OWNER_CHAT_ID: ${{ vars.TELEGRAM_OWNER_CHAT_ID }}
+      TELEGRAM_SOURCE_CHANNELS: ${{ vars.TELEGRAM_SOURCE_CHANNELS }}
+      GH_API_TOKEN: ${{ github.token }}
+      GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+      GEMINI_MODEL: ${{ vars.GEMINI_MODEL }}
+      TELEGRAPH_ACCESS_TOKEN: ${{ secrets.TELEGRAPH_ACCESS_TOKEN }}
+      DEV_API_KEY: ${{ secrets.DEV_API_KEY }}
+      BLUESKY_HANDLE: ${{ vars.BLUESKY_HANDLE }}
+      BLUESKY_APP_PASSWORD: ${{ secrets.BLUESKY_APP_PASSWORD }}
+      FEATURE_TELEGRAPH: ${{ vars.FEATURE_TELEGRAPH }}
+      FEATURE_DEVTO: ${{ vars.FEATURE_DEVTO }}
+      FEATURE_BLUESKY: ${{ vars.FEATURE_BLUESKY }}
+      FEATURE_AI_BRIEF: ${{ vars.FEATURE_AI_BRIEF }}
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6
+        with:
+          python-version: "3.13"
+          cache: pip
+      - name: Install
+        run: |
+          python -m pip install --require-hashes -r requirements.lock
+          python -m pip install --no-deps -e .
+      - name: Doctor
+        shell: bash
+        env:
+          HELLO: ${{ inputs.hello }}
+          CONFIGURE_BOT: ${{ inputs.configure_bot }}
+          NEWS_SPIKE: ${{ inputs.news_spike }}
+        run: |
+          args=()
+          if [ "$HELLO" = "true" ]; then args+=(--hello); fi
+          if [ "$CONFIGURE_BOT" = "true" ]; then args+=(--configure-bot); fi
+          if [ "$NEWS_SPIKE" = "true" ]; then args+=(--news-spike); fi
+          ghos-v6 doctor "${args[@]}"

@@ -1,0 +1,60 @@
+[build-system]
+requires = ["setuptools>=77", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "GitHub-open-source-v6"
+version = "0.1.0"
+description = "Unofficial, autonomous open-source discovery and publishing system for the GitHub Open Source channel"
+readme = "README.md"
+requires-python = ">=3.11"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [{ name = "GitHub Open Source (unofficial)" }]
+dependencies = [
+  "requests>=2.32,<3",
+  "Pillow>=13,<14",
+  "defusedxml>=0.7,<1",
+]
+
+[project.optional-dependencies]
+test = [
+  "pytest>=9,<10",
+  "pytest-cov>=6,<8",
+]
+sheets = [
+  "google-auth>=2.30",
+  "google-api-python-client>=2.120",
+]
+
+[project.scripts]
+ghos-v6 = "ghos_v6.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+# The card renderers read brand artwork from assets/icons at runtime. Without
+# this, a wheel/Docker install silently renders cards with no icons.
+[tool.setuptools.package-data]
+ghos_v6 = ["assets/icons/*.png", "assets/icons/colour/*.png"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+# Branch-inclusive floor: lines alone hid 327 untested decisions. The gate is
+# intentionally honest (65 % combined), not a vanity 100 % statement figure.
+# tools/mutation_check.py complements it: 18/18 intentional defects are killed.
+addopts = "-q --cov=src/ghos_v6 --cov-branch --cov-report=term-missing --cov-fail-under=65"
+
+[tool.ruff]
+line-length = 100
+target-version = "py313"
+
+[tool.ruff.lint]
+# Focused ruleset: real bugs and syntax/undefined-name problems, not style.
+select = ["E4", "E7", "E9", "F"]
+
+[tool.mypy]
+python_version = "3.13"
+ignore_missing_imports = true
+check_untyped_defs = true

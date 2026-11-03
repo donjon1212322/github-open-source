@@ -1,0 +1,240 @@
+name: Publishing pipeline
+
+on:
+  workflow_dispatch:
+    inputs:
+      command:
+        description: Pipeline command
+        type: choice
+        default: collect
+        options:
+          - collect
+          - publish
+          - crossposts
+          - article
+          - article-update
+          - news
+          - digest
+          - report
+          - moderation
+          - facebook-handoff
+          - metrics
+          - learn
+          - poll-close
+      slot:
+        description: Publish slot label (publish command only)
+        type: string
+        default: manual
+      force_news:
+        description: Run AI Brief even if its feature flag is off (news command only)
+        type: boolean
+        default: false
+  schedule:
+    # Three posts a day (owner decision, 2026-11-01).
+    - cron: "20 4 * * *"     # collect
+    - cron: "10 7 * * *"     # publish · Europe morning
+    - cron: "40 12 * * *"    # publish · Europe midday
+    - cron: "15 17 * * *"    # publish · US peak
+    # Weekly cycle: digest + poll on Sunday, close + learn on Thursday.
+    - cron: "10 16 * * 0"    # Sunday digest + week poll
+    - cron: "50 18 * * 4"    # close poll, update value model (after crossposts/handoff)
+    - cron: "20 20 * * *"    # daily views snapshot
+    - cron: "40 16 * * 0"    # weekly owner report
+    # Continuous housekeeping.
+    - cron: "5,35 * * * *"   # crossposts (avoids the :00/:30 article slot)
+    - cron: "30 13 * * *"    # article of the day
+    - cron: "15 19 * * *"    # AI Brief · daily, after the last project slot
+    - cron: "45 */3 * * *"   # moderation · every 3h
+    - cron: "20 18 * * *"    # Facebook handoff (make.com), after the last project slot
+
+permissions:
+  contents: read
+
+concurrency:
+  group: state-writer
+  cancel-in-progress: false
+
+jobs:
+  # Runs the project code with the secrets it needs. It cannot write to the
+  # repository: the token is read-only and checkout credentials are not
+  # persisted. The resulting state is handed to the next job as an artifact.
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    permissions:
+      contents: read
+    env:
+      APP_ENV: ${{ vars.APP_ENV }}
+      PUBLISH_TARGET: ${{ vars.PUBLISH_TARGET }}
+      TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+      TELEGRAM_TEST_CHANNEL_ID: ${{ vars.TELEGRAM_TEST_CHANNEL_ID }}
+      TELEGRAM_MAIN_CHANNEL_ID: ${{ vars.TELEGRAM_MAIN_CHANNEL_ID }}
+      # Legacy name kept as a fallback for older setups; config.py reads both.
+      MAIN_TELEGRAM_CHANNEL: ${{ vars.MAIN_TELEGRAM_CHANNEL }}
+      TELEGRAM_OWNER_CHAT_ID: ${{ vars.TELEGRAM_OWNER_CHAT_ID }}
+      TELEGRAM_SOURCE_CHANNELS: ${{ vars.TELEGRAM_SOURCE_CHANNELS }}
+      GH_API_TOKEN: ${{ github.token }}
+      GITHUB_REPOSITORY: ${{ github.repository }}
+      IMGBB_API_KEY: ${{ secrets.IMGBB_API_KEY }}
+      GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+      GEMINI_MODEL: ${{ vars.GEMINI_MODEL }}
+      TELEGRAPH_ACCESS_TOKEN: ${{ secrets.TELEGRAPH_ACCESS_TOKEN }}
+      DEV_API_KEY: ${{ secrets.DEV_API_KEY }}
+      BLUESKY_HANDLE: ${{ vars.BLUESKY_HANDLE }}
+      BLUESKY_APP_PASSWORD: ${{ secrets.BLUESKY_APP_PASSWORD }}
+      FEATURE_TELEGRAPH: ${{ vars.FEATURE_TELEGRAPH }}
+      FEATURE_DEVTO: ${{ vars.FEATURE_DEVTO }}
+      FEATURE_BLUESKY: ${{ vars.FEATURE_BLUESKY }}
+      FEATURE_AI_BRIEF: ${{ vars.FEATURE_AI_BRIEF }}
+      FEATURE_SHEETS_HANDOFF: ${{ vars.FEATURE_SHEETS_HANDOFF }}
+      FACEBOOK_SHEETS_ID: ${{ vars.FACEBOOK_SHEETS_ID }}
+      FACEBOOK_SHEETS_RANGE: ${{ vars.FACEBOOK_SHEETS_RANGE }}
+      GOOGLE_SERVICE_ACCOUNT_JSON: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_JSON }}
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6
+        with:
+          python-version: "3.13"
+          cache: pip
+      # A queued run starts from the commit that was current when it was
+      # scheduled. If the previous run already committed its state, this
+      # run must see it, otherwise it republishes the same project.
+      - name: Sync latest state
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          AUTH=$(printf 'x-access-token:%s' "$GH_TOKEN" | base64 -w0)
+          git -c http.extraheader="Authorization: Basic $AUTH" fetch origin "$GITHUB_REF_NAME"
+          git reset --hard FETCH_HEAD
+      - name: Install
+        run: |
+          python -m pip install --require-hashes -r requirements.lock
+          python -m pip install --no-deps -e .
+      - name: Run pipeline command
+        shell: bash
+        env:
+          COMMAND: ${{ inputs.command }}
+          SLOT: ${{ inputs.slot }}
+          FORCE_NEWS: ${{ inputs.force_news }}
+          EVENT_NAME: ${{ github.event_name }}
+          SCHEDULE: ${{ github.event.schedule }}
+        run: |
+          if [[ "$EVENT_NAME" == "workflow_dispatch" ]]; then
+            case "$COMMAND" in
+              collect|publish|crossposts|article|article-update|news|digest|report|moderation|facebook-handoff|metrics|learn|poll-close) ;;
+              *) echo "::error::invalid command: $COMMAND"; exit 1 ;;
+            esac
+            if [[ "$COMMAND" == "publish" ]]; then
+              if [[ ! "$SLOT" =~ ^[A-Za-z0-9_-]{1,40}$ ]]; then
+                echo "::error::invalid slot: $SLOT"
+                exit 1
+              fi
+              ghos-v6 publish --slot "$SLOT"
+            elif [[ "$COMMAND" == "news" ]]; then
+              if [[ "$FORCE_NEWS" == "true" ]]; then
+                ghos-v6 news --force
+              else
+                ghos-v6 news
+              fi
+            else
+              ghos-v6 "$COMMAND"
+            fi
+          else
+            ghos-v6 scheduled --schedule "$SCHEDULE"
+          fi
+      - name: Upload state
+        if: always()
+        uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # v6
+        with:
+          name: state
+          path: state/
+          retention-days: 1
+          if-no-files-found: warn
+
+  # Commits the state. This job has write access, but it does not run project
+  # code and it does not receive any publishing secret. It validates the
+  # projection and refuses to commit a state that lost published records.
+  commit-state:
+    needs: run
+    if: always()
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Download state artifact
+        continue-on-error: true
+        uses: actions/download-artifact@018cc2cf5baa6db3ef3c5f8a56943fffe632ef53 # v6
+        with:
+          name: state
+          path: state-new
+      # The workflow was queued on an older commit. Another run may have
+      # committed state since. Reset to the tip of main before comparing and
+      # committing, otherwise the rebase conflicts and the state is lost.
+      - name: Sync latest main
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          AUTH=$(printf 'x-access-token:%s' "$GH_TOKEN" | base64 -w0)
+          git -c http.extraheader="Authorization: Basic $AUTH" fetch origin "$GITHUB_REF_NAME"
+          git reset --hard FETCH_HEAD
+      - name: Validate and commit state
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if [[ ! -f state-new/state.json ]]; then
+            echo "No new state was produced; nothing to commit."
+            exit 0
+          fi
+          python - <<'PY'
+          import json
+          import sys
+
+          new = json.load(open("state-new/state.json", encoding="utf-8"))
+          old = json.load(open("state/state.json", encoding="utf-8"))
+          if not isinstance(new.get("published"), dict):
+              sys.exit("invalid state: published is not an object")
+          if not isinstance(new.get("queue"), list):
+              sys.exit("invalid state: queue is not a list")
+          if len(new["published"]) < len(old.get("published", {})):
+              sys.exit(
+                  f"refusing to commit: published count decreased "
+                  f"{len(old.get('published', {}))} -> {len(new['published'])}"
+              )
+          print(f"state ok: published={len(new['published'])} queue={len(new['queue'])}")
+          PY
+          cp state-new/state.json state/state.json
+          if [[ -f state-new/events.jsonl ]]; then
+            cp state-new/events.jsonl state/events.jsonl
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add state/state.json state/events.jsonl
+          if git diff --cached --quiet; then
+            echo "No state changes"
+            exit 0
+          fi
+          git commit -m "chore(state): update publishing state [skip ci]"
+          AUTH=$(printf 'x-access-token:%s' "$GH_TOKEN" | base64 -w0)
+          # Retry a transient push failure. The state artifact is retained
+          # for a day, so a failed commit is recoverable by hand.
+          for attempt in 1 2 3; do
+            if git -c http.extraheader="Authorization: Basic $AUTH" pull --rebase origin "$GITHUB_REF_NAME" \
+               && git -c http.extraheader="Authorization: Basic $AUTH" push origin "HEAD:$GITHUB_REF_NAME"; then
+              echo "state committed on attempt $attempt"
+              exit 0
+            fi
+            echo "state push attempt $attempt failed; retrying in 10s"
+            sleep 10
+          done
+          echo "failed to commit state after 3 attempts"
+          exit 1

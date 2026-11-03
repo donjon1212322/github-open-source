@@ -1,0 +1,83 @@
+# RUNBOOK — настройка, запуск, откат
+
+**Репозиторий:** `donjon1212322/github-open-source` · **Ветка:** `main`
+
+---
+
+## 1. Предварительные условия
+
+- Публичный репозиторий с одним коммитом и пустым state.
+- 7 Secrets и 16 Variables записаны — [`SECRETS_CHECKLIST.md`](SECRETS_CHECKLIST.md).
+- actions включены; `Workflow permissions` не запрещает job-level
+  `permissions: contents: write` (это нужно `commit-state`).
+- Прежний бот остановлен: все его workflow отключены, активных запусков нет.
+
+---
+
+## 2. Порядок запуска
+
+1. **Doctor.** `command=doctor` в `Doctor` workflow. Ожидается 13/13,
+   `telegram_get_me` с нужным ботом, `telegram_test_channel` (если приёмка в
+   тестовом канале) и отсутствие ошибок у внешних клиентов.
+2. **CI и CodeQL.** Оба зелёные на чистом коммите. Локально:
+   `pytest` (305 тестов, порог покрытия 65 %), `ruff check .`, `mypy src`,
+   `python tools/secret_scan.py`, `python tools/mutation_check.py` (30/30).
+3. **Один пост.** `command=publish`, `slot=manual`. Проверить карточку
+   1200×630, разделитель между подписью канала и тегами, отсутствие
+   приватных `t.me/c/` ссылок и то, что все CTA ведут на реальный канал.
+4. **Статья.** `command=article` или `command=article-update` (последняя
+   делает `PUT` по существующему ID, а не создаёт дубликат). Проверить H2,
+   списки и горизонтальные разделители на отрендеренной странице.
+5. **Включить расписание.** 13 cron-маршрутов: 3 слота публикаций, кросс-посты,
+   статья дня, AI Brief, дайджест/опрос, `poll-close`/`learn`, метрики,
+   недельный отчёт, moderation, facebook-handoff.
+6. **Проверить state.** `commit-state` коммитит `state/state.json` и
+   `state/events.jsonl`; `concurrency: state-writer` не даёт двум задачам
+   писать одновременно. Диспатчить команды последовательно, не батчем.
+
+---
+
+## 3. Target lock
+
+`APP_ENV=production`, `PUBLISH_TARGET=main`, `TELEGRAM_MAIN_CHANNEL_ID` —
+**три переменные меняются только одновременно**. Пустой тестовый ID никогда не
+подменяется основным каналом. Любая приёмка в тестовом канале идёт при
+`APP_ENV=test` / `PUBLISH_TARGET=test`, но все исходящие ссылки по-прежнему
+ведут на реальный канал.
+
+---
+
+## 4. Ежедневная работа и инциденты
+
+См. [`OPERATIONS.md`](OPERATIONS.md). Кратко:
+
+- Упавший кросс-пост не откатывает Telegram-пост; он уходит в `dead_letters`.
+- Публикация без вердикта Gemini пропускает слот (fail-closed).
+- `state.json` с неверной формой поднимает `StateCorruptError`, а не
+   обнуляется молча.
+- При подозрении на утечку — ротация ключа в сервисе и запись нового значения
+  в GitHub Secrets; старое значение удалить из всех копий.
+
+---
+
+## 5. Откат
+
+1. Отключить `Publishing pipeline` и `Doctor`.
+2. Откатить три Variables обратно в `test` / `test` / пустой main ID, либо
+   оставить всё выключенным.
+3. При необходимости откатить последний коммит state через `git revert` —
+   код и state лежат в одном репозитории, поэтому откат восстанавливает оба.
+4. Проверить, что ни один cron не остался активным.
+
+---
+
+## 6. Безопасность
+
+- Setup PAT — короткоживущий, отзывается сразу после настройки.
+- Значения Secrets не читаются, не выводятся в логи и не коммитятся.
+- GitHub API внутри workflow использует встроенный `github.token`
+  (`GH_API_TOKEN` / `GH_TOKEN`); отдельный PAT в Secrets не требуется.
+- Ключи, побывавшие в переписке, ротируются после запуска.
+
+См. [`SECURITY.md`](../SECURITY.md), [`SECRETS_CHECKLIST.md`](SECRETS_CHECKLIST.md),
+[`ARCHITECTURE.md`](ARCHITECTURE.md).
