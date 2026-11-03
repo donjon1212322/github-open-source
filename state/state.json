@@ -36,7 +36,8 @@
       "finished_at": "2026-11-03T12:00:53.732414Z",
       "repo": "kajisho5/ffmpeg-skill",
       "telegram_message_id": 3550
-    }
+    },
+    "telegram_update_offset": 0
   },
   "news_topics": [],
   "publish_failures": {},
