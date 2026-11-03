@@ -172,11 +172,16 @@
       "url": "https://github.com/kajisho5/ffmpeg-skill",
       "value_score": 100.0,
       "views": 20,
-      "views_age_hours": 0.9,
-      "views_at_24h": 116,
+      "views_age_hours": 1.0,
+      "views_at_24h": 104,
       "views_history": [
         {
           "at": "2026-11-03T12:53:47.548432Z",
+          "reactions": 0,
+          "views": 20
+        },
+        {
+          "at": "2026-11-03T13:01:21.594901Z",
           "reactions": 0,
           "views": 20
         }
