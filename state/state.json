@@ -131,6 +131,7 @@
       "open_issues": 5,
       "published_at": "2026-11-03T12:00:53.732079Z",
       "pushed_at": "2026-10-31T22:51:32Z",
+      "reactions": 0,
       "readme_fp": "49501740e5f25cc1",
       "repo_id": 1356077516,
       "revisit_of": "",
@@ -169,6 +170,17 @@
       ],
       "updated_at": "2026-11-03T11:23:33Z",
       "url": "https://github.com/kajisho5/ffmpeg-skill",
+      "value_score": 100.0,
+      "views": 20,
+      "views_age_hours": 0.9,
+      "views_at_24h": 116,
+      "views_history": [
+        {
+          "at": "2026-11-03T12:53:47.548432Z",
+          "reactions": 0,
+          "views": 20
+        }
+      ],
       "visual_host": "imgbb",
       "visual_kind": "card"
     }
