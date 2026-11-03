@@ -1,0 +1,3035 @@
+{
+  "dead_letters": [],
+  "last_runs": {
+    "collect": {
+      "discovered": 448,
+      "enriched": 120,
+      "finished_at": "2026-11-03T11:59:59.724012Z",
+      "passed_gate": 61,
+      "queued": 28,
+      "rejections": {
+        "description_not_english": 14,
+        "fork": 1,
+        "narrow:library:boilerplate": 1,
+        "narrow:topic:plugin": 1,
+        "no_community": 22,
+        "no_license": 32,
+        "no_push_date": 1,
+        "no_readme": 2,
+        "not_software:topic:music": 1,
+        "not_software:topic:notes": 1,
+        "not_software:topic:prompts": 1,
+        "not_software:topic:roadmap": 1,
+        "not_software:topic:videos": 1,
+        "readme_not_english": 8,
+        "stars<100": 7,
+        "velocity_too_high": 2
+      },
+      "started_at": "2026-11-03T11:55:39.359966Z"
+    },
+    "publish:manual": {
+      "finished_at": "2026-11-03T12:00:53.732414Z",
+      "repo": "kajisho5/ffmpeg-skill",
+      "telegram_message_id": 3550
+    }
+  },
+  "news_topics": [],
+  "publish_failures": {},
+  "published": {
+    "kajisho5/ffmpeg-skill": {
+      "articles": {
+        "devto": {
+          "id": 4968877,
+          "published_at": "2026-11-03T12:03:03.464291Z",
+          "updated_at": "2026-11-03T12:39:59.457995Z",
+          "url": "https://dev.to/githubopensource/local-video-tools-for-ai-coding-assistants-ffmpeg-integration-5e7a"
+        }
+      },
+      "card_style": "editorial_daily",
+      "category": "AI",
+      "contributors_count": 10,
+      "created_at": "2026-09-03T14:33:38Z",
+      "crossposts": {
+        "bluesky": {
+          "attempts": 0,
+          "due_at": "2026-11-03T18:00:00+00:00",
+          "status": "pending"
+        },
+        "facebook_sheet": {
+          "at": "2026-11-03T12:01:25.750149Z",
+          "status": "queued",
+          "via": "make.com"
+        }
+      },
+      "description": "Local video editor for coding agents: 42 FFmpeg tools with a machine-readable contract and an MCP server, for Claude Code, Cursor and Codex. Cut, captions, reframe, loudness, platform exports. No cloud, no API keys.",
+      "description_fp": "0d1bf7665adfce8f",
+      "devto_cover_url": "https://i.ibb.co/LdQWVJwx/kajisho5-ffmpeg-skill-devto-cover-461ad771039f.png",
+      "forks": 349,
+      "full_name": "kajisho5/ffmpeg-skill",
+      "generated": {
+        "article_markdown": "## What it is\n\n`ffmpeg-skill` is an agent skill and MCP server designed for Claude Code, Cursor, and Codex. It bridges coding agents directly to local FFmpeg and Python standard libraries, giving them 42 structured tools to handle video processing tasks locally without uploading files or using cloud API keys.\n\n## Why it matters\n\nWhen AI agents try to edit video using raw shell strings, they often guess codecs, assume frame rates, and fail silently. This project replaces guesswork with a structured workflow: probe the input file first, edit using typed arguments, and verify the output using local checks and visual contact sheets.\n\n## Key features\n\n- Run 42 local video tools covering cuts, silence removal, captions, karaoke, and loudness normalisation\n- Expose an MCP server with a machine-readable contract for Claude Code, Cursor, and Codex\n- Verify every execution automatically using built-in probing, checks, and visual contact sheets\n- Operate fully offline without cloud dependencies, subscriptions, or external API keys\n- Generate runtime input schemas directly from the CLI argparse definitions to prevent contract drift\n\n## Quick start\n\n```bash\nnpx ffmpeg-skill\n```\n\n## Who should try it\n\nThis tool fits developers building local media pipelines, automated video generation workflows, or leveraging AI coding assistants for local file manipulation.\n\n## Verdict\n\nAn essential utility for anyone building local AI media workflows, provided you already have FFmpeg and Python installed.",
+        "article_title": "ffmpeg-skill: Local Video Editor and MCP Server for AI Coding Agents",
+        "card_hook": "Local video editor for coding agents",
+        "card_subline": "Give Claude Code, Cursor, or Codex local FFmpeg tools with no cloud or API keys required",
+        "category": "AI",
+        "discussion_question": "Which video editing task do you find yourself scripting most often in your projects?",
+        "hook": "Equip Claude Code or Cursor with 42 local FFmpeg tools that cut, caption, and normalise video without cloud APIs.",
+        "key_features": [
+          "Run 42 local video tools covering cuts, silence removal, captions, karaoke, and loudness normalisation",
+          "Expose an MCP server with a machine-readable contract for Claude Code, Cursor, and Codex",
+          "Verify every execution automatically using built-in probing, checks, and visual contact sheets",
+          "Operate fully offline without cloud dependencies, subscriptions, or external API keys",
+          "Generate runtime input schemas directly from the CLI argparse definitions to prevent contract drift"
+        ],
+        "llm_used": true,
+        "quick_start": "npx ffmpeg-skill",
+        "safety": "ok",
+        "safety_reason": "The repository provides legitimate developer tooling for local video processing and AI agent integration.",
+        "scene": "You ask your coding agent to trim a video clip, and it spits out a brittle, untested FFmpeg command that fails on your system's specific codecs.",
+        "social_text": "Give your coding agent 42 local FFmpeg tools for offline video editing, captions, and loudness normalization.",
+        "summary": "This project provides an agent skill and MCP server that bridges coding assistants directly to local FFmpeg and Python. Instead of letting agents guess shell commands or raw filter graphs, it exposes 42 structured tools with typed arguments and self-verification checks. Every editing job starts with a mandatory probe phase to measure dimensions, frame rates, and audio layouts before executing local operations.",
+        "surfaces": {
+          "Facebook_body": "Processing video locally with artificial intelligence usually requires writing complex commands or relying on slow cloud services. A new open source project bridges that gap by giving coding assistants direct access to forty-two local video editing tools. Instead of guessing commands, the assistant uses structured tools to cut clips, remove silence, add captions, and normalise audio entirely on your machine.\n\nThe system works by exposing local media utilities through a standardized interface that coding assistants can understand. Every editing job starts with a mandatory inspection phase to measure dimensions, frame rates, and audio layouts before running any operations. This prevents errors and ensures the output matches your expectations without needing external API keys or cloud storage.\n\nThis utility is built for developers who use AI coding assistants and want to process video files locally. If you already have Python and video processing tools installed on your computer, this integration saves time by automating repetitive editing tasks directly inside your normal development environment.",
+          "Facebook_headline": "Edit videos locally with your AI assistant",
+          "Facebook_lead": "Turn your coding assistant into a local video editor with 42 tools that cut, caption, and normalise clips offline without cloud subscriptions.",
+          "bluesky_headline": "Edit local videos using your AI coding assistant",
+          "bluesky_lead": "Give Claude or Cursor 42 tools to cut, caption, and normalise video offline without cloud uploads.",
+          "devto_body": "## What it is\n\nffmpeg-skill is an open-source Python project that bridges AI coding assistants directly to local video processing tools. It provides an agent skill and server implementation that exposes 42 typed tools for editing media without cloud dependencies.\n\n## How it works\n\nThe project exposes local media utilities through a machine-readable contract. Instead of letting coding assistants guess command-line flags, it uses typed arguments and self-verification checks. Every editing job runs a mandatory probe phase to measure file properties before executing local operations.\n\n## Key features\n\n- Forty-two local video tools covering cuts, silence removal, captions, and loudness normalisation\n- Model Context Protocol server integration for assistants like Claude Code and Cursor\n- Automated verification using built-in probing and contact sheets\n- Fully offline operation with no cloud dependencies or API keys\n- Runtime input schemas generated from command-line argument definitions\n\n## Getting started\n\nClone the repository from GitHub, ensure you have Python and FFmpeg installed locally, and configure the server inside your coding assistant environment.\n\n## When not to use it\n\nSkip this project if you do not use AI coding assistants or if your environment lacks a local installation of Python and FFmpeg.",
+          "seo_description": "Equip your coding assistant with forty-two local video tools to cut, caption, and normalise media offline. Built for developers using AI locally.",
+          "seo_query": "run ffmpeg commands with ai coding assistant",
+          "seo_title": "Local Video Tools for AI Coding Assistants - FFmpeg Integration",
+          "telegraph_angle": "Explain the architectural shift of giving local CLI tools typed interfaces for AI agents, including setup trade-offs."
+        },
+        "tension": "Fixing the resulting media pipeline breaks wastes hours wrestling with filter graphs, container formats, and silent rendering failures.",
+        "turn": "This skill gives your coding agent a typed, verifiable library of video tools that inspect files before editing and verify their own output.",
+        "verdict": "An essential utility for anyone building local AI media workflows, provided you already have FFmpeg and Python installed.",
+        "who_for": "Developers using AI coding assistants who need to programmatically process video locally.",
+        "why_now": "Model Context Protocol servers and agent skills now make it practical to give local CLI tools standardized, type-checked interfaces directly inside developer workflows."
+      },
+      "homepage": "https://www.npmjs.com/package/ffmpeg-skill",
+      "id": 1356077516,
+      "image_url": "https://i.ibb.co/CpmWN9wr/kajisho5-ffmpeg-skill-preview-cdc7bfa46aa1.jpg",
+      "is_dual_use": false,
+      "is_hidden_gem": false,
+      "language": "Python",
+      "license": {
+        "key": "mit",
+        "name": "MIT License",
+        "node_id": "MDc6TGljZW5zZTEz",
+        "spdx_id": "MIT",
+        "url": "https://api.github.com/licenses/mit"
+      },
+      "media_urls": [
+        "https://raw.githubusercontent.com/kajisho5/ffmpeg-skill/main/docs/demos/captions_pop_karaoke.gif",
+        "https://raw.githubusercontent.com/kajisho5/ffmpeg-skill/main/docs/demos/reframe_crop.gif",
+        "https://raw.githubusercontent.com/kajisho5/ffmpeg-skill/main/docs/demos/silence_removal.gif",
+        "https://raw.githubusercontent.com/kajisho5/ffmpeg-skill/main/docs/demos/loudness.gif",
+        "https://raw.githubusercontent.com/kajisho5/ffmpeg-skill/main/brand/app-icon.png",
+        "https://raw.githubusercontent.com/kajisho5/ffmpeg-skill/main/brand/logo/ffmpeg-skill-wordmark-black.svg"
+      ],
+      "name": "ffmpeg-skill",
+      "open_issues": 5,
+      "published_at": "2026-11-03T12:00:53.732079Z",
+      "pushed_at": "2026-10-31T22:51:32Z",
+      "readme_fp": "49501740e5f25cc1",
+      "repo_id": 1356077516,
+      "revisit_of": "",
+      "revisit_reason": "",
+      "score": 93.395,
+      "slot": "manual",
+      "sources": [
+        "telegram:open_source_friend"
+      ],
+      "stars": 4424,
+      "telegram_chat_id": "@GitHub_Open_Source",
+      "telegram_link": "https://t.me/GitHub_Open_Source/3550",
+      "telegram_message_id": 3550,
+      "telegraph_url": "https://telegra.ph/ffmpeg-skill-Local-Video-Editor-and-MCP-Server-for-AI-Coding-Agents-11-03-2",
+      "topics": [
+        "agent-skills",
+        "ai-agents",
+        "audio-processing",
+        "captions",
+        "claude-code",
+        "codex",
+        "coding-agent",
+        "cursor",
+        "ffmpeg",
+        "loudness-normalization",
+        "mcp",
+        "mcp-server",
+        "model-context-protocol",
+        "python",
+        "subtitles",
+        "transcoding",
+        "video",
+        "video-editing",
+        "video-processing",
+        "whisper"
+      ],
+      "updated_at": "2026-11-03T11:23:33Z",
+      "url": "https://github.com/kajisho5/ffmpeg-skill",
+      "visual_host": "imgbb",
+      "visual_kind": "card"
+    }
+  },
+  "queue": [
+    {
+      "archived": false,
+      "contributors_count": 217,
+      "created_at": "2026-10-03T17:08:48Z",
+      "default_branch": "main",
+      "description": "Minecraft: Java Edition 26.3 rewritten from scratch in Rust, checked against vanilla with 281 differential harnesses. Get it with the Horizon launcher.",
+      "disabled": false,
+      "fork": false,
+      "forks": 825,
+      "forks_count": 825,
+      "full_name": "horizon-rust/horizon",
+      "has_readme": true,
+      "homepage": "https://playhorizon.dev",
+      "id": 1403446451,
+      "is_dual_use": false,
+      "is_hidden_gem": false,
+      "language": "Rust",
+      "license": {
+        "key": "mit",
+        "name": "MIT License",
+        "node_id": "MDc6TGljZW5zZTEz",
+        "spdx_id": "MIT",
+        "url": "https://api.github.com/licenses/mit"
+      },
+      "media_urls": [
+        "https://raw.githubusercontent.com/horizon-rust/horizon/main/docs/media/banner.webp",
+        "https://raw.githubusercontent.com/horizon-rust/horizon/main/docs/media/launcher-play.webp",
+        "https://raw.githubusercontent.com/horizon-rust/horizon/main/docs/media/launcher-settings.webp",
+        "https://raw.githubusercontent.com/horizon-rust/horizon/main/docs/media/sunset.webp",
+        "https://raw.githubusercontent.com/horizon-rust/horizon/main/docs/media/survival.webp",
+        "https://raw.githubusercontent.com/horizon-rust/horizon/main/docs/media/settings.webp",
+        "https://raw.githubusercontent.com/horizon-rust/horizon/main/docs/media/village.webp",
+        "https://raw.githubusercontent.com/horizon-rust/horizon/main/docs/media/nether.webp"
+      ],
+      "name": "horizon",
+      "non_software_reason": "",
+      "open_issues": 448,
+      "open_issues_count": 448,
+      "owner_repo_count": 1,
+      "pushed_at": "2026-11-03T10:21:45Z",
+      "readme": "",
+      "readme_excerpt": "<p align=\"center\">\n  <img src=\"docs/media/banner.webp\" alt=\"The Horizon website: the game you know, rebuilt in Rust\" width=\"100%\">\n</p>\n\n<p align=\"center\">\n  <a href=\"https://github.com/horizon-rust/horizon/actions/workflows/ci.yml\"><img src=\"https://github.com/horizon-rust/horizon/actions/workflows/ci.yml/badge.svg?branch=main\" alt=\"CI\"></a>\n  <img src=\"https://img.shields.io/badge/Minecraft-Java%2026.3-5D9C3F\" alt=\"Minecraft Java 26.3\">\n  <img src=\"https://img.shields.io/badge/Rust-stable-B7410E?logo=rust&logoColor=white\" alt=\"Rust\">\n  <img src=\"https://img.shields.io/badge/vanilla%20parity-100%25-F0795A\" alt=\"Vanilla parity 100%\">\n  <a href=\"#project-status\"><img src=\"https://img.shields.io/badge/player--visible%20gaps-833%20open-F0795A\" alt=\"Player-visible gaps open\"></a>\n  <img src=\"https://img.shields.io/badge/platform-Linux%20%7C%20macOS%20%7C%20Windows-2A2470\" alt=\"Linux, macOS and Windows\">\n  <a href=\"LICENSE\"><img src=\"https://img.shields.io/badge/license-MIT-3B2F7E\" alt=\"MIT license\"></a>\n</p>\n\n<p align=\"center\">\n  <a href=\"https://playhorizon.dev\"><b>Website</b></a> ·\n  <a href=\"#download\"><b>Download</b></a> ·\n  <a href=\"https://playhorizon.dev/docs/\"><b>Documentation<",
+      "readme_len": 12604,
+      "repo_id": 1403446451,
+      "score": 91.149,
+      "source_name": "github_search",
+      "sources": [
+        "github_search"
+      ],
+      "stargazers_count": 6123,
+      "stars": 6123,
+      "topics": [
+        "differential-testing",
+        "game-engine",
+        "gamedev",
+        "linux",
+        "minecraft",
+        "minecraft-java",
+        "reimplementation",
+        "rust",
+        "voxel",
+        "vulkan",
+        "wgpu"
+      ],
+      "updated_at": "2026-11-03T11:51:13Z",
+      "url": "https://github.com/horizon-rust/horizon"
+    },
+    {
+      "archived": false,
+      "contributors_count": 3,
+      "created_at": "2026-09-26T08:23:34Z",
+      "default_branch": "main",
+      "description": "A comprehensive logo-design skill for Claude, Gemini CLI, Codex and other AI agents: principles, process, SVG craft, testing tools and a 1,400+ logo reference library.",
+      "disabled": false,
+      "fork": false,
+      "forks": 465,
+      "forks_count": 465,
+      "full_name": "kaankiziltug/logo-design-skill",
+      "has_readme": true,
+      "homepage": "",
+      "id": 1388867993,
+      "is_dual_use": false,
+      "is_hidden_gem": false,
+      "language": "HTML",
+      "license": {
+        "key": "mit",
+        "name": "MIT License",
+        "node_id": "MDc6TGljZW5zZTEz",
+        "spdx_id": "MIT",
+        "url": "https://api.github.com/licenses/mit"
+      },
+      "media_urls": [
+        "https://raw.githubusercontent.com/kaankiziltug/logo-design-skill/main/docs/images/hero.png",
+        "https://raw.githubusercontent.com/kaankiziltug/logo-design-skill/main/docs/images/covers-28.png",
+        "https://raw.githubusercontent.com/kaankiziltug/logo-design-skill/main/docs/images/kiln-concepts.png",
+        "https://raw.githubusercontent.com/kaankiziltug/logo-design-skill/main/docs/images/kiln-board.png",
+        "https://raw.githubusercontent.com/kaankiziltug/logo-design-skill/main/docs/images/zestly-concepts.png",
+        "https://raw.githubusercontent.com/kaankiziltug/logo-design-skill/main/docs/images/zestly-board.png",
+        "https://raw.githubusercontent.com/kaankiziltug/logo-design-skill/main/docs/images/maison-orvelle-concepts.png",
+        "https://raw.githubusercontent.com/kaankiziltug/logo-design-skill/main/docs/images/maison-orvelle-board.png"
+      ],
+      "name": "logo-design-skill",
+      "non_software_reason": "",
+      "open_issues": 4,
+      "open_issues_count": 4,
+      "owner_repo_count": 1,
+      "pushed_at": "2026-11-03T11:50:15Z",
+      "readme": "",
+      "readme_excerpt": "# Logo Design Skill for Claude & AI Agents\n\n[![Tests](https://github.com/kaankiziltug/logo-design-skill/actions/workflows/test.yml/badge.svg)](https://github.com/kaankiziltug/logo-design-skill/actions/workflows/test.yml) [![The New 100: #14](https://www.theagenticleaderboard.com/badges/new/logo-design-skill.svg)](#)\n\n![Twenty-eight example runs of the logo-design skill](docs/images/hero.png)\n\nA comprehensive **logo-design skill** that turns Claude — or any agent that supports Agent Skills, such as Gemini\nCLI, Codex CLI, Cursor or GitHub Copilot — into a disciplined identity designer, from the first brief to\nproduction-ready SVG files and brand guidelines.\n\n- **Principles & process** — discovery and briefs, word mapping, choosing the right mark type, concepting,\n  geometric construction, optical corrections (overshoot, bone effect, irradiation…), colour, typography, lockups,\n  testing, presentation, delivery, redesigns and identity systems.\n- **A reference library of 1,400+ real-world SVG logos**, each visually classified by mark type, technique,\n  geometry, subject, typography, mood and industry — searchable from the command line and browsable in a local\n  gallery. Used to study co",
+      "readme_len": 32127,
+      "repo_id": 1388867993,
+      "score": 90.127,
+      "source_name": "github_search",
+      "sources": [
+        "github_search"
+      ],
+      "stargazers_count": 5852,
+      "stars": 5852,
+      "topics": [
+        "agent-skills",
+        "branding",
+        "claude",
+        "claude-skills",
+        "codex",
+        "gemini-cli",
+        "logo-design",
+        "svg"
+      ],
+      "updated_at": "2026-11-03T11:50:19Z",
+      "url": "https://github.com/kaankiziltug/logo-design-skill"
+    },
+    {
+      "archived": false,
+      "contributors_count": 3,
+      "created_at": "2026-10-27T08:51:18Z",
+      "default_branch": "master",
+      "description": "🤖 Open-source, local-first alternative to Grok Bot, OpenAI dots and Claude Duet. Your own AI bots on any model: GPT, Claude, Gemini, Grok, DeepSeek, Kimi, GLM and 70+ more through one Modelflare key. Reach them in the app, WeChat or Feishu; they remember you, work in the background, run commands and use your computer. Pay per use.",
+      "disabled": false,
+      "fork": false,
+      "forks": 19,
+      "forks_count": 19,
+      "full_name": "modelflare-ai/AnyModelBot",
+      "has_readme": true,
+      "homepage": "https://anymodel.bot/",
+      "id": 1435475558,
+      "is_dual_use": false,
+      "is_hidden_gem": false,
+      "language": "Python",
+      "license": {
+        "key": "mit",
+        "name": "MIT License",
+        "node_id": "MDc6TGljZW5zZTEz",
+        "spdx_id": "MIT",
+        "url": "https://api.github.com/licenses/mit"
+      },
+      "media_urls": [
+        "https://raw.githubusercontent.com/modelflare-ai/AnyModelBot/master/docs/assets/hero/hero-demo.gif",
+        "https://raw.githubusercontent.com/modelflare-ai/AnyModelBot/master/docs/assets/download/install-windows.gif",
+        "https://raw.githubusercontent.com/modelflare-ai/AnyModelBot/master/docs/assets/features/agent-files.gif",
+        "https://raw.githubusercontent.com/modelflare-ai/AnyModelBot/master/docs/assets/features/computer-use.gif",
+        "https://raw.githubusercontent.com/modelflare-ai/AnyModelBot/master/docs/assets/features/media-generation.gif",
+        "https://raw.githubusercontent.com/modelflare-ai/AnyModelBot/master/docs/assets/features/first-run.gif",
+        "https://raw.githubusercontent.com/modelflare-ai/AnyModelBot/master/docs/assets/features/model-switch.gif",
+        "https://raw.githubusercontent.com/modelflare-ai/AnyModelBot/master/docs/assets/features/memory.gif"
+      ],
+      "name": "AnyModelBot",
+      "non_software_reason": "",
+      "open_issues": 1,
+      "open_issues_count": 1,
+      "owner_repo_count": 1,
+      "pushed_at": "2026-11-03T11:38:07Z",
+      "readme": "",
+      "readme_excerpt": "<p align=\"center\">\n  <a href=\"https://github.com/modelflare-ai/AnyModelBot/releases\">\n    <img src=\"docs/assets/brand/logo-eyes.webp\" width=\"120\" height=\"120\" alt=\"AnyModelBot 的 Eyes 标志：两只竖向胶囊形的眼睛，会左右张望\">\n  </a>\n</p>\n\n<h1 align=\"center\">\n  <picture>\n    <source media=\"(prefers-color-scheme: dark)\" srcset=\"docs/assets/brand/wordmark-dark.svg\">\n    <img src=\"docs/assets/brand/wordmark-light.svg\" height=\"40\" alt=\"AnyModelBot\">\n  </picture>\n</h1>\n\n<p align=\"center\"><b>跑在你自己电脑上的 AI 机器人。任意模型，按量付费。</b></p>\n\n<p align=\"center\">\n  <a href=\"https://anymodel.bot/\">官网</a> |\n  <a href=\"https://github.com/modelflare-ai/AnyModelBot/releases\">下载</a> |\n  简体中文 |\n  <a href=\"./README_en.md\">English</a> |\n  <a href=\"./README_ja.md\">日本語</a> |\n  <a href=\"./README_ko.md\">한국어</a> |\n  <a href=\"./README_ru.md\">Русский</a> |\n  <a href=\"https://modelflare.dev/?utm_source=anymodelbot&utm_campaign=amb_readme\">Modelflare</a> |\n  <a href=\"https://modelflare.dev/pricing?utm_source=anymodelbot&utm_campaign=amb_readme\">价格</a> |\n  <a href=\"./docs/development.md\">开发文档</a> |\n  <a href=\"https://github.com/modelflare-ai/AnyModelBot/issues\">问题反馈</a>\n</p>\n\n<div align=\"center\">\n\n[![Release][release-shield]][releases-link]\n[![",
+      "readme_len": 21228,
+      "repo_id": 1435475558,
+      "score": 89.191,
+      "source_name": "github_search",
+      "sources": [
+        "github_search",
+        "telegram:github_repos"
+      ],
+      "stargazers_count": 2108,
+      "stars": 2108,
+      "topics": [
+        "ai-agent",
+        "ai-assistant",
+        "chatbot",
+        "claude",
+        "computer-use",
+        "deepseek",
+        "desktop-app",
+        "dsh",
+        "electron",
+        "feishu",
+        "gemini",
+        "gpt",
+        "grok",
+        "llm",
+        "local-first",
+        "modelflare",
+        "multi-model",
+        "openai-compatible",
+        "personal-ai-agent",
+        "wechat"
+      ],
+      "updated_at": "2026-11-03T11:55:41Z",
+      "url": "https://github.com/modelflare-ai/AnyModelBot"
+    },
+    {
+      "archived": false,
+      "contributors_count": 170,
+      "created_at": "2026-08-13T06:28:56Z",
+      "default_branch": "main",
+      "description": "Open-source Grok Bot alternative. Choose your own model and sandbox.",
+      "disabled": false,
+      "fork": false,
+      "forks": 1198,
+      "forks_count": 1198,
+      "full_name": "elie222/rakazo",
+      "has_readme": true,
+      "homepage": "https://rakazo.com",
+      "id": 1332781509,
+      "is_dual_use": false,
+      "is_hidden_gem": false,
+      "language": "TypeScript",
+      "license": {
+        "key": "apache-2.0",
+        "name": "Apache License 2.0",
+        "node_id": "MDc6TGljZW5zZTI=",
+        "spdx_id": "Apache-2.0",
+        "url": "https://api.github.com/licenses/apache-2.0"
+      },
+      "media_urls": [
+        "https://raw.githubusercontent.com/elie222/rakazo/main/docs/readme-hero.png"
+      ],
+      "name": "rakazo",
+      "non_software_reason": "",
+      "open_issues": 81,
+      "open_issues_count": 81,
+      "owner_repo_count": 1,
+      "pushed_at": "2026-11-03T11:52:28Z",
+      "readme": "",
+      "readme_excerpt": "# Rakazo\n\n[English](./README.md) | [简体中文](./README.zh-CN.md) | [日本語](./README.ja.md)\n\n[![GitHub stars](https://img.shields.io/github/stars/elie222/rakazo?labelColor=black&style=for-the-badge&color=2563EB)](https://github.com/elie222/rakazo/stargazers)\n[![Discord](https://img.shields.io/badge/Discord-Join%20the%20community-5865F2?labelColor=black&style=for-the-badge&logo=discord&logoColor=white)](https://discord.gg/RWwKa2Sn7h)\n[![Download on the App Store](https://img.shields.io/badge/App%20Store-Download%20for%20iPhone-black?labelColor=black&style=for-the-badge&logo=apple&logoColor=white)](https://apps.apple.com/app/rakazo/id6801531099)\n[![Download the Android APK](https://img.shields.io/badge/Android-Download%20APK-black?labelColor=black&style=for-the-badge&logo=android&logoColor=white)](https://github.com/elie222/rakazo/releases/download/android/rakazo.apk)\n\n![Rakazo — AI teammates you actually own](./docs/readme-hero.png)\n\nRakazo is an open source AI agent for persistent teammates, and a self-hosted AI assistant you\ncan run on your own machine. It is available on the web, as an Electron desktop app, and on\n[iPhone](https://apps.apple.com/app/rakazo/id6801531099) and [Android](ht",
+      "readme_len": 15647,
+      "repo_id": 1332781509,
+      "score": 89.186,
+      "source_name": "github_search",
+      "sources": [
+        "github_search"
+      ],
+      "stargazers_count": 6794,
+      "stars": 6794,
+      "topics": [
+        "ai-agents",
+        "chatgpt",
+        "docker",
+        "electron",
+        "expo",
+        "grok",
+        "llm",
+        "self-hosted",
+        "typescript"
+      ],
+      "updated_at": "2026-11-03T11:42:50Z",
+      "url": "https://github.com/elie222/rakazo"
+    },
+    {
+      "archived": false,
+      "contributors_count": 42,
+      "created_at": "2026-10-29T14:34:07Z",
+      "default_branch": "main",
+      "description": "An on-device AI agent for Android that operates apps and the web to get things done for you.",
+      "disabled": false,
+      "fork": false,
+      "forks": 1138,
+      "forks_count": 1138,
+      "full_name": "wangzan101/Mika",
+      "has_readme": true,
+      "homepage": "",
+      "id": 1438540053,
+      "is_dual_use": false,
+      "is_hidden_gem": false,
+      "language": "Kotlin",
+      "license": {
+        "key": "apache-2.0",
+        "name": "Apache License 2.0",
+        "node_id": "MDc6TGljZW5zZTI=",
+        "spdx_id": "Apache-2.0",
+        "url": "https://api.github.com/licenses/apache-2.0"
+      },
+      "media_urls": [
+        "https://raw.githubusercontent.com/wangzan101/Mika/main/docs/media/wechat-send-side.gif",
+        "https://raw.githubusercontent.com/wangzan101/Mika/main/docs/media/wechat-group.gif",
+        "https://raw.githubusercontent.com/wangzan101/Mika/main/docs/media/amazon-cart.gif",
+        "https://raw.githubusercontent.com/wangzan101/Mika/main/docs/media/xhs-summary.gif",
+        "https://raw.githubusercontent.com/wangzan101/Mika/main/docs/media/boss-greet.gif",
+        "https://raw.githubusercontent.com/wangzan101/Mika/main/docs/media/google-flights.gif",
+        "https://raw.githubusercontent.com/wangzan101/Mika/main/docs/media/hacker-news.gif",
+        "https://raw.githubusercontent.com/wangzan101/Mika/main/docs/media/job-greet.jpg"
+      ],
+      "name": "Mika",
+      "non_software_reason": "",
+      "open_issues": 114,
+      "open_issues_count": 114,
+      "owner_repo_count": 1,
+      "pushed_at": "2026-11-03T10:07:24Z",
+      "readme": "",
+      "readme_excerpt": "<div align=\"center\">\n\n<img src=\"docs/media/logo.png\" alt=\"Mika\" width=\"88\" />\n\n# Mika\n\n**An AI assistant on your phone: say what you need, and it works your apps and the web until it's done.**\n\nIt works on a hidden background screen, so you can keep using your phone.\n\n<a href=\"https://github.com/wangzan101/Mika/releases/latest\"><img src=\"https://img.shields.io/badge/Download%20APK-Android%2011%2B-2ea043?style=for-the-badge&logo=android&logoColor=white\" alt=\"Download APK\" /></a>\n\n<a href=\"https://github.com/wangzan101/Mika/stargazers\"><img src=\"https://img.shields.io/github/stars/wangzan101/Mika?style=flat&logo=github&label=Star&color=1f6feb\" alt=\"stars\" /></a>\n<a href=\"https://github.com/wangzan101/Mika/releases\"><img src=\"https://img.shields.io/github/downloads/wangzan101/Mika/total?label=downloads&color=2ea043\" alt=\"downloads\" /></a>\n<a href=\"https://github.com/wangzan101/Mika/releases/latest\"><img src=\"https://img.shields.io/github/v/release/wangzan101/Mika?include_prereleases&label=version\" alt=\"version\" /></a>\n<a href=\"LICENSE\"><img src=\"https://img.shields.io/badge/license-Apache--2.0-lightgrey\" alt=\"license\" /></a>\n\nEnglish · [简体中文](docs/readme/README.zh-CN.md) · [繁體中文](docs",
+      "readme_len": 12777,
+      "repo_id": 1438540053,
+      "score": 88.843,
+      "source_name": "telegram:github_repos",
+      "sources": [
+        "telegram:github_repos",
+        "telegram:gitbless"
+      ],
+      "stargazers_count": 5844,
+      "stars": 5844,
+      "topics": [
+        "accessibility",
+        "ai-agent",
+        "android",
+        "automation",
+        "jetpack-compose",
+        "kotlin",
+        "llm",
+        "mobile-agent"
+      ],
+      "updated_at": "2026-11-03T11:56:24Z",
+      "url": "https://github.com/wangzan101/Mika"
+    },
+    {
+      "archived": false,
+      "contributors_count": 76,
+      "created_at": "2026-08-13T12:49:31Z",
+      "default_branch": "main",
+      "description": "DSH's officially top-recommended TUI plugin — high performance, low overhead, cute pixel whale, smooth mouse interaction. One-command install via npm. / DSH 官方首推的 TUI 插件，高性能低占用，可爱像素鲸鱼，流畅鼠标交互，npm 一键安装",
+      "disabled": false,
+      "fork": false,
+      "forks": 333,
+      "forks_count": 333,
+      "full_name": "ccch1mneyyy/dsh-TUI",
+      "has_readme": true,
+      "homepage": "https://dshtui.com/",
+      "id": 1333111893,
+      "is_dual_use": false,
+      "is_hidden_gem": false,
+      "language": "TypeScript",
+      "license": {
+        "key": "mit",
+        "name": "MIT License",
+        "node_id": "MDc6TGljZW5zZTEz",
+        "spdx_id": "MIT",
+        "url": "https://api.github.com/licenses/mit"
+      },
+      "media_urls": [
+        "https://raw.githubusercontent.com/ccch1mneyyy/dsh-TUI/main/screenshots/wechat-official.png",
+        "https://raw.githubusercontent.com/ccch1mneyyy/dsh-TUI/main/screenshots/wechat-group.jpg",
+        "https://raw.githubusercontent.com/ccch1mneyyy/dsh-TUI/main/screenshots/qq-group.png",
+        "https://raw.githubusercontent.com/ccch1mneyyy/dsh-TUI/main/docs/assets/readme/preview-en.svg",
+        "https://raw.githubusercontent.com/ccch1mneyyy/dsh-TUI/bot-star-history/assets/star-history/star-history.png",
+        "https://github.com/ccch1mneyyy.png?size=160",
+        "https://github.com/CikeSeven.png?size=160",
+        "https://github.com/T-Auto.png?size=160"
+      ],
+      "name": "dsh-TUI",
+      "non_software_reason": "",
+      "open_issues": 107,
+      "open_issues_count": 107,
+      "owner_repo_count": 2,
+      "pushed_at": "2026-11-03T11:41:08Z",
+      "readme": "",
+      "readme_excerpt": "<p align=\"center\">\n  <img src=\"docs/assets/readme/logo-en.svg\" alt=\"dsh-TUI animated whale logo\" width=\"560\">\n</p>\n\n<p align=\"center\">\n  <strong>English</strong> | <a href=\"README_ZH.md\">简体中文</a>\n</p>\n\n<p align=\"center\">\n  <a href=\"https://www.npmjs.com/package/@deepseek-harness-tui/dsh-tui\"><img alt=\"npm\" src=\"https://img.shields.io/npm/v/@deepseek-harness-tui/dsh-tui?style=flat-square&color=4b6fff\"></a>\n  <a href=\"https://github.com/ccch1mneyyy/dsh-TUI/actions/workflows/ci.yml\"><img alt=\"CI\" src=\"https://github.com/ccch1mneyyy/dsh-TUI/actions/workflows/ci.yml/badge.svg\"></a>\n  <a href=\"LICENSE\"><img alt=\"MIT License\" src=\"https://img.shields.io/badge/license-MIT-263146?style=flat-square\"></a>\n  <img alt=\"Public beta\" src=\"https://img.shields.io/badge/status-public%20beta-7da1de?style=flat-square\">\n  <a href=\"https://github.com/ccch1mneyyy/dsh-TUI/stargazers\"><img alt=\"GitHub stars\" src=\"https://img.shields.io/github/stars/ccch1mneyyy/dsh-TUI?style=flat-square&color=4b6fff\"></a>\n  <a href=\"https://www.npmjs.com/package/@deepseek-harness-tui/dsh-tui\"><img alt=\"npm downloads\" src=\"https://img.shields.io/npm/dm/@deepseek-harness-tui/dsh-tui?style=flat-square&color=4b6fff\"></a>\n</p>\n\n",
+      "readme_len": 76904,
+      "repo_id": 1333111893,
+      "score": 88.256,
+      "source_name": "github_search",
+      "sources": [
+        "github_search"
+      ],
+      "stargazers_count": 6689,
+      "stars": 6689,
+      "topics": [
+        "claude-code",
+        "coding-agent",
+        "deepseek",
+        "deepseek-harness",
+        "dsh-plugin",
+        "ink",
+        "react",
+        "terminal",
+        "tui"
+      ],
+      "updated_at": "2026-11-03T11:40:49Z",
+      "url": "https://github.com/ccch1mneyyy/dsh-TUI"
+    },
+    {
+      "archived": false,
+      "contributors_count": 13,
+      "created_at": "2026-10-08T20:37:51Z",
+      "default_branch": "main",
+      "description": "Search your computer by what's in your files: photos, PDFs, documents, recordings, videos and code. On-device on Mac, Windows and Linux, built on Google DeepMind's EmbeddingGemma 2.",
+      "disabled": false,
+      "fork": false,
+      "forks": 485,
+      "forks_count": 485,
+      "full_name": "ARahim3/DigUp",
+      "has_readme": true,
+      "homepage": "https://digup.arahim.dev",
+      "id": 1410929004,
+      "is_dual_use": false,
+      "is_hidden_gem": false,
+      "language": "Swift",
+      "license": {
+        "key": "mit",
+        "name": "MIT License",
+        "node_id": "MDc6TGljZW5zZTEz",
+        "spdx_id": "MIT",
+        "url": "https://api.github.com/licenses/mit"
+      },
+      "media_urls": [
+        "https://raw.githubusercontent.com/ARahim3/DigUp/main/docs/demo.gif",
+        "https://raw.githubusercontent.com/ARahim3/DigUp/main/docs/logo.png"
+      ],
+      "name": "DigUp",
+      "non_software_reason": "",
+      "open_issues": 79,
+      "open_issues_count": 79,
+      "owner_repo_count": 1,
+      "pushed_at": "2026-10-26T20:44:04Z",
+      "readme": "",
+      "readme_excerpt": "<p align=\"center\"><img src=\"docs/logo.png\" width=\"96\" alt=\"\"></p>\n\n<h1 align=\"center\">DigUp</h1>\n\n<p align=\"center\"><b>Describe it. Dig it up.</b><br>\nSearch the files on your computer by what's in them, with Google DeepMind's\n<a href=\"https://huggingface.co/google/embeddinggemma-2\">EmbeddingGemma 2</a>.</p>\n\n<p align=\"center\"><a href=\"https://github.com/ARahim3/DigUp/releases/latest\"><b>Download for Mac</b></a> ·\n<a href=\"https://github.com/ARahim3/DigUp/releases/tag/v0.7.0-beta.3\"><b>Windows (beta)</b></a> ·\n<a href=\"https://github.com/ARahim3/DigUp/releases/tag/v0.7.0-beta.3\"><b>Linux (beta)</b></a><br>\n<sub>Free and open source. Everything runs on your computer.</sub></p>\n\n<p align=\"center\">\n<a href=\"https://github.com/ARahim3/DigUp/stargazers\"><img src=\"https://img.shields.io/github/stars/ARahim3/DigUp?style=flat-square\" alt=\"GitHub stars\"></a>\n<a href=\"https://github.com/ARahim3/DigUp/releases\"><img src=\"https://img.shields.io/github/downloads/ARahim3/DigUp/total?style=flat-square\" alt=\"Downloads\"></a>\n<a href=\"https://github.com/ARahim3/DigUp/releases/latest\"><img src=\"https://img.shields.io/github/v/release/ARahim3/DigUp?style=flat-square\" alt=\"Latest release\"></a>\n<a href=",
+      "readme_len": 16766,
+      "repo_id": 1410929004,
+      "score": 87.31,
+      "source_name": "github_search",
+      "sources": [
+        "github_search"
+      ],
+      "stargazers_count": 6150,
+      "stars": 6150,
+      "topics": [
+        "embeddinggemma",
+        "embeddings",
+        "file-search",
+        "linux",
+        "llama-cpp",
+        "local-first",
+        "macos",
+        "menubar-app",
+        "multimodal",
+        "on-device",
+        "semantic-search",
+        "swift",
+        "tauri",
+        "windows"
+      ],
+      "updated_at": "2026-11-03T10:34:56Z",
+      "url": "https://github.com/ARahim3/DigUp"
+    },
+    {
+      "archived": false,
+      "contributors_count": 78,
+      "created_at": "2026-03-24T12:46:14Z",
+      "default_branch": "main",
+      "description": "One home instead of many subscriptions. Yuvomi is a self-hosted family planner: tasks, calendar, budget, meals, shopping, health and more in one PWA on your own server or NAS. Docker, Podman, TrueNAS, Umbrel, Unraid. No tracking, MIT.",
+      "disabled": false,
+      "fork": false,
+      "forks": 213,
+      "forks_count": 213,
+      "full_name": "ulsklyc/yuvomi",
+      "has_readme": true,
+      "homepage": "https://yuvomi.cloud/",
+      "id": 1190598050,
+      "is_dual_use": false,
+      "is_hidden_gem": false,
+      "language": "JavaScript",
+      "license": {
+        "key": "mit",
+        "name": "MIT License",
+        "node_id": "MDc6TGljZW5zZTEz",
+        "spdx_id": "MIT",
+        "url": "https://api.github.com/licenses/mit"
+      },
+      "media_urls": [
+        "https://raw.githubusercontent.com/ulsklyc/yuvomi/main/docs/screenshots/dashboard-light-web.webp",
+        "https://raw.githubusercontent.com/ulsklyc/yuvomi/main/docs/screenshots/dashboard-wall-light-web.webp",
+        "https://raw.githubusercontent.com/ulsklyc/yuvomi/main/docs/screenshots/shopping-light-mobile.webp",
+        "https://raw.githubusercontent.com/ulsklyc/yuvomi/main/docs/logo.svg"
+      ],
+      "name": "yuvomi",
+      "non_software_reason": "",
+      "open_issues": 152,
+      "open_issues_count": 152,
+      "owner_repo_count": 1,
+      "pushed_at": "2026-11-03T11:27:01Z",
+      "readme": "",
+      "readme_excerpt": "<div align=\"center\">\n  <img src=\"docs/logo.svg\" alt=\"Yuvomi logo\" width=\"92\" />\n\n  <h1>Yuvomi</h1>\n\n  <p><strong>The self-hosted family planner.<br>One home instead of many subscriptions.</strong></p>\n\n  <p>\n    Tasks, calendar, budget, meals, health and more for a family, a couple or just you, on a\n    server you own.\n  </p>\n\n  <p>\n    <a href=\"https://github.com/ulsklyc/yuvomi/releases\"><img src=\"https://img.shields.io/github/v/release/ulsklyc/yuvomi?style=flat-square&color=6C3AED&label=release\" alt=\"Latest release\"></a>\n    <a href=\"https://github.com/ulsklyc/yuvomi/stargazers\"><img src=\"https://img.shields.io/github/stars/ulsklyc/yuvomi?style=flat-square&color=6C3AED&label=stars\" alt=\"GitHub stars\"></a>\n    <a href=\"https://github.com/ulsklyc/yuvomi/pkgs/container/yuvomi\"><img src=\"https://img.shields.io/badge/image-ghcr.io%2Fulsklyc%2Fyuvomi-6C3AED?style=flat-square\" alt=\"Container image ghcr.io/ulsklyc/yuvomi\"></a>\n    <a href=\"#install\"><img src=\"https://img.shields.io/badge/platforms-amd64%20%7C%20arm64-6C3AED?style=flat-square\" alt=\"Runs on amd64 and arm64\"></a>\n    <a href=\"LICENSE\"><img src=\"https://img.shields.io/badge/license-MIT-6C3AED?style=flat-square\" alt=\"MIT lice",
+      "readme_len": 20969,
+      "repo_id": 1190598050,
+      "score": 87.294,
+      "source_name": "github_search",
+      "sources": [
+        "github_search"
+      ],
+      "stargazers_count": 2283,
+      "stars": 2283,
+      "topics": [
+        "calendar",
+        "docker",
+        "family",
+        "family-planner",
+        "household",
+        "meal-planning",
+        "nodejs",
+        "open-source",
+        "planner-app",
+        "privacy-first",
+        "progressive-web-app",
+        "pwa",
+        "selfhosted",
+        "selfhosted-apps",
+        "sqlite"
+      ],
+      "updated_at": "2026-11-03T11:27:09Z",
+      "url": "https://github.com/ulsklyc/yuvomi"
+    },
+    {
+      "archived": false,
+      "contributors_count": 3,
+      "created_at": "2026-10-13T16:18:22Z",
+      "default_branch": "main",
+      "description": "We're rebuilding and open-sourcing the world’s software from scratch.",
+      "disabled": false,
+      "fork": false,
+      "forks": 694,
+      "forks_count": 694,
+      "full_name": "HeyPuter/everything",
+      "has_readme": true,
+      "homepage": "",
+      "id": 1417456983,
+      "is_dual_use": false,
+      "is_hidden_gem": false,
+      "language": "JavaScript",
+      "license": {
+        "key": "mit",
+        "name": "MIT License",
+        "node_id": "MDc6TGljZW5zZTEz",
+        "spdx_id": "MIT",
+        "url": "https://api.github.com/licenses/mit"
+      },
+      "media_urls": [
+        "https://raw.githubusercontent.com/HeyPuter/everything/main/assets/hero/variants/34-app-wall-intact.png",
+        "https://raw.githubusercontent.com/HeyPuter/everything/main/assets/everything.png",
+        "https://raw.githubusercontent.com/HeyPuter/everything/main/src/spreadsheet/icon-128.png",
+        "https://raw.githubusercontent.com/HeyPuter/everything/main/src/documents/icon-128.png",
+        "https://raw.githubusercontent.com/HeyPuter/everything/main/src/presentation/icon-128.png",
+        "https://raw.githubusercontent.com/HeyPuter/everything/main/src/whiteboard/icon-128.png",
+        "https://raw.githubusercontent.com/HeyPuter/everything/main/src/pdf/icon-128.png",
+        "https://raw.githubusercontent.com/HeyPuter/everything/main/src/notes/icon-128.png"
+      ],
+      "name": "everything",
+      "non_software_reason": "",
+      "open_issues": 62,
+      "open_issues_count": 62,
+      "owner_repo_count": 1,
+      "pushed_at": "2026-11-03T06:18:38Z",
+      "readme": "",
+      "readme_excerpt": "<p align=\"center\"><img src=\"assets/everything.png\" width=\"300\" alt=\"Everything\"></p>\n\n<h3 align=\"center\">The world’s software. Rebuilt, and open-sourced.</h3>\n\n<!-- App names, descriptions, and navigation are native text. The Everything logo, app icons, and decorative hero are images. Demo and source links use project metadata where available; missing destinations point to the link-status note. -->\n\n<p align=\"center\"><img src=\"assets/hero/variants/34-app-wall-intact.png\" width=\"100%\" alt=\"Everything: a wall of app screenshots extending beyond the frame\"></p>\n\nThe Everything Project is an effort to rebuild and open-source the world’s software from scratch. From Office to Slack and Photoshop to AutoCAD, we are recreating free, open-source alternatives to all proprietary software. This is a mono-repository containing all the applications and tools developed under the project.\n\n\n[Office](#office) · [Collaboration](#collaboration) · [Creative Tools](#creative-tools) · [Engineering](#engineering) · [Productivity](#productivity) · [Finance](#finance) · [Business](#business) · [Developer Tools](#developer-tools) · [Games](#games)\n\n<br>\n\n## Getting started\n\nRequires Node.js 22.12 or newer.\n",
+      "readme_len": 27647,
+      "repo_id": 1417456983,
+      "score": 87.013,
+      "source_name": "github_search",
+      "sources": [
+        "github_search"
+      ],
+      "stargazers_count": 6685,
+      "stars": 6685,
+      "topics": [
+        "adobe",
+        "cad",
+        "microsoft",
+        "office",
+        "photoshop",
+        "saas",
+        "spreadsheet"
+      ],
+      "updated_at": "2026-11-03T11:45:44Z",
+      "url": "https://github.com/HeyPuter/everything"
+    },
+    {
+      "archived": false,
+      "contributors_count": 5,
+      "created_at": "2026-10-25T05:25:45Z",
+      "default_branch": "main",
+      "description": "🛡️ BLA (Blind LLM Agents) — Adversarial defense shield that protects binaries, Electron apps, JS bundles, Python, and WebAssembly against AI reverse-engineering agents like REA. Poison -> Exhaust -> Hallucinate.",
+      "disabled": false,
+      "fork": false,
+      "forks": 275,
+      "forks_count": 275,
+      "full_name": "qybaihe/bla",
+      "has_readme": true,
+      "homepage": "https://bla.tools",
+      "id": 1432859403,
+      "is_dual_use": false,
+      "is_hidden_gem": false,
+      "language": "TypeScript",
+      "license": {
+        "key": "mit",
+        "name": "MIT License",
+        "node_id": "MDc6TGljZW5zZTEz",
+        "spdx_id": "MIT",
+        "url": "https://api.github.com/licenses/mit"
+      },
+      "media_urls": [
+        "https://raw.githubusercontent.com/qybaihe/bla/main/docs/assets/bla-vs-rea-showcase.svg",
+        "https://raw.githubusercontent.com/qybaihe/bla/main/docs/assets/logo.png"
+      ],
+      "name": "bla",
+      "non_software_reason": "",
+      "open_issues": 19,
+      "open_issues_count": 19,
+      "owner_repo_count": 1,
+      "pushed_at": "2026-11-03T04:29:04Z",
+      "readme": "",
+      "readme_excerpt": "<div align=\"center\">\n\n**English** · [简体中文](docs/readme/README_zh.md) · [繁體中文](docs/readme/README_zh-TW.md) · [日本語](docs/readme/README_ja.md) · [한국어](docs/readme/README_ko.md) · [Türkçe](docs/readme/README_tr.md) · [Русский](docs/readme/README_ru.md) · [Tiếng Việt](docs/readme/README_vi.md) · [ไทย](docs/readme/README_th.md) · [Deutsch](docs/readme/README_de.md) · [Español](docs/readme/README_es.md) · [Français](docs/readme/README_fr.md) · [Українська](docs/readme/README_uk.md) · [Polski](docs/readme/README_pl.md) · [Português (Brasil)](docs/readme/README_pt-BR.md) · [العربية](docs/readme/README_ar.md) · [فارسی](docs/readme/README_fa.md) · [Bahasa Indonesia](docs/readme/README_id.md) · [Italiano](docs/readme/README_it.md) · [Ελληνικά](docs/readme/README_el.md) · [മലയാളം](docs/readme/README_ml.md) · [Roman Urdu](docs/readme/README_ur-Latn.md) · [Română](docs/readme/README_ro.md)\n\n# <img src=\"docs/assets/logo.png\" alt=\"BLA Shield\" width=\"42\" align=\"absmiddle\" /> BLA: Blind LLM Agents\n\n### Make reverse engineering bankrupt again.\n\n**Point BLA at the build you ship. When an AI reverse-engineering agent (REA) opens it, the analyzer hits resource budgets, follows decoys, and burns tokens —",
+      "readme_len": 16785,
+      "repo_id": 1432859403,
+      "score": 86.423,
+      "source_name": "github_search",
+      "sources": [
+        "github_search",
+        "telegram:github_repos",
+        "telegram:gitbless"
+      ],
+      "stargazers_count": 2037,
+      "stars": 2037,
+      "topics": [
+        "adversarial-ai",
+        "claude-code",
+        "cursor",
+        "electron-security",
+        "llm-security",
+        "mcp",
+        "mcp-server",
+        "obfuscation",
+        "reverse-engineering",
+        "webassembly"
+      ],
+      "updated_at": "2026-11-03T11:50:29Z",
+      "url": "https://github.com/qybaihe/bla"
+    },
+    {
+      "archived": false,
+      "contributors_count": 8,
+      "created_at": "2026-08-06T10:38:49Z",
+      "default_branch": "main",
+      "description": "AI 短剧制作的 skill 集合：拆角色、排大纲、出场景与道具设定、写剧本、切分镜 | Agent skills for AI short-drama production — character bibles, adaptation outlines, art bibles, screenplays, storyboards. Runs in Claude Code & codex.",
+      "disabled": false,
+      "fork": false,
+      "forks": 825,
+      "forks_count": 825,
+      "full_name": "eternityspring/shuohao-skills",
+      "has_readme": true,
+      "homepage": "https://studio.reelbenchai.com",
+      "id": 1325096132,
+      "is_dual_use": false,
+      "is_hidden_gem": false,
+      "language": "JavaScript",
+      "license": {
+        "key": "apache-2.0",
+        "name": "Apache License 2.0",
+        "node_id": "MDc6TGljZW5zZTI=",
+        "spdx_id": "Apache-2.0",
+        "url": "https://api.github.com/licenses/apache-2.0"
+      },
+      "media_urls": [
+        "https://raw.githubusercontent.com/eternityspring/shuohao-skills/main/assets/reelbench-first-screen-en.png",
+        "https://raw.githubusercontent.com/eternityspring/shuohao-skills/main/skills/novel-outline/assets/report.webp",
+        "https://raw.githubusercontent.com/eternityspring/shuohao-skills/main/skills/novel-characters/assets/report.webp",
+        "https://raw.githubusercontent.com/eternityspring/shuohao-skills/main/skills/novel-art/assets/report.webp",
+        "https://raw.githubusercontent.com/eternityspring/shuohao-skills/main/skills/novel-script/assets/report.webp",
+        "https://raw.githubusercontent.com/eternityspring/shuohao-skills/main/skills/novel-staging/assets/report-en.jpg",
+        "https://raw.githubusercontent.com/eternityspring/shuohao-skills/main/skills/novel-storyboard/assets/report.webp",
+        "https://raw.githubusercontent.com/eternityspring/shuohao-skills/main/skills/character-refs/assets/report.webp"
+      ],
+      "name": "shuohao-skills",
+      "non_software_reason": "",
+      "open_issues": 1,
+      "open_issues_count": 1,
+      "owner_repo_count": 1,
+      "pushed_at": "2026-10-26T03:32:47Z",
+      "readme": "",
+      "readme_excerpt": "<div align=\"center\">\n\n# shuohao-skills\n\n**Agent-agnostic skills for AI short-drama production**\n\nEnglish | [中文](README.zh.md) | [X @eternityspring](https://x.com/eternityspring)\n\n**[Skills](#skills) · [Install](#install) · [Requirements](#requirements) · [Repository conventions](#repository-conventions)**\n\n</div>\n\n> 👋 **Open to work / collaboration** — I'm between jobs right now, and this repo is what I build in that spare time.\n> Happy to hear from anyone this resonates with. Besides **remote work**, I'm also open to a **half-collaboration**: a few thousand RMB a month for living costs plus a profit share. On-site trips are possible where the work genuinely needs them. What I'm really after is finding people on the same wavelength to build something in this AI wave.\n> Email: **[eternityspring@gmail.com](mailto:eternityspring@gmail.com)** · Résumé: **[resume.79px.com](https://resume.79px.com)** · WeChat **`hao_dev`** (please mention `github` when you add me)\n>\n> These skills are free and open source, built and battle-tested on real AI short-drama production.\n> If they save you an afternoon, consider [**buying me a coffee on Ko-fi**](https://ko-fi.com/eternityspring) ☕ — it keeps th",
+      "readme_len": 15403,
+      "repo_id": 1325096132,
+      "score": 85.446,
+      "source_name": "github_search",
+      "sources": [
+        "github_search"
+      ],
+      "stargazers_count": 5943,
+      "stars": 5943,
+      "topics": [],
+      "updated_at": "2026-11-03T11:30:29Z",
+      "url": "https://github.com/eternityspring/shuohao-skills"
+    },
+    {
+      "archived": false,
+      "contributors_count": 1,
+      "created_at": "2026-10-30T07:49:05Z",
+      "default_branch": "main",
+      "description": "Procedurally generated Delft-blue floral page margins for LuaLaTeX, drawn in Lua",
+      "disabled": false,
+      "fork": false,
+      "forks": 39,
+      "forks_count": 39,
+      "full_name": "kevinraymond/florilegium",
+      "has_readme": true,
+      "hn_points": 382,
+      "homepage": "https://kevinraymond.github.io/florilegium/",
+      "id": 1439430391,
+      "is_dual_use": false,
+      "is_hidden_gem": false,
+      "language": "Lua",
+      "license": {
+        "key": "mit",
+        "name": "MIT License",
+        "node_id": "MDc6TGljZW5zZTEz",
+        "spdx_id": "MIT",
+        "url": "https://api.github.com/licenses/mit"
+      },
+      "media_urls": [
+        "https://raw.githubusercontent.com/kevinraymond/florilegium/main/gallery/seeds.gif",
+        "https://raw.githubusercontent.com/kevinraymond/florilegium/main/gallery/growth.gif",
+        "https://raw.githubusercontent.com/kevinraymond/florilegium/main/gallery/growth-explain.gif",
+        "https://raw.githubusercontent.com/kevinraymond/florilegium/main/gallery/preview-grown-lastpage.png",
+        "https://raw.githubusercontent.com/kevinraymond/florilegium/main/gallery/preview-showcase.png",
+        "https://raw.githubusercontent.com/kevinraymond/florilegium/main/gallery/preview-postscript.png",
+        "https://raw.githubusercontent.com/kevinraymond/florilegium/main/gallery/preview-authored.png",
+        "https://raw.githubusercontent.com/kevinraymond/florilegium/main/gallery/preview-grown.png"
+      ],
+      "name": "florilegium",
+      "non_software_reason": "",
+      "open_issues": 4,
+      "open_issues_count": 4,
+      "owner_repo_count": 1,
+      "pushed_at": "2026-11-01T21:43:13Z",
+      "readme": "",
+      "readme_excerpt": "# florilegium\n\n[![build](https://github.com/kevinraymond/florilegium/actions/workflows/build.yml/badge.svg?branch=main)](https://github.com/kevinraymond/florilegium/actions/workflows/build.yml)\n[![playground](https://github.com/kevinraymond/florilegium/actions/workflows/pages.yml/badge.svg?branch=main)](https://kevinraymond.github.io/florilegium/)\n[![release](https://img.shields.io/github/v/release/kevinraymond/florilegium?color=2456c4)](https://github.com/kevinraymond/florilegium/releases/latest)\n[![license](https://img.shields.io/github/license/kevinraymond/florilegium?color=2456c4)](LICENSE)\n[![OpenSSF Scorecard](https://api.scorecard.dev/projects/github.com/kevinraymond/florilegium/badge)](https://scorecard.dev/viewer/?uri=github.com/kevinraymond/florilegium)\n\n## Origin\n\nThe [Reddit post](https://www.reddit.com/r/LaTeX/comments/1xixznw/how_do_you_make_these_flowers_in_latex/)\nasked how to make flowers like these in LaTeX. I don't know how the original was made. This\nproject is one possible way, and the way I did it uses hand-authored primitives with\nrandomized parameters, painted in Lua and placed by a procedural layout whose \"fill the\nunused space\" part borrows a 1998 idea fro",
+      "readme_len": 27164,
+      "repo_id": 1439430391,
+      "score": 85.42,
+      "source_name": "hacker_news",
+      "sources": [
+        "hacker_news",
+        "telegram:github_repos",
+        "telegram:gitbless"
+      ],
+      "stargazers_count": 1394,
+      "stars": 1394,
+      "topics": [
+        "generative-art",
+        "latex",
+        "latex-package",
+        "lua",
+        "lualatex",
+        "postscript",
+        "procedural-generation",
+        "svg",
+        "typography"
+      ],
+      "updated_at": "2026-11-03T10:26:20Z",
+      "url": "https://github.com/kevinraymond/florilegium"
+    },
+    {
+      "archived": false,
+      "contributors_count": 1,
+      "created_at": "2026-08-18T13:59:23Z",
+      "default_branch": "main",
+      "description": "A compact Agent Skill for highly simplified, rounded, subtly neo-skeuomorphic IP mascot logos.",
+      "disabled": false,
+      "fork": false,
+      "forks": 308,
+      "forks_count": 308,
+      "full_name": "s1dashu/ip-as-logo-skill",
+      "has_readme": true,
+      "homepage": "https://ipaslogo.com",
+      "id": 1338470635,
+      "is_dual_use": false,
+      "is_hidden_gem": false,
+      "language": "",
+      "license": {
+        "key": "mit",
+        "name": "MIT License",
+        "node_id": "MDc6TGljZW5zZTEz",
+        "spdx_id": "MIT",
+        "url": "https://api.github.com/licenses/mit"
+      },
+      "media_urls": [
+        "https://raw.githubusercontent.com/s1dashu/ip-as-logo-skill/main/assets/ip-as-logo-wall.webp"
+      ],
+      "name": "ip-as-logo-skill",
+      "non_software_reason": "",
+      "open_issues": 7,
+      "open_issues_count": 7,
+      "owner_repo_count": 1,
+      "pushed_at": "2026-10-30T05:28:28Z",
+      "readme": "",
+      "readme_excerpt": "# IP as Logo\n\n`ip-as-logo` is a compact Agent Skill for generating extremely simple, cute, company-ready IP mascots. It prioritizes lovable character appeal, bold rounded silhouettes, strict complexity limits, a dominant lower-left composition, and a solid named background color.\n\nIt follows the open Agent Skills format and is designed to work with any compatible AI agent, rather than being tied to a specific agent product.\n\nYou can also browse the free [IP as Logo Skill website](https://ipaslogo.com), a searchable library backed by Cloudflare R2 and Supabase.\n\n![IP as Logo showcase](assets/ip-as-logo-wall.webp)\n\n**Don't have Codex, Doubao, Coze, or Workbuddy?** [Visit our website](https://ipaslogo.com) to download ready-made logos for free. Every logo is free for commercial use.\n\n## What it guides\n\n- One dominant silhouette built from roughly 4–7 large basic shapes\n- Three semantic colors by default: two IP base colors plus one background color\n- Three proposed directions followed by six independently generated candidates after user approval\n- Familiar, broadly appealing animals as the default open-ended subject; objects, machines, fantasy artifacts, and obscure creatures require ",
+      "readme_len": 7864,
+      "repo_id": 1338470635,
+      "score": 85.122,
+      "source_name": "github_search",
+      "sources": [
+        "github_search"
+      ],
+      "stargazers_count": 6353,
+      "stars": 6353,
+      "topics": [
+        "codex",
+        "codex-skill",
+        "image-generation",
+        "logo-design",
+        "mascot-design"
+      ],
+      "updated_at": "2026-11-03T10:48:35Z",
+      "url": "https://github.com/s1dashu/ip-as-logo-skill"
+    },
+    {
+      "archived": false,
+      "contributors_count": 1,
+      "created_at": "2026-10-18T12:19:27Z",
+      "default_branch": "main",
+      "description": "让你的agent一键直出商业级产品宣传片：会作曲，能指着画面改。Commercial-grade launch films by your coding agent — point at the frame to change it.",
+      "disabled": false,
+      "fork": false,
+      "forks": 214,
+      "forks_count": 214,
+      "full_name": "alchaincyf/huashu-motion",
+      "has_readme": true,
+      "homepage": "https://github.com/alchaincyf/huashu-motion",
+      "id": 1424340323,
+      "is_dual_use": false,
+      "is_hidden_gem": false,
+      "language": "JavaScript",
+      "license": {
+        "key": "mit",
+        "name": "MIT License",
+        "node_id": "MDc6TGljZW5zZTEz",
+        "spdx_id": "MIT",
+        "url": "https://api.github.com/licenses/mit"
+      },
+      "media_urls": [
+        "https://raw.githubusercontent.com/alchaincyf/huashu-motion/main/docs/media/hero.gif",
+        "https://raw.githubusercontent.com/alchaincyf/huashu-motion/main/docs/media/point-to-edit.gif",
+        "https://raw.githubusercontent.com/alchaincyf/huashu-motion/main/docs/media/score-first.gif",
+        "https://raw.githubusercontent.com/alchaincyf/huashu-motion/main/docs/media/sixteen-cuts.gif",
+        "https://raw.githubusercontent.com/alchaincyf/huashu-motion/main/docs/media/grok-bot.gif",
+        "https://raw.githubusercontent.com/alchaincyf/huashu-motion/main/docs/media/huashu-design.gif",
+        "https://raw.githubusercontent.com/alchaincyf/huashu-motion/main/docs/media/catlight-pro.gif",
+        "https://raw.githubusercontent.com/alchaincyf/huashu-motion/main/docs/media/deepseek-flash.gif"
+      ],
+      "name": "huashu-motion",
+      "non_software_reason": "",
+      "open_issues": 4,
+      "open_issues_count": 4,
+      "owner_repo_count": 2,
+      "pushed_at": "2026-10-22T12:19:37Z",
+      "readme": "",
+      "readme_excerpt": "<div align=\"center\">\n\n**简体中文** | [English](README.en.md)\n\n<img src=\"docs/media/hero.gif\" alt=\"huashu-motion发布片开场：一整面墙的片子，说一句，出一支片\" width=\"100%\" />\n\n# huashu-motion\n\n> *「一键直出商业级产品宣传片。」*\n\n[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)\n[![Agent Skills](https://img.shields.io/badge/Agent%20Skills-Standard-green)](https://agentskills.io)\n[![Runtime](https://img.shields.io/badge/Runtime-Claude%20Code%20·%20Codex%20·%20WorkBuddy%20·%20Grok%20Bot%20·%20Muse%20·%20Dots-blueviolet)](#安装)\n\n**让你的agent做动画、作曲，指着画面改。**\n\n跟Claude Code、Codex这些agent说一句「给我的产品做个30秒的发布片」，<br>\n它会先读你的产品，给你三个方向挑，写出整支片子，自己写谱配乐，<br>\n然后在浏览器里打开一个编辑器等你。哪里不满意，在画面上点一下，写下要改什么，它就只改那一处。\n\n```sh\nnpx skills add alchaincyf/huashu-motion\n```\n\n[看效果](#看效果) · [安装](#安装) · [能做什么](#能做什么) · [怎么做到的](#怎么做到的) · [背后的故事](#背后的故事)\n\n</div>\n\n---\n\n## 看效果\n\n这篇README里的每一段动画都是huashu-motion做的。上面那段取自它给自己做的53秒发布片，👉 [下载完整发布片（MP4，带声音）](https://github.com/alchaincyf/huashu-motion/releases/latest)，下面Grok Bot（非官方）、huashu-design、DeepSeek、Claude Duet（非官方）这几支的完整版也在同一个页面。\n\n### 指着画面改\n\n<img src=\"docs/media/point-to-edit.gif\" alt=\"在编辑器里按C，点中开场画面，写下「第一帧开场的效果我觉得很差，还不如核心聚焦在typing呢」，agent接单改完，预览停在原处刷新\" width=\"100%\" />\n\n按C，在画面上点一下，写下要改什么。评论发过去的时",
+      "readme_len": 13337,
+      "repo_id": 1424340323,
+      "score": 84.815,
+      "source_name": "github_search",
+      "sources": [
+        "github_search"
+      ],
+      "stargazers_count": 2191,
+      "stars": 2191,
+      "topics": [
+        "agent-skills",
+        "animation",
+        "claude-code",
+        "codex",
+        "gsap",
+        "launch-video",
+        "motion-graphics",
+        "skills"
+      ],
+      "updated_at": "2026-11-03T11:48:14Z",
+      "url": "https://github.com/alchaincyf/huashu-motion"
+    },
+    {
+      "archived": false,
+      "contributors_count": 9,
+      "created_at": "2026-10-27T12:03:01Z",
+      "default_branch": "main",
+      "description": "See how your app actually fits together. An interactive, plain-English map of your codebase, drawn by Claude or Codex.",
+      "disabled": false,
+      "fork": false,
+      "forks": 173,
+      "forks_count": 173,
+      "full_name": "haydenschmitty/floorplan",
+      "has_readme": true,
+      "homepage": "https://haydenschmitty.github.io/floorplan-demo/",
+      "id": 1435672472,
+      "is_dual_use": false,
+      "is_hidden_gem": false,
+      "language": "JavaScript",
+      "license": {
+        "key": "mit",
+        "name": "MIT License",
+        "node_id": "MDc6TGljZW5zZTEz",
+        "spdx_id": "MIT",
+        "url": "https://api.github.com/licenses/mit"
+      },
+      "media_urls": [
+        "https://raw.githubusercontent.com/haydenschmitty/floorplan/main/docs/images/screens.png",
+        "https://raw.githubusercontent.com/haydenschmitty/floorplan/main/docs/images/video.jpg",
+        "https://raw.githubusercontent.com/haydenschmitty/floorplan/main/docs/images/ask.png",
+        "https://raw.githubusercontent.com/haydenschmitty/floorplan/main/docs/images/recent.png",
+        "https://raw.githubusercontent.com/haydenschmitty/floorplan/main/docs/images/health.png",
+        "https://raw.githubusercontent.com/haydenschmitty/floorplan/main/docs/images/inside.png",
+        "https://raw.githubusercontent.com/haydenschmitty/floorplan/main/docs/images/flow.png",
+        "https://raw.githubusercontent.com/haydenschmitty/floorplan/main/docs/images/logo-light.png"
+      ],
+      "name": "floorplan",
+      "non_software_reason": "",
+      "open_issues": 18,
+      "open_issues_count": 18,
+      "owner_repo_count": 1,
+      "pushed_at": "2026-11-02T20:06:48Z",
+      "readme": "",
+      "readme_excerpt": "<div align=\"center\">\n\n<picture>\n  <source media=\"(prefers-color-scheme: dark)\" srcset=\"docs/images/logo-dark.png\">\n  <img src=\"docs/images/logo-light.png\" alt=\"Floorplan logo\" height=\"88\">\n</picture>\n\n# Floorplan\n\n**See how your app actually fits together.**\n\nClaude or Codex reads your codebase and draws an interactive map of it. Every part, file and web request gets a plain-English name, and every connection between them is shown.\n\n[![Claude Code plugin](https://img.shields.io/badge/Claude%20Code-plugin-D97757?style=flat-square)](https://code.claude.com/docs/en/overview)\n[![Codex plugin](https://img.shields.io/badge/Codex-plugin-111?style=flat-square)](docs/codex.md)\n[![Tests](https://img.shields.io/github/actions/workflow/status/haydenschmitty/floorplan/test.yml?branch=main&style=flat-square&label=tests)](https://github.com/haydenschmitty/floorplan/actions/workflows/test.yml)\n[![Version](https://img.shields.io/badge/version-0.6.3-111?style=flat-square)](CHANGELOG.md)\n[![License: MIT](https://img.shields.io/badge/license-MIT-111?style=flat-square)](LICENSE)\n[![Node 18+](https://img.shields.io/badge/node-%E2%89%A518-111?style=flat-square)](https://nodejs.org)\n[![Zero dependencies](",
+      "readme_len": 20688,
+      "repo_id": 1435672472,
+      "score": 84.007,
+      "source_name": "github_search",
+      "sources": [
+        "github_search",
+        "telegram:github_repos"
+      ],
+      "stargazers_count": 2368,
+      "stars": 2368,
+      "topics": [
+        "ai-coding",
+        "architecture-diagram",
+        "claude",
+        "claude-code",
+        "claude-code-plugin",
+        "codebase-visualization",
+        "codex",
+        "codex-plugin",
+        "developer-tools",
+        "onboarding",
+        "openai",
+        "vibe-coding"
+      ],
+      "updated_at": "2026-11-03T11:51:33Z",
+      "url": "https://github.com/haydenschmitty/floorplan"
+    },
+    {
+      "archived": false,
+      "contributors_count": 4,
+      "created_at": "2026-08-19T15:31:34Z",
+      "default_branch": "main",
+      "description": "Amagine3D: From hardware requirements to editable 3D designs",
+      "disabled": false,
+      "fork": false,
+      "forks": 536,
+      "forks_count": 536,
+      "full_name": "amagine-ai/Amagine3D",
+      "has_readme": true,
+      "homepage": "",
+      "id": 1339742577,
+      "is_dual_use": false,
+      "is_hidden_gem": false,
+      "language": "Python",
+      "license": {
+        "key": "apache-2.0",
+        "name": "Apache License 2.0",
+        "node_id": "MDc6TGljZW5zZTI=",
+        "spdx_id": "Apache-2.0",
+        "url": "https://api.github.com/licenses/apache-2.0"
+      },
+      "media_urls": [
+        "https://raw.githubusercontent.com/amagine-ai/Amagine3D/main/docs/assets/readme/examples/example-01.gif",
+        "https://raw.githubusercontent.com/amagine-ai/Amagine3D/main/docs/assets/readme/examples/example-02.gif",
+        "https://raw.githubusercontent.com/amagine-ai/Amagine3D/main/docs/assets/readme/examples/example-03.gif",
+        "https://raw.githubusercontent.com/amagine-ai/Amagine3D/main/docs/assets/readme/examples/example-04.gif",
+        "https://raw.githubusercontent.com/amagine-ai/Amagine3D/main/docs/assets/readme/stl-rotation.gif"
+      ],
+      "name": "Amagine3D",
+      "non_software_reason": "",
+      "open_issues": 7,
+      "open_issues_count": 7,
+      "owner_repo_count": 1,
+      "pushed_at": "2026-10-22T07:42:50Z",
+      "readme": "",
+      "readme_excerpt": "<div align=\"center\">\n\n<h1>Amagine3D</h1>\n\n<p><strong>From hardware requirements to editable 3D designs</strong></p>\n\n<p>\n  Amagine3D is the open-source 3D capability layer <a href=\"https://amagine.ai\">Amagine</a> is developing for hardware creation.<br />\n  Give it a product description and reference images, add the key dimensions, and Amagine3D can design an enclosure and assembly structures around the internal components while producing source code that remains editable. STEP, STL, and 3MF files can be exported as needed.\n</p>\n\n<p>\n  <a href=\"#capabilities\">Capabilities</a> ·\n  <a href=\"#example\">Example</a> ·\n  <a href=\"#quick-start\">Quick Start</a> ·\n  <a href=\"./docs/README.zh-CN.md\">简体中文</a>\n</p>\n\n<p>\n  <img src=\"https://img.shields.io/badge/License-Apache--2.0-blue.svg\" alt=\"Apache 2.0\" />\n  <img src=\"https://img.shields.io/badge/Node.js-22.19.0%2B-339933.svg?logo=node.js&amp;logoColor=white\" alt=\"Node.js 22.19.0+\" />\n  <img src=\"https://img.shields.io/badge/Vite-7.3.7-646CFF.svg?logo=vite&amp;logoColor=white\" alt=\"Vite 7.3.7\" />\n  <img src=\"https://img.shields.io/badge/Runtime-build123d%20%2B%20OCP-5B5BD6.svg\" alt=\"build123d + OCP\" />\n</p>\n\n<p>\n  <img src=\"./docs/assets/rea",
+      "readme_len": 18956,
+      "repo_id": 1339742577,
+      "score": 83.993,
+      "source_name": "github_search",
+      "sources": [
+        "github_search"
+      ],
+      "stargazers_count": 6296,
+      "stars": 6296,
+      "topics": [
+        "3d-printing-tools",
+        "text-to-3d",
+        "text-to-cad"
+      ],
+      "updated_at": "2026-11-03T11:30:29Z",
+      "url": "https://github.com/amagine-ai/Amagine3D"
+    },
+    {
+      "archived": false,
+      "contributors_count": 32,
+      "created_at": "2026-10-29T12:32:46Z",
+      "default_branch": "main",
+      "description": "Static recompilation of The Legend of Zelda: Tears of the Kingdom to native Windows and Linux x86-64, with a Vulkan renderer. Game files not included.",
+      "disabled": false,
+      "fork": false,
+      "forks": 342,
+      "forks_count": 342,
+      "full_name": "valentderah/totk-pc-recomp",
+      "has_readme": true,
+      "homepage": "",
+      "id": 1438394948,
+      "is_dual_use": false,
+      "is_hidden_gem": false,
+      "language": "C",
+      "license": {
+        "key": "mit",
+        "name": "MIT License",
+        "node_id": "MDc6TGljZW5zZTEz",
+        "spdx_id": "MIT",
+        "url": "https://api.github.com/licenses/mit"
+      },
+      "media_urls": [],
+      "name": "totk-pc-recomp",
+      "non_software_reason": "",
+      "open_issues": 230,
+      "open_issues_count": 230,
+      "owner_repo_count": 1,
+      "pushed_at": "2026-11-03T09:07:57Z",
+      "readme": "",
+      "readme_excerpt": "# TotK Recomp\n\n**TotK Recomp** is a static recompilation of *The Legend of Zelda: Tears of the Kingdom* (Nintendo Switch, 2023) into a native x86-64 application for Windows and Linux ([docs/architecture.md](docs/architecture.md)).\n\n> [!IMPORTANT]\n> **No game files are included.** You need your own legally obtained copy of *Tears of the Kingdom*, dumped from your own console: the base game and the 1.1.0, 1.2.1 or 1.4.3 update. Instructions for obtaining those files will not be provided.\n>\n> The game is built from your files on your machine, so the result contains the game. It is for your own use. Do not share it.\n\n## Status\n\nEarly development. The game is playable on Windows and Linux; visual bugs and crashes are still expected.\n\nReport problems as issues, following [CONTRIBUTING.md](CONTRIBUTING.md).\n\n## Features\n\n- Native code, not emulation\n- Game updates 1.1.0, 1.2.1 and 1.4.3; 1.2.1 and 1.4.3 saves carry over between them\n- 60 fps by default; up to 144 fps or the monitor's refresh rate (experimental)\n- Custom resolutions (1080p, 2k...), supersampling and AMD FSR 1 upscaling\n- HDR10 output with peak, game and HUD brightness settings\n- 16:10 (Steam Deck, handhelds), 21:9 and 32:9",
+      "readme_len": 5514,
+      "repo_id": 1438394948,
+      "score": 83.892,
+      "source_name": "telegram:github_repos",
+      "sources": [
+        "telegram:github_repos",
+        "telegram:gitbless"
+      ],
+      "stargazers_count": 4290,
+      "stars": 4290,
+      "topics": [
+        "game",
+        "linux",
+        "port",
+        "recompilation",
+        "windows"
+      ],
+      "updated_at": "2026-11-03T11:57:28Z",
+      "url": "https://github.com/valentderah/totk-pc-recomp"
+    },
+    {
+      "archived": false,
+      "contributors_count": 7,
+      "created_at": "2026-10-24T21:00:26Z",
+      "default_branch": "master",
+      "description": "Search inside documents, code, and even screenshots - instantly and locally. A free, open-source file launcher with OCR, semantic search, and MCP agent access.",
+      "disabled": false,
+      "fork": false,
+      "forks": 47,
+      "forks_count": 47,
+      "full_name": "yjid/kensaku",
+      "has_readme": true,
+      "homepage": "",
+      "id": 1432590994,
+      "is_dual_use": false,
+      "is_hidden_gem": false,
+      "language": "Rust",
+      "license": {
+        "key": "mit",
+        "name": "MIT License",
+        "node_id": "MDc6TGljZW5zZTEz",
+        "spdx_id": "MIT",
+        "url": "https://api.github.com/licenses/mit"
+      },
+      "media_urls": [
+        "https://raw.githubusercontent.com/yjid/kensaku/master/assets/hero.png",
+        "https://raw.githubusercontent.com/yjid/kensaku/master/assets/search-dashboard.png",
+        "https://raw.githubusercontent.com/yjid/kensaku/master/assets/icon.png"
+      ],
+      "name": "kensaku",
+      "non_software_reason": "",
+      "open_issues": 10,
+      "open_issues_count": 10,
+      "owner_repo_count": 1,
+      "pushed_at": "2026-11-03T06:48:42Z",
+      "readme": "",
+      "readme_excerpt": "<p align=\"center\">\n  <img src=\"assets/icon.png\" width=\"112\" height=\"112\" alt=\"Kensaku\" />\n</p>\n\n<h1 align=\"center\">Kensaku <span title=\"kensaku = search, in Japanese\">検索</span></h1>\n\n<p align=\"center\">\n  <b>Fast, light, and efficient. Find anything on your computer.</b>\n</p>\n\n<p align=\"center\">\n  Search 100,000 file names in about a millisecond, using roughly 12 MB of memory.<br/>\n  Search inside documents, images, and code too. Nothing leaves your machine.\n</p>\n\n<p align=\"center\">\n  <a href=\"https://upstar.dev/r/yjid/kensaku\"><img alt=\"Upstar trending\" src=\"https://upstar.dev/badge/yjid/kensaku.svg\" /></a>\n</p>\n\n<p align=\"center\">\n  <a href=\"https://github.com/yjid/kensaku/releases/latest\"><img alt=\"Latest release\" src=\"https://img.shields.io/github/v/release/yjid/kensaku?style=for-the-badge\" /></a>\n  <a href=\"https://github.com/yjid/kensaku/releases/latest\"><img alt=\"Downloads\" src=\"https://img.shields.io/github/downloads/yjid/kensaku/total?style=for-the-badge\" /></a>\n  <a href=\"LICENSE\"><img alt=\"MIT license\" src=\"https://img.shields.io/badge/license-MIT-111111?style=for-the-badge\" /></a>\n  <a href=\"https://github.com/yjid/kensaku/actions/workflows/ci.yml\"><img alt=\"CI\" src=\"htt",
+      "readme_len": 14860,
+      "repo_id": 1432590994,
+      "score": 82.667,
+      "source_name": "telegram:open_source_friend",
+      "sources": [
+        "telegram:open_source_friend"
+      ],
+      "stargazers_count": 658,
+      "stars": 658,
+      "topics": [
+        "ai-agents",
+        "desktop",
+        "desktop-search",
+        "file-search",
+        "full-text-search",
+        "launcher",
+        "local-first",
+        "mcp",
+        "ocr",
+        "open-source",
+        "privacy",
+        "rust",
+        "search",
+        "semantic-search",
+        "tauri",
+        "windows"
+      ],
+      "updated_at": "2026-11-03T11:50:21Z",
+      "url": "https://github.com/yjid/kensaku"
+    },
+    {
+      "archived": false,
+      "contributors_count": 4,
+      "created_at": "2026-09-25T15:16:39Z",
+      "default_branch": "main",
+      "description": "Self-hosted, open-source inventory of everything you own and where it is. AI assistant and MCP server built in.",
+      "disabled": false,
+      "fork": false,
+      "forks": 32,
+      "forks_count": 32,
+      "full_name": "keptinventory/kept",
+      "has_readme": true,
+      "homepage": "https://keptinventory.info/",
+      "id": 1387755954,
+      "is_dual_use": false,
+      "is_hidden_gem": false,
+      "language": "TypeScript",
+      "license": {
+        "key": "agpl-3.0",
+        "name": "GNU Affero General Public License v3.0",
+        "node_id": "MDc6TGljZW5zZTE=",
+        "spdx_id": "AGPL-3.0",
+        "url": "https://api.github.com/licenses/agpl-3.0"
+      },
+      "media_urls": [
+        "https://raw.githubusercontent.com/keptinventory/kept/main/docs/assets/kept-hero-light.webp",
+        "https://raw.githubusercontent.com/keptinventory/kept/main/docs/assets/kept-demo-phone.webp",
+        "https://raw.githubusercontent.com/keptinventory/kept/main/apps/docs/src/assets/screens/list-phone-light.webp",
+        "https://raw.githubusercontent.com/keptinventory/kept/main/apps/docs/src/assets/screens/labels-light.webp",
+        "https://raw.githubusercontent.com/keptinventory/kept/main/docs/assets/kept-lockup-light.svg",
+        "https://raw.githubusercontent.com/keptinventory/kept/main/docs/assets/kept-tour.webp",
+        "https://raw.githubusercontent.com/keptinventory/kept/main/docs/assets/kept-map-phone-light.webp",
+        "https://raw.githubusercontent.com/keptinventory/kept/main/docs/assets/claude-mcp.webp"
+      ],
+      "name": "kept",
+      "non_software_reason": "",
+      "open_issues": 19,
+      "open_issues_count": 19,
+      "owner_repo_count": 1,
+      "pushed_at": "2026-11-03T11:58:31Z",
+      "readme": "",
+      "readme_excerpt": "<p align=\"center\">\n  <picture>\n    <source media=\"(prefers-color-scheme: dark)\" srcset=\"docs/assets/kept-lockup-dark.svg\">\n    <img src=\"docs/assets/kept-lockup-light.svg\" alt=\"Kept\" width=\"240\">\n  </picture>\n</p>\n\n<p align=\"center\">\n  A self-hosted, open-source inventory of everything you own and where it is.\n</p>\n\n<!--\n  One style for every badge: flat-square, the kit's ink-2 (#55524C) label and amber (#F0B03A)\n  value (apps/web/src/styles/tokens.css); a badge for another product takes that product's colour\n  and logo (Docker's blue, Discord's, Home Assistant's #18BCF2). Release and CI are live (shields.io reads GitHub): CI\n  turns red when the ci workflow fails on main. Both read public data, so they render once the\n  repository is public. Discord counts the members of the invite's server, live.\n-->\n<p align=\"center\">\n  <a href=\"https://github.com/keptinventory/kept/releases/latest\"><img alt=\"Latest release\" src=\"https://img.shields.io/github/v/release/keptinventory/kept?sort=semver&display_name=tag&style=flat-square&label=release&labelColor=55524C&color=F0B03A\"></a>\n  <a href=\"https://github.com/keptinventory/kept/actions/workflows/ci.yml\"><img alt=\"CI status\" src=\"https://img.",
+      "readme_len": 15802,
+      "repo_id": 1387755954,
+      "score": 82.383,
+      "source_name": "telegram:open_source_friend",
+      "sources": [
+        "telegram:open_source_friend"
+      ],
+      "stargazers_count": 477,
+      "stars": 477,
+      "topics": [
+        "3d",
+        "home-inventory",
+        "homelab",
+        "inventory",
+        "inventory-management",
+        "mcp",
+        "react",
+        "self-hosted",
+        "selfhosted",
+        "typescript"
+      ],
+      "updated_at": "2026-11-03T10:57:50Z",
+      "url": "https://github.com/keptinventory/kept"
+    },
+    {
+      "archived": false,
+      "contributors_count": 22,
+      "created_at": "2026-10-18T06:42:29Z",
+      "default_branch": "main",
+      "description": "Make an old Android TV fast again with Claude Code or Codex: a tiny ad-free home screen plus the prompt to clean it up",
+      "disabled": false,
+      "fork": false,
+      "forks": 219,
+      "forks_count": 219,
+      "full_name": "Ansub/tv-detox",
+      "has_readme": true,
+      "homepage": "https://www.skool.com/staffed-claude-code-ai-5304",
+      "id": 1424070461,
+      "is_dual_use": false,
+      "is_hidden_gem": false,
+      "language": "Java",
+      "license": {
+        "key": "mit",
+        "name": "MIT License",
+        "node_id": "MDc6TGljZW5zZTEz",
+        "spdx_id": "MIT",
+        "url": "https://api.github.com/licenses/mit"
+      },
+      "media_urls": [
+        "https://raw.githubusercontent.com/Ansub/tv-detox/main/docs/home-screen.png",
+        "https://img.youtube.com/vi/fP2SGGVsaB0/maxresdefault.jpg"
+      ],
+      "name": "tv-detox",
+      "non_software_reason": "",
+      "open_issues": 24,
+      "open_issues_count": 24,
+      "owner_repo_count": 1,
+      "pushed_at": "2026-10-30T07:16:25Z",
+      "readme": "",
+      "readme_excerpt": "<div align=\"center\">\n\n# TV Detox\n\n<a href=\"https://www.skool.com/staffed-claude-code-ai-5304\"><img src=\"https://img.shields.io/badge/Join_the_community_%E2%86%92-FFD400?style=for-the-badge\" alt=\"Join the community\" width=\"340\"></a>\n\n### Make an old, slow Android TV fast again.\n\nClaude Code or Codex does the work. You just press OK on the remote.\n\n[![Release](https://img.shields.io/github/v/release/Ansub/tv-detox?color=black)](https://github.com/Ansub/tv-detox/releases/latest)\n[![Tests](https://img.shields.io/github/actions/workflow/status/Ansub/tv-detox/build.yml?branch=main&label=tests)](https://github.com/Ansub/tv-detox/actions)\n[![License](https://img.shields.io/badge/license-MIT-black)](LICENSE)\n[![YouTube](https://img.shields.io/badge/YouTube-@ansubkhan-FF0000?logo=youtube&logoColor=white)](https://www.youtube.com/@ansubkhan)\n\n**As seen on**\n\n[![The Verge](https://img.shields.io/badge/The_Verge-5200FF?style=for-the-badge)](https://www.theverge.com/tech/1016116/vibe-coding-tv-os)\n[![Android Authority](https://img.shields.io/badge/Android_Authority-3DDC84?style=for-the-badge&logo=android&logoColor=white)](https://www.androidauthority.com/android-tv-vibe-hacking-remove-ads-bloatw",
+      "readme_len": 36404,
+      "repo_id": 1424070461,
+      "score": 82.277,
+      "source_name": "github_search",
+      "sources": [
+        "github_search"
+      ],
+      "stargazers_count": 2092,
+      "stars": 2092,
+      "topics": [],
+      "updated_at": "2026-11-03T10:43:41Z",
+      "url": "https://github.com/Ansub/tv-detox"
+    },
+    {
+      "archived": false,
+      "contributors_count": 11,
+      "created_at": "2026-08-26T03:45:18Z",
+      "default_branch": "main",
+      "description": "Monid - OpenRouter for agent tools. Join our community at https://discord.gg/rQzztcgJV8",
+      "disabled": false,
+      "fork": false,
+      "forks": 758,
+      "forks_count": 758,
+      "full_name": "monid-ai/monid",
+      "has_readme": true,
+      "homepage": "https://monid.ai",
+      "id": 1346870728,
+      "is_dual_use": false,
+      "is_hidden_gem": false,
+      "language": "TypeScript",
+      "license": {
+        "key": "mit",
+        "name": "MIT License",
+        "node_id": "MDc6TGljZW5zZTEz",
+        "spdx_id": "MIT",
+        "url": "https://api.github.com/licenses/mit"
+      },
+      "media_urls": [
+        "https://raw.githubusercontent.com/monid-ai/monid/main/assets/monid-hero.png",
+        "https://raw.githubusercontent.com/monid-ai/monid/main/assets/monid-verbs.png",
+        "https://raw.githubusercontent.com/monid-ai/monid/main/assets/monid-compile.png"
+      ],
+      "name": "monid",
+      "non_software_reason": "",
+      "open_issues": 163,
+      "open_issues_count": 163,
+      "owner_repo_count": 1,
+      "pushed_at": "2026-11-03T08:21:12Z",
+      "readme": "",
+      "readme_excerpt": "<p align=\"center\">\n  <a href=\"https://monid.ai\"><img src=\"assets/monid-hero.png\" alt=\"Monid at the centre, orbited by the tools it connects\"></a>\n</p>\n\n<p align=\"center\">\n  <a href=\"https://monid.ai\"><b>monid.ai</b></a> &nbsp;&middot;&nbsp;\n  <a href=\"https://docs.monid.ai\">Docs</a> &nbsp;&middot;&nbsp;\n  <a href=\"https://monid.ai/tools\">Tool catalog</a> &nbsp;&middot;&nbsp;\n  <a href=\"#quickstart\">Quickstart</a> &nbsp;&middot;&nbsp;\n  <a href=\"./DEVELOPMENT.md\">Development guide</a>\n</p>\n\n<p align=\"center\">\n  <a href=\"https://x.com/monidhq\"><img alt=\"Follow on X\" src=\"https://img.shields.io/badge/Follow%20on%20X-1E1E1E?logo=x&logoColor=white&style=for-the-badge\"></a>\n  <a href=\"https://discord.gg/rQzztcgJV8\"><img alt=\"Join our Discord\" src=\"https://img.shields.io/badge/Join%20our%20Discord-0016D7?logo=discord&logoColor=white&style=for-the-badge\"></a>\n</p>\n\n# Monid (OpenRouter for agent tools)\n\n**OpenRouter, but for agent tools.** One base URL, one key, and an agent can\nreach **2,000+ tools across 72+ providers**: web search and scraping, people and\ncompany enrichment, social platforms, reviews and market data, and video, image\nand voice generation.\n\n> **Are you an AI agent?** Fetc",
+      "readme_len": 11567,
+      "repo_id": 1346870728,
+      "score": 82.015,
+      "source_name": "github_search",
+      "sources": [
+        "github_search"
+      ],
+      "stargazers_count": 6125,
+      "stars": 6125,
+      "topics": [
+        "ai-agents",
+        "developer-tools"
+      ],
+      "updated_at": "2026-11-03T01:27:59Z",
+      "url": "https://github.com/monid-ai/monid"
+    },
+    {
+      "archived": false,
+      "contributors_count": 25,
+      "created_at": "2026-09-29T17:13:58Z",
+      "default_branch": "main",
+      "description": "Your always-on AI coworkers that move between text, calls, and Slack.",
+      "disabled": false,
+      "fork": false,
+      "forks": 924,
+      "forks_count": 924,
+      "full_name": "CopilotKit/OpenDots",
+      "has_readme": true,
+      "homepage": "https://www.copilotkit.ai/opendots",
+      "id": 1396117711,
+      "is_dual_use": false,
+      "is_hidden_gem": false,
+      "language": "TypeScript",
+      "license": {
+        "key": "mit",
+        "name": "MIT License",
+        "node_id": "MDc6TGljZW5zZTEz",
+        "spdx_id": "MIT",
+        "url": "https://api.github.com/licenses/mit"
+      },
+      "media_urls": [],
+      "name": "OpenDots",
+      "non_software_reason": "",
+      "open_issues": 73,
+      "open_issues_count": 73,
+      "owner_repo_count": 3,
+      "pushed_at": "2026-11-03T09:17:11Z",
+      "readme": "",
+      "readme_excerpt": "<div align=\"center\">\n\n# OpenDots\n\n### Always-on AI coworkers that move between text, calls, and Slack.\n\n**An open-source template for persistent AI agents, each with its own computer. Available on Web and Mobile.**\n\nBuilt with [CopilotKit](https://github.com/CopilotKit/CopilotKit) and [AG-UI](https://docs.ag-ui.com/introduction). · [Get started](#get-started) · [Overview](#overview) · [Architecture](#architecture) · [Features](#features) · [Contributing](CONTRIBUTING.md)\n\n[![CI](https://github.com/CopilotKit/OpenDots/actions/workflows/ci.yml/badge.svg)](https://github.com/CopilotKit/OpenDots/actions/workflows/ci.yml)\n[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE)\n![Alpha](https://img.shields.io/badge/status-alpha-orange.svg)\n\n<a href=\"https://trendshift.io/repositories/275323\" target=\"_blank\"><img src=\"https://trendshift.io/api/badge/trendshift/repositories/275323/daily?language=TypeScript\" alt=\"CopilotKit/OpenDots | Trendshift #2 TypeScript Repository Of The Day\" width=\"250\" height=\"55\"/></a>\n\nHost OpenDots on your own infrastructure. Conversations require CopilotKit Intelligence: use the hosted service, the [local Docker evaluation](docs/SETUP.md#",
+      "readme_len": 19553,
+      "repo_id": 1396117711,
+      "score": 81.323,
+      "source_name": "github_search",
+      "sources": [
+        "github_search"
+      ],
+      "stargazers_count": 6349,
+      "stars": 6349,
+      "topics": [],
+      "updated_at": "2026-11-03T11:43:40Z",
+      "url": "https://github.com/CopilotKit/OpenDots"
+    },
+    {
+      "archived": false,
+      "contributors_count": 50,
+      "created_at": "2026-10-10T18:45:41Z",
+      "default_branch": "main",
+      "description": "A fast, free and open-source GIS in pure Rust.",
+      "disabled": false,
+      "fork": false,
+      "forks": 334,
+      "forks_count": 334,
+      "full_name": "opengeos/RustGIS",
+      "has_readme": true,
+      "homepage": "https://rustgis.app",
+      "id": 1413549354,
+      "is_dual_use": false,
+      "is_hidden_gem": false,
+      "language": "Rust",
+      "license": {
+        "key": "apache-2.0",
+        "name": "Apache License 2.0",
+        "node_id": "MDc6TGljZW5zZTI=",
+        "spdx_id": "Apache-2.0",
+        "url": "https://api.github.com/licenses/apache-2.0"
+      },
+      "media_urls": [
+        "https://assets.rustgis.app/images/hero.webp",
+        "https://assets.rustgis.app/images/symbology-table.webp",
+        "https://assets.rustgis.app/images/assistant.webp",
+        "https://assets.rustgis.app/images/buffer-history.webp",
+        "https://assets.rustgis.app/images/raster.webp",
+        "https://assets.rustgis.app/images/globe.webp",
+        "https://assets.rustgis.app/images/tiles.webp",
+        "https://assets.rustgis.app/images/layout.webp"
+      ],
+      "name": "RustGIS",
+      "non_software_reason": "",
+      "open_issues": 104,
+      "open_issues_count": 104,
+      "owner_repo_count": 1,
+      "pushed_at": "2026-11-03T11:18:55Z",
+      "readme": "",
+      "readme_excerpt": "<p align=\"center\">\n  <img src=\"https://assets.rustgis.app/images/logo.svg\" alt=\"RustGIS logo: a rust-coloured cog framing a segmented globe with an orbit\" width=\"160\">\n</p>\n\n<h1 align=\"center\">RustGIS</h1>\n\n<p align=\"center\">\n  <b>A fast, free and open-source GIS in pure Rust for mapping, analyzing and sharing geospatial data.</b><br>\n  Native on Windows, macOS and Linux, and in your web browser. Your data stays on your machine\n  unless you send it to an AI model you choose, and every action is a command you can script.\n</p>\n\n<p align=\"center\">\n  <img alt=\"Written in Rust\" src=\"https://img.shields.io/badge/written%20in-Rust-b84a2c?style=flat-square&logo=rust&logoColor=white\">\n  <img alt=\"License: Apache-2.0\" src=\"https://img.shields.io/badge/license-Apache--2.0-2563eb?style=flat-square\">\n  <img alt=\"19 languages\" src=\"https://img.shields.io/badge/languages-19-0e9384?style=flat-square\">\n  <a href=\"https://plugins.rustgis.app\"><img alt=\"Plugins\" src=\"https://img.shields.io/badge/plugins-registry-7c3aed?style=flat-square\"></a>\n  <a href=\"https://pypi.org/project/rustgis/\"><img alt=\"PyPI\" src=\"https://img.shields.io/pypi/v/rustgis?style=flat-square&logo=python&logoColor=white&label=pyp",
+      "readme_len": 22411,
+      "repo_id": 1413549354,
+      "score": 81.105,
+      "source_name": "github_search",
+      "sources": [
+        "github_search"
+      ],
+      "stargazers_count": 2275,
+      "stars": 2275,
+      "topics": [
+        "geospatial",
+        "gis",
+        "remote-sensing",
+        "rust",
+        "rust-lang"
+      ],
+      "updated_at": "2026-11-03T11:19:04Z",
+      "url": "https://github.com/opengeos/RustGIS"
+    },
+    {
+      "archived": false,
+      "contributors_count": 3,
+      "created_at": "2026-10-12T09:19:02Z",
+      "default_branch": "main",
+      "description": "A design system for AI applications. Material, physical, tactile, technical.",
+      "disabled": false,
+      "fork": false,
+      "forks": 42,
+      "forks_count": 42,
+      "full_name": "deeplethe/solid-glass",
+      "has_readme": true,
+      "homepage": "https://deeplethe.github.io/solid-glass",
+      "id": 1415358670,
+      "is_dual_use": false,
+      "is_hidden_gem": false,
+      "language": "TypeScript",
+      "license": {
+        "key": "mit",
+        "name": "MIT License",
+        "node_id": "MDc6TGljZW5zZTEz",
+        "spdx_id": "MIT",
+        "url": "https://api.github.com/licenses/mit"
+      },
+      "media_urls": [
+        "https://raw.githubusercontent.com/deeplethe/solid-glass/main/docs/screenshots/agent-workspace.webp",
+        "https://raw.githubusercontent.com/deeplethe/solid-glass/main/docs/screenshots/home-dark-2.webp",
+        "https://raw.githubusercontent.com/deeplethe/solid-glass/main/docs/screenshots/home-light-2.webp",
+        "https://raw.githubusercontent.com/deeplethe/solid-glass/main/docs/screenshots/compare.webp",
+        "https://raw.githubusercontent.com/deeplethe/solid-glass/main/docs/banner-5.webp"
+      ],
+      "name": "solid-glass",
+      "non_software_reason": "",
+      "open_issues": 5,
+      "open_issues_count": 5,
+      "owner_repo_count": 1,
+      "pushed_at": "2026-10-31T22:37:07Z",
+      "readme": "",
+      "readme_excerpt": "<div align=\"center\">\n\n<img src=\"docs/banner-5.webp\" alt=\"Solid Glass: designed for AI applications, by DeepLethe\" width=\"820\">\n\n</div>\n\n# Solid Glass\n\n<div align=\"center\">\n\n[The style](#the-style) · [Install](#install) · [What is here](#what-is-here) · [Contributing](#contributing)\n\n[![Stars](https://img.shields.io/github/stars/deeplethe/solid-glass?style=flat-square&label=STARS&labelColor=161B22&color=FFC220&logo=github&logoColor=FFFFFF)](https://github.com/deeplethe/solid-glass/stargazers)\n[![License](https://img.shields.io/badge/LICENSE-MIT-3FB950?style=flat-square&labelColor=161B22)](LICENSE)\n[![For AI applications](https://img.shields.io/badge/DESIGNED%20FOR-AI%20APPLICATIONS-8957E5?style=flat-square&labelColor=161B22)](https://deeplethe.github.io/solid-glass/docs/components/status-glyph)\n[![shadcn/ui](https://img.shields.io/badge/BUILT%20ON-SHADCN%2FUI-F5F5F5?style=flat-square&labelColor=161B22&logo=shadcnui&logoColor=FFFFFF)](https://ui.shadcn.com)\n\n[![Official site](https://img.shields.io/badge/OFFICIAL-SOLID%20GLASS-FFFFFF?style=flat-square&labelColor=161B22&logo=safari&logoColor=FFFFFF)](https://deeplethe.github.io/solid-glass)\n[![Registry](https://img.shields.io/badge/RE",
+      "readme_len": 10175,
+      "repo_id": 1415358670,
+      "score": 80.999,
+      "source_name": "github_search",
+      "sources": [
+        "github_search"
+      ],
+      "stargazers_count": 2034,
+      "stars": 2034,
+      "topics": [
+        "agent-ui",
+        "ai",
+        "ai-agents",
+        "chat-ui",
+        "design-system",
+        "llm",
+        "react",
+        "shadcn",
+        "shadcn-ui",
+        "tailwindcss",
+        "theme"
+      ],
+      "updated_at": "2026-11-03T02:55:49Z",
+      "url": "https://github.com/deeplethe/solid-glass"
+    },
+    {
+      "archived": false,
+      "contributors_count": 4,
+      "created_at": "2026-10-12T07:11:01Z",
+      "default_branch": "main",
+      "description": "Daily radar for new AI terms: names of new models, products and repos, caught on X, Hugging Face, GitHub and sitemaps before keyword tools list them.",
+      "disabled": false,
+      "fork": false,
+      "forks": 626,
+      "forks_count": 626,
+      "full_name": "zhuyansen/new-term-radar",
+      "has_readme": true,
+      "homepage": "",
+      "id": 1415214046,
+      "is_dual_use": false,
+      "is_hidden_gem": false,
+      "language": "Python",
+      "license": {
+        "key": "mit",
+        "name": "MIT License",
+        "node_id": "MDc6TGljZW5zZTEz",
+        "spdx_id": "MIT",
+        "url": "https://api.github.com/licenses/mit"
+      },
+      "media_urls": [
+        "https://raw.githubusercontent.com/zhuyansen/new-term-radar/main/docs/radar.en.gif",
+        "https://raw.githubusercontent.com/zhuyansen/new-term-radar/main/docs/logo.svg"
+      ],
+      "name": "new-term-radar",
+      "non_software_reason": "",
+      "open_issues": 2,
+      "open_issues_count": 2,
+      "owner_repo_count": 1,
+      "pushed_at": "2026-11-02T23:42:54Z",
+      "readme": "",
+      "readme_excerpt": "<div align=\"center\">\n\n<img src=\"docs/logo.svg\" width=\"128\" alt=\"new-term-radar logo: a radar sweep catching a new blip\">\n\n# new-term-radar\n\n**Catch the names AI people are about to search for, the day they appear, before keyword tools list them.**\n\n[![PyPI](https://img.shields.io/pypi/v/new-term-radar?color=0ea5e9&label=PyPI)](https://pypi.org/project/new-term-radar/)\n[![Python](https://img.shields.io/badge/python-3.10%2B-3776ab)](https://pypi.org/project/new-term-radar/)\n[![License: MIT](https://img.shields.io/badge/license-MIT-eab308)](LICENSE)\n[![Stars](https://img.shields.io/github/stars/zhuyansen/new-term-radar?logo=github&color=0f172a)](https://github.com/zhuyansen/new-term-radar/stargazers)\n[![Forks](https://img.shields.io/github/forks/zhuyansen/new-term-radar?logo=github&color=0f172a)](https://github.com/zhuyansen/new-term-radar/network/members)\n[![Downloads](https://img.shields.io/pepy/dt/new-term-radar?color=22c55e&label=downloads)](https://pepy.tech/projects/new-term-radar)\n[![Last commit](https://img.shields.io/github/last-commit/zhuyansen/new-term-radar?color=64748b)](https://github.com/zhuyansen/new-term-radar/commits/main)\n\n[![MCP Registry](https://img.shields.io/bad",
+      "readme_len": 53992,
+      "repo_id": 1415214046,
+      "score": 80.523,
+      "source_name": "github_search",
+      "sources": [
+        "github_search"
+      ],
+      "stargazers_count": 2060,
+      "stars": 2060,
+      "topics": [
+        "agent-skills",
+        "ai",
+        "aisa",
+        "claude-code",
+        "claude-skills",
+        "deepseek-harness",
+        "dsh-plugin",
+        "google-trends",
+        "keyword-research",
+        "mcp",
+        "mcp-server",
+        "seo",
+        "trends"
+      ],
+      "updated_at": "2026-11-03T11:05:45Z",
+      "url": "https://github.com/zhuyansen/new-term-radar"
+    },
+    {
+      "archived": false,
+      "contributors_count": 3,
+      "created_at": "2026-10-29T15:41:21Z",
+      "default_branch": "main",
+      "description": "A Claude skill that turns vibecoded, AI-looking UI into a designed interface",
+      "disabled": false,
+      "fork": false,
+      "forks": 351,
+      "forks_count": 351,
+      "full_name": "heydamir/unslop",
+      "has_readme": true,
+      "homepage": "",
+      "id": 1438623288,
+      "is_dual_use": false,
+      "is_hidden_gem": false,
+      "language": "JavaScript",
+      "license": {
+        "key": "cc-by-4.0",
+        "name": "Creative Commons Attribution 4.0 International",
+        "node_id": "MDc6TGljZW5zZTI1",
+        "spdx_id": "CC-BY-4.0",
+        "url": "https://api.github.com/licenses/cc-by-4.0"
+      },
+      "media_urls": [
+        "https://raw.githubusercontent.com/heydamir/unslop/main/skills/unslop/references/refs/story-dashboard-frames.webp"
+      ],
+      "name": "unslop",
+      "non_software_reason": "",
+      "open_issues": 1,
+      "open_issues_count": 1,
+      "owner_repo_count": 1,
+      "pushed_at": "2026-11-01T16:46:10Z",
+      "readme": "",
+      "readme_excerpt": "# unslop\n\nCreated by Damir Sokolovsky ([@heydamir](https://x.com/heydamir)), who started the [Unslopping series](https://x.com/heydamir/status/2115063463063998736) on X.\n\n![A vibecoded dashboard unslopping itself, frame by frame](skills/unslop/references/refs/story-dashboard-frames.webp)\n\nunslop is a skill for Claude Code and Codex that turns vibecoded, AI-looking UI into a designed interface with its own character. It finds the slop first, the purple gradients, glows, emoji labels, shouty copy and uneven spacing, then sets a direction from your product and fixes the screen pass by pass like a designer doing a redline review. It works in whatever your screen is built with, like Next.js, React, Vue, Svelte, Tailwind or plain HTML and CSS, on dashboards, apps and landing pages, and even on a live site when all you have is a link.\n\n## Install\n\nFor Claude Code, copy the skill into your skills folder.\n\n```bash\ngit clone https://github.com/heydamir/unslop\nmkdir -p ~/.claude/skills && cp -r unslop/skills/unslop ~/.claude/skills/\n```\n\nFor a single project, copy it into `.claude/skills/` inside that project instead.\n\nFor Codex, ask it to install the skill straight from this repo.\n\n```\n$skil",
+      "readme_len": 3572,
+      "repo_id": 1438623288,
+      "score": 80.219,
+      "source_name": "github_search",
+      "sources": [
+        "github_search",
+        "telegram:github_repos",
+        "telegram:gitbless"
+      ],
+      "stargazers_count": 6896,
+      "stars": 6896,
+      "topics": [],
+      "updated_at": "2026-11-03T11:55:43Z",
+      "url": "https://github.com/heydamir/unslop"
+    },
+    {
+      "archived": false,
+      "contributors_count": 33,
+      "created_at": "2026-09-15T16:05:44Z",
+      "default_branch": "main",
+      "description": "A personal agent with a browser, terminal, files, and work that keeps going built with CopilotKit and AG-UI.",
+      "disabled": false,
+      "fork": false,
+      "forks": 882,
+      "forks_count": 882,
+      "full_name": "CopilotKit/openmuse",
+      "has_readme": true,
+      "homepage": "",
+      "id": 1371757322,
+      "is_dual_use": false,
+      "is_hidden_gem": false,
+      "language": "TypeScript",
+      "license": {
+        "key": "mit",
+        "name": "MIT License",
+        "node_id": "MDc6TGljZW5zZTEz",
+        "spdx_id": "MIT",
+        "url": "https://api.github.com/licenses/mit"
+      },
+      "media_urls": [],
+      "name": "openmuse",
+      "non_software_reason": "",
+      "open_issues": 60,
+      "open_issues_count": 60,
+      "owner_repo_count": 3,
+      "pushed_at": "2026-11-03T04:27:44Z",
+      "readme": "",
+      "readme_excerpt": "  <div align=\"center\">\n\n# OpenMuse\n\n**A personal agent with a browser, terminal, files, and work that keeps going. Compatible with any agent harness.**\n\nAsk for an outcome. Follow the plan, review actions, and come back to the result.\nBuilt with CopilotKit React Native for iOS, Android, and web.\n\n[Quick start](#quick-start) · [Demo](#demo) · [Features](#features) · [Architecture](#architecture) · [Docs](docs/README.md) · [Contributing](CONTRIBUTING.md)\n\n[![CI](https://github.com/CopilotKit/OpenMuse/actions/workflows/ci.yml/badge.svg)](https://github.com/CopilotKit/OpenMuse/actions/workflows/ci.yml)\n[![MIT license](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)\n\n<a href=\"https://trendshift.io/repositories/254992?utm_source=trendshift-badge&amp;utm_medium=badge&amp;utm_campaign=badge-trendshift-254992\" target=\"_blank\" rel=\"noopener noreferrer\"><img src=\"https://trendshift.io/api/badge/trendshift/repositories/254992/daily?language=TypeScript\" alt=\"CopilotKit%2Fopenmuse | Trendshift\" width=\"250\" height=\"55\"/></a>\n\n[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/CopilotKit/OpenMuse)\n\nClone this ",
+      "readme_len": 19480,
+      "repo_id": 1371757322,
+      "score": 79.699,
+      "source_name": "github_search",
+      "sources": [
+        "github_search"
+      ],
+      "stargazers_count": 6137,
+      "stars": 6137,
+      "topics": [],
+      "updated_at": "2026-11-03T11:13:44Z",
+      "url": "https://github.com/CopilotKit/openmuse"
+    }
+  ],
+  "seen_repos": {
+    "0xcodez/cleanly": {
+      "first_seen_at": "2026-11-03T11:59:59.697932Z",
+      "full_name": "0xCodez/cleanly",
+      "last_decision": "rejected:no_license",
+      "last_seen_at": "2026-11-03T11:59:59.697935Z",
+      "repo_id": 1438537223,
+      "sources": [
+        "github_search"
+      ]
+    },
+    "aa27259/noxra": {
+      "first_seen_at": "2026-11-03T11:59:59.708179Z",
+      "full_name": "aa27259/Noxra",
+      "last_decision": "rejected:no_license,no_push_date,no_community,no_readme,stars<100",
+      "last_seen_at": "2026-11-03T11:59:59.708182Z",
+      "repo_id": null,
+      "sources": [
+        "telegram:open_source_friend"
+      ]
+    },
+    "ahmadhassan-bted/jantt": {
+      "first_seen_at": "2026-11-03T11:59:59.678553Z",
+      "full_name": "AhmadHassan-BTed/Jantt",
+      "last_decision": "rejected:not_software:topic:roadmap",
+      "last_seen_at": "2026-11-03T11:59:59.678557Z",
+      "repo_id": 1349328247,
+      "sources": [
+        "github_search"
+      ]
+    },
+    "ahmadhassan-bted/openheart": {
+      "first_seen_at": "2026-11-03T11:59:59.688010Z",
+      "full_name": "AhmadHassan-BTed/OpenHeart",
+      "last_decision": "queued",
+      "last_seen_at": "2026-11-03T11:59:59.688013Z",
+      "repo_id": 1327932937,
+      "sources": [
+        "github_search"
+      ]
+    },
+    "ahwootech/brutal": {
+      "first_seen_at": "2026-11-03T11:59:59.680054Z",
+      "full_name": "ahwootech/BRUTAL",
+      "last_decision": "rejected:no_license",
+      "last_seen_at": "2026-11-03T11:59:59.680057Z",
+      "repo_id": 1419746236,
+      "sources": [
+        "github_search"
+      ]
+    },
+    "alchaincyf/huashu-art-motion": {
+      "first_seen_at": "2026-11-03T11:59:59.691658Z",
+      "full_name": "alchaincyf/huashu-art-motion",
+      "last_decision": "rejected:description_not_english",
+      "last_seen_at": "2026-11-03T11:59:59.691661Z",
+      "repo_id": 1406706284,
+      "sources": [
+        "github_search"
+      ]
+    },
+    "alchaincyf/huashu-motion": {
+      "first_seen_at": "2026-11-03T11:59:59.677072Z",
+      "full_name": "alchaincyf/huashu-motion",
+      "last_decision": "queued",
+      "last_seen_at": "2026-11-03T11:59:59.677075Z",
+      "repo_id": 1424340323,
+      "sources": [
+        "github_search"
+      ]
+    },
+    "amagine-ai/amagine3d": {
+      "first_seen_at": "2026-11-03T11:59:59.680723Z",
+      "full_name": "amagine-ai/Amagine3D",
+      "last_decision": "queued",
+      "last_seen_at": "2026-11-03T11:59:59.680726Z",
+      "repo_id": 1339742577,
+      "sources": [
+        "github_search"
+      ]
+    },
+    "andyhuo520/vibe-knowledge": {
+      "first_seen_at": "2026-11-03T11:59:59.688674Z",
+      "full_name": "andyhuo520/vibe-knowledge",
+      "last_decision": "rejected:description_not_english",
+      "last_seen_at": "2026-11-03T11:59:59.688677Z",
+      "repo_id": 1436875616,
+      "sources": [
+        "github_search"
+      ]
+    },
+    "anonnerdfrenzy/survival-llm": {
+      "first_seen_at": "2026-11-03T11:59:59.706443Z",
+      "full_name": "anonnerdfrenzy/survival-llm",
+      "last_decision": "rejected:no_license",
+      "last_seen_at": "2026-11-03T11:59:59.706447Z",
+      "repo_id": 1432512301,
+      "sources": [
+        "telegram:github_repos",
+        "telegram:open_source_friend"
+      ]
+    },
+    "ansub/tv-detox": {
+      "first_seen_at": "2026-11-03T11:59:59.683077Z",
+      "full_name": "Ansub/tv-detox",
+      "last_decision": "queued",
+      "last_seen_at": "2026-11-03T11:59:59.683080Z",
+      "repo_id": 1424070461,
+      "sources": [
+        "github_search"
+      ]
+    },
+    "arahim3/digup": {
+      "first_seen_at": "2026-11-03T11:59:59.675925Z",
+      "full_name": "ARahim3/DigUp",
+      "last_decision": "queued",
+      "last_seen_at": "2026-11-03T11:59:59.675928Z",
+      "repo_id": 1410929004,
+      "sources": [
+        "github_search"
+      ]
+    },
+    "areemi-app/aqueli": {
+      "first_seen_at": "2026-11-03T11:59:59.707814Z",
+      "full_name": "Areemi-app/aqueli",
+      "last_decision": "rejected:not_software:topic:notes",
+      "last_seen_at": "2026-11-03T11:59:59.707816Z",
+      "repo_id": 1429619961,
+      "sources": [
+        "telegram:open_source_friend"
+      ]
+    },
+    "assemblydrain/sonyvegas": {
+      "first_seen_at": "2026-11-03T11:59:59.696046Z",
+      "full_name": "AssemblyDrain/sonyvegas",
+      "last_decision": "rejected:no_license,no_community",
+      "last_seen_at": "2026-11-03T11:59:59.696049Z",
+      "repo_id": 1442807323,
+      "sources": [
+        "github_search"
+      ]
+    },
+    "aureth-labs/dsh-aurabot-qq": {
+      "first_seen_at": "2026-11-03T11:59:59.700929Z",
+      "full_name": "aureth-labs/dsh-aurabot-qq",
+      "last_decision": "rejected:description_not_english,readme_not_english",
+      "last_seen_at": "2026-11-03T11:59:59.700932Z",
+      "repo_id": 1431897471,
+      "sources": [
+        "github_search"
+      ]
+    },
+    "balanov/baiagent-director": {
+      "first_seen_at": "2026-11-03T11:59:59.699980Z",
+      "full_name": "Balanov/baiagent-director",
+      "last_decision": "rejected:no_community",
+      "last_seen_at": "2026-11-03T11:59:59.699983Z",
+      "repo_id": 1437618716,
+      "sources": [
+        "github_search"
+      ]
+    },
+    "balanov/svoi": {
+      "first_seen_at": "2026-11-03T11:59:59.701677Z",
+      "full_name": "Balanov/svoi",
+      "last_decision": "rejected:no_community,readme_not_english",
+      "last_seen_at": "2026-11-03T11:59:59.701680Z",
+      "repo_id": 1437620506,
+      "sources": [
+        "github_search"
+      ]
+    },
+    "banduldress33/sp-flash-tool": {
+      "first_seen_at": "2026-11-03T11:59:59.705317Z",
+      "full_name": "Banduldress33/sp-flash-tool",
+      "last_decision": "rejected:no_license,no_community",
+      "last_seen_at": "2026-11-03T11:59:59.705321Z",
+      "repo_id": 1444167440,
+      "sources": [
+        "github_search"
+      ]
+    },
+    "buntingvacuum/cellebrite-ufed": {
+      "first_seen_at": "2026-11-03T11:59:59.703594Z",
+      "full_name": "BuntingVacuum/cellebrite-ufed",
+      "last_decision": "rejected:no_license,no_community",
+      "last_seen_at": "2026-11-03T11:59:59.703598Z",
+      "repo_id": 1442803416,
+      "sources": [
+        "github_search"
+      ]
+    },
+    "buybitart/get-the-hacker": {
+      "first_seen_at": "2026-11-03T11:59:59.707091Z",
+      "full_name": "buybitart/get-the-hacker",
+      "last_decision": "rejected:stars<100",
+      "last_seen_at": "2026-11-03T11:59:59.707094Z",
+      "repo_id": 1435656381,
+      "sources": [
+        "telegram:open_source_friend"
+      ]
+    },
+    "cachyos/linux-cachyos": {
+      "first_seen_at": "2026-11-03T11:59:59.691986Z",
+      "full_name": "CachyOS/linux-cachyos",
+      "last_decision": "queued",
+      "last_seen_at": "2026-11-03T11:59:59.691989Z",
+      "repo_id": 415603044,
+      "sources": [
+        "github_search"
+      ]
+    },
+    "ccch1mneyyy/dsh-go": {
+      "first_seen_at": "2026-11-03T11:59:59.674183Z",
+      "full_name": "ccch1mneyyy/dsh-Go",
+      "last_decision": "rejected:description_not_english",
+      "last_seen_at": "2026-11-03T11:59:59.674187Z",
+      "repo_id": 1432967563,
+      "sources": [
+        "github_search",
+        "telegram:gitbless"
+      ]
+    },
+    "ccch1mneyyy/dsh-tui": {
+      "first_seen_at": "2026-11-03T11:59:59.675536Z",
+      "full_name": "ccch1mneyyy/dsh-TUI",
+      "last_decision": "queued",
+      "last_seen_at": "2026-11-03T11:59:59.675540Z",
+      "repo_id": 1333111893,
+      "sources": [
+        "github_search"
+      ]
+    },
+    "centirollervolt/auslogics": {
+      "first_seen_at": "2026-11-03T11:59:59.693530Z",
+      "full_name": "CentiRollerVolt/auslogics",
+      "last_decision": "rejected:no_license,no_community",
+      "last_seen_at": "2026-11-03T11:59:59.693534Z",
+      "repo_id": 1442803402,
+      "sources": [
+        "github_search"
+      ]
+    },
+    "chenglou/handwired": {
+      "first_seen_at": "2026-11-03T11:59:59.698830Z",
+      "full_name": "chenglou/handwired",
+      "last_decision": "queued",
+      "last_seen_at": "2026-11-03T11:59:59.698833Z",
+      "repo_id": 1420063501,
+      "sources": [
+        "github_search"
+      ]
+    },
+    "copilotkit/opendots": {
+      "first_seen_at": "2026-11-03T11:59:59.682051Z",
+      "full_name": "CopilotKit/OpenDots",
+      "last_decision": "queued",
+      "last_seen_at": "2026-11-03T11:59:59.682054Z",
+      "repo_id": 1396117711,
+      "sources": [
+        "github_search"
+      ]
+    },
+    "copilotkit/openduet": {
+      "first_seen_at": "2026-11-03T11:59:59.691365Z",
+      "full_name": "CopilotKit/OpenDuet",
+      "last_decision": "rejected:narrow:library:boilerplate",
+      "last_seen_at": "2026-11-03T11:59:59.691369Z",
+      "repo_id": 1428854046,
+      "sources": [
+        "github_search"
+      ]
+    },
+    "copilotkit/openmuse": {
+      "first_seen_at": "2026-11-03T11:59:59.683762Z",
+      "full_name": "CopilotKit/openmuse",
+      "last_decision": "queued",
+      "last_seen_at": "2026-11-03T11:59:59.683765Z",
+      "repo_id": 1371757322,
+      "sources": [
+        "github_search"
+      ]
+    },
+    "cyqawa/yunx": {
+      "first_seen_at": "2026-11-03T11:59:59.685781Z",
+      "full_name": "CYQawa/YunX",
+      "last_decision": "queued",
+      "last_seen_at": "2026-11-03T11:59:59.685783Z",
+      "repo_id": 1325498898,
+      "sources": [
+        "github_search"
+      ]
+    },
+    "daemonseamanglimpse/cinema-4d": {
+      "first_seen_at": "2026-11-03T11:59:59.694898Z",
+      "full_name": "daemonseamanglimpse/cinema-4d",
+      "last_decision": "rejected:no_license,no_community",
+      "last_seen_at": "2026-11-03T11:59:59.694901Z",
+      "repo_id": 1444164826,
+      "sources": [
+        "github_search"
+      ]
+    },
+    "dankumarlab2090u1/minecraft-hack-menu-2026": {
+      "first_seen_at": "2026-11-03T11:59:59.700518Z",
+      "full_name": "dankumarlab2090u1/minecraft-hack-menu-2026",
+      "last_decision": "queued",
+      "last_seen_at": "2026-11-03T11:59:59.700522Z",
+      "repo_id": 1441977457,
+      "sources": [
+        "github_search"
+      ]
+    },
+    "davidlopez-x05x8/minecraft-aim-assist": {
+      "first_seen_at": "2026-11-03T11:59:59.699205Z",
+      "full_name": "davidlopez-x05x8/minecraft-aim-assist",
+      "last_decision": "queued",
+      "last_seen_at": "2026-11-03T11:59:59.699208Z",
+      "repo_id": 1442499170,
+      "sources": [
+        "github_search"
+      ]
+    },
+    "deeplethe/solid-glass": {
+      "first_seen_at": "2026-11-03T11:59:59.681752Z",
+      "full_name": "deeplethe/solid-glass",
+      "last_decision": "queued",
+      "last_seen_at": "2026-11-03T11:59:59.681755Z",
+      "repo_id": 1415358670,
+      "sources": [
+        "github_search"
+      ]
+    },
+    "deepseek-ai/dsh-superagent-prototype": {
+      "first_seen_at": "2026-11-03T11:59:59.713426Z",
+      "full_name": "deepseek-ai/dsh-superagent-prototype",
+      "last_decision": "rejected:velocity_too_high",
+      "last_seen_at": "2026-11-03T11:59:59.713429Z",
+      "repo_id": 1440705679,
+      "sources": [
+        "hacker_news",
+        "telegram:github_repos"
+      ]
+    },
+    "ditchfarecover75/adobe-audition": {
+      "first_seen_at": "2026-11-03T11:59:59.686172Z",
+      "full_name": "Ditchfarecover75/adobe-audition",
+      "last_decision": "rejected:no_license,no_community",
+      "last_seen_at": "2026-11-03T11:59:59.686175Z",
+      "repo_id": 1442802348,
+      "sources": [
+        "github_search"
+      ]
+    },
+    "djihads80/eglantine": {
+      "first_seen_at": "2026-11-03T11:59:59.714429Z",
+      "full_name": "Djihads80/Eglantine",
+      "last_decision": "queued",
+      "last_seen_at": "2026-11-03T11:59:59.714432Z",
+      "repo_id": 1437774066,
+      "sources": [
+        "telegram:gitbless",
+        "telegram:github_repos"
+      ]
+    },
+    "dmmulroy/anti-slop": {
+      "first_seen_at": "2026-11-03T11:59:59.692334Z",
+      "full_name": "dmmulroy/anti-slop",
+      "last_decision": "queued",
+      "last_seen_at": "2026-11-03T11:59:59.692338Z",
+      "repo_id": 1332080070,
+      "sources": [
+        "github_search"
+      ]
+    },
+    "elie222/rakazo": {
+      "first_seen_at": "2026-11-03T11:59:59.675085Z",
+      "full_name": "elie222/rakazo",
+      "last_decision": "queued",
+      "last_seen_at": "2026-11-03T11:59:59.675088Z",
+      "repo_id": 1332781509,
+      "sources": [
+        "github_search"
+      ]
+    },
+    "eternityspring/shuohao-skills": {
+      "first_seen_at": "2026-11-03T11:59:59.679324Z",
+      "full_name": "eternityspring/shuohao-skills",
+      "last_decision": "queued",
+      "last_seen_at": "2026-11-03T11:59:59.679327Z",
+      "repo_id": 1325096132,
+      "sources": [
+        "github_search"
+      ]
+    },
+    "ethanarbuckle/fairplay-decrypt": {
+      "first_seen_at": "2026-11-03T11:59:59.694516Z",
+      "full_name": "EthanArbuckle/fairplay-decrypt",
+      "last_decision": "queued",
+      "last_seen_at": "2026-11-03T11:59:59.694519Z",
+      "repo_id": 1425429552,
+      "sources": [
+        "github_search"
+      ]
+    },
+    "evilknivel/phone-whisper": {
+      "first_seen_at": "2026-11-03T11:59:59.709152Z",
+      "full_name": "evilknivel/phone-whisper",
+      "last_decision": "rejected:fork,stars<100",
+      "last_seen_at": "2026-11-03T11:59:59.709155Z",
+      "repo_id": 1430306140,
+      "sources": [
+        "telegram:open_source_friend"
+      ]
+    },
+    "flawme/cl2metal": {
+      "first_seen_at": "2026-11-03T11:59:59.708145Z",
+      "full_name": "flawme/cl2metal",
+      "last_decision": "rejected:no_community,stars<100",
+      "last_seen_at": "2026-11-03T11:59:59.708148Z",
+      "repo_id": 1417665244,
+      "sources": [
+        "telegram:open_source_friend"
+      ]
+    },
+    "frequencyglustrip/photo-commander": {
+      "first_seen_at": "2026-11-03T11:59:59.695640Z",
+      "full_name": "Frequencyglustrip/photo-commander",
+      "last_decision": "rejected:no_license,no_community",
+      "last_seen_at": "2026-11-03T11:59:59.695644Z",
+      "repo_id": 1442806556,
+      "sources": [
+        "github_search"
+      ]
+    },
+    "gentoo/gentoo": {
+      "first_seen_at": "2026-11-03T11:59:59.702465Z",
+      "full_name": "gentoo/gentoo",
+      "last_decision": "rejected:no_license,no_readme",
+      "last_seen_at": "2026-11-03T11:59:59.702468Z",
+      "repo_id": 40499714,
+      "sources": [
+        "github_search"
+      ]
+    },
+    "getnao/nao": {
+      "first_seen_at": "2026-11-03T11:59:59.690559Z",
+      "full_name": "getnao/nao",
+      "last_decision": "rejected:no_license",
+      "last_seen_at": "2026-11-03T11:59:59.690563Z",
+      "repo_id": 1125445550,
+      "sources": [
+        "github_search"
+      ]
+    },
+    "grabnovaportico/adobe-substance-3d": {
+      "first_seen_at": "2026-11-03T11:59:59.686615Z",
+      "full_name": "Grabnovaportico/adobe-substance-3d",
+      "last_decision": "rejected:no_license,no_community",
+      "last_seen_at": "2026-11-03T11:59:59.686620Z",
+      "repo_id": 1442802358,
+      "sources": [
+        "github_search"
+      ]
+    },
+    "haydenschmitty/floorplan": {
+      "first_seen_at": "2026-11-03T11:59:59.680425Z",
+      "full_name": "haydenschmitty/floorplan",
+      "last_decision": "queued",
+      "last_seen_at": "2026-11-03T11:59:59.680429Z",
+      "repo_id": 1435672472,
+      "sources": [
+        "github_search",
+        "telegram:github_repos"
+      ]
+    },
+    "helixdb/helix-foundry": {
+      "first_seen_at": "2026-11-03T11:59:59.684485Z",
+      "full_name": "HelixDB/helix-foundry",
+      "last_decision": "queued",
+      "last_seen_at": "2026-11-03T11:59:59.684488Z",
+      "repo_id": 1408277479,
+      "sources": [
+        "github_search"
+      ]
+    },
+    "heydamir/unslop": {
+      "first_seen_at": "2026-11-03T11:59:59.678161Z",
+      "full_name": "heydamir/unslop",
+      "last_decision": "queued",
+      "last_seen_at": "2026-11-03T11:59:59.678164Z",
+      "repo_id": 1438623288,
+      "sources": [
+        "github_search",
+        "telegram:gitbless",
+        "telegram:github_repos"
+      ]
+    },
+    "heyputer/everything": {
+      "first_seen_at": "2026-11-03T11:59:59.676700Z",
+      "full_name": "HeyPuter/everything",
+      "last_decision": "queued",
+      "last_seen_at": "2026-11-03T11:59:59.676703Z",
+      "repo_id": 1417456983,
+      "sources": [
+        "github_search"
+      ]
+    },
+    "hisn00w/asu-skills": {
+      "first_seen_at": "2026-11-03T11:59:59.688997Z",
+      "full_name": "Hisn00w/ASu-skills",
+      "last_decision": "rejected:description_not_english",
+      "last_seen_at": "2026-11-03T11:59:59.689000Z",
+      "repo_id": 1331728719,
+      "sources": [
+        "github_search"
+      ]
+    },
+    "horizon-rust/horizon": {
+      "first_seen_at": "2026-11-03T11:59:59.672626Z",
+      "full_name": "horizon-rust/horizon",
+      "last_decision": "queued",
+      "last_seen_at": "2026-11-03T11:59:59.672638Z",
+      "repo_id": 1403446451,
+      "sources": [
+        "github_search"
+      ]
+    },
+    "humblemuzzu/dumbtv": {
+      "first_seen_at": "2026-11-03T11:59:59.681424Z",
+      "full_name": "humblemuzzu/dumbtv",
+      "last_decision": "rejected:no_license",
+      "last_seen_at": "2026-11-03T11:59:59.681429Z",
+      "repo_id": 1424613188,
+      "sources": [
+        "github_search"
+      ]
+    },
+    "ihtiyar0/hue": {
+      "first_seen_at": "2026-11-03T11:59:59.711108Z",
+      "full_name": "IhTiYaR0/hue",
+      "last_decision": "rejected:no_community,stars<100",
+      "last_seen_at": "2026-11-03T11:59:59.711111Z",
+      "repo_id": 1434974721,
+      "sources": [
+        "telegram:open_source_friend"
+      ]
+    },
+    "ikow/php2shell-poc": {
+      "first_seen_at": "2026-11-03T11:59:59.690131Z",
+      "full_name": "ikow/php2shell-poc",
+      "last_decision": "queued",
+      "last_seen_at": "2026-11-03T11:59:59.690134Z",
+      "repo_id": 1428058681,
+      "sources": [
+        "github_search"
+      ]
+    },
+    "indexable-inc/blaze": {
+      "first_seen_at": "2026-11-03T11:59:59.688335Z",
+      "full_name": "indexable-inc/blaze",
+      "last_decision": "queued",
+      "last_seen_at": "2026-11-03T11:59:59.688339Z",
+      "repo_id": 1426287665,
+      "sources": [
+        "github_search"
+      ]
+    },
+    "j0p3s/windows-iso-updater": {
+      "first_seen_at": "2026-11-03T11:59:59.710481Z",
+      "full_name": "j0p3s/Windows-ISO-Updater",
+      "last_decision": "queued",
+      "last_seen_at": "2026-11-03T11:59:59.710484Z",
+      "repo_id": 1432628802,
+      "sources": [
+        "telegram:open_source_friend"
+      ]
+    },
+    "jackwener/dsh-android": {
+      "first_seen_at": "2026-11-03T11:59:59.712721Z",
+      "full_name": "jackwener/DSH-Android",
+      "last_decision": "rejected:description_not_english",
+      "last_seen_at": "2026-11-03T11:59:59.712724Z",
+      "repo_id": 1436184001,
+      "sources": [
+        "telegram:gitbless"
+      ]
+    },
+    "kaankiziltug/logo-design-skill": {
+      "first_seen_at": "2026-11-03T11:59:59.673823Z",
+      "full_name": "kaankiziltug/logo-design-skill",
+      "last_decision": "queued",
+      "last_seen_at": "2026-11-03T11:59:59.673826Z",
+      "repo_id": 1388867993,
+      "sources": [
+        "github_search"
+      ]
+    },
+    "kailashsr38/ascii-magic-art": {
+      "first_seen_at": "2026-11-03T11:59:59.702396Z",
+      "full_name": "kailashsr38/ascii-magic-art",
+      "last_decision": "queued",
+      "last_seen_at": "2026-11-03T11:59:59.702399Z",
+      "repo_id": 1425296336,
+      "sources": [
+        "github_search"
+      ]
+    },
+    "kajisho5/ffmpeg-skill": {
+      "first_seen_at": "2026-11-03T11:59:59.705748Z",
+      "full_name": "kajisho5/ffmpeg-skill",
+      "last_decision": "published",
+      "last_seen_at": "2026-11-03T12:00:53.732403Z",
+      "repo_id": 1356077516,
+      "sources": [
+        "telegram:open_source_friend"
+      ]
+    },
+    "kargulstudio/calender-app-design": {
+      "first_seen_at": "2026-11-03T11:59:59.712035Z",
+      "full_name": "kargulstudio/calender-app-design",
+      "last_decision": "queued",
+      "last_seen_at": "2026-11-03T11:59:59.712038Z",
+      "repo_id": 1434789878,
+      "sources": [
+        "telegram:github_repos"
+      ]
+    },
+    "kdlbs/kandev": {
+      "first_seen_at": "2026-11-03T11:59:59.690939Z",
+      "full_name": "kdlbs/kandev",
+      "last_decision": "queued",
+      "last_seen_at": "2026-11-03T11:59:59.690942Z",
+      "repo_id": 1131388506,
+      "sources": [
+        "github_search"
+      ]
+    },
+    "keptinventory/kept": {
+      "first_seen_at": "2026-11-03T11:59:59.706795Z",
+      "full_name": "keptinventory/kept",
+      "last_decision": "queued",
+      "last_seen_at": "2026-11-03T11:59:59.706798Z",
+      "repo_id": 1387755954,
+      "sources": [
+        "telegram:open_source_friend"
+      ]
+    },
+    "kevinraymond/florilegium": {
+      "first_seen_at": "2026-11-03T11:59:59.711748Z",
+      "full_name": "kevinraymond/florilegium",
+      "last_decision": "queued",
+      "last_seen_at": "2026-11-03T11:59:59.711751Z",
+      "repo_id": 1439430391,
+      "sources": [
+        "hacker_news",
+        "telegram:gitbless",
+        "telegram:github_repos"
+      ]
+    },
+    "konlu/story-studio": {
+      "first_seen_at": "2026-11-03T11:59:59.712349Z",
+      "full_name": "konlu/story-studio",
+      "last_decision": "rejected:no_license,description_not_english",
+      "last_seen_at": "2026-11-03T11:59:59.712353Z",
+      "repo_id": 1434156379,
+      "sources": [
+        "telegram:gitbless"
+      ]
+    },
+    "kort0881/vpn-vless-configs-russia": {
+      "first_seen_at": "2026-11-03T11:59:59.713126Z",
+      "full_name": "kort0881/vpn-vless-configs-russia",
+      "last_decision": "rejected:readme_not_english",
+      "last_seen_at": "2026-11-03T11:59:59.713129Z",
+      "repo_id": 1069811956,
+      "sources": [
+        "telegram:bestofgithub"
+      ]
+    },
+    "levhakobyan/opentv-remote": {
+      "first_seen_at": "2026-11-03T11:59:59.710205Z",
+      "full_name": "levhakobyan/OpenTV-Remote",
+      "last_decision": "queued",
+      "last_seen_at": "2026-11-03T11:59:59.710207Z",
+      "repo_id": 1436342449,
+      "sources": [
+        "telegram:open_source_friend"
+      ]
+    },
+    "lexifina/global-law": {
+      "first_seen_at": "2026-11-03T11:59:59.683437Z",
+      "full_name": "lexifina/global-law",
+      "last_decision": "rejected:no_license",
+      "last_seen_at": "2026-11-03T11:59:59.683441Z",
+      "repo_id": 1437131455,
+      "sources": [
+        "github_search",
+        "telegram:gitbless",
+        "telegram:github_repos"
+      ]
+    },
+    "marbleorbweb94/ninjatrader-bot": {
+      "first_seen_at": "2026-11-03T11:59:59.697623Z",
+      "full_name": "marbleorbweb94/ninjatrader-bot",
+      "last_decision": "rejected:no_license,no_community",
+      "last_seen_at": "2026-11-03T11:59:59.697626Z",
+      "repo_id": 1442806301,
+      "sources": [
+        "github_search"
+      ]
+    },
+    "meteornox/deepseek-balance-whale-widget": {
+      "first_seen_at": "2026-11-03T11:59:59.689720Z",
+      "full_name": "MeteorNOX/DeepSeek-Balance-Whale-Widget",
+      "last_decision": "rejected:description_not_english,readme_not_english,narrow:topic:plugin",
+      "last_seen_at": "2026-11-03T11:59:59.689723Z",
+      "repo_id": 1337920628,
+      "sources": [
+        "github_search"
+      ]
+    },
+    "modelflare-ai/anymodelbot": {
+      "first_seen_at": "2026-11-03T11:59:59.674735Z",
+      "full_name": "modelflare-ai/AnyModelBot",
+      "last_decision": "queued",
+      "last_seen_at": "2026-11-03T11:59:59.674740Z",
+      "repo_id": 1435475558,
+      "sources": [
+        "github_search",
+        "telegram:github_repos"
+      ]
+    },
+    "moessif/code-video-showcase": {
+      "first_seen_at": "2026-11-03T11:59:59.699617Z",
+      "full_name": "Moessif/code-video-showcase",
+      "last_decision": "queued",
+      "last_seen_at": "2026-11-03T11:59:59.699622Z",
+      "repo_id": 1432242109,
+      "sources": [
+        "github_search"
+      ]
+    },
+    "monid-ai/monid": {
+      "first_seen_at": "2026-11-03T11:59:59.681029Z",
+      "full_name": "monid-ai/monid",
+      "last_decision": "queued",
+      "last_seen_at": "2026-11-03T11:59:59.681031Z",
+      "repo_id": 1346870728,
+      "sources": [
+        "github_search"
+      ]
+    },
+    "mylea1/phongent": {
+      "first_seen_at": "2026-11-03T11:59:59.701990Z",
+      "full_name": "mylea1/phongent",
+      "last_decision": "rejected:description_not_english,readme_not_english",
+      "last_seen_at": "2026-11-03T11:59:59.701993Z",
+      "repo_id": 1441489322,
+      "sources": [
+        "github_search"
+      ]
+    },
+    "mythdepression/cinebench": {
+      "first_seen_at": "2026-11-03T11:59:59.693909Z",
+      "full_name": "MythDepression/cinebench",
+      "last_decision": "rejected:no_license,no_community",
+      "last_seen_at": "2026-11-03T11:59:59.693912Z",
+      "repo_id": 1442803434,
+      "sources": [
+        "github_search"
+      ]
+    },
+    "nathanliow/atlas-of-physics": {
+      "first_seen_at": "2026-11-03T11:59:59.698258Z",
+      "full_name": "nathanliow/atlas-of-physics",
+      "last_decision": "queued",
+      "last_seen_at": "2026-11-03T11:59:59.698261Z",
+      "repo_id": 1437714204,
+      "sources": [
+        "github_search"
+      ]
+    },
+    "nikita-s-x2001x7/photo-converter": {
+      "first_seen_at": "2026-11-03T11:59:59.685153Z",
+      "full_name": "nikita-s-x2001x7/photo-converter",
+      "last_decision": "queued",
+      "last_seen_at": "2026-11-03T11:59:59.685156Z",
+      "repo_id": 1441815447,
+      "sources": [
+        "github_search"
+      ]
+    },
+    "noahdunnagan/fsearch": {
+      "first_seen_at": "2026-11-03T11:59:59.694221Z",
+      "full_name": "noahdunnagan/fsearch",
+      "last_decision": "queued",
+      "last_seen_at": "2026-11-03T11:59:59.694224Z",
+      "repo_id": 1410750399,
+      "sources": [
+        "github_search"
+      ]
+    },
+    "notivn/aievv2": {
+      "first_seen_at": "2026-11-03T11:59:59.704903Z",
+      "full_name": "notivn/AIEVv2",
+      "last_decision": "rejected:not_software:topic:videos",
+      "last_seen_at": "2026-11-03T11:59:59.704906Z",
+      "repo_id": 1435024350,
+      "sources": [
+        "github_search"
+      ]
+    },
+    "nvidia-omniverse/usd-brep": {
+      "first_seen_at": "2026-11-03T11:59:59.695223Z",
+      "full_name": "NVIDIA-Omniverse/usd-brep",
+      "last_decision": "queued",
+      "last_seen_at": "2026-11-03T11:59:59.695226Z",
+      "repo_id": 1410721941,
+      "sources": [
+        "github_search"
+      ]
+    },
+    "op7418/dsh-guizang-design": {
+      "first_seen_at": "2026-11-03T11:59:59.702827Z",
+      "full_name": "op7418/dsh-guizang-design",
+      "last_decision": "rejected:description_not_english,readme_not_english",
+      "last_seen_at": "2026-11-03T11:59:59.702830Z",
+      "repo_id": 1439854729,
+      "sources": [
+        "github_search"
+      ]
+    },
+    "opengeos/rustgis": {
+      "first_seen_at": "2026-11-03T11:59:59.685470Z",
+      "full_name": "opengeos/RustGIS",
+      "last_decision": "queued",
+      "last_seen_at": "2026-11-03T11:59:59.685474Z",
+      "repo_id": 1413549354,
+      "sources": [
+        "github_search"
+      ]
+    },
+    "oshan96/zipline": {
+      "first_seen_at": "2026-11-03T11:59:59.708467Z",
+      "full_name": "Oshan96/Zipline",
+      "last_decision": "queued",
+      "last_seen_at": "2026-11-03T11:59:59.708471Z",
+      "repo_id": 1427090951,
+      "sources": [
+        "telegram:open_source_friend"
+      ]
+    },
+    "paipiange/nvzhuang": {
+      "first_seen_at": "2026-11-03T11:59:59.689365Z",
+      "full_name": "paipiange/nvzhuang",
+      "last_decision": "rejected:readme_not_english",
+      "last_seen_at": "2026-11-03T11:59:59.689370Z",
+      "repo_id": 1438018242,
+      "sources": [
+        "github_search"
+      ]
+    },
+    "parda21/cloofy": {
+      "first_seen_at": "2026-11-03T11:59:59.707470Z",
+      "full_name": "parda21/cloofy",
+      "last_decision": "rejected:not_software:topic:music",
+      "last_seen_at": "2026-11-03T11:59:59.707475Z",
+      "repo_id": 1420637172,
+      "sources": [
+        "telegram:open_source_friend"
+      ]
+    },
+    "peiikai/lasrecomp": {
+      "first_seen_at": "2026-11-03T11:59:59.684064Z",
+      "full_name": "peiikai/LASRecomp",
+      "last_decision": "rejected:no_license",
+      "last_seen_at": "2026-11-03T11:59:59.684067Z",
+      "repo_id": 1411026273,
+      "sources": [
+        "github_search"
+      ]
+    },
+    "pxticks/h3-motion": {
+      "first_seen_at": "2026-11-03T11:59:59.711427Z",
+      "full_name": "PxTicks/h3-motion",
+      "last_decision": "queued",
+      "last_seen_at": "2026-11-03T11:59:59.711431Z",
+      "repo_id": 1431609839,
+      "sources": [
+        "telegram:open_source_friend"
+      ]
+    },
+    "quantumbladesmith/fps-optimizer-universal-game-performance-booster-2026": {
+      "first_seen_at": "2026-11-03T11:59:59.701327Z",
+      "full_name": "QuantumBladesmith/FPS-Optimizer-Universal-Game-Performance-Booster-2026",
+      "last_decision": "queued",
+      "last_seen_at": "2026-11-03T11:59:59.701332Z",
+      "repo_id": 1440106259,
+      "sources": [
+        "github_search"
+      ]
+    },
+    "qybaihe/bla": {
+      "first_seen_at": "2026-11-03T11:59:59.677855Z",
+      "full_name": "qybaihe/bla",
+      "last_decision": "queued",
+      "last_seen_at": "2026-11-03T11:59:59.677858Z",
+      "repo_id": 1432859403,
+      "sources": [
+        "github_search",
+        "telegram:gitbless",
+        "telegram:github_repos"
+      ]
+    },
+    "rddmwmddr/android-ad-cleaner": {
+      "first_seen_at": "2026-11-03T11:59:59.677438Z",
+      "full_name": "rddmwmddr/android-ad-cleaner",
+      "last_decision": "rejected:description_not_english",
+      "last_seen_at": "2026-11-03T11:59:59.677442Z",
+      "repo_id": 1431851693,
+      "sources": [
+        "github_search"
+      ]
+    },
+    "realsirjoe/relinos": {
+      "first_seen_at": "2026-11-03T11:59:59.710743Z",
+      "full_name": "realsirjoe/relinos",
+      "last_decision": "rejected:no_license,no_community,stars<100",
+      "last_seen_at": "2026-11-03T11:59:59.710746Z",
+      "repo_id": 1343698764,
+      "sources": [
+        "telegram:open_source_friend"
+      ]
+    },
+    "restraintnyushake/studioonepro7": {
+      "first_seen_at": "2026-11-03T11:59:59.696432Z",
+      "full_name": "Restraintnyushake/studioonepro7",
+      "last_decision": "rejected:no_license,no_community",
+      "last_seen_at": "2026-11-03T11:59:59.696436Z",
+      "repo_id": 1442807553,
+      "sources": [
+        "github_search"
+      ]
+    },
+    "ropecrewmanstep/power-director": {
+      "first_seen_at": "2026-11-03T11:59:59.697227Z",
+      "full_name": "ropecrewmanstep/power-director",
+      "last_decision": "rejected:no_license,no_community",
+      "last_seen_at": "2026-11-03T11:59:59.697230Z",
+      "repo_id": 1442807311,
+      "sources": [
+        "github_search"
+      ]
+    },
+    "s1dashu/ip-as-logo-skill": {
+      "first_seen_at": "2026-11-03T11:59:59.673409Z",
+      "full_name": "s1dashu/ip-as-logo-skill",
+      "last_decision": "queued",
+      "last_seen_at": "2026-11-03T11:59:59.673414Z",
+      "repo_id": 1338470635,
+      "sources": [
+        "github_search"
+      ]
+    },
+    "scribe-ide/scribe": {
+      "first_seen_at": "2026-11-03T11:59:59.706082Z",
+      "full_name": "Scribe-IDE/Scribe",
+      "last_decision": "queued",
+      "last_seen_at": "2026-11-03T11:59:59.706085Z",
+      "repo_id": 1438674431,
+      "sources": [
+        "telegram:open_source_friend"
+      ]
+    },
+    "shaongitbd/doory": {
+      "first_seen_at": "2026-11-03T11:59:59.672993Z",
+      "full_name": "shaongitbd/doory",
+      "last_decision": "rejected:no_license",
+      "last_seen_at": "2026-11-03T11:59:59.672997Z",
+      "repo_id": 1412573009,
+      "sources": [
+        "github_search"
+      ]
+    },
+    "sharmahardik0712/reel-generator": {
+      "first_seen_at": "2026-11-03T11:59:59.708850Z",
+      "full_name": "sharmahardik0712/reel-generator",
+      "last_decision": "rejected:no_community,stars<100",
+      "last_seen_at": "2026-11-03T11:59:59.708853Z",
+      "repo_id": 1431042831,
+      "sources": [
+        "telegram:open_source_friend"
+      ]
+    },
+    "sloemo01/diorama": {
+      "first_seen_at": "2026-11-03T11:59:59.692731Z",
+      "full_name": "sloemo01/diorama",
+      "last_decision": "queued",
+      "last_seen_at": "2026-11-03T11:59:59.692733Z",
+      "repo_id": 1432002655,
+      "sources": [
+        "github_search"
+      ]
+    },
+    "splendorhornbill/windows-animated-wallpapers": {
+      "first_seen_at": "2026-11-03T11:59:59.693127Z",
+      "full_name": "SplendorHornbill/windows-animated-wallpapers",
+      "last_decision": "queued",
+      "last_seen_at": "2026-11-03T11:59:59.693130Z",
+      "repo_id": 1443479117,
+      "sources": [
+        "github_search"
+      ]
+    },
+    "storytold/craft-anything": {
+      "first_seen_at": "2026-11-03T11:59:59.679647Z",
+      "full_name": "storytold/craft-anything",
+      "last_decision": "rejected:velocity_too_high",
+      "last_seen_at": "2026-11-03T11:59:59.679650Z",
+      "repo_id": 1440956372,
+      "sources": [
+        "github_search",
+        "telegram:github_repos"
+      ]
+    },
+    "sudo-py-dev/fmx": {
+      "first_seen_at": "2026-11-03T11:59:59.709475Z",
+      "full_name": "sudo-py-dev/fmx",
+      "last_decision": "queued",
+      "last_seen_at": "2026-11-03T11:59:59.709479Z",
+      "repo_id": 1432463708,
+      "sources": [
+        "telegram:open_source_friend"
+      ]
+    },
+    "supermedo/uncharted_pc": {
+      "first_seen_at": "2026-11-03T11:59:59.686927Z",
+      "full_name": "Supermedo/uncharted_pc",
+      "last_decision": "queued",
+      "last_seen_at": "2026-11-03T11:59:59.686930Z",
+      "repo_id": 1419982962,
+      "sources": [
+        "github_search"
+      ]
+    },
+    "surendrapandar/minilytics": {
+      "first_seen_at": "2026-11-03T11:59:59.715090Z",
+      "full_name": "surendrapandar/minilytics",
+      "last_decision": "queued",
+      "last_seen_at": "2026-11-03T11:59:59.715093Z",
+      "repo_id": 1431464445,
+      "sources": [
+        "telegram:github_repos"
+      ]
+    },
+    "tencent-hunyuan/hy-memory": {
+      "first_seen_at": "2026-11-03T11:59:59.698543Z",
+      "full_name": "Tencent-Hunyuan/Hy-Memory",
+      "last_decision": "rejected:no_license",
+      "last_seen_at": "2026-11-03T11:59:59.698547Z",
+      "repo_id": 1420743720,
+      "sources": [
+        "github_search"
+      ]
+    },
+    "thtbee/nectarlink": {
+      "first_seen_at": "2026-11-03T11:59:59.682733Z",
+      "full_name": "thtbee/nectarlink",
+      "last_decision": "rejected:no_license",
+      "last_seen_at": "2026-11-03T11:59:59.682740Z",
+      "repo_id": 1404840859,
+      "sources": [
+        "github_search"
+      ]
+    },
+    "trackflamingoarbor/movavi-effects": {
+      "first_seen_at": "2026-11-03T11:59:59.696841Z",
+      "full_name": "TrackFlamingoArbor/movavi-effects",
+      "last_decision": "rejected:no_license,no_community",
+      "last_seen_at": "2026-11-03T11:59:59.696843Z",
+      "repo_id": 1442806059,
+      "sources": [
+        "github_search"
+      ]
+    },
+    "ulsklyc/yuvomi": {
+      "first_seen_at": "2026-11-03T11:59:59.676356Z",
+      "full_name": "ulsklyc/yuvomi",
+      "last_decision": "queued",
+      "last_seen_at": "2026-11-03T11:59:59.676360Z",
+      "repo_id": 1190598050,
+      "sources": [
+        "github_search"
+      ]
+    },
+    "unclebob/ub-mode": {
+      "first_seen_at": "2026-11-03T11:59:59.684759Z",
+      "full_name": "unclebob/ub-mode",
+      "last_decision": "queued",
+      "last_seen_at": "2026-11-03T11:59:59.684762Z",
+      "repo_id": 1433377156,
+      "sources": [
+        "github_search"
+      ]
+    },
+    "unixnu/unixnu": {
+      "first_seen_at": "2026-11-03T11:59:59.682363Z",
+      "full_name": "UniXNU/UniXNU",
+      "last_decision": "rejected:no_license",
+      "last_seen_at": "2026-11-03T11:59:59.682367Z",
+      "repo_id": 1425469723,
+      "sources": [
+        "github_search"
+      ]
+    },
+    "valentderah/totk-pc-recomp": {
+      "first_seen_at": "2026-11-03T11:59:59.713799Z",
+      "full_name": "valentderah/totk-pc-recomp",
+      "last_decision": "queued",
+      "last_seen_at": "2026-11-03T11:59:59.713802Z",
+      "repo_id": 1438394948,
+      "sources": [
+        "telegram:gitbless",
+        "telegram:github_repos"
+      ]
+    },
+    "vanquisheroverboost/autodesk-3ds-max": {
+      "first_seen_at": "2026-11-03T11:59:59.704000Z",
+      "full_name": "Vanquisheroverboost/autodesk-3ds-max",
+      "last_decision": "rejected:no_license,no_community",
+      "last_seen_at": "2026-11-03T11:59:59.704004Z",
+      "repo_id": 1442802850,
+      "sources": [
+        "github_search"
+      ]
+    },
+    "wangzan101/mika": {
+      "first_seen_at": "2026-11-03T11:59:59.714136Z",
+      "full_name": "wangzan101/Mika",
+      "last_decision": "queued",
+      "last_seen_at": "2026-11-03T11:59:59.714139Z",
+      "repo_id": 1438540053,
+      "sources": [
+        "telegram:gitbless",
+        "telegram:github_repos"
+      ]
+    },
+    "weiss-ultimatesavior/tyranor-next": {
+      "first_seen_at": "2026-11-03T11:59:59.704434Z",
+      "full_name": "Weiss-UltimateSavior/Tyranor-Next",
+      "last_decision": "rejected:description_not_english",
+      "last_seen_at": "2026-11-03T11:59:59.704438Z",
+      "repo_id": 1342409518,
+      "sources": [
+        "github_search"
+      ]
+    },
+    "wraithnograph/abbyy-finereader-pdf": {
+      "first_seen_at": "2026-11-03T11:59:59.703187Z",
+      "full_name": "Wraithnograph/abbyy-finereader-pdf",
+      "last_decision": "rejected:no_license,no_community",
+      "last_seen_at": "2026-11-03T11:59:59.703190Z",
+      "repo_id": 1442802317,
+      "sources": [
+        "github_search"
+      ]
+    },
+    "xiaoyang111222/cn-math-taxonomy": {
+      "first_seen_at": "2026-11-03T11:59:59.678908Z",
+      "full_name": "xiaoyang111222/cn-math-taxonomy",
+      "last_decision": "rejected:no_license,description_not_english,readme_not_english",
+      "last_seen_at": "2026-11-03T11:59:59.678912Z",
+      "repo_id": 1424183124,
+      "sources": [
+        "github_search"
+      ]
+    },
+    "xiaoyecodes/code-animation-prompts": {
+      "first_seen_at": "2026-11-03T11:59:59.687275Z",
+      "full_name": "XiaoyeCodes/code-animation-prompts",
+      "last_decision": "rejected:no_license,description_not_english,not_software:topic:prompts",
+      "last_seen_at": "2026-11-03T11:59:59.687278Z",
+      "repo_id": 1438282469,
+      "sources": [
+        "github_search"
+      ]
+    },
+    "yjid/kensaku": {
+      "first_seen_at": "2026-11-03T11:59:59.709867Z",
+      "full_name": "yjid/kensaku",
+      "last_decision": "queued",
+      "last_seen_at": "2026-11-03T11:59:59.709870Z",
+      "repo_id": 1432590994,
+      "sources": [
+        "telegram:open_source_friend"
+      ]
+    },
+    "zhuyansen/new-term-radar": {
+      "first_seen_at": "2026-11-03T11:59:59.687674Z",
+      "full_name": "zhuyansen/new-term-radar",
+      "last_decision": "queued",
+      "last_seen_at": "2026-11-03T11:59:59.687678Z",
+      "repo_id": 1415214046,
+      "sources": [
+        "github_search"
+      ]
+    },
+    "zichuanlan/agent-purge": {
+      "first_seen_at": "2026-11-03T11:59:59.714797Z",
+      "full_name": "ZiChuanLan/agent-purge",
+      "last_decision": "queued",
+      "last_seen_at": "2026-11-03T11:59:59.714800Z",
+      "repo_id": 1432883796,
+      "sources": [
+        "telegram:github_repos"
+      ]
+    }
+  },
+  "suppressed": {},
+  "version": 1
+}
