@@ -9,3 +9,5 @@
 {"cleared": 2, "ids": ["4968458", "4968877"], "ts": "2026-11-03T13:17:11.182828Z", "type": "devto_series_cleared"}
 {"repo": "kajisho5/ffmpeg-skill", "ts": "2026-11-03T13:20:03.934952Z", "type": "article_updated", "url": "https://dev.to/githubopensource/local-video-tools-for-ai-coding-assistants-ffmpeg-integration-5e7a"}
 {"platform": "bluesky", "repo": "kajisho5/ffmpeg-skill", "ts": "2026-11-03T19:24:54.225572Z", "type": "crosspost_published", "url": "https://bsky.app/profile/githubopensource.bsky.social/post/3mzgkvs5ud22z"}
+{"preview_host": "imgbb", "repo": "horizon-rust/horizon", "ts": "2026-11-03T19:45:44.037782Z", "type": "published_as_text"}
+{"repo": "horizon-rust/horizon", "score": 91.149, "telegram_message_id": 3551, "telegraph_url": "https://telegra.ph/Horizon-A-Minecraft-Java-Edition-Reimplementation-in-Rust-11-03", "ts": "2026-11-03T19:45:44.038124Z", "type": "project_published"}

@@ -27,6 +27,11 @@
       },
       "started_at": "2026-11-03T11:55:39.359966Z"
     },
+    "publish:europe_midday": {
+      "finished_at": "2026-11-03T19:45:44.038179Z",
+      "repo": "horizon-rust/horizon",
+      "telegram_message_id": 3551
+    },
     "publish:manual": {
       "finished_at": "2026-11-03T12:00:53.732414Z",
       "repo": "kajisho5/ffmpeg-skill",
@@ -36,6 +41,122 @@
   "news_topics": [],
   "publish_failures": {},
   "published": {
+    "horizon-rust/horizon": {
+      "articles": {},
+      "card_style": "",
+      "category": "DevTools",
+      "contributors_count": 219,
+      "created_at": "2026-10-03T17:08:48Z",
+      "crossposts": {
+        "bluesky": {
+          "attempts": 0,
+          "due_at": "2026-11-03T20:15:44.037936+00:00",
+          "status": "pending"
+        }
+      },
+      "description": "Minecraft: Java Edition 26.3 rewritten from scratch in Rust, checked against vanilla with 281 differential harnesses. Get it with the Horizon launcher.",
+      "description_fp": "61ddfa71c0812a84",
+      "forks": 854,
+      "full_name": "horizon-rust/horizon",
+      "generated": {
+        "article_markdown": "## What it is\n\nHorizon is an unofficial, open-source reimplementation of Minecraft Java Edition written completely from scratch in Rust. Rather than wrapping or modifying the existing game binaries, it provides a native client and server stack designed to run vanilla saves, worlds, and resource packs without executing the Java Virtual Machine. It relies on a companion launcher to prepare necessary assets from an existing legitimate game installation.\n\n## Why it matters\n\nTraditional Java-based Minecraft instances demand heavy memory allocation and frequent garbage collection, limiting performance on lower-end hardware and complicating programmatic interaction. By shifting the engine to Rust, Horizon opens the door to high-performance rendering, lower memory overhead, and direct programmatic control for automation scripts and AI agents without relying on heavy third-party mod loaders.\n\n## Key features\n\n- Executes core game mechanics, world generation, and redstone natively in Rust.\n- Ships with horizon-ctl and an MCP server interface for direct AI agent control.\n- Supports distant terrain rendering up to 1024 chunks.\n- Integrates with CurseForge and Modrinth data- and asset-based modpacks.\n- Includes server management tools for local hosting or VPS deployments without Java.\n\n## Quick start\n\nTo build and run the client from source after preparing your assets, use the following commands:\n\n```sh\ngit clone https://github.com/horizon-rust/horizon.git\ncd horizon\ncargo run --release -p horizon-prepare -- --prepare --server-jar ~/Downloads/server.jar\ncargo run --release -p horizon-client\n```\n\n## Who should try it\n\nSystems programmers, Rust enthusiasts, and advanced server administrators looking to experiment with low-level game engine architecture or build automated agents inside a sandbox environment will find plenty to explore here.\n\n## Verdict\n\nHorizon is an extraordinary technical achievement backed by rigorous differential testing. While it continues to close remaining parity gaps against vanilla releases, it serves as a compelling glimpse into what is possible when modern systems languages meet classic game design.",
+        "article_title": "Horizon: A Minecraft Java Edition Reimplementation in Rust",
+        "card_hook": "Minecraft rewritten in Rust",
+        "card_subline": "A native, high-performance reimplementation checked against vanilla Java",
+        "category": "DevTools",
+        "discussion_question": "Which modpack would you test first on a non-JVM engine?",
+        "hook": "Rewrite Minecraft Java Edition in Rust with 281 differential harnesses checking vanilla parity.",
+        "key_features": [
+          "Run vanilla world generation, mobs, redstone, and commands without Java",
+          "Control the game programmatically or over MCP using horizon-ctl",
+          "Render distant terrain up to 1024 chunks using modern graphics APIs",
+          "Import CurseForge and Modrinth modpacks containing content and data packs",
+          "Manage and host servers locally or on a VPS without Java dependencies"
+        ],
+        "llm_used": true,
+        "quick_start": "cargo run --release -p horizon-client",
+        "safety": "ok",
+        "safety_reason": "Legitimate open-source game reimplementation and development tooling.",
+        "scene": "You sit down to spin up a heavy modded Minecraft session, only to watch the JVM consume gigabytes of memory while garbage collection pauses stutter your frame rate.",
+        "social_text": "Minecraft Java Edition rewritten completely in Rust with native agent control and modern graphics.",
+        "summary": "Horizon implements Minecraft Java Edition from scratch in Rust, sitting on top of modern graphics APIs like Vulkan and Wgpu while relying on a custom launcher to prepare game assets from an existing user installation. It bypasses the Java virtual machine entirely to deliver native performance, custom graphics presets, and distant terrain rendering. AI agents can also interact with the engine natively via a built-in control interface.",
+        "surfaces": {
+          "Facebook_body": "Experience your favorite block building game with native system performance and custom graphics presets, completely independent of the traditional Java software environment. By rebuilding the engine from the ground up in a fast systems language, this project delivers smoother rendering, custom distant terrain capabilities up to 1024 chunks, and local server hosting without legacy dependencies.\n\nYou can also import existing modpacks from popular platforms and interact with the game engine programmatically using a built-in control interface for automated agents.\n\nIt is designed for systems enthusiasts, power users, and developers who want to explore high performance game engine architecture, custom rendering pipelines, and programmatic control without standard runtime overheads.",
+          "Facebook_headline": "Play Minecraft without the Java software",
+          "Facebook_lead": "Enjoy native graphics performance and distant terrain rendering by running the popular block game directly on your system without the traditional Java environment.",
+          "bluesky_headline": "Play Minecraft in Rust with native performance",
+          "bluesky_lead": "A from-scratch rewrite checked against vanilla with 281 differential harnesses.",
+          "devto_body": "## What it is\n\nHorizon is an independent implementation of Minecraft Java Edition written from scratch in Rust. It bypasses the Java virtual machine to deliver native performance, advanced rendering features, and a programmatic control interface.\n\n## How it works\n\nThe engine relies on modern graphics stacks like Vulkan and Wgpu for rendering. It uses a custom launcher to prepare game assets from an existing user installation and employs 281 differential harnesses to check parity against the vanilla game.\n\n## Key features\n\n- Run vanilla world generation, mobs, redstone, and commands without Java\n- Render distant terrain up to 1024 chunks using modern graphics APIs\n- Control the game programmatically or over control interfaces using horizon-ctl\n- Import CurseForge and Modrinth modpacks containing content and data packs\n- Manage and host servers locally or on a VPS without Java dependencies\n\n## Getting started\n\nClone the repository from GitHub, ensure you have a Rust toolchain installed, and use the Horizon launcher to prepare your game assets from an existing legitimate installation.\n\n## When not to use it\n\nDo not use this if you expect complete zero-bug compatibility today, as the project is still tracking hundreds of open parity gaps with the original Java release.",
+          "seo_description": "Run Minecraft Java Edition natively in Rust without Java. An open source engine featuring high performance rendering and programmatic control.",
+          "seo_query": "minecraft written in rust",
+          "seo_title": "Play Minecraft in Rust - Open Source Engine",
+          "telegraph_angle": "Explore the engineering trade-offs of rewriting a massive Java game engine in Rust and the challenges of maintaining parity."
+        },
+        "tension": "Running large modpacks or multiple instances burns through system memory, forces endless JVM tuning, and makes programmatic bot integration painfully slow.",
+        "turn": "Horizon rewrites the entire engine in Rust, eliminating the JVM bottleneck and adding native agent hooks, while still inheriting standard asset requirements from your existing game copy.",
+        "verdict": "An impressive engineering feat for systems developers and power users, though still tracking hundreds of open parity gaps.",
+        "who_for": "Rust developers and Minecraft enthusiasts wanting native performance and programmatic agent control.",
+        "why_now": "The maturity of modern graphics stacks and differential testing tools makes rewriting complex Java game engines in safe systems languages a practical reality."
+      },
+      "homepage": "https://playhorizon.dev",
+      "id": 1403446451,
+      "image_url": "https://i.ibb.co/d4Hg3y8W/horizon-rust-horizon-readme-preview-bba8e9ac9bd9.jpg",
+      "is_dual_use": false,
+      "is_hidden_gem": false,
+      "language": "Rust",
+      "license": {
+        "key": "mit",
+        "name": "MIT License",
+        "node_id": "MDc6TGljZW5zZTEz",
+        "spdx_id": "MIT",
+        "url": "https://api.github.com/licenses/mit"
+      },
+      "media_urls": [
+        "https://raw.githubusercontent.com/horizon-rust/horizon/main/docs/media/banner.webp",
+        "https://raw.githubusercontent.com/horizon-rust/horizon/main/docs/media/launcher-play.webp",
+        "https://raw.githubusercontent.com/horizon-rust/horizon/main/docs/media/launcher-settings.webp",
+        "https://raw.githubusercontent.com/horizon-rust/horizon/main/docs/media/sunset.webp",
+        "https://raw.githubusercontent.com/horizon-rust/horizon/main/docs/media/survival.webp",
+        "https://raw.githubusercontent.com/horizon-rust/horizon/main/docs/media/settings.webp",
+        "https://raw.githubusercontent.com/horizon-rust/horizon/main/docs/media/village.webp",
+        "https://raw.githubusercontent.com/horizon-rust/horizon/main/docs/media/nether.webp"
+      ],
+      "name": "horizon",
+      "open_issues": 615,
+      "published_at": "2026-11-03T19:45:44.037955Z",
+      "pushed_at": "2026-11-03T19:43:29Z",
+      "readme_fp": "48cd37486c2f4a20",
+      "repo_id": 1403446451,
+      "revisit_of": "",
+      "revisit_reason": "",
+      "score": 91.149,
+      "slot": "europe_midday",
+      "sources": [
+        "github_search"
+      ],
+      "stars": 6226,
+      "telegram_chat_id": "@GitHub_Open_Source",
+      "telegram_link": "https://t.me/GitHub_Open_Source/3551",
+      "telegram_message_id": 3551,
+      "telegraph_url": "https://telegra.ph/Horizon-A-Minecraft-Java-Edition-Reimplementation-in-Rust-11-03",
+      "topics": [
+        "differential-testing",
+        "game-engine",
+        "gamedev",
+        "linux",
+        "minecraft",
+        "minecraft-java",
+        "reimplementation",
+        "rust",
+        "voxel",
+        "vulkan",
+        "wgpu"
+      ],
+      "updated_at": "2026-11-03T19:43:33Z",
+      "url": "https://github.com/horizon-rust/horizon",
+      "visual_host": "imgbb",
+      "visual_kind": "readme"
+    },
     "kajisho5/ffmpeg-skill": {
       "articles": {
         "devto": {
@@ -194,73 +315,6 @@
     }
   },
   "queue": [
-    {
-      "archived": false,
-      "contributors_count": 217,
-      "created_at": "2026-10-03T17:08:48Z",
-      "default_branch": "main",
-      "description": "Minecraft: Java Edition 26.3 rewritten from scratch in Rust, checked against vanilla with 281 differential harnesses. Get it with the Horizon launcher.",
-      "disabled": false,
-      "fork": false,
-      "forks": 825,
-      "forks_count": 825,
-      "full_name": "horizon-rust/horizon",
-      "has_readme": true,
-      "homepage": "https://playhorizon.dev",
-      "id": 1403446451,
-      "is_dual_use": false,
-      "is_hidden_gem": false,
-      "language": "Rust",
-      "license": {
-        "key": "mit",
-        "name": "MIT License",
-        "node_id": "MDc6TGljZW5zZTEz",
-        "spdx_id": "MIT",
-        "url": "https://api.github.com/licenses/mit"
-      },
-      "media_urls": [
-        "https://raw.githubusercontent.com/horizon-rust/horizon/main/docs/media/banner.webp",
-        "https://raw.githubusercontent.com/horizon-rust/horizon/main/docs/media/launcher-play.webp",
-        "https://raw.githubusercontent.com/horizon-rust/horizon/main/docs/media/launcher-settings.webp",
-        "https://raw.githubusercontent.com/horizon-rust/horizon/main/docs/media/sunset.webp",
-        "https://raw.githubusercontent.com/horizon-rust/horizon/main/docs/media/survival.webp",
-        "https://raw.githubusercontent.com/horizon-rust/horizon/main/docs/media/settings.webp",
-        "https://raw.githubusercontent.com/horizon-rust/horizon/main/docs/media/village.webp",
-        "https://raw.githubusercontent.com/horizon-rust/horizon/main/docs/media/nether.webp"
-      ],
-      "name": "horizon",
-      "non_software_reason": "",
-      "open_issues": 448,
-      "open_issues_count": 448,
-      "owner_repo_count": 1,
-      "pushed_at": "2026-11-03T10:21:45Z",
-      "readme": "",
-      "readme_excerpt": "<p align=\"center\">\n  <img src=\"docs/media/banner.webp\" alt=\"The Horizon website: the game you know, rebuilt in Rust\" width=\"100%\">\n</p>\n\n<p align=\"center\">\n  <a href=\"https://github.com/horizon-rust/horizon/actions/workflows/ci.yml\"><img src=\"https://github.com/horizon-rust/horizon/actions/workflows/ci.yml/badge.svg?branch=main\" alt=\"CI\"></a>\n  <img src=\"https://img.shields.io/badge/Minecraft-Java%2026.3-5D9C3F\" alt=\"Minecraft Java 26.3\">\n  <img src=\"https://img.shields.io/badge/Rust-stable-B7410E?logo=rust&logoColor=white\" alt=\"Rust\">\n  <img src=\"https://img.shields.io/badge/vanilla%20parity-100%25-F0795A\" alt=\"Vanilla parity 100%\">\n  <a href=\"#project-status\"><img src=\"https://img.shields.io/badge/player--visible%20gaps-833%20open-F0795A\" alt=\"Player-visible gaps open\"></a>\n  <img src=\"https://img.shields.io/badge/platform-Linux%20%7C%20macOS%20%7C%20Windows-2A2470\" alt=\"Linux, macOS and Windows\">\n  <a href=\"LICENSE\"><img src=\"https://img.shields.io/badge/license-MIT-3B2F7E\" alt=\"MIT license\"></a>\n</p>\n\n<p align=\"center\">\n  <a href=\"https://playhorizon.dev\"><b>Website</b></a> ·\n  <a href=\"#download\"><b>Download</b></a> ·\n  <a href=\"https://playhorizon.dev/docs/\"><b>Documentation<",
-      "readme_len": 12604,
-      "repo_id": 1403446451,
-      "score": 91.149,
-      "source_name": "github_search",
-      "sources": [
-        "github_search"
-      ],
-      "stargazers_count": 6123,
-      "stars": 6123,
-      "topics": [
-        "differential-testing",
-        "game-engine",
-        "gamedev",
-        "linux",
-        "minecraft",
-        "minecraft-java",
-        "reimplementation",
-        "rust",
-        "voxel",
-        "vulkan",
-        "wgpu"
-      ],
-      "updated_at": "2026-11-03T11:51:13Z",
-      "url": "https://github.com/horizon-rust/horizon"
-    },
     {
       "archived": false,
       "contributors_count": 3,
@@ -2352,8 +2406,8 @@
     "horizon-rust/horizon": {
       "first_seen_at": "2026-11-03T11:59:59.672626Z",
       "full_name": "horizon-rust/horizon",
-      "last_decision": "queued",
-      "last_seen_at": "2026-11-03T11:59:59.672638Z",
+      "last_decision": "published",
+      "last_seen_at": "2026-11-03T19:45:44.038171Z",
       "repo_id": 1403446451,
       "sources": [
         "github_search"
