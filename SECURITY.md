@@ -104,8 +104,10 @@ Out of scope:
   removed 2026-11-03): all Actions are pinned to reviewed SHAs and both lock
   files require `--require-hashes`, so automated version PRs could not be
   merged safely. Dependabot security alerts remain a Settings-level feature
-  and do not create these PRs. CodeQL, gitleaks, secret scanning and push
-  protection stay enabled.
+  and do not create these PRs. Dependabot **vulnerability alerts were already
+  disabled in the repository settings** (unchanged); `automated-security-fixes`
+  is `false`. CodeQL, gitleaks, secret scanning and push protection stay
+  enabled.
 
 ## Disclosure
 

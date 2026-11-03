@@ -136,6 +136,10 @@ MUTATIONS: list[tuple[str, str, str, str]] = [
      "              collect|publish|crossposts|article|article-update|article-unseries|news",
      "              collect|publish|crossposts|article|article-update|news",
      "article-unseries command removed from the workflow whitelist"),
+    (".github/workflows/codeql.yml",
+     "- uses: github/codeql-action/analyze@793b778da9c9275a0f276522b27cb5fc14bba279 # v4",
+     "- uses: github/codeql-action/analyze@093c0af4c358e174c90d33c5672595fb14c89183 # v4",
+     "CodeQL init and analyze use different action versions"),
 ]
 
 COPY_ITEMS = (

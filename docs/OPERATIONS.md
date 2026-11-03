@@ -204,8 +204,10 @@ python tools/state_branch.py status                        # размер, св�
 - CodeQL и gitleaks включены. Dependabot version updates **отключены**
   (`.github/dependabot.yml` удалён 03.11.2026): его PR меняли закреплённые SHA
   экшенов и `requirements-dev.in` без пересборки хэш-локов, поэтому были
-  несливаемым шумом. Dependabot **security alerts** в Settings оставлены —
-  это уведомления, а не PR.
+  несливаемым шумом. Dependabot **vulnerability alerts в Settings отключены**
+  (не менялись), `automated-security-fixes=false` — значит Dependabot не
+  создаёт здесь никаких PR и уведомлений. Secret scanning, push protection,
+  CodeQL и gitleaks включены.
 - При инциденте: `git revert` + новый релиз. Не правьте `state/state.json`
   руками при работающих кронах.
 
@@ -242,3 +244,18 @@ python tools/state_branch.py status                        # размер, св�
 | Приближение к квоте артефактов | Billing → Usage, Budgets and alerts | артефакт создаётся только при изменении state (не на каждом из 64 запусков); триггер — размер, не число запусков |
 
 Полный разбор: `docs/RUNBOOK.md` и отчёт о долгосрочных рисках.
+
+### Письма об «ошибках» от Dependabot (03.11.2026)
+
+Два письма вида `Re: [...] Bump github/codeql-action/analyze ... (PR #2)`
+были **не поломкой продовой ветки**: Dependabot обновил `init` и `analyze`
+двумя разными PR (#4 и #2), поэтому в `codeql.yml` на ветке PR оказались
+версии 4.39.1 и 4.39.3 одновременно. CodeQL требует одинаковую версию у
+всех своих шагов и падает с `configuration error`. Всего в истории репозитория
+было ровно 2 failed-запуска, оба на ветках `dependabot/*`; на `main` оба шага
+закреплены на одном SHA `793b778da9c9275a0f276522b27cb5fc14bba279`.
+
+PR закрыты, ветки удалены, конфиг Dependabot удалён — новые такие письма не
+придут. `tests/test_codeql_pins.py` и отдельная мутация запрещают рассинхрон:
+если кто-то обновит только один из шагов, CI упадёт сразу, а не письмом на
+почту. Проверить вручную: `Actions → CodeQL → Run workflow`.
