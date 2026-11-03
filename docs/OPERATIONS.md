@@ -201,7 +201,11 @@ python tools/state_branch.py status                        # размер, св�
   requirements.lock`. Не заменяйте его на `pip install -e .` в CI.
 - `main` защищён ruleset: force-push и удаление запрещены. Единственный
   force-update во всём проекте — ежемесячный `squash` ветки `state`.
-- Dependabot, CodeQL и gitleaks включены. Не отключайте их.
+- CodeQL и gitleaks включены. Dependabot version updates **отключены**
+  (`.github/dependabot.yml` удалён 03.11.2026): его PR меняли закреплённые SHA
+  экшенов и `requirements-dev.in` без пересборки хэш-локов, поэтому были
+  несливаемым шумом. Dependabot **security alerts** в Settings оставлены —
+  это уведомления, а не PR.
 - При инциденте: `git revert` + новый релиз. Не правьте `state/state.json`
   руками при работающих кронах.
 

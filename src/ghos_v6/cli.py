@@ -26,6 +26,7 @@ from .pipeline import (
     publish_slot,
     report_command,
     update_recent_article,
+    unseries_articles,
 )
 from .state import StateStore
 
@@ -48,6 +49,13 @@ def _parser() -> argparse.ArgumentParser:
     sub.add_parser("crossposts", help="Process due social crossposts")
     sub.add_parser("article", help="Publish the best project of the day as an article")
     sub.add_parser("article-update", help="Re-render the latest dev.to article in place")
+    unseries = sub.add_parser(
+        "article-unseries", help="Detach dev.to articles from the retired series"
+    )
+    unseries.add_argument(
+        "--ids", default="",
+        help="Comma-separated dev.to article ids; state ids are added automatically",
+    )
 
     news = sub.add_parser("news", help="Publish one verified WorldofAI AI Brief")
     news.add_argument("--force", action="store_true", help="Run even if FEATURE_AI_BRIEF=false")
@@ -135,6 +143,8 @@ def main(argv: list[str] | None = None) -> int:
             result = article_of_day(config, store)
         elif args.command == "article-update":
             result = update_recent_article(config, store)
+        elif args.command == "article-unseries":
+            result = unseries_articles(config, store, ids=args.ids)
         elif args.command == "news":
             result = news_command(config, store, force=args.force)
         elif args.command == "digest":

@@ -13,6 +13,7 @@ on:
           - crossposts
           - article
           - article-update
+          - article-unseries
           - news
           - digest
           - report
@@ -29,6 +30,10 @@ on:
         description: Run AI Brief even if its feature flag is off (news command only)
         type: boolean
         default: false
+      article_ids:
+        description: Comma-separated dev.to ids for article-unseries (digits only)
+        type: string
+        default: ""
   schedule:
     # Three posts a day (owner decision, 2026-11-01).
     - cron: "20 4 * * *"     # collect
@@ -120,12 +125,13 @@ jobs:
           COMMAND: ${{ inputs.command }}
           SLOT: ${{ inputs.slot }}
           FORCE_NEWS: ${{ inputs.force_news }}
+          ARTICLE_IDS: ${{ inputs.article_ids }}
           EVENT_NAME: ${{ github.event_name }}
           SCHEDULE: ${{ github.event.schedule }}
         run: |
           if [[ "$EVENT_NAME" == "workflow_dispatch" ]]; then
             case "$COMMAND" in
-              collect|publish|crossposts|article|article-update|news|digest|report|moderation|facebook-handoff|metrics|learn|poll-close) ;;
+              collect|publish|crossposts|article|article-update|article-unseries|news|digest|report|moderation|facebook-handoff|metrics|learn|poll-close) ;;
               *) echo "::error::invalid command: $COMMAND"; exit 1 ;;
             esac
             if [[ "$COMMAND" == "publish" ]]; then
@@ -134,6 +140,11 @@ jobs:
                 exit 1
               fi
               ghos-v6 publish --slot "$SLOT"
+            elif [[ "$COMMAND" == "article-unseries" ]]; then
+              if [[ ! "$ARTICLE_IDS" =~ ^[0-9,[:space:]]{0,200}$ ]]; then
+                echo "::error::invalid article ids: $ARTICLE_IDS"; exit 1
+              fi
+              ghos-v6 article-unseries --ids "$ARTICLE_IDS"
             elif [[ "$COMMAND" == "news" ]]; then
               if [[ "$FORCE_NEWS" == "true" ]]; then
                 ghos-v6 news --force

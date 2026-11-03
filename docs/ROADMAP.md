@@ -52,6 +52,8 @@ or a measurable «done», because a roadmap item without both is a wish.
 | Heartbeat | weekly `status`: size, staleness, bootstrap invariant; Doctor runs it too |
 | Artifact bloat | state artifact uploaded only when the digest changed |
 | dev.to cover | dedicated 1000×420 cover, PUT on the existing article id |
+| dev.to series removed | no `series` on POST, `series: null` on PUT, `article-unseries` for legacy posts |
+| Dependabot version PRs gone | config deleted; pinned SHAs and hashed locks stay reviewed manually |
 
 The phrase "фаза B/C" in older reports referred to these deferred items.
 The numbered Phase B (three autonomous days) and Phase C (steady state)

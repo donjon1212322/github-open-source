@@ -89,8 +89,10 @@ class DevToClient:
             "body_markdown": markdown,
             "published": True,
             "tags": self._tags(record, generated),
-            "series": "Open Source Finds",
         }
+        # Owner decision (2026-11-03): every article is a standalone post.
+        # A `series` name would silently group every daily article into one
+        # growing "Part N Series" block on dev.to, which the owner rejected.
         # No canonical_url to Telegraph: the dev.to version is adapted
         # with its own TL;DR/discussion wrapper and should be indexable
         # as the public article surface.
@@ -140,6 +142,7 @@ class DevToClient:
             "body_markdown": build_devto_body(record, generated).strip(),
             "published": True,
             "tags": self._tags(record, generated),
+            "series": None,  # detach any legacy series; standalone post only
         }
         cover = self._main_image(record)
         if cover:
@@ -150,6 +153,23 @@ class DevToClient:
         )
         if response.status_code not in {200, 201}:
             raise _error("dev.to update", response)
+        return dict(response.json() or {})
+
+
+    def clear_series(self, article_id: int | str) -> dict[str, Any]:
+        """Detach one already published article from a dev.to series.
+
+        Forem documents ``series: null`` in PUT /api/articles/{id} as the way
+        to remove series membership. The body and cover are left untouched.
+        """
+        if not self.configured:
+            raise PlatformError("DEV_API_KEY is not set")
+        response = self._request(
+            "PUT", f"https://dev.to/api/articles/{article_id}",
+            json={"article": {"published": True, "series": None}},
+        )
+        if response.status_code not in {200, 201}:
+            raise _error("dev.to series cleanup", response)
         return dict(response.json() or {})
 
 

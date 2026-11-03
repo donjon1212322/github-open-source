@@ -100,6 +100,12 @@ Out of scope:
   the owner's chat after any account change.
 - Facebook publishing goes through make.com + a Google Sheet. No Page token
   exists in this repository by design.
+- Dependabot **version updates** are deliberately off (`.github/dependabot.yml`
+  removed 2026-11-03): all Actions are pinned to reviewed SHAs and both lock
+  files require `--require-hashes`, so automated version PRs could not be
+  merged safely. Dependabot security alerts remain a Settings-level feature
+  and do not create these PRs. CodeQL, gitleaks, secret scanning and push
+  protection stay enabled.
 
 ## Disclosure
 

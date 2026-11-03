@@ -939,6 +939,43 @@ def update_recent_article(config: Config, store: StateStore) -> dict[str, Any]:
     }
 
 
+def unseries_articles(config: Config, store: StateStore, ids: str = "") -> dict[str, Any]:
+    """Detach dev.to articles from the retired legacy series.
+
+    The owner wants independent posts, not a daily growing series. Explicit
+    ids cover legacy articles from the pre-migration account; ids recorded in
+    state are added automatically. PUT with ``series: None`` is idempotent.
+    """
+    config.require("DEV_API_KEY")
+    raw = [part.strip() for part in re.split(r"[\s,]+", str(ids or "")) if part.strip()]
+    known = [
+        str(info.get("id"))
+        for record in (store.data.get("published") or {}).values()
+        for info in [(record.get("articles") or {}).get("devto") or {}]
+        if info.get("id")
+    ]
+    targets: list[str] = []
+    for value in raw + known:
+        if not re.fullmatch(r"\d{1,12}", value):
+            raise ValueError(f"invalid dev.to article id: {value!r}")
+        if value not in targets:
+            targets.append(value)
+    client = DevToClient(config.dev_api_key)
+    cleared: list[str] = []
+    skipped: list[str] = []
+    for article_id in targets:
+        try:
+            client.clear_series(article_id)
+            cleared.append(article_id)
+        except PlatformError as exc:
+            if "404" not in str(exc):
+                raise
+            skipped.append(article_id)
+    store.event("devto_series_cleared", ids=cleared, cleared=len(cleared))
+    store.save()
+    return {"ok": True, "cleared": len(cleared), "ids": cleared, "missing": skipped}
+
+
 def news_command(config: Config, store: StateStore, *, force: bool = False) -> dict[str, Any]:
     if not config.feature_ai_brief and not force:
         return {"ok": True, "published": False, "reason": "feature_ai_brief_disabled"}
