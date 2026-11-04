@@ -47,30 +47,34 @@
   "news_topics": [
     {
       "Gemini_video_input": true,
-      "headline": "Anthropic S-1 filings reveal RSI milestone while Claude Fable 5.5 and LongCat-2.5 surface",
-      "image_url": "https://i.ibb.co/xtSryt7y/ai-brief-8132976a795a.png",
+      "headline": "Claude Fable 5.5 and GPT-6 Astra checkpoints surface alongside DeepSeek Harness and LongCat-2.5",
+      "image_url": "https://i.ibb.co/XxcqykZp/ai-brief-ef4b903edada.png",
       "models": [
         "Claude Fable 5.5",
         "Claude Opus 5.5",
-        "GPT-6 Astra",
         "Gemini 4 Argon",
+        "GPT-6 Astra",
+        "GPT-6.1 Sol",
+        "GPT-6.2",
+        "Qwen3.5-0.8B",
         "LongCat-2.5",
-        "Claude Opus 4.8",
         "DeepSeek Harness",
-        "Qwen3.5-0.8B"
+        "DeepSeek-V4.1-Flash",
+        "Mythos 5.5"
       ],
       "official_url": "",
-      "published_at": "2026-11-04T04:47:23.312890Z",
+      "published_at": "2026-11-04T05:01:14.060149Z",
       "statuses": [
         "leaked_checkpoint",
-        "official_release",
-        "official_release",
+        "leaked_checkpoint",
         "research_report",
-        "official_release"
+        "demo_or_benchmark",
+        "official_release",
+        "official_document"
       ],
-      "stories": 5,
+      "stories": 6,
       "telegram_message_id": 3553,
-      "topic_key": "ai-model-updates-and-checkpoints",
+      "topic_key": "checkpoint-and-model-updates",
       "video_id": "i-wYjUriSzo",
       "video_url": "https://www.youtube.com/watch?v=i-wYjUriSzo"
     }
