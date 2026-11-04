@@ -47,8 +47,8 @@
   "news_topics": [
     {
       "Gemini_video_input": true,
-      "headline": "Anthropic's Fable 5.5 Checkpoint, GPT-6 Astra, and New AI Models",
-      "image_url": "https://i.ibb.co/F2BrJmN/ai-brief-86f8b85d35e8.png",
+      "headline": "Anthropic Fable 5.5 Checkpoint, GPT-6 Astra, and DeepSeek Harness Updates",
+      "image_url": "https://i.ibb.co/tTF80cPz/ai-brief-3506c5839d7a.png",
       "models": [
         "Claude Fable 5.5",
         "Claude Opus 5.5",
@@ -56,18 +56,18 @@
         "GPT-6 Astra",
         "GPT-6.1 Sol",
         "GPT-6.2",
-        "DeepSeek Harness",
+        "Qwen 4",
+        "Qwen 4 27B",
         "Gemini 4 Argon",
-        "Gemini 4 Carbon",
+        "DeepSeek Harness",
         "LongCat-2.5",
-        "Pulse Alpha",
-        "Kentia"
+        "Pulse Alpha"
       ],
-      "official_url": "https://alignment.anthropic.com/2026/anthropic-residency/",
-      "published_at": "2026-11-04T03:53:53.075387Z",
-      "stories": 5,
+      "official_url": "",
+      "published_at": "2026-11-04T04:00:59.943294Z",
+      "stories": 4,
       "telegram_message_id": 3553,
-      "topic_key": "frontier-models-and-agentic-tooling",
+      "topic_key": "ai-news-digest-fable-5-5-gpt-6-astra",
       "video_id": "i-wYjUriSzo",
       "video_url": "https://www.youtube.com/watch?v=i-wYjUriSzo"
     }
