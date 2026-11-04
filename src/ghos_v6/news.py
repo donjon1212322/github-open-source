@@ -608,6 +608,18 @@ VERIFY BEFORE YOU CLAIM (owner correction 2026-11-04):
   leaked_checkpoint      - unannounced checkpoint / leak / partner access
   teaser                 - someone hints at a future model, no product
   unconfirmed_rumour     - rumour, speculation or an unverified claim
+  official_document      - an S-1 / IPO / policy filing, NOT a product launch
+- STATUS EXAMPLES - apply them, never guess a status UP:
+  "New Fable 5.5 Checkpoint", "Release Date?", Azure or partner-access
+    leaks -> leaked_checkpoint.
+  An official blog with Try it / API Access but "GitHub/HF Coming soon"
+    -> announced_not_shipped.
+  An X post, open beta or a demo needing several rounds of prompts
+    -> demo_or_benchmark.
+  A researchers' write-up on one small model -> research_report.
+  An S-1 / IPO / policy filing -> official_document, NOT official_release.
+  Only a vendor announcement with public docs, weights or API is
+    official_release. WHEN IN DOUBT, USE THE LOWER STATUS.
 - basis is ONE short phrase describing the EVIDENCE LEVEL, never the channel,
   the video, its creator, a URL or a source list. The presenter often explains
   where a claim came from - reflect that evidence level. Examples: "official
@@ -652,7 +664,10 @@ MAKE IT INTERESTING (owner correction 2026-11-04: "все сухо, не инт�
   ending on a complete phrase. It is the hook condensed for a 1200x630
   image, never a sentence cut in half.
 - hook is ONE sentence that makes a developer want to read on: a concrete
-  number, a surprising contrast or an unresolved tension.
+  number, a surprising contrast or an unresolved tension. It must lead with
+  the MODEL stories, contain a number or an exact technical name, be at most
+  150 characters, never restate `summary` and never open with the
+  corporate / IPO / policy story.
   NEVER "This digest covers recent AI releases and updates...".
   No hype adjectives.
 - Lead with the consequence or the surprise, not with a product list. Use
@@ -677,7 +692,8 @@ HYGIENE:
   news, or nothing factual can be extracted.
 - A primary source is preferred but NOT required. Put leaks, rumours and
   speculation in unconfirmed_claims; never present them as fact.
-- headline covers the WHOLE digest, 60-130 characters, factual, may name two
+- headline covers the WHOLE digest, 60-130 characters, factual, LEADS WITH
+  model news (never "S-1", "IPO", "RSI", "filings" or "policy"), may name two
   or three exact technical names, no leading hype word or question mark.
 - summary: one or two sentences framing the whole digest, not one story.
 - topic_key: lowercase slug of the round-up's main theme.
@@ -757,7 +773,92 @@ STATUS_LABELS = {
     "teaser": "💭 Teaser, no product",
     "unconfirmed_rumour": "◻️ Unconfirmed rumour",
     "speculation": "◻️ Speculation",
+    "official_document": "📄 Official filing · not a product launch",
 }
+_LEAK_EVIDENCE = ("checkpoint", "leak", "partner access", "rumour", "rumor", "unverified", "stealth")
+_POLICY_EVIDENCE = ("s-1", "sec filing", "filing", "ipo", "policy", "threshold", "disclosure")
+_NOT_SHIPPED_EVIDENCE = ("coming soon", "weights still", "not shipped", "not yet public")
+_DEMO_EVIDENCE = ("demo", "open beta", "multi-round", "x post", "showcase")
+_RESEARCH_EVIDENCE = ("researchers", "write-up", "paper", "arxiv", "not replicated", "study")
+_AUDIT_BASIS = {
+    "leaked_checkpoint": "unverified checkpoint / leak claims",
+    "official_document": "official filing, not a product launch",
+    "announced_not_shipped": "official announcement, assets not yet public",
+    "demo_or_benchmark": "vendor demo, not independently verified",
+    "research_report": "researchers' own write-up, no independent reproduction",
+}
+_DRY_HOOK_RE = re.compile(r"(?i)^\s*(?:this|the|a|an)?\s*(?:digest|brief|round-?up|video|episode)\b")
+_CORPORATE_RE = re.compile(
+    r"(?i)^\s*(?:anthropic|openai|s-1|sec\b|ipo\b|filing|policy|rsi\b|investors?|regulators?)\b"
+)
+
+
+def _audit_status(story: dict[str, Any]) -> str:
+    """Independent check on Gemini's own status label.
+
+    A filing, a demo or an unannounced checkpoint is never an official
+    launch. The previous live brief marked an S-1 disclosure and a Creator
+    Mode demo as "✅ Official release · official model card".
+    """
+    status = str(story.get("status") or "").strip().lower()
+    hay = " ".join(
+        [str(story.get("title") or "")]
+        + [str(x) for x in (story.get("what_happened") or [])]
+        + [str(story.get("basis") or "")]
+    ).lower()
+    if status == "official_release":
+        for words, downgrade in (
+            (_LEAK_EVIDENCE, "leaked_checkpoint"),
+            (_POLICY_EVIDENCE, "official_document"),
+            (_NOT_SHIPPED_EVIDENCE, "announced_not_shipped"),
+            (_DEMO_EVIDENCE, "demo_or_benchmark"),
+            (_RESEARCH_EVIDENCE, "research_report"),
+        ):
+            if any(word in hay for word in words):
+                return downgrade
+    return status if status in STATUS_LABELS else "unconfirmed_rumour"
+
+
+def _model_first_headline(headline: str, names: list[str]) -> str:
+    """The cover headline must open on model news, never an S-1/IPO story."""
+    if names and _CORPORATE_RE.match(headline):
+        picks: list[str] = []
+        for name in names:
+            if name not in picks:
+                picks.append(name)
+            if len(picks) == 3:
+                break
+        return " · ".join(picks) + " lead the model watch"
+    return headline
+
+
+def editorial_hook(brief: dict[str, Any]) -> str:
+    """A factual teaser with numbers and names, never a dry corporate recap."""
+    names = brief_model_names(brief)
+    hook = " ".join(str(brief.get("hook") or "").split())
+    summary = " ".join(str(brief.get("summary") or "").split())
+    stories = brief_stories(brief)
+    if not names and not stories:
+        return hook or summary
+    official = sum(st["status"] == "official_release" for st in stories)
+    open_claims = len(stories) - official
+    interesting = (
+        hook and hook != summary and len(hook) >= 25
+        and not _DRY_HOOK_RE.match(hook) and not _CORPORATE_RE.match(hook)
+        and (bool(re.search(r"\d", hook)) or "?" in hook or any(n in hook for n in names))
+    )
+    if interesting:
+        return hook
+    lead = names[0] if names else "This brief"
+    launches = "launch" if official == 1 else "launches"
+    claims = "claim" if open_claims == 1 else "claims"
+    return (
+        f"{len(names)} exact names, {official} confirmed {launches}, "
+        f"{open_claims} {claims} still open. Start with {lead} — "
+        "then decide what you would actually re-run."
+    )
+
+
 _OFFICIAL_STATUSES = {"official_release"}
 _ANNOUNCED_STATUSES = {"announced_not_shipped"}
 
@@ -789,7 +890,13 @@ def enforce_claim_status(brief: dict[str, Any]) -> dict[str, Any]:
         if not isinstance(item, dict):
             continue
         story = dict(item)
-        status = str(story.get("status") or "").strip().lower()
+        status = _audit_status(story)
+        story["status"] = status
+        if status != str(item.get("status") or "").strip().lower() and (
+            "official model card" in str(story.get("basis") or "").lower()
+            or "official release" in str(story.get("basis") or "").lower()
+        ):
+            story["basis"] = _AUDIT_BASIS.get(status, str(story.get("basis") or ""))
         if status not in _OFFICIAL_STATUSES:
             mode = "announced" if status in _ANNOUNCED_STATUSES else "hedge"
             story["title"] = _hedge(story.get("title"), mode)
@@ -800,6 +907,11 @@ def enforce_claim_status(brief: dict[str, Any]) -> dict[str, Any]:
                 story["confirmed"] = False
         stories.append(story)
     out["stories"] = stories
+    out["headline"] = _model_first_headline(
+        str(brief.get("headline") or ""), brief_model_names(out)
+    )
+    out["hook"] = editorial_hook(out)
+    out["card_hook"] = card_hook_text(out)
     out["confirmed"] = [_hedge(line) for line in (brief.get("confirmed") or [])]
     out["unconfirmed_claims"] = [
         _clean_unconfirmed(line)
@@ -952,7 +1064,10 @@ def brief_stories(brief: dict[str, Any]) -> list[dict[str, Any]]:
 
 def card_hook_text(brief: dict[str, Any]) -> str:
     """Cover-card copy: short, complete and never truncated mid-phrase."""
-    text = " ".join(str(brief.get("card_hook") or brief.get("hook") or brief.get("summary") or "").split())
+    raw = brief.get("card_hook")
+    if not raw or raw == brief.get("hook"):
+        raw = editorial_hook(brief)
+    text = " ".join(str(raw or brief.get("summary") or "").split())
     if len(text) <= 110:
         return text
     cut = text[:110].rsplit(" ", 1)[0].rstrip(" ,;:.——-")
@@ -974,9 +1089,11 @@ def format_ai_brief(brief: dict[str, Any]) -> str:
     """
     names = brief_model_names(brief)
     headline = _clip_preserving(
-        clean_brief_headline(brief.get("headline") or "", preserve=names) or "AI model watch", 160, names
+        clean_brief_headline(
+            _model_first_headline(str(brief.get("headline") or ""), names), preserve=names
+        ) or "AI model watch", 160, names
     )
-    hook = _clip_preserving(brief.get("hook") or brief.get("summary"), 300, names)
+    hook = _clip_preserving(editorial_hook(brief) or brief.get("summary"), 300, names)
     why = _clip_preserving(brief.get("why_devs") or brief.get("summary"), 300, names)
     question = _clip(
         brief.get("discussion_question") or "Which of these would you test first?", 180
@@ -1005,14 +1122,16 @@ def format_ai_brief(brief: dict[str, Any]) -> str:
         if not stories:
             return ""
         official = sum(st["status"] == "official_release" for st in stories)
-        announced = sum(st["status"] == "announced_not_shipped" for st in stories)
+        announced = sum(
+            st["status"] in {"announced_not_shipped", "official_document"} for st in stories
+        )
         research = sum(st["status"] in {"research_report", "demo_or_benchmark"} for st in stories)
         unverified = len(stories) - official - announced - research
         parts = []
         if official:
             parts.append(f"✅ {official} official")
         if announced:
-            parts.append(f"📄 {announced} announced, not shipped")
+            parts.append(f"📄 {announced} filing / announced, not shipped")
         if research:
             parts.append(f"🔬 {research} research / demo")
         if unverified:

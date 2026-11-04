@@ -357,16 +357,60 @@ announced / shown`, а `confirmed` принудительно `False`. Сыро�
 неподтверждённым утверждением. Двойное «Unconfirmed: Unconfirmed …
 (unconfirmed)» чистятся `_clean_unconfirmed()`.
 
-**Тесты** `tests/test_news_accuracy_and_card_2026_11_04.py` (15 тестов)
+**Тесты** `tests/test_news_accuracy_and_card_2026_11_04.py` (19 тестов)
 кодируют: непересекающиеся полосы и сохранение всех слов заголовка, две
 непересекающиеся колонки и шрифт ≥ 22 px, обязательные `hook/status/basis`
 в схеме, маркеры проверки фактов в промпте, даунгрейд «Released» для
 `leaked_checkpoint`, сохранение глаголов для `official_release`, «Announced»
 для `announced_not_shipped`, наличие хука/«So what»/сводки статусов,
 отсутствие атрибуции источника и передачу `hook` + `stories` в карточку.
-10 новых мутаций (всего 76/76) убивают возврат к каждой из трёх ошибок.
+15 новых мутаций (всего 81/81) убивают возврат к каждой из трёх ошибок.
 
 **Правка живого поста.** Обычный `news` не запускать: `video_id=i-wYjUriSzo`
 уже в `news_topics` и dedup вернёт `news_already_published`. Только
 `news --refresh` / `refresh_news=true` пересобирает дайджест и правит тот же
 `message_id=3553` через `editMessageText`; новый пост не создаётся.
+
+### 4.12 Четвёртая итерация той же правки: аудит статусов и живой хук
+
+Первый live-refresh третьей правки (`41775169118`, `edited:true`,
+`message_id=3553`) убрал «Claude Fable 5.5 Released», но показал две
+остаточные ошибки того же класса:
+
+* Gemini пометил **три** сюжета как `✅ Official release · official model
+  card` — включая `Anthropic amends S-1 filing...` (политика/документ, не
+  релиз продукта), demo `DeepSeek Harness Creator Mode` и `LongCat-2.5`;
+* `hook` оказался сухим пересказом последнего корпоративного сюжета
+  («Anthropic's amended S-1 disclosures suggest...»), а заголовок карточки
+  открывался словами «Anthropic S-1 filings reveal RSI milestone» —
+  нарушение «model news first».
+
+Добавлен детерминированный аудит, не зависящий от самооценки модели:
+
+* `_audit_status()` читает `title`, `what_happened` и `basis` сюжета.
+  `official_release` с доказательствами `checkpoint/leak/partner access`
+  понижается до `leaked_checkpoint`; `S-1/SEC/filing/IPO/policy` — до нового
+  статуса `official_document` (`📄 Official filing · not a product launch`);
+  `Coming soon/not shipped` — до `announced_not_shipped`; `open beta/demo/
+  multi-round/X post` — до `demo_or_benchmark`; `researchers/write-up` — до
+  `research_report`. Ложный `basis` «official model card» заменяется на
+  честную формулировку уровня доказательства;
+* «Receipts» теперь считает `official_document` и `announced_not_shipped`
+  в группе `📄`, а не в `✅`, и печатает `Only ✅ is an officially confirmed
+  launch`;
+* `editorial_hook()` отклоняет хук, если он равен `summary`, начинается с
+  «This digest/brief...» или с корпоративного/политического сюжета, и не
+  содержит ни числа, ни точного имени, ни вопроса. Вместо него собирается
+  фактический тизер из подсчитанных статусов и точных имён: «N exact names,
+  K confirmed launches, M claims still open. Start with <имя> — then decide
+  what you would actually re-run.» Ни один факт не выдумывается;
+* `_model_first_headline()` заменяет заголовок, открывающийся на `S-1/IPO/
+  RSI/filings/policy`, на модельную связку из первых трёх точных имён;
+* `enforce_claim_status()` нормализует `headline`, `hook` и `card_hook`
+  до рендера, поэтому текст поста и карточка всегда согласованы.
+
+Промпт получил явные примеры маппинга глав на статусы, правило «WHEN IN
+DOUBT, USE THE LOWER STATUS» и запрет открывать хук/заголовок корпоративным
+сюжетом. Тесты (19 в файле) кодируют понижение S-1/demo/leak/research,
+честную сводку Receipts, замену сухого хука и модельный заголовок; 15 новых
+мутаций (81/81) убивают возврат каждой ошибки.

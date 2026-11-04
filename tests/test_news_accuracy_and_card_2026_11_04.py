@@ -159,7 +159,10 @@ def test_leaked_checkpoint_is_downgraded_and_clearly_labelled():
 
 
 def test_official_release_keeps_its_factual_verbs():
-    cleaned = enforce_claim_status(_brief(status="official_release", title="DeepSeek Harness Added Creator Mode"))
+    brief = _brief(status="official_release", title="DeepSeek Harness Added Creator Mode")
+    brief["stories"][0]["basis"] = "official model card and release notes"
+    brief["stories"][0]["what_happened"] = ["Creator Mode builds plugins from a single prompt."]
+    cleaned = enforce_claim_status(brief)
     assert "Added" in cleaned["stories"][0]["title"]
     assert cleaned["stories"][0]["confirmed"] is True
     assert STATUS_LABELS["official_release"] in format_ai_brief(cleaned)
@@ -293,3 +296,91 @@ def test_card_hook_prefers_the_dedicated_short_field():
         "A checkpoint nobody announced."
     )
     assert card_hook_text({}) == ""
+
+
+# ---------------------------------------------------------------------------
+# Fourth pass within the same correction: the live refresh still labelled an
+# S-1 filing and a demo as "✅ Official release", and opened on a dry recap.
+
+def _story(status, title, bullets, basis):
+    return {
+        "title": title, "models": ["Claude Fable 5.5"],
+        "what_happened": bullets, "why_it_matters": "Re-run it yourself.",
+        "confirmed": True, "status": status, "basis": basis,
+    }
+
+
+def _brief_with(*stories, hook=None, headline=None):
+    return {
+        "headline": headline or "Anthropic S-1 filings reveal RSI milestone while Claude Fable 5.5 and LongCat-2.5 surface",
+        "hook": hook or "Anthropic's amended S-1 disclosures suggest models may imminently cross RSI thresholds for accelerated AI progress.",
+        "summary": "A round-up of model news.",
+        "models": ["Claude Fable 5.5", "GPT-6 Astra", "LongCat-2.5"],
+        "stories": list(stories),
+        "why_devs": "Check the evidence level before you re-run anything.",
+        "discussion_question": "What would you test first?",
+        "eligible": True, "topic_key": "t", "rejection_reason": "",
+    }
+
+
+def test_policy_filing_is_not_an_official_release():
+    brief = _brief_with(
+        _story("official_release", "Anthropic amends S-1 filing to disclose RSI policy thresholds",
+               ["Anthropic updated its S-1 filing with the SEC."], "official model card"),
+        _story("leaked_checkpoint", "Claude Fable 5.5 checkpoint surfaces",
+               ["An unannounced checkpoint appeared."], "leaker screenshots, unverified"),
+    )
+    cleaned = enforce_claim_status(brief)
+    assert cleaned["stories"][0]["status"] == "official_document"
+    assert "filing" in cleaned["stories"][0]["basis"]
+    rendered = format_ai_brief(cleaned)
+    assert "📄 Official filing · not a product launch" in rendered
+    assert "✅ Official release" not in rendered
+    assert "✅ 1 official" not in rendered
+    assert "📄 1 filing / announced" in rendered
+
+
+def test_demo_and_leak_evidence_downgrade_a_false_release_label():
+    cases = (
+        ("A vendor demo of Creator Mode needed several prompt rounds",
+         ["Creator Mode was shown in an open beta demo."], "demo_or_benchmark"),
+        ("An unannounced checkpoint leaked in partner-access screenshots",
+         ["A checkpoint appeared in an unverified leak."], "leaked_checkpoint"),
+        ("The weights are coming soon on GitHub",
+         ["GitHub and HuggingFace are marked Coming soon."], "announced_not_shipped"),
+        ("MIT researchers report a weight-space result",
+         ["Researchers published their own write-up, not replicated."], "research_report"),
+    )
+    for title, bullets, expected in cases:
+        cleaned = enforce_claim_status(
+            _brief_with(_story("official_release", title, bullets, "official model card"))
+        )
+        assert cleaned["stories"][0]["status"] == expected, title
+
+
+def test_dry_corporate_hook_is_replaced_by_a_factual_teaser():
+    cleaned = enforce_claim_status(_brief_with(
+        _story("leaked_checkpoint", "Claude Fable 5.5 checkpoint surfaces",
+               ["An unannounced checkpoint appeared."], "leaker screenshots, unverified"),
+    ))
+    hook = cleaned["hook"]
+    assert not hook.lower().startswith("anthropic")
+    assert "S-1" not in hook and "RSI" not in hook
+    assert any(ch.isdigit() for ch in hook), "a concrete number must be present"
+    assert "exact names" in hook and "?" not in hook
+    assert "Claude Fable 5.5" in hook
+    assert len(card_hook_text(cleaned)) <= 115
+    rendered = format_ai_brief(cleaned)
+    assert "Anthropic's amended S-1" not in rendered
+    assert "<blockquote>" in rendered
+
+
+def test_headline_leads_with_model_news_not_the_filing():
+    cleaned = enforce_claim_status(_brief_with(
+        _story("leaked_checkpoint", "Claude Fable 5.5 checkpoint surfaces",
+               ["An unannounced checkpoint appeared."], "leaker screenshots, unverified"),
+    ))
+    assert cleaned["headline"].startswith("Claude Fable 5.5")
+    assert "S-1" not in cleaned["headline"]
+    assert "lead the model watch" in cleaned["headline"]
+    assert "Anthropic S-1 filings" not in format_ai_brief(cleaned)
