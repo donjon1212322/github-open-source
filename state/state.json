@@ -63,7 +63,8 @@
         "bluesky": {
           "attempts": 0,
           "due_at": "2026-11-03T20:15:44.037936+00:00",
-          "status": "pending"
+          "held_reason": "not_best_of_day",
+          "status": "held"
         },
         "facebook_sheet": {
           "at": "2026-11-03T23:26:36.171208Z",
@@ -341,7 +342,8 @@
         "bluesky": {
           "attempts": 0,
           "due_at": "2026-11-03T22:50:23.568895+00:00",
-          "status": "pending"
+          "held_reason": "not_best_of_day",
+          "status": "held"
         }
       },
       "description": "An on-device AI agent for Android that operates apps and the web to get things done for you.",
