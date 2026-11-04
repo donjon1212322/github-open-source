@@ -134,6 +134,11 @@ OFFICIAL_DOMAINS = {
     "qwen.ai",
     "deepseek.com",
     "x.ai",
+    # Primary sources actually linked in round-up descriptions. Fetching
+    # them lets Gemini separate a real launch from a leaked checkpoint.
+    "longcat.ai",
+    "alignment.anthropic.com",
+    "rikiyat.github.io",
 }
 
 NEWS_STORY_SCHEMA: dict[str, Any] = {
@@ -144,8 +149,13 @@ NEWS_STORY_SCHEMA: dict[str, Any] = {
         "what_happened": {"type": "ARRAY", "items": {"type": "STRING"}},
         "why_it_matters": {"type": "STRING"},
         "confirmed": {"type": "BOOLEAN"},
+        "status": {"type": "STRING"},
+        "basis": {"type": "STRING"},
     },
-    "required": ["title", "models", "what_happened", "why_it_matters", "confirmed"],
+    "required": [
+        "title", "models", "what_happened", "why_it_matters",
+        "confirmed", "status", "basis",
+    ],
 }
 
 # Owner decision (2026-11-04, second pass): a round-up must stay a round-up.
@@ -157,6 +167,8 @@ NEWS_SCHEMA: dict[str, Any] = {
     "properties": {
         "eligible": {"type": "BOOLEAN"},
         "headline": {"type": "STRING"},
+        "hook": {"type": "STRING"},
+        "card_hook": {"type": "STRING"},
         "summary": {"type": "STRING"},
         "stories": {"type": "ARRAY", "items": NEWS_STORY_SCHEMA},
         "models": {"type": "ARRAY", "items": {"type": "STRING"}},
@@ -175,6 +187,7 @@ NEWS_SCHEMA: dict[str, Any] = {
     "required": [
         "eligible",
         "headline",
+        "hook",
         "summary",
         "stories",
         "models",
@@ -581,74 +594,93 @@ You are writing an English AI news DIGEST for developers. The input is the
 newest news round-up video. Treat it as raw material, never as an authority
 and never as something to cite.
 
-CONTENT RULES (owner decision 2026-11-04, second pass):
-- This is a DIGEST OF THE WHOLE VIDEO, not one narrow story. Round-up videos
-  cover many unrelated items: the [Time Stamps] / chapters and the Tags line
-  in the description are the table of contents. Walk them in order and
-  extract FOUR TO SEVEN genuinely different news items, one per story.
-  Writing one story about one filing and ignoring the rest is a failure.
-- MODEL NEWS COMES FIRST. New models, checkpoints, versions, benchmarks,
-  capability comparisons, API and routing changes, open-weight decisions,
-  agents and developer tooling are what the audience came for. A corporate,
-  funding, IPO or policy story is ONE item at most and goes LAST. It must
-  never be the only story.
-- EXACT TECHNICAL NAMES ARE SACRED. Copy every model, checkpoint, version,
-  benchmark, API and product identifier VERBATIM from the video and its
-  description. Never rename, translate, shorten, merge, "correct", clean up
-  or genericise them. Keep digits, dots, hyphens, spaces, capitalisation and
-  suffixes exactly. This channel uses names like "Claude Fable 5.5",
-  "Claude Opus 5.5", "Claude Mythos 5.5", "GPT-6 Astra", "GPT-6.1 Sol",
-  "GPT-6.2", "Qwen 4", "Qwen 4 27B", "Gemini 4 Argon", "DeepSeek Harness",
-  "LongCat-2.5", "Pulse Alpha" and "Kentia". Put every exact name in the
-  story's models array AND in the top-level models array. A story about "a
-  new model" without its exact name is a failure.
-- A video with ten or more chapters yields AT LEAST FIVE stories. Each
-  separately named model, checkpoint, API or agent deserves its own story.
-  Grouping three unrelated releases under one heading is a failure. Group
-  only chapters that describe the SAME announcement.
-- Every exact name in the top-level models array MUST appear in at least one
-  story's models array or in its what_happened bullets. Do not pad the list
-  with names that are never explained.
-- Every story title must name at least one exact technical identifier from
-  the video. A story whose models array is empty is a failure.
-- Titles are complete noun phrases: never end on a dangling preposition,
-  abbreviation, conjunction or unfinished word. No fragments copied from
-  chapter names.
-- INTERESTING, NOT DRY. Each story title is a short concrete line about what
-  changed and what is surprising. Each what_happened bullet is one fact.
-  Each why_it_matters line tells a developer what they can now do or must
-  re-test. No filler, no "this is a big deal", no adjectives as arguments.
-- NO SOURCE ATTRIBUTION. Never mention the channel, its creator, the video,
-  "WorldofAI", "spotted via", "in the video", "according to the video",
-  timestamps, URLs, "sources", "source:", "read more", or a source list. Do
-  not output any link anywhere. Write as an independent news digest. The
-  primary_source block below is for FACT-CHECKING ONLY; never cite it.
-- ADVERTISING MUST BE REMOVED. The video and its description contain sponsor
-  reads, "Sponsored by ...", promo codes, affiliate/discount links, "try X
-  free" offers, community plugs and calls to subscribe or buy. Delete all of
-  it. Never mention a sponsor name, promo code, discount, referral or
-  affiliate link ANYWHERE in the output. A normal sponsor read is NOT a
-  reason to reject the video; the owner expects it to be cut.
-- eligible=false ONLY when the entire video is an advert with no product
-  news behind it, or when nothing factual can be extracted at all.
+VERIFY BEFORE YOU CLAIM (owner correction 2026-11-04):
+- An unannounced checkpoint, a leak, a partner-access screenshot, a config
+  trace, a "release date?" chapter or an executive hint is NOT a release.
+  Presenting one as "released" is a factual error. A previous brief said
+  "Claude Fable 5.5 Released" when the video only showed a mysterious
+  checkpoint plus release-date speculation. Do not repeat that mistake.
+- Each story MUST have a status, one of:
+  official_release       - vendor announced AND shipped it, official docs exist
+  announced_not_shipped  - official announcement, but weights/API not public
+  research_report        - researchers' own write-up, not independently replicated
+  demo_or_benchmark      - a demo or a benchmark, not a product launch
+  leaked_checkpoint      - unannounced checkpoint / leak / partner access
+  teaser                 - someone hints at a future model, no product
+  unconfirmed_rumour     - rumour, speculation or an unverified claim
+- basis is ONE short phrase describing the EVIDENCE LEVEL, never the channel,
+  the video, its creator, a URL or a source list. The presenter often explains
+  where a claim came from - reflect that evidence level. Examples: "official
+  model card", "vendor announcement with published prompts", "researchers'
+  own write-up, no independent reproduction", "leaker screenshots and
+  partner-access claims, unverified", "an executive hint, no product",
+  "his own benchmark run".
+- FORBIDDEN outside status=official_release: "released", "launched",
+  "shipped", "introduced", "is out", "now available", "has added". Write
+  "reported", "surfaced", "shown", "demonstrated", "teased", "may",
+  "is expected to" instead. For announced_not_shipped say "announced".
+- Never turn a QUESTION from the chapter list into a fact. Never merge a
+  confirmed item and a rumour into the same story.
 - News round-ups ARE allowed. Do not reject a video because its clickbait
   title says "HUGE", "INSANE" or "LEAK" - judge the content.
-- Mark leaks, rumours and speculation in unconfirmed_claims, labelled
-  "unconfirmed". Never present them as confirmed or as fact.
-- Never repeat hype, superlatives, ALL CAPS, clickbait adjectives or
-  exclamation marks. Rewrite the title into plain factual English.
-- A primary source is preferred but NOT required. Without one, put product
-  claims in confirmed only when the video states them as shipped facts.
 
-Headline rules (the owner reads this first):
-- The headline covers the WHOLE digest and may name two or three exact
-  technical names. It must not reduce the round-up to one policy story.
-- Keep the vendor: OpenAI, Anthropic, Google DeepMind, xAI, Meta, Mistral.
-- 60-130 characters, factual, no leading hype word, no ALL CAPS, no
-  exclamation marks, no question marks.
-- topic_key: lowercase slug of the round-up's main theme; include a model
-  name when there is one.
-- summary: one or two sentences that frame the whole digest, not one story.
+CONTENT RULES:
+- This is a DIGEST OF THE WHOLE VIDEO, not one narrow story. The [Time
+  Stamps] / chapters and the Tags line are the table of contents. Walk them
+  in order and extract FOUR TO SEVEN genuinely different news items.
+- A video with ten or more chapters yields AT LEAST FIVE stories. Each
+  separately named model, checkpoint, API or agent deserves its own story.
+  Group only chapters that describe the SAME announcement.
+- MODEL NEWS COMES FIRST. Corporate, funding, IPO or policy stories are at
+  most ONE item and go LAST.
+- EXACT TECHNICAL NAMES ARE SACRED. Copy every model, checkpoint, version,
+  benchmark, API and product identifier VERBATIM: keep digits, dots, hyphens,
+  spaces, capitalisation and suffixes. Never rename, translate, shorten,
+  merge, "correct" or genericise. This channel uses names like "Claude Fable
+  5.5", "Claude Opus 5.5", "GPT-6 Astra", "GPT-6.1 Sol", "GPT-6.2",
+  "Qwen 4", "Qwen 4 27B", "Gemini 4 Argon", "DeepSeek Harness",
+  "LongCat-2.5", "Pulse Alpha", "Kentia", "Qwen3.5-0.8B". Put every exact
+  name in the story's models array AND in the top-level models array. A story
+  about "a new model" without its exact name is a failure.
+- Every exact name in the top-level models array MUST appear in at least one
+  story. Do not pad the list with names that are never explained.
+- Every story title must name at least one exact technical identifier and be
+  a complete noun phrase - never a dangling fragment from a chapter name.
+
+MAKE IT INTERESTING (owner correction 2026-11-04: "все сухо, не интересно"):
+- card_hook is ONE short line for the cover card, at most 90 characters,
+  ending on a complete phrase. It is the hook condensed for a 1200x630
+  image, never a sentence cut in half.
+- hook is ONE sentence that makes a developer want to read on: a concrete
+  number, a surprising contrast or an unresolved tension.
+  NEVER "This digest covers recent AI releases and updates...".
+  No hype adjectives.
+- Lead with the consequence or the surprise, not with a product list. Use
+  real numbers from the video (6x, 0.016% of weights, 1.6T/48B, 7.9%→48.1%).
+- why_it_matters is one short line with a concrete thing to try, re-run or
+  re-check - not a generic "developers should stay updated".
+- Titles are news, not press releases: "A checkpoint nobody announced just
+  beat the flagship on 3D code" beats "Vendor announces new model".
+- discussion_question asks the reader what THEY would test first.
+
+HYGIENE:
+- ADVERTISING MUST BE REMOVED. Sponsor reads, "Sponsored by ...", promo
+  codes, affiliate/discount links, "try X free" offers, community plugs and
+  calls to subscribe are deleted. Never mention a sponsor name or promo code.
+- NO SOURCE ATTRIBUTION. Never mention the channel, its creator, the video,
+  "WorldofAI", "in the video", timestamps, URLs, "sources", "read more" or a
+  source list. Do not output any link. The primary_source block below is for
+  FACT-CHECKING ONLY; never cite it.
+- NO hype, superlatives, ALL CAPS, clickbait adjectives or exclamation
+  marks. No exclamation marks in headlines or titles.
+- eligible=false ONLY when the whole video is an advert with no product
+  news, or nothing factual can be extracted.
+- A primary source is preferred but NOT required. Put leaks, rumours and
+  speculation in unconfirmed_claims; never present them as fact.
+- headline covers the WHOLE digest, 60-130 characters, factual, may name two
+  or three exact technical names, no leading hype word or question mark.
+- summary: one or two sentences framing the whole digest, not one story.
+- topic_key: lowercase slug of the round-up's main theme.
 
 <video_metadata>
 Title: {entry.get('title') or ''}
@@ -662,14 +694,16 @@ all branding, links, sponsor text and calls to subscribe):
 {primary.get('text') or ''}
 </primary_source>
 """.strip()
-    result = client.generate_json(
-        prompt,
-        schema=NEWS_SCHEMA,
-        youtube_url=str(entry.get("url") or "") if use_video else "",
-        temperature=0.2,
-        # A 4-7 story digest with per-story model names is much larger than
-        # the old one-headline response; truncating it would lose the news.
-        max_output_tokens=16384,
+    result = enforce_claim_status(
+        client.generate_json(
+            prompt,
+            schema=NEWS_SCHEMA,
+            youtube_url=str(entry.get("url") or "") if use_video else "",
+            temperature=0.2,
+            # A 4-7 story digest with per-story model names is much larger
+            # than the old one-headline response; truncating loses the news.
+            max_output_tokens=16384,
+        )
     )
     result["official_url"] = primary.get("url") or ""
     if not result.get("official_name"):
@@ -698,6 +732,89 @@ def _clip(value: Any, limit: int) -> str:
             return sentence.rstrip(".") + "."
     word = cut.rsplit(" ", 1)[0]
     return (word or cut).rstrip(" ,;:") + "…"
+
+
+# Owner correction 2026-11-04: a leaked checkpoint was published as a
+# release. These are the words that must never survive on an unverified
+# claim, and the evidence labels the reader actually needs.
+_RELEASE_WORDS = {
+    "released": "reported", "launched": "reported", "shipped": "shown",
+    "ships": "shown", "introduces": "shows", "introduced": "shown",
+    "added": "shown", "adds": "shows", "is out": "may be coming",
+    "now available": "not yet confirmed available", "has landed": "is reported",
+}
+_RELEASE_RE = re.compile(
+    r"\b(Released|Launched|Shipped|Ships|Introduces|Introduced|Added|Adds|"
+    r"Is out|Now available|Has landed|released|launched|shipped|ships|"
+    r"introduces|introduced|added|adds|is out|now available|has landed)\b"
+)
+STATUS_LABELS = {
+    "official_release": "✅ Official release",
+    "announced_not_shipped": "📄 Announced · not shipped yet",
+    "research_report": "🔬 Research report · not independently replicated",
+    "demo_or_benchmark": "🎬 Demo / benchmark",
+    "leaked_checkpoint": "◻️ Leaked checkpoint · unconfirmed",
+    "teaser": "💭 Teaser, no product",
+    "unconfirmed_rumour": "◻️ Unconfirmed rumour",
+    "speculation": "◻️ Speculation",
+}
+_OFFICIAL_STATUSES = {"official_release"}
+_ANNOUNCED_STATUSES = {"announced_not_shipped"}
+
+
+def _hedge(text: Any, mode: str = "hedge") -> str:
+    """Downgrade release verbs on any claim that is not an official release."""
+    def replace(match: re.Match[str]) -> str:
+        word = match.group(0)
+        key = word.lower()
+        out = _RELEASE_WORDS.get(key, "reported")
+        if mode == "announced" and key in {"released", "launched"}:
+            out = "announced"
+        if word[0].isupper():
+            out = out[0].upper() + out[1:]
+        return out
+    return _RELEASE_RE.sub(replace, str(text or ""))
+
+
+def enforce_claim_status(brief: dict[str, Any]) -> dict[str, Any]:
+    """Deterministic safety net: the model may still say "Released".
+
+    A leaked/mysterious checkpoint is not a launch. Anything not explicitly
+    marked ``official_release`` loses its release verbs and is reported as
+    unconfirmed, so a hallucinated launch can never reach the channel.
+    """
+    out = dict(brief)
+    stories: list[dict[str, Any]] = []
+    for item in brief.get("stories") or []:
+        if not isinstance(item, dict):
+            continue
+        story = dict(item)
+        status = str(story.get("status") or "").strip().lower()
+        if status not in _OFFICIAL_STATUSES:
+            mode = "announced" if status in _ANNOUNCED_STATUSES else "hedge"
+            story["title"] = _hedge(story.get("title"), mode)
+            story["what_happened"] = [
+                _hedge(line, mode) for line in (story.get("what_happened") or [])
+            ]
+            if status not in _ANNOUNCED_STATUSES:
+                story["confirmed"] = False
+        stories.append(story)
+    out["stories"] = stories
+    out["confirmed"] = [_hedge(line) for line in (brief.get("confirmed") or [])]
+    out["unconfirmed_claims"] = [
+        _clean_unconfirmed(line)
+        for line in (brief.get("unconfirmed_claims") or brief.get("video_only_claims") or [])
+    ]
+    return out
+
+
+def _clean_unconfirmed(value: Any) -> str:
+    """Strip Gemini's doubled "Unconfirmed: Unconfirmed ... (unconfirmed)"."""
+    text = re.sub(r"\s+", " ", str(value or "")).strip()
+    text = re.sub(r"^\s*unconfirmed\b[\s:–—-]*", "", text, flags=re.I)
+    text = re.sub(r"\s*\(unconfirmed\)\s*$", "", text, flags=re.I)
+    text = re.sub(r"\bunconfirmed\s+", "", text, count=1, flags=re.I)
+    return (text[:1].upper() + text[1:]) if text else ""
 
 
 HYPE_WORDS = (
@@ -813,6 +930,8 @@ def brief_stories(brief: dict[str, Any]) -> list[dict[str, Any]]:
                 "title": title,
                 "bullets": bullets,
                 "why": str(item.get("why_it_matters") or "").strip(),
+                "status": str(item.get("status") or "").strip().lower(),
+                "basis": str(item.get("basis") or "").strip(),
             }
         )
     if stories:
@@ -824,25 +943,43 @@ def brief_stories(brief: dict[str, Any]) -> list[dict[str, Any]]:
                 "title": str(brief.get("headline") or ""),
                 "bullets": happened,
                 "why": str(brief.get("why_devs") or ""),
+                "status": "",
+                "basis": "",
             }
         ]
     return []
 
 
-def format_ai_brief(brief: dict[str, Any]) -> str:
-    """A magazine-style DIGEST of the whole video (owner decision 04.11.2026).
+def card_hook_text(brief: dict[str, Any]) -> str:
+    """Cover-card copy: short, complete and never truncated mid-phrase."""
+    text = " ".join(str(brief.get("card_hook") or brief.get("hook") or brief.get("summary") or "").split())
+    if len(text) <= 110:
+        return text
+    cut = text[:110].rsplit(" ", 1)[0].rstrip(" ,;:.——-")
+    # Prefer a natural clause boundary over an arbitrary word cut.
+    for mark in (" — ", "; ", ", ", " - "):
+        if mark in cut:
+            cut = cut.rsplit(mark, 1)[0].rstrip(" ,;:.")
+            break
+    return cut + "…"
 
-    Several numbered stories, one line per fact, exact model names, no source
-    attribution, no inline keyboard, no advertising, generous blank lines.
+
+def format_ai_brief(brief: dict[str, Any]) -> str:
+    """A magazine-style DIGEST: a hook, verified-status stories, no sources.
+
+    Owner corrections 04.11.2026: no source attribution, several model
+    stories with verbatim technical names, an interesting hook, and an
+    explicit evidence label per story so a leaked checkpoint never reads
+    like a product launch.
     """
     names = brief_model_names(brief)
     headline = _clip_preserving(
         clean_brief_headline(brief.get("headline") or "", preserve=names) or "AI model watch", 160, names
     )
-    summary = _clip_preserving(brief.get("summary"), 300, names)
+    hook = _clip_preserving(brief.get("hook") or brief.get("summary"), 300, names)
     why = _clip_preserving(brief.get("why_devs") or brief.get("summary"), 300, names)
     question = _clip(
-        brief.get("discussion_question") or "Which of these would you actually ship with?", 180
+        brief.get("discussion_question") or "Which of these would you test first?", 180
     )
     stories: list[dict[str, Any]] = [
         {
@@ -851,21 +988,36 @@ def format_ai_brief(brief: dict[str, Any]) -> str:
             ),
             "bullets": [_clip_preserving(bullet, 200, names) for bullet in story["bullets"][:3]],
             "why": _clip_preserving(story["why"], 180, names),
+            "status": story["status"],
+            "basis": _clip_preserving(story["basis"], 150, names),
         }
         for story in brief_stories(brief)
     ]
-    confirmed = [
-        _clip_preserving(item, 190, names)
-        for item in brief.get("confirmed") or []
-        if str(item).strip()
-    ][:3]
     unconfirmed = [
-        _clip_preserving(item, 190, names)
+        _clip_preserving(_clean_unconfirmed(item), 190, names)
         for item in (brief.get("unconfirmed_claims") or brief.get("video_only_claims") or [])
-        if str(item).strip()
+        if _clean_unconfirmed(item)
     ][:2]
     models_line = " · ".join(names[:12])
     divider = "──────────────"
+
+    def receipt_tally() -> str:
+        if not stories:
+            return ""
+        official = sum(st["status"] == "official_release" for st in stories)
+        announced = sum(st["status"] == "announced_not_shipped" for st in stories)
+        research = sum(st["status"] in {"research_report", "demo_or_benchmark"} for st in stories)
+        unverified = len(stories) - official - announced - research
+        parts = []
+        if official:
+            parts.append(f"✅ {official} official")
+        if announced:
+            parts.append(f"📄 {announced} announced, not shipped")
+        if research:
+            parts.append(f"🔬 {research} research / demo")
+        if unverified:
+            parts.append(f"◻️ {unverified} unverified")
+        return " · ".join(parts)
 
     def render() -> str:
         lines = [
@@ -874,24 +1026,31 @@ def format_ai_brief(brief: dict[str, Any]) -> str:
             "",
             f"<b>{_esc(headline)}</b>",
         ]
-        if summary:
-            lines += ["", f"<blockquote>{_esc(summary)}</blockquote>"]
+        if hook:
+            lines += ["", f"<blockquote>{_esc(hook)}</blockquote>"]
         if models_line:
             lines += ["", f"🧬 <b>In this brief:</b> {_esc(_clip(models_line, 420))}"]
         for index, story in enumerate(stories):
             badge = STORY_BADGES[index] if index < len(STORY_BADGES) else f"<b>{index + 1:02d}</b>"
             lines += ["", divider, "", f"{badge} <b>{_esc(story['title'])}</b>", ""]
+            label = STATUS_LABELS.get(story["status"], "◻️ Unverified")
+            status_line = label
+            if story["basis"]:
+                status_line += f" · <i>{_esc(story['basis'])}</i>"
+            lines += [status_line]
             lines += [f"▸ {_esc(bullet)}" for bullet in story["bullets"]] or [
                 "▸ No concrete detail was provided."
             ]
             if story["why"]:
-                lines += ["", f"<i>Why it matters:</i> {_esc(story['why'])}"]
+                lines += ["", f"<b>So what:</b> {_esc(story['why'])}"]
         if why:
             lines += ["", divider, "", "🎯 <b>Why developers should care</b>", "", _esc(why)]
-        receipts = [f"✅ {_esc(item)}" for item in confirmed]
-        receipts += [f"◻️ <i>Unconfirmed:</i> {_esc(item)}" for item in unconfirmed]
-        if receipts:
-            lines += ["", divider, "", "🔍 <b>Receipts</b>", "", *receipts]
+        tally = receipt_tally()
+        if tally or unconfirmed:
+            lines += ["", divider, "", "🔍 <b>Receipts</b>", ""]
+            if tally:
+                lines += [tally, "<i>Only ✅ is an officially confirmed launch.</i>"]
+            lines += [f"◻️ <i>Unconfirmed:</i> {_esc(item)}" for item in unconfirmed]
         lines += [
             "", divider, "",
             "💬 <b>Your take?</b>",
@@ -910,17 +1069,14 @@ def format_ai_brief(brief: dict[str, Any]) -> str:
     while too_long(output) and unconfirmed:
         unconfirmed.pop()
         output = render()
-    while too_long(output) and confirmed:
-        confirmed.pop()
-        output = render()
     while too_long(output) and len(stories) > 2:
         stories.pop()
         output = render()
     while too_long(output) and stories and len(stories[-1]["bullets"]) > 1:
         stories[-1]["bullets"].pop()
         output = render()
-    while too_long(output) and summary:
-        summary = _clip_preserving(summary, max(120, len(summary) - 100), names)
+    while too_long(output) and hook:
+        hook = _clip_preserving(hook, max(120, len(hook) - 100), names)
         output = render()
     while too_long(output) and why:
         why = _clip_preserving(why, max(120, len(why) - 100), names)

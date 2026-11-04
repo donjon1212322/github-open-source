@@ -726,11 +726,104 @@ def _gradient(first: tuple[int, int, int], second: tuple[int, int, int]) -> Imag
     return Image.composite(top, base, mask)
 
 
+# Owner feedback 04.11.2026: the first card had a truncated headline, a
+# three-line standfirst drawn on top of the stat band, three colliding stat
+# columns and 15-17 px type that turned to mush in Telegram's 940 px preview.
+# These bands are FIXED and never overlap; all type is at least 21 px.
+AI_BRIEF_FRAME = (70, 48, 1130, 582)
+AI_BRIEF_LEFT = 108
+AI_BRIEF_WIDTH = 984
+AI_BRIEF_HEAD_TOP = 140
+AI_BRIEF_BAND_TOP = 470
+AI_BRIEF_BAND_BOTTOM = 568
+AI_BRIEF_MIN_FONT = 21
+
+
+def _font_size(font: object) -> int:
+    """The font cache is deliberately untyped; only the pixel size is needed."""
+    return int(getattr(font, "size", 30))
+
+
+def _card_hook_layout(
+    draw: ImageDraw.ImageDraw, text: str, allowed_height: int
+) -> tuple[object, list[str], int]:
+    """Fit the WHOLE hook inside its band; never cut a phrase mid-sentence.
+
+    `_fit_block`'s last resort silently drops trailing words - that produced
+    a card ending in "a 1.6T model's weights". Here a layout is accepted
+    only if every word is still present and the lines fit vertically.
+    """
+    clean = " ".join(str(text or "").split())
+    if not clean:
+        return _font("sans", 26, False), [], 34
+    for size in (30, 28, 26, 24, 22):
+        font = _font("sans", size, False)
+        line_height = int(size * 1.32)
+        for max_lines in (1, 2, 3, 4):
+            if max_lines * line_height > allowed_height:
+                continue
+            lines = _wrap(draw, clean, font, AI_BRIEF_WIDTH, max_lines)
+            if " ".join(lines) == clean:
+                return font, lines, line_height
+    # Only an unreasonably long hook gets here: one readable line, clipped at
+    # a word boundary with an explicit ellipsis rather than a dangling phrase.
+    font = _font("sans", 22, False)
+    words = clean.split()
+    while words and draw.textlength(" ".join(words) + "…", font=font) > AI_BRIEF_WIDTH:
+        words.pop()
+    return font, [" ".join(words).rstrip(" ,;:.——") + "…"] if words else [], 29
+
+
+def ai_brief_card_geometry(
+    draw: ImageDraw.ImageDraw,
+    headline: str,
+    standfirst: str,
+) -> dict[str, Any]:
+    """Pure vertical geometry: every text block gets its own non-overlapping band."""
+    head_font, head_lines = _fit_block(
+        draw, headline, "sans", 58, AI_BRIEF_WIDTH, 3, bold=True, minimum=36
+    )
+    head_lh = int(_font_size(head_font) * 1.18)
+    head_bottom = AI_BRIEF_HEAD_TOP + len(head_lines) * head_lh
+    stand_top = head_bottom + 22
+
+    allowed = (AI_BRIEF_BAND_TOP - 16) - stand_top
+    stand_font, stand_lines, stand_lh = _card_hook_layout(draw, standfirst, allowed)
+    stand_bottom = stand_top + len(stand_lines) * stand_lh
+    return {
+        "head_font": head_font,
+        "head_lines": head_lines,
+        "head_top": AI_BRIEF_HEAD_TOP,
+        "head_lh": head_lh,
+        "head_bottom": head_bottom,
+        "stand_font": stand_font,
+        "stand_lines": stand_lines,
+        "stand_top": stand_top,
+        "stand_lh": stand_lh,
+        "stand_bottom": stand_bottom,
+        "band_top": AI_BRIEF_BAND_TOP,
+        "band_bottom": AI_BRIEF_BAND_BOTTOM,
+    }
+
+
+def ai_brief_card_columns(models_line: str, stories: int) -> tuple[tuple[int, int, str, str], ...]:
+    """Two wide, non-overlapping stat columns (pure, so tests can measure)."""
+    # Two short values only: long copy forced the old card down to 15 px.
+    short_models = " · ".join((models_line or "").split(" · ")[:2]) or "Frontier model watch"
+    short_format = f"{stories} stories · ad-free" if stories else "No ads · no hype"
+    return (
+        (116, 620, "MODELS IN THIS BRIEF", short_models),
+        (772, 320, "FORMAT", short_format),
+    )
+
+
 def render_ai_brief_card(
     headline: str,
     standfirst: str,
     models_line: str,
     output_path: Path,
+    *,
+    stories: int = 0,
 ) -> Path:
     image = _gradient((12, 8, 40), (45, 15, 78)).convert("RGBA")
     glow = Image.new("RGBA", (W, H), (0, 0, 0, 0))
@@ -742,36 +835,43 @@ def render_ai_brief_card(
     ]:
         glow_draw.ellipse((x - radius, y - radius, x + radius, y + radius), fill=color)
     image = Image.alpha_composite(image, glow.filter(ImageFilter.GaussianBlur(55)))
+
     overlay = Image.new("RGBA", (W, H), (0, 0, 0, 0))
     od = ImageDraw.Draw(overlay)
-    od.rounded_rectangle((80, 55, 1120, 575), radius=34, fill=(10, 16, 42, 122), outline=(255, 255, 255, 130), width=2)
-    _pill(od, 115, 88, "AI BRIEF · MODEL WATCH", "#ffffff", (255, 255, 255, 38), _font("sans", 20, True), outline=(255, 255, 255, 95))
-    od.rounded_rectangle((115, 455, 1085, 535), radius=22, fill=(0, 0, 0, 105), outline=(255, 255, 255, 85), width=1)
+    od.rounded_rectangle(AI_BRIEF_FRAME, radius=34, fill=(10, 16, 42, 150), outline=(255, 255, 255, 130), width=2)
+    _pill(
+        od, 108, 82, "AI BRIEF · MODEL WATCH", "#ffffff",
+        (255, 255, 255, 38), _font("sans", 22, True),
+        outline=(255, 255, 255, 95),
+    )
+    # Solid band: small white type needs real contrast, not 40% black.
+    od.rounded_rectangle(
+        (90, AI_BRIEF_BAND_TOP, 1110, AI_BRIEF_BAND_BOTTOM),
+        radius=22, fill=(6, 10, 26, 215), outline=(255, 255, 255, 95), width=2,
+    )
     image = Image.alpha_composite(image, overlay)
     draw = ImageDraw.Draw(image)
-    draw.text((1085, 88), BRAND, font=_font("mono", 19), fill=(220, 235, 255), anchor="ra")
-    y = 145
-    for line in _wrap(draw, headline, _font("sans", 57, True), 940, 3):
-        draw.text((115, y), line, font=_font("sans", 57, True), fill="white")
-        y += 68
-    y += 8
-    for line in _wrap(draw, standfirst, _font("sans", 29), 920, 3):
-        draw.text((117, y), line, font=_font("sans", 29), fill=(225, 232, 255))
-        y += 38
-    # Owner decision (2026-11-04, second pass): no source attribution
-    # anywhere. The stat row shows exact model names instead.
-    cells = [
-        ("MODELS IN THIS BRIEF", models_line or "Frontier model watch"),
-        ("FORMAT", "Multi-story digest"),
-        ("STATUS", "No ads · no hype"),
-    ]
-    cell_widths = (430, 250, 200)
-    x = 145
-    for (key, value), width in zip(cells, cell_widths):
-        draw.text((x, 472), key, font=_font("sans", 17, True), fill=(150, 205, 255))
-        value_font = _fit(draw, value, "sans", 26, width - 20, True, 15)
-        draw.text((x, 497), value, font=value_font, fill="white")
-        x += width
+    draw.text((1092, 84), BRAND, font=_font("mono", 22), fill=(220, 235, 255), anchor="ra")
+
+    geo = ai_brief_card_geometry(draw, headline, standfirst)
+    y = geo["head_top"]
+    for line in geo["head_lines"]:
+        draw.text((AI_BRIEF_LEFT, y), line, font=geo["head_font"], fill="white", anchor="lt")
+        y += geo["head_lh"]
+    y = geo["stand_top"]
+    for line in geo["stand_lines"]:
+        draw.text((AI_BRIEF_LEFT, y), line, font=geo["stand_font"], fill=(232, 240, 255), anchor="lt")
+        y += geo["stand_lh"]
+
+    # Two generous columns instead of three colliding ones. No source
+    # attribution anywhere (owner decision 04.11.2026).
+    label_font = _font("sans", AI_BRIEF_MIN_FONT, True)
+    value_size = 27
+    for x, width, label, value in ai_brief_card_columns(models_line, stories):
+        draw.text((x, 486), label, font=label_font, fill=(150, 205, 255), anchor="lt")
+        value_font = _fit(draw, value, "sans", value_size, width, True, AI_BRIEF_MIN_FONT + 1)
+        draw.text((x, 518), value, font=value_font, fill="white", anchor="lt")
+
     output_path.parent.mkdir(parents=True, exist_ok=True)
     image.convert("RGB").save(output_path)
     return output_path

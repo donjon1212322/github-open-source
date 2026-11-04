@@ -294,6 +294,9 @@ def test_font_falls_back_when_no_system_fonts(monkeypatch):
     from ghos_v6 import cards
 
     monkeypatch.setattr(cards, "_FONT_DIRS", [])
+    # _FONT_CACHE is module-global: without this, the fallback font leaks
+    # into every later card test and makes wrapping depend on test order.
+    monkeypatch.setattr(cards, "_FONT_CACHE", {})
     font = cards._font("sans", 24)
     assert font is not None
 

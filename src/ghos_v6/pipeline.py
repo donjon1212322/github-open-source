@@ -28,6 +28,7 @@ from .news import (
     NewsSourceError,
     brief_model_names,
     brief_stories,
+    card_hook_text,
     extract_primary_urls,
     fetch_primary_text,
     fetch_worldofai_entries,
@@ -1173,12 +1174,15 @@ def news_command(
     preview_url = ""
     try:
         with tempfile.TemporaryDirectory() as tmp:
-            standfirst = str(brief.get("summary") or "")
+            # The card uses the HOOK, not the dry summary, and knows how
+            # many stories it represents (owner feedback 04.11.2026).
+            standfirst = card_hook_text(brief)
             card_path = render_ai_brief_card(
                 str(brief.get("headline") or "AI model watch"),
                 standfirst,
-                ", ".join(names[:3]),
+                " · ".join(names[:2]),
                 Path(tmp) / "ai-brief.png",
+                stories=len(stories),
             )
             uploaded, _hosted_by = _host_local_image(
                 config, card_path.read_bytes(), filename=card_path.name
@@ -1221,6 +1225,9 @@ def news_command(
         "Gemini_video_input": video_input,
         "stories": len(stories),
         "models": names[:12],
+        "statuses": [
+            str(item.get("status") or "") for item in (brief.get("stories") or []) if isinstance(item, dict)
+        ][:12],
     }
     if existing is not None:
         existing.update(record)

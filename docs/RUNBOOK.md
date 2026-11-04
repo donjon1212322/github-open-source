@@ -295,3 +295,78 @@ Telegram показывает нативную кнопку «Leave a comment» 
 
 См. [`SECURITY.md`](../SECURITY.md), [`SECRETS_CHECKLIST.md`](SECRETS_CHECKLIST.md),
 [`ARCHITECTURE.md`](ARCHITECTURE.md).
+
+### 4.11 Третья правка AI Brief: чёткая карточка, живой хук и статусы фактов
+
+Отклонение владельца 04.11.2026 по скрину `uploads/image-10.png`: «буквы
+замылены, мелкий текст кривой и мыльный, наезжает на рамки», «все сухо
+расказывается, не интересно», «почему ты написала что Claude Fable 5.5 уже
+вышел? … тоже самое и с остальными фактами, перепроверь».
+
+**Карточка** (`render_ai_brief_card`, `cards.py`). Причины брака были
+детерминированными: `_wrap(..., max_lines=3)` молча обрезал заголовок
+(потерялось «GPT Updates»); standfirst из трёх строк с `y≈357, step 38`
+доходил до `≈471` и перекрывал stat bar `455..535`; три колонки шириной
+430/250/200 с `_fit(..., minimum=15)` ужимались до 15–17 px и наезжали друг
+на друга и на рамку. Теперь:
+
+* `ai_brief_card_geometry()` — чистая функция, фиксированные непересекающиеся
+  полосы: заголовок от `y=140`, `_fit_block` 58→36 px до 3 строк **без обрезки
+  слов**, хук от `head_bottom + 22`, stat band `470..568`; если хук не
+  помещается в две строки, берётся одна строка 26→22 px, а не втискивание;
+* `stand_bottom <= band_top - 8` проверяется тестом для длинных заголовков;
+* `ai_brief_card_columns()` — **две** широкие колонки `(116, 620)` и
+  `(772, 320)`, `left_end < right_x`, короткие значения (первые два имени,
+  «N stories · ad-free»), минимум шрифта 21–22 px. Ни один текст не
+  уменьшается до 15 px и не вылезает за рамку;
+* stat band залит непрозрачным тёмным фоном — белый текст читается на любом
+  градиенте; на карточке нет атрибуции источника.
+
+**Подача.** В схеме появилось обязательное поле `hook`, в промпте — блок
+`MAKE IT INTERESTING`: одна фраза с конкретным числом/контрастом/
+неразрешённым противоречием, запрет «This digest covers recent AI releases
+and updates…», «Why it matters» заменён на короткое «So what» с конкретным
+действием. `hook` (а не сухой `summary`) уходит и в текст, и на карточку;
+`news_command` передаёт в карточку ещё и число сюжетов.
+
+**Статусы фактов — главное исправление.** Перепроверка 04.11 показала, что
+`Claude Fable 5.5` **не выпущен**: вторичные источники на 02.11 сообщают
+«not released / no date», актуальная модель `claude-fable-5-1`, а ролик
+обсуждает «New Fable 5.5 Checkpoint», «Fable 5.5 Release Date?» и утечки
+Azure/LiteLLM/партнёрского доступа. Прошлая карточка и заголовок писали
+«Released» — это фактическая ошибка. Аналогично: `LongCat-2.5` официально
+«introduced» с Try it/API Access, но `GitHub/HF Coming soon` (веса не
+выложены); `GPT-6 Astra` — исследовательский отчёт на одном
+`Qwen3.5-0.8B` (`7.9→48.1` MATH-500, `0.016 %` весов, без обучения), не
+продукт OpenAI; demos `DeepSeek Harness Creator Mode` часто требовали
+несколько раундов промптов.
+
+Механизм: у каждого сюжета обязательные `status` и `basis`. `status` принимает
+`official_release`, `announced_not_shipped`, `research_report`,
+`demo_or_benchmark`, `leaked_checkpoint`, `teaser`, `unconfirmed_rumour`,
+`speculation`; `basis` — короткий **уровень доказательства** («leaker
+screenshots, unverified», «researchers' own write-up, no independent
+reproduction»), без имени канала, URL и списка источников. В тексте каждый
+сюжет получает явный бейдж (`✅`, `📄`, `🔬`, `🎬`, `◻️`), раздел «Receipts»
+показывает сводку статусов и строку «Only ✅ is an officially confirmed
+launch». `enforce_claim_status()` — детерминированный предохранитель: для
+всех статусов кроме `official_release` глаголы `released / launched / shipped /
+introduced / added / is out / now available` заменяются на `reported /
+announced / shown`, а `confirmed` принудительно `False`. Сырой массив
+`confirmed` больше не рендерится — он был источником ложного «✅» рядом с
+неподтверждённым утверждением. Двойное «Unconfirmed: Unconfirmed …
+(unconfirmed)» чистятся `_clean_unconfirmed()`.
+
+**Тесты** `tests/test_news_accuracy_and_card_2026_11_04.py` (15 тестов)
+кодируют: непересекающиеся полосы и сохранение всех слов заголовка, две
+непересекающиеся колонки и шрифт ≥ 22 px, обязательные `hook/status/basis`
+в схеме, маркеры проверки фактов в промпте, даунгрейд «Released» для
+`leaked_checkpoint`, сохранение глаголов для `official_release`, «Announced»
+для `announced_not_shipped`, наличие хука/«So what»/сводки статусов,
+отсутствие атрибуции источника и передачу `hook` + `stories` в карточку.
+10 новых мутаций (всего 76/76) убивают возврат к каждой из трёх ошибок.
+
+**Правка живого поста.** Обычный `news` не запускать: `video_id=i-wYjUriSzo`
+уже в `news_topics` и dedup вернёт `news_already_published`. Только
+`news --refresh` / `refresh_news=true` пересобирает дайджест и правит тот же
+`message_id=3553` через `editMessageText`; новый пост не создаётся.

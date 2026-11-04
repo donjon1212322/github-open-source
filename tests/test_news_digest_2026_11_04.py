@@ -191,7 +191,7 @@ def test_legacy_single_story_brief_still_renders_a_valid_post():
 
 def test_card_and_edit_payload_carry_no_source_or_keyboard():
     cards = (REPO / "src" / "ghos_v6" / "cards.py").read_text(encoding="utf-8")
-    fn = cards[cards.index("def render_ai_brief_card("):cards.index("def render_digest_card(")]
+    fn = cards[cards.index("def ai_brief_card_columns("):cards.index("def render_digest_card(")]
     assert "OFFICIAL SOURCE" not in fn and "SPOTTED VIA" not in fn and "WorldofAI" not in fn
     assert "MODELS IN THIS BRIEF" in fn
     payload = build_edit_message_payload("@GitHub_Open_Source", 3553, "text")
