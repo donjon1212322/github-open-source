@@ -435,3 +435,44 @@ DOUBT, USE THE LOWER STATUS» и запрет открывать хук/заго
 `card_hook_text()` берёт ту же фразу, поэтому карточка и текст согласованы.
 Тест `test_a_fluent_but_wrong_hook_never_reaches_the_post` кодирует ровно
 эту живую ошибку, ещё одна мутация (82/82) убивает возврат к свободному хуку.
+
+### 4.14 Итоговая живая проверка третьей правки
+
+Цепочка коммитов: `39feb9c` (вторая правка, отклонена) → `fc54d66`
+(карточка, статусы, хук) → `ef3cf84` (аудит статусов и модельный заголовок)
+→ `320ad98` (хук только из проверенных фактов). Все четыре прошли CI и
+CodeQL (`completed/success`); финальный `main = 320ad98`.
+
+Три запуска `405620261` с `{"command":"news","refresh_news":true}`:
+
+| Run | Результат |
+|---|---|
+| `41775169118` | `edited:true`, `message_id=3553`, 5 сюжетов; «Released» убрано, но S-1 filing и demo ошибочно помечены `✅ Official release`, хук — сухой пересказ S-1 |
+| `41776454638` | `edited:true`, `message_id=3553`, 6 сюжетов; аудит статусов сработал, но свободный хук приписал `Claude Fable 5.5` результат `GPT-6 Astra` (6x / 0.016 % весов) |
+| `41777362053` | `edited:true`, `message_id=3553`, 5 сюжетов; финальный пост |
+
+Финальный `https://t.me/s/GitHub_Open_Source/3553`: заголовок
+`Claude Fable 5.5 · Claude Opus 5.5 · GPT-6 Astra lead the model watch`,
+хук `8 exact names, 1 official launch, 1 only announced, 3 unverified
+claims. Claude Fable 5.5 leads the watch — what would you actually re-run
+first?`, 4 показанных сюжета (5 сгенерировано, один убран лимитом
+Telegram), 8 точных имён, статусы `◻️ Leaked checkpoint`,
+`🎬 Demo / benchmark`, `📄 Announced · not shipped yet`,
+`✅ Official release`, сводка `✅ 1 official · 📄 1 filing / announced ·
+🔬 1 research / demo · ◻️ 1 unverified`. Маркеров `Released`, `Sources`,
+`WorldofAI`, `youtube.com`, `Sponsored`, двойного `Unconfirmed` и
+inline-клавиатуры нет; карточка — собственная ImgBB
+`ai-brief-bb114161fe28.png` (1200×630, без наложений и обрезанных слов).
+
+Обычный `news` ни разу не запускался: по `video_id=i-wYjUriSzo` сработал бы
+`news_already_published` и появился бы дубль. State-ветка не сливалась в
+`main`. Гейт: `396 passed`, `70.06 %`, `82/82 killed`, ruff/mypy/secret/YAML
+чисто.
+
+Ограничение проверки: YouTube timedtext для `i-wYjUriSzo` отдал HTTP 200 с
+0 байт, полной расшифровки нет. Статусы сверялись с официальным постом
+LongCat (2026-11-1: «We introduce», 1.6T/~48B, GitHub/HF Coming soon),
+вторичными репортажами по Fable 5.5 (на 02.11 not released / no date,
+`claude-fable-5-1`), research write-up по GPT-6 Astra / Qwen3.5-0.8B и
+репортажами о DeepSeek Harness Creator Mode, а также с оглавлением ролика.
+Не утверждается, что каждый тезис проверен по дословному транскрипту.
