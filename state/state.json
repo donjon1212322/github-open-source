@@ -230,7 +230,13 @@
       "visual_kind": "readme"
     },
     "jub0t/concat": {
-      "articles": {},
+      "articles": {
+        "devto": {
+          "id": 4977582,
+          "published_at": "2026-11-04T20:29:04.919678Z",
+          "url": "https://dev.to/githubopensource/open-source-local-video-editor-concat-3bdm"
+        }
+      },
       "card_style": "",
       "category": "DevTools",
       "contributors_count": 50,
@@ -244,6 +250,7 @@
       },
       "description": " Beta: The truly free, open-source, local-first, cross-platform CapCut replacement. Scriptable through a JSON-RPC API & MCP.",
       "description_fp": "01cc92ecbecb6a55",
+      "devto_cover_url": "https://i.ibb.co/N2JncBW9/jub0t-concat-devto-cover-8faa2696d593.png",
       "forks": 1748,
       "full_name": "jub0t/Concat",
       "generated": {
