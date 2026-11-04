@@ -34,9 +34,9 @@
       "started_at": "2026-11-04T12:10:58.138816Z"
     },
     "publish:europe_midday": {
-      "finished_at": "2026-11-03T19:45:44.038179Z",
-      "repo": "horizon-rust/horizon",
-      "telegram_message_id": 3551
+      "finished_at": "2026-11-04T19:59:51.256728Z",
+      "repo": "knifelemon/filee",
+      "telegram_message_id": 3555
     },
     "publish:europe_morning": {
       "finished_at": "2026-11-04T15:23:51.643303Z",
@@ -505,6 +505,128 @@
       "visual_host": "imgbb",
       "visual_kind": "card"
     },
+    "knifelemon/filee": {
+      "articles": {},
+      "card_style": "",
+      "category": "DevTools",
+      "contributors_count": 57,
+      "created_at": "2026-09-29T20:05:15Z",
+      "crossposts": {
+        "bluesky": {
+          "attempts": 0,
+          "due_at": "2026-11-04T20:29:51.256444+00:00",
+          "status": "pending"
+        }
+      },
+      "description": "Free, open-source file converter. Convert 263 formats offline by drag & drop — images, PDF, Word, Excel, PowerPoint, HWP/HWPX, video, audio, e-books and archives. No upload, no Office needed.",
+      "description_fp": "20f67f3272db8785",
+      "forks": 1318,
+      "full_name": "KnifeLemon/Filee",
+      "generated": {
+        "article_markdown": "## What it is\n\nFilee is an open-source desktop file converter designed to handle 263 different formats entirely offline. Built using C# and Avalonia, it provides a unique interaction model: instead of opening a standalone application window, you hold a modifier key, drag your files, and drop them onto a format selection donut that appears right at your cursor. It operates locally, saving converted outputs directly next to the original files.\n\n## Why it matters\n\nFor developers and power users, file conversion is often an annoying friction point. Existing solutions either require uploading sensitive files to random web services or spinning up bloated office suites. Filee removes this tradeoff by keeping everything on your local machine. It processes documents, images, archives, and media files without needing Microsoft Office, Hancom Office, or LibreOffice installed.\n\n## Key features\n\n- Trigger conversion menus by holding a modifier key and dropping files onto a cursor-anchored donut interface.\n- Process over 260 formats locally without cloud uploads.\n- Drag links or assets directly out of web browsers for instant conversion.\n- Run parallel batch conversions with automatic routing for multi-step format transitions.\n- Flip the format donut using the mouse wheel or Tab key to access alternative toolbars.\n- Crop images, configure output quality, DPI, and watch folders for automated tasks.\n\n## Quick start\n\nTo install Filee on Windows using WinGet, run:\n\n```powershell\nwinget install KnifeLemon.Filee\n```\n\n## Who should try it\n\nThis tool is built for developers, designers, and system administrators who regularly juggle obscure file formats and want to keep their workflows entirely offline. Linux users should note that drag gestures currently require X11.\n\n## Verdict\n\nFilee is a polished, fast utility that eliminates the friction of file conversion. While certain platforms have minor limitations regarding drag gestures, its offline-first architecture makes it a great addition to any developer's local toolkit.",
+        "article_title": "Filee: An Open-Source Offline Drag-and-Drop File Converter for Developers",
+        "card_hook": "Offline drag-and-drop file converter",
+        "card_subline": "Convert images, documents, audio, and archives without uploading or installing Office",
+        "category": "DevTools",
+        "discussion_question": "Which proprietary file format do you wish you could convert offline without heavy office software?",
+        "hook": "Convert 263 file formats offline simply by dragging and dropping them right at your cursor.",
+        "key_features": [
+          "Trigger conversion menus by holding a modifier key and dragging files onto a cursor-anchored donut interface",
+          "Process over 260 formats including images, documents, CAD, 3D models, and e-books locally without cloud uploads",
+          "Extract and download files directly by dragging links or assets straight out of web browsers",
+          "Batch convert multiple files in parallel with automatic multi-step routing between intermediate formats",
+          "Flip the format donut using the mouse wheel or Tab key to access less common utilities and secondary toolbars",
+          "Crop images, adjust output quality or DPI, and manage watch folders for automated file transformation"
+        ],
+        "llm_used": true,
+        "quick_start": "winget install KnifeLemon.Filee",
+        "safety": "ok",
+        "safety_reason": "Legitimate open-source file conversion utility.",
+        "scene": "You need to convert a handful of HEIC images and documents quickly, but online converters demand file uploads and desktop office suites are too heavy to spin up.",
+        "social_text": "Convert 263 file formats offline instantly using a cursor-anchored drag and drop menu without cloud uploads.",
+        "summary": "Filee is an open-source desktop file conversion utility built on C# and Avalonia. It operates locally by intercepting drag-and-drop gestures and rendering a radial menu directly at the cursor location. The application processes files completely offline, eliminating cloud uploads and removing dependencies on heavy external office suites.",
+        "surfaces": {
+          "Facebook_body": "Dealing with mixed file formats can slow down your daily workflow, especially when online converters require clumsy file uploads and heavy software installations.\n\nThis open-source desktop utility lets you convert over 260 different file types completely offline. By simply dragging and dropping items near your cursor, a handy menu pops up to handle documents, images, e-books, and archives in seconds.\n\nBecause everything runs locally on your machine, your private files never touch the cloud, and you do not need bulky office suites installed just to switch a file format. It is designed for power users, developers, and anyone who regularly handles mismatched files and wants a fast, private way to get them into the right format.",
+          "Facebook_headline": "Convert your files offline with a simple drag",
+          "Facebook_lead": "Turn documents, images, and archives into the format you need directly on your computer, without uploading anything to the internet.",
+          "bluesky_headline": "Convert 263 file formats offline instantly",
+          "bluesky_lead": "Drag and drop any document, image or archive right at your cursor to convert it locally without cloud uploads.",
+          "devto_body": "## What it is\n\nFilee is an open-source desktop file conversion utility built using C# and Avalonia. It allows you to convert over 263 file formats locally, eliminating the need for cloud-based upload services or heavy external office suites.\n\n## How it works\n\nThe application intercepts drag-and-drop gestures and renders a radial menu directly at your cursor location. By holding a modifier key and dropping files onto this cursor-anchored donut interface, you can trigger conversions instantly. You can also flip the format donut using your mouse wheel or the Tab key to access secondary toolbars.\n\n## Key features\n\n- Convert over 260 formats including images, documents, CAD, 3D models, and e-books locally.\n- Extract and download files by dragging links or assets straight out of web browsers.\n- Batch convert multiple files in parallel with automatic multi-step routing between intermediate formats.\n- Full offline operation with zero cloud uploads.\n\n## Getting started\n\nTo run Filee from source, ensure you have the .NET SDK installed for C#. Clone the repository from GitHub, navigate to the project directory, and build the application using standard .NET commands:\n\n```bash\ngit clone https://github.com/KnifeLemon/Filee.git\ncd Filee\ndotnet run\n```\n\n## When not to use it\n\nFilee is primarily built for Windows and configured Linux or macOS environments. If you rely strictly on web-only workflows or require specialized enterprise conversion pipelines with specific cloud integrations, a local desktop utility may not fit your infrastructure.",
+          "seo_description": "Convert 263 file formats offline without cloud uploads using an open-source desktop utility for developers and power users.",
+          "seo_query": "open source offline file converter desktop utility",
+          "seo_title": "Open-source offline file converter - Filee",
+          "telegraph_angle": "Explain the privacy benefits and technical architecture of local file conversion compared to traditional web-based upload tools."
+        },
+        "tension": "Using cloud tools leaks proprietary data, while opening dedicated heavy software just to change a file extension breaks your workflow rhythm.",
+        "turn": "Filee replaces web uploads with an offline cursor-based menu that runs locally, though it still requires platform-specific setups and X11 for full drag gestures on Linux.",
+        "verdict": "An indispensable utility for anyone buried in mixed-format files, provided you work on Windows or configured Linux/macOS environments.",
+        "who_for": "Developers and power users who frequently convert documents, images, and archives across diverse formats.",
+        "why_now": "Growing demand for privacy-first, local developer tooling makes offline batch converters far more practical than browser-based upload tools."
+      },
+      "homepage": "https://filee.sh",
+      "id": 1396526702,
+      "image_url": "https://i.ibb.co/Y4VHGFj6/knifelemon-filee-readme-preview-1b0d17fe7f6f.jpg",
+      "is_dual_use": false,
+      "is_hidden_gem": false,
+      "language": "C#",
+      "license": {
+        "key": "mit",
+        "name": "MIT License",
+        "node_id": "MDc6TGljZW5zZTEz",
+        "spdx_id": "MIT",
+        "url": "https://api.github.com/licenses/mit"
+      },
+      "media_urls": [
+        "https://raw.githubusercontent.com/KnifeLemon/Filee/main/docs/media/banner-en.jpg",
+        "https://raw.githubusercontent.com/KnifeLemon/Filee/main/docs/media/demo-en.webp",
+        "https://raw.githubusercontent.com/KnifeLemon/Filee/main/docs/media/page-toolbar-en.png",
+        "https://raw.githubusercontent.com/KnifeLemon/Filee/main/docs/media/page-home-en.png"
+      ],
+      "name": "Filee",
+      "open_issues": 128,
+      "published_at": "2026-11-04T19:59:51.256464Z",
+      "pushed_at": "2026-11-04T19:50:03Z",
+      "readme_fp": "173eb3cc35f9f33b",
+      "repo_id": 1396526702,
+      "revisit_of": "",
+      "revisit_reason": "",
+      "score": 94.0,
+      "slot": "europe_midday",
+      "sources": [
+        "github_search"
+      ],
+      "stars": 21937,
+      "telegram_chat_id": "@GitHub_Open_Source",
+      "telegram_link": "https://t.me/GitHub_Open_Source/3555",
+      "telegram_message_id": 3555,
+      "telegraph_url": "https://telegra.ph/Filee-An-Open-Source-Offline-Drag-and-Drop-File-Converter-for-Developers-11-04",
+      "topics": [
+        "audio-converter",
+        "avalonia",
+        "batch-conversion",
+        "converter",
+        "csharp",
+        "document-converter",
+        "docx-to-pdf",
+        "dotnet",
+        "drag-and-drop",
+        "file-conversion",
+        "file-converter",
+        "heic-converter",
+        "hwp",
+        "hwpx",
+        "image-converter",
+        "linux",
+        "macos",
+        "pdf-converter",
+        "video-converter",
+        "windows"
+      ],
+      "updated_at": "2026-11-04T19:56:57Z",
+      "url": "https://github.com/KnifeLemon/Filee",
+      "visual_host": "imgbb",
+      "visual_kind": "readme"
+    },
     "wangzan101/mika": {
       "articles": {},
       "card_style": "editorial_daily",
@@ -634,78 +756,6 @@
     }
   },
   "queue": [
-    {
-      "archived": false,
-      "contributors_count": 57,
-      "created_at": "2026-09-29T20:05:15Z",
-      "default_branch": "main",
-      "description": "Free, open-source file converter. Convert 263 formats offline by drag & drop — images, PDF, Word, Excel, PowerPoint, HWP/HWPX, video, audio, e-books and archives. No upload, no Office needed.",
-      "disabled": false,
-      "fork": false,
-      "forks": 1307,
-      "forks_count": 1307,
-      "full_name": "KnifeLemon/Filee",
-      "has_readme": true,
-      "homepage": "https://filee.sh",
-      "id": 1396526702,
-      "is_dual_use": false,
-      "is_hidden_gem": false,
-      "language": "C#",
-      "license": {
-        "key": "mit",
-        "name": "MIT License",
-        "node_id": "MDc6TGljZW5zZTEz",
-        "spdx_id": "MIT",
-        "url": "https://api.github.com/licenses/mit"
-      },
-      "media_urls": [
-        "https://raw.githubusercontent.com/KnifeLemon/Filee/main/docs/media/banner-en.jpg",
-        "https://raw.githubusercontent.com/KnifeLemon/Filee/main/docs/media/demo-en.webp",
-        "https://raw.githubusercontent.com/KnifeLemon/Filee/main/docs/media/page-toolbar-en.png",
-        "https://raw.githubusercontent.com/KnifeLemon/Filee/main/docs/media/page-home-en.png"
-      ],
-      "name": "Filee",
-      "non_software_reason": "",
-      "open_issues": 127,
-      "open_issues_count": 127,
-      "owner_repo_count": 1,
-      "pushed_at": "2026-11-04T07:14:24Z",
-      "readme": "",
-      "readme_excerpt": "<p align=\"center\">\n  <a href=\"https://filee.sh\"><img src=\"docs/media/banner-en.jpg\" alt=\"Filee: Drag. Drop. Converted.\" width=\"100%\"></a>\n</p>\n\n<p align=\"center\">\n  <b>A free, open-source file converter you use by dragging.</b><br>\n  Hold a key (<kbd>Ctrl</kbd>, <kbd>Option</kbd> on macOS), drag files and drop them on a format in the donut that opens at your cursor.\n</p>\n\n<p align=\"center\">\n  <a href=\"https://filee.sh\"><b>Website</b></a> ·\n  <a href=\"https://github.com/KnifeLemon/Filee/releases/latest\"><b>Download</b></a> ·\n  <a href=\"https://www.linkedin.com/company/filee-sh/\"><b>LinkedIn</b></a> ·\n  <a href=\"#install\">Install</a> ·\n  <a href=\"#command-line\">Command line</a> ·\n  <a href=\"#development\">Development</a>\n</p>\n\n<p align=\"center\">\n  <a href=\"https://github.com/KnifeLemon/Filee/actions/workflows/ci.yml\"><img src=\"https://github.com/KnifeLemon/Filee/actions/workflows/ci.yml/badge.svg\" alt=\"CI\"></a>\n  <a href=\"https://github.com/KnifeLemon/Filee/releases/latest\"><img src=\"https://img.shields.io/github/v/release/KnifeLemon/Filee?color=7F77DD&label=release\" alt=\"Latest release\"></a>\n  <a href=\"https://github.com/KnifeLemon/Filee/releases\"><img src=\"https://img.shields.io/git",
-      "readme_len": 16672,
-      "repo_id": 1396526702,
-      "score": 94.0,
-      "source_name": "github_search",
-      "sources": [
-        "github_search"
-      ],
-      "stargazers_count": 21714,
-      "stars": 21714,
-      "topics": [
-        "audio-converter",
-        "avalonia",
-        "batch-conversion",
-        "converter",
-        "csharp",
-        "document-converter",
-        "docx-to-pdf",
-        "dotnet",
-        "drag-and-drop",
-        "file-conversion",
-        "file-converter",
-        "heic-converter",
-        "hwp",
-        "hwpx",
-        "image-converter",
-        "linux",
-        "macos",
-        "pdf-converter",
-        "video-converter",
-        "windows"
-      ],
-      "updated_at": "2026-11-04T12:09:38Z",
-      "url": "https://github.com/KnifeLemon/Filee"
-    },
     {
       "archived": false,
       "contributors_count": 15,
@@ -3484,8 +3534,8 @@
     "knifelemon/filee": {
       "first_seen_at": "2026-11-04T12:14:31.120281Z",
       "full_name": "KnifeLemon/Filee",
-      "last_decision": "queued",
-      "last_seen_at": "2026-11-04T12:14:31.120283Z",
+      "last_decision": "published",
+      "last_seen_at": "2026-11-04T19:59:51.256717Z",
       "repo_id": 1396526702,
       "sources": [
         "github_search"
