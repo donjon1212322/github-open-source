@@ -25,6 +25,7 @@ from .media import choose_visual
 from .media_host import ImgBBMediaHost
 from .upload import shrink_for_web_preview
 from .news import (
+    NewsSourceError,
     extract_primary_urls,
     fetch_primary_text,
     fetch_worldofai_entries,
@@ -504,12 +505,13 @@ def publish_slot(config: Config, store: StateStore, slot: str = "manual") -> dic
                 image_url = hosted
                 visual_host = hosted_by
             else:
-                # Be honest in state/alt text: the card rendered, but
-                # the image readers actually see is GitHub OpenGraph.
-                image_url = f"https://opengraph.githubassets.com/1/{candidate.get('full_name')}"
-                effective_visual_kind = "opengraph"
-                visual_host = "opengraph"
-                store.event("card_host_failed", repo=key, fallback="opengraph")
+                # Owner decision (2026-11-04): a failed image host must never
+                # degrade to GitHub's generic repository card. Keep no image
+                # and let our own Telegraph page be the link preview instead.
+                image_url = ""
+                effective_visual_kind = "text"
+                visual_host = "no_preview"
+                store.event("card_host_failed", repo=key, fallback="no_preview")
 
         telegraph_url = ""
         article_markdown = _article_markdown(candidate, generated)
@@ -552,7 +554,9 @@ def publish_slot(config: Config, store: StateStore, slot: str = "manual") -> dic
         # rendered card rides on top as a large link preview. A photo post
         # cannot carry long text at all (caption ceiling is 1024 chars), so
         # publishing as a photo would silently cost the story.
-        preview_url = image_url or telegraph_url or str(candidate.get("url") or "")
+        # Never point the preview at the repository URL: Telegram would
+        # unfold GitHub's default OpenGraph image, which the owner rejected.
+        preview_url = image_url or telegraph_url
         try:
             sent = telegram.send_project(
                 chat_id,
@@ -857,7 +861,46 @@ def process_crossposts(config: Config, store: StateStore) -> dict[str, Any]:
     return summary
 
 
+def _devto_duplicate_url(client: DevToClient, record: dict[str, Any]) -> str:
+    """Find an article on the dev.to account that already covers this repo.
+
+    dev.to returns ``body_markdown`` for GET /api/articles/me/all, and our
+    articles always link the repository. State alone is not enough: the
+    pre-migration posts live on the same dev.to account but not in this
+    repository's state, which is exactly how the Horizon duplicate happened.
+    """
+    full_name = str(record.get("full_name") or "")
+    if "/" not in full_name:
+        return ""
+    needle = f"https://github.com/{full_name}".lower()
+    try:
+        owned = client.my_articles(per_page=100)
+    except Exception as exc:  # noqa: BLE001 - diagnostics must not kill the article
+        logger.warning("dev.to article index unavailable: %s", sanitize(str(exc))[:180])
+        return ""
+    for item in owned:
+        blob = " ".join(
+            str(item.get(k) or "") for k in ("body_markdown", "canonical_url", "title", "url")
+        ).lower()
+        if needle in blob:
+            return str(item.get("url") or "")
+    return ""
+
+
 def article_of_day(config: Config, store: StateStore) -> dict[str, Any]:
+    # Owner decision (2026-11-04): one article per UTC day. The old loop
+    # walked every one of today's posts and published a second article when
+    # the cron ran after a manual dispatch.
+    day = datetime.now(timezone.utc).date().isoformat()
+    for existing in (store.data.get("published") or {}).values():
+        info = (existing.get("articles") or {}).get("devto") or {}
+        if not info or info.get("skipped"):
+            continue
+        published_at = _parse_iso(info.get("published_at"))
+        if published_at and published_at.date().isoformat() == day:
+            store.event("article_skipped", reason="already_published_today")
+            store.save()
+            return {"ok": True, "published": False, "reason": "already_published_today"}
     today = sorted(_today_records(store), key=lambda item: float(item.get("score") or 0), reverse=True)
     if not today:
         return {"ok": True, "published": False, "reason": "no_projects_today"}
@@ -870,6 +913,17 @@ def article_of_day(config: Config, store: StateStore) -> dict[str, Any]:
             store.save()
             return {"ok": True, "published": False, "reason": "feature_devto_disabled", "repo": key}
         client = DevToClient(config.dev_api_key)
+        duplicate = _devto_duplicate_url(client, record)
+        if duplicate:
+            store.event("article_skipped_duplicate", repo=key, existing_url=duplicate)
+            record.setdefault("articles", {})["devto_duplicate"] = {
+                "url": duplicate, "checked_at": iso_now(),
+            }
+            store.save()
+            return {
+                "ok": True, "published": False, "reason": "duplicate_repo_on_devto",
+                "repo": key, "existing_url": duplicate,
+            }
         _ensure_devto_cover(config, record)
         result = client.publish_article(record, record.get("generated") or {})
         record.setdefault("articles", {})["devto"] = {
@@ -983,7 +1037,18 @@ def news_command(config: Config, store: StateStore, *, force: bool = False) -> d
     chat_id = config.telegram_chat_id
     client = GeminiClient(config.Gemini_api_key, config.Gemini_model)
     telegram = TelegramClient(config.telegram_bot_token)
-    entries = fetch_worldofai_entries()
+    try:
+        entries = fetch_worldofai_entries()
+    except NewsSourceError as exc:
+        # Owner decision (2026-11-04): a broken upstream feed is a skipped
+        # brief, not a red workflow run and not a failure email. The owner
+        # still gets one explicit alert and the skip is recorded in state.
+        reason = sanitize(str(exc))[:300]
+        store.event("news_skipped", reason="source_unavailable", error=reason)
+        store.save()
+        alert_owner(config, "AI Brief: источник недоступен", reason)
+        logger.warning("AI Brief source unavailable; skipping: %s", reason)
+        return {"ok": True, "published": False, "reason": "source_unavailable", "error": reason}
 
     cutoff = datetime.now(timezone.utc) - timedelta(days=14)
     seen_video_ids: set[str] = set()

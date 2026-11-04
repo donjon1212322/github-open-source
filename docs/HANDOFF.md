@@ -21,7 +21,7 @@
 
 | | Состояние |
 |---|---|
-| Код | готов: 340 тестов, 66.51 % branch-inclusive coverage, 42/42 мутаций убито |
+| Код | готов: 350 тестов, 67.01 % branch-inclusive coverage, 48/48 мутаций убито |
 | История | чистый старт `2093a5a`; живой state вынесен в orphan-ветку `state`, в `main` только пустой bootstrap |
 | Публикация | включена: `APP_ENV=production`, `PUBLISH_TARGET=main` |
 | Режим | `main` требует `APP_ENV=production`, `PUBLISH_TARGET=main` и реального `TELEGRAM_MAIN_CHANNEL_ID` |

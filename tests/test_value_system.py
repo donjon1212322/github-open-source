@@ -695,7 +695,8 @@ def test_only_the_best_post_of_the_day_is_crossposted():
             "full_name": f"owner/{name}",
             "name": name,
             "score": score,
-            "published_at": (now - timedelta(hours=hours_ago)).isoformat(),
+            "published_at": (now.replace(hour=0, minute=0, second=0, microsecond=0)
+                             + timedelta(minutes=hours_ago)).isoformat(),
             "crossposts": {
                 "bluesky": {"status": "pending", "attempts": 0, "due_at": (now - timedelta(minutes=5)).isoformat()},
             },

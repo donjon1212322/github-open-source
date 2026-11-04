@@ -18,6 +18,7 @@ from __future__ import annotations
 import base64
 import hashlib
 import re
+import time
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any, Callable, cast
@@ -199,10 +200,12 @@ class ImgBBMediaHost:
         *,
         expiration: int | None = None,
         post_fn: Callable[..., Any] | None = None,
+        sleep_fn: Callable[[float], None] | None = None,
     ) -> None:
         self.api_key = (api_key or "").strip()
         self.expiration = expiration
         self._post = post_fn or requests.post
+        self._sleep = sleep_fn or time.sleep
 
     @property
     def configured(self) -> bool:
@@ -228,39 +231,53 @@ class ImgBBMediaHost:
         }
         if self.expiration:
             payload["expiration"] = str(int(self.expiration))
-        try:
-            response = self._post(self.API, data=payload, timeout=120)
-        except requests.RequestException as exc:
-            raise MediaHostError(
-                f"ImgBB upload request failed: {sanitize(str(exc))[:200]}"
-            ) from exc
-        try:
-            body = response.json()
-        except ValueError as exc:
-            raise MediaHostError(
-                f"ImgBB upload returned non-JSON HTTP {response.status_code}"
-            ) from exc
 
-        success = isinstance(body, dict) and bool(body.get("success"))
-        if response.status_code >= 400 or not success:
-            detail: Any = body
-            if isinstance(body, dict) and isinstance(body.get("error"), dict):
-                detail = body["error"].get("message") or body["error"]
-            raise MediaHostError(
-                f"ImgBB upload failed HTTP {response.status_code}: {sanitize(str(detail))[:200]}"
-            )
+        # Owner decision (2026-11-04): ImgBB answered a transient HTTP 503
+        # during the Mika post, and the one-shot upload silently degraded to
+        # GitHub's generic OpenGraph card. Retry transient 429/5xx/HTML
+        # responses; permanent 4xx (bad key, quota) still fails immediately.
+        last_error = "unknown error"
+        for attempt in range(4):
+            status = 0
+            body: Any = None
+            try:
+                response = self._post(self.API, data=payload, timeout=120)
+                status = int(getattr(response, "status_code", 0) or 0)
+                body = response.json()
+            except requests.RequestException as exc:
+                last_error = f"ImgBB upload request failed: {sanitize(str(exc))[:200]}"
+                body = None
+            except ValueError:
+                last_error = f"ImgBB upload returned non-JSON HTTP {status}"
+                body = None
 
-        data_obj = body.get("data") if isinstance(body, dict) else None
-        data_obj = data_obj if isinstance(data_obj, dict) else {}
-        assert isinstance(data_obj, dict)
-        data_obj = cast(dict[str, Any], data_obj)
-        image_obj = data_obj.get("image") if isinstance(data_obj.get("image"), dict) else {}  # type: ignore[union-attr]
-        url = str(
-            image_obj.get("url")  # type: ignore[union-attr]
-            or data_obj.get("display_url")
-            or data_obj.get("url")
-            or ""
-        )
-        if not url.startswith("https://"):
-            raise MediaHostError("ImgBB response has no usable image URL")
-        return url
+            if body is not None:
+                success = isinstance(body, dict) and bool(body.get("success"))
+                if status < 400 and success:
+                    data_obj = body.get("data") if isinstance(body, dict) else None
+                    data_obj = data_obj if isinstance(data_obj, dict) else {}
+                    data_obj = cast(dict[str, Any], data_obj)
+                    image_obj = cast(
+                        dict[str, Any],
+                        data_obj.get("image") if isinstance(data_obj.get("image"), dict) else {},
+                    )
+                    url = str(
+                        image_obj.get("url")
+                        or data_obj.get("display_url")
+                        or data_obj.get("url")
+                        or ""
+                    )
+                    if url.startswith("https://"):
+                        return url
+                    last_error = "ImgBB response has no usable image URL"
+                else:
+                    detail: Any = body
+                    if isinstance(body, dict) and isinstance(body.get("error"), dict):
+                        detail = body["error"].get("message") or body["error"]
+                    last_error = f"ImgBB upload failed HTTP {status}: {sanitize(str(detail))[:200]}"
+                if status < 500 and status != 429:
+                    raise MediaHostError(last_error)
+
+            if attempt < 3:
+                self._sleep(min(2 ** attempt, 8))
+        raise MediaHostError(f"ImgBB upload exhausted retries: {last_error}")

@@ -7,9 +7,10 @@ model card) supports the central claims.
 from __future__ import annotations
 
 import html
+import json
 import logging
 import re
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 from typing import Any
 from urllib.parse import parse_qsl, urlencode, urlparse, urlunparse
 
@@ -18,12 +19,32 @@ from defusedxml import ElementTree as ET
 
 from .formatter import CHANNEL_TAG_DIVIDER, utf16_len, visible_text
 from .Gemini import GeminiClient
-from .http import USER_AGENT, UnsafeUrl, download_bytes, validate_public_url
+from .http import USER_AGENT, UnsafeUrl, download_bytes, sanitize, validate_public_url
 
 logger = logging.getLogger(__name__)
 
 CHANNEL_ID = "UC2WmuBuFq6gL08QYG-JjXKw"
 RSS_URL = f"https://www.youtube.com/feeds/videos.xml?channel_id={CHANNEL_ID}"
+# YouTube's public RSS endpoint returns 404/500 for *every* channel during
+# its recurring outages (2021, 2024, Dec 2025, Feb 2026, Oct 2026) - including
+# Google's own channels. The channel's Videos tab still serves the list, so
+# it is our second source. RSS stays first because it costs no extra request.
+CHANNEL_VIDEOS_URL = "https://www.youtube.com/@intheworldofai/videos"
+WATCH_URL = "https://www.youtube.com/watch?v={video_id}"
+WATCH_ENRICH_LIMIT = 5
+
+
+class NewsSourceError(RuntimeError):
+    """Every WorldofAI discovery source is down, not an editorial rejection."""
+
+
+_RELATIVE_AGE_RE = re.compile(r"(\d+)\s*(mo|[smhdwy])\s*ago", re.I)
+_AGE_SECONDS = {"s": 1, "m": 60, "h": 3600, "d": 86400, "w": 604800, "mo": 2592000, "y": 31536000}
+_CONTENT_ID_RE = re.compile(r'"contentId":"([A-Za-z0-9_-]{11})"')
+_TITLE_RE = re.compile(r'"lockupMetadataViewModel":\{"title":\{"content":"((?:[^"\\]|\\.)*)"')
+_RELATIVE_TEXT_RE = re.compile(r'"text":\{"content":"([^"]*ago)"')
+_SHORT_DESCRIPTION_RE = re.compile(r'"shortDescription":"((?:[^"\\]|\\.)*)"')
+_PUBLISH_DATE_RE = re.compile(r'"publishDate":"([^"]+)"')
 
 NS = {
     "atom": "http://www.w3.org/2005/Atom",
@@ -192,10 +213,105 @@ def parse_rss(xml_text: str) -> list[dict[str, Any]]:
     return entries
 
 
+def _json_string(raw: str) -> str:
+    """Decode a JSON-escaped string taken out of YouTube's inline data."""
+    try:
+        return str(json.loads('"' + raw + '"'))
+    except (ValueError, TypeError):
+        return html.unescape(raw)
+
+
+def parse_channel_page(html_text: str, *, now: datetime | None = None) -> list[dict[str, Any]]:
+    """Read the Videos tab when YouTube's RSS feed is down.
+
+    The current YouTube layout wraps each video in a ``lockupViewModel``
+    block with a ``contentId``, a title and a relative age ("18h ago").
+    Older layouts used ``videoRenderer``/``videoId``; both are accepted.
+    """
+    now = now or datetime.now(timezone.utc)
+    entries: list[dict[str, Any]] = []
+    blocks = html_text.split('"lockupViewModel":')[1:] or [html_text]
+    for block in blocks:
+        cid = _CONTENT_ID_RE.search(block) or re.search(r'"videoId":"([A-Za-z0-9_-]{11})"', block)
+        title_match = _TITLE_RE.search(block) or re.search(
+            r'"title":\{"runs":\[\{"text":"((?:[^"\\]|\\.)*)"', block
+        )
+        if not (cid and title_match):
+            continue
+        video_id = cid.group(1)
+        rel = _RELATIVE_TEXT_RE.search(block) or re.search(r'"publishedTimeText".{0,80}?"simpleText":"([^"]+)"', block)
+        age_match = _RELATIVE_AGE_RE.search(rel.group(1)) if rel else None
+        published = None
+        if age_match:
+            seconds = int(age_match.group(1)) * _AGE_SECONDS.get(age_match.group(2).lower(), 0)
+            if seconds:
+                published = now - timedelta(seconds=seconds)
+        entries.append(
+            {
+                "video_id": video_id,
+                "title": _json_string(title_match.group(1)),
+                "url": WATCH_URL.format(video_id=video_id),
+                "published_at": published.isoformat() if published else "",
+                "published": published,
+                "description": "",
+                "thumbnail": "",
+            }
+        )
+    return entries
+
+
+def _enrich_from_watch_page(entry: dict[str, Any]) -> dict[str, Any]:
+    """Restore the description and exact upload date that the RSS feed carried.
+
+    The editorial prefilter needs the video description (relevance and the
+    sponsor block); the Videos tab does not include it. One request per
+    recent video is enough and is only made while RSS is broken.
+    """
+    try:
+        response = requests.get(str(entry["url"]), headers={"User-Agent": USER_AGENT}, timeout=30)
+        response.raise_for_status()
+        text = response.text
+    except Exception as exc:  # noqa: BLE001 - enrichment is best effort
+        logger.warning("WorldofAI watch page unavailable: %s", sanitize(str(exc))[:160])
+        return entry
+    description = _SHORT_DESCRIPTION_RE.search(text)
+    if description:
+        entry["description"] = _json_string(description.group(1))
+    date_match = _PUBLISH_DATE_RE.search(text)
+    if date_match:
+        parsed = _parse_datetime(date_match.group(1))
+        if parsed:
+            entry["published_at"] = parsed.isoformat()
+            entry["published"] = parsed
+    return entry
+
+
 def fetch_worldofai_entries() -> list[dict[str, Any]]:
-    response = requests.get(RSS_URL, headers={"User-Agent": USER_AGENT}, timeout=30)
-    response.raise_for_status()
-    return parse_rss(response.text)
+    """RSS first; the Videos tab plus watch pages while YouTube breaks RSS."""
+    rss_error = ""
+    try:
+        response = requests.get(RSS_URL, headers={"User-Agent": USER_AGENT}, timeout=30)
+        response.raise_for_status()
+        entries = parse_rss(response.text)
+        if entries:
+            return entries
+        rss_error = "empty feed"
+    except Exception as exc:  # noqa: BLE001 - the second source is the point
+        rss_error = sanitize(str(exc))[:200]
+    logger.warning("WorldofAI RSS unavailable (%s); reading the Videos tab", rss_error)
+    try:
+        response = requests.get(CHANNEL_VIDEOS_URL, headers={"User-Agent": USER_AGENT}, timeout=30)
+        response.raise_for_status()
+        entries = parse_channel_page(response.text)
+    except Exception as exc:  # noqa: BLE001
+        raise NewsSourceError(
+            f"WorldofAI source unavailable (rss: {rss_error}; channel: {sanitize(str(exc))[:160]})"
+        ) from exc
+    if not entries:
+        raise NewsSourceError(f"WorldofAI source unavailable (rss: {rss_error}; empty channel page)")
+    for entry in entries[:WATCH_ENRICH_LIMIT]:
+        _enrich_from_watch_page(entry)
+    return entries
 
 
 def _contains_any(text: str, terms: tuple[str, ...]) -> bool:

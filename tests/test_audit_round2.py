@@ -24,6 +24,10 @@ class _FakeSocial:
 
 def _record(name, score, hours_ago):
     now = datetime.now(timezone.utc)
+    # Anchor to the start of the UTC day: subtracting hours from "now" used
+    # to move these records into yesterday whenever the suite ran before
+    # 04:00 UTC, which made the best-of-day tests fail by wall-clock hour.
+    day_start = now.replace(hour=0, minute=0, second=0, microsecond=0)
     return {
         "full_name": f"owner/{name}",
         "name": name,
@@ -31,7 +35,7 @@ def _record(name, score, hours_ago):
         "description": f"A project called {name}",
         "url": f"https://github.com/owner/{name}",
         "image_url": "",
-        "published_at": (now - timedelta(hours=hours_ago)).isoformat(),
+        "published_at": (day_start + timedelta(minutes=hours_ago)).isoformat(),
         "crossposts": {
             "bluesky": {"status": "pending", "attempts": 0, "due_at": (now - timedelta(minutes=5)).isoformat()},
         },
