@@ -163,15 +163,24 @@ class TelegramClient:
         github_url: str = "",
         telegraph_url: str = "",
         homepage_url: str = "",
+        include_buttons: bool = False,
     ) -> dict[str, Any]:
+        # Owner decision (2026-11-04, option A): channel posts carry NO
+        # inline keyboard. Telegram replaces its native "Leave a comment"
+        # footer with any custom reply_markup, so buttons had to go. The
+        # very same links are already rendered in the post text.
         return self.send_text(
             chat_id,
             text_html,
             preview_url=preview_url,
-            buttons=build_buttons(
-                github_url=github_url,
-                telegraph_url=telegraph_url,
-                homepage_url=homepage_url,
+            buttons=(
+                build_buttons(
+                    github_url=github_url,
+                    telegraph_url=telegraph_url,
+                    homepage_url=homepage_url,
+                )
+                if include_buttons
+                else ()
             ),
         )
 

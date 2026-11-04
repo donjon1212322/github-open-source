@@ -426,6 +426,41 @@ def prefilter_entry(
     return True, ""
 
 
+def select_latest_news_entry(
+    entries: list[dict[str, Any]],
+    seen_video_ids: set[str],
+    recent_topic_keys: set[str] | None = None,
+    *,
+    now: datetime | None = None,
+) -> tuple[dict[str, Any] | None, str]:
+    """Owner decision (2026-11-04): exactly one brief, from the newest video.
+
+    * Only the latest video of the channel is considered, never a loop over
+      all recent uploads.
+    * It must be today's or yesterday's ("максимум вчерашний").
+    * A video_id or topic already used by an earlier brief is never reused.
+    Editorial judgement (ads, hype, rumours) is left to Gemini downstream.
+    """
+    now = now or datetime.now(timezone.utc)
+    dated: list[tuple[datetime, dict[str, Any]]] = []
+    for entry in entries:
+        published = entry.get("published") or _parse_datetime(str(entry.get("published_at") or ""))
+        if published and entry.get("video_id") and entry.get("url"):
+            dated.append((published, entry))
+    if not dated:
+        return None, "no_dated_videos"
+    published, latest = max(dated, key=lambda pair: pair[0])
+    if published.date() < (now - timedelta(days=1)).date():
+        return None, "video_too_old"
+    if str(latest["video_id"]) in seen_video_ids:
+        return None, "news_already_published"
+    if recent_topic_keys:
+        rough = re.sub(r"[^a-z0-9]+", "-", str(latest.get("title") or "").lower()).strip("-")[:80]
+        if rough and rough in recent_topic_keys:
+            return None, "news_already_published"
+    return latest, ""
+
+
 def clean_url(url: str) -> str:
     parsed = urlparse(str(url).strip().rstrip(".,;:)}]"))
     if parsed.scheme not in {"http", "https"} or not parsed.netloc:
@@ -525,20 +560,26 @@ def synthesize_brief(
 You are preparing a verified English AI Brief from a WorldofAI video plus a
 primary source. The video is a discovery signal, not an authority.
 
-Eligibility rules:
-- A primary source is preferred but NOT required: for a model or product
-  launch, the video itself is the evidence that the launch happened. When
-  there is no primary source, put every product claim under
-  video_only_claims and set what_happened only to what the title and the
-  video state as fact of the launch (name, vendor, what shipped).
-- eligible=false for leaks, rumours, speculation, "unconfirmed" claims,
-  drama, or a round-up of gossip.
-- eligible=false for reaction content, tier lists, top-10 lists, tutorials
-  with no new product, and anything that is about the news cycle rather
-  than about a shipped thing.
-- eligible=false for a video that is only an advertisement with no product
-  announcement behind it.
-- Never repeat hype or superlatives.
+Eligibility and editorial rules (owner decision 2026-11-04):
+- This is the NEWEST video of the channel. News round-ups ARE allowed:
+  pick the three to five most concrete shipped items (vendor, product,
+  what changed) and ignore the rest. Do not reject a video because its
+  clickbait title says "HUGE", "INSANE" or "LEAK" - judge the content.
+- ADVERTISING MUST BE REMOVED. The video and its description contain
+  sponsor reads, "Sponsored by ...", promo codes, affiliate/discount
+  links, "try X free" offers, and calls to subscribe or buy. Delete all
+  of it. Never mention a sponsor name, promo code, discount, referral or
+  affiliate link ANYWHERE in the output. A normal sponsor read is NOT a
+  reason to reject the video; the owner expects Gemini to cut that part.
+- eligible=false ONLY when the entire video is an advert with no product
+  news behind it, or when nothing factual can be extracted at all.
+- A primary source is preferred but NOT required: without one, put every
+  product claim under video_only_claims and keep what_happened to what the
+  video itself states as fact (name, vendor, what shipped).
+- Mark leaks, rumours and speculation as video_only_claims labelled
+  "unconfirmed"; never present them as confirmed or as fact.
+- Never repeat hype, superlatives, ALL CAPS, clickbait adjectives or
+  exclamation marks. Rewrite the YouTube title into plain factual English.
 - headline must be factual and specific.
 
 Headline rules (the owner reads this first):
@@ -647,57 +688,77 @@ def clean_brief_headline(headline: str) -> str:
 
 
 def format_ai_brief(brief: dict[str, Any]) -> str:
-    headline = _clip(clean_brief_headline(brief.get("headline") or "") or "Verified AI update", 150)
-    happened = [_clip(item, 280) for item in brief.get("what_happened") or [] if str(item).strip()][:4]
-    confirmed = [_clip(item, 220) for item in brief.get("confirmed") or [] if str(item).strip()][:3]
-    video_only = [_clip(item, 220) for item in brief.get("video_only_claims") or [] if str(item).strip()][:2]
-    why = _clip(brief.get("why_devs") or brief.get("summary"), 520)
-    question = _clip(brief.get("discussion_question") or "Will you try this in a real project?", 180)
-    official_url = str(brief.get("official_url") or "").strip()
-    official_name = _clip(brief.get("official_name") or "Primary source", 80)
-    source_line = (
-        f'🔗 <b>Source:</b> <a href="{html.escape(official_url, quote=True)}">{_esc(official_name)}</a>'
-        if official_url.startswith("https://")
-        else ""
-    )
+    """A small magazine page, not a wall of text (owner decision 04.11.2026).
 
-    def render(happened_items: list[str], confirmed_items: list[str], video_items: list[str], why_text: str) -> str:
-        lines = [f"🛰️ <b>AI Brief — {_esc(headline)}</b>", "──────────────", "🧭 <b>What happened</b>"]
-        lines.extend(f"▸ {_esc(item)}" for item in happened_items)
-        if why_text:
-            lines += ["", "🎯 <b>Why developers should care</b>", _esc(why_text)]
-        if confirmed_items or video_items:
-            lines += ["", "🔍 <b>Confirmed vs. video-only</b>"]
-            lines.extend(f"✅ {_esc(item)}" for item in confirmed_items)
-            lines.extend(f"◻️ Video-only: {_esc(item)}" for item in video_items)
-        lines += ["", "──────────────"]
-        if source_line:
-            lines.append(source_line)
-        source_note = " written from the primary source." if source_line else ""
-        lines += [
-            f"Spotted via <b>WorldofAI</b>.{source_note}",
+    Short labelled sections, blank lines between blocks, one idea per line,
+    explicit links (inline buttons were removed so Telegram can show native
+    comments), and a durable channel signature at the end.
+    """
+    headline = _clip(clean_brief_headline(brief.get("headline") or "") or "Verified AI update", 150)
+    happened = [_clip(item, 260) for item in brief.get("what_happened") or [] if str(item).strip()][:5]
+    confirmed = [_clip(item, 210) for item in brief.get("confirmed") or [] if str(item).strip()][:3]
+    video_only = [_clip(item, 210) for item in brief.get("video_only_claims") or [] if str(item).strip()][:2]
+    why = _clip(brief.get("why_devs") or brief.get("summary"), 460)
+    summary = _clip(brief.get("summary"), 300)
+    question = _clip(brief.get("discussion_question") or "Will you try this in a real project?", 170)
+    official_url = str(brief.get("official_url") or "").strip()
+    official_name = _clip(brief.get("official_name") or "Primary source", 70)
+    video_url = str(brief.get("video_url") or "").strip()
+    divider = "──────────────"
+
+    def link(url: str, label: str) -> str:
+        return f'<a href="{html.escape(url, quote=True)}">{_esc(label)}</a>' if url.startswith("https://") else ""
+
+    def render(happened_items, confirmed_items, video_items, why_text, summary_text) -> str:
+        lines = [
+            "🛰️ <b>AI Brief</b> · <i>no ads, no hype</i>",
             "",
+            f"<b>{_esc(headline)}</b>",
+        ]
+        if summary_text:
+            lines += ["", f"<blockquote>{_esc(summary_text)}</blockquote>"]
+        lines += ["", divider, "", "📰 <b>What shipped</b>", ""]
+        lines += [f"▸ {_esc(item)}" for item in happened_items] or ["▸ No concrete announcement could be verified."]
+        if why_text:
+            lines += ["", divider, "", "🎯 <b>Why developers should care</b>", "", _esc(why_text)]
+        receipts = [f"✅ {_esc(item)}" for item in confirmed_items]
+        receipts += [f"◻️ <i>Video-only:</i> {_esc(item)}" for item in video_items]
+        if receipts:
+            lines += ["", divider, "", "🔍 <b>Receipts</b>", "", *receipts]
+        sources = [x for x in (
+            link(official_url, official_name) if official_url.startswith("https://") else "",
+            link(video_url, "WorldofAI video"),
+        ) if x]
+        if sources:
+            lines += ["", divider, "", "🔗 <b>Sources</b>", ""]
+            lines += [f"• {item}" for item in sources]
+        lines += [
+            "", divider, "",
             "💬 <b>Your take?</b>",
             f"<i>{_esc(question)}</i>",
-            "❤️ <b>React</b> if you want more verified AI briefs like this.",
-            '📣 <a href="https://t.me/GitHub_Open_Source"><b>@GitHub_Open_Source</b></a> — daily open-source picks',
+            "❤️ <b>React</b> or leave a comment — it helps us pick the next brief.",
             "",
-            CHANNEL_TAG_DIVIDER,
-            "#AINews #OpenSource",
+            '📣 <a href="https://t.me/GitHub_Open_Source"><b>@GitHub_Open_Source</b></a> — daily open-source picks',
+            "", CHANNEL_TAG_DIVIDER, "#AINews #OpenSource",
         ]
         return "\n".join(lines)
 
-    output = render(happened, confirmed, video_only, why)
-    while utf16_len(visible_text(output)) > 2200 and video_only:
+    output = render(happened, confirmed, video_only, why, summary)
+    budget = 3000  # Telegram counts the HTML markup too; stay well under 4096
+    while utf16_len(visible_text(output)) > budget and video_only:
         video_only.pop()
-        output = render(happened, confirmed, video_only, why)
-    while utf16_len(visible_text(output)) > 2200 and confirmed:
+        output = render(happened, confirmed, video_only, why, summary)
+    while utf16_len(visible_text(output)) > budget and confirmed:
         confirmed.pop()
-        output = render(happened, confirmed, video_only, why)
-    while utf16_len(visible_text(output)) > 2200 and len(happened) > 2:
+        output = render(happened, confirmed, video_only, why, summary)
+    while utf16_len(visible_text(output)) > budget and len(happened) > 2:
         happened.pop()
-        output = render(happened, confirmed, video_only, why)
-    while utf16_len(visible_text(output)) > 2200 and why:
+        output = render(happened, confirmed, video_only, why, summary)
+    while utf16_len(visible_text(output)) > budget and summary:
+        summary = _clip(summary, max(120, len(summary) - 100))
+        output = render(happened, confirmed, video_only, why, summary)
+    while utf16_len(visible_text(output)) > budget and why:
         why = _clip(why, max(160, len(why) - 120))
-        output = render(happened, confirmed, video_only, why)
+        output = render(happened, confirmed, video_only, why, summary)
     return output
+

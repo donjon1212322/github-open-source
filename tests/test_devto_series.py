@@ -147,11 +147,13 @@ def test_unseries_command_tolerates_a_deleted_legacy_article(monkeypatch, tmp_pa
 def test_workflow_exposes_the_unseries_command_and_validates_its_input():
     text = (FLOW / "pipeline.yml").read_text(encoding="utf-8")
     assert "article-unseries" in text
-    assert "article|article-update|article-unseries|news" in text, \
-        "both article commands must stay in the dispatch whitelist"
+    assert "article|article-update|article-unseries|devto-remove|news" in text, \
+        "all dev.to maintenance commands must stay in the dispatch whitelist"
     assert "ARTICLE_IDS: ${{ inputs.article_ids }}" in text
     assert '^[0-9,[:space:]]{0,200}$' in text
     assert "ghos-v6 article-unseries --ids" in text
+    assert "ghos-v6 devto-remove --ids" in text
+    assert "^[0-9,[:space:]]{1,200}$" in text
 
 
 def test_no_series_name_is_left_in_the_publishing_code():

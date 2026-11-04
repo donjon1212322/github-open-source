@@ -116,6 +116,25 @@ class DevToClient:
             raise _error("dev.to article list", response)
         return list(response.json() or [])
 
+    def remove_article(self, article_id: int | str) -> str:
+        """Remove an article from the public listing (owner decision 04.11.2026).
+
+        Forem has no guaranteed DELETE endpoint: some deployments answer
+        404/405, others accept it. Try DELETE first and fall back to the
+        documented ``PUT /api/articles/{id}/unpublish``. Returns the verb
+        that worked so the caller can report it honestly.
+        """
+        if not self.configured:
+            raise PlatformError("DEV_API_KEY is not set")
+        base = f"https://dev.to/api/articles/{article_id}"
+        response = self._request("DELETE", base)
+        if response.status_code in {200, 202, 204}:
+            return "deleted"
+        response = self._request("PUT", f"{base}/unpublish")
+        if response.status_code in {200, 202, 204}:
+            return "unpublished"
+        raise _error("dev.to remove article", response)
+
     @staticmethod
     def resolve_article_id(
         items: list[dict[str, Any]], url: str, fallback: int | str

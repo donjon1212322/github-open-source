@@ -53,6 +53,28 @@ def run_doctor(
             "first_name": me.get("first_name"),
         }
         checks["telegram_discovery"] = telegram.discover_ids()
+        # Option A (2026-11-04): native comments require a linked
+        # discussion group. The Bot API cannot link one, so report it.
+        try:
+            main_chat = telegram.get_chat(config.telegram_chat_id)
+            linked = main_chat.get("linked_chat_id")
+            discussion: dict[str, Any] = {
+                "ok": bool(linked),
+                "channel_username": main_chat.get("username"),
+                "linked_chat_id": linked,
+            }
+            if linked:
+                group = telegram.get_chat(linked)
+                discussion.update(
+                    {
+                        "group_title": group.get("title"),
+                        "group_username": group.get("username"),
+                        "group_type": group.get("type"),
+                    }
+                )
+            checks["telegram_discussion"] = discussion
+        except BaseException as exc:  # noqa: BLE001 - diagnostic only
+            checks["telegram_discussion"] = {"ok": False, "error": _safe_error(exc)}
         if configure_bot:
             checks["telegram_bot_profile"] = telegram.configure_bot_profile()
         if config.telegram_test_channel_id is not None:

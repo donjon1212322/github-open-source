@@ -30,7 +30,7 @@ from .news import (
     fetch_primary_text,
     fetch_worldofai_entries,
     format_ai_brief,
-    prefilter_entry,
+    select_latest_news_entry,
     synthesize_brief,
 )
 from .platforms import BlueskyClient, DevToClient, PlatformError
@@ -1030,7 +1030,52 @@ def unseries_articles(config: Config, store: StateStore, ids: str = "") -> dict[
     return {"ok": True, "cleared": len(cleared), "ids": cleared, "missing": skipped}
 
 
+def remove_devto_articles(config: Config, store: StateStore, ids: str = "") -> dict[str, Any]:
+    """Remove legacy duplicate articles from the dev.to account.
+
+    Owner decision (2026-11-04): delete the older of the two Horizon
+    articles. An id that is still referenced by our state is protected:
+    the live pipeline must never lose the article it links to.
+    """
+    config.require("DEV_API_KEY")
+    raw = [part.strip() for part in re.split(r"[\s,]+", str(ids or "")) if part.strip()]
+    protected = {
+        str(info.get("id"))
+        for record in (store.data.get("published") or {}).values()
+        for info in [(record.get("articles") or {}).get("devto") or {}]
+        if info.get("id")
+    }
+    targets: list[str] = []
+    blocked: list[str] = []
+    for value in raw:
+        if not re.fullmatch(r"\d{1,12}", value):
+            raise ValueError(f"invalid dev.to article id: {value!r}")
+        if value in protected:
+            blocked.append(value)
+        elif value not in targets:
+            targets.append(value)
+    client = DevToClient(config.dev_api_key)
+    removed: list[dict[str, str]] = []
+    missing: list[str] = []
+    for article_id in targets:
+        try:
+            how = client.remove_article(article_id)
+            removed.append({"id": article_id, "action": how})
+        except PlatformError as exc:
+            if "404" not in str(exc):
+                raise
+            missing.append(article_id)
+    store.event("devto_articles_removed", ids=[item["id"] for item in removed], blocked=blocked)
+    store.save()
+    return {"ok": True, "removed": removed, "missing": missing, "blocked": blocked}
+
+
 def news_command(config: Config, store: StateStore, *, force: bool = False) -> dict[str, Any]:
+    """Owner decision (2026-11-04): ONE brief, from the channel's newest video.
+
+    Freshness (today or yesterday), no duplicate video/topic, Gemini strips
+    every sponsor read, and the post is laid out as readable sections.
+    """
     if not config.feature_ai_brief and not force:
         return {"ok": True, "published": False, "reason": "feature_ai_brief_disabled"}
     config.require("TELEGRAM_BOT_TOKEN", "GEMINI_API_KEY")
@@ -1040,9 +1085,6 @@ def news_command(config: Config, store: StateStore, *, force: bool = False) -> d
     try:
         entries = fetch_worldofai_entries()
     except NewsSourceError as exc:
-        # Owner decision (2026-11-04): a broken upstream feed is a skipped
-        # brief, not a red workflow run and not a failure email. The owner
-        # still gets one explicit alert and the skip is recorded in state.
         reason = sanitize(str(exc))[:300]
         store.event("news_skipped", reason="source_unavailable", error=reason)
         store.save()
@@ -1052,123 +1094,96 @@ def news_command(config: Config, store: StateStore, *, force: bool = False) -> d
 
     cutoff = datetime.now(timezone.utc) - timedelta(days=14)
     seen_video_ids: set[str] = set()
-    recent_topics: set[str] = set()
+    recent_topic_keys: set[str] = set()
     for item in store.data.get("news_topics") or []:
         if item.get("video_id"):
             seen_video_ids.add(str(item["video_id"]))
         published = _parse_iso(item.get("published_at"))
-        if published and published >= cutoff and item.get("topic_key"):
-            recent_topics.add(str(item["topic_key"]))
+        if item.get("topic_key") and published and published >= cutoff:
+            recent_topic_keys.add(str(item["topic_key"]))
 
-    rejected: Counter[str] = Counter()
-    unresolved: Counter[str] = Counter()
-    # Bound the worst case: a video call plus a text-only retry per entry,
-    # and a hard cap on how many entries may reach the model in one run.
-    llm_attempts = 0
-    max_llm_attempts = 3
-    for entry in entries:
-        allowed, reason = prefilter_entry(
-            entry,
-            seen_video_ids=seen_video_ids,
-            recent_topic_keys=recent_topics,
-        )
-        if not allowed:
-            rejected[reason] += 1
-            continue
-        primary = None
-        for url in extract_primary_urls(entry):
-            primary = fetch_primary_text(url)
-            if primary:
-                break
-        # Owner decision: a model launch covered by the video is news even
-        # when no readable primary source exists yet. The brief then rests on
-        # the video alone and every product claim is marked video-only.
-        if not primary:
-            unresolved["no_fetchable_primary_source"] += 1
-        if llm_attempts >= max_llm_attempts:
-            rejected["llm_attempt_cap"] += 1
-            break
-        llm_attempts += 1
-        try:
-            brief = synthesize_brief(entry, primary or {}, client, use_video=True)
-            video_input = True
-        except Exception as exc:  # noqa: BLE001
-            logger.warning("Gemini YouTube input failed; retrying text-only: %s", type(exc).__name__)
-            brief = synthesize_brief(entry, primary or {}, client, use_video=False)
-            video_input = False
-        if not brief.get("eligible"):
-            rejected[str(brief.get("rejection_reason") or "llm_ineligible")[:80]] += 1
-            continue
-        topic_key = re.sub(r"[^a-z0-9]+", "-", str(brief.get("topic_key") or "").lower()).strip("-")
-        if topic_key and topic_key in recent_topics:
-            rejected["recent_topic"] += 1
-            continue
-        buttons = []
-        row = []
-        if brief.get("official_url"):
-            row.append({"text": "Official source", "url": str(brief["official_url"])})
-        if entry.get("url"):
-            row.append({"text": "Watch on WorldofAI", "url": str(entry["url"])})
-        if row:
-            buttons.append(row)
-        preview_url = str(entry.get("url") or "")
-        try:
-            with tempfile.TemporaryDirectory() as tmp:
-                standfirst_items = brief.get("what_happened") or []
-                standfirst = str(standfirst_items[0] if standfirst_items else brief.get("why_devs") or "")
-                card_path = render_ai_brief_card(
-                    str(brief.get("headline") or "Verified AI update"),
-                    standfirst,
-                    str(brief.get("official_name") or "Primary source"),
-                    Path(tmp) / "ai-brief.png",
-                )
-                uploaded, _hosted_by = _host_local_image(
-                    config, card_path.read_bytes(), filename=card_path.name
-                )
-                if uploaded:
-                    preview_url = uploaded
-        except Exception as exc:  # noqa: BLE001
-            logger.warning("AI Brief Glass Aurora card failed; using video preview: %s", type(exc).__name__)
-        sent = telegram.send_text(
-            chat_id,
-            format_ai_brief(brief),
-            preview_url=preview_url,
-            buttons=buttons,
-        )
-        record = {
-            "video_id": entry.get("video_id"),
-            "topic_key": topic_key,
-            "headline": brief.get("headline") or "",
-            "official_url": brief.get("official_url") or "",
-            "video_url": entry.get("url") or "",
-            "published_at": iso_now(),
-            "telegram_message_id": sent.get("message_id"),
-            "image_url": preview_url if preview_url != str(entry.get("url") or "") else "",
-            "Gemini_video_input": video_input,
-        }
-        store.data.setdefault("news_topics", []).append(record)
-        store.event(
-            "ai_brief_published",
-            video_id=entry.get("video_id"),
-            topic=topic_key,
-            official_url=record["official_url"],
-            Gemini_video_input=video_input,
-        )
+    entry, skip_reason = select_latest_news_entry(
+        entries, seen_video_ids, recent_topic_keys
+    )
+    if entry is None:
+        store.event("news_skipped", reason=skip_reason, entries=len(entries))
         store.save()
-        return {
-            "ok": True,
-            "published": True,
-            "headline": record["headline"],
-            "telegram_message_id": sent.get("message_id"),
-            "Gemini_video_input": video_input,
-            "sourced": bool(brief.get("sourced")),
-            "rejections": dict(rejected),
-            "source_unresolved": dict(unresolved),
-        }
+        return {"ok": True, "published": False, "reason": skip_reason, "entries": len(entries)}
 
-    store.event("ai_brief_skipped", rejections=dict(rejected))
+    primary: dict[str, str] = {}
+    for url in extract_primary_urls(entry):
+        primary = fetch_primary_text(url) or {}
+        if primary:
+            break
+    try:
+        brief = synthesize_brief(entry, primary, client, use_video=True)
+        video_input = True
+    except Exception as exc:  # noqa: BLE001
+        logger.warning("Gemini YouTube input failed; retrying text-only: %s", type(exc).__name__)
+        brief = synthesize_brief(entry, primary, client, use_video=False)
+        video_input = False
+    if not brief.get("eligible"):
+        reason = str(brief.get("rejection_reason") or "gemini_ineligible")[:80]
+        store.event("news_skipped", reason=reason, video_id=entry.get("video_id"))
+        store.save()
+        return {"ok": True, "published": False, "reason": reason}
+
+    topic_key = re.sub(r"[^a-z0-9]+", "-", str(brief.get("topic_key") or "").lower()).strip("-")
+    preview_url = str(entry.get("url") or "")
+    try:
+        with tempfile.TemporaryDirectory() as tmp:
+            standfirst_items = brief.get("what_happened") or []
+            standfirst = str(standfirst_items[0] if standfirst_items else brief.get("why_devs") or "")
+            card_path = render_ai_brief_card(
+                str(brief.get("headline") or "Verified AI update"),
+                standfirst,
+                str(brief.get("official_name") or "Primary source"),
+                Path(tmp) / "ai-brief.png",
+            )
+            uploaded, _hosted_by = _host_local_image(
+                config, card_path.read_bytes(), filename=card_path.name
+            )
+            if uploaded:
+                preview_url = uploaded
+    except Exception as exc:  # noqa: BLE001
+        logger.warning("AI Brief Glass Aurora card failed; using video preview: %s", type(exc).__name__)
+
+    # No inline keyboard: Telegram must keep its native "Leave a comment"
+    # footer (option A). Both source links are rendered in the post text.
+    sent = telegram.send_text(
+        chat_id,
+        format_ai_brief(brief),
+        preview_url=preview_url,
+    )
+    record = {
+        "video_id": entry.get("video_id"),
+        "topic_key": topic_key,
+        "headline": brief.get("headline") or "",
+        "official_url": brief.get("official_url") or "",
+        "video_url": entry.get("url") or "",
+        "published_at": iso_now(),
+        "telegram_message_id": sent.get("message_id"),
+        "image_url": preview_url if preview_url != str(entry.get("url") or "") else "",
+        "Gemini_video_input": video_input,
+    }
+    store.data.setdefault("news_topics", []).append(record)
+    store.event(
+        "ai_brief_published",
+        video_id=entry.get("video_id"),
+        topic=topic_key,
+        official_url=record["official_url"],
+        Gemini_video_input=video_input,
+    )
     store.save()
-    return {"ok": True, "published": False, "reason": "no_eligible_video", "rejections": dict(rejected)}
+    return {
+        "ok": True,
+        "published": True,
+        "headline": record["headline"],
+        "telegram_message_id": sent.get("message_id"),
+        "Gemini_video_input": video_input,
+        "sourced": bool(brief.get("sourced")),
+        "video_id": record["video_id"],
+    }
 
 
 def digest_command(config: Config, store: StateStore) -> dict[str, Any]:

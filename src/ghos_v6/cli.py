@@ -24,6 +24,7 @@ from .pipeline import (
     news_command,
     process_crossposts,
     publish_slot,
+    remove_devto_articles,
     report_command,
     update_recent_article,
     unseries_articles,
@@ -55,6 +56,12 @@ def _parser() -> argparse.ArgumentParser:
     unseries.add_argument(
         "--ids", default="",
         help="Comma-separated dev.to article ids; state ids are added automatically",
+    )
+
+    remove = sub.add_parser("devto-remove", help="Remove legacy duplicate dev.to articles")
+    remove.add_argument(
+        "--ids", default="",
+        help="Comma-separated dev.to article ids to delete/unpublish",
     )
 
     news = sub.add_parser("news", help="Publish one verified WorldofAI AI Brief")
@@ -145,6 +152,8 @@ def main(argv: list[str] | None = None) -> int:
             result = update_recent_article(config, store)
         elif args.command == "article-unseries":
             result = unseries_articles(config, store, ids=args.ids)
+        elif args.command == "devto-remove":
+            result = remove_devto_articles(config, store, ids=args.ids)
         elif args.command == "news":
             result = news_command(config, store, force=args.force)
         elif args.command == "digest":
