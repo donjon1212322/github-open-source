@@ -47,27 +47,30 @@
   "news_topics": [
     {
       "Gemini_video_input": true,
-      "headline": "Anthropic Fable 5.5 Checkpoint, GPT-6 Astra, and DeepSeek Harness Updates",
-      "image_url": "https://i.ibb.co/tTF80cPz/ai-brief-3506c5839d7a.png",
+      "headline": "Anthropic S-1 filings reveal RSI milestone while Claude Fable 5.5 and LongCat-2.5 surface",
+      "image_url": "https://i.ibb.co/xtSryt7y/ai-brief-8132976a795a.png",
       "models": [
         "Claude Fable 5.5",
         "Claude Opus 5.5",
-        "Claude Mythos 5.5",
         "GPT-6 Astra",
-        "GPT-6.1 Sol",
-        "GPT-6.2",
-        "Qwen 4",
-        "Qwen 4 27B",
         "Gemini 4 Argon",
-        "DeepSeek Harness",
         "LongCat-2.5",
-        "Pulse Alpha"
+        "Claude Opus 4.8",
+        "DeepSeek Harness",
+        "Qwen3.5-0.8B"
       ],
       "official_url": "",
-      "published_at": "2026-11-04T04:00:59.943294Z",
-      "stories": 4,
+      "published_at": "2026-11-04T04:47:23.312890Z",
+      "statuses": [
+        "leaked_checkpoint",
+        "official_release",
+        "official_release",
+        "research_report",
+        "official_release"
+      ],
+      "stories": 5,
       "telegram_message_id": 3553,
-      "topic_key": "ai-news-digest-fable-5-5-gpt-6-astra",
+      "topic_key": "ai-model-updates-and-checkpoints",
       "video_id": "i-wYjUriSzo",
       "video_url": "https://www.youtube.com/watch?v=i-wYjUriSzo"
     }
