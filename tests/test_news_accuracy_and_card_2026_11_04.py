@@ -176,9 +176,9 @@ def test_announced_but_not_shipped_is_not_called_released():
 
 def test_hook_leads_the_post_and_receipts_show_evidence_levels():
     rendered = format_ai_brief(enforce_claim_status(_brief()))
-    assert "A checkpoint nobody announced" in rendered
-    assert "<blockquote>" in rendered
+    assert "exact names" in rendered and "<blockquote>" in rendered
     assert "This digest covers" not in rendered
+    assert "A checkpoint nobody announced" not in rendered
     assert "🔬 1 research / demo" in rendered
     assert "◻️ 1 unverified" in rendered
     assert "<b>So what:</b>" in rendered
@@ -253,7 +253,8 @@ def test_news_command_hands_the_hook_and_story_count_to_the_card(monkeypatch, tm
 
     result = pipeline.news_command(_config(), StateStore(tmp_path))
     assert result["published"] is True
-    assert captured["standfirst"] == _brief()["hook"]
+    assert "exact names" in captured["standfirst"]
+    assert "This digest covers" not in captured["standfirst"]
     assert captured["stories"] == 2
     assert "Leaked checkpoint" in captured["text"]
     assert "Released" not in captured["text"]
@@ -367,8 +368,9 @@ def test_dry_corporate_hook_is_replaced_by_a_factual_teaser():
     assert not hook.lower().startswith("anthropic")
     assert "S-1" not in hook and "RSI" not in hook
     assert any(ch.isdigit() for ch in hook), "a concrete number must be present"
-    assert "exact names" in hook and "?" not in hook
+    assert "exact names" in hook and "?" in hook
     assert "Claude Fable 5.5" in hook
+    assert "6x" not in hook and "0.016%" not in hook
     assert len(card_hook_text(cleaned)) <= 115
     rendered = format_ai_brief(cleaned)
     assert "Anthropic's amended S-1" not in rendered
@@ -384,3 +386,23 @@ def test_headline_leads_with_model_news_not_the_filing():
     assert "S-1" not in cleaned["headline"]
     assert "lead the model watch" in cleaned["headline"]
     assert "Anthropic S-1 filings" not in format_ai_brief(cleaned)
+
+
+def test_a_fluent_but_wrong_hook_never_reaches_the_post():
+    """The live 05:01 refresh attributed GPT-6 Astra's result to Fable 5.5."""
+    wrong = "Claude Fable 5.5 achieves a 6x math improvement by directly editing 0.016% of neural network weights."
+    brief = _brief_with(
+        _story("leaked_checkpoint", "Claude Fable 5.5 checkpoint surfaces",
+               ["An unannounced checkpoint appeared."], "leaker screenshots, unverified"),
+        _story("research_report", "GPT-6 Astra demonstrates weight-space programming",
+               ["MATH-500 moved from 7.9% to 48.1% on Qwen3.5-0.8B."], "researchers' own write-up"),
+        hook=wrong,
+    )
+    cleaned = enforce_claim_status(brief)
+    rendered = format_ai_brief(cleaned)
+    assert "6x math improvement" not in rendered
+    assert "0.016% of neural network weights" not in rendered
+    assert wrong not in rendered
+    assert "exact names" in rendered
+    assert "what would you actually re-run first?" in rendered
+    assert len(card_hook_text(cleaned)) <= 115

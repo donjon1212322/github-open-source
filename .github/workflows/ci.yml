@@ -34,7 +34,7 @@ jobs:
       - name: Tests (line + branch coverage)
         run: pytest
       - name: Mutation gate
-        # A green suite must fail when an owner decision is broken. 81 fixed
+        # A green suite must fail when an owner decision is broken. 82 fixed
         # mutations are applied one at a time; any survivor fails the build.
         run: python tools/mutation_check.py
       - name: Secret scan

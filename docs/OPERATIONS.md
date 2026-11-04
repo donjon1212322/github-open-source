@@ -324,7 +324,7 @@ Telegram, а не Bot API; с сервера её не видно. Предус�
   «Video-only», «WorldofAI» на карточке и link-preview с URL ролика.
 - `news --refresh` / input `refresh_news` пересобирает дайджест и правит
   уже вышедший пост через `editMessageText` без создания дубля.
-- Гейт: `395 passed`, `70.10 %`, `81/81 killed`, ruff/mypy/secret-scan/YAML
+- Гейт: `396 passed`, `70.06 %`, `82/82 killed`, ruff/mypy/secret-scan/YAML
   чисто; третья правка поверх `39feb9c`, CI и CodeQL зелёные.
 - Живые запуски (все `completed/success`, все правят один пост 3553 через
   `editMessageText`): `41769035382` → 3 сюжета/13 имён, `41769791800` →

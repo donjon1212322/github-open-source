@@ -833,7 +833,14 @@ def _model_first_headline(headline: str, names: list[str]) -> str:
 
 
 def editorial_hook(brief: dict[str, Any]) -> str:
-    """A factual teaser with numbers and names, never a dry corporate recap."""
+    """A factual teaser built ONLY from audited story data.
+
+    Owner correction 2026-11-04: a fluent Gemini hook merged two stories
+    and claimed "Claude Fable 5.5 achieves a 6x math improvement by
+    directly editing 0.016% of neural network weights" - that result
+    belongs to GPT-6 Astra / Qwen3.5-0.8B. Free-text hooks are therefore
+    never trusted: an engaging line must not invent or reassign a fact.
+    """
     names = brief_model_names(brief)
     hook = " ".join(str(brief.get("hook") or "").split())
     summary = " ".join(str(brief.get("summary") or "").split())
@@ -841,23 +848,18 @@ def editorial_hook(brief: dict[str, Any]) -> str:
     if not names and not stories:
         return hook or summary
     official = sum(st["status"] == "official_release" for st in stories)
-    open_claims = len(stories) - official
-    interesting = (
-        hook and hook != summary and len(hook) >= 25
-        and not _DRY_HOOK_RE.match(hook) and not _CORPORATE_RE.match(hook)
-        and (bool(re.search(r"\d", hook)) or "?" in hook or any(n in hook for n in names))
+    documented = sum(
+        st["status"] in {"announced_not_shipped", "official_document"} for st in stories
     )
-    if interesting:
-        return hook
+    open_claims = len(stories) - official - documented
     lead = names[0] if names else "This brief"
     launches = "launch" if official == 1 else "launches"
     claims = "claim" if open_claims == 1 else "claims"
     return (
-        f"{len(names)} exact names, {official} confirmed {launches}, "
-        f"{open_claims} {claims} still open. Start with {lead} — "
-        "then decide what you would actually re-run."
+        f"{len(names)} exact names, {official} official {launches}, "
+        f"{documented} only announced, {open_claims} unverified {claims}. "
+        f"{lead} leads the watch — what would you actually re-run first?"
     )
-
 
 _OFFICIAL_STATUSES = {"official_release"}
 _ANNOUNCED_STATUSES = {"announced_not_shipped"}
