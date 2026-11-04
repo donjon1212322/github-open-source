@@ -144,6 +144,7 @@
       "open_issues": 615,
       "published_at": "2026-11-03T19:45:44.037955Z",
       "pushed_at": "2026-11-03T19:43:29Z",
+      "reactions": 0,
       "readme_fp": "48cd37486c2f4a20",
       "repo_id": 1403446451,
       "revisit_of": "",
@@ -173,6 +174,17 @@
       ],
       "updated_at": "2026-11-03T19:43:33Z",
       "url": "https://github.com/horizon-rust/horizon",
+      "value_score": 100.0,
+      "views": 42,
+      "views_age_hours": 5.0,
+      "views_at_24h": 101,
+      "views_history": [
+        {
+          "at": "2026-11-04T00:42:57.590427Z",
+          "reactions": 0,
+          "views": 42
+        }
+      ],
       "visual_host": "imgbb",
       "visual_kind": "readme"
     },
@@ -314,9 +326,9 @@
       "updated_at": "2026-11-03T11:23:33Z",
       "url": "https://github.com/kajisho5/ffmpeg-skill",
       "value_score": 100.0,
-      "views": 20,
-      "views_age_hours": 1.0,
-      "views_at_24h": 104,
+      "views": 73,
+      "views_age_hours": 12.7,
+      "views_at_24h": 110,
       "views_history": [
         {
           "at": "2026-11-03T12:53:47.548432Z",
@@ -327,6 +339,11 @@
           "at": "2026-11-03T13:01:21.594901Z",
           "reactions": 0,
           "views": 20
+        },
+        {
+          "at": "2026-11-04T00:42:58.059219Z",
+          "reactions": 0,
+          "views": 73
         }
       ],
       "visual_host": "imgbb",
@@ -417,6 +434,7 @@
       "open_issues": 105,
       "published_at": "2026-11-03T22:20:23.568918Z",
       "pushed_at": "2026-11-03T20:49:20Z",
+      "reactions": 0,
       "readme_fp": "9af6677a20e398cd",
       "repo_id": 1438540053,
       "revisit_of": "",
@@ -444,6 +462,17 @@
       ],
       "updated_at": "2026-11-03T22:10:24Z",
       "url": "https://github.com/wangzan101/Mika",
+      "value_score": 100.0,
+      "views": 18,
+      "views_age_hours": 2.4,
+      "views_at_24h": 64,
+      "views_history": [
+        {
+          "at": "2026-11-04T00:42:57.114837Z",
+          "reactions": 0,
+          "views": 18
+        }
+      ],
       "visual_host": "opengraph",
       "visual_kind": "opengraph"
     }
