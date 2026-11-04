@@ -47,12 +47,27 @@
   "news_topics": [
     {
       "Gemini_video_input": true,
-      "headline": "Anthropic amends S-1 filing regarding RSI policy thresholds and scaling pace",
-      "image_url": "https://i.ibb.co/VYcxWRvc/ai-brief-580d3b7b5f1f.png",
+      "headline": "Anthropic Fable 5.5, DeepSeek Harness, LongCat-2.5, and OpenAI GPT Updates",
+      "image_url": "https://i.ibb.co/ynJZWX0m/ai-brief-7572cbf479f1.png",
+      "models": [
+        "Claude Fable 5.5",
+        "Claude Opus 5.5",
+        "Claude Mythos 5.5",
+        "GPT-6 Astra",
+        "GPT-6.1 Sol",
+        "GPT-6.2",
+        "Qwen 4",
+        "Qwen 4 27B",
+        "Gemini 4 Argon",
+        "DeepSeek Harness",
+        "LongCat-2.5",
+        "Pulse Alpha"
+      ],
       "official_url": "",
-      "published_at": "2026-11-04T03:19:46.043377Z",
+      "published_at": "2026-11-04T03:46:47.583536Z",
+      "stories": 3,
       "telegram_message_id": 3553,
-      "topic_key": "anthropic-s1-amendment",
+      "topic_key": "anthropic-fable-5-5-deepseek-harness",
       "video_id": "i-wYjUriSzo",
       "video_url": "https://www.youtube.com/watch?v=i-wYjUriSzo"
     }
