@@ -245,7 +245,10 @@
         "bluesky": {
           "attempts": 0,
           "due_at": "2026-11-04T18:00:00+00:00",
-          "status": "pending"
+          "error": "",
+          "published_at": "2026-11-04T21:27:36.911286Z",
+          "status": "published",
+          "url": "https://bsky.app/profile/githubopensource.bsky.social/post/3mzjca5xpjc2n"
         }
       },
       "description": " Beta: The truly free, open-source, local-first, cross-platform CapCut replacement. Scriptable through a JSON-RPC API & MCP.",
@@ -522,7 +525,8 @@
         "bluesky": {
           "attempts": 0,
           "due_at": "2026-11-04T20:29:51.256444+00:00",
-          "status": "pending"
+          "held_reason": "not_best_of_day",
+          "status": "held"
         }
       },
       "description": "Free, open-source file converter. Convert 263 formats offline by drag & drop — images, PDF, Word, Excel, PowerPoint, HWP/HWPX, video, audio, e-books and archives. No upload, no Office needed.",
