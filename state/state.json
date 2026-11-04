@@ -38,6 +38,11 @@
       "repo": "horizon-rust/horizon",
       "telegram_message_id": 3551
     },
+    "publish:europe_morning": {
+      "finished_at": "2026-11-04T15:23:51.643303Z",
+      "repo": "jub0t/concat",
+      "telegram_message_id": 3554
+    },
     "publish:manual": {
       "finished_at": "2026-11-03T12:00:53.732414Z",
       "repo": "kajisho5/ffmpeg-skill",
@@ -221,6 +226,121 @@
           "views": 42
         }
       ],
+      "visual_host": "imgbb",
+      "visual_kind": "readme"
+    },
+    "jub0t/concat": {
+      "articles": {},
+      "card_style": "",
+      "category": "DevTools",
+      "contributors_count": 50,
+      "created_at": "2026-08-25T18:34:47Z",
+      "crossposts": {
+        "bluesky": {
+          "attempts": 0,
+          "due_at": "2026-11-04T18:00:00+00:00",
+          "status": "pending"
+        }
+      },
+      "description": " Beta: The truly free, open-source, local-first, cross-platform CapCut replacement. Scriptable through a JSON-RPC API & MCP.",
+      "description_fp": "01cc92ecbecb6a55",
+      "forks": 1748,
+      "full_name": "jub0t/Concat",
+      "generated": {
+        "article_markdown": "## What it is\n\nConcat is a free, open-source video editor built in Rust as a local-first alternative to popular web-based and subscription tools. It provides multi-track editing, keyframes, auto-captions via Whisper, background removal, and a GPU-accelerated compositor that renders previews live. Rather than relying on cloud servers, the entire application runs locally on your desktop or mobile device, keeping your raw files entirely on disk.\n\n## Why it matters\n\nMost modern video editing tools force users into cloud uploads, opaque subscription tiers, or restrictive export limits. Concat removes these constraints by bringing the full editing pipeline into a self-hosted desktop environment. Furthermore, it bridges traditional video editing with modern developer tooling by exposing a JSON-RPC API and an MCP server, allowing scripts and AI assistants to programmatically manage timelines and cuts.\n\n## Key features\n\n- Run local Whisper auto-captions and voice cloning offline\n- Composit GPU effects and transitions live in the preview\n- Drive editing workflows via a built-in MCP server for AI agents\n- Animate parameters with a built-in curve editor and keyframes\n- Export to H.264, HEVC, and AV1 up to 4K 60fps in 10-bit color\n\n## Quick start\n\nTo build and run Concat from source, ensure you have Rust 1.93+ and the FFmpeg development libraries installed, then run:\n\n```sh\ncd src\ncargo run -p concat\n```\n\n## Who should try it\n\nDevelopers, content creators, and automation engineers who want a capable video editor that runs entirely offline and can be scripted programmatically will find Concat worth evaluating.\n\n## Verdict\n\nConcat is a compelling option for anyone seeking an open-source, local-first video editor. While it remains in beta and has minor rough edges, its scriptability and lack of artificial paywalls make it a strong daily driver.",
+        "article_title": "Concat: A Local-First, Open-Source CapCut Alternative with MCP Support",
+        "card_hook": "Local video editing without the cloud",
+        "card_subline": "A free open-source CapCut alternative with auto-captions, keyframes, and an AI agent API",
+        "category": "DevTools",
+        "discussion_question": "Which video editing task do you most wish you could automate via an API?",
+        "hook": "Edit videos locally with a free open-source CapCut alternative featuring a native Rust engine and MCP server.",
+        "key_features": [
+          "Run local Whisper auto-captions and voice cloning offline",
+          "Composit GPU effects and transitions live in the preview",
+          "Drive editing workflows via a built-in MCP server for AI agents",
+          "Animate parameters with a built-in curve editor and keyframes",
+          "Export to H.264, HEVC, and AV1 up to 4K 60fps in 10-bit color"
+        ],
+        "llm_used": true,
+        "quick_start": "cargo run -p concat",
+        "safety": "ok",
+        "safety_reason": "Legitimate open-source media editing software.",
+        "scene": "You drop a 4K screen recording into a popular browser-based editor, only to watch the upload progress bar crawl while your fan spins up.",
+        "social_text": "Edit videos locally with a free open-source CapCut alternative featuring a native Rust engine and a built-in MCP server for AI agents.",
+        "summary": "Concat replaces cloud-based editors by running entirely on your machine via a native Rust engine and GPU compositor. It processes local models for offline tasks like auto-captions and voice cloning without uploading raw footage. Scripts and AI agents can manipulate projects directly through an integrated JSON-RPC API and Model Context Protocol server.",
+        "surfaces": {
+          "Facebook_body": "Editing videos online often means dealing with slow uploads, cloud storage limits, and privacy worries about your raw footage. A new open-source desktop application lets you edit videos completely offline on your own computer, keeping all your files strictly on your machine.\n\nThe application uses a fast native engine and your computer graphics card to handle live effects, transitions, and high-resolution exports up to four-kilobit sixty frames per second. It also includes offline features like automated caption generation and voice cloning, meaning you do not need an active internet connection to process your media.\n\nDesigned for creators, developers, and tinkerers who want total control over their workflow, the software provides a scriptable interface so external scripts and automated agents can manipulate projects directly. While it is currently in an early beta stage and comes with some rough edges, it offers a powerful path forward for anyone looking to escape bloated web-based editors.",
+          "Facebook_headline": "Edit your videos privately on your own computer",
+          "Facebook_lead": "Stop relying on cloud video editors. This free desktop tool lets you edit videos locally, add automated captions, and apply effects entirely on your own machine without uploading your files anywhere.",
+          "bluesky_headline": "Edit videos locally with a free open-source tool",
+          "bluesky_lead": "A fast desktop video editor running locally on your machine with offline AI captions and GPU effects.",
+          "devto_body": "## What it is\n\nConcat is an open-source, local-first video editor written in Rust. It aims to provide a native alternative to cloud-dependent video editing suites, running entirely on consumer hardware with GPU acceleration and local AI integration.\n\n## How it works\n\nThe project relies on a native Rust engine paired with a GPU compositor to render effects and transitions live in the preview window. For offline intelligence, it runs local models to handle tasks like automated speech-to-text captions and voice cloning without sending data to external servers. It exposes a built-in JSON-RPC API and a Model Context Protocol server, allowing AI agents and external scripts to manipulate timelines and project structures programmatically.\n\n## Key features\n\n- Local execution with GPU-accelerated rendering and live preview composition\n- Offline auto-captions and voice cloning powered by local models\n- Scriptable workflow via an integrated JSON-RPC API and MCP server\n- Built-in curve editor and keyframe animation parameters\n- Export capabilities supporting H.264, HEVC, and AV1 up to 4K 60fps in 10-bit color\n\n## Getting started\n\nClone the repository from GitHub and ensure you have a compatible Rust toolchain installed alongside your GPU drivers. Build the project locally using Cargo:\n\n```bash\ngit clone https://github.com/jub0t/Concat.git\ncd Concat\ncargo build --release\n```\n\n## When not to use it\n\nBecause the software is currently in an early beta phase, you should expect potential stability issues and missing creature comforts found in mature commercial suites. It is not recommended for production environments where crashes could result in missed deadlines until the codebase matures further.",
+          "seo_description": "Edit videos locally with a free open-source desktop alternative featuring offline AI captions, GPU acceleration, and a scriptable API for creators.",
+          "seo_query": "open source local video editor",
+          "seo_title": "Open-source local video editor - Concat",
+          "telegraph_angle": "Explain the architectural shift toward local-first video editing and the trade-offs of using an early-beta Rust application."
+        },
+        "tension": "Your raw footage sits on someone else's server, exports hit sudden paywalls, and basic automation requires fragile UI scraping.",
+        "turn": "Concat runs locally on a Rust engine with zero watermarks or subscriptions, though it is still a beta project with rough edges.",
+        "verdict": "An impressive local alternative for anyone tired of bloated web tools, provided you can tolerate early beta friction.",
+        "who_for": "Developers, creators, and tinkerers wanting a local, scriptable video editor.",
+        "why_now": "Local AI models and performant Rust GPU tooling finally make real-time offline video automation practical on consumer hardware."
+      },
+      "homepage": "https://concat.standalones.org",
+      "id": 1346499044,
+      "image_url": "https://i.ibb.co/dXmn5tf/jub0t-concat-readme-preview-e900c24f13c6.jpg",
+      "is_dual_use": false,
+      "is_hidden_gem": false,
+      "language": "Rust",
+      "license": {
+        "key": "agpl-3.0",
+        "name": "GNU Affero General Public License v3.0",
+        "node_id": "MDc6TGljZW5zZTE=",
+        "spdx_id": "AGPL-3.0",
+        "url": "https://api.github.com/licenses/agpl-3.0"
+      },
+      "media_urls": [
+        "https://cdn.jsdelivr.net/gh/jub0t/Concat@main/assets/concat-mark-dark.png",
+        "https://cdn.jsdelivr.net/gh/jub0t/Concat@main/assets/editor.png",
+        "https://raw.githubusercontent.com/jub0t/Concat/main/assets/download_button.svg"
+      ],
+      "name": "Concat",
+      "open_issues": 222,
+      "published_at": "2026-11-04T15:23:51.643039Z",
+      "pushed_at": "2026-11-04T15:17:50Z",
+      "readme_fp": "",
+      "repo_id": 1346499044,
+      "revisit_of": "",
+      "revisit_reason": "",
+      "score": 95.029,
+      "slot": "europe_morning",
+      "sources": [
+        "github_search"
+      ],
+      "stars": 14124,
+      "telegram_chat_id": "@GitHub_Open_Source",
+      "telegram_link": "https://t.me/GitHub_Open_Source/3554",
+      "telegram_message_id": 3554,
+      "telegraph_url": "https://telegra.ph/Concat-A-Local-First-Open-Source-CapCut-Alternative-with-MCP-Support-11-04",
+      "topics": [
+        "ffmpeg",
+        "free-video-editor",
+        "model-context-protocol",
+        "non-linear-editor",
+        "offline-first",
+        "open-source-video-editor",
+        "self-hosted",
+        "video-editing",
+        "video-editing-automation",
+        "video-editing-software",
+        "video-editing-tools",
+        "video-editor",
+        "voice-cloning",
+        "youtube-automation",
+        "youtube-shorts"
+      ],
+      "updated_at": "2026-11-04T15:18:02Z",
+      "url": "https://github.com/jub0t/Concat",
       "visual_host": "imgbb",
       "visual_kind": "readme"
     },
@@ -514,72 +634,6 @@
     }
   },
   "queue": [
-    {
-      "archived": false,
-      "contributors_count": 50,
-      "created_at": "2026-08-25T18:34:47Z",
-      "default_branch": "main",
-      "description": " Beta: The truly free, open-source, local-first, cross-platform CapCut replacement. Scriptable through a JSON-RPC API & MCP.",
-      "disabled": false,
-      "fork": false,
-      "forks": 1745,
-      "forks_count": 1745,
-      "full_name": "jub0t/Concat",
-      "has_readme": true,
-      "homepage": "https://concat.standalones.org",
-      "id": 1346499044,
-      "is_dual_use": false,
-      "is_hidden_gem": false,
-      "language": "Rust",
-      "license": {
-        "key": "agpl-3.0",
-        "name": "GNU Affero General Public License v3.0",
-        "node_id": "MDc6TGljZW5zZTE=",
-        "spdx_id": "AGPL-3.0",
-        "url": "https://api.github.com/licenses/agpl-3.0"
-      },
-      "media_urls": [
-        "https://cdn.jsdelivr.net/gh/jub0t/Concat@main/assets/concat-mark-dark.png",
-        "https://cdn.jsdelivr.net/gh/jub0t/Concat@main/assets/editor.png",
-        "https://raw.githubusercontent.com/jub0t/Concat/main/assets/download_button.svg"
-      ],
-      "name": "Concat",
-      "non_software_reason": "",
-      "open_issues": 221,
-      "open_issues_count": 221,
-      "owner_repo_count": 1,
-      "pushed_at": "2026-11-03T20:56:14Z",
-      "readme": "",
-      "readme_excerpt": "<p align=\"center\">\n  <img src=\"https://cdn.jsdelivr.net/gh/jub0t/Concat@main/assets/concat-mark-dark.png\" alt=\"Concat\" width=\"100\" />\n</p>\n\n<h1 align=\"center\">Concat</h1>\n<h3 align=\"center\">The free, open-source, cross-platform CapCut replacement.</h3>\n\n<div align=\"center\">\n\n<img src=\"https://cdn.jsdelivr.net/gh/jub0t/Concat@main/assets/editor.png\" alt=\"Concat editor\" width=\"100%\" />\n\n<p align=\"center\">\n  <a href=\"https://github.com/jub0t/Concat/releases\"><img src=\"https://img.shields.io/github/downloads/jub0t/concat/total?style=flat&logo=github&logoColor=F8F8F8&label=Downloads&labelColor=212123&color=0568FD\" alt=\"Total Downloads\" /></a>\n  <a href=\"https://github.com/jub0t/Concat/actions/workflows/ci.yml\"><img src=\"https://img.shields.io/github/actions/workflow/status/jub0t/Concat/ci.yml?style=flat&logo=githubactions&logoColor=F8F8F8&label=Build&labelColor=000000\" alt=\"Build Status\" /></a>\n  <a href=\"https://github.com/jub0t/Concat/releases\"><img src=\"https://img.shields.io/badge/Version-0.2.8-0568FD?style=flat&logo=semver&logoColor=F8F8F8&labelColor=212123\" alt=\"Concat Version 0.2.8\" /></a>\n  <a href=\"https://discord.gg/DVuPfpXfqP\"><img src=\"https://img.shields.io/badge/Discord-Jo",
-      "readme_len": 10852,
-      "repo_id": 1346499044,
-      "score": 95.029,
-      "source_name": "github_search",
-      "sources": [
-        "github_search"
-      ],
-      "stargazers_count": 14107,
-      "stars": 14107,
-      "topics": [
-        "ffmpeg",
-        "free-video-editor",
-        "model-context-protocol",
-        "non-linear-editor",
-        "offline-first",
-        "open-source-video-editor",
-        "self-hosted",
-        "video-editing",
-        "video-editing-automation",
-        "video-editing-software",
-        "video-editing-tools",
-        "video-editor",
-        "voice-cloning",
-        "youtube-automation",
-        "youtube-shorts"
-      ],
-      "updated_at": "2026-11-04T12:01:32Z",
-      "url": "https://github.com/jub0t/Concat"
-    },
     {
       "archived": false,
       "contributors_count": 57,
@@ -3297,8 +3351,8 @@
     "jub0t/concat": {
       "first_seen_at": "2026-11-04T12:14:31.118252Z",
       "full_name": "jub0t/Concat",
-      "last_decision": "queued",
-      "last_seen_at": "2026-11-04T12:14:31.118264Z",
+      "last_decision": "published",
+      "last_seen_at": "2026-11-04T15:23:51.643292Z",
       "repo_id": 1346499044,
       "sources": [
         "github_search"
