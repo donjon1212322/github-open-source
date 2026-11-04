@@ -276,8 +276,8 @@ GitHub сам показывает такой баннер для любой н�
 - **dev.to** получил 3 статьи за день и дубль по `horizon-rust/horizon`:
   добавлены лимит «1 статья в UTC-день» и сверка с уже опубликованными
   статьями аккаунта.
-- **Комментарии** пропадают из-за inline-кнопок; решение по вариантам — за
-  владельцем, см. `INCIDENTS_2026-11-04.html`.
+- **Комментарии** пропадали из-за inline-кнопок; владелец выбрал вариант A,
+  кнопки убраны, см. `INCIDENTS_2026-11-04.html`.
 
 ### Решения владельца 04.11.2026 (реализованы)
 
@@ -287,3 +287,27 @@ GitHub сам показывает такой баннер для любой н�
   `devto-remove`; живая статья `…-3djc`, на которую ссылается state, защищена.
 - **AI Brief**: только последний ролик, свежесть ≤ вчера, дедуп по
   `video_id`, Gemini вырезает рекламу, пост свёрстан секциями.
+
+### Живая проверка 04.11.2026 (все запуски по одному, `state-writer`)
+
+| Запуск | Результат |
+|---|---|
+| `41765707131` Doctor | `telegram_discussion.ok:true`, `linked_chat_id -1003849113813`, группа «GitHub Open Source — Chat» |
+| `41766192671` `devto-remove --ids 4968458` | `action: drafted`, `blocked: []`; `…-4774` и `/api/articles/4968458` → 404, `4971446` сохранена |
+| `41766291380` `news` | `published:true`, сообщение **3553**, `video_id i-wYjUriSzo`, `Gemini_video_input:true` |
+
+Первый `devto-remove` (`41765789330`) упал на `401 unauthorized`: Forem
+ privilege-gate'ит `PUT /articles/{id}/unpublish` за `super_moderator`. Добавлен
+третий fallback — `PUT /articles/{id}` с `published:false` (приватный черновик,
+публично 404); коммит `32662d7`, запись о провальном запуске удалена из Actions.
+
+В живом посте 3553: ноль `inline_button`, ноль рекламных маркеров, секции
+`What shipped / Why developers should care / Receipts / Sources / Your take?`,
+разделители и пустые строки. `news_topics` = 1 запись с `video_id` и
+`telegram_message_id`; state `3cb2124fb56f`, `healthy:true`, `problems:[]`.
+
+**Ограничение проверки:** нативную кнопку «Leave a comment» рисует клиент
+Telegram, а не Bot API; с сервера её не видно. Предусловия ( linked supergroup +
+отсутствие `reply_markup` ) подтверждены, визуальное подтверждение — за
+владельцем в приложении. Если кнопки нет, следующий шаг — DiscussBot или
+публикация от имени админа.
