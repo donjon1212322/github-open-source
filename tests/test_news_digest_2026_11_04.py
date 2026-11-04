@@ -133,6 +133,7 @@ def test_prompt_demands_the_whole_roundup_exact_names_and_no_sources():
         "DIGEST OF THE WHOLE VIDEO", "FOUR TO SEVEN", "MODEL NEWS COMES FIRST",
         "EXACT TECHNICAL NAMES ARE SACRED", "NO SOURCE ATTRIBUTION",
         "ADVERTISING MUST BE REMOVED", "Claude Fable 5.5", "LongCat-2.5",
+        "AT LEAST FIVE stories", "Do not pad the list",
     ):
         assert marker in prompt, marker
     assert captured["schema"] is NEWS_SCHEMA

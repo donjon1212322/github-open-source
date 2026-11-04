@@ -602,6 +602,13 @@ CONTENT RULES (owner decision 2026-11-04, second pass):
   "LongCat-2.5", "Pulse Alpha" and "Kentia". Put every exact name in the
   story's models array AND in the top-level models array. A story about "a
   new model" without its exact name is a failure.
+- A video with ten or more chapters yields AT LEAST FIVE stories. Each
+  separately named model, checkpoint, API or agent deserves its own story.
+  Grouping three unrelated releases under one heading is a failure. Group
+  only chapters that describe the SAME announcement.
+- Every exact name in the top-level models array MUST appear in at least one
+  story's models array or in its what_happened bullets. Do not pad the list
+  with names that are never explained.
 - INTERESTING, NOT DRY. Each story title is a short concrete line about what
   changed and what is surprising. Each what_happened bullet is one fact.
   Each why_it_matters line tells a developer what they can now do or must
