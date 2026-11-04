@@ -38,3 +38,5 @@
 {"deleted": 0, "ts": "2026-11-04T20:02:14.752595Z", "type": "moderation_completed", "updates": 1}
 {"platform": "devto", "repo": "jub0t/concat", "ts": "2026-11-04T20:29:04.919696Z", "type": "article_published", "url": "https://dev.to/githubopensource/open-source-local-video-editor-concat-3bdm"}
 {"platform": "bluesky", "repo": "jub0t/concat", "ts": "2026-11-04T21:27:36.911311Z", "type": "crosspost_published", "url": "https://bsky.app/profile/githubopensource.bsky.social/post/3mzjca5xpjc2n"}
+{"preview_host": "imgbb", "repo": "lnkiai/m3e-canvas", "ts": "2026-11-04T22:38:32.426686Z", "type": "published_as_text"}
+{"repo": "lnkiai/m3e-canvas", "score": 93.261, "telegram_message_id": 3556, "telegraph_url": "https://telegra.ph/M3E-Canvas-Browser-Based-Material-3-Wireframing-for-AI-Coding-Tools-11-04", "ts": "2026-11-04T22:38:32.427023Z", "type": "project_published"}

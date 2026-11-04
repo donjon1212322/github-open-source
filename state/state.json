@@ -49,9 +49,9 @@
       "telegram_message_id": 3550
     },
     "publish:us_peak": {
-      "finished_at": "2026-11-03T22:20:23.569206Z",
-      "repo": "wangzan101/mika",
-      "telegram_message_id": 3552
+      "finished_at": "2026-11-04T22:38:32.427086Z",
+      "repo": "lnkiai/m3e-canvas",
+      "telegram_message_id": 3556
     },
     "telegram_update_offset": 165231068
   },
@@ -638,6 +638,119 @@
       "visual_host": "imgbb",
       "visual_kind": "readme"
     },
+    "lnkiai/m3e-canvas": {
+      "articles": {},
+      "card_style": "",
+      "category": "DevTools",
+      "contributors_count": 15,
+      "created_at": "2026-09-02T04:36:34Z",
+      "crossposts": {
+        "bluesky": {
+          "attempts": 0,
+          "due_at": "2026-11-04T23:08:32.426827+00:00",
+          "status": "pending"
+        }
+      },
+      "description": "Sketch Material 3 Expressive screens in the browser and turn them into vibe-coding prompts.",
+      "description_fp": "23ce4daec55ec3b2",
+      "forks": 1112,
+      "full_name": "lnkiai/m3e-canvas",
+      "generated": {
+        "article_markdown": "## What it is\n\nM3E Canvas is a browser-based sketchpad designed for building app interfaces using Material 3 Expressive components. Running entirely client-side without requiring an account or server, it lets you drag buttons, app bars, cards, and navigation rails onto phone or desktop viewports. Components snap to a 4dp grid, and you can link them together to simulate user flows complete with transitions.\n\n## Why it matters\n\nWhen working with terminal coding agents or AI assistants, describing layouts, navigation hierarchies, and spacing through text alone often leads to unpredictable UI results. M3E Canvas bridges this gap by letting you lay out interfaces visually and then compiling those designs into structured prompts that agents can ingest to produce cleaner component code.\n\n## Key features\n\n- Snap parts together on a 4dp grid with magnetic connections that fuse elements.\n- Preview flows, scrolling viewports, and custom screen transitions locally.\n- Switch any layout instantly between a 412x892 phone and 1280x800 desktop canvas.\n- Fine-tune light and dark themes using seven palettes or custom seed colors.\n- Generate localized design briefs in English, Japanese, Chinese, or Korean.\n\n## Quick start\n\nTo run the project locally, clone the repository and install dependencies:\n\n```bash\ngit clone https://github.com/lnkiai/m3e-canvas.git\nnpm install\n```\n\n## Who should try it\n\nThis tool fits developers who rely heavily on AI coding assistants for frontend work and want a fast, visual way to specify layout constraints and screen transitions before writing code. If you prefer building component trees manually or writing raw CSS, you can safely skip it.\n\n## Verdict\n\nM3E Canvas provides a practical middle ground between visual wireframing and text-driven AI development, saving significant time on layout descriptions.",
+        "article_title": "M3E Canvas: Browser-Based Material 3 Wireframing for AI Coding Tools",
+        "card_hook": "Sketch Material 3 screens in the browser",
+        "card_subline": "Turn browser-based wireframes into precise prompts for AI coding tools",
+        "category": "DevTools",
+        "discussion_question": "Which AI coding tool do you currently use for generating frontend interfaces?",
+        "hook": "Design Material 3 Expressive wireframes in your browser and export them as prompts for AI coding agents.",
+        "key_features": [
+          "Snap parts together on a 4dp grid with magnetic connections that fuse elements",
+          "Preview flows, scrolling viewports, and custom screen transitions locally",
+          "Switch any layout instantly between a 412x892 phone and 1280x800 desktop canvas",
+          "Fine-tune light and dark themes using seven palettes or custom seed colors",
+          "Generate localized design briefs in English, Japanese, Chinese, or Korean"
+        ],
+        "llm_used": true,
+        "quick_start": "git clone https://github.com/lnkiai/m3e-canvas.git",
+        "safety": "ok",
+        "safety_reason": "Legitimate open-source design tool and prompt generator.",
+        "scene": "You ask your AI coding agent to build a multi-screen mobile interface, and after three iterations of text prompts, the layout alignment and navigation flow are still completely wrong.",
+        "social_text": "Sketch Material 3 Expressive screens in your browser and turn them into structured prompts for your AI coding assistant.",
+        "summary": "M3E Canvas runs entirely in the browser as a client-side design tool built on Next.js and React. It provides native Material 3 Expressive components that snap together on a grid, allowing developers to wire up screen flows, transitions, and themes. The application compiles the visual layout and interaction rules into structured textual briefs that developer agents can parse directly.",
+        "surfaces": {
+          "Facebook_body": "Building user interfaces with AI assistants often starts with explaining layout ideas through text alone, which can lead to miscommunications about spacing, structure, and flow.\n\nThis browser-based design tool lets developers snap interface components together on a grid, test scrolling views, and switch instantly between phone and desktop layouts without writing any initial code.\n\nOnce the visual layout is ready, the application compiles your design and interaction rules into structured textual briefs that developer agents can parse directly to generate accurate frontends.\n\nIt is built for developers and designers who want a quick visual layout step before handing tasks over to AI coding agents, saving time on back-and-forth prompts.",
+          "Facebook_headline": "Sketch app layouts in your browser for AI tools",
+          "Facebook_lead": "Design screen flows and themes visually in your web browser, then turn your layout directly into structured prompts that AI coding assistants can build from instantly.",
+          "bluesky_headline": "Turn browser wireframes into AI coding prompts",
+          "bluesky_lead": "A visual design tool for developers to sketch app layouts and export them straight to AI coding agents.",
+          "devto_body": "## What it is\n\nM3E Canvas is a client-side TypeScript application built on Next.js and React that lets you design Material 3 Expressive wireframes directly in your browser and export them as structured prompts for AI coding agents.\n\n## How it works\n\nThe application runs entirely client-side, providing native design components that snap together on a magnetic grid. You can wire up screen flows, preview viewports, and switch between phone and desktop canvases. The internal engine compiles these visual layouts and interaction rules into structured textual briefs designed for developer agents.\n\n## Key features\n\n- Snap parts together on a 4dp grid with magnetic connections\n- Preview flows, scrolling viewports, and custom screen transitions locally\n- Switch instantly between a 412x892 phone and 1280x800 desktop canvas\n- Fine-tune light and dark themes using seven palettes or custom seed colors\n- Generate localized design briefs in English, Japanese, Chinese, or Korean\n\n## Getting started\n\nClone the repository from lnkiai/m3e-canvas, install dependencies using your preferred package manager, and run the local development server to start prototyping in your browser.\n\n## When not to use it\n\nSkip this tool if you prefer writing raw component code by hand or do not use AI coding agents in your frontend workflow.",
+          "seo_description": "Sketch Material 3 Expressive screens in your browser and export them as structured prompts for AI coding agents. Built for frontend developers.",
+          "seo_query": "browser wireframe tool for AI coding agents",
+          "seo_title": "Browser wireframe tool for AI coding agents - M3E Canvas",
+          "telegraph_angle": "Explain how visual browser prototyping bridges the gap between static wireframes and terminal-based AI coding agents, including workflow trade-offs."
+        },
+        "tension": "Describing complex UI hierarchies and screen transitions purely in chat prompts wastes tokens, introduces layout bugs, and forces you to manually fix basic spacing and component placement.",
+        "turn": "M3E Canvas replaces text-only interface descriptions with a visual sketching tool that outputs exact structural prompts, though you still need to supply your own API keys if you want to use the optional LLM drafting assistants.",
+        "verdict": "An efficient sandbox for prototyping app flows before handing them off to coding agents, though skip it if you prefer writing raw component code by hand.",
+        "who_for": "Developers building frontends with AI coding assistants who need a visual layout step before generating code.",
+        "why_now": "The rise of terminal-based AI coding agents that accept structured layout descriptions makes in-browser visual sketching a practical alternative to static wireframing tools."
+      },
+      "homepage": "https://lnkiai.github.io/m3e-canvas/",
+      "id": 1354310030,
+      "image_url": "https://i.ibb.co/KxccsLgH/lnkiai-m3e-canvas-readme-preview-98747407c8ed.jpg",
+      "is_dual_use": false,
+      "is_hidden_gem": false,
+      "language": "TypeScript",
+      "license": {
+        "key": "mit",
+        "name": "MIT License",
+        "node_id": "MDc6TGljZW5zZTEz",
+        "spdx_id": "MIT",
+        "url": "https://api.github.com/licenses/mit"
+      },
+      "media_urls": [
+        "https://raw.githubusercontent.com/lnkiai/m3e-canvas/main/docs/readme/demo.gif",
+        "https://raw.githubusercontent.com/lnkiai/m3e-canvas/main/docs/readme/banner-light.png",
+        "https://raw.githubusercontent.com/lnkiai/m3e-canvas/main/docs/readme/ui/lang-en-on.png",
+        "https://raw.githubusercontent.com/lnkiai/m3e-canvas/main/docs/readme/ui/lang-ja.png",
+        "https://raw.githubusercontent.com/lnkiai/m3e-canvas/main/docs/readme/ui/lang-zh.png",
+        "https://raw.githubusercontent.com/lnkiai/m3e-canvas/main/docs/readme/ui/lang-ko.png",
+        "https://raw.githubusercontent.com/lnkiai/m3e-canvas/main/docs/readme/ui/open-en.png",
+        "https://raw.githubusercontent.com/lnkiai/m3e-canvas/main/docs/readme/cards/how-wide.png"
+      ],
+      "name": "m3e-canvas",
+      "open_issues": 15,
+      "published_at": "2026-11-04T22:38:32.426847Z",
+      "pushed_at": "2026-11-01T10:57:54Z",
+      "readme_fp": "426833a12a63552c",
+      "repo_id": 1354310030,
+      "revisit_of": "",
+      "revisit_reason": "",
+      "score": 93.261,
+      "slot": "us_peak",
+      "sources": [
+        "github_search"
+      ],
+      "stars": 10038,
+      "telegram_chat_id": "@GitHub_Open_Source",
+      "telegram_link": "https://t.me/GitHub_Open_Source/3556",
+      "telegram_message_id": 3556,
+      "telegraph_url": "https://telegra.ph/M3E-Canvas-Browser-Based-Material-3-Wireframing-for-AI-Coding-Tools-11-04",
+      "topics": [
+        "design-tool",
+        "material-3-expressive",
+        "material-design",
+        "material3",
+        "nextjs",
+        "prompt",
+        "react",
+        "vibe-coding"
+      ],
+      "updated_at": "2026-11-04T20:14:38Z",
+      "url": "https://github.com/lnkiai/m3e-canvas",
+      "visual_host": "imgbb",
+      "visual_kind": "readme"
+    },
     "wangzan101/mika": {
       "articles": {},
       "card_style": "editorial_daily",
@@ -767,70 +880,6 @@
     }
   },
   "queue": [
-    {
-      "archived": false,
-      "contributors_count": 15,
-      "created_at": "2026-09-02T04:36:34Z",
-      "default_branch": "main",
-      "description": "Sketch Material 3 Expressive screens in the browser and turn them into vibe-coding prompts.",
-      "disabled": false,
-      "fork": false,
-      "forks": 1111,
-      "forks_count": 1111,
-      "full_name": "lnkiai/m3e-canvas",
-      "has_readme": true,
-      "homepage": "https://lnkiai.github.io/m3e-canvas/",
-      "id": 1354310030,
-      "is_dual_use": false,
-      "is_hidden_gem": false,
-      "language": "TypeScript",
-      "license": {
-        "key": "mit",
-        "name": "MIT License",
-        "node_id": "MDc6TGljZW5zZTEz",
-        "spdx_id": "MIT",
-        "url": "https://api.github.com/licenses/mit"
-      },
-      "media_urls": [
-        "https://raw.githubusercontent.com/lnkiai/m3e-canvas/main/docs/readme/demo.gif",
-        "https://raw.githubusercontent.com/lnkiai/m3e-canvas/main/docs/readme/banner-light.png",
-        "https://raw.githubusercontent.com/lnkiai/m3e-canvas/main/docs/readme/ui/lang-en-on.png",
-        "https://raw.githubusercontent.com/lnkiai/m3e-canvas/main/docs/readme/ui/lang-ja.png",
-        "https://raw.githubusercontent.com/lnkiai/m3e-canvas/main/docs/readme/ui/lang-zh.png",
-        "https://raw.githubusercontent.com/lnkiai/m3e-canvas/main/docs/readme/ui/lang-ko.png",
-        "https://raw.githubusercontent.com/lnkiai/m3e-canvas/main/docs/readme/ui/open-en.png",
-        "https://raw.githubusercontent.com/lnkiai/m3e-canvas/main/docs/readme/cards/how-wide.png"
-      ],
-      "name": "m3e-canvas",
-      "non_software_reason": "",
-      "open_issues": 15,
-      "open_issues_count": 15,
-      "owner_repo_count": 1,
-      "pushed_at": "2026-11-01T10:57:54Z",
-      "readme": "",
-      "readme_excerpt": "<p align=\"center\">\n  <picture>\n    <source media=\"(prefers-color-scheme: dark)\" srcset=\"docs/readme/banner-dark.png\" />\n    <img src=\"docs/readme/banner-light.png\" width=\"800\" alt=\"M3E Canvas\" />\n  </picture>\n</p>\n\n<p align=\"center\">\n  <strong>Sketch Material 3 Expressive screens in the browser, link them, tap through them, and copy a prompt for your AI coding tool.</strong>\n</p>\n\n<p align=\"center\">\n  <a href=\"https://github.com/lnkiai/m3e-canvas/stargazers\"><picture><source media=\"(max-width: 767px)\" srcset=\"https://img.shields.io/github/stars/lnkiai/m3e-canvas?style=flat-square&logo=github&logoColor=white&color=6750A4&labelColor=1D1B20\" /><img alt=\"GitHub stars\" src=\"https://img.shields.io/github/stars/lnkiai/m3e-canvas?style=for-the-badge&logo=github&logoColor=white&color=6750A4&labelColor=1D1B20\" /></picture></a>\n  <a href=\"https://github.com/sponsors/lnkiai\"><picture><source media=\"(max-width: 767px)\" srcset=\"https://img.shields.io/github/sponsors/lnkiai?style=flat-square&logo=githubsponsors&logoColor=white&color=7D5260&labelColor=1D1B20\" /><img alt=\"Sponsors\" src=\"https://img.shields.io/github/sponsors/lnkiai?style=for-the-badge&logo=githubsponsors&logoColor=white&color=7D526",
-      "readme_len": 15641,
-      "repo_id": 1354310030,
-      "score": 93.261,
-      "source_name": "github_search",
-      "sources": [
-        "github_search"
-      ],
-      "stargazers_count": 10026,
-      "stars": 10026,
-      "topics": [
-        "design-tool",
-        "material-3-expressive",
-        "material-design",
-        "material3",
-        "nextjs",
-        "prompt",
-        "react",
-        "vibe-coding"
-      ],
-      "updated_at": "2026-11-04T10:22:31Z",
-      "url": "https://github.com/lnkiai/m3e-canvas"
-    },
     {
       "archived": false,
       "contributors_count": 15,
@@ -3639,8 +3688,8 @@
     "lnkiai/m3e-canvas": {
       "first_seen_at": "2026-11-04T12:14:31.120582Z",
       "full_name": "lnkiai/m3e-canvas",
-      "last_decision": "queued",
-      "last_seen_at": "2026-11-04T12:14:31.120584Z",
+      "last_decision": "published",
+      "last_seen_at": "2026-11-04T22:38:32.427079Z",
       "repo_id": 1354310030,
       "sources": [
         "github_search"
