@@ -26,6 +26,8 @@ from .media_host import ImgBBMediaHost
 from .upload import shrink_for_web_preview
 from .news import (
     NewsSourceError,
+    brief_model_names,
+    brief_stories,
     extract_primary_urls,
     fetch_primary_text,
     fetch_worldofai_entries,
@@ -1070,11 +1072,22 @@ def remove_devto_articles(config: Config, store: StateStore, ids: str = "") -> d
     return {"ok": True, "removed": removed, "missing": missing, "blocked": blocked}
 
 
-def news_command(config: Config, store: StateStore, *, force: bool = False) -> dict[str, Any]:
-    """Owner decision (2026-11-04): ONE brief, from the channel's newest video.
+def news_command(
+    config: Config,
+    store: StateStore,
+    *,
+    force: bool = False,
+    refresh: bool = False,
+) -> dict[str, Any]:
+    """Owner decision (2026-11-04): ONE brief per newest video, as a DIGEST.
 
-    Freshness (today or yesterday), no duplicate video/topic, Gemini strips
-    every sponsor read, and the post is laid out as readable sections.
+    Freshness (today or yesterday), no duplicate video/topic, Gemini cuts
+    every sponsor read, extracts ALL model stories with exact technical
+    names, and the post carries no source attribution.
+
+    ``refresh`` regenerates the newest brief and EDITS the already published
+    channel message in place. Improving a weak post must never create a
+    duplicate of the same video.
     """
     if not config.feature_ai_brief and not force:
         return {"ok": True, "published": False, "reason": "feature_ai_brief_disabled"}
@@ -1095,20 +1108,36 @@ def news_command(config: Config, store: StateStore, *, force: bool = False) -> d
     cutoff = datetime.now(timezone.utc) - timedelta(days=14)
     seen_video_ids: set[str] = set()
     recent_topic_keys: set[str] = set()
-    for item in store.data.get("news_topics") or []:
+    topics = store.data.get("news_topics") or []
+    for item in topics:
         if item.get("video_id"):
             seen_video_ids.add(str(item["video_id"]))
         published = _parse_iso(item.get("published_at"))
         if item.get("topic_key") and published and published >= cutoff:
             recent_topic_keys.add(str(item["topic_key"]))
 
+    # A refresh deliberately bypasses deduplication; freshness still applies.
     entry, skip_reason = select_latest_news_entry(
-        entries, seen_video_ids, recent_topic_keys
+        entries,
+        set() if refresh else seen_video_ids,
+        set() if refresh else recent_topic_keys,
     )
     if entry is None:
         store.event("news_skipped", reason=skip_reason, entries=len(entries))
         store.save()
         return {"ok": True, "published": False, "reason": skip_reason, "entries": len(entries)}
+
+    existing: dict[str, Any] | None = None
+    if refresh:
+        existing = next(
+            (
+                item
+                for item in topics
+                if isinstance(item, dict)
+                and str(item.get("video_id")) == str(entry.get("video_id"))
+            ),
+            None,
+        )
 
     primary: dict[str, str] = {}
     for url in extract_primary_urls(entry):
@@ -1128,16 +1157,27 @@ def news_command(config: Config, store: StateStore, *, force: bool = False) -> d
         store.save()
         return {"ok": True, "published": False, "reason": reason}
 
+    names = brief_model_names(brief)
+    stories = brief_stories(brief)
+    # The exact failure the owner reported on 04.11.2026: a 33-minute
+    # round-up compressed into one policy story. A brief with a single
+    # story is not a digest; do not publish it at all.
+    if len(stories) < 2:
+        store.event("news_skipped", reason="not_a_digest", video_id=entry.get("video_id"))
+        store.save()
+        return {"ok": True, "published": False, "reason": "not_a_digest", "stories": len(stories)}
+
     topic_key = re.sub(r"[^a-z0-9]+", "-", str(brief.get("topic_key") or "").lower()).strip("-")
-    preview_url = str(entry.get("url") or "")
+    # No YouTube link preview: it would attribute the source, which the
+    # owner explicitly does not want. Only our own card is ever attached.
+    preview_url = ""
     try:
         with tempfile.TemporaryDirectory() as tmp:
-            standfirst_items = brief.get("what_happened") or []
-            standfirst = str(standfirst_items[0] if standfirst_items else brief.get("why_devs") or "")
+            standfirst = str(brief.get("summary") or "")
             card_path = render_ai_brief_card(
-                str(brief.get("headline") or "Verified AI update"),
+                str(brief.get("headline") or "AI model watch"),
                 standfirst,
-                str(brief.get("official_name") or "Primary source"),
+                ", ".join(names[:3]),
                 Path(tmp) / "ai-brief.png",
             )
             uploaded, _hosted_by = _host_local_image(
@@ -1146,15 +1186,29 @@ def news_command(config: Config, store: StateStore, *, force: bool = False) -> d
             if uploaded:
                 preview_url = uploaded
     except Exception as exc:  # noqa: BLE001
-        logger.warning("AI Brief Glass Aurora card failed; using video preview: %s", type(exc).__name__)
+        logger.warning("AI Brief Glass Aurora card failed; sending text only: %s", type(exc).__name__)
 
-    # No inline keyboard: Telegram must keep its native "Leave a comment"
-    # footer (option A). Both source links are rendered in the post text.
-    sent = telegram.send_text(
-        chat_id,
-        format_ai_brief(brief),
-        preview_url=preview_url,
-    )
+    text = format_ai_brief(brief)
+    edited = False
+    message_id: Any = None
+    old_message_id = int((existing or {}).get("telegram_message_id") or 0)
+    if refresh and old_message_id:
+        try:
+            result = telegram.edit_text(chat_id, old_message_id, text, preview_url=preview_url)
+            message_id = int(result.get("message_id") or old_message_id)
+            edited = True
+        except Exception as exc:  # noqa: BLE001
+            logger.warning("AI Brief in-place edit failed; post left intact: %s", type(exc).__name__)
+            return {
+                "ok": False,
+                "published": False,
+                "reason": "edit_failed",
+                "error": type(exc).__name__,
+            }
+    else:
+        sent = telegram.send_text(chat_id, text, preview_url=preview_url)
+        message_id = sent.get("message_id")
+
     record = {
         "video_id": entry.get("video_id"),
         "topic_key": topic_key,
@@ -1162,27 +1216,37 @@ def news_command(config: Config, store: StateStore, *, force: bool = False) -> d
         "official_url": brief.get("official_url") or "",
         "video_url": entry.get("url") or "",
         "published_at": iso_now(),
-        "telegram_message_id": sent.get("message_id"),
-        "image_url": preview_url if preview_url != str(entry.get("url") or "") else "",
+        "telegram_message_id": message_id,
+        "image_url": preview_url,
         "Gemini_video_input": video_input,
+        "stories": len(stories),
+        "models": names[:12],
     }
-    store.data.setdefault("news_topics", []).append(record)
+    if existing is not None:
+        existing.update(record)
+    else:
+        store.data.setdefault("news_topics", []).append(record)
     store.event(
-        "ai_brief_published",
+        "ai_brief_republished" if edited else "ai_brief_published",
         video_id=entry.get("video_id"),
         topic=topic_key,
         official_url=record["official_url"],
         Gemini_video_input=video_input,
+        stories=len(stories),
+        models=len(names),
     )
     store.save()
     return {
         "ok": True,
         "published": True,
+        "edited": edited,
         "headline": record["headline"],
-        "telegram_message_id": sent.get("message_id"),
+        "telegram_message_id": message_id,
         "Gemini_video_input": video_input,
         "sourced": bool(brief.get("sourced")),
         "video_id": record["video_id"],
+        "stories": len(stories),
+        "models": len(names),
     }
 
 

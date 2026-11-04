@@ -260,6 +260,7 @@ class GeminiClient:
         schema: dict[str, Any] | None = None,
         youtube_url: str = "",
         temperature: float = 0.35,
+        max_output_tokens: int = 8192,
     ) -> dict[str, Any]:
         if not self.configured:
             raise RuntimeError("GEMINI_API_KEY is not set")
@@ -270,7 +271,7 @@ class GeminiClient:
         generation_config: dict[str, Any] = {
             "temperature": temperature,
             "responseMimeType": "application/json",
-            "maxOutputTokens": 8192,
+            "maxOutputTokens": max_output_tokens,
             # Gemini 3.x thinks at medium by default. Editorial extraction
             # does not need deep deliberation; low keeps a slot timely.
             "thinkingConfig": {"thinkingLevel": "low", "includeThoughts": False},

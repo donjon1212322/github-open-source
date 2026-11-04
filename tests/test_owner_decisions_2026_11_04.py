@@ -188,27 +188,51 @@ def test_gemini_prompt_demands_ad_removal():
     result = news.synthesize_brief(_entry("AAA", 5), {}, _Gemini(), use_video=True)
     assert "ADVERTISING MUST BE REMOVED" in captured["prompt"]
     assert "sponsor" in captured["prompt"].lower()
+    # Second pass: the round-up must stay a round-up, with verbatim names
+    # and no source attribution.
+    assert "FOUR TO SEVEN" in captured["prompt"]
+    assert "EXACT TECHNICAL NAMES ARE SACRED" in captured["prompt"]
+    assert "NO SOURCE ATTRIBUTION" in captured["prompt"]
     assert result["eligible"] is True
 
 
 def test_brief_is_sectioned_and_not_a_wall_of_text():
     rendered = format_ai_brief({
-        "headline": "Anthropic ships Claude 4.6 with a longer context window",
-        "summary": "The release adds a 1M-token context window and a new cache API.",
-        "what_happened": ["Claude 4.6 ships with a 1M-token context window", "A new prompt-cache API is available"],
-        "why_devs": "Long agent runs no longer need chunking.",
-        "confirmed": ["Documented in the official changelog"],
-        "video_only_claims": [],
+        "headline": "Claude Fable 5.5 and GPT-6 Astra lead a packed model week",
+        "summary": "A stealth checkpoint and a 6X result landed together.",
+        "models": ["Claude Fable 5.5", "GPT-6 Astra", "Qwen 4 27B"],
+        "stories": [
+            {
+                "title": "Claude Fable 5.5 surfaces as a stealth checkpoint",
+                "models": ["Claude Fable 5.5"],
+                "what_happened": ["A checkpoint surfaced without an announcement."],
+                "why_it_matters": "Re-run evals pinned to the previous checkpoint.",
+            },
+            {
+                "title": "GPT-6 Astra posts a 6X gain without training",
+                "models": ["GPT-6 Astra"],
+                "what_happened": ["The gain came from inference-time guidance."],
+                "why_it_matters": "Separate model quality from scaffolding.",
+            },
+        ],
+        "why_devs": "Two model stories landed at once.",
+        "confirmed": ["Both names are named in the chapter list."],
+        "unconfirmed_claims": [],
         "official_url": "https://docs.anthropic.com/changelog",
         "official_name": "Anthropic changelog",
         "video_url": "https://www.youtube.com/watch?v=AAA",
-        "discussion_question": "Would a 1M-token window change your agent design?",
+        "discussion_question": "Which checkpoint do you test first?",
     })
-    for section in ("What shipped", "Why developers should care", "Receipts", "Sources", "Your take?"):
+    for section in ("In this brief", "Why developers should care", "Receipts", "Your take?"):
         assert section in rendered
     assert "\n\n" in rendered, "blank lines are required between blocks"
     assert "──────────────" in rendered
-    assert 'href="https://www.youtube.com/watch?v=AAA"' in rendered
+    assert "1️⃣" in rendered and "2️⃣" in rendered
+    assert "Claude Fable 5.5" in rendered and "GPT-6 Astra" in rendered
+    # The owner asked for no source attribution.
+    assert "Sources" not in rendered
+    assert "youtube.com" not in rendered and "WorldofAI" not in rendered
+    assert "docs.anthropic.com" not in rendered
     assert "<b>React</b>" in rendered
     assert "Sponsored" not in rendered and "coderabbit" not in rendered.lower()
 
@@ -233,10 +257,22 @@ def _wire_news(monkeypatch, tmp_path, *, brief=None):
         def generate_json(self, prompt, **kwargs):
             prompts.append(prompt)
             return brief or {
-                "eligible": True, "headline": "Vendor ships Product 2",
-                "summary": "A factual summary.", "what_happened": ["Product 2 shipped"],
+                "eligible": True,
+                "headline": "Claude Fable 5.5 and GPT-6 Astra lead a model round-up",
+                "summary": "Two model stories landed together.",
+                "models": ["Claude Fable 5.5", "GPT-6 Astra"],
+                "stories": [
+                    {"title": "Claude Fable 5.5 appears as a checkpoint",
+                     "models": ["Claude Fable 5.5"],
+                     "what_happened": ["A checkpoint surfaced."],
+                     "why_it_matters": "Re-run pinned evals."},
+                    {"title": "GPT-6 Astra posts a 6X gain",
+                     "models": ["GPT-6 Astra"],
+                     "what_happened": ["The gain came from inference-time guidance."],
+                     "why_it_matters": "Separate model quality from scaffolding."},
+                ],
                 "why_devs": "Developers can test it.", "confirmed": [],
-                "video_only_claims": [], "official_name": "Vendor",
+                "unconfirmed_claims": [], "official_name": "Vendor",
                 "topic_key": "product-2", "discussion_question": "Would you use it?",
                 "rejection_reason": "",
             }
@@ -271,7 +307,8 @@ def test_news_publishes_one_brief_without_buttons_then_dedupes(monkeypatch, tmp_
     assert first["video_id"] == "NEW"
     assert len(sent) == 1
     assert "buttons" not in sent[0]["kwargs"] and "reply_markup" not in sent[0]["kwargs"]
-    assert "What shipped" in sent[0]["text"]
+    assert "Why developers should care" in sent[0]["text"]
+    assert "Claude Fable 5.5" in sent[0]["text"]
     assert "ADVERTISING MUST BE REMOVED" in prompts[0]
 
     second = pipeline.news_command(_config(), store)

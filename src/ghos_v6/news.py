@@ -11,7 +11,7 @@ import json
 import logging
 import re
 from datetime import datetime, timedelta, timezone
-from typing import Any
+from typing import Any, Iterable
 from urllib.parse import parse_qsl, urlencode, urlparse, urlunparse
 
 import requests
@@ -136,36 +136,56 @@ OFFICIAL_DOMAINS = {
     "x.ai",
 }
 
+NEWS_STORY_SCHEMA: dict[str, Any] = {
+    "type": "OBJECT",
+    "properties": {
+        "title": {"type": "STRING"},
+        "models": {"type": "ARRAY", "items": {"type": "STRING"}},
+        "what_happened": {"type": "ARRAY", "items": {"type": "STRING"}},
+        "why_it_matters": {"type": "STRING"},
+        "confirmed": {"type": "BOOLEAN"},
+    },
+    "required": ["title", "models", "what_happened", "why_it_matters", "confirmed"],
+}
+
+# Owner decision (2026-11-04, second pass): a round-up must stay a round-up.
+# The old single-headline schema forced Gemini to compress a 33-minute video
+# into one narrow story, so the model news was lost. Every story carries its
+# own exact technical identifiers.
 NEWS_SCHEMA: dict[str, Any] = {
     "type": "OBJECT",
     "properties": {
         "eligible": {"type": "BOOLEAN"},
         "headline": {"type": "STRING"},
         "summary": {"type": "STRING"},
-        "what_happened": {"type": "ARRAY", "items": {"type": "STRING"}},
+        "stories": {"type": "ARRAY", "items": NEWS_STORY_SCHEMA},
+        "models": {"type": "ARRAY", "items": {"type": "STRING"}},
         "why_devs": {"type": "STRING"},
         "confirmed": {"type": "ARRAY", "items": {"type": "STRING"}},
-        "video_only_claims": {"type": "ARRAY", "items": {"type": "STRING"}},
-        "official_name": {"type": "STRING"},
+        "unconfirmed_claims": {"type": "ARRAY", "items": {"type": "STRING"}},
         "topic_key": {"type": "STRING"},
         "discussion_question": {"type": "STRING"},
         "rejection_reason": {"type": "STRING"},
+        # Legacy single-story keys are accepted but never required, so a
+        # model that falls back to unstructured JSON still renders a post.
+        "what_happened": {"type": "ARRAY", "items": {"type": "STRING"}},
+        "video_only_claims": {"type": "ARRAY", "items": {"type": "STRING"}},
+        "official_name": {"type": "STRING"},
     },
     "required": [
         "eligible",
         "headline",
         "summary",
-        "what_happened",
+        "stories",
+        "models",
         "why_devs",
         "confirmed",
-        "video_only_claims",
-        "official_name",
+        "unconfirmed_claims",
         "topic_key",
         "discussion_question",
         "rejection_reason",
     ],
 }
-
 
 def _text(element: ET.Element | None) -> str:
     return "" if element is None else "".join(element.itertext()).strip()
@@ -557,51 +577,76 @@ def synthesize_brief(
     use_video: bool = True,
 ) -> dict[str, Any]:
     prompt = f"""
-You are preparing a verified English AI Brief from a WorldofAI video plus a
-primary source. The video is a discovery signal, not an authority.
+You are writing an English AI news DIGEST for developers. The input is the
+newest news round-up video. Treat it as raw material, never as an authority
+and never as something to cite.
 
-Eligibility and editorial rules (owner decision 2026-11-04):
-- This is the NEWEST video of the channel. News round-ups ARE allowed:
-  pick the three to five most concrete shipped items (vendor, product,
-  what changed) and ignore the rest. Do not reject a video because its
-  clickbait title says "HUGE", "INSANE" or "LEAK" - judge the content.
-- ADVERTISING MUST BE REMOVED. The video and its description contain
-  sponsor reads, "Sponsored by ...", promo codes, affiliate/discount
-  links, "try X free" offers, and calls to subscribe or buy. Delete all
-  of it. Never mention a sponsor name, promo code, discount, referral or
+CONTENT RULES (owner decision 2026-11-04, second pass):
+- This is a DIGEST OF THE WHOLE VIDEO, not one narrow story. Round-up videos
+  cover many unrelated items: the [Time Stamps] / chapters and the Tags line
+  in the description are the table of contents. Walk them in order and
+  extract FOUR TO SEVEN genuinely different news items, one per story.
+  Writing one story about one filing and ignoring the rest is a failure.
+- MODEL NEWS COMES FIRST. New models, checkpoints, versions, benchmarks,
+  capability comparisons, API and routing changes, open-weight decisions,
+  agents and developer tooling are what the audience came for. A corporate,
+  funding, IPO or policy story is ONE item at most and goes LAST. It must
+  never be the only story.
+- EXACT TECHNICAL NAMES ARE SACRED. Copy every model, checkpoint, version,
+  benchmark, API and product identifier VERBATIM from the video and its
+  description. Never rename, translate, shorten, merge, "correct", clean up
+  or genericise them. Keep digits, dots, hyphens, spaces, capitalisation and
+  suffixes exactly. This channel uses names like "Claude Fable 5.5",
+  "Claude Opus 5.5", "Claude Mythos 5.5", "GPT-6 Astra", "GPT-6.1 Sol",
+  "GPT-6.2", "Qwen 4", "Qwen 4 27B", "Gemini 4 Argon", "DeepSeek Harness",
+  "LongCat-2.5", "Pulse Alpha" and "Kentia". Put every exact name in the
+  story's models array AND in the top-level models array. A story about "a
+  new model" without its exact name is a failure.
+- INTERESTING, NOT DRY. Each story title is a short concrete line about what
+  changed and what is surprising. Each what_happened bullet is one fact.
+  Each why_it_matters line tells a developer what they can now do or must
+  re-test. No filler, no "this is a big deal", no adjectives as arguments.
+- NO SOURCE ATTRIBUTION. Never mention the channel, its creator, the video,
+  "WorldofAI", "spotted via", "in the video", "according to the video",
+  timestamps, URLs, "sources", "source:", "read more", or a source list. Do
+  not output any link anywhere. Write as an independent news digest. The
+  primary_source block below is for FACT-CHECKING ONLY; never cite it.
+- ADVERTISING MUST BE REMOVED. The video and its description contain sponsor
+  reads, "Sponsored by ...", promo codes, affiliate/discount links, "try X
+  free" offers, community plugs and calls to subscribe or buy. Delete all of
+  it. Never mention a sponsor name, promo code, discount, referral or
   affiliate link ANYWHERE in the output. A normal sponsor read is NOT a
-  reason to reject the video; the owner expects Gemini to cut that part.
+  reason to reject the video; the owner expects it to be cut.
 - eligible=false ONLY when the entire video is an advert with no product
   news behind it, or when nothing factual can be extracted at all.
-- A primary source is preferred but NOT required: without one, put every
-  product claim under video_only_claims and keep what_happened to what the
-  video itself states as fact (name, vendor, what shipped).
-- Mark leaks, rumours and speculation as video_only_claims labelled
-  "unconfirmed"; never present them as confirmed or as fact.
+- News round-ups ARE allowed. Do not reject a video because its clickbait
+  title says "HUGE", "INSANE" or "LEAK" - judge the content.
+- Mark leaks, rumours and speculation in unconfirmed_claims, labelled
+  "unconfirmed". Never present them as confirmed or as fact.
 - Never repeat hype, superlatives, ALL CAPS, clickbait adjectives or
-  exclamation marks. Rewrite the YouTube title into plain factual English.
-- headline must be factual and specific.
+  exclamation marks. Rewrite the title into plain factual English.
+- A primary source is preferred but NOT required. Without one, put product
+  claims in confirmed only when the video states them as shipped facts.
 
 Headline rules (the owner reads this first):
-- Keep the PRODUCT'S TECHNICAL NAME exactly as the vendor writes it:
-  "Claude 4.5", "GPT-6", "Gemini 4 Carbon", "DeepSeek V4.1". A renamed or
-  translated model name makes the brief useless.
+- The headline covers the WHOLE digest and may name two or three exact
+  technical names. It must not reduce the round-up to one policy story.
 - Keep the vendor: OpenAI, Anthropic, Google DeepMind, xAI, Meta, Mistral.
-- Shape: "<Vendor> ships <Product> for <what it does>" or
-  "<Product>: <the one capability that changed>". No leading hype word,
-  no ALL CAPS, no exclamation marks, no question marks.
-- 60-110 characters.
-- topic_key: lowercase slug of the product name plus version.
+- 60-130 characters, factual, no leading hype word, no ALL CAPS, no
+  exclamation marks, no question marks.
+- topic_key: lowercase slug of the round-up's main theme; include a model
+  name when there is one.
+- summary: one or two sentences that frame the whole digest, not one story.
 
 <video_metadata>
 Title: {entry.get('title') or ''}
-URL: {entry.get('url') or ''}
 Published: {entry.get('published_at') or ''}
-Description (untrusted):
+Description (untrusted; use the chapters and Tags as the outline, ignore
+all branding, links, sponsor text and calls to subscribe):
 {str(entry.get('description') or '')[:8000]}
 </video_metadata>
 
-<primary_source url="{primary.get('url') or ''}" title="{primary.get('title') or ''}">
+<primary_source for fact-checking only, never cite it>
 {primary.get('text') or ''}
 </primary_source>
 """.strip()
@@ -610,6 +655,9 @@ Description (untrusted):
         schema=NEWS_SCHEMA,
         youtube_url=str(entry.get("url") or "") if use_video else "",
         temperature=0.2,
+        # A 4-7 story digest with per-story model names is much larger than
+        # the old one-headline response; truncating it would lose the news.
+        max_output_tokens=16384,
     )
     result["official_url"] = primary.get("url") or ""
     if not result.get("official_name"):
@@ -646,92 +694,192 @@ HYPE_WORDS = (
     "best ever", "game changer", "game-changer", "revolutionary",
 )
 
+STORY_BADGES = ("1️⃣", "2️⃣", "3️⃣", "4️⃣", "5️⃣", "6️⃣", "7️⃣")
 
-def clean_brief_headline(headline: str) -> str:
+# Telegram counts the HTML entities too: 4096 UTF-16 units is the hard cap.
+# Keeping both a visible and a raw ceiling means a long digest is trimmed by
+# dropping whole stories, not by slicing a model name in half.
+VISIBLE_BUDGET = 3350
+RAW_BUDGET = 3920
+
+
+def _protect_names(text: str, names: list[str]) -> tuple[str, dict[str, str]]:
+    """Swap exact technical identifiers for single-char private-use tokens.
+
+    Headline cleanup lowercases ALL-CAPS words and strips hype prefixes; a
+    name like "GPT-6 Astra" or "LongCat-2.5" must survive that untouched.
+    A single character cannot be split by the word-boundary clipping below.
+    """
+    slots: dict[str, str] = {}
+    result = text
+    for index, name in enumerate(sorted({n for n in names if len(n) > 1}, key=len, reverse=True)[:48]):
+        if name not in result:
+            continue
+        token = chr(0xE000 + index)
+        result = result.replace(name, token)
+        slots[token] = name
+    return result, slots
+
+
+def _restore_names(text: str, slots: dict[str, str]) -> str:
+    for token, name in slots.items():
+        text = text.replace(token, name)
+    return text
+
+
+def _clip_preserving(value: Any, limit: int, names: list[str]) -> str:
+    text = re.sub(r"\s+", " ", str(value or "")).strip()
+    if len(text) <= limit:
+        return text
+    protected, slots = _protect_names(text, names)
+    return _restore_names(_clip(protected, limit), slots)
+
+
+def clean_brief_headline(headline: str, *, preserve: Iterable[str] = ()) -> str:
     """Repair a headline the model copied from a YouTube title.
 
     Two failures were measured on real output:
-    1. "SpaceXSI Releases Grok Bot" — two brand names glued together
-       ("SpaceX's" + "xAI"). A person reads that as one nonsense word.
-    2. ALL-CAPS shout words and hype adjectives carried over from the
-       video title, which the brief prompt forbids but the model copies
-       when the title is written in that register.
+    1. "SpaceXSI Releases Grok Bot" - two brand names glued together.
+    2. ALL-CAPS shout words and hype adjectives copied from the title.
+    ``preserve`` protects exact model identifiers from both repairs.
     """
     text = re.sub(r"\s+", " ", str(headline or "")).strip()
     if not text:
         return ""
+    protected, slots = _protect_names(text, [str(n).strip() for n in preserve])
     # Two brand names glued together: "SpaceX's xAI" reached us as "SpaceXSI".
-    # Guessing at any capitalised tail would also cut "OpenAI" and "xAI",
-    # which are correct words, so match the specific known pairs only.
-    text = re.sub(r"\bSpaceX(SI|XAI)\b", "SpaceX xAI", text)
-    text = re.sub(r"\bOpen(SI)\b", "OpenAI", text)
+    protected = re.sub(r"\bSpaceX(SI|XAI)\b", "SpaceX xAI", protected)
+    protected = re.sub(r"\bOpen(SI)\b", "OpenAI", protected)
     # Shout words become sentence case.
-    text = re.sub(
+    protected = re.sub(
         r"\b[A-Z]{4,}\b",
-        lambda m: m.group(0).capitalize() if m.group(0).lower() not in {"API", "SDK", "CLI", "GPU", "CPU", "MP4", "HTML", "CSS", "JSON"} else m.group(0),
-        text,
+        lambda m: m.group(0).capitalize()
+        if m.group(0).lower() not in {"API", "SDK", "CLI", "GPU", "CPU", "MP4", "HTML", "CSS", "JSON"}
+        else m.group(0),
+        protected,
     )
-    # Drop a leading hype word that carries no information. The word may be
-    # followed by punctuation ("HUGE! Claude 4.5 ships"), so match the word
-    # plus any trailing punctuation, not "word + space".
-    lowered = text.lower()
+    # Drop a leading hype word that carries no information.
+    lowered = protected.lower()
     for word in sorted(HYPE_WORDS, key=len, reverse=True):
         if lowered.startswith(word):
-            rest = text[len(word) :].lstrip(" !.,:-—")
+            rest = protected[len(word):].lstrip(" !.,:-—")
             if rest:
-                text = rest[:1].upper() + rest[1:]
-                lowered = text.lower()
+                protected = rest[:1].upper() + rest[1:]
+                lowered = protected.lower()
             break
-    text = text.replace("?!", "?").replace("!!", "!")
-    text = re.sub(r"\s+([,.!?])", r"\1", text)
-    return text.strip()
+    protected = protected.replace("?!", "?").replace("!!", "!")
+    protected = re.sub(r"\s+([,.!?])", r"\1", protected)
+    return _restore_names(protected.strip(), slots)
+
+
+def brief_model_names(brief: dict[str, Any]) -> list[str]:
+    """Exact technical identifiers in first-seen order, never rewritten."""
+    names: list[str] = []
+    raw: list[Any] = list(brief.get("models") or [])
+    for story in brief.get("stories") or []:
+        if isinstance(story, dict):
+            raw += list(story.get("models") or [])
+    for value in raw:
+        name = re.sub(r"\s+", " ", str(value or "")).strip()
+        if name and name.lower() not in {known.lower() for known in names}:
+            names.append(name)
+    return names
+
+
+def brief_stories(brief: dict[str, Any]) -> list[dict[str, Any]]:
+    """Multi-story digest, with a legacy single-story fallback."""
+    stories: list[dict[str, Any]] = []
+    for item in brief.get("stories") or []:
+        if not isinstance(item, dict):
+            continue
+        title = str(item.get("title") or "").strip()
+        bullets = [str(x).strip() for x in (item.get("what_happened") or []) if str(x).strip()]
+        if not title and not bullets:
+            continue
+        stories.append(
+            {
+                "title": title,
+                "bullets": bullets,
+                "why": str(item.get("why_it_matters") or "").strip(),
+            }
+        )
+    if stories:
+        return stories[:7]
+    happened = [str(x).strip() for x in (brief.get("what_happened") or []) if str(x).strip()]
+    if happened:
+        return [
+            {
+                "title": str(brief.get("headline") or ""),
+                "bullets": happened,
+                "why": str(brief.get("why_devs") or ""),
+            }
+        ]
+    return []
 
 
 def format_ai_brief(brief: dict[str, Any]) -> str:
-    """A small magazine page, not a wall of text (owner decision 04.11.2026).
+    """A magazine-style DIGEST of the whole video (owner decision 04.11.2026).
 
-    Short labelled sections, blank lines between blocks, one idea per line,
-    explicit links (inline buttons were removed so Telegram can show native
-    comments), and a durable channel signature at the end.
+    Several numbered stories, one line per fact, exact model names, no source
+    attribution, no inline keyboard, no advertising, generous blank lines.
     """
-    headline = _clip(clean_brief_headline(brief.get("headline") or "") or "Verified AI update", 150)
-    happened = [_clip(item, 260) for item in brief.get("what_happened") or [] if str(item).strip()][:5]
-    confirmed = [_clip(item, 210) for item in brief.get("confirmed") or [] if str(item).strip()][:3]
-    video_only = [_clip(item, 210) for item in brief.get("video_only_claims") or [] if str(item).strip()][:2]
-    why = _clip(brief.get("why_devs") or brief.get("summary"), 460)
-    summary = _clip(brief.get("summary"), 300)
-    question = _clip(brief.get("discussion_question") or "Will you try this in a real project?", 170)
-    official_url = str(brief.get("official_url") or "").strip()
-    official_name = _clip(brief.get("official_name") or "Primary source", 70)
-    video_url = str(brief.get("video_url") or "").strip()
+    names = brief_model_names(brief)
+    headline = _clip_preserving(
+        clean_brief_headline(brief.get("headline") or "", preserve=names) or "AI model watch", 160, names
+    )
+    summary = _clip_preserving(brief.get("summary"), 300, names)
+    why = _clip_preserving(brief.get("why_devs") or brief.get("summary"), 300, names)
+    question = _clip(
+        brief.get("discussion_question") or "Which of these would you actually ship with?", 180
+    )
+    stories: list[dict[str, Any]] = [
+        {
+            "title": _clip_preserving(
+                clean_brief_headline(story["title"], preserve=names) or "Model update", 150, names
+            ),
+            "bullets": [_clip_preserving(bullet, 200, names) for bullet in story["bullets"][:3]],
+            "why": _clip_preserving(story["why"], 180, names),
+        }
+        for story in brief_stories(brief)
+    ]
+    confirmed = [
+        _clip_preserving(item, 190, names)
+        for item in brief.get("confirmed") or []
+        if str(item).strip()
+    ][:3]
+    unconfirmed = [
+        _clip_preserving(item, 190, names)
+        for item in (brief.get("unconfirmed_claims") or brief.get("video_only_claims") or [])
+        if str(item).strip()
+    ][:2]
+    models_line = " · ".join(names[:12])
     divider = "──────────────"
 
-    def link(url: str, label: str) -> str:
-        return f'<a href="{html.escape(url, quote=True)}">{_esc(label)}</a>' if url.startswith("https://") else ""
-
-    def render(happened_items, confirmed_items, video_items, why_text, summary_text) -> str:
+    def render() -> str:
         lines = [
             "🛰️ <b>AI Brief</b> · <i>no ads, no hype</i>",
+            f"📌 <i>{len(stories)} stories · model watch</i>",
             "",
             f"<b>{_esc(headline)}</b>",
         ]
-        if summary_text:
-            lines += ["", f"<blockquote>{_esc(summary_text)}</blockquote>"]
-        lines += ["", divider, "", "📰 <b>What shipped</b>", ""]
-        lines += [f"▸ {_esc(item)}" for item in happened_items] or ["▸ No concrete announcement could be verified."]
-        if why_text:
-            lines += ["", divider, "", "🎯 <b>Why developers should care</b>", "", _esc(why_text)]
-        receipts = [f"✅ {_esc(item)}" for item in confirmed_items]
-        receipts += [f"◻️ <i>Video-only:</i> {_esc(item)}" for item in video_items]
+        if summary:
+            lines += ["", f"<blockquote>{_esc(summary)}</blockquote>"]
+        if models_line:
+            lines += ["", f"🧬 <b>In this brief:</b> {_esc(_clip(models_line, 420))}"]
+        for index, story in enumerate(stories):
+            badge = STORY_BADGES[index] if index < len(STORY_BADGES) else f"<b>{index + 1:02d}</b>"
+            lines += ["", divider, "", f"{badge} <b>{_esc(story['title'])}</b>", ""]
+            lines += [f"▸ {_esc(bullet)}" for bullet in story["bullets"]] or [
+                "▸ No concrete detail was provided."
+            ]
+            if story["why"]:
+                lines += ["", f"<i>Why it matters:</i> {_esc(story['why'])}"]
+        if why:
+            lines += ["", divider, "", "🎯 <b>Why developers should care</b>", "", _esc(why)]
+        receipts = [f"✅ {_esc(item)}" for item in confirmed]
+        receipts += [f"◻️ <i>Unconfirmed:</i> {_esc(item)}" for item in unconfirmed]
         if receipts:
             lines += ["", divider, "", "🔍 <b>Receipts</b>", "", *receipts]
-        sources = [x for x in (
-            link(official_url, official_name) if official_url.startswith("https://") else "",
-            link(video_url, "WorldofAI video"),
-        ) if x]
-        if sources:
-            lines += ["", divider, "", "🔗 <b>Sources</b>", ""]
-            lines += [f"• {item}" for item in sources]
         lines += [
             "", divider, "",
             "💬 <b>Your take?</b>",
@@ -743,22 +891,26 @@ def format_ai_brief(brief: dict[str, Any]) -> str:
         ]
         return "\n".join(lines)
 
-    output = render(happened, confirmed, video_only, why, summary)
-    budget = 3000  # Telegram counts the HTML markup too; stay well under 4096
-    while utf16_len(visible_text(output)) > budget and video_only:
-        video_only.pop()
-        output = render(happened, confirmed, video_only, why, summary)
-    while utf16_len(visible_text(output)) > budget and confirmed:
-        confirmed.pop()
-        output = render(happened, confirmed, video_only, why, summary)
-    while utf16_len(visible_text(output)) > budget and len(happened) > 2:
-        happened.pop()
-        output = render(happened, confirmed, video_only, why, summary)
-    while utf16_len(visible_text(output)) > budget and summary:
-        summary = _clip(summary, max(120, len(summary) - 100))
-        output = render(happened, confirmed, video_only, why, summary)
-    while utf16_len(visible_text(output)) > budget and why:
-        why = _clip(why, max(160, len(why) - 120))
-        output = render(happened, confirmed, video_only, why, summary)
-    return output
+    def too_long(text: str) -> bool:
+        return utf16_len(text) > RAW_BUDGET or utf16_len(visible_text(text)) > VISIBLE_BUDGET
 
+    output = render()
+    while too_long(output) and unconfirmed:
+        unconfirmed.pop()
+        output = render()
+    while too_long(output) and confirmed:
+        confirmed.pop()
+        output = render()
+    while too_long(output) and len(stories) > 2:
+        stories.pop()
+        output = render()
+    while too_long(output) and stories and len(stories[-1]["bullets"]) > 1:
+        stories[-1]["bullets"].pop()
+        output = render()
+    while too_long(output) and summary:
+        summary = _clip_preserving(summary, max(120, len(summary) - 100), names)
+        output = render()
+    while too_long(output) and why:
+        why = _clip_preserving(why, max(120, len(why) - 100), names)
+        output = render()
+    return output

@@ -31,6 +31,10 @@ on:
         description: Run AI Brief even if its feature flag is off (news command only)
         type: boolean
         default: false
+      refresh_news:
+        description: Regenerate the newest AI Brief and edit its existing post in place
+        type: boolean
+        default: false
       article_ids:
         description: Comma-separated dev.to ids for article-unseries / devto-remove
         type: string
@@ -126,6 +130,7 @@ jobs:
           COMMAND: ${{ inputs.command }}
           SLOT: ${{ inputs.slot }}
           FORCE_NEWS: ${{ inputs.force_news }}
+          REFRESH_NEWS: ${{ inputs.refresh_news }}
           ARTICLE_IDS: ${{ inputs.article_ids }}
           EVENT_NAME: ${{ github.event_name }}
           SCHEDULE: ${{ github.event.schedule }}
@@ -152,11 +157,10 @@ jobs:
               fi
               ghos-v6 devto-remove --ids "$ARTICLE_IDS"
             elif [[ "$COMMAND" == "news" ]]; then
-              if [[ "$FORCE_NEWS" == "true" ]]; then
-                ghos-v6 news --force
-              else
-                ghos-v6 news
-              fi
+              news_flags=()
+              if [[ "$FORCE_NEWS" == "true" ]]; then news_flags+=(--force); fi
+              if [[ "$REFRESH_NEWS" == "true" ]]; then news_flags+=(--refresh); fi
+              ghos-v6 news "${news_flags[@]}"
             else
               ghos-v6 "$COMMAND"
             fi

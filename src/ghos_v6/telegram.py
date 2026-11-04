@@ -8,7 +8,11 @@ import requests
 import time
 
 from .http import sanitize
-from .telegram_payload import build_buttons, build_send_message_payload
+from .telegram_payload import (
+    build_buttons,
+    build_edit_message_payload,
+    build_send_message_payload,
+)
 
 API_BASE = "https://api.telegram.org"
 
@@ -153,6 +157,21 @@ class TelegramClient:
                 payload["link_preview_options"] = {"is_disabled": True}
                 return self.send_message_payload(payload)
             raise
+
+    def edit_text(
+        self,
+        chat_id: int | str,
+        message_id: int,
+        text_html: str,
+        *,
+        preview_url: str = "",
+    ) -> dict[str, Any]:
+        """Fix an already published brief in place instead of posting a duplicate."""
+        payload = build_edit_message_payload(
+            chat_id, message_id, text_html, preview_url=preview_url
+        )
+        result = self.api("editMessageText", payload)
+        return dict(result) if isinstance(result, dict) else {"message_id": message_id}
 
     def send_project(
         self,

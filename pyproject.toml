@@ -43,7 +43,7 @@ testpaths = ["tests"]
 pythonpath = ["src"]
 # Branch-inclusive floor: lines alone hid 327 untested decisions. The gate is
 # intentionally honest (65 % combined), not a vanity 100 % statement figure.
-# tools/mutation_check.py complements it: 56/56 intentional defects are killed.
+# tools/mutation_check.py complements it: 64/64 intentional defects are killed.
 addopts = "-q --cov=src/ghos_v6 --cov-branch --cov-report=term-missing --cov-fail-under=65"
 
 [tool.ruff]

@@ -6,7 +6,6 @@ an Editorial "Sunday Edition" variant.
 """
 from __future__ import annotations
 
-import re
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any, Iterable
@@ -727,24 +726,10 @@ def _gradient(first: tuple[int, int, int], second: tuple[int, int, int]) -> Imag
     return Image.composite(top, base, mask)
 
 
-def _short_host(url: str) -> str:
-    """``https://blog.google/technology/x/`` → ``blog.google``.
-
-    A raw URL in a stat cell always overflows: it has no spaces to wrap on
-    and no length discipline. The host is what a reader needs to judge the
-    source; the full link lives in the post text.
-    """
-    raw = str(url or "").strip()
-    if not raw:
-        return ""
-    host = re.sub(r"^https?://", "", raw).split("/")[0].lower()
-    return host[4:] if host.startswith("www.") else host
-
-
 def render_ai_brief_card(
     headline: str,
     standfirst: str,
-    official_source: str,
+    models_line: str,
     output_path: Path,
 ) -> Path:
     image = _gradient((12, 8, 40), (45, 15, 78)).convert("RGBA")
@@ -760,7 +745,7 @@ def render_ai_brief_card(
     overlay = Image.new("RGBA", (W, H), (0, 0, 0, 0))
     od = ImageDraw.Draw(overlay)
     od.rounded_rectangle((80, 55, 1120, 575), radius=34, fill=(10, 16, 42, 122), outline=(255, 255, 255, 130), width=2)
-    _pill(od, 115, 88, "AI BRIEF · VERIFIED", "#ffffff", (255, 255, 255, 38), _font("sans", 20, True), outline=(255, 255, 255, 95))
+    _pill(od, 115, 88, "AI BRIEF · MODEL WATCH", "#ffffff", (255, 255, 255, 38), _font("sans", 20, True), outline=(255, 255, 255, 95))
     od.rounded_rectangle((115, 455, 1085, 535), radius=22, fill=(0, 0, 0, 105), outline=(255, 255, 255, 85), width=1)
     image = Image.alpha_composite(image, overlay)
     draw = ImageDraw.Draw(image)
@@ -773,10 +758,12 @@ def render_ai_brief_card(
     for line in _wrap(draw, standfirst, _font("sans", 29), 920, 3):
         draw.text((117, y), line, font=_font("sans", 29), fill=(225, 232, 255))
         y += 38
+    # Owner decision (2026-11-04, second pass): no source attribution
+    # anywhere. The stat row shows exact model names instead.
     cells = [
-        ("OFFICIAL SOURCE", _short_host(official_source) or "Primary source"),
-        ("SPOTTED VIA", "WorldofAI"),
-        ("STATUS", "Confirmed"),
+        ("MODELS IN THIS BRIEF", models_line or "Frontier model watch"),
+        ("FORMAT", "Multi-story digest"),
+        ("STATUS", "No ads · no hype"),
     ]
     cell_widths = (430, 250, 200)
     x = 145

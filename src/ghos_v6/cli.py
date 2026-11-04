@@ -66,6 +66,11 @@ def _parser() -> argparse.ArgumentParser:
 
     news = sub.add_parser("news", help="Publish one verified WorldofAI AI Brief")
     news.add_argument("--force", action="store_true", help="Run even if FEATURE_AI_BRIEF=false")
+    news.add_argument(
+        "--refresh",
+        action="store_true",
+        help="Regenerate the newest digest and edit the existing post in place (no duplicate)",
+    )
 
     sub.add_parser("digest", help="Publish Sunday Top 5 and poll")
     sub.add_parser("report", help="Send the weekly owner report")
@@ -155,7 +160,7 @@ def main(argv: list[str] | None = None) -> int:
         elif args.command == "devto-remove":
             result = remove_devto_articles(config, store, ids=args.ids)
         elif args.command == "news":
-            result = news_command(config, store, force=args.force)
+            result = news_command(config, store, force=args.force, refresh=args.refresh)
         elif args.command == "digest":
             result = digest_command(config, store)
         elif args.command == "report":

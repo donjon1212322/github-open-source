@@ -76,6 +76,31 @@ def build_send_message_payload(
     return payload
 
 
+def build_edit_message_payload(
+    chat_id: str | int,
+    message_id: int,
+    text_html: str,
+    *,
+    preview_url: str = "",
+) -> dict[str, Any]:
+    """editMessageText payload - no reply_markup, no source link preview."""
+    payload: dict[str, Any] = {
+        "chat_id": chat_id,
+        "message_id": int(message_id),
+        "text": text_html,
+        "parse_mode": "HTML",
+    }
+    if _is_https_url(preview_url):
+        payload["link_preview_options"] = {
+            "url": preview_url,
+            "prefer_large_media": True,
+            "show_above_text": True,
+        }
+    else:
+        payload["link_preview_options"] = {"is_disabled": True}
+    return payload
+
+
 PostFn = Callable[[str, dict[str, Any]], dict[str, Any]]
 
 
