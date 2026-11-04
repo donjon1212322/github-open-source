@@ -240,8 +240,10 @@ Telegram показывает нативную кнопку «Leave a comment» 
 ### 4.11 Удаление дубля dev.to
 
 Команда `devto-remove --ids` (dispatch `devto-remove`, input `article_ids`)
-пытается `DELETE /api/articles/{id}`, а при 404/405 — документированный
-`PUT /api/articles/{id}/unpublish`. **Защита:** id, на который ссылается
+пробует по цепочке `DELETE /api/articles/{id}` →
+`PUT /api/articles/{id}/unpublish` (требует `super_moderator`, обычный ключ
+получает 401) → `PUT /api/articles/{id}` с `published:false`, что переводит
+статью в приватный черновик и убирает её из публичной ленты. **Защита:** id, на который ссылается
 `published[].articles.devto`, удалить нельзя — он попадает в `blocked`.
 
 ---

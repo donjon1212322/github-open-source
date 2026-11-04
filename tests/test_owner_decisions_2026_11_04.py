@@ -83,6 +83,16 @@ def test_remove_article_uses_delete_then_unpublish_fallback():
     assert calls[1][0] == "PUT" and calls[1][1].endswith("/unpublish")
 
 
+def test_remove_article_drafts_when_unpublish_is_privilege_gated():
+    # Real dev.to answer on 04.11.2026: DELETE 404, /unpublish 401.
+    replies = iter([_Resp(404), _Resp(401), _Resp(200)])
+    calls = []
+    client = platforms.DevToClient("k")
+    client._request = lambda method, url, **kw: (calls.append((method, url, kw)), next(replies))[1]
+    assert client.remove_article(4968458) == "drafted"
+    assert calls[2][2] == {"json": {"article": {"published": False}}}
+
+
 def test_remove_article_reports_a_real_delete():
     calls = []
     client = platforms.DevToClient("k")

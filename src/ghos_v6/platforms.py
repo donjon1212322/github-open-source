@@ -130,9 +130,16 @@ class DevToClient:
         response = self._request("DELETE", base)
         if response.status_code in {200, 202, 204}:
             return "deleted"
+        # /unpublish is privilege-gated (super_moderator); an ordinary
+        # api-key gets 401. Forem's documented removal for a normal user is
+        # PUT /articles/{id} with published:false - it becomes a private
+        # draft and disappears from the public feed and account listing.
         response = self._request("PUT", f"{base}/unpublish")
         if response.status_code in {200, 202, 204}:
             return "unpublished"
+        response = self._request("PUT", base, json={"article": {"published": False}})
+        if response.status_code in {200, 201, 202, 204}:
+            return "drafted"
         raise _error("dev.to remove article", response)
 
     @staticmethod

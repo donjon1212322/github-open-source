@@ -193,6 +193,10 @@ MUTATIONS: list[tuple[str, str, str, str]] = [
      '    divider = "──────────────"',
      '    divider = ""',
      "AI Brief layout loses its section dividers"),
+    ("src/ghos_v6/platforms.py",
+     'json={"article": {"published": False}}',
+     'json={"article": {"published": True}}',
+     "privilege-gated unpublish fallback republishes the duplicate instead"),
 ]
 
 COPY_ITEMS = (
