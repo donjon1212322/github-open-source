@@ -44,7 +44,19 @@
     },
     "telegram_update_offset": 0
   },
-  "news_topics": [],
+  "news_topics": [
+    {
+      "Gemini_video_input": true,
+      "headline": "Anthropic amends S-1 filing regarding RSI policy thresholds and scaling pace",
+      "image_url": "https://i.ibb.co/VYcxWRvc/ai-brief-580d3b7b5f1f.png",
+      "official_url": "",
+      "published_at": "2026-11-04T03:19:46.043377Z",
+      "telegram_message_id": 3553,
+      "topic_key": "anthropic-s1-amendment",
+      "video_id": "i-wYjUriSzo",
+      "video_url": "https://www.youtube.com/watch?v=i-wYjUriSzo"
+    }
+  ],
   "publish_failures": {},
   "published": {
     "horizon-rust/horizon": {

@@ -22,3 +22,4 @@
 {"deleted": 0, "ts": "2026-11-04T01:39:44.387441Z", "type": "moderation_completed", "updates": 0}
 {"command": "devto-remove", "error": "PlatformError: dev.to remove article HTTP 401: {'error': 'unauthorized', 'status': 401}", "ts": "2026-11-04T03:13:58.736283Z", "type": "command_failed"}
 {"blocked": [], "ids": ["4968458"], "ts": "2026-11-04T03:17:49.964923Z", "type": "devto_articles_removed"}
+{"Gemini_video_input": true, "official_url": "", "topic": "anthropic-s1-amendment", "ts": "2026-11-04T03:19:46.043399Z", "type": "ai_brief_published", "video_id": "i-wYjUriSzo"}
