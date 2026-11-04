@@ -47,34 +47,30 @@
   "news_topics": [
     {
       "Gemini_video_input": true,
-      "headline": "Claude Fable 5.5 and GPT-6 Astra checkpoints surface alongside DeepSeek Harness and LongCat-2.5",
-      "image_url": "https://i.ibb.co/XxcqykZp/ai-brief-ef4b903edada.png",
+      "headline": "Claude Fable 5.5 · Claude Opus 5.5 · GPT-6 Astra lead the model watch",
+      "image_url": "https://i.ibb.co/sJRBm2F7/ai-brief-bb114161fe28.png",
       "models": [
         "Claude Fable 5.5",
         "Claude Opus 5.5",
-        "Gemini 4 Argon",
         "GPT-6 Astra",
-        "GPT-6.1 Sol",
-        "GPT-6.2",
-        "Qwen3.5-0.8B",
+        "GPT-6.1 Terra",
         "LongCat-2.5",
         "DeepSeek Harness",
-        "DeepSeek-V4.1-Flash",
-        "Mythos 5.5"
+        "Qwen3.5-0.8B",
+        "GPT-5.5"
       ],
       "official_url": "",
-      "published_at": "2026-11-04T05:01:14.060149Z",
+      "published_at": "2026-11-04T05:09:15.102935Z",
       "statuses": [
         "leaked_checkpoint",
-        "leaked_checkpoint",
-        "research_report",
         "demo_or_benchmark",
+        "announced_not_shipped",
         "official_release",
-        "official_document"
+        "research_report"
       ],
-      "stories": 6,
+      "stories": 5,
       "telegram_message_id": 3553,
-      "topic_key": "checkpoint-and-model-updates",
+      "topic_key": "frontier-model-checkpoints-and-agentic-benchmarks",
       "video_id": "i-wYjUriSzo",
       "video_url": "https://www.youtube.com/watch?v=i-wYjUriSzo"
     }
