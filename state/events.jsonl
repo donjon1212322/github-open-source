@@ -24,3 +24,4 @@
 {"blocked": [], "ids": ["4968458"], "ts": "2026-11-04T03:17:49.964923Z", "type": "devto_articles_removed"}
 {"Gemini_video_input": true, "official_url": "", "topic": "anthropic-s1-amendment", "ts": "2026-11-04T03:19:46.043399Z", "type": "ai_brief_published", "video_id": "i-wYjUriSzo"}
 {"Gemini_video_input": true, "models": 13, "official_url": "", "stories": 3, "topic": "anthropic-fable-5-5-deepseek-harness", "ts": "2026-11-04T03:46:47.583564Z", "type": "ai_brief_republished", "video_id": "i-wYjUriSzo"}
+{"Gemini_video_input": true, "models": 14, "official_url": "https://alignment.anthropic.com/2026/anthropic-residency/", "stories": 5, "topic": "frontier-models-and-agentic-tooling", "ts": "2026-11-04T03:53:53.075413Z", "type": "ai_brief_republished", "video_id": "i-wYjUriSzo"}

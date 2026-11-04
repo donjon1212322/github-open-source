@@ -47,8 +47,8 @@
   "news_topics": [
     {
       "Gemini_video_input": true,
-      "headline": "Anthropic Fable 5.5, DeepSeek Harness, LongCat-2.5, and OpenAI GPT Updates",
-      "image_url": "https://i.ibb.co/ynJZWX0m/ai-brief-7572cbf479f1.png",
+      "headline": "Anthropic's Fable 5.5 Checkpoint, GPT-6 Astra, and New AI Models",
+      "image_url": "https://i.ibb.co/F2BrJmN/ai-brief-86f8b85d35e8.png",
       "models": [
         "Claude Fable 5.5",
         "Claude Opus 5.5",
@@ -56,18 +56,18 @@
         "GPT-6 Astra",
         "GPT-6.1 Sol",
         "GPT-6.2",
-        "Qwen 4",
-        "Qwen 4 27B",
-        "Gemini 4 Argon",
         "DeepSeek Harness",
+        "Gemini 4 Argon",
+        "Gemini 4 Carbon",
         "LongCat-2.5",
-        "Pulse Alpha"
+        "Pulse Alpha",
+        "Kentia"
       ],
-      "official_url": "",
-      "published_at": "2026-11-04T03:46:47.583536Z",
-      "stories": 3,
+      "official_url": "https://alignment.anthropic.com/2026/anthropic-residency/",
+      "published_at": "2026-11-04T03:53:53.075387Z",
+      "stories": 5,
       "telegram_message_id": 3553,
-      "topic_key": "anthropic-fable-5-5-deepseek-harness",
+      "topic_key": "frontier-models-and-agentic-tooling",
       "video_id": "i-wYjUriSzo",
       "video_url": "https://www.youtube.com/watch?v=i-wYjUriSzo"
     }
