@@ -84,6 +84,39 @@
       "topic_key": "frontier-model-checkpoints-and-agentic-benchmarks",
       "video_id": "i-wYjUriSzo",
       "video_url": "https://www.youtube.com/watch?v=i-wYjUriSzo"
+    },
+    {
+      "Gemini_video_input": true,
+      "headline": "GPT-6.2 Astra, Hy4, and DeepSeek V5 Bring New Architectural Leaps",
+      "image_url": "https://i.ibb.co/d0LXVrrQ/ai-brief-abead9ad6c39.png",
+      "models": [
+        "GPT-6.2 Astra",
+        "rc-ada-sh-vm",
+        "rc-ada-or-vm",
+        "Hy4",
+        "DeepSeek-V4-Flash",
+        "10-17",
+        "Llama 4 Maverick",
+        "FlashProve",
+        "Qwen 3.5 MoE",
+        "ZHA",
+        "Crouton Alpha",
+        "Muse"
+      ],
+      "official_url": "",
+      "published_at": "2026-11-05T00:23:24.819133Z",
+      "statuses": [
+        "leaked_checkpoint",
+        "official_release",
+        "official_release",
+        "research_report",
+        "unconfirmed_rumour"
+      ],
+      "stories": 5,
+      "telegram_message_id": 3557,
+      "topic_key": "ai-model-updates-november-2026",
+      "video_id": "FQABKeCe1jM",
+      "video_url": "https://www.youtube.com/watch?v=FQABKeCe1jM"
     }
   ],
   "publish_failures": {},
