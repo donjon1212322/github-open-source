@@ -165,6 +165,12 @@ make.com. Прямого Graph API в v6 нет.
 7. send_text() + кнопки           «Official source», «Watch on WorldofAI»
 ```
 
+`news_command()` создаёт обычный `GeminiClient` без `GeminiBudget` и без
+fallback-модели: владелец 05.11 подтвердил, что YouTube-видео и так
+обрабатывалось штатно. Общий TPM-бюджет, 70-секундное разнесение тяжёлых
+вызовов и `gemini-3.1-flash-lite` применяются только в `publish_slot()`
+для проектных постов.
+
 ### Префильтр — что и почему
 
 | Фильтр | Правило |

@@ -212,7 +212,7 @@ def _clean_markdown(text: str, limit: int) -> str:
 MARKDOWN_SURFACE_KEYS = frozenset({"devto_body", "Facebook_body"})
 
 
-def _readme_for_prompt(readme: str, limit: int = 6_000) -> str:
+def _readme_for_prompt(readme: str, limit: int = 10_000) -> str:
     text = re.sub(r"<!--.*?-->", "", readme or "", flags=re.S)
     text = re.sub(r"!\[[^\]]*\]\([^)]*\)", "", text)
     # A README must not be able to close the data block and address the model.
@@ -245,10 +245,16 @@ def _clip_sentence(text: Any, limit: int) -> str:
 
 class GeminiClient:
     def __init__(self, api_key: str, model: str = "gemini-3.5-flash-lite",
-                 budget: Any | None = None, fallback_model: str | None = None):
+                 budget: Any | None = None, fallback_model: str | None = None,
+                 http_retries: int = 1, retry_post: bool = True):
+        # Plain clients (AI Brief, Doctor) keep the original single HTTP
+        # retry. publish_slot opts out: generate_with_backoff already spaces
+        # attempts, and stacking short retries re-created the 05.11 TPM spike.
         self.api_key = api_key.strip()
         self.budget = budget
         self.fallback_model = (fallback_model or "").strip().lower() or None
+        self.http_retries = http_retries
+        self.retry_post = retry_post
         self.model = model.strip().lower().removeprefix("models/")
 
     @property
@@ -307,7 +313,8 @@ class GeminiClient:
             headers={"x-goog-api-key": self.api_key},
             json_body=body,
             timeout=90,
-            retries=0,
+            retries=self.http_retries,
+            retry_post=self.retry_post,
         )
         if status == 400 and schema:
             # Some preview models reject a schema or thinking dialect.
@@ -333,7 +340,9 @@ class GeminiClient:
                 logger.warning("[gemini_capacity_503] %s congested; falling back to %s",
                                self.model, self.fallback_model)
                 spare = GeminiClient(self.api_key, self.fallback_model,
-                                     budget=None, fallback_model=None)
+                                     budget=None, fallback_model=None,
+                                     http_retries=self.http_retries,
+                                     retry_post=self.retry_post)
                 return spare.generate_json(
                     prompt, schema=schema, youtube_url=youtube_url,
                     temperature=temperature, max_output_tokens=max_output_tokens,

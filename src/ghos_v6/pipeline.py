@@ -368,7 +368,8 @@ def publish_slot(config: Config, store: StateStore, slot: str = "manual") -> dic
     telegram = TelegramClient(config.telegram_bot_token)
     Gemini = GeminiClient(config.Gemini_api_key, config.Gemini_model,
                       budget=GeminiBudget(store),
-                      fallback_model="gemini-3.1-flash-lite")
+                      fallback_model="gemini-3.1-flash-lite",
+                      http_retries=0, retry_post=False)
     api = GitHubApi(config.GitHub_token)
     gate_cfg = GateConfig()
     # One Gemini call per published post, never per queued candidate: the
@@ -394,7 +395,7 @@ def publish_slot(config: Config, store: StateStore, slot: str = "manual") -> dic
         key = store.repo_key(candidate)
         try:
             candidate = enrich_candidate(api, dict(candidate), force=True)
-            candidate["readme"] = str(candidate.get("readme") or "")[:6_000]
+            candidate["readme"] = str(candidate.get("readme") or "")[:20_000]
         except Exception as exc:  # noqa: BLE001
             logger.warning("Selected candidate refresh failed for %s: %s", key, type(exc).__name__)
 
@@ -1102,9 +1103,10 @@ def news_command(
         return {"ok": True, "published": False, "reason": "feature_ai_brief_disabled"}
     config.require("TELEGRAM_BOT_TOKEN", "GEMINI_API_KEY")
     chat_id = config.telegram_chat_id
-    client = GeminiClient(config.Gemini_api_key, config.Gemini_model,
-                      budget=GeminiBudget(store),
-                      fallback_model="gemini-3.1-flash-lite")
+    # Owner decision (2026-11-05): the AI Brief's YouTube video never had
+    # capacity problems. Keep the original plain client: no shared TPM
+    # budget, no 70 s heavy-call gap, no spare-model fallback.
+    client = GeminiClient(config.Gemini_api_key, config.Gemini_model)
     telegram = TelegramClient(config.telegram_bot_token)
     try:
         entries = fetch_worldofai_entries()
