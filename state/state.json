@@ -287,7 +287,10 @@
         "bluesky": {
           "attempts": 0,
           "due_at": "2026-11-05T18:00:00+00:00",
-          "status": "pending"
+          "error": "",
+          "published_at": "2026-11-05T23:36:59.757285Z",
+          "status": "published",
+          "url": "https://bsky.app/profile/githubopensource.bsky.social/post/3mzlzwgmdbq2w"
         }
       },
       "description": " All your computers and your phone, working as one desk. Screens, apps, files, clipboard, calls, texts, notifications, mouse and keyboard, shared between Mac, Windows, Linux and Android. Free and open source. No account, no cloud, and now no shared network needed.",
@@ -975,7 +978,8 @@
         "bluesky": {
           "attempts": 0,
           "due_at": "2026-11-05T23:12:16.965960+00:00",
-          "status": "pending"
+          "held_reason": "not_best_of_day",
+          "status": "held"
         }
       },
       "description": "Peach: Local-first video metadata scraper and media manager.",
