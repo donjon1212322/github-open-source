@@ -49,3 +49,4 @@
 {"failures": 1, "reason": "gemini_unavailable", "repo": "inukaasith/twindesk", "slot": "europe_morning", "ts": "2026-11-05T15:26:46.026703Z", "type": "publish_skipped"}
 {"platform": "gemini", "repo": "inukaasith/twindesk", "ts": "2026-11-05T16:48:47.515048Z", "type": "dead_letter"}
 {"failures": 2, "reason": "gemini_failed_twice", "repo": "inukaasith/twindesk", "ts": "2026-11-05T16:48:47.515160Z", "type": "publish_candidate_dead"}
+{"ts": "2026-11-05T16:55:36.798847Z", "type": "candidate_restored", "repo": "inukaasith/twindesk", "reason": "manual recovery after gemini_failed_twice", "by": "arena-agent"}
