@@ -245,9 +245,10 @@ def _clip_sentence(text: Any, limit: int) -> str:
 
 class GeminiClient:
     def __init__(self, api_key: str, model: str = "gemini-3.5-flash-lite",
-                 budget: Any | None = None):
+                 budget: Any | None = None, fallback_model: str | None = None):
         self.api_key = api_key.strip()
         self.budget = budget
+        self.fallback_model = (fallback_model or "").strip().lower() or None
         self.model = model.strip().lower().removeprefix("models/")
 
     @property
@@ -323,6 +324,20 @@ class GeminiClient:
                 timeout=90,
                 retries=0,
             )
+        if status != 200 and isinstance(data, dict) and self.fallback_model:
+            message = str((data.get("error") or {}).get("message") or "")
+            if classify_error(HttpError(status, message)) == "capacity_503":
+                # 3.5-flash-lite can be congested while another model in the
+                # same project still has spare capacity. Retry once on the
+                # spare model instead of losing the slot (05.11 incident).
+                logger.warning("[gemini_capacity_503] %s congested; falling back to %s",
+                               self.model, self.fallback_model)
+                spare = GeminiClient(self.api_key, self.fallback_model,
+                                     budget=None, fallback_model=None)
+                return spare.generate_json(
+                    prompt, schema=schema, youtube_url=youtube_url,
+                    temperature=temperature, max_output_tokens=max_output_tokens,
+                )
         if status != 200 or not isinstance(data, dict):
             message = ""
             if isinstance(data, dict):

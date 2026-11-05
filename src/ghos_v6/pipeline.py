@@ -366,7 +366,9 @@ def publish_slot(config: Config, store: StateStore, slot: str = "manual") -> dic
         collect_command(config, store)
 
     telegram = TelegramClient(config.telegram_bot_token)
-    Gemini = GeminiClient(config.Gemini_api_key, config.Gemini_model, budget=GeminiBudget(store))
+    Gemini = GeminiClient(config.Gemini_api_key, config.Gemini_model,
+                      budget=GeminiBudget(store),
+                      fallback_model="gemini-3.1-flash-lite")
     api = GitHubApi(config.GitHub_token)
     gate_cfg = GateConfig()
     # One Gemini call per published post, never per queued candidate: the
@@ -1100,7 +1102,9 @@ def news_command(
         return {"ok": True, "published": False, "reason": "feature_ai_brief_disabled"}
     config.require("TELEGRAM_BOT_TOKEN", "GEMINI_API_KEY")
     chat_id = config.telegram_chat_id
-    client = GeminiClient(config.Gemini_api_key, config.Gemini_model, budget=GeminiBudget(store))
+    client = GeminiClient(config.Gemini_api_key, config.Gemini_model,
+                      budget=GeminiBudget(store),
+                      fallback_model="gemini-3.1-flash-lite")
     telegram = TelegramClient(config.telegram_bot_token)
     try:
         entries = fetch_worldofai_entries()
