@@ -2,12 +2,12 @@
   "dead_letters": [],
   "gemini_window": [
     [
-      1793897774.2257917,
-      2996
+      1793918520.1545055,
+      2668
     ],
     [
-      1793897810.0935009,
-      1412
+      1793918529.8126314,
+      1394
     ]
   ],
   "last_runs": {
@@ -59,9 +59,9 @@
       "telegram_message_id": 3550
     },
     "publish:us_peak": {
-      "finished_at": "2026-11-04T22:38:32.427086Z",
-      "repo": "lnkiai/m3e-canvas",
-      "telegram_message_id": 3556
+      "finished_at": "2026-11-05T22:42:16.966194Z",
+      "repo": "peach-mitao/peach",
+      "telegram_message_id": 3559
     },
     "telegram_update_offset": 165231068
   },
@@ -965,6 +965,117 @@
       "visual_host": "imgbb",
       "visual_kind": "readme"
     },
+    "peach-mitao/peach": {
+      "articles": {},
+      "card_style": "",
+      "category": "DevTools",
+      "contributors_count": 15,
+      "created_at": "2026-08-19T19:48:30Z",
+      "crossposts": {
+        "bluesky": {
+          "attempts": 0,
+          "due_at": "2026-11-05T23:12:16.965960+00:00",
+          "status": "pending"
+        }
+      },
+      "description": "Peach: Local-first video metadata scraper and media manager.",
+      "description_fp": "884c35c091ca685b",
+      "forks": 1663,
+      "full_name": "peach-mitao/peach",
+      "generated": {
+        "article_markdown": "## What it is\n\nPeach is a local-first media management platform designed to solve the fragmentation problem of modern video collections. Instead of forcing you to upload your data to a proprietary cloud service or rely on a rigid, black-box media server, Peach acts as an indexing layer that sits directly on top of your existing file storage. It supports a wide range of backends, including local drives, SMB shares, and cloud storage mounts, allowing you to treat disparate sources as a single, cohesive library.\n\nAt its core, the tool is a metadata scraper. It scans your media directories, identifies video codes, and automatically fetches relevant information—titles, performers, studios, and cover art—from external sources. Crucially, it respects your local edits, ensuring that your manual adjustments to metadata are preserved even when the scraper updates its own records.\n\n## Why it matters\n\nFor developers and power users, the status quo of media management is often frustrating. You either deal with manual file renaming and spreadsheet tracking, or you surrender your data to a commercial service that might disappear or change its terms tomorrow. Peach addresses this by prioritizing local-first architecture. Your watch history, tags, and library configuration remain on your machine. This approach provides a level of durability and privacy that is increasingly rare in the current ecosystem of 'smart' media tools.\n\n## Key features\n\n*   **Unified Library Management**: Mounts local, SMB, and cloud storage into one interface, eliminating the need to switch between different file explorers.\n*   **Metadata Persistence**: Scrapes titles, performers, and studios while allowing you to override and keep your own edits.\n*   **Performer Tracking**: Tracks creator updates and manages want lists, helping you discover new content without relying on algorithmic feeds.\n*   **Resource Monitoring**: Includes a dedicated task center that lets you pause, resume, and monitor background tasks, including CPU and GPU usage.\n*   **Extensible Playback**: Supports external players, subtitle management, and timeline previews, giving you control over the viewing experience.\n\n## Quick start\n\nTo get started with the source code, ensure you have Git, uv, and Python 3.14+ installed:\n\n```bash\ngit clone https://github.com/peach-mitao/peach && cd peach\n# Follow docs/OPERATIONS.md for dependency installation and setup\n```\n\nAlternatively, pre-built installers for Windows and macOS are available in the project's releases section.\n\n## Who should try it\n\nPeach is ideal for users who have outgrown simple file folders and want a structured, searchable library without the overhead of enterprise-grade media servers. If you are comfortable configuring your own storage mounts and value data sovereignty over convenience-first cloud services, this is a strong candidate for your stack.\n\n## Verdict\n\nPeach is a highly effective tool for those who prioritize local control and organization. It does not try to be a 'set it and forget it' solution; it requires some initial setup, but the payoff is a clean, unified library that you actually own. Skip it if you are looking for a zero-configuration, cloud-native experience.",
+        "article_title": "Peach: A Local-First Video Metadata Scraper and Media Manager",
+        "card_hook": "A local-first manager for your video collection",
+        "card_subline": "Scrape metadata, track performers, and organize local or cloud-hosted video files without losing control of your data",
+        "category": "DevTools",
+        "discussion_question": "Do you prefer keeping your media library metadata in sidecar files (NFO) or a centralized database?",
+        "hook": "Automatically scrape metadata for your video collection and manage local, SMB, or cloud files in one unified interface.",
+        "key_features": [
+          "Scrapes metadata for titles, performers, and studios while preserving user edits.",
+          "Mounts local drives, SMB shares, and cloud storage (including PikPak) into a unified library.",
+          "Tracks performer and creator updates to manage discovery and want lists.",
+          "Includes a task center to monitor CPU/GPU usage for background processing and downloads.",
+          "Supports external player integration, subtitle management, and timeline previews."
+        ],
+        "llm_used": true,
+        "quick_start": "git clone https://github.com/peach-mitao/peach && cd peach",
+        "safety": "ok",
+        "safety_reason": "The project is a standard media management and metadata scraping tool with no malicious intent.",
+        "scene": "You have a folder full of video files named with cryptic codes, scattered across an external drive, a NAS, and a cloud mount. You spend more time manually renaming files and hunting for covers than actually watching anything.",
+        "social_text": "Stop manually renaming your video collection. Peach is a local-first media manager that scrapes metadata and unifies your local, SMB, and cloud storage into one searchable library.",
+        "summary": "Peach functions as a local-first indexing engine that sits on top of your existing file storage, whether local, SMB, or cloud-mounted. It scans your directories to build a relational database of your media, using external APIs to fetch metadata and covers while keeping your watch history and library edits stored locally.",
+        "surfaces": {
+          "Facebook_body": "If you have video files scattered across your computer, network storage, and cloud accounts, keeping track of them can feel like a full-time job. It is easy to lose track of what you have or where you saved it, especially when your collection grows over time.\n\nThis tool acts as a central hub for your media. Instead of moving your files or relying on a service that controls your data, it scans your existing storage locations to build a unified library. It automatically pulls in details like titles and performer information, so you can browse your collection as easily as you would on a streaming platform.\n\nBecause it runs locally, you keep full control over your library and watch history. It is designed for people who have accumulated large collections across multiple drives and want a clean, organized way to view everything without the bloat of traditional media servers. It is a practical solution for anyone who values privacy and wants to manage their files on their own terms.",
+          "Facebook_headline": "Manage your entire video library in one simple interface",
+          "Facebook_lead": "Stop hunting for files across different drives and cloud accounts. This tool brings your entire video collection together into one organized, searchable library.",
+          "bluesky_headline": "Organize your scattered video collection in one place",
+          "bluesky_lead": "Peach indexes local, network, and cloud video files into a single, searchable library with metadata.",
+          "devto_body": "## What it is\n\nPeach is a local-first indexing engine for video collections. Written in Python, it allows you to unify fragmented media libraries—whether they reside on local disks, SMB shares, or cloud-mounted storage—into a single, relational database. Unlike heavy media server solutions, Peach focuses on metadata management and library discovery without forcing a proprietary cloud ecosystem.\n\n## How it works\n\nPeach scans your designated directories and builds a local database of your media. It uses external scrapers to fetch metadata, covers, and performer details, storing this information locally. This ensures your watch history and library edits remain under your control, not on a third-party server.\n\n## Key features\n\n- **Unified Library:** Mounts local, SMB, and cloud storage (including PikPak) into one interface.\n- **Metadata Management:** Automatically scrapes titles, studios, and performers while allowing for manual user edits.\n- **Task Monitoring:** Includes a built-in task center to track CPU/GPU usage during background processing.\n- **External Integration:** Supports subtitle management, timeline previews, and external player integration.\n- **Discovery Tools:** Tracks performer and creator updates to help manage your want lists.\n\n## Getting started\n\nPeach is an open-source project hosted on GitHub (peach-mitao/peach). Since it is Python-based, ensure you have the necessary environment set up. Clone the repository and follow the documentation to configure your storage paths. It is best suited for those comfortable with managing local services.\n\n## When not to use it\n\nIf you are looking for a 'set it and forget it' cloud-native experience or a zero-configuration media server, Peach may not be the right fit. It is designed for power users who prioritize local control and have specific needs for managing fragmented, large-scale video collections.",
+          "seo_description": "Peach is a local-first indexing tool that unifies video files from local, SMB, and cloud storage into one searchable library with automatic metadata.",
+          "seo_query": "how to manage video files across multiple cloud and local drives",
+          "seo_title": "Local Media Manager for Fragmented Collections - Peach",
+          "telegraph_angle": "Explain the trade-offs of a local-first media manager versus cloud-native services, focusing on why power users prefer local control for large, fragmented collections."
+        },
+        "tension": "Every time you move a file or switch devices, your watch history breaks and your library organization falls apart. You are forced to rely on opaque, proprietary media servers that demand cloud access or offer zero control over your own metadata.",
+        "turn": "Peach indexes your existing file structure in place, treating your local and cloud storage as a single library. It does not move your files or lock your metadata, though you still have to manage the initial source configuration yourself.",
+        "verdict": "A solid choice for anyone tired of bloated media servers; it is effective if you prioritize local control, but skip it if you want a 'set it and forget it' cloud-native experience.",
+        "who_for": "Developers and power users who maintain large, fragmented video collections across multiple storage backends.",
+        "why_now": "As media libraries grow across scattered cloud and local drives, the need for a unified, privacy-respecting indexer that doesn't lock data in a proprietary cloud has become a practical necessity."
+      },
+      "homepage": "https://peach.video",
+      "id": 1339970099,
+      "image_url": "https://i.ibb.co/mVPSV1LB/peach-mitao-peach-readme-preview-3b47a81049b7.jpg",
+      "is_dual_use": false,
+      "is_hidden_gem": false,
+      "language": "Python",
+      "license": {
+        "key": "agpl-3.0",
+        "name": "GNU Affero General Public License v3.0",
+        "node_id": "MDc6TGljZW5zZTE=",
+        "spdx_id": "AGPL-3.0",
+        "url": "https://api.github.com/licenses/agpl-3.0"
+      },
+      "media_urls": [
+        "https://peach.video/assets/screenshots/home-wide-20261025-2-1280.webp",
+        "https://peach.video/assets/screenshots/profile-wide-20261025-2-1280.webp",
+        "https://peach.video/assets/screenshots/follow-wide-20261025-2-1280.webp",
+        "https://peach.video/assets/screenshots/stats-wide-20261025-3-1280.webp",
+        "https://peach.video/assets/screenshots/play-wide-20261025-2-1280.webp",
+        "https://raw.githubusercontent.com/peach-mitao/peach/star-history/star-history-light.svg",
+        "https://raw.githubusercontent.com/peach-mitao/peach/master/resources/peach-logo-128.png"
+      ],
+      "name": "peach",
+      "open_issues": 174,
+      "published_at": "2026-11-05T22:42:16.965981Z",
+      "pushed_at": "2026-11-05T14:29:22Z",
+      "readme_fp": "",
+      "repo_id": 1339970099,
+      "revisit_of": "",
+      "revisit_reason": "",
+      "score": 92.18,
+      "slot": "us_peak",
+      "sources": [
+        "github_search"
+      ],
+      "stars": 14370,
+      "telegram_chat_id": "@GitHub_Open_Source",
+      "telegram_link": "https://t.me/GitHub_Open_Source/3559",
+      "telegram_message_id": 3559,
+      "telegraph_url": "https://telegra.ph/Peach-A-Local-First-Video-Metadata-Scraper-and-Media-Manager-11-05",
+      "topics": [
+        "local-first",
+        "media-library",
+        "media-manager",
+        "python",
+        "react",
+        "self-hosted",
+        "video-player"
+      ],
+      "updated_at": "2026-11-05T22:36:17Z",
+      "url": "https://github.com/peach-mitao/peach",
+      "visual_host": "imgbb",
+      "visual_kind": "readme"
+    },
     "wangzan101/mika": {
       "articles": {},
       "card_style": "editorial_daily",
@@ -1099,68 +1210,6 @@
     }
   },
   "queue": [
-    {
-      "archived": false,
-      "contributors_count": 15,
-      "created_at": "2026-08-19T19:48:30Z",
-      "default_branch": "master",
-      "description": "Peach: Local-first video metadata scraper and media manager.",
-      "disabled": false,
-      "fork": false,
-      "forks": 1660,
-      "forks_count": 1660,
-      "full_name": "peach-mitao/peach",
-      "has_readme": true,
-      "homepage": "https://peach.video",
-      "id": 1339970099,
-      "is_dual_use": false,
-      "is_hidden_gem": false,
-      "language": "Python",
-      "license": {
-        "key": "agpl-3.0",
-        "name": "GNU Affero General Public License v3.0",
-        "node_id": "MDc6TGljZW5zZTE=",
-        "spdx_id": "AGPL-3.0",
-        "url": "https://api.github.com/licenses/agpl-3.0"
-      },
-      "media_urls": [
-        "https://peach.video/assets/screenshots/home-wide-20261025-2-1280.webp",
-        "https://peach.video/assets/screenshots/profile-wide-20261025-2-1280.webp",
-        "https://peach.video/assets/screenshots/follow-wide-20261025-2-1280.webp",
-        "https://peach.video/assets/screenshots/stats-wide-20261025-3-1280.webp",
-        "https://peach.video/assets/screenshots/play-wide-20261025-2-1280.webp",
-        "https://raw.githubusercontent.com/peach-mitao/peach/star-history/star-history-light.svg",
-        "https://raw.githubusercontent.com/peach-mitao/peach/master/resources/peach-logo-128.png"
-      ],
-      "name": "peach",
-      "non_software_reason": "",
-      "open_issues": 161,
-      "open_issues_count": 161,
-      "owner_repo_count": 1,
-      "pushed_at": "2026-11-05T11:22:23Z",
-      "readme": "",
-      "readme_excerpt": "<p align=\"center\"><img src=\"resources/peach-logo-128.png\" alt=\"Peach\" width=\"88\"></p>\n\n# Peach\n\nA local-first video metadata scraper and media manager.\n\n[Website](https://peach.video) · [Download](#download-and-use) · [Live demo](https://demo.peach.video) · [Documentation](#documentation) · [简体中文](README.zh-CN.md)\n\n[![Release](https://img.shields.io/github/v/release/peach-mitao/peach?include_prereleases&sort=semver&label=release&logo=github)](https://github.com/peach-mitao/peach/releases)\n[![CI pipelines](https://img.shields.io/github/actions/workflow/status/peach-mitao/peach/test.yml?branch=master&label=CI&logo=githubactions&logoColor=white)](https://github.com/peach-mitao/peach/actions/workflows/test.yml)\n[![License](https://img.shields.io/badge/license-AGPL--3.0--or--later-blue?logo=gnu&logoColor=white)](LICENSE)\n[![Windows x64](https://img.shields.io/badge/Windows-x64-0078D4)](docs/TESTING_DESKTOP.md)\n[![macOS DMG](https://img.shields.io/badge/macOS-DMG-555555?logo=apple&logoColor=white)](docs/OPERATIONS.md#macos-独立测试包)\n[![Age restrictions](https://img.shields.io/badge/age-18%2B-555555)](#license)\n\n## Screenshots\n\n[![Video library with search, filters and posters](https://peach",
-      "readme_len": 6174,
-      "repo_id": 1339970099,
-      "score": 92.18,
-      "source_name": "github_search",
-      "sources": [
-        "github_search"
-      ],
-      "stargazers_count": 14364,
-      "stars": 14364,
-      "topics": [
-        "local-first",
-        "media-library",
-        "media-manager",
-        "python",
-        "react",
-        "self-hosted",
-        "video-player"
-      ],
-      "updated_at": "2026-11-05T11:54:56Z",
-      "url": "https://github.com/peach-mitao/peach"
-    },
     {
       "archived": false,
       "contributors_count": 13,
@@ -4618,8 +4667,8 @@
     "peach-mitao/peach": {
       "first_seen_at": "2026-11-04T12:14:31.118577Z",
       "full_name": "peach-mitao/peach",
-      "last_decision": "queued",
-      "last_seen_at": "2026-11-05T12:27:48.440085Z",
+      "last_decision": "published",
+      "last_seen_at": "2026-11-05T22:42:16.966185Z",
       "repo_id": 1339970099,
       "sources": [
         "github_search"

@@ -52,3 +52,5 @@
 {"ts": "2026-11-05T16:55:36.798847Z", "type": "candidate_restored", "repo": "inukaasith/twindesk", "reason": "manual recovery after gemini_failed_twice", "by": "arena-agent"}
 {"preview_host": "imgbb", "repo": "inukaasith/twindesk", "ts": "2026-11-05T16:57:11.554082Z", "type": "published_as_text"}
 {"repo": "inukaasith/twindesk", "score": 92.844, "telegram_message_id": 3558, "telegraph_url": "https://telegra.ph/TwinDesk-Open-Source-Cross-Platform-KVM-and-Device-Sharing-11-05", "ts": "2026-11-05T16:57:11.554519Z", "type": "project_published"}
+{"preview_host": "imgbb", "repo": "peach-mitao/peach", "ts": "2026-11-05T22:42:16.965804Z", "type": "published_as_text"}
+{"repo": "peach-mitao/peach", "score": 92.18, "telegram_message_id": 3559, "telegraph_url": "https://telegra.ph/Peach-A-Local-First-Video-Metadata-Scraper-and-Media-Manager-11-05", "ts": "2026-11-05T22:42:16.966136Z", "type": "project_published"}
