@@ -2,8 +2,12 @@
   "dead_letters": [],
   "gemini_window": [
     [
-      1793897326.154446,
+      1793897774.2257917,
       2996
+    ],
+    [
+      1793897810.0935009,
+      1412
     ]
   ],
   "last_runs": {
@@ -45,9 +49,9 @@
       "telegram_message_id": 3555
     },
     "publish:europe_morning": {
-      "finished_at": "2026-11-04T15:23:51.643303Z",
-      "repo": "jub0t/concat",
-      "telegram_message_id": 3554
+      "finished_at": "2026-11-05T16:57:11.554608Z",
+      "repo": "inukaasith/twindesk",
+      "telegram_message_id": 3558
     },
     "publish:manual": {
       "finished_at": "2026-11-03T12:00:53.732414Z",
@@ -270,6 +274,125 @@
           "views": 94
         }
       ],
+      "visual_host": "imgbb",
+      "visual_kind": "readme"
+    },
+    "inukaasith/twindesk": {
+      "articles": {},
+      "card_style": "",
+      "category": "DevTools",
+      "contributors_count": 22,
+      "created_at": "2026-10-14T01:19:02Z",
+      "crossposts": {
+        "bluesky": {
+          "attempts": 0,
+          "due_at": "2026-11-05T18:00:00+00:00",
+          "status": "pending"
+        }
+      },
+      "description": " All your computers and your phone, working as one desk. Screens, apps, files, clipboard, calls, texts, notifications, mouse and keyboard, shared between Mac, Windows, Linux and Android. Free and open source. No account, no cloud, and now no shared network needed.",
+      "description_fp": "6cd2132ef6c157c9",
+      "forks": 273,
+      "full_name": "InukaAsith/TwinDesk",
+      "generated": {
+        "article_markdown": "## What it is\n\nTwinDesk is an open-source tool that unifies your Mac, Windows, Linux machines, and Android phones into a single workspace. Instead of maintaining separate peripherals for every machine or relying on cloud-based clipboard sync tools, it creates a direct, encrypted link between your devices over local networks, USB, or Bluetooth.\n\n## Why it matters\n\nMost developers run multiple operating systems out of necessity—a macOS laptop for daily tasks, a Linux box for backend workloads, and maybe a Windows machine or Android device nearby. Managing this setup usually means cluttering your desk with extra keyboards or dealing with clunky remote desktop clients. TwinDesk solves this by operating at the system level, allowing peripherals and data to flow freely without routing your keystrokes or files through third-party servers.\n\n## Key features\n\n- Push your mouse cursor off the edge of one screen to control an adjacent machine\n- Drag and drop files directly across device borders without intermediary storage\n- Bring active browser tabs or documents with you as you switch physical devices\n- Answer phone calls and read text messages directly from your primary desktop\n- Use a tablet or secondary laptop as an extended hardware screen\n\n## Quick start\n\nTo get started with the source repository, clone it locally:\n\n```bash\ngit clone https://github.com/InukaAsith/TwinDesk.git\n```\n\n## Who should try it\n\nThis project fits developers, system administrators, and power users who regularly split their work across different operating systems and want a cohesive physical desk setup without cloud bloat.\n\n## Verdict\n\nTwinDesk delivers a polished, account-free alternative to traditional KVM switches and proprietary device ecosystems. If you are tired of emailing files to yourself between a Mac and a PC, it is well worth installing.",
+        "article_title": "TwinDesk: Open-Source Cross-Platform KVM and Device Sharing",
+        "card_hook": "One mouse for all your computers",
+        "card_subline": "Control Mac, Windows, Linux, and Android from a single desk without cloud accounts",
+        "category": "DevTools",
+        "discussion_question": "Which operating system combination are you currently bridging with separate hardware?",
+        "hook": "Share one mouse, clipboard, and screen across Mac, Windows, Linux, and Android with TwinDesk.",
+        "key_features": [
+          "Push your mouse cursor off the edge of one screen to control an adjacent machine",
+          "Drag and drop files directly across device borders without intermediary storage",
+          "Bring active browser tabs or documents with you as you switch physical devices",
+          "Answer phone calls and read text messages directly from your primary desktop",
+          "Use a tablet or secondary laptop as an extended hardware screen"
+        ],
+        "llm_used": true,
+        "quick_start": "git clone https://github.com/InukaAsith/TwinDesk.git",
+        "safety": "ok",
+        "safety_reason": "Open-source cross-platform productivity and device-sharing utility.",
+        "scene": "You reach for your secondary machine, grab a separate keyboard and mouse, and email a quick snippet to yourself because the clipboards do not talk to each other.",
+        "social_text": "Control Mac, Windows, Linux, and Android with one mouse and shared clipboard using TwinDesk.",
+        "summary": "TwinDesk bridges disparate operating systems by combining a native Rust input forwarding layer over UDP with a parallel file transfer engine. It establishes direct end-to-end encrypted device links via local Wi-Fi, USB, or Bluetooth without routing through external servers. The architecture turns heterogeneous hardware into peer nodes that share clipboards, screens, and cameras natively.",
+        "surfaces": {
+          "Facebook_body": "If you have a desk cluttered with different laptops, tablets, and phones, you know the frustration of constantly switching between keyboards and mice. It breaks your focus and wastes time. There is a better way to manage your workspace that turns all your devices into a single, unified system.\n\nThis tool allows you to move your mouse cursor off the edge of one screen and directly onto another, even if the devices are running completely different operating systems. You can copy text on your phone and paste it onto your desktop, or drag files directly from a laptop to a tablet without needing to email them to yourself or use a cloud drive.\n\nIt works by creating a direct, private connection between your devices over your local network. Because it does not rely on external servers or cloud accounts, your data stays on your own hardware. It is designed for anyone who juggles multiple devices throughout the day and wants a seamless experience where your phone, tablet, and computer act like one cohesive machine.",
+          "Facebook_headline": "Use one mouse and keyboard for all your devices",
+          "Facebook_lead": "Stop switching between different keyboards and mice. This tool lets you control your phone, laptop, and desktop as if they were one single computer.",
+          "bluesky_headline": "Control all your computers with one mouse and keyboard",
+          "bluesky_lead": "Move your cursor across screens, share clipboards, and drag files between Mac, Windows, Linux, and Android.",
+          "devto_body": "## What it is\nTwinDesk is an open-source utility designed to unify your multi-device workflow. It acts as a cross-platform bridge, allowing you to share your mouse, keyboard, clipboard, and even screen space across Windows, macOS, Linux, and Android devices. Unlike cloud-based solutions, TwinDesk operates entirely over your local network, ensuring your data remains private and latency stays low.\n\n## How it works\nTwinDesk utilizes a native Rust input forwarding layer to handle low-latency mouse and keyboard events, paired with a parallel file transfer engine. It establishes peer-to-peer connections via local Wi-Fi, USB, or Bluetooth. By bypassing external servers, it creates a direct, end-to-end encrypted link between your hardware nodes.\n\n## Key features\n- **Seamless Input:** Move your cursor across device borders to control adjacent machines.\n- **Unified Clipboard:** Copy and paste text or files across different operating systems.\n- **Drag and Drop:** Move files directly between devices without intermediary storage.\n- **Hardware Integration:** Use tablets or secondary laptops as extended screens.\n- **Mobile Sync:** View notifications, texts, and calls directly on your primary desktop.\n\n## Getting started\nTwinDesk is built with JavaScript and Rust. To get started, you will need to clone the repository from GitHub and ensure your devices are discoverable on the same local network.\n\n`git clone https://github.com/InukaAsith/TwinDesk`\n\nFollow the build instructions in the README to compile the binaries for your specific OS. Ensure your firewall settings allow local peer-to-peer traffic, as this is required for the devices to handshake.\n\n## When not to use it\nTwinDesk requires a stable local network environment. If you are in a highly restricted network environment (like a corporate office with strict VLAN isolation or client isolation enabled on Wi-Fi), you may face significant connectivity issues. Additionally, while it supports Android, the experience is optimized for desktop-to-desktop workflows; heavy mobile usage may require specific configuration adjustments.",
+          "seo_description": "Use one mouse and keyboard across Mac, Windows, Linux, and Android. TwinDesk is an open-source tool for sharing clipboards and files between devices.",
+          "seo_query": "how to use one mouse for multiple computers",
+          "seo_title": "Control multiple computers with one mouse - TwinDesk",
+          "telegraph_angle": "Focus on the shift toward local-first, peer-to-peer device networking and the trade-offs of managing your own cross-platform KVM infrastructure."
+        },
+        "tension": "Juggling multiple computers wastes desk space, fragments your workflow across isolated clipboards, and forces constant context switching.",
+        "turn": "TwinDesk links your machines into a single desk with shared peripherals and zero cloud dependency, though hardware video streaming requires decent local connectivity.",
+        "verdict": "An essential utility for anyone running a multi-OS desk, provided you can accept local network setup.",
+        "who_for": "Developers and power users juggling multiple operating systems and devices daily.",
+        "why_now": "Local device-to-device networking standards and native Rust input pipelines have finally made cross-platform KVM setups reliable without cloud infrastructure."
+      },
+      "homepage": "https://twin-desk.vercel.app",
+      "id": 1418204810,
+      "image_url": "https://i.ibb.co/S4mnRnBk/inukaasith-twindesk-readme-preview-e28a213566bb.jpg",
+      "is_dual_use": false,
+      "is_hidden_gem": false,
+      "language": "JavaScript",
+      "license": {
+        "key": "gpl-3.0",
+        "name": "GNU General Public License v3.0",
+        "node_id": "MDc6TGljZW5zZTk=",
+        "spdx_id": "GPL-3.0",
+        "url": "https://api.github.com/licenses/gpl-3.0"
+      },
+      "media_urls": [
+        "https://raw.githubusercontent.com/InukaAsith/TwinDesk/main/.github/assets/v25-overview-pc.gif",
+        "https://raw.githubusercontent.com/InukaAsith/TwinDesk/main/.github/assets/v25-overview-phone.gif",
+        "https://raw.githubusercontent.com/InukaAsith/TwinDesk/main/.github/assets/v25-hero-desks.jpg",
+        "https://raw.githubusercontent.com/InukaAsith/TwinDesk/main/.github/assets/v25-hero.jpg",
+        "https://raw.githubusercontent.com/InukaAsith/TwinDesk/main/.github/assets/v25-banner.jpg",
+        "https://raw.githubusercontent.com/InukaAsith/TwinDesk/main/.github/assets/mac-screen-window.jpg",
+        "https://raw.githubusercontent.com/InukaAsith/TwinDesk/main/.github/assets/second-screen.jpg",
+        "https://raw.githubusercontent.com/InukaAsith/TwinDesk/main/.github/assets/v25-rezume.jpg"
+      ],
+      "name": "TwinDesk",
+      "open_issues": 13,
+      "published_at": "2026-11-05T16:57:11.554261Z",
+      "pushed_at": "2026-11-05T14:07:26Z",
+      "readme_fp": "d078ad0d05dcd85f",
+      "repo_id": 1418204810,
+      "revisit_of": "",
+      "revisit_reason": "",
+      "score": 92.844,
+      "slot": "europe_morning",
+      "sources": [
+        "github_search"
+      ],
+      "stars": 3494,
+      "telegram_chat_id": "@GitHub_Open_Source",
+      "telegram_link": "https://t.me/GitHub_Open_Source/3558",
+      "telegram_message_id": 3558,
+      "telegraph_url": "https://telegra.ph/TwinDesk-Open-Source-Cross-Platform-KVM-and-Device-Sharing-11-05",
+      "topics": [
+        "android",
+        "connect",
+        "electron",
+        "kde-connect-alternative",
+        "kvm",
+        "linux",
+        "macbook",
+        "macos",
+        "mouse-sharing",
+        "phone-link-alternative",
+        "productivity",
+        "screen-sharing",
+        "synergy-alternative",
+        "windows"
+      ],
+      "updated_at": "2026-11-05T16:43:30Z",
+      "url": "https://github.com/InukaAsith/TwinDesk",
       "visual_host": "imgbb",
       "visual_kind": "readme"
     },
@@ -976,76 +1099,6 @@
     }
   },
   "queue": [
-    {
-      "archived": false,
-      "contributors_count": 22,
-      "created_at": "2026-10-14T01:19:02Z",
-      "default_branch": "main",
-      "description": " All your computers and your phone, working as one desk. Screens, apps, files, clipboard, calls, texts, notifications, mouse and keyboard, shared between Mac, Windows, Linux and Android. Free and open source. No account, no cloud, and now no shared network needed.",
-      "disabled": false,
-      "fork": false,
-      "forks": 270,
-      "forks_count": 270,
-      "full_name": "InukaAsith/TwinDesk",
-      "has_readme": true,
-      "homepage": "https://twin-desk.vercel.app",
-      "id": 1418204810,
-      "is_dual_use": false,
-      "is_hidden_gem": false,
-      "language": "JavaScript",
-      "license": {
-        "key": "gpl-3.0",
-        "name": "GNU General Public License v3.0",
-        "node_id": "MDc6TGljZW5zZTk=",
-        "spdx_id": "GPL-3.0",
-        "url": "https://api.github.com/licenses/gpl-3.0"
-      },
-      "media_urls": [
-        "https://raw.githubusercontent.com/InukaAsith/TwinDesk/main/.github/assets/v25-overview-pc.gif",
-        "https://raw.githubusercontent.com/InukaAsith/TwinDesk/main/.github/assets/v25-overview-phone.gif",
-        "https://raw.githubusercontent.com/InukaAsith/TwinDesk/main/.github/assets/v25-hero-desks.jpg",
-        "https://raw.githubusercontent.com/InukaAsith/TwinDesk/main/.github/assets/v25-hero.jpg",
-        "https://raw.githubusercontent.com/InukaAsith/TwinDesk/main/.github/assets/v25-banner.jpg",
-        "https://raw.githubusercontent.com/InukaAsith/TwinDesk/main/.github/assets/mac-screen-window.jpg",
-        "https://raw.githubusercontent.com/InukaAsith/TwinDesk/main/.github/assets/second-screen.jpg",
-        "https://raw.githubusercontent.com/InukaAsith/TwinDesk/main/.github/assets/v25-rezume.jpg"
-      ],
-      "name": "TwinDesk",
-      "non_software_reason": "",
-      "open_issues": 12,
-      "open_issues_count": 12,
-      "owner_repo_count": 1,
-      "pushed_at": "2026-11-05T10:22:44Z",
-      "readme": "",
-      "readme_excerpt": "<p align=\"center\">\n  <img src=\".github/assets/icon.png\" width=\"112\" alt=\"TwinDesk icon\">\n</p>\n\n<h1 align=\"center\"><a href=\"https://twin-desk.vercel.app\">TwinDesk</a></h1>\n\n<p align=\"center\">\n  <b>Your Mac, your PC, your Linux box and your Android phone, working as one desk.</b><br>\n  One mouse and keyboard for all of them. Their screens, apps, files, clipboard, cameras, calls and texts, shared.<br>\n  Free and open source. No account, no cloud, no shared network needed.\n</p>\n\n<p align=\"center\">\n  <a href=\"#download\"><b>⬇️ Download 2.5</b></a> ·\n  <a href=\"https://twin-desk.vercel.app\"><b>Website</b></a> ·\n  <a href=\"#new-in-25\"><b>What's new</b></a> ·\n  <a href=\"#what-it-does\"><b>What it does</b></a> ·\n  <a href=\"#get-started\"><b>Get started</b></a>\n</p>\n\n<p align=\"center\">\n  <img alt=\"Version\" src=\"https://img.shields.io/github/v/release/InukaAsith/TwinDesk?label=version&color=4b8bff\">\n  <img alt=\"macOS 13+\" src=\"https://img.shields.io/badge/macOS-13%2B-black\">\n  <img alt=\"Windows 10/11\" src=\"https://img.shields.io/badge/Windows-10%20%7C%2011-0078d4\">\n  <img alt=\"Linux X11 and Wayland\" src=\"https://img.shields.io/badge/Linux-X11%20%7C%20Wayland-f0a30a\">\n  <img alt=\"Android 10+\" src",
-      "readme_len": 48909,
-      "repo_id": 1418204810,
-      "score": 92.844,
-      "source_name": "github_search",
-      "sources": [
-        "github_search"
-      ],
-      "stargazers_count": 3470,
-      "stars": 3470,
-      "topics": [
-        "android",
-        "connect",
-        "electron",
-        "kde-connect-alternative",
-        "kvm",
-        "linux",
-        "macbook",
-        "macos",
-        "mouse-sharing",
-        "phone-link-alternative",
-        "productivity",
-        "screen-sharing",
-        "synergy-alternative",
-        "windows"
-      ],
-      "updated_at": "2026-11-05T12:23:10Z",
-      "url": "https://github.com/InukaAsith/TwinDesk"
-    },
     {
       "archived": false,
       "contributors_count": 15,
@@ -3816,8 +3869,8 @@
     "inukaasith/twindesk": {
       "first_seen_at": "2026-11-05T12:27:48.441125Z",
       "full_name": "InukaAsith/TwinDesk",
-      "last_decision": "gemini_failed_twice",
-      "last_seen_at": "2026-11-05T16:48:47.515016Z",
+      "last_decision": "published",
+      "last_seen_at": "2026-11-05T16:57:11.554595Z",
       "repo_id": 1418204810,
       "sources": [
         "github_search"
