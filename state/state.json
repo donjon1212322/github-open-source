@@ -63,7 +63,14 @@
       "repo": "peach-mitao/peach",
       "telegram_message_id": 3559
     },
-    "telegram_update_offset": 165231068
+    "telegram_update_offset": 165231068,
+    "watchdog_dispatches": {
+      "2026-11-05:publish:europe_midday": {
+        "at": "2026-11-05T23:44:21.924953Z",
+        "detail": "HTTP 204",
+        "ok": true
+      }
+    }
   },
   "news_topics": [
     {
