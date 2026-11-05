@@ -248,15 +248,20 @@
       ],
       "updated_at": "2026-11-03T19:43:33Z",
       "url": "https://github.com/horizon-rust/horizon",
-      "value_score": 100.0,
-      "views": 42,
-      "views_age_hours": 5.0,
-      "views_at_24h": 101,
+      "value_score": 64.29,
+      "views": 94,
+      "views_age_hours": 29.2,
+      "views_at_24h": 87,
       "views_history": [
         {
           "at": "2026-11-04T00:42:57.590427Z",
           "reactions": 0,
           "views": 42
+        },
+        {
+          "at": "2026-11-05T00:56:50.102114Z",
+          "reactions": 0,
+          "views": 94
         }
       ],
       "visual_host": "imgbb",
@@ -356,6 +361,7 @@
       "open_issues": 222,
       "published_at": "2026-11-04T15:23:51.643039Z",
       "pushed_at": "2026-11-04T15:17:50Z",
+      "reactions": 0,
       "readme_fp": "",
       "repo_id": 1346499044,
       "revisit_of": "",
@@ -389,6 +395,17 @@
       ],
       "updated_at": "2026-11-04T15:18:02Z",
       "url": "https://github.com/jub0t/Concat",
+      "value_score": 100.0,
+      "views": 62,
+      "views_age_hours": 9.5,
+      "views_at_24h": 111,
+      "views_history": [
+        {
+          "at": "2026-11-05T00:56:49.363275Z",
+          "reactions": 0,
+          "views": 62
+        }
+      ],
       "visual_host": "imgbb",
       "visual_kind": "readme"
     },
@@ -529,10 +546,10 @@
       ],
       "updated_at": "2026-11-03T11:23:33Z",
       "url": "https://github.com/kajisho5/ffmpeg-skill",
-      "value_score": 100.0,
-      "views": 73,
-      "views_age_hours": 12.7,
-      "views_at_24h": 110,
+      "value_score": 58.6,
+      "views": 104,
+      "views_age_hours": 36.9,
+      "views_at_24h": 86,
       "views_history": [
         {
           "at": "2026-11-03T12:53:47.548432Z",
@@ -548,6 +565,11 @@
           "at": "2026-11-04T00:42:58.059219Z",
           "reactions": 0,
           "views": 73
+        },
+        {
+          "at": "2026-11-05T00:56:50.460137Z",
+          "reactions": 0,
+          "views": 104
         }
       ],
       "visual_host": "imgbb",
@@ -635,6 +657,7 @@
       "open_issues": 128,
       "published_at": "2026-11-04T19:59:51.256464Z",
       "pushed_at": "2026-11-04T19:50:03Z",
+      "reactions": 0,
       "readme_fp": "173eb3cc35f9f33b",
       "repo_id": 1396526702,
       "revisit_of": "",
@@ -673,6 +696,17 @@
       ],
       "updated_at": "2026-11-04T19:56:57Z",
       "url": "https://github.com/KnifeLemon/Filee",
+      "value_score": 100.0,
+      "views": 40,
+      "views_age_hours": 4.9,
+      "views_at_24h": 97,
+      "views_history": [
+        {
+          "at": "2026-11-05T00:56:48.997335Z",
+          "reactions": 0,
+          "views": 40
+        }
+      ],
       "visual_host": "imgbb",
       "visual_kind": "readme"
     },
@@ -760,6 +794,7 @@
       "open_issues": 15,
       "published_at": "2026-11-04T22:38:32.426847Z",
       "pushed_at": "2026-11-01T10:57:54Z",
+      "reactions": 0,
       "readme_fp": "426833a12a63552c",
       "repo_id": 1354310030,
       "revisit_of": "",
@@ -786,6 +821,17 @@
       ],
       "updated_at": "2026-11-04T20:14:38Z",
       "url": "https://github.com/lnkiai/m3e-canvas",
+      "value_score": 90.6,
+      "views": 15,
+      "views_age_hours": 2.3,
+      "views_at_24h": 54,
+      "views_history": [
+        {
+          "at": "2026-11-05T00:56:48.619443Z",
+          "reactions": 0,
+          "views": 15
+        }
+      ],
       "visual_host": "imgbb",
       "visual_kind": "readme"
     },
@@ -902,15 +948,20 @@
       ],
       "updated_at": "2026-11-03T22:10:24Z",
       "url": "https://github.com/wangzan101/Mika",
-      "value_score": 100.0,
-      "views": 18,
-      "views_age_hours": 2.4,
-      "views_at_24h": 64,
+      "value_score": 78.45,
+      "views": 85,
+      "views_age_hours": 26.6,
+      "views_at_24h": 82,
       "views_history": [
         {
           "at": "2026-11-04T00:42:57.114837Z",
           "reactions": 0,
           "views": 18
+        },
+        {
+          "at": "2026-11-05T00:56:49.727165Z",
+          "reactions": 0,
+          "views": 85
         }
       ],
       "visual_host": "opengraph",
