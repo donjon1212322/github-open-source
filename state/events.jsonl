@@ -44,3 +44,4 @@
 {"Gemini_video_input": true, "models": 12, "official_url": "", "stories": 5, "topic": "ai-model-updates-november-2026", "ts": "2026-11-05T00:23:24.819166Z", "type": "ai_brief_published", "video_id": "FQABKeCe1jM"}
 {"channel": "GitHub_Open_Source", "posts": 6, "ts": "2026-11-05T00:56:50.460451Z", "type": "metrics_collected", "updated": 6}
 {"deleted": 0, "ts": "2026-11-05T01:48:24.441860Z", "type": "moderation_completed", "updates": 0}
+{"deleted": 0, "ts": "2026-11-05T11:29:51.612934Z", "type": "moderation_completed", "updates": 0}
