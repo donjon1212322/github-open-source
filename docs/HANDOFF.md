@@ -67,7 +67,7 @@ ghos-v6 learn               # пересчитать модель ценност
 ghos-v6 facebook-handoff    # строка в Google Sheet для make.com
 ghos-v6 moderation          # удалить спам из обсуждений
 ghos-v6 sources             # показать проверенные источники
-ghos-v6 scheduled --schedule "10 7 * * *"   # маршрутизация по крону
+ghos-v6 scheduled --schedule "13 7 * * *"   # маршрутизация по крону
 ```
 
 Локально: `PYTHONPATH=src python3 -m ghos_v6.cli doctor`.

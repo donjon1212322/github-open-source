@@ -531,9 +531,24 @@ def test_transient_model_errors_are_retried_and_permanent_ones_are_not():
             raise HttpError(503, "high demand")
         return "ok"
 
-    assert generate_with_backoff(flaky, sleep=waits.append) == "ok"
+    assert generate_with_backoff(flaky, attempts=3, base_delay=20.0,
+                                 sleep=waits.append,
+                                 jitter=lambda lo, hi: 1.0) == "ok"
     assert calls["n"] == 3
     assert waits == [20.0, 40.0]  # linear backoff, not a tight loop
+
+    # Production default: 2 attempts, >=65 s apart, so the retry lands in a
+    # different rolling TPM minute.
+    waits2: list[float] = []
+    calls["n"] = 0
+    def flaky2():
+        calls["n"] += 1
+        if calls["n"] < 2:
+            raise HttpError(503, "high demand")
+        return "ok"
+    assert generate_with_backoff(flaky2, sleep=waits2.append,
+                                 jitter=lambda lo, hi: 1.0) == "ok"
+    assert calls["n"] == 2 and waits2 == [65.0]
 
     def broken():
         raise HttpError(400, "bad request")
@@ -594,7 +609,7 @@ def test_every_cron_in_the_workflow_has_a_route_in_the_code():
     missing = crons - routed
     assert not missing, f"cron without a route in cli.py: {sorted(missing)}"
     # the daily brief specifically
-    assert "15 19 * * *" in crons and "15 19 * * *" in routed
+    assert "18 19 * * *" in crons and "18 19 * * *" in routed
 
 
 def test_brief_filters_take_reviews_and_launches_but_reject_gossip():

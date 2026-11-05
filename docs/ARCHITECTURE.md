@@ -33,7 +33,7 @@ Telegram web ────┤  → merge_candidate() (дедуп по repo)  │
                         state.json → queue (кап 40)
 ```
 
-Каждый день в 04:20 UTC очередь пополняется. Дальше три раза в день
+Каждый день в 04:23 UTC очередь пополняется. Дальше три раза в день
 `publish_slot` берёт верхний проект.
 
 ---
@@ -153,7 +153,7 @@ make.com. Прямого Graph API в v6 нет.
 
 ## AI Brief
 
-`pipeline.news_command()`, ежедневно 16:10 UTC.
+`pipeline.news_command()`, ежедневно 19:18 UTC / 22:18 по Минску.
 
 ```
 1. fetch_worldofai_entries()      RSS канала WorldofAI

@@ -30,6 +30,7 @@ from .pipeline import (
     unseries_articles,
 )
 from .state import StateStore
+from .watchdog import watchdog_command
 
 
 def _parser() -> argparse.ArgumentParser:
@@ -86,6 +87,7 @@ def _parser() -> argparse.ArgumentParser:
     cleanup.add_argument("--confirm", action="store_true", help="actually delete")
     cleanup.add_argument("--dry-run", action="store_true", help="list what would be deleted")
 
+    sub.add_parser("watchdog", help="Recover missed scheduled slots idempotently")
     scheduled = sub.add_parser("scheduled", help="Dispatch by the GitHub cron string")
     scheduled.add_argument("--schedule", required=True)
     return parser
@@ -94,29 +96,29 @@ def _parser() -> argparse.ArgumentParser:
 def _run_scheduled(config: Config, store: StateStore, schedule: str) -> dict[str, Any]:
     normalized = " ".join(schedule.split())
     routes: dict[str, Any] = {
-        "20 4 * * *": lambda: collect_command(config, store, extra_pages=[1, 2]),
+        "23 4 * * *": lambda: collect_command(config, store, extra_pages=[1, 2]),
         # Three posts a day (owner decision): morning EU, evening EU, US peak.
-        "10 7 * * *": lambda: publish_slot(config, store, "europe_morning"),
-        "40 12 * * *": lambda: publish_slot(config, store, "europe_midday"),
-        "15 17 * * *": lambda: publish_slot(config, store, "us_peak"),
-        "5,35 * * * *": lambda: process_crossposts(config, store),
-        "30 13 * * *": lambda: article_of_day(config, store),
+        "13 7 * * *": lambda: publish_slot(config, store, "europe_morning"),
+        "43 12 * * *": lambda: publish_slot(config, store, "europe_midday"),
+        "18 17 * * *": lambda: publish_slot(config, store, "us_peak"),
+        "17 0,18,19,20,21,22,23 * * *": lambda: process_crossposts(config, store),
+        "33 13 * * *": lambda: article_of_day(config, store),
         # Daily since 2026-11-02: the video brief is a format with its own
         # slot, after the last project post, when the day's videos are out.
-        "15 19 * * *": lambda: news_command(config, store),
+        "18 19 * * *": lambda: news_command(config, store),
         # Weekly cycle: digest + poll on Sunday, poll closed on Thursday,
         # metrics every evening, learning after closing.
-        "10 16 * * 0": lambda: digest_command(config, store),
-        # "50 18 * * 4" is handled by ``pairs`` below (close + learn).
-        "20 20 * * *": lambda: metrics_command(config, store),
-        "40 16 * * 0": lambda: report_command(config, store),
-        "45 */3 * * *": lambda: moderation_command(config, store),
-        "20 18 * * *": lambda: facebook_handoff_command(config, store),
+        "13 16 * * 0": lambda: digest_command(config, store),
+        # "53 18 * * 4" is handled by ``pairs`` below (close + learn).
+        "23 20 * * *": lambda: metrics_command(config, store),
+        "43 16 * * 0": lambda: report_command(config, store),
+        "47 */3 * * *": lambda: moderation_command(config, store),
+        "23 18 * * *": lambda: facebook_handoff_command(config, store),
     }
     # Some crons must run two commands in order (close the poll, then learn
     # from the fresh tallies). Keeping them on one cron avoids a race where
     # ``learn`` reads a poll that has not been closed yet.
-    pairs = {"50 18 * * 4": (close_poll_command, learn_command)}
+    pairs = {"53 18 * * 4": (close_poll_command, learn_command)}
     if normalized in pairs:
         results = [dict(func(config, store)) for func in pairs[normalized]]
         return {"ok": all(r.get("ok", True) for r in results), "steps": results}
@@ -175,6 +177,8 @@ def main(argv: list[str] | None = None) -> int:
             result = facebook_handoff_command(config, store, limit=args.limit)
         elif args.command == "moderation":
             result = moderation_command(config, store)
+        elif args.command == "watchdog":
+            result = watchdog_command(config, store)
         elif args.command == "cleanup":
             result = cleanup_test_posts(
                 config,

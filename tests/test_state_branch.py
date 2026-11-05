@@ -10,6 +10,7 @@ from __future__ import annotations
 import base64
 import importlib.util
 import json
+from datetime import datetime, timedelta, timezone
 import sys
 from pathlib import Path
 
@@ -44,14 +45,16 @@ class FakeAPI:
                  events_bytes: bytes | None = b"event\n",
                  main_state: bytes | None | object = _USE_DEFAULT,
                  conflict_once: bool = False,
-                 date: str = "2026-11-03T12:00:00Z") -> None:
+                 date: str | None = None) -> None:
         self.state_bytes = _state() if state_bytes is _USE_DEFAULT else state_bytes
         self.events_bytes = events_bytes
         self.main_state = (
             json.dumps(sb.BOOTSTRAP).encode() if main_state is _USE_DEFAULT else main_state
         )
         self.conflict_once = conflict_once
-        self.date = date
+        self.date = date or (
+            datetime.now(timezone.utc) - timedelta(hours=1)
+        ).isoformat().replace("+00:00", "Z")
         self.calls: list[tuple[str, str, dict | None]] = []
         self._ref_conflicts = 0
 

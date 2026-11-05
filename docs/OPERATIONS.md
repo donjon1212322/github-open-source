@@ -215,14 +215,14 @@ python tools/state_branch.py status                        # размер, св�
 
 | Cron | Команда |
 |---|---|
-| `20 4 * * *` | collect |
-| `10 7 * * *`, `40 12 * * *`, `15 17 * * *` | publish (3 поста в день) |
-| `5,35 * * * *` | crossposts |
-| `30 13 * * *` | article of the day |
+| `23 4 * * *` | collect |
+| `13 7 * * *`, `43 12 * * *`, `18 17 * * *` | publish (3 поста в день) |
+| `17 0,18,19,20,21,22,23 * * *` | crossposts |
+| `33 13 * * *` | article of the day |
 | `10 19 * * *` | AI Brief |
-| `45 */3 * * *` | moderation |
-| `20 18 * * *` | Facebook handoff (make.com) |
-| `10 16 * * 0`, `50 18 * * 4`, `20 20 * * *`, `40 16 * * 0` | digest / poll / metrics / report |
+| `47 */3 * * *` | moderation |
+| `23 18 * * *` | Facebook handoff (make.com) |
+| `13 16 * * 0`, `53 18 * * 4`, `23 20 * * *`, `43 16 * * 0` | digest / poll / metrics / report |
 
 Перед запуском `run` делает `python tools/state_branch.py read`: отложенный
 запуск видит свежий state с ветки `state`, хотя `main` чекаутится на

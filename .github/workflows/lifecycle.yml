@@ -10,7 +10,7 @@ name: Lifecycle guard
 # into one parentless commit. This keeps that branch's history bounded forever.
 on:
   schedule:
-    - cron: "17 6 * * 1"
+    - cron: "19 6 * * 1"
   workflow_dispatch:
 
 permissions:

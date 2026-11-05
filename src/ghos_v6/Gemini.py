@@ -5,6 +5,8 @@ README content is explicitly framed as untrusted data.
 """
 from __future__ import annotations
 
+import random
+
 import html
 import json
 import logging
@@ -13,6 +15,7 @@ import time
 from typing import Any
 
 from .http import HttpError, request_json, sanitize
+from .rate_limit import estimate_tokens
 
 logger = logging.getLogger(__name__)
 
@@ -149,14 +152,24 @@ def is_transient_error(exc: BaseException) -> bool:
     return status in TRANSIENT_STATUS
 
 
-def generate_with_backoff(call, *, attempts: int = 3, base_delay: float = 20.0, sleep=time.sleep):
+def classify_error(exc: BaseException) -> str:
+    """Separate quota exhaustion (429) from model capacity (503)."""
+    text = str(exc).lower()
+    status = getattr(exc, "status", None) or getattr(exc, "status_code", None)
+    if status == 429 or any(m in text for m in ("quota", "resource exhausted", "rate limit")):
+        return "quota_429"
+    if status == 503 or any(m in text for m in ("high demand", "overloaded", "unavailable")):
+        return "capacity_503"
+    return "other"
+
+
+def generate_with_backoff(call, *, attempts: int = 2, base_delay: float = 65.0,
+                          sleep=time.sleep, jitter=random.uniform):
     """Run ``call`` and retry only on transient model errors.
 
-    Measured in one session: two independent quota errors and one
-    "experiencing high demand" burst of 3 failures. Without this, a slot
-    would silently fall back to the deterministic text — a weaker post
-    published at the scheduled minute, which is worse than a slightly
-    late good one.
+    Two attempts, >=65 s apart with jitter: a retry must land in a *different*
+    rolling TPM minute, otherwise the retry just re-hits the same exhausted
+    window. Three tight attempts at +20/+40 s caused the 05.11 incident.
     """
     last: BaseException | None = None
     for attempt in range(1, attempts + 1):
@@ -166,7 +179,7 @@ def generate_with_backoff(call, *, attempts: int = 3, base_delay: float = 20.0, 
             last = exc
             if not is_transient_error(exc) or attempt == attempts:
                 raise
-            sleep(base_delay * attempt)
+            sleep(base_delay * attempt * jitter(0.90, 1.15))
     assert last is not None
     raise last
 
@@ -199,7 +212,7 @@ def _clean_markdown(text: str, limit: int) -> str:
 MARKDOWN_SURFACE_KEYS = frozenset({"devto_body", "Facebook_body"})
 
 
-def _readme_for_prompt(readme: str, limit: int = 10_000) -> str:
+def _readme_for_prompt(readme: str, limit: int = 6_000) -> str:
     text = re.sub(r"<!--.*?-->", "", readme or "", flags=re.S)
     text = re.sub(r"!\[[^\]]*\]\([^)]*\)", "", text)
     # A README must not be able to close the data block and address the model.
@@ -231,8 +244,10 @@ def _clip_sentence(text: Any, limit: int) -> str:
 
 
 class GeminiClient:
-    def __init__(self, api_key: str, model: str = "gemini-3.5-flash-lite"):
+    def __init__(self, api_key: str, model: str = "gemini-3.5-flash-lite",
+                 budget: Any | None = None):
         self.api_key = api_key.strip()
+        self.budget = budget
         self.model = model.strip().lower().removeprefix("models/")
 
     @property
@@ -264,6 +279,8 @@ class GeminiClient:
     ) -> dict[str, Any]:
         if not self.configured:
             raise RuntimeError("GEMINI_API_KEY is not set")
+        if self.budget is not None:
+            self.budget.acquire(estimate_tokens(prompt, youtube_url), heavy=bool(youtube_url))
         parts: list[dict[str, Any]] = []
         if youtube_url:
             parts.append({"file_data": {"file_uri": youtube_url}})
@@ -289,8 +306,7 @@ class GeminiClient:
             headers={"x-goog-api-key": self.api_key},
             json_body=body,
             timeout=90,
-            retries=1,
-            retry_post=True,
+            retries=0,
         )
         if status == 400 and schema:
             # Some preview models reject a schema or thinking dialect.
@@ -801,8 +817,12 @@ def generate_project_content(
             # published on time is worse than the good one a minute later.
             base = generate_with_backoff(lambda: client.generate_project(candidate))
         except Exception as exc:  # noqa: BLE001 - editorial fallback must keep slot alive
-            logger.warning("Gemini project generation failed; using fallback: %s", sanitize(str(exc))[:300])
-            return deterministic_project_content(candidate)
+            klass = classify_error(exc)
+            logger.warning("[gemini_%s] project generation failed; using fallback: %s",
+                           klass, sanitize(str(exc))[:300])
+            fallback = deterministic_project_content(candidate)
+            fallback["error_class"] = klass
+            return fallback
         try:
             surfaces = generate_with_backoff(lambda: client.generate_surfaces(candidate, base), attempts=2)
         except Exception as exc:  # noqa: BLE001 - per-surface copy must not kill a slot

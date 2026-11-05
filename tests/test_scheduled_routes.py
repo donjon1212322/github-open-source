@@ -46,7 +46,7 @@ def test_thursday_cron_closes_poll_and_updates_value_model(monkeypatch, tmp_path
     monkeypatch.setattr(cli, "close_poll_command", close)
     monkeypatch.setattr(cli, "learn_command", learn)
 
-    result = cli._run_scheduled(Config(), StateStore(tmp_path), "50 18 * * 4")
+    result = cli._run_scheduled(Config(), StateStore(tmp_path), "53 18 * * 4")
     assert calls == ["close", "learn"]
     assert result["ok"] is True
     assert len(result["steps"]) == 2

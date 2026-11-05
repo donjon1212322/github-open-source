@@ -41,21 +41,22 @@ on:
         default: ""
   schedule:
     # Three posts a day (owner decision, 2026-11-01).
-    - cron: "20 4 * * *"     # collect
-    - cron: "10 7 * * *"     # publish · Europe morning
-    - cron: "40 12 * * *"    # publish · Europe midday
-    - cron: "15 17 * * *"    # publish · US peak
+    # Off-minute crons: GitHub delays/drops schedules at :00/:15/:30/:45.
+    - cron: "23 4 * * *"     # collect
+    - cron: "13 7 * * *"     # publish · Europe morning
+    - cron: "43 12 * * *"    # publish · Europe midday
+    - cron: "18 17 * * *"    # publish · US peak
     # Weekly cycle: digest + poll on Sunday, close + learn on Thursday.
-    - cron: "10 16 * * 0"    # Sunday digest + week poll
-    - cron: "50 18 * * 4"    # close poll, update value model (after crossposts/handoff)
-    - cron: "20 20 * * *"    # daily views snapshot
-    - cron: "40 16 * * 0"    # weekly owner report
+    - cron: "13 16 * * 0"    # Sunday digest + week poll
+    - cron: "53 18 * * 4"    # close poll, update value model (after crossposts/handoff)
+    - cron: "23 20 * * *"    # daily views snapshot
+    - cron: "43 16 * * 0"    # weekly owner report
     # Continuous housekeeping.
-    - cron: "5,35 * * * *"   # crossposts (avoids the :00/:30 article slot)
-    - cron: "30 13 * * *"    # article of the day
-    - cron: "15 19 * * *"    # AI Brief · daily, after the last project slot
-    - cron: "45 */3 * * *"   # moderation · every 3h
-    - cron: "20 18 * * *"    # Facebook handoff (make.com), after the last project slot
+    - cron: "17 0,18,19,20,21,22,23 * * *"   # crossposts: 7 checks after the last project slot (was 48/day)
+    - cron: "33 13 * * *"    # article of the day
+    - cron: "18 19 * * *"    # AI Brief · daily, after the last project slot
+    - cron: "47 */3 * * *"   # moderation · every 3h
+    - cron: "23 18 * * *"    # Facebook handoff (make.com), after the last project slot
 
 permissions:
   contents: read

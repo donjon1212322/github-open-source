@@ -20,6 +20,7 @@ from .content_adapters import build_crosspost_text, image_alt_text, public_teleg
 from .formatter import format_project_post
 from .gate import GateConfig, evaluate
 from .Gemini import GeminiClient, generate_project_content
+from .rate_limit import GeminiBudget
 from .http import download_bytes, sanitize
 from .media import choose_visual
 from .media_host import ImgBBMediaHost
@@ -365,7 +366,7 @@ def publish_slot(config: Config, store: StateStore, slot: str = "manual") -> dic
         collect_command(config, store)
 
     telegram = TelegramClient(config.telegram_bot_token)
-    Gemini = GeminiClient(config.Gemini_api_key, config.Gemini_model)
+    Gemini = GeminiClient(config.Gemini_api_key, config.Gemini_model, budget=GeminiBudget(store))
     api = GitHubApi(config.GitHub_token)
     gate_cfg = GateConfig()
     # One Gemini call per published post, never per queued candidate: the
@@ -391,7 +392,7 @@ def publish_slot(config: Config, store: StateStore, slot: str = "manual") -> dic
         key = store.repo_key(candidate)
         try:
             candidate = enrich_candidate(api, dict(candidate), force=True)
-            candidate["readme"] = str(candidate.get("readme") or "")[:20_000]
+            candidate["readme"] = str(candidate.get("readme") or "")[:6_000]
         except Exception as exc:  # noqa: BLE001
             logger.warning("Selected candidate refresh failed for %s: %s", key, type(exc).__name__)
 
@@ -444,7 +445,9 @@ def publish_slot(config: Config, store: StateStore, slot: str = "manual") -> dic
                     "repo": key,
                     "candidate_removed": True,
                 }
-            store.event("publish_skipped", slot=slot, reason="gemini_unavailable", repo=key, failures=count)
+            store.event("publish_skipped", slot=slot, reason="gemini_unavailable",
+                        repo=key, failures=count,
+                        gemini_error_class=str(generated.get("error_class") or "unknown"))
             store.save()
             return {
                 "ok": False,
@@ -649,6 +652,9 @@ def publish_slot(config: Config, store: StateStore, slot: str = "manual") -> dic
             record["telegram_link"] = ""
         store.record_published(record)
         store.mark_seen(record, "published")
+        # A successful publish must clear the retry counter; otherwise the
+        # next transient failure on a revisit would dead-letter the repo.
+        store.data.get("publish_failures", {}).pop(key, None)
         store.data.setdefault("last_runs", {})[f"publish:{slot}"] = {
             "finished_at": iso_now(),
             "repo": key,
@@ -1094,7 +1100,7 @@ def news_command(
         return {"ok": True, "published": False, "reason": "feature_ai_brief_disabled"}
     config.require("TELEGRAM_BOT_TOKEN", "GEMINI_API_KEY")
     chat_id = config.telegram_chat_id
-    client = GeminiClient(config.Gemini_api_key, config.Gemini_model)
+    client = GeminiClient(config.Gemini_api_key, config.Gemini_model, budget=GeminiBudget(store))
     telegram = TelegramClient(config.telegram_bot_token)
     try:
         entries = fetch_worldofai_entries()
