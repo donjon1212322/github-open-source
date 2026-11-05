@@ -298,6 +298,11 @@
           "published_at": "2026-11-05T23:36:59.757285Z",
           "status": "published",
           "url": "https://bsky.app/profile/githubopensource.bsky.social/post/3mzlzwgmdbq2w"
+        },
+        "facebook_sheet": {
+          "at": "2026-11-05T23:44:42.342689Z",
+          "status": "queued",
+          "via": "make.com"
         }
       },
       "description": " All your computers and your phone, working as one desk. Screens, apps, files, clipboard, calls, texts, notifications, mouse and keyboard, shared between Mac, Windows, Linux and Android. Free and open source. No account, no cloud, and now no shared network needed.",
