@@ -1,5 +1,19 @@
 {
-  "dead_letters": [],
+  "dead_letters": [
+    {
+      "created_at": "2026-11-05T16:48:47.515041Z",
+      "error": "gemini_unavailable twice",
+      "note": "removed from queue after 2 model failures",
+      "platform": "gemini",
+      "repo": "inukaasith/twindesk"
+    }
+  ],
+  "gemini_window": [
+    [
+      1793897326.154446,
+      2996
+    ]
+  ],
   "last_runs": {
     "collect": {
       "discovered": 624,
@@ -120,7 +134,7 @@
     }
   ],
   "publish_failures": {
-    "inukaasith/twindesk": 1
+    "inukaasith/twindesk": 2
   },
   "published": {
     "horizon-rust/horizon": {
@@ -972,76 +986,6 @@
     }
   },
   "queue": [
-    {
-      "archived": false,
-      "contributors_count": 22,
-      "created_at": "2026-10-14T01:19:02Z",
-      "default_branch": "main",
-      "description": " All your computers and your phone, working as one desk. Screens, apps, files, clipboard, calls, texts, notifications, mouse and keyboard, shared between Mac, Windows, Linux and Android. Free and open source. No account, no cloud, and now no shared network needed.",
-      "disabled": false,
-      "fork": false,
-      "forks": 270,
-      "forks_count": 270,
-      "full_name": "InukaAsith/TwinDesk",
-      "has_readme": true,
-      "homepage": "https://twin-desk.vercel.app",
-      "id": 1418204810,
-      "is_dual_use": false,
-      "is_hidden_gem": false,
-      "language": "JavaScript",
-      "license": {
-        "key": "gpl-3.0",
-        "name": "GNU General Public License v3.0",
-        "node_id": "MDc6TGljZW5zZTk=",
-        "spdx_id": "GPL-3.0",
-        "url": "https://api.github.com/licenses/gpl-3.0"
-      },
-      "media_urls": [
-        "https://raw.githubusercontent.com/InukaAsith/TwinDesk/main/.github/assets/v25-overview-pc.gif",
-        "https://raw.githubusercontent.com/InukaAsith/TwinDesk/main/.github/assets/v25-overview-phone.gif",
-        "https://raw.githubusercontent.com/InukaAsith/TwinDesk/main/.github/assets/v25-hero-desks.jpg",
-        "https://raw.githubusercontent.com/InukaAsith/TwinDesk/main/.github/assets/v25-hero.jpg",
-        "https://raw.githubusercontent.com/InukaAsith/TwinDesk/main/.github/assets/v25-banner.jpg",
-        "https://raw.githubusercontent.com/InukaAsith/TwinDesk/main/.github/assets/mac-screen-window.jpg",
-        "https://raw.githubusercontent.com/InukaAsith/TwinDesk/main/.github/assets/second-screen.jpg",
-        "https://raw.githubusercontent.com/InukaAsith/TwinDesk/main/.github/assets/v25-rezume.jpg"
-      ],
-      "name": "TwinDesk",
-      "non_software_reason": "",
-      "open_issues": 12,
-      "open_issues_count": 12,
-      "owner_repo_count": 1,
-      "pushed_at": "2026-11-05T10:22:44Z",
-      "readme": "",
-      "readme_excerpt": "<p align=\"center\">\n  <img src=\".github/assets/icon.png\" width=\"112\" alt=\"TwinDesk icon\">\n</p>\n\n<h1 align=\"center\"><a href=\"https://twin-desk.vercel.app\">TwinDesk</a></h1>\n\n<p align=\"center\">\n  <b>Your Mac, your PC, your Linux box and your Android phone, working as one desk.</b><br>\n  One mouse and keyboard for all of them. Their screens, apps, files, clipboard, cameras, calls and texts, shared.<br>\n  Free and open source. No account, no cloud, no shared network needed.\n</p>\n\n<p align=\"center\">\n  <a href=\"#download\"><b>⬇️ Download 2.5</b></a> ·\n  <a href=\"https://twin-desk.vercel.app\"><b>Website</b></a> ·\n  <a href=\"#new-in-25\"><b>What's new</b></a> ·\n  <a href=\"#what-it-does\"><b>What it does</b></a> ·\n  <a href=\"#get-started\"><b>Get started</b></a>\n</p>\n\n<p align=\"center\">\n  <img alt=\"Version\" src=\"https://img.shields.io/github/v/release/InukaAsith/TwinDesk?label=version&color=4b8bff\">\n  <img alt=\"macOS 13+\" src=\"https://img.shields.io/badge/macOS-13%2B-black\">\n  <img alt=\"Windows 10/11\" src=\"https://img.shields.io/badge/Windows-10%20%7C%2011-0078d4\">\n  <img alt=\"Linux X11 and Wayland\" src=\"https://img.shields.io/badge/Linux-X11%20%7C%20Wayland-f0a30a\">\n  <img alt=\"Android 10+\" src",
-      "readme_len": 48909,
-      "repo_id": 1418204810,
-      "score": 92.844,
-      "source_name": "github_search",
-      "sources": [
-        "github_search"
-      ],
-      "stargazers_count": 3470,
-      "stars": 3470,
-      "topics": [
-        "android",
-        "connect",
-        "electron",
-        "kde-connect-alternative",
-        "kvm",
-        "linux",
-        "macbook",
-        "macos",
-        "mouse-sharing",
-        "phone-link-alternative",
-        "productivity",
-        "screen-sharing",
-        "synergy-alternative",
-        "windows"
-      ],
-      "updated_at": "2026-11-05T12:23:10Z",
-      "url": "https://github.com/InukaAsith/TwinDesk"
-    },
     {
       "archived": false,
       "contributors_count": 15,
@@ -3812,8 +3756,8 @@
     "inukaasith/twindesk": {
       "first_seen_at": "2026-11-05T12:27:48.441125Z",
       "full_name": "InukaAsith/TwinDesk",
-      "last_decision": "queued",
-      "last_seen_at": "2026-11-05T12:27:48.441126Z",
+      "last_decision": "gemini_failed_twice",
+      "last_seen_at": "2026-11-05T16:48:47.515016Z",
       "repo_id": 1418204810,
       "sources": [
         "github_search"
