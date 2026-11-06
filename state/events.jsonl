@@ -65,3 +65,5 @@
 {"slot": "collect", "ts": "2026-11-06T06:54:19.117385Z", "type": "watchdog_verified"}
 {"deleted": 0, "ts": "2026-11-06T07:27:50.918028Z", "type": "moderation_completed", "updates": 0}
 {"attempts": 1, "detail": "HTTP 204", "slot": "publish:europe_morning", "ts": "2026-11-06T11:14:06.780549Z", "type": "watchdog_recovered", "verified": false}
+{"preview_host": "imgbb", "repo": "rehan-remade/universal-modder", "ts": "2026-11-06T11:14:35.944669Z", "type": "published_as_text"}
+{"repo": "rehan-remade/universal-modder", "score": 94.988, "telegram_message_id": 3561, "telegraph_url": "https://telegra.ph/Universal-Modder-AI-Agent-Skills-and-CLI-for-Game-Modding-and-Reverse-Engineering-11-06", "ts": "2026-11-06T11:14:35.945081Z", "type": "project_published"}

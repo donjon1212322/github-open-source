@@ -2,12 +2,12 @@
   "dead_letters": [],
   "gemini_window": [
     [
-      1793918520.1545055,
-      2668
+      1793963665.8302596,
+      3948
     ],
     [
-      1793918529.8126314,
-      1394
+      1793963670.9307175,
+      1466
     ]
   ],
   "last_runs": {
@@ -44,9 +44,9 @@
       "telegram_message_id": 3555
     },
     "publish:europe_morning": {
-      "finished_at": "2026-11-05T16:57:11.554608Z",
-      "repo": "inukaasith/twindesk",
-      "telegram_message_id": 3558
+      "finished_at": "2026-11-06T11:14:35.945159Z",
+      "repo": "rehan-remade/universal-modder",
+      "telegram_message_id": 3561
     },
     "publish:manual": {
       "finished_at": "2026-11-03T12:00:53.732414Z",
@@ -1179,6 +1179,121 @@
       "visual_host": "imgbb",
       "visual_kind": "readme"
     },
+    "rehan-remade/universal-modder": {
+      "articles": {},
+      "card_style": "",
+      "category": "AI",
+      "contributors_count": 172,
+      "created_at": "2026-09-30T05:00:35Z",
+      "crossposts": {
+        "bluesky": {
+          "attempts": 0,
+          "due_at": "2026-11-06T18:00:00+00:00",
+          "status": "pending"
+        }
+      },
+      "description": "Point Claude at any game. Skills, tools and the fal MCP that let Claude Code mod almost any PC game you own: recon, reverse engineering, fal-generated art/3D/audio, in-game testing, showcase videos.",
+      "description_fp": "19e1c6b97e50e98a",
+      "forks": 1057,
+      "full_name": "rehan-remade/universal-modder",
+      "generated": {
+        "article_markdown": "## What it is\n\nUniversal Modder is a toolkit that equips AI coding agents with the skills, command-line interface, and Model Context Protocol servers needed to mod PC games. Instead of treating a game as an opaque black box, it guides agents through a structured loop: scanning game directories, identifying engine architectures, reading file structures, generating custom 2D or 3D assets via fal, and verifying changes inside a running instance.\n\n## Why it matters\n\nModding legacy or proprietary game engines usually demands deep domain knowledge, obscure community tools, and manual asset creation. This project bridges the gap by standardizing the reconnaissance and asset generation pipeline for AI agents. By combining agent skills with a crowd-sourced knowledge base of field notes, it lets models learn from previous modding attempts rather than starting from scratch every time.\n\n## Key features\n\n- Supports multiple AI assistants including Claude Code, Codex, Gemini CLI, Cursor, GitHub Copilot, and OpenCode.\n- Connects to fal for generative art, 3D, and audio assets directly during the mod creation loop.\n- Includes the um CLI for workflow commands, key management, and querying community field notes.\n- Features engine playbooks for Unity, Unreal, Godot, Source 1 and 2, Bethesda titles, and retro decompilations.\n- Implements a pull-request-driven knowledge base where agents document engine quirks and successful routes for future runs.\n\n## Quick start\n\nTo install the um command-line tool, use uv or pipx:\n\n```bash\nuv tool install git+https://github.com/rehan-remade/universal-modder\n```\n\n## Who should try it\n\nThis project fits developers, tool builders, and advanced modders who want to experiment with agentic workflows on complex, non-web codebases. If you enjoy pushing coding assistants into systems programming, reverse engineering, and multimedia generation, it offers a fascinating testbed.\n\n## Verdict\n\nUniversal Modder is a remarkably thorough orchestration framework for game hacking and asset pipeline automation. While it requires careful supervision of backups and generated assets, it turns tedious manual reconnaissance into an interactive, agent-driven experiment.",
+        "article_title": "Universal Modder: AI Agent Skills and CLI for Game Modding and Reverse Engineering",
+        "card_hook": "Mod any PC game with AI",
+        "card_subline": "Give AI coding agents the skills, CLI, and MCP servers to mod games, write assets, and test in the running engine",
+        "category": "AI",
+        "discussion_question": "Which game engine would you test first with an AI modding agent?",
+        "hook": "Point Claude or Codex at any PC game directory to research engines, generate assets, and build mods automatically.",
+        "key_features": [
+          "Integrates Agent Skills for Claude Code, Codex, Gemini CLI, Cursor, Copilot, and OpenCode",
+          "Uses fal MCP for generative 3D, art, and audio asset creation during mod development",
+          "Includes the um CLI for managing keys, local ComfyUI servers, and knowledge base searches",
+          "Maintains a crowd-sourced field notes knowledge base written by and for AI agents",
+          "Provides engine playbooks covering Unity, Unreal, Godot, Source, Bethesda, and retro decomps"
+        ],
+        "llm_used": true,
+        "quick_start": "uv tool install git+https://github.com/rehan-remade/universal-modder",
+        "safety": "ok",
+        "safety_reason": "The repository is a developer framework and skill set for game modding, reverse engineering, and asset generation using AI agents, intended for legitimate mod development.",
+        "scene": "You drop a coding agent into a game installation directory and watch it try to guess the engine version, unpack resource archives, and write a custom loader without breaking the save files.",
+        "social_text": "Point Claude or Codex at any PC game to automate reverse engineering, asset generation, and mod building.",
+        "summary": "Universal Modder bundles an agent skill set, a shared knowledge base of field notes, and the fal Model Context Protocol server to guide coding agents through game modding. It coordinates a structured workflow that handles reconnaissance, reverse engineering, asset generation, and in-game testing. Rather than relying on rigid automation, the system uses engine playbooks and agent-written field notes to help models choose the right modding route for specific architectures.",
+        "surfaces": {
+          "Facebook_body": "Modding your favorite PC games no longer requires manual reverse engineering or hours of digital asset creation. By connecting your AI coding assistant directly to a game folder, you can automate the entire process from engine reconnaissance to final in-game testing. The system handles the complex workflow of figuring out how a game is built, generating custom 3D art, audio, and code assets, and guiding the assistant through each step using structured playbooks and shared field notes.\n\nUnder the hood, this tool bundles a specialized skill set and a knowledge base that helps coding assistants navigate different game engines like Unity, Unreal, and Godot. It integrates generative asset tools to produce art and sound on demand while letting you manage keys and local servers through a simple command-line interface.\n\nThis is built for developers and experienced modders who want to experiment with agentic workflows in complex environments. While it automates the heavy lifting of script generation and asset creation, you will still want to supervise the output closely to ensure the generated assets fit the specific quirks of each game engine.",
+          "Facebook_headline": "Create PC game mods using AI assistants",
+          "Facebook_lead": "Turn any game directory into a workspace for AI to research engines, build assets, and script mods automatically.",
+          "bluesky_headline": "Build PC game mods automatically with AI",
+          "bluesky_lead": "Point your coding assistant at any game directory to research engines, generate assets, and script mods.",
+          "devto_body": "## What it is\n\nUniversal Modder is a Python-based toolkit designed to guide AI coding assistants through the process of PC game modding. It provides a structured workflow, engine playbooks, and generative asset integrations to help models handle reconnaissance, reverse engineering, asset creation, and testing.\n\n## How it works\n\nThe project relies on a shared knowledge base of field notes and agent skills compatible with assistants like Claude Code, Codex, and Cursor. It uses the fal Model Context Protocol server to generate 3D models, art, and audio assets on the fly, directing the coding agent through specific engine architectures rather than relying on rigid scripts.\n\n## Key features\n\n- Supports agent skills for Claude Code, Codex, Gemini CLI, Cursor, Copilot, and OpenCode\n- Integrates generative asset creation for art, 3D models, and audio\n- Includes a command-line interface for managing keys and local servers\n- Maintains a crowd-sourced field notes knowledge base\n- Provides engine playbooks for Unity, Unreal, Godot, Source, Bethesda, and retro decomps\n\n## Getting started\n\nClone the repository from GitHub and ensure you have Python installed along with your chosen AI coding assistant configured. Set up your API keys and local servers using the provided command-line interface.\n\n## When not to use it\n\nSkip this project if you are looking for a simple one-click modding tool with a graphical interface. It requires active supervision of AI outputs and familiarity with coding assistants.",
+          "seo_description": "Use AI coding assistants to research game engines, generate assets, and build PC game mods automatically. Built for developers and modders.",
+          "seo_query": "open source ai game modding tool",
+          "seo_title": "AI Game Modding Tool - Universal Modder Open Source",
+          "telegraph_angle": "Explain the architectural shift of using AI coding agents for game modding and the trade-offs of automated asset generation."
+        },
+        "tension": "Manually reverse-engineering closed game engines, tracking down dead forum threads for modding tools, and generating custom UI or 3D assets drains hours before a single line of mod logic compiles.",
+        "turn": "This project wraps engine playbooks, asset generation tools, and a shared knowledge base into standard agent skills so the model handles the recon and build loop itself, though you still need to verify safety and backups manually.",
+        "verdict": "An impressive integration for developers experimenting with agentic workflows in complex codebases, though hobbyists should expect to supervise asset quality and engine-specific quirks closely.",
+        "who_for": "Developers and modders using AI coding assistants to reverse-engineer and script PC games.",
+        "why_now": "The combination of model context protocol servers, multimodal generative asset APIs, and capable coding agents finally makes end-to-end automated game modding practical."
+      },
+      "homepage": "",
+      "id": 1397016507,
+      "image_url": "https://i.ibb.co/FkcfNXV1/rehan-remade-universal-modder-readme-preview-fb0607737fb4.jpg",
+      "is_dual_use": false,
+      "is_hidden_gem": false,
+      "language": "Python",
+      "license": {
+        "key": "mit",
+        "name": "MIT License",
+        "node_id": "MDc6TGljZW5zZTEz",
+        "spdx_id": "MIT",
+        "url": "https://api.github.com/licenses/mit"
+      },
+      "media_urls": [
+        "https://raw.githubusercontent.com/rehan-remade/universal-modder/main/docs/media/mods-teaser.gif",
+        "https://raw.githubusercontent.com/rehan-remade/universal-modder/main/docs/media/banner.png",
+        "https://raw.githubusercontent.com/rehan-remade/universal-modder/main/docs/media/made-with-dark.svg",
+        "https://raw.githubusercontent.com/rehan-remade/universal-modder/main/docs/media/pipeline.png",
+        "https://raw.githubusercontent.com/rehan-remade/universal-modder/main/docs/media/made-with-light.svg",
+        "https://raw.githubusercontent.com/rehan-remade/universal-modder/star-chart/stars.svg",
+        "https://raw.githubusercontent.com/rehan-remade/universal-modder/main/docs/media/icons/scan-light.svg",
+        "https://raw.githubusercontent.com/rehan-remade/universal-modder/main/docs/media/icons/fal-light.svg"
+      ],
+      "name": "universal-modder",
+      "open_issues": 16,
+      "published_at": "2026-11-06T11:14:35.944873Z",
+      "pushed_at": "2026-11-06T08:38:24Z",
+      "readme_fp": "d3dc02edb4824ff9",
+      "repo_id": 1397016507,
+      "revisit_of": "",
+      "revisit_reason": "",
+      "score": 94.988,
+      "slot": "europe_morning",
+      "sources": [
+        "github_search"
+      ],
+      "stars": 9457,
+      "telegram_chat_id": "@GitHub_Open_Source",
+      "telegram_link": "https://t.me/GitHub_Open_Source/3561",
+      "telegram_message_id": 3561,
+      "telegraph_url": "https://telegra.ph/Universal-Modder-AI-Agent-Skills-and-CLI-for-Game-Modding-and-Reverse-Engineering-11-06",
+      "topics": [
+        "age-of-empires",
+        "claude-code",
+        "claude-code-plugin",
+        "fal",
+        "game-assets",
+        "game-modding",
+        "mcp",
+        "modding",
+        "reverse-engineering",
+        "tmodloader"
+      ],
+      "updated_at": "2026-11-06T10:57:07Z",
+      "url": "https://github.com/rehan-remade/universal-modder",
+      "visual_host": "imgbb",
+      "visual_kind": "readme"
+    },
     "wangzan101/mika": {
       "articles": {},
       "card_style": "editorial_daily",
@@ -1318,72 +1433,6 @@
     }
   },
   "queue": [
-    {
-      "archived": false,
-      "contributors_count": 157,
-      "created_at": "2026-09-30T05:00:35Z",
-      "default_branch": "main",
-      "description": "Point Claude at any game. Skills, tools and the fal MCP that let Claude Code mod almost any PC game you own: recon, reverse engineering, fal-generated art/3D/audio, in-game testing, showcase videos.",
-      "disabled": false,
-      "fork": false,
-      "forks": 1057,
-      "forks_count": 1057,
-      "full_name": "rehan-remade/universal-modder",
-      "has_readme": true,
-      "homepage": "",
-      "id": 1397016507,
-      "is_dual_use": false,
-      "is_hidden_gem": false,
-      "language": "Python",
-      "license": {
-        "key": "mit",
-        "name": "MIT License",
-        "node_id": "MDc6TGljZW5zZTEz",
-        "spdx_id": "MIT",
-        "url": "https://api.github.com/licenses/mit"
-      },
-      "media_urls": [
-        "https://raw.githubusercontent.com/rehan-remade/universal-modder/main/docs/media/mods-teaser.gif",
-        "https://raw.githubusercontent.com/rehan-remade/universal-modder/main/docs/media/banner.png",
-        "https://raw.githubusercontent.com/rehan-remade/universal-modder/main/docs/media/made-with-dark.svg",
-        "https://raw.githubusercontent.com/rehan-remade/universal-modder/main/docs/media/pipeline.png",
-        "https://raw.githubusercontent.com/rehan-remade/universal-modder/main/docs/media/made-with-light.svg",
-        "https://raw.githubusercontent.com/rehan-remade/universal-modder/star-chart/stars.svg",
-        "https://raw.githubusercontent.com/rehan-remade/universal-modder/main/docs/media/icons/scan-light.svg",
-        "https://raw.githubusercontent.com/rehan-remade/universal-modder/main/docs/media/icons/fal-light.svg"
-      ],
-      "name": "universal-modder",
-      "non_software_reason": "",
-      "open_issues": 46,
-      "open_issues_count": 46,
-      "owner_repo_count": 1,
-      "pushed_at": "2026-11-06T06:28:44Z",
-      "readme": "",
-      "readme_excerpt": "<p align=\"center\">\n  <img src=\"docs/media/banner.png\" alt=\"universal-modder: mod any game. Point any AI coding agent at the PC games you own. Publish your mods, remix other people's, and make new ones.\" width=\"100%\">\n</p>\n\n<p align=\"center\">\n  <b>Skills, tools and a shared knowledge base that let any AI coding agent mod almost any PC game you own.</b><br>\n  The agent finds the game, works out the engine and the route, reads the real code, builds the mod, makes art, 3D and sound\n  with <a href=\"https://fal.ai\">fal</a>, tests it in the running game, cuts the video, and writes down what it learned for the next agent.\n</p>\n\n<p align=\"center\">\n  <a href=\"https://discord.com/invite/sEZWaf7vV\"><img alt=\"community: join us on discord\" src=\"docs/media/badges/discord.png\" height=\"26\"></a>\n  <a href=\"#install\"><img alt=\"works with Claude Code, Codex, Cursor, Gemini CLI, GitHub Copilot and OpenCode\" src=\"docs/media/badges/agents.png\" height=\"26\"></a>\n  <a href=\"knowledge/INDEX.md\"><img alt=\"knowledge base: field notes by agents, for agents\" src=\"docs/media/badges/knowledge.png\" height=\"26\"></a>\n  <a href=\"https://fal.ai\"><img alt=\"assets: fal\" src=\"docs/media/badges/fal.png\" height=\"26\"></a>\n ",
-      "readme_len": 24216,
-      "repo_id": 1397016507,
-      "score": 94.988,
-      "source_name": "github_search",
-      "sources": [
-        "github_search"
-      ],
-      "stargazers_count": 9453,
-      "stars": 9453,
-      "topics": [
-        "age-of-empires",
-        "claude-code",
-        "claude-code-plugin",
-        "fal",
-        "game-assets",
-        "game-modding",
-        "mcp",
-        "modding",
-        "reverse-engineering",
-        "tmodloader"
-      ],
-      "updated_at": "2026-11-06T03:27:33Z",
-      "url": "https://github.com/rehan-remade/universal-modder"
-    },
     {
       "archived": false,
       "contributors_count": 17,
@@ -5450,8 +5499,8 @@
     "rehan-remade/universal-modder": {
       "first_seen_at": "2026-11-06T06:53:27.346631Z",
       "full_name": "rehan-remade/universal-modder",
-      "last_decision": "queued",
-      "last_seen_at": "2026-11-06T06:53:27.346635Z",
+      "last_decision": "published",
+      "last_seen_at": "2026-11-06T11:14:35.945146Z",
       "repo_id": 1397016507,
       "sources": [
         "github_search"
