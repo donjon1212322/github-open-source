@@ -969,7 +969,8 @@
         "bluesky": {
           "attempts": 0,
           "due_at": "2026-11-06T18:00:00+00:00",
-          "status": "pending"
+          "held_reason": "not_best_of_day",
+          "status": "held"
         }
       },
       "description": "The IDE you know, rebuilt in Rust. IntelliJ IDEA–style keymap, tool windows and search-everywhere in a fast native app: editor, code insight, debugger, Git, terminal, database and HTTP clients for 60+ languages.",
@@ -1217,7 +1218,8 @@
         "bluesky": {
           "attempts": 0,
           "due_at": "2026-11-06T18:00:00+00:00",
-          "status": "pending"
+          "held_reason": "not_best_of_day",
+          "status": "held"
         }
       },
       "description": "Play your own Switch games on iPhone/iPad — one-click macOS app, no terminal. | 把 Switch 游戏装进 iPhone：图形界面一键构建，不用命令行。Bring your own game.",
@@ -1465,7 +1467,10 @@
         "bluesky": {
           "attempts": 0,
           "due_at": "2026-11-06T18:00:00+00:00",
-          "status": "pending"
+          "error": "",
+          "published_at": "2026-11-06T23:06:02.073937Z",
+          "status": "published",
+          "url": "https://bsky.app/profile/githubopensource.bsky.social/post/3mzoinyape42n"
         }
       },
       "description": "Point Claude at any game. Skills, tools and the fal MCP that let Claude Code mod almost any PC game you own: recon, reverse engineering, fal-generated art/3D/audio, in-game testing, showcase videos.",
