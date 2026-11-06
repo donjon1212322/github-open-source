@@ -88,3 +88,4 @@
 {"deleted": 0, "ts": "2026-11-06T16:57:12.862965Z", "type": "moderation_completed", "updates": 0}
 {"published_today": 3, "reason": "daily_limit_reached", "slot": "us_peak", "ts": "2026-11-06T17:20:55.332856Z", "type": "publish_skipped"}
 {"reason": "slot_already_done", "slot": "europe_morning", "ts": "2026-11-06T17:21:27.229481Z", "type": "publish_skipped"}
+{"reason": "slot_already_done", "slot": "europe_midday", "ts": "2026-11-06T19:40:54.344026Z", "type": "publish_skipped"}
