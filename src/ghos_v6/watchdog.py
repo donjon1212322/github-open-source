@@ -121,14 +121,15 @@ def watchdog_command(config: Config, store: StateStore, *, now: datetime | None 
     repo = os.getenv("GITHUB_REPOSITORY") or ""
     last = store.data.setdefault("last_runs", {})
     marks: dict[str, Any] = last.setdefault("watchdog_dispatches", {})
+    changed = False
     for old in [k for k in marks if not str(k).startswith(str(today))]:
         del marks[old]
+        changed = True   # persist the cleanup of yesterday's unverified marks
 
     missed: list[str] = []
     dispatched: list[str] = []
     verified: list[str] = []
     failed: list[str] = []
-    changed = False
 
     for key, (hour, minute), inputs in SLOTS:
         deadline = now.replace(hour=hour, minute=minute, second=0, microsecond=0)

@@ -176,6 +176,20 @@ def test_article_recovery_window_does_not_backfill_a_stale_day(monkeypatch, tmp_
     assert "article" not in calls
 
 
+def test_stale_markers_are_cleaned_and_persisted(monkeypatch, tmp_path):
+    _wire(monkeypatch)
+    store = StateStore(tmp_path)
+    store.data["last_runs"] = {"watchdog_dispatches": {
+        "2026-11-05:publish:europe_midday": {
+            "at": "2026-11-05T23:44:21Z", "ok": True,
+        }
+    }}
+    store.save()
+    watchdog_command(Config(), store, now=datetime(2026, 11, 6, 2, 37, tzinfo=timezone.utc))
+    reread = StateStore(tmp_path).data["last_runs"]["watchdog_dispatches"]
+    assert "2026-11-05:publish:europe_midday" not in reread
+
+
 def test_concurrency_keeps_pending_runs_instead_of_evicting_them():
     for name in ("pipeline.yml", "watchdog.yml"):
         text = (REPO / ".github" / "workflows" / name).read_text(encoding="utf-8")
