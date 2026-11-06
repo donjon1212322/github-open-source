@@ -134,6 +134,39 @@
       "topic_key": "ai-model-updates-november-2026",
       "video_id": "FQABKeCe1jM",
       "video_url": "https://www.youtube.com/watch?v=FQABKeCe1jM"
+    },
+    {
+      "Gemini_video_input": true,
+      "headline": "GPT-6.2 Astra, GPT-6.1 Sol, and Fable 5.5 surface in leaked checkpoints while Claude Fable 5.5 and Gemini 4 Flash expand testing",
+      "image_url": "https://i.ibb.co/9kT88YZP/ai-brief-842da8f9bb56.png",
+      "models": [
+        "GPT-6.2 Astra",
+        "GPT-6.1 Sol",
+        "Fable 5.5",
+        "Claude Opus 5.5",
+        "Ripple-65B",
+        "Beam 1.0",
+        "Muse Spark Open",
+        "Nemotron 3 Ultra",
+        "Gemini 4 Flash",
+        "Gemini Omni 1.2 Flash",
+        "Gemini 3.8 Flash TTS",
+        "SWE-2 Flash"
+      ],
+      "official_url": "",
+      "published_at": "2026-11-06T00:19:57.853008Z",
+      "statuses": [
+        "leaked_checkpoint",
+        "leaked_checkpoint",
+        "official_release",
+        "announced_not_shipped",
+        "official_release"
+      ],
+      "stories": 5,
+      "telegram_message_id": 3560,
+      "topic_key": "ai-model-releases",
+      "video_id": "LHxOG65r12w",
+      "video_url": "https://www.youtube.com/watch?v=LHxOG65r12w"
     }
   ],
   "publish_failures": {},
