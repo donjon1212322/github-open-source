@@ -1471,6 +1471,11 @@
           "published_at": "2026-11-06T23:06:02.073937Z",
           "status": "published",
           "url": "https://bsky.app/profile/githubopensource.bsky.social/post/3mzoinyape42n"
+        },
+        "facebook_sheet": {
+          "at": "2026-11-06T23:20:07.419453Z",
+          "status": "queued",
+          "via": "make.com"
         }
       },
       "description": "Point Claude at any game. Skills, tools and the fal MCP that let Claude Code mod almost any PC game you own: recon, reverse engineering, fal-generated art/3D/audio, in-game testing, showcase videos.",

@@ -92,3 +92,4 @@
 {"reason": "already_published_today", "ts": "2026-11-06T20:01:17.246432Z", "type": "article_skipped"}
 {"reason": "slot_already_done", "slot": "us_peak", "ts": "2026-11-06T22:09:58.539002Z", "type": "publish_skipped"}
 {"platform": "bluesky", "repo": "rehan-remade/universal-modder", "ts": "2026-11-06T23:06:02.073959Z", "type": "crosspost_published", "url": "https://bsky.app/profile/githubopensource.bsky.social/post/3mzoinyape42n"}
+{"range": "facebook!A6:E6", "rows": 1, "ts": "2026-11-06T23:20:07.419476Z", "type": "facebook_handoff_queued"}
