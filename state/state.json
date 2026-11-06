@@ -64,7 +64,15 @@
       "telegram_message_id": 3559
     },
     "telegram_update_offset": 165231068,
-    "watchdog_dispatches": {}
+    "watchdog_dispatches": {
+      "2026-11-06:collect": {
+        "at": "2026-11-06T06:51:27.695783Z",
+        "attempts": 1,
+        "detail": "HTTP 204",
+        "dispatched": true,
+        "verified": false
+      }
+    }
   },
   "news_topics": [
     {
