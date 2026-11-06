@@ -23,6 +23,9 @@ Owner decisions (2026-11-06):
   and a ``repository_dispatch`` entry point let an external free clock start
   this workflow through the API instead of GitHub's best-effort scheduler.
   See ``tools/external_tick/README.md``.
+- An honest refusal is a completed slot. ``article_of_day()`` now records its
+  verdict in ``last_runs.article.finished_at`` (published, all duplicates, no
+  projects), so a duplicate no longer triggers repeated dispatches.
 """
 from __future__ import annotations
 
@@ -89,8 +92,15 @@ def _has_run(store: StateStore, key: str, today) -> bool:
         return any(_date_of(n.get("published_at")) == today
                    for n in (store.data.get("news_topics") or []))
     if key == "article":
-        return any(_date_of(_devto_published_at(r)) == today
-                   for r in (store.data.get("published") or {}).values())
+        if any(_date_of(_devto_published_at(r)) == today
+               for r in (store.data.get("published") or {}).values()):
+            return True
+        # article_of_day() records the whole command's verdict for the day,
+        # including an honest "all candidates are duplicates" refusal. Without
+        # this a duplicate looked like a missed slot on 06.11 and triggered
+        # repeated warnings every 30 minutes.
+        done = (store.data.get("last_runs", {}).get("article") or {}).get("finished_at")
+        return _date_of(done) == today
     return _date_of((store.data.get("last_runs", {}).get(key) or {}).get("finished_at")) == today
 
 

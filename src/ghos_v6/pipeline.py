@@ -873,23 +873,19 @@ def process_crossposts(config: Config, store: StateStore) -> dict[str, Any]:
     return summary
 
 
-def _devto_duplicate_url(client: DevToClient, record: dict[str, Any]) -> str:
+def _devto_duplicate_url(owned: list[dict[str, Any]], record: dict[str, Any]) -> str:
     """Find an article on the dev.to account that already covers this repo.
 
-    dev.to returns ``body_markdown`` for GET /api/articles/me/all, and our
-    articles always link the repository. State alone is not enough: the
-    pre-migration posts live on the same dev.to account but not in this
-    repository's state, which is exactly how the Horizon duplicate happened.
+    ``owned`` is fetched ONCE per article run, before any expensive work.
+    dev.to's own index is a cheap GET; a cover upload and a publish POST
+    consume real service quota. State alone is not enough: pre-migration
+    posts live on the same dev.to account but not in this repository's state,
+    which is exactly how the Horizon duplicate happened.
     """
     full_name = str(record.get("full_name") or "")
     if "/" not in full_name:
         return ""
     needle = f"https://github.com/{full_name}".lower()
-    try:
-        owned = client.my_articles(per_page=100)
-    except Exception as exc:  # noqa: BLE001 - diagnostics must not kill the article
-        logger.warning("dev.to article index unavailable: %s", sanitize(str(exc))[:180])
-        return ""
     for item in owned:
         blob = " ".join(
             str(item.get(k) or "") for k in ("body_markdown", "canonical_url", "title", "url")
@@ -897,6 +893,40 @@ def _devto_duplicate_url(client: DevToClient, record: dict[str, Any]) -> str:
         if needle in blob:
             return str(item.get("url") or "")
     return ""
+
+
+def _load_devto_index(client: DevToClient) -> list[dict[str, Any]]:
+    """One cheap GET per run. A broken index must not fail the whole article."""
+    try:
+        return list(client.my_articles(per_page=100) or [])
+    except Exception as exc:  # noqa: BLE001
+        logger.warning("dev.to article index unavailable: %s", sanitize(str(exc))[:180])
+        return []
+
+
+def _duplicate_cached_today(record: dict[str, Any], day: str) -> bool:
+    """A duplicate confirmed earlier today needs no second dev.to request."""
+    info = (record.get("articles") or {}).get("devto_duplicate") or {}
+    parsed = _parse_iso(info.get("checked_at"))
+    return bool(parsed and parsed.date().isoformat() == day)
+
+
+def _article_slot_done(store: StateStore, result: dict[str, Any]) -> None:
+    """Record that the article command ran for this UTC day, whatever the verdict.
+
+    Owner decision (2026-11-06): an honest refusal (duplicate, no candidates,
+    already published) is a completed slot, not a missed one. Without this
+    fact the watchdog kept dispatching ``article`` every 30 minutes on 06.11
+    and escalated to a warning on every repeated attempt.
+    """
+    store.data.setdefault("last_runs", {})["article"] = {
+        "finished_at": iso_now(),
+        "reason": result.get("reason") or ("published" if result.get("published") else "done"),
+        "repo": result.get("repo", ""),
+        "url": result.get("url", ""),
+        "published": bool(result.get("published")),
+    }
+    store.save()
 
 
 def article_of_day(config: Config, store: StateStore) -> dict[str, Any]:
@@ -911,42 +941,75 @@ def article_of_day(config: Config, store: StateStore) -> dict[str, Any]:
         published_at = _parse_iso(info.get("published_at"))
         if published_at and published_at.date().isoformat() == day:
             store.event("article_skipped", reason="already_published_today")
-            store.save()
-            return {"ok": True, "published": False, "reason": "already_published_today"}
+            result = {"ok": True, "published": False, "reason": "already_published_today"}
+            _article_slot_done(store, result)
+            return result
+
+    # Best score first: if the top project is already covered on dev.to, fall
+    # through to the next one instead of returning an honest but empty refusal.
     today = sorted(_today_records(store), key=lambda item: float(item.get("score") or 0), reverse=True)
     if not today:
-        return {"ok": True, "published": False, "reason": "no_projects_today"}
-    for record in today:
-        if (record.get("articles") or {}).get("devto"):
-            continue
+        result = {"ok": True, "published": False, "reason": "no_projects_today"}
+        _article_slot_done(store, result)
+        return result
+    if not config.feature_devto:
+        result = {"ok": True, "published": False, "reason": "feature_devto_disabled"}
+        _article_slot_done(store, result)
+        return result
+
+    candidates = [r for r in today if not (r.get("articles") or {}).get("devto")]
+    if not candidates:
+        result = {"ok": True, "published": False, "reason": "already_published"}
+        _article_slot_done(store, result)
+        return result
+
+    # Cheap duplicate check FIRST, cached for today, one dev.to GET per run.
+    # Never spend ImgBB cover uploads or dev.to publish quota on a repo that
+    # is already covered, and never repeat the index lookup for a cached dupe.
+    unchecked = [r for r in candidates if not _duplicate_cached_today(r, day)]
+    client = DevToClient(config.dev_api_key) if unchecked else None
+    owned = _load_devto_index(client) if client is not None else []
+    duplicates: list[dict[str, str]] = []
+
+    for record in candidates:
         key = store.repo_key(record)
-        if not config.feature_devto:
-            store.event("article_skipped", repo=key, reason="feature_devto_disabled")
-            store.save()
-            return {"ok": True, "published": False, "reason": "feature_devto_disabled", "repo": key}
-        client = DevToClient(config.dev_api_key)
-        duplicate = _devto_duplicate_url(client, record)
+        if _duplicate_cached_today(record, day):
+            duplicates.append({"repo": key, "existing_url": "cached"})
+            continue
+        duplicate = _devto_duplicate_url(owned, record)
         if duplicate:
             store.event("article_skipped_duplicate", repo=key, existing_url=duplicate)
             record.setdefault("articles", {})["devto_duplicate"] = {
                 "url": duplicate, "checked_at": iso_now(),
             }
+            duplicates.append({"repo": key, "existing_url": duplicate})
             store.save()
-            return {
-                "ok": True, "published": False, "reason": "duplicate_repo_on_devto",
-                "repo": key, "existing_url": duplicate,
-            }
+            continue  # next-best project, not an empty return
+        publisher = client or DevToClient(config.dev_api_key)
         _ensure_devto_cover(config, record)
-        result = client.publish_article(record, record.get("generated") or {})
+        published = publisher.publish_article(record, record.get("generated") or {})
         record.setdefault("articles", {})["devto"] = {
-            "id": result.get("id"),
-            "url": result.get("url") or "",
+            "id": published.get("id"),
+            "url": published.get("url") or "",
             "published_at": iso_now(),
         }
-        store.event("article_published", repo=key, platform="devto", url=result.get("url") or "")
-        store.save()
-        return {"ok": True, "published": True, "repo": key, "url": result.get("url") or ""}
-    return {"ok": True, "published": False, "reason": "already_published"}
+        store.event("article_published", repo=key, platform="devto",
+                    url=published.get("url") or "")
+        result = {"ok": True, "published": True, "repo": key,
+                  "url": published.get("url") or "",
+                  "skipped_duplicates": len(duplicates)}
+        _article_slot_done(store, result)
+        return result
+
+    result = {
+        "ok": True, "published": False, "reason": "duplicate_repo_on_devto",
+        "duplicates": len(duplicates),
+        "repo": duplicates[0]["repo"] if duplicates else "",
+        "existing_url": duplicates[-1]["existing_url"] if duplicates else "",
+    }
+    store.event("article_skipped_all_duplicates", count=len(duplicates))
+    _article_slot_done(store, result)
+    return result
 
 
 def update_recent_article(config: Config, store: StateStore) -> dict[str, Any]:
