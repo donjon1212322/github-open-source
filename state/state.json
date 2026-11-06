@@ -63,6 +63,13 @@
     },
     "telegram_update_offset": 165231068,
     "watchdog_dispatches": {
+      "2026-11-06:article": {
+        "at": "2026-11-06T14:00:46.988087Z",
+        "attempts": 1,
+        "detail": "HTTP 204",
+        "dispatched": true,
+        "verified": false
+      },
       "2026-11-06:collect": {
         "at": "2026-11-06T06:51:27.695783Z",
         "attempts": 1,
@@ -76,7 +83,8 @@
         "attempts": 1,
         "detail": "HTTP 204",
         "dispatched": true,
-        "verified": false
+        "verified": true,
+        "verified_at": "2026-11-06T14:00:46.988087Z"
       },
       "2026-11-06:publish:europe_morning": {
         "at": "2026-11-06T11:14:05.463041Z",
