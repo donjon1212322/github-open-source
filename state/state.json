@@ -67,6 +67,13 @@
         "dispatched": true,
         "verified": true,
         "verified_at": "2026-11-06T06:54:19.117331Z"
+      },
+      "2026-11-06:publish:europe_morning": {
+        "at": "2026-11-06T11:14:05.463041Z",
+        "attempts": 1,
+        "detail": "HTTP 204",
+        "dispatched": true,
+        "verified": false
       }
     }
   },
