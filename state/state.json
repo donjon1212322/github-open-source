@@ -64,9 +64,11 @@
       "telegram_message_id": 3550
     },
     "publish:us_peak": {
-      "finished_at": "2026-11-05T22:42:16.966194Z",
-      "repo": "peach-mitao/peach",
-      "telegram_message_id": 3559
+      "finished_at": "2026-11-06T17:20:55.332936Z",
+      "published": false,
+      "published_today": 3,
+      "reason": "daily_limit_reached",
+      "repo": ""
     },
     "telegram_update_offset": 165231068,
     "watchdog_dispatches": {
