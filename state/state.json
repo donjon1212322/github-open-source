@@ -64,8 +64,8 @@
     "telegram_update_offset": 165231068,
     "watchdog_dispatches": {
       "2026-11-06:article": {
-        "at": "2026-11-06T15:00:36.877835Z",
-        "attempts": 2,
+        "at": "2026-11-06T15:30:39.071335Z",
+        "attempts": 3,
         "detail": "HTTP 204",
         "dispatched": true,
         "verified": false
