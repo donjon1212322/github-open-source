@@ -2,12 +2,12 @@
   "dead_letters": [],
   "gemini_window": [
     [
-      1793971865.5311449,
-      2225
+      1793977474.3491588,
+      3948
     ],
     [
-      1793971870.1245425,
-      1411
+      1793977478.4689283,
+      1351
     ]
   ],
   "last_runs": {
@@ -47,9 +47,9 @@
       "telegram_message_id": 3562
     },
     "publish:europe_morning": {
-      "finished_at": "2026-11-06T11:14:35.945159Z",
-      "repo": "rehan-remade/universal-modder",
-      "telegram_message_id": 3561
+      "finished_at": "2026-11-06T15:04:45.639068Z",
+      "repo": "lnpandy/nx2apple",
+      "telegram_message_id": 3563
     },
     "publish:manual": {
       "finished_at": "2026-11-03T12:00:53.732414Z",
@@ -1190,6 +1190,125 @@
       "visual_host": "imgbb",
       "visual_kind": "readme"
     },
+    "lnpandy/nx2apple": {
+      "articles": {},
+      "card_style": "",
+      "category": "DevTools",
+      "contributors_count": 32,
+      "created_at": "2026-10-20T18:16:07Z",
+      "crossposts": {
+        "bluesky": {
+          "attempts": 0,
+          "due_at": "2026-11-06T18:00:00+00:00",
+          "status": "pending"
+        }
+      },
+      "description": "Play your own Switch games on iPhone/iPad — one-click macOS app, no terminal. | 把 Switch 游戏装进 iPhone：图形界面一键构建，不用命令行。Bring your own game.",
+      "description_fp": "eaa533d79bd4851a",
+      "forks": 530,
+      "full_name": "LNPANDY/NX2Apple",
+      "generated": {
+        "article_markdown": "## What it is\n\nNX2Apple is a macOS application designed to take your own Nintendo Switch game dumps and build them into native apps for Apple silicon Macs, iPhones, and iPads. Rather than relying on traditional software emulation, the project leverages native execution where the game's original code runs directly on the hardware, translating graphics through Metal.\n\n## Why it matters\n\nPackaging console games for mobile and desktop architectures traditionally demands complex command-line toolchains and manual compilation steps. This project wraps that pipeline into a graphical interface, eliminating terminal overhead for developers who want to inspect or run local game builds.\n\n## Key features\n\n- Build games for Mac, iPhone, or iPad from a single macOS graphical launcher.\n- Customize touch layouts, stick positions, and physical controller mappings.\n- Organize games in a shared shell app with Cover Flow and full-screen console mode.\n- Direct game data streaming from external folders or the iOS Files app.\n- Sync game saves automatically via iCloud Drive folders.\n\n## Quick start\n\nClone the repository to get started with the source files:\n\n```bash\ngit clone https://github.com/LNPANDY/NX2Apple.git\n```\n\n## Who should try it\n\nThis tool fits developers and tech enthusiasts who maintain Apple silicon hardware and possess legal game dumps they want to run locally without setting up manual build environments.\n\n## Verdict\n\nNX2Apple provides a streamlined graphical alternative to terminal-based building, though its utility entirely depends on having your own valid game files and compatible hardware.",
+        "article_title": "LNPANDY/NX2Apple: Run Switch Games Natively on Apple Silicon",
+        "card_hook": "Run Switch games on Apple devices",
+        "card_subline": "A macOS app that builds your own game dumps into native apps for Mac, iPhone, and iPad without a terminal",
+        "category": "DevTools",
+        "discussion_question": "Which game dump format do you prefer working with most?",
+        "hook": "Turn your own Switch game dumps into native Apple silicon apps with a macOS launcher.",
+        "key_features": [
+          "Build games for Mac, iPhone, or iPad from a single macOS graphical launcher",
+          "Customize touch layouts, stick positions, and physical controller mappings",
+          "Organize games in a shared shell app with Cover Flow and full-screen console mode",
+          "Direct game data streaming from external folders or the iOS Files app",
+          "Sync game saves automatically via iCloud Drive folders"
+        ],
+        "llm_used": true,
+        "quick_start": "git clone https://github.com/LNPANDY/NX2Apple.git",
+        "safety": "ok",
+        "safety_reason": "The project is a build tool and launcher for running user-provided game dumps natively on Apple silicon.",
+        "scene": "You want to test a game on your iPad over the weekend, but you are stuck writing custom build scripts and wrestling with command-line arguments just to package local assets.",
+        "social_text": "Build your own Nintendo Switch game dumps into native apps for macOS, iOS, and iPadOS using a graphical launcher.",
+        "summary": "The tool uses a macOS app to unpack, rewrite, translate shaders, and pack game dumps into native bundles. It sits on top of the nxnative engine, translating HorizonOS calls and rendering graphics via Metal directly on Apple silicon rather than emulating them in software.",
+        "surfaces": {
+          "Facebook_body": "Playing your favorite console games on your Apple devices is now easier than ever with a new open-source tool that turns game files into native apps. Instead of running heavy software to mimic another device, this tool translates the game code so it runs directly on your hardware using modern graphics technology. You can customize touch controls for your phone, map physical controllers, and organize your library in a clean visual interface. Game saves sync automatically through your cloud storage, and you can stream game data directly from your device storage or external folders. It is built specifically for developers, hobbyists, and enthusiasts who own valid game dumps and want to experience them natively on Apple silicon computers, tablets, and phones.",
+          "Facebook_headline": "Turn console games into Mac and iPhone apps",
+          "Facebook_lead": "Convert your game files into native apps for your Mac, iPhone, or iPad with a simple one-click tool. No command line required, just bring your own game files.",
+          "bluesky_headline": "Run Switch games natively on Apple silicon",
+          "bluesky_lead": "Turn your own game dumps into native Apple apps with a simple macOS launcher.",
+          "devto_body": "## What it is\n\nNX2Apple is an open-source Swift application designed to unpack, translate, and repack console game dumps into native app bundles for macOS, iOS, and iPadOS. Rather than traditional software emulation, it leverages the nxnative engine to translate system calls and route graphics directly through Metal on Apple silicon.\n\n## How it works\n\nThe utility provides a graphical macOS launcher that handles the conversion pipeline. It extracts game data, rewrites code paths, translates shaders, and packages the result into a standard app bundle. By running instructions natively on the processor and GPU, it bypasses the overhead of heavy software interpreters.\n\n## Key features\n\n- Build native Mac, iPhone, and iPad apps from a graphical interface\n- Customize touch layouts, analog stick positions, and controller mappings\n- Organize titles in a shared shell app with Cover Flow and console mode\n- Stream game assets from external folders or the iOS Files app\n- Automatic save synchronization via iCloud Drive\n\n## Getting started\n\nClone the repository from GitHub, ensure you have Xcode and Swift installed for local building, and launch the macOS app interface to begin converting your legally acquired game dumps.\n\n## When not to use it\n\nThis tool is not intended for users without valid game dumps, nor does it include copyrighted game files or BIOS data. It requires Apple silicon hardware and is tailored for developers and tinkerers exploring native graphics translation.",
+          "seo_description": "Convert your console game dumps into native apps for Mac and iPhone using a simple macOS launcher. Built for developers and enthusiasts on Apple silicon.",
+          "seo_query": "run switch games natively on apple silicon",
+          "seo_title": "Turn Switch games into native Apple apps - NX2Apple",
+          "telegraph_angle": "Explain how native translation on Apple silicon bypasses traditional software emulation and what that means for game preservation enthusiasts."
+        },
+        "tension": "Manually unpacking ROMs, managing dependencies, and compiling targets via terminal scripts wastes hours and breaks with every minor SDK update.",
+        "turn": "This app replaces the terminal workflow with a graphical macOS builder, though it still requires your own game dumps and keys.",
+        "verdict": "An impressive native builder for Apple silicon, best suited for developers and tinkerers who already own valid game dumps.",
+        "who_for": "Developers and enthusiasts with Apple silicon Macs who want to run their own Switch game dumps natively on iOS and macOS.",
+        "why_now": "Advances in Metal translation and native Apple silicon execution make running game code directly practical without heavy software emulation."
+      },
+      "homepage": "https://github.com/LNPANDY/NX2Apple#readme",
+      "id": 1427401105,
+      "image_url": "https://i.ibb.co/gbQ7wQsP/lnpandy-nx2apple-readme-preview-d98a86b9aa17.jpg",
+      "is_dual_use": false,
+      "is_hidden_gem": false,
+      "language": "Swift",
+      "license": {
+        "key": "mit",
+        "name": "MIT License",
+        "node_id": "MDc6TGljZW5zZTEz",
+        "spdx_id": "MIT",
+        "url": "https://api.github.com/licenses/mit"
+      },
+      "media_urls": [
+        "https://raw.githubusercontent.com/LNPANDY/NX2Apple/main/frontend/screenshots/hero-features-en.png",
+        "https://raw.githubusercontent.com/LNPANDY/NX2Apple/main/frontend/screenshots/ios-cover-flow-en.webp",
+        "https://raw.githubusercontent.com/LNPANDY/NX2Apple/main/frontend/screenshots/launcher-library.webp",
+        "https://raw.githubusercontent.com/LNPANDY/NX2Apple/main/frontend/screenshots/ios-library-en.webp",
+        "https://raw.githubusercontent.com/LNPANDY/NX2Apple/main/frontend/screenshots/logo-light.png",
+        "https://raw.githubusercontent.com/seedds/nxnative/88c7e03f51e3934dc227089ea81ec64fcd525b03/docs/images/zelda-tears-of-the-kingdom.jpg",
+        "https://raw.githubusercontent.com/seedds/nxnative/88c7e03f51e3934dc227089ea81ec64fcd525b03/docs/images/hades-ii.jpg",
+        "https://raw.githubusercontent.com/seedds/nxnative/88c7e03f51e3934dc227089ea81ec64fcd525b03/docs/images/animal-crossing-new-horizons.jpg"
+      ],
+      "name": "NX2Apple",
+      "open_issues": 124,
+      "published_at": "2026-11-06T15:04:45.638842Z",
+      "pushed_at": "2026-11-06T14:12:24Z",
+      "readme_fp": "9d813d728c6037d9",
+      "repo_id": 1427401105,
+      "revisit_of": "",
+      "revisit_reason": "",
+      "score": 90.617,
+      "slot": "europe_morning",
+      "sources": [
+        "github_search"
+      ],
+      "stars": 3941,
+      "telegram_chat_id": "@GitHub_Open_Source",
+      "telegram_link": "https://t.me/GitHub_Open_Source/3563",
+      "telegram_message_id": 3563,
+      "telegraph_url": "https://telegra.ph/LNPANDYNX2Apple-Run-Switch-Games-Natively-on-Apple-Silicon-11-06",
+      "topics": [
+        "apple-silicon",
+        "custom-format",
+        "homebrew",
+        "ios",
+        "ipa",
+        "ipad",
+        "ipados",
+        "iphone",
+        "metal",
+        "native-port",
+        "nintendo-switch",
+        "nxnative",
+        "romfs",
+        "switch-games"
+      ],
+      "updated_at": "2026-11-06T15:03:29Z",
+      "url": "https://github.com/LNPANDY/NX2Apple",
+      "visual_host": "imgbb",
+      "visual_kind": "readme"
+    },
     "peach-mitao/peach": {
       "articles": {},
       "card_style": "",
@@ -1645,76 +1764,6 @@
       ],
       "updated_at": "2026-11-06T12:12:28Z",
       "url": "https://github.com/JuneYaooo/rea-video"
-    },
-    {
-      "archived": false,
-      "contributors_count": 32,
-      "created_at": "2026-10-20T18:16:07Z",
-      "default_branch": "main",
-      "description": "Play your own Switch games on iPhone/iPad — one-click macOS app, no terminal. | 把 Switch 游戏装进 iPhone：图形界面一键构建，不用命令行。Bring your own game.",
-      "disabled": false,
-      "fork": false,
-      "forks": 528,
-      "forks_count": 528,
-      "full_name": "LNPANDY/NX2Apple",
-      "has_readme": true,
-      "homepage": "https://github.com/LNPANDY/NX2Apple#readme",
-      "id": 1427401105,
-      "is_dual_use": false,
-      "is_hidden_gem": false,
-      "language": "Swift",
-      "license": {
-        "key": "mit",
-        "name": "MIT License",
-        "node_id": "MDc6TGljZW5zZTEz",
-        "spdx_id": "MIT",
-        "url": "https://api.github.com/licenses/mit"
-      },
-      "media_urls": [
-        "https://raw.githubusercontent.com/LNPANDY/NX2Apple/main/frontend/screenshots/hero-features-en.png",
-        "https://raw.githubusercontent.com/LNPANDY/NX2Apple/main/frontend/screenshots/ios-cover-flow-en.webp",
-        "https://raw.githubusercontent.com/LNPANDY/NX2Apple/main/frontend/screenshots/launcher-library.webp",
-        "https://raw.githubusercontent.com/LNPANDY/NX2Apple/main/frontend/screenshots/ios-library-en.webp",
-        "https://raw.githubusercontent.com/LNPANDY/NX2Apple/main/frontend/screenshots/logo-light.png",
-        "https://raw.githubusercontent.com/seedds/nxnative/88c7e03f51e3934dc227089ea81ec64fcd525b03/docs/images/zelda-tears-of-the-kingdom.jpg",
-        "https://raw.githubusercontent.com/seedds/nxnative/88c7e03f51e3934dc227089ea81ec64fcd525b03/docs/images/hades-ii.jpg",
-        "https://raw.githubusercontent.com/seedds/nxnative/88c7e03f51e3934dc227089ea81ec64fcd525b03/docs/images/animal-crossing-new-horizons.jpg"
-      ],
-      "name": "NX2Apple",
-      "non_software_reason": "",
-      "open_issues": 116,
-      "open_issues_count": 116,
-      "owner_repo_count": 1,
-      "pushed_at": "2026-11-06T11:50:47Z",
-      "readme": "",
-      "readme_excerpt": "<div align=\"center\">\n\n<picture>\n  <source media=\"(prefers-color-scheme: dark)\" srcset=\"frontend/screenshots/logo-dark.png\">\n  <img src=\"frontend/screenshots/logo-light.png\" width=\"360\" alt=\"NX2Apple, by nxnative\">\n</picture>\n\n**Your Switch games, running on your iPhone.**\n\n**Not an emulator. No terminal. A macOS app does the whole build in a few clicks.**\n\n[![Stars](https://img.shields.io/github/stars/LNPANDY/NX2Apple?style=social)](https://github.com/LNPANDY/NX2Apple/stargazers)\n[![Forks](https://img.shields.io/github/forks/LNPANDY/NX2Apple?style=social)](https://github.com/LNPANDY/NX2Apple/network/members)\n[![Issues](https://img.shields.io/github/issues/LNPANDY/NX2Apple)](https://github.com/LNPANDY/NX2Apple/issues)\n[![License](https://img.shields.io/github/license/LNPANDY/NX2Apple)](LICENSE)\n[![Games](https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2FLNPANDY%2FNX2Apple%2Fmain%2F.github%2Fbadges%2Fgames.json)](.github/badges/games.json)\n\n[![中文](https://img.shields.io/badge/🇨🇳_中文-available-green)](README.zh-CN.md)\n[![English](https://img.shields.io/badge/🇺🇸_English-current-blue)](README.md)\n[![Svenska](https://img.shields.io/badge/🇸🇪_Svenska-available-gr",
-      "readme_len": 20838,
-      "repo_id": 1427401105,
-      "score": 90.617,
-      "source_name": "github_search",
-      "sources": [
-        "github_search"
-      ],
-      "stargazers_count": 3891,
-      "stars": 3891,
-      "topics": [
-        "apple-silicon",
-        "custom-format",
-        "homebrew",
-        "ios",
-        "ipa",
-        "ipad",
-        "ipados",
-        "iphone",
-        "metal",
-        "native-port",
-        "nintendo-switch",
-        "nxnative",
-        "romfs",
-        "switch-games"
-      ],
-      "updated_at": "2026-11-06T12:12:20Z",
-      "url": "https://github.com/LNPANDY/NX2Apple"
     },
     {
       "archived": false,
@@ -5065,8 +5114,8 @@
     "lnpandy/nx2apple": {
       "first_seen_at": "2026-11-06T12:20:43.168369Z",
       "full_name": "LNPANDY/NX2Apple",
-      "last_decision": "queued",
-      "last_seen_at": "2026-11-06T12:20:43.168373Z",
+      "last_decision": "published",
+      "last_seen_at": "2026-11-06T15:04:45.639058Z",
       "repo_id": 1427401105,
       "sources": [
         "github_search"
