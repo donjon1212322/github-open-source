@@ -2,12 +2,12 @@
   "dead_letters": [],
   "gemini_window": [
     [
-      1793963665.8302596,
-      3948
+      1793971865.5311449,
+      2225
     ],
     [
-      1793963670.9307175,
-      1466
+      1793971870.1245425,
+      1411
     ]
   ],
   "last_runs": {
@@ -42,9 +42,9 @@
       "started_at": "2026-11-06T12:18:30.576036Z"
     },
     "publish:europe_midday": {
-      "finished_at": "2026-11-04T19:59:51.256728Z",
-      "repo": "knifelemon/filee",
-      "telegram_message_id": 3555
+      "finished_at": "2026-11-06T13:31:27.208230Z",
+      "repo": "l0ng-ai/openidea",
+      "telegram_message_id": 3562
     },
     "publish:europe_morning": {
       "finished_at": "2026-11-06T11:14:35.945159Z",
@@ -935,6 +935,122 @@
       "visual_host": "imgbb",
       "visual_kind": "readme"
     },
+    "l0ng-ai/openidea": {
+      "articles": {},
+      "card_style": "neon_terminal",
+      "category": "DevTools",
+      "contributors_count": 88,
+      "created_at": "2026-10-21T12:23:14Z",
+      "crossposts": {
+        "bluesky": {
+          "attempts": 0,
+          "due_at": "2026-11-06T18:00:00+00:00",
+          "status": "pending"
+        }
+      },
+      "description": "The IDE you know, rebuilt in Rust. IntelliJ IDEA–style keymap, tool windows and search-everywhere in a fast native app: editor, code insight, debugger, Git, terminal, database and HTTP clients for 60+ languages.",
+      "description_fp": "edeb8bf2cea9740e",
+      "forks": 611,
+      "full_name": "l0ng-ai/openidea",
+      "generated": {
+        "article_markdown": "## What it is\n\nOpenIDEA is a cross-platform integrated development environment that recreates the familiar IntelliJ IDEA experience inside a native desktop application. Built with a Rust core and Tauri, it integrates an editor, code insight engine, debugger, Git client, terminal, and database and HTTP clients for more than sixty languages. Instead of running on a heavy virtual machine, it is designed to deliver immediate startup and low memory footprints while preserving the keymaps and tool window layouts that heavy IDE users rely on.\n\n## Why it matters\n\nTraditional full-featured IDEs often demand massive amounts of system memory and lengthy initialization sequences, turning routine project switches into frustrating bottlenecks. OpenIDEA addresses this resource disparity by leveraging Rust, keeping memory usage drastically lower and reducing project opening times to less than a second on modern hardware. This allows developers to retain comprehensive database and code intelligence tools without sacrificing system performance.\n\n## Key features\n\n- Open repositories like freqtrade in under a second with warm caches.\n- Maintain an average USS memory footprint of around 169 MB during standard tasks.\n- Run extensions safely inside sandboxed WebAssembly runtimes.\n- Utilize built-in database tools and HTTP clients alongside standard code editing windows.\n- Create custom plugins quickly using the provided CLI scaffolding commands.\n\n## Quick start\n\nTo clone and build OpenIDEA from source, use the following command:\n\n```bash\ngit clone https://github.com/l0ng-ai/openidea\n```\n\n## Who should try it\n\nThis project fits developers who are heavily accustomed to JetBrains workflows and keybindings but find traditional IDEs too resource-heavy. It is particularly suited for those working across multiple repositories who need instant window switching and minimal idle CPU overhead.\n\n## Verdict\n\nOpenIDEA offers a compelling performance-focused alternative for developers tired of sluggish IDE startups. While its plugin ecosystem and deep analysis features are still evolving, its native speed and modest memory consumption make it well worth testing for daily workflows.",
+        "article_title": "OpenIDEA: A Fast Native IDE Rebuilt in Rust for IntelliJ Users",
+        "card_hook": "IntelliJ workflows in a native Rust app",
+        "card_subline": "Fast native IDE with code insight, database clients, and search-everywhere features",
+        "category": "DevTools",
+        "discussion_question": "Which IntelliJ shortcut or tool window do you miss most when using lightweight text editors?",
+        "hook": "OpenIDEA brings IntelliJ keymaps and a native Rust core to 60+ languages, opening large repos in under a second.",
+        "key_features": [
+          "Open large repositories like freqtrade in 0.9 seconds with warm caches",
+          "Consume 169 MB of memory compared to over 2 GB in traditional IDEs",
+          "Execute plugins securely inside sandboxed WebAssembly runtimes",
+          "Manage databases and HTTP requests directly alongside code windows",
+          "Build custom extensions using the openidea-plugin new CLI tool"
+        ],
+        "llm_used": true,
+        "quick_start": "git clone https://github.com/l0ng-ai/openidea",
+        "safety": "ok",
+        "safety_reason": "Legitimate cross-platform IDE project.",
+        "scene": "You wait several seconds for a heavy Java-based IDE to index a medium-sized Python project while your laptop fans spin up.",
+        "social_text": "OpenIDEA delivers IntelliJ workflows in a fast native Rust app supporting 60+ languages with minimal memory usage.",
+        "summary": "OpenIDEA is built on a Rust core and Tauri desktop framework to replicate the familiar interface of heavy Java-based IDEs without the resource overhead. It bundles an editor, code insight, debugger, Git integration, terminal, and database and HTTP clients into a single compiled binary supporting over sixty languages. Sandboxed WebAssembly components handle plugins, while themes and language packs require no compiled code.",
+        "surfaces": {
+          "Facebook_body": "Many programmers love advanced tools for writing software, but these programs often take up enormous amounts of memory and take a long time to start up. A new open-source desktop application replicates the familiar interface and keyboard shortcuts of heavy programming environments while stripping away the massive resource overhead.\n\nBuilt on a fast native core, this program opens massive code repositories in under a second while consuming only 169 megabytes of memory instead of gigabytes. It bundles an editor, code insight, debugger, version control, terminal, and database tools into a single compiled binary supporting over sixty languages.\n\nThis is designed for software developers who love traditional keyboard shortcuts and comprehensive tooling but want drastically lower memory usage and instant startup times. While plugin capabilities are still developing, it provides a practical alternative for everyday coding work.",
+          "Facebook_headline": "Code Editor Without the Slow Load Times",
+          "Facebook_lead": "Enjoy the familiar feel of advanced programming tools while using a fraction of the memory and getting instant startup times.",
+          "bluesky_headline": "Open large codebases in under one second",
+          "bluesky_lead": "Get familiar keyboard shortcuts and instant startup times with a fraction of the memory usage.",
+          "devto_body": "## What it is\n\nOpenIDEA is a fast, native development environment built on TypeScript, Rust, and the Tauri framework. It replicates the interface and keymaps of heavy Java-based editors while drastically reducing resource overhead, consuming about 169 MB of memory and launching large repositories in under a second.\n\n## How it works\n\nBy leveraging a native Rust core, the application avoids the heavy memory footprint of traditional virtual machines. Plugins run securely inside sandboxed WebAssembly runtimes, while themes and language packs require no compiled code.\n\n## Key features\n\n- Opens large repositories in 0.9 seconds with warm caches\n- Uses 169 MB of memory compared to over 2 GB in traditional tools\n- Includes editor, code insight, debugger, Git, terminal, database, and HTTP clients\n- Supports over 60 programming languages\n- Build custom extensions using the openidea-plugin new CLI tool\n\n## Getting started\n\nClone the repository from l0ng-ai/openidea, ensure you have the required build tools for Tauri and Rust, and follow the setup instructions in the readme to compile and run your local instance.\n\n## When not to use it\n\nSkip this if you rely heavily on mature, complex proprietary plugins that have no equivalent in the preview WebAssembly plugin ecosystem.",
+          "seo_description": "Discover a fast, native code editor that brings familiar shortcuts and tools to 60+ languages with minimal memory usage. Built for developers.",
+          "seo_query": "lightweight open source code editor rust",
+          "seo_title": "Lightweight Open-Source Alternative to IntelliJ IDEA",
+          "telegraph_angle": "Explain how replacing heavy virtual machines with a native Rust core changes day-to-day software development performance and trade-offs."
+        },
+        "tension": "Your current IDE consumes over 2 GB of memory, takes nearly 14 seconds to settle its CPU, and makes closing or restarting a sluggish chore.",
+        "turn": "OpenIDEA swaps the JVM runtime for a native Rust core, cutting startup times to under a second while keeping your familiar keymaps and tool windows, though deep semantic analysis features are still expanding.",
+        "verdict": "An impressive, lightweight alternative for developers who miss native app performance, though plugin APIs are still in preview.",
+        "who_for": "Developers who love IntelliJ keyboard shortcuts and tooling but want drastically lower memory usage and instant startup times.",
+        "why_now": "Desktop frameworks and Rust tooling have matured enough to make native, low-resource ports of complex IDE ecosystems genuinely practical."
+      },
+      "hn_points": 41,
+      "homepage": "",
+      "id": 1428347546,
+      "image_url": "https://i.ibb.co/rfdHyCRq/l0ng-ai-openidea-preview-4c8473bff79d.jpg",
+      "is_dual_use": false,
+      "is_hidden_gem": false,
+      "language": "TypeScript",
+      "license": {
+        "key": "apache-2.0",
+        "name": "Apache License 2.0",
+        "node_id": "MDc6TGljZW5zZTI=",
+        "spdx_id": "Apache-2.0",
+        "url": "https://api.github.com/licenses/apache-2.0"
+      },
+      "media_urls": [
+        "https://raw.githubusercontent.com/l0ng-ai/openidea/main/docs/assets/wechat-group.png",
+        "https://raw.githubusercontent.com/l0ng-ai/openidea/main/src-tauri/icons/source/openidea-wordmark.svg"
+      ],
+      "name": "openidea",
+      "open_issues": 330,
+      "published_at": "2026-11-06T13:31:27.207975Z",
+      "pushed_at": "2026-11-06T12:55:17Z",
+      "readme_fp": "4ec96d65273217ce",
+      "repo_id": 1428347546,
+      "revisit_of": "",
+      "revisit_reason": "",
+      "score": 90.982,
+      "slot": "europe_midday",
+      "sources": [
+        "github_search",
+        "hacker_news"
+      ],
+      "stars": 7315,
+      "telegram_chat_id": "@GitHub_Open_Source",
+      "telegram_link": "https://t.me/GitHub_Open_Source/3562",
+      "telegram_message_id": 3562,
+      "telegraph_url": "https://telegra.ph/OpenIDEA-A-Fast-Native-IDE-Rebuilt-in-Rust-for-IntelliJ-Users-11-06",
+      "topics": [
+        "code-editor",
+        "cross-platform",
+        "dap",
+        "database-client",
+        "debugger",
+        "desktop-app",
+        "developer-tools",
+        "git",
+        "http-client",
+        "ide",
+        "intellij",
+        "lsp",
+        "rust",
+        "tauri",
+        "terminal"
+      ],
+      "updated_at": "2026-11-06T13:29:37Z",
+      "url": "https://github.com/l0ng-ai/openidea",
+      "visual_host": "imgbb",
+      "visual_kind": "card"
+    },
     "lnkiai/m3e-canvas": {
       "articles": {},
       "card_style": "",
@@ -1444,73 +1560,6 @@
     }
   },
   "queue": [
-    {
-      "archived": false,
-      "contributors_count": 88,
-      "created_at": "2026-10-21T12:23:14Z",
-      "default_branch": "main",
-      "description": "The IDE you know, rebuilt in Rust. IntelliJ IDEA–style keymap, tool windows and search-everywhere in a fast native app: editor, code insight, debugger, Git, terminal, database and HTTP clients for 60+ languages.",
-      "disabled": false,
-      "fork": false,
-      "forks": 608,
-      "forks_count": 608,
-      "full_name": "l0ng-ai/openidea",
-      "has_readme": true,
-      "hn_points": 41,
-      "homepage": "",
-      "id": 1428347546,
-      "is_dual_use": false,
-      "is_hidden_gem": false,
-      "language": "TypeScript",
-      "license": {
-        "key": "apache-2.0",
-        "name": "Apache License 2.0",
-        "node_id": "MDc6TGljZW5zZTI=",
-        "spdx_id": "Apache-2.0",
-        "url": "https://api.github.com/licenses/apache-2.0"
-      },
-      "media_urls": [
-        "https://raw.githubusercontent.com/l0ng-ai/openidea/main/docs/assets/wechat-group.png",
-        "https://raw.githubusercontent.com/l0ng-ai/openidea/main/src-tauri/icons/source/openidea-wordmark.svg"
-      ],
-      "name": "openidea",
-      "non_software_reason": "",
-      "open_issues": 328,
-      "open_issues_count": 328,
-      "owner_repo_count": 1,
-      "pushed_at": "2026-11-06T09:27:11Z",
-      "readme": "",
-      "readme_excerpt": "<p align=\"center\">\n  <picture>\n    <source media=\"(prefers-color-scheme: dark)\" srcset=\"src-tauri/icons/source/openidea-wordmark-dark.svg\">\n    <img src=\"src-tauri/icons/source/openidea-wordmark.svg\" alt=\"OpenIDEA\" height=\"56\">\n  </picture>\n</p>\n\n<p align=\"center\">\n  The IDE you know, rebuilt in Rust.\n</p>\n\n<p align=\"center\">\n  <a href=\"https://github.com/l0ng-ai/openidea/releases/latest\"><b>Download</b></a>\n  &nbsp;·&nbsp;\n  <a href=\"#benchmark\">Benchmark</a>\n  &nbsp;·&nbsp;\n  <a href=\"#plugins\">Plugins</a>\n  &nbsp;·&nbsp;\n  <a href=\"#community\">Community</a>\n</p>\n\nhttps://github.com/user-attachments/assets/234dd54c-1255-4b3a-b35c-533d78d737c0\n\nOpenIDEA brings the IntelliJ IDEA way of working — its keymap, its tool windows,\nits search-everything habits — to a native app with a Rust core.\n\nEditor, code insight, debugger, Git, terminal, database and HTTP clients,\nfor 60+ languages. Builds for macOS, Windows and Linux.\n\n## Benchmark\n\nOpening [freqtrade](https://github.com/freqtrade/freqtrade) (Python, ~770 files)\nwith warm caches, median of 5 runs:\n\n|                             | OpenIDEA          | IntelliJ IDEA 2026.2.3 |\n| --------------------------- | ----------------- | -------",
-      "readme_len": 3008,
-      "repo_id": 1428347546,
-      "score": 90.982,
-      "source_name": "github_search",
-      "sources": [
-        "github_search",
-        "hacker_news"
-      ],
-      "stargazers_count": 7277,
-      "stars": 7277,
-      "topics": [
-        "code-editor",
-        "cross-platform",
-        "dap",
-        "database-client",
-        "debugger",
-        "desktop-app",
-        "developer-tools",
-        "git",
-        "http-client",
-        "ide",
-        "intellij",
-        "lsp",
-        "rust",
-        "tauri",
-        "terminal"
-      ],
-      "updated_at": "2026-11-06T12:16:58Z",
-      "url": "https://github.com/l0ng-ai/openidea"
-    },
     {
       "archived": false,
       "contributors_count": 5,
@@ -4909,8 +4958,8 @@
     "l0ng-ai/openidea": {
       "first_seen_at": "2026-11-04T12:14:31.118943Z",
       "full_name": "l0ng-ai/openidea",
-      "last_decision": "queued",
-      "last_seen_at": "2026-11-06T12:20:43.165000Z",
+      "last_decision": "published",
+      "last_seen_at": "2026-11-06T13:31:27.208221Z",
       "repo_id": 1428347546,
       "sources": [
         "github_search",
