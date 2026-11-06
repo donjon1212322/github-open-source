@@ -201,6 +201,39 @@
       "topic_key": "ai-model-releases",
       "video_id": "LHxOG65r12w",
       "video_url": "https://www.youtube.com/watch?v=LHxOG65r12w"
+    },
+    {
+      "Gemini_video_input": true,
+      "headline": "Claude Sonnet 6 and GPT-6.2 Astra leaks surface alongside Gemini Omni 1.2 Flash updates",
+      "image_url": "https://i.ibb.co/LzSdfjRP/ai-brief-27e164cbb0f5.png",
+      "models": [
+        "Claude Sonnet 6",
+        "Claude Sonnet 5.5 Extra",
+        "Sonnet 5.5",
+        "Fable 4",
+        "Model 2",
+        "Model 3",
+        "Model 4",
+        "Claude Opus 5.5",
+        "Claude Fable 5.5",
+        "GPT-6.2 Astra",
+        "GPT-6 Cyber",
+        "GPT-6 Astra"
+      ],
+      "official_url": "",
+      "published_at": "2026-11-06T23:45:00.654565Z",
+      "statuses": [
+        "leaked_checkpoint",
+        "announced_not_shipped",
+        "official_release",
+        "leaked_checkpoint",
+        "demo_or_benchmark"
+      ],
+      "stories": 5,
+      "telegram_message_id": 3564,
+      "topic_key": "model-leaks-and-releases",
+      "video_id": "efnEcbHnRa0",
+      "video_url": "https://www.youtube.com/watch?v=efnEcbHnRa0"
     }
   ],
   "publish_failures": {},
