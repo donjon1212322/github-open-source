@@ -1,0 +1,18 @@
+# Copy to wrangler.toml, fill in GH_REPO, then set the secret (never commit it):
+#   npx wrangler secret put GH_PAT
+#
+# Cloudflare Workers Free (official docs, checked 06.11.2026):
+#   5 Cron Triggers per account, 100,000 requests/day, 10 ms CPU invocation.
+#   One trigger at */30 = 48 requests/day, far below the daily allowance.
+#   Cron Triggers have NO automatic retries and NO failure alerts: the Worker
+#   logs failures, and the watchdog itself still has its own schedule ticks.
+
+name = "ghos-v6-tick"
+main = "worker.js"
+compatibility_date = "2026-11-06"
+
+[vars]
+GH_REPO = "OWNER/REPO"
+
+[triggers]
+crons = ["*/30 * * * *"]

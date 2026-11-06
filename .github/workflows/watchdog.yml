@@ -1,10 +1,16 @@
 name: Watchdog
 
-# GitHub delayed/dropped 34 of 42 schedule events on 2026-11-05. This
-# off-minute hourly check notices a missed slot and dispatches it once.
+# GitHub delayed/dropped 34 of 42 schedule events on 2026-11-05, and on
+# 06.11 it dropped whole batches (07:27, 09:27, 11:27, 13:27 Minsk) with
+# three hours and no run at all. This off-minute check notices a missed slot
+# and dispatches it once. Two independent minutes plus an API entry point
+# give an external clock a way in when GitHub's own scheduler is silent.
 on:
   schedule:
-    - cron: "27 */2 * * *"
+    - cron: "27 */2 * * *"   # 01:27, 03:27 ... Minsk 04:27, 06:27 ...
+    - cron: "57 */2 * * *"   # redundant tick, halves the odds of a total gap
+  repository_dispatch:
+    types: [watchdog_tick]   # external free clock -> POST /dispatches
   workflow_dispatch:
 
 permissions:

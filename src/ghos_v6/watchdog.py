@@ -4,7 +4,7 @@ GitHub delayed 34 of 42 scheduled events on 05.11. A watchdog cannot make
 GitHub punctual, but it can notice the gap, alert the owner and dispatch the
 missed command without losing it to the concurrency queue.
 
-Owner decision (2026-11-06):
+Owner decisions (2026-11-06):
 - ``HTTP 204`` from ``workflow_dispatch`` is NOT proof that the slot ran. On
   05.11 the accepted run was cancelled before any job started because the
   watchdog shared ``state-writer`` with the pipeline. A marker is now
@@ -13,6 +13,16 @@ Owner decision (2026-11-06):
 - Days are still counted in UTC on purpose: GitHub cron is UTC and the owner
   forbade ``timezone: "Europe/Minsk"``. Switching the 3-posts/day limit to
   Minsk time would be a separate, explicit decision.
+- Notifications must not cry wolf. On 06.11 two alarming "missed slot" messages
+  were sent for dispatches that completed minutes later, and no closing message
+  ever arrived. A first successful dispatch is now silent; the owner hears
+  only when a dispatch fails, when an unverified slot needs a second attempt,
+  or when state confirms the slot was restored (a closing "recovered" note).
+- GitHub dropped whole batches of ``schedule`` events on 06.11 (07:27, 09:27,
+  11:27, 13:27 Minsk and three hours with no run at all). A second cron tick
+  and a ``repository_dispatch`` entry point let an external free clock start
+  this workflow through the API instead of GitHub's best-effort scheduler.
+  See ``tools/external_tick/README.md``.
 """
 from __future__ import annotations
 
@@ -114,6 +124,19 @@ def _dispatch(repo: str, inputs: dict[str, str], token: str) -> tuple[bool, str]
         return False, type(exc).__name__
 
 
+def _notify(config: Config, text_html: str) -> bool:
+    """Best-effort owner notice. Never let Telegram failure break the check."""
+    if not (config.telegram_owner_chat_id and config.telegram_bot_token):
+        return False
+    try:
+        TelegramClient(config.telegram_bot_token).send_text(
+            config.telegram_owner_chat_id, text_html)
+        return True
+    except Exception as exc:  # noqa: BLE001
+        logger.warning("watchdog alert failed: %s", type(exc).__name__)
+        return False
+
+
 def watchdog_command(config: Config, store: StateStore, *, now: datetime | None = None) -> dict[str, Any]:
     now = now or datetime.now(timezone.utc)
     today = now.date()
@@ -130,6 +153,7 @@ def watchdog_command(config: Config, store: StateStore, *, now: datetime | None 
     dispatched: list[str] = []
     verified: list[str] = []
     failed: list[str] = []
+    alerts: list[str] = []
 
     for key, (hour, minute), inputs in SLOTS:
         deadline = now.replace(hour=hour, minute=minute, second=0, microsecond=0)
@@ -144,6 +168,10 @@ def watchdog_command(config: Config, store: StateStore, *, now: datetime | None 
                 changed = True
                 store.event("watchdog_verified", slot=key)
                 verified.append(key)
+                message = ("✅ <b>Слот восстановлен</b> <code>%s</code>\n"
+                           "Результат подтверждён в state; больше действий не требуется." % key)
+                if _notify(config, message):
+                    alerts.append(message)
             continue
         if now < deadline:
             continue
@@ -166,33 +194,39 @@ def watchdog_command(config: Config, store: StateStore, *, now: datetime | None 
                 continue
 
         ok, detail = _dispatch(repo, inputs, token)
+        attempts = int(prev.get("attempts", 1) if prev else 0) + 1
         marks[mark] = {
             "at": _stamp(now),
             "dispatched": ok,
             "verified": False,          # HTTP 204 is not execution proof
             "detail": detail[:200],
-            "attempts": int(prev.get("attempts", 1) if prev else 0) + 1,
+            "attempts": attempts,
         }
         changed = True
         (dispatched if ok else failed).append(key)
         store.event("watchdog_recovered" if ok else "watchdog_dispatch_failed",
                     slot=key, detail=detail[:200], verified=False,
-                    attempts=marks[mark]["attempts"])
+                    attempts=attempts)
         logger.info("watchdog %s: dispatch ok=%s %s (unverified)", key, ok, detail)
 
-        if config.telegram_owner_chat_id and config.telegram_bot_token:
-            try:
-                TelegramClient(config.telegram_bot_token).send_text(
-                    config.telegram_owner_chat_id,
-                    "⚠️ <b>Пропущен слот</b> <code>%s</code>\n"
-                    "Повтор: %s. Подтверждения в state пока нет; "
-                    "проверь Actions, если слот не появился."
-                    % (key, "dispatch принят (HTTP 204)" if ok else "не удался"),
-                )
-            except Exception as exc:  # noqa: BLE001
-                logger.warning("watchdog alert failed: %s", type(exc).__name__)
+        # Silence is the success case: the first accepted dispatch is not a
+        # problem yet, and a "Recovered" note arrives once state confirms it.
+        # Alert only on a real failure or on a second attempt without proof.
+        if not ok:
+            message = ("⚠️ <b>Пропущен слот</b> <code>%s</code>\n"
+                       "Повтор <b>не удался</b> (%s). Проверь Actions."
+                       % (key, detail[:200]))
+        elif attempts >= 2:
+            message = ("⚠️ <b>Пропущен слот</b> <code>%s</code>\n"
+                       "Повторная попытка №%d запущена, но подтверждения в state "
+                       "всё ещё нет. Проверь Actions." % (key, attempts))
+        else:
+            message = ""
+        if message and _notify(config, message):
+            alerts.append(message)
 
     if missed or changed:
         store.save()
     return {"ok": True, "checked": len(SLOTS), "missed": missed,
-            "dispatched": dispatched, "verified": verified, "failed": failed}
+            "dispatched": dispatched, "verified": verified, "failed": failed,
+            "alerts": alerts}
