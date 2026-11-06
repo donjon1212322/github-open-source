@@ -64,6 +64,9 @@ permissions:
 concurrency:
   group: state-writer
   cancel-in-progress: false
+  # Keep every pending run. With the default `single` queue a newer scheduled
+  # run cancelled the watchdog's dispatch before it ever got a job (05.11).
+  queue: max
 
 jobs:
   # Runs the project code with the secrets it needs. It cannot write to the

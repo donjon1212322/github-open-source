@@ -1,13 +1,22 @@
-"""Regression tests for the 05.11 TPM incident and the schedule watchdog."""
+"""Regression tests for the 05.11 TPM incident and the schedule watchdog.
+
+Extended 06.11: an accepted ``workflow_dispatch`` (HTTP 204) is not proof of
+execution, ``article`` is a monitored slot, and ``queue: max`` keeps pending
+runs from being evicted by the shared ``state-writer`` group.
+"""
 from __future__ import annotations
 
+import json
 from datetime import datetime, timezone
+from pathlib import Path
 
 from ghos_v6.config import Config
 from ghos_v6.Gemini import GeminiClient, HttpError, classify_error
 from ghos_v6.rate_limit import GeminiBudget, estimate_tokens
 from ghos_v6.state import StateStore
 from ghos_v6.watchdog import watchdog_command
+
+REPO = Path(__file__).resolve().parents[1]
 
 
 class _Store:
@@ -56,27 +65,123 @@ def test_heavy_calls_are_separated_by_70_seconds():
     assert sleeps == [70.0]
 
 
-def test_watchdog_is_idempotent_and_alerts_on_missed_slots(monkeypatch, tmp_path):
-    monkeypatch.delenv("GITHUB_REPOSITORY", raising=False)
-    monkeypatch.setenv("GH_TOKEN", "")
+def _wire(monkeypatch):
     calls: list[str] = []
 
     def fake_dispatch(repo, inputs, token):
         calls.append(inputs["command"])
-        return False, "no repo/token"
+        return True, "HTTP 204"
 
+    monkeypatch.delenv("GITHUB_REPOSITORY", raising=False)
+    monkeypatch.setenv("GH_TOKEN", "")
     monkeypatch.setattr("ghos_v6.watchdog._dispatch", fake_dispatch)
     monkeypatch.setattr("ghos_v6.watchdog.TelegramClient",
                         lambda token: type("T", (), {"send_text": lambda *a, **k: {}})())
+    return calls
+
+
+def test_watchdog_is_idempotent_and_alerts_on_missed_slots(monkeypatch, tmp_path):
+    calls = _wire(monkeypatch)
     store = StateStore(tmp_path)
     now = datetime(2026, 11, 5, 21, 0, tzinfo=timezone.utc)
     first = watchdog_command(Config(), store, now=now)
     second = watchdog_command(Config(), store, now=now)
     assert first["missed"] == ["collect", "publish:europe_morning",
                                "publish:europe_midday", "publish:us_peak", "news"]
-    assert len(calls) == 5       # one dispatch attempt per missed slot
-    assert second["recovered"] == [] and second["failed"] == []
+    assert len(calls) == 5       # one dispatch attempt per missed slot; article needs a project
+    assert second["dispatched"] == [] and second["failed"] == []
     assert calls == ["collect", "publish", "publish", "publish", "news"]
+
+
+def test_http_204_is_not_verified_without_state_confirmation(monkeypatch, tmp_path):
+    calls = _wire(monkeypatch)
+    store = StateStore(tmp_path)
+    store.data["published"] = {
+        "owner/repo": {"published_at": "2026-11-05T10:00:00Z"}
+    }
+    now = datetime(2026, 11, 5, 14, 30, tzinfo=timezone.utc)
+    result = watchdog_command(Config(), store, now=now)
+
+    assert "article" in result["missed"]
+    assert "article" in calls
+    mark = store.data["last_runs"]["watchdog_dispatches"]["2026-11-05:article"]
+    assert mark["dispatched"] is True
+    assert mark["verified"] is False, "HTTP 204 alone must not retire the slot"
+    assert mark["attempts"] == 1
+    events = [json.loads(line) for line in (tmp_path / "events.jsonl").read_text().splitlines()]
+    assert any(e.get("type") == "watchdog_recovered" and e.get("slot") == "article"
+               and e.get("verified") is False for e in events)
+
+
+def test_unverified_dispatch_retries_only_after_cooldown(monkeypatch, tmp_path):
+    calls = _wire(monkeypatch)
+    store = StateStore(tmp_path)
+    store.data["published"] = {
+        "owner/repo": {"published_at": "2026-11-05T10:00:00Z"}
+    }
+    first_now = datetime(2026, 11, 5, 14, 30, tzinfo=timezone.utc)
+    watchdog_command(Config(), store, now=first_now)
+
+    too_soon = datetime(2026, 11, 5, 14, 40, tzinfo=timezone.utc)
+    watchdog_command(Config(), store, now=too_soon)
+    assert calls.count("article") == 1, "no blind retry inside the 30-minute cooldown"
+
+    later = datetime(2026, 11, 5, 15, 1, tzinfo=timezone.utc)
+    watchdog_command(Config(), store, now=later)
+    assert calls.count("article") == 2
+    mark = store.data["last_runs"]["watchdog_dispatches"]["2026-11-05:article"]
+    assert mark["attempts"] == 2 and mark["verified"] is False
+
+
+def test_state_confirmation_marks_the_slot_verified(monkeypatch, tmp_path):
+    _wire(monkeypatch)
+    store = StateStore(tmp_path)
+    store.data["published"] = {
+        "owner/repo": {"published_at": "2026-11-05T10:00:00Z"}
+    }
+    watchdog_command(Config(), store, now=datetime(2026, 11, 5, 14, 30, tzinfo=timezone.utc))
+
+    # The pipeline really published the article and the other slots finished.
+    store.data["published"]["owner/repo"]["articles"] = {
+        "devto": {"published_at": "2026-11-05T14:45:00Z"}
+    }
+    for key in ("collect", "publish:europe_morning", "publish:europe_midday"):
+        store.data["last_runs"][key] = {"finished_at": "2026-11-05T14:40:00Z"}
+
+    second = watchdog_command(Config(), store, now=datetime(2026, 11, 5, 15, 1, tzinfo=timezone.utc))
+    mark = store.data["last_runs"]["watchdog_dispatches"]["2026-11-05:article"]
+    assert mark["verified"] is True and mark.get("verified_at")
+    assert "article" in second["verified"]
+    assert second["dispatched"] == []
+    events = [json.loads(line) for line in (tmp_path / "events.jsonl").read_text().splitlines()]
+    assert any(e.get("type") == "watchdog_verified" and e.get("slot") == "article" for e in events)
+
+
+def test_article_is_not_dispatched_without_a_project_today(monkeypatch, tmp_path):
+    calls = _wire(monkeypatch)
+    store = StateStore(tmp_path)
+    result = watchdog_command(Config(), store, now=datetime(2026, 11, 5, 14, 30, tzinfo=timezone.utc))
+    assert "article" not in result["missed"]
+    assert "article" not in calls, "article_of_day() would only say no_projects_today"
+
+
+def test_article_recovery_window_does_not_backfill_a_stale_day(monkeypatch, tmp_path):
+    calls = _wire(monkeypatch)
+    store = StateStore(tmp_path)
+    store.data["published"] = {
+        "owner/repo": {"published_at": "2026-11-05T10:00:00Z"}
+    }
+    result = watchdog_command(Config(), store, now=datetime(2026, 11, 5, 21, 0, tzinfo=timezone.utc))
+    assert "article" not in result["missed"]
+    assert "article" not in calls
+
+
+def test_concurrency_keeps_pending_runs_instead_of_evicting_them():
+    for name in ("pipeline.yml", "watchdog.yml"):
+        text = (REPO / ".github" / "workflows" / name).read_text(encoding="utf-8")
+        assert "group: state-writer" in text
+        assert "cancel-in-progress: false" in text
+        assert "queue: max" in text, f"{name} must not evict a pending dispatch"
 
 
 def test_capacity_503_falls_back_to_the_spare_model(monkeypatch):

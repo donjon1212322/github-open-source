@@ -14,6 +14,9 @@ permissions:
 concurrency:
   group: state-writer
   cancel-in-progress: false
+  # Shared with pipeline.yml on purpose: state writes stay serialised, but
+  # `queue: max` stops a newer run from evicting this workflow's own dispatch.
+  queue: max
 
 jobs:
   watchdog:
