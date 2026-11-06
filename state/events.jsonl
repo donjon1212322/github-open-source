@@ -80,3 +80,4 @@
 {"preview_host": "imgbb", "repo": "lnpandy/nx2apple", "ts": "2026-11-06T15:04:45.638696Z", "type": "published_as_text"}
 {"repo": "lnpandy/nx2apple", "score": 90.617, "telegram_message_id": 3563, "telegraph_url": "https://telegra.ph/LNPANDYNX2Apple-Run-Switch-Games-Natively-on-Apple-Silicon-11-06", "ts": "2026-11-06T15:04:45.639013Z", "type": "project_published"}
 {"attempts": 3, "detail": "HTTP 204", "slot": "article", "ts": "2026-11-06T15:30:40.582494Z", "type": "watchdog_recovered", "verified": false}
+{"existing_url": "https://dev.to/githubopensource/revolutionize-your-gaming-ai-just-made-modding-any-pc-game-a-reality-2n1g", "repo": "rehan-remade/universal-modder", "ts": "2026-11-06T15:31:03.072124Z", "type": "article_skipped_duplicate"}
