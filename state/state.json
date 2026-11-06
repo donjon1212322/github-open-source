@@ -298,10 +298,10 @@
       ],
       "updated_at": "2026-11-03T19:43:33Z",
       "url": "https://github.com/horizon-rust/horizon",
-      "value_score": 64.29,
-      "views": 94,
-      "views_age_hours": 29.2,
-      "views_at_24h": 87,
+      "value_score": 43.05,
+      "views": 105,
+      "views_age_hours": 53.2,
+      "views_at_24h": 74,
       "views_history": [
         {
           "at": "2026-11-04T00:42:57.590427Z",
@@ -312,6 +312,11 @@
           "at": "2026-11-05T00:56:50.102114Z",
           "reactions": 0,
           "views": 94
+        },
+        {
+          "at": "2026-11-06T00:59:04.120234Z",
+          "reactions": 0,
+          "views": 105
         }
       ],
       "visual_host": "imgbb",
@@ -409,6 +414,7 @@
       "open_issues": 13,
       "published_at": "2026-11-05T16:57:11.554261Z",
       "pushed_at": "2026-11-05T14:07:26Z",
+      "reactions": 0,
       "readme_fp": "d078ad0d05dcd85f",
       "repo_id": 1418204810,
       "revisit_of": "",
@@ -441,6 +447,17 @@
       ],
       "updated_at": "2026-11-05T16:43:30Z",
       "url": "https://github.com/InukaAsith/TwinDesk",
+      "value_score": 87.84,
+      "views": 51,
+      "views_age_hours": 8.0,
+      "views_at_24h": 99,
+      "views_history": [
+        {
+          "at": "2026-11-06T00:59:01.636650Z",
+          "reactions": 0,
+          "views": 51
+        }
+      ],
       "visual_host": "imgbb",
       "visual_kind": "readme"
     },
@@ -572,15 +589,20 @@
       ],
       "updated_at": "2026-11-04T15:18:02Z",
       "url": "https://github.com/jub0t/Concat",
-      "value_score": 100.0,
-      "views": 62,
-      "views_age_hours": 9.5,
-      "views_at_24h": 111,
+      "value_score": 46.72,
+      "views": 90,
+      "views_age_hours": 33.6,
+      "views_at_24h": 78,
       "views_history": [
         {
           "at": "2026-11-05T00:56:49.363275Z",
           "reactions": 0,
           "views": 62
+        },
+        {
+          "at": "2026-11-06T00:59:03.186600Z",
+          "reactions": 0,
+          "views": 90
         }
       ],
       "visual_host": "imgbb",
@@ -723,10 +745,10 @@
       ],
       "updated_at": "2026-11-03T11:23:33Z",
       "url": "https://github.com/kajisho5/ffmpeg-skill",
-      "value_score": 58.6,
-      "views": 104,
-      "views_age_hours": 36.9,
-      "views_at_24h": 86,
+      "value_score": 45.16,
+      "views": 114,
+      "views_age_hours": 61.0,
+      "views_at_24h": 78,
       "views_history": [
         {
           "at": "2026-11-03T12:53:47.548432Z",
@@ -747,6 +769,11 @@
           "at": "2026-11-05T00:56:50.460137Z",
           "reactions": 0,
           "views": 104
+        },
+        {
+          "at": "2026-11-06T00:59:04.603866Z",
+          "reactions": 0,
+          "views": 114
         }
       ],
       "visual_host": "imgbb",
@@ -873,15 +900,20 @@
       ],
       "updated_at": "2026-11-04T19:56:57Z",
       "url": "https://github.com/KnifeLemon/Filee",
-      "value_score": 100.0,
-      "views": 40,
-      "views_age_hours": 4.9,
-      "views_at_24h": 97,
+      "value_score": 49.96,
+      "views": 82,
+      "views_age_hours": 29.0,
+      "views_at_24h": 76,
       "views_history": [
         {
           "at": "2026-11-05T00:56:48.997335Z",
           "reactions": 0,
           "views": 40
+        },
+        {
+          "at": "2026-11-06T00:59:02.659833Z",
+          "reactions": 0,
+          "views": 82
         }
       ],
       "visual_host": "imgbb",
@@ -999,15 +1031,20 @@
       ],
       "updated_at": "2026-11-04T20:14:38Z",
       "url": "https://github.com/lnkiai/m3e-canvas",
-      "value_score": 90.6,
-      "views": 15,
-      "views_age_hours": 2.3,
-      "views_at_24h": 54,
+      "value_score": 51.11,
+      "views": 70,
+      "views_age_hours": 26.3,
+      "views_at_24h": 68,
       "views_history": [
         {
           "at": "2026-11-05T00:56:48.619443Z",
           "reactions": 0,
           "views": 15
+        },
+        {
+          "at": "2026-11-06T00:59:02.125669Z",
+          "reactions": 0,
+          "views": 70
         }
       ],
       "visual_host": "imgbb",
@@ -1097,6 +1134,7 @@
       "open_issues": 174,
       "published_at": "2026-11-05T22:42:16.965981Z",
       "pushed_at": "2026-11-05T14:29:22Z",
+      "reactions": 0,
       "readme_fp": "",
       "repo_id": 1339970099,
       "revisit_of": "",
@@ -1122,6 +1160,17 @@
       ],
       "updated_at": "2026-11-05T22:36:17Z",
       "url": "https://github.com/peach-mitao/peach",
+      "value_score": 44.1,
+      "views": 15,
+      "views_age_hours": 2.3,
+      "views_at_24h": 54,
+      "views_history": [
+        {
+          "at": "2026-11-06T00:59:01.146940Z",
+          "reactions": 0,
+          "views": 15
+        }
+      ],
       "visual_host": "imgbb",
       "visual_kind": "readme"
     },
@@ -1238,10 +1287,10 @@
       ],
       "updated_at": "2026-11-03T22:10:24Z",
       "url": "https://github.com/wangzan101/Mika",
-      "value_score": 78.45,
-      "views": 85,
-      "views_age_hours": 26.6,
-      "views_at_24h": 82,
+      "value_score": 41.07,
+      "views": 99,
+      "views_age_hours": 50.6,
+      "views_at_24h": 71,
       "views_history": [
         {
           "at": "2026-11-04T00:42:57.114837Z",
@@ -1252,6 +1301,11 @@
           "at": "2026-11-05T00:56:49.727165Z",
           "reactions": 0,
           "views": 85
+        },
+        {
+          "at": "2026-11-06T00:59:03.657312Z",
+          "reactions": 0,
+          "views": 99
         }
       ],
       "visual_host": "opengraph",

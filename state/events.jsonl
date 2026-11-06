@@ -59,3 +59,4 @@
 {"range": "facebook!A5:E5", "rows": 1, "ts": "2026-11-05T23:44:42.342717Z", "type": "facebook_handoff_queued"}
 {"deleted": 0, "ts": "2026-11-05T23:51:55.140798Z", "type": "moderation_completed", "updates": 0}
 {"Gemini_video_input": true, "models": 12, "official_url": "", "stories": 5, "topic": "ai-model-releases", "ts": "2026-11-06T00:19:57.853040Z", "type": "ai_brief_published", "video_id": "LHxOG65r12w"}
+{"channel": "GitHub_Open_Source", "posts": 8, "ts": "2026-11-06T00:59:04.604704Z", "type": "metrics_collected", "updated": 8}
