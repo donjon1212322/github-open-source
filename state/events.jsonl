@@ -74,3 +74,4 @@
 {"repo": "l0ng-ai/openidea", "score": 90.982, "telegram_message_id": 3562, "telegraph_url": "https://telegra.ph/OpenIDEA-A-Fast-Native-IDE-Rebuilt-in-Rust-for-IntelliJ-Users-11-06", "ts": "2026-11-06T13:31:27.208170Z", "type": "project_published"}
 {"slot": "publish:europe_midday", "ts": "2026-11-06T14:00:46.988142Z", "type": "watchdog_verified"}
 {"attempts": 1, "detail": "HTTP 204", "slot": "article", "ts": "2026-11-06T14:00:49.028706Z", "type": "watchdog_recovered", "verified": false}
+{"existing_url": "https://dev.to/githubopensource/revolutionize-your-gaming-ai-just-made-modding-any-pc-game-a-reality-2n1g", "repo": "rehan-remade/universal-modder", "ts": "2026-11-06T14:01:11.505675Z", "type": "article_skipped_duplicate"}

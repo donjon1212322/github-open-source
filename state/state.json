@@ -1315,7 +1315,12 @@
       "visual_kind": "readme"
     },
     "rehan-remade/universal-modder": {
-      "articles": {},
+      "articles": {
+        "devto_duplicate": {
+          "checked_at": "2026-11-06T14:01:11.505809Z",
+          "url": "https://dev.to/githubopensource/revolutionize-your-gaming-ai-just-made-modding-any-pc-game-a-reality-2n1g"
+        }
+      },
       "card_style": "",
       "category": "AI",
       "contributors_count": 172,
