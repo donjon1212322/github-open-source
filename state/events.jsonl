@@ -83,3 +83,4 @@
 {"existing_url": "https://dev.to/githubopensource/revolutionize-your-gaming-ai-just-made-modding-any-pc-game-a-reality-2n1g", "repo": "rehan-remade/universal-modder", "ts": "2026-11-06T15:31:03.072124Z", "type": "article_skipped_duplicate"}
 {"attempts": 4, "detail": "HTTP 204", "slot": "article", "ts": "2026-11-06T16:00:46.271409Z", "type": "watchdog_recovered", "verified": false}
 {"existing_url": "https://dev.to/githubopensource/revolutionize-your-gaming-ai-just-made-modding-any-pc-game-a-reality-2n1g", "repo": "rehan-remade/universal-modder", "ts": "2026-11-06T16:01:09.056095Z", "type": "article_skipped_duplicate"}
+{"platform": "devto", "repo": "l0ng-ai/openidea", "ts": "2026-11-06T16:34:34.120465Z", "type": "article_published", "url": "https://dev.to/githubopensource/lightweight-open-source-alternative-to-intellij-idea-ed3"}

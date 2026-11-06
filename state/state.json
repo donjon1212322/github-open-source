@@ -11,6 +11,13 @@
     ]
   ],
   "last_runs": {
+    "article": {
+      "finished_at": "2026-11-06T16:34:34.120597Z",
+      "published": true,
+      "reason": "published",
+      "repo": "l0ng-ai/openidea",
+      "url": "https://dev.to/githubopensource/lightweight-open-source-alternative-to-intellij-idea-ed3"
+    },
     "collect": {
       "discovered": 574,
       "enriched": 120,
@@ -944,7 +951,13 @@
       "visual_kind": "readme"
     },
     "l0ng-ai/openidea": {
-      "articles": {},
+      "articles": {
+        "devto": {
+          "id": 4989554,
+          "published_at": "2026-11-06T16:34:34.120438Z",
+          "url": "https://dev.to/githubopensource/lightweight-open-source-alternative-to-intellij-idea-ed3"
+        }
+      },
       "card_style": "neon_terminal",
       "category": "DevTools",
       "contributors_count": 88,
@@ -958,6 +971,7 @@
       },
       "description": "The IDE you know, rebuilt in Rust. IntelliJ IDEA–style keymap, tool windows and search-everywhere in a fast native app: editor, code insight, debugger, Git, terminal, database and HTTP clients for 60+ languages.",
       "description_fp": "edeb8bf2cea9740e",
+      "devto_cover_url": "https://i.ibb.co/qL3dYJBX/l0ng-ai-openidea-devto-cover-4d44c4494a9e.png",
       "forks": 611,
       "full_name": "l0ng-ai/openidea",
       "generated": {
