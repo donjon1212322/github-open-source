@@ -26,6 +26,10 @@ Owner decisions (2026-11-06):
 - An honest refusal is a completed slot. ``article_of_day()`` now records its
   verdict in ``last_runs.article.finished_at`` (published, all duplicates, no
   projects), so a duplicate no longer triggers repeated dispatches.
+- Publish slots are idempotent. ``publish_slot()`` refuses a second run of a
+  slot already finished this UTC day (a late GitHub cron) and records
+  ``daily_limit_reached`` as a finished slot, so the watchdog never retries a
+  quota-closed ``publish:us_peak`` through the night.
 """
 from __future__ import annotations
 

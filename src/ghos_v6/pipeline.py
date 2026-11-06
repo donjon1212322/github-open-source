@@ -325,6 +325,42 @@ def _article_markdown(record_candidate: dict[str, Any], generated: dict[str, Any
 MAX_PROJECT_POSTS_PER_DAY = 3
 
 
+def _publish_slot_key(slot: str) -> str:
+    return f"publish:{slot}"
+
+
+def _publish_slot_done_today(store: StateStore, slot: str) -> bool:
+    """A late GitHub cron must not repeat a slot the watchdog already recovered.
+
+    Owner decision (2026-11-06): the 10:13 Minsk cron arrived at 18:04 and
+    published a second project under ``europe_morning``, consuming the
+    three-a-day quota that belonged to ``us_peak``. Manual dispatches stay
+    exempt: they are explicit operator commands, not a scheduler retry.
+    """
+    if slot == "manual":
+        return False
+    info = (store.data.get("last_runs", {}).get(_publish_slot_key(slot)) or {})
+    finished = _parse_iso(info.get("finished_at"))
+    return bool(finished and finished.date() == datetime.now(timezone.utc).date())
+
+
+def _finish_publish_slot(store: StateStore, slot: str, result: dict[str, Any]) -> None:
+    """Record an honest refusal so the watchdog retires the slot on a fact.
+
+    ``daily_limit_reached`` is a completed slot: nothing is left to publish in
+    these UTC days. Without this marker the watchdog treated
+    ``publish:us_peak`` as missed and escalated to a warning every 30 minutes.
+    """
+    store.data.setdefault("last_runs", {})[_publish_slot_key(slot)] = {
+        "finished_at": iso_now(),
+        "reason": result.get("reason") or "done",
+        "published": bool(result.get("published")),
+        "published_today": result.get("published_today", ""),
+        "repo": result.get("repo", ""),
+    }
+    store.save()
+
+
 def _crosspost_due(now: datetime | None = None) -> datetime:
     """Crossposts wait until the day's last project slot.
 
@@ -342,6 +378,14 @@ def _crosspost_due(now: datetime | None = None) -> datetime:
 def publish_slot(config: Config, store: StateStore, slot: str = "manual") -> dict[str, Any]:
     config.require("TELEGRAM_BOT_TOKEN")
     chat_id = config.telegram_chat_id
+    # Owner decision (2026-11-06): idempotent slots. GitHub schedule is
+    # best-effort and may deliver a cron hours late, after the watchdog has
+    # already recovered that slot. Without this guard the late cron published
+    # a second project and ate the daily quota.
+    if _publish_slot_done_today(store, slot):
+        store.event("publish_skipped", slot=slot, reason="slot_already_done")
+        store.save()
+        return {"ok": True, "published": False, "reason": "slot_already_done", "slot": slot}
     # The three-a-day limit lived only in the cron. A manual run, a retried
     # job or a fourth slot added later would have posted a fourth project and
     # nobody would have noticed until the channel looked wrong. The limit is
@@ -354,14 +398,15 @@ def publish_slot(config: Config, store: StateStore, slot: str = "manual") -> dic
             reason="daily_limit_reached",
             published_today=already_today,
         )
-        store.save()
-        return {
+        result = {
             "ok": True,
             "published": False,
             "reason": "daily_limit_reached",
             "slot": slot,
             "published_today": already_today,
         }
+        _finish_publish_slot(store, slot, result)
+        return result
     if not store.data.get("queue"):
         collect_command(config, store)
 
