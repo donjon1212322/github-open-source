@@ -2,12 +2,12 @@
   "dead_letters": [],
   "gemini_window": [
     [
-      1794040260.7530081,
-      3999
+      1794055428.9104085,
+      3928
     ],
     [
-      1794040264.2040968,
-      1397
+      1794055447.8863091,
+      1407
     ]
   ],
   "last_runs": {
@@ -47,9 +47,9 @@
       "started_at": "2026-11-07T11:13:12.867332Z"
     },
     "publish:europe_midday": {
-      "finished_at": "2026-11-06T13:31:27.208230Z",
-      "repo": "l0ng-ai/openidea",
-      "telegram_message_id": 3562
+      "finished_at": "2026-11-07T12:44:25.432548Z",
+      "repo": "wheresryan22/anatomy",
+      "telegram_message_id": 3566
     },
     "publish:europe_morning": {
       "finished_at": "2026-11-07T08:31:10.030956Z",
@@ -1931,23 +1931,67 @@
       ],
       "visual_host": "opengraph",
       "visual_kind": "opengraph"
-    }
-  },
-  "queue": [
-    {
-      "archived": false,
+    },
+    "wheresryan22/anatomy": {
+      "articles": {},
+      "card_style": "",
+      "category": "AI",
       "contributors_count": 13,
       "created_at": "2026-10-08T10:12:49Z",
-      "default_branch": "main",
+      "crossposts": {
+        "bluesky": {
+          "attempts": 0,
+          "due_at": "2026-11-07T18:00:00+00:00",
+          "status": "pending"
+        }
+      },
       "description": "An agent skill for creating detailed, interactive isometric illustrations of real-world machines and complex systems. Generates polished SVGs with optional WebGL shaders and 3D effects.",
-      "disabled": false,
-      "fork": false,
-      "forks": 2147,
-      "forks_count": 2147,
+      "description_fp": "5e0e516211693cf0",
+      "forks": 2148,
       "full_name": "wheresryan22/anatomy",
-      "has_readme": true,
+      "generated": {
+        "article_markdown": "## What it is\n\nAnatomy is an agent skill designed for coding assistants like Claude Code, Antigravity, OpenCode, Codex, and MiniMax Code. When prompted with a technical concept, the skill conceives and renders a physical, interactive object whose mechanical behavior mirrors the underlying software logic. Instead of standard sequence diagrams, it constructs detailed isometric figures out of layered SVGs, WebGL shaders, and responsive UI controls.\n\n## Why it matters\n\nExplaining asynchronous workflows or hardware-level constraints in documentation often relies on static boxes and arrows that leave readers guessing. By translating logic into tangible machinery—such as mapping a cache key validation to a physical pin-tumbler lock—Anatomy bridges the gap between abstract code and intuitive mechanical understanding. It executes entirely locally without heavy third-party API dependencies.\n\n## Key features\n\n- Generates solid isometric parts featuring four-tone shading and live readouts\n- Employs WebGL shaders sandwiched between SVG layers for environmental effects like smoke and fluid motion\n- Renders lightweight interactive behaviors that respond smoothly to pointer and keyboard events\n- Ships as zero-dependency code relying solely on built-in Node modules\n- Installs cleanly across multiple popular AI coding assistants via a standard skill CLI\n\n## Quick start\n\nTo install the skill globally using the skills CLI, run:\n\n```sh\nnpx skills add wheresryan22/anatomy -g\n```\n\nOnce installed, invoke the generator inside your supported coding assistant using the appropriate command, such as `/anatomy` in Claude Code.\n\n## Who should try it\n\nThis tool suits developers, technical writers, and educators who regularly produce architectural guides or explanatory documentation and want to experiment with interactive visualizations.\n\n## Verdict\n\nAnatomy delivers a creative way to generate explanatory diagrams, provided you have a use case that benefits from mechanical metaphors.",
+        "article_title": "Anatomy: Build Interactive Isometric System Diagrams with Claude Code",
+        "card_hook": "Interactive isometric system diagrams",
+        "card_subline": "An agent skill that turns abstract technical ideas into working SVG and WebGL physical models",
+        "category": "AI",
+        "discussion_question": "Which system component would you turn into an isometric mechanical model first?",
+        "hook": "Generate interactive isometric technical illustrations and SVG diagrams directly from Claude Code using a 25k-star agent skill.",
+        "key_features": [
+          "Builds multi-part SVG figures with four-tone isometric shading and framed cards",
+          "Integrates WebGL canvas layers for effects like fire, water caustics, and lamp glow",
+          "Supports true 3D rotation modes for objects that spin or flex under mouse drag",
+          "Operates without external dependencies using Node's built-in modules",
+          "Deploys directly into Claude Code, Antigravity, OpenCode, Codex, and MiniMax Code"
+        ],
+        "llm_used": true,
+        "quick_start": "npx skills add wheresryan22/anatomy -g",
+        "safety": "ok",
+        "safety_reason": "Legitimate agent skill and technical visualization tool.",
+        "scene": "You spend hours tweaking a flat diagram in a vector editor to explain how a rate limiter or cache eviction algorithm works.",
+        "social_text": "Generate interactive isometric technical illustrations and SVG diagrams from your coding assistant using Anatomy.",
+        "summary": "Anatomy acts as an AI agent skill that translates conceptual architecture into crafted, isometric mechanical representations. It generates complete visual artifacts featuring shaded SVG parts, optional WebGL shaders, and live telemetry panels. Rather than relying on generic flowcharts, the tool invents concrete physical analogies like pin-tumbler locks and test stands to visualize backend logic.",
+        "surfaces": {
+          "Facebook_body": "Explaining complex software systems often results in boring flowcharts that fail to capture how things actually work. A new open-source tool lets you generate detailed isometric technical illustrations and interactive diagrams straight from your coding assistant. Instead of generic shapes, it uses physical analogies like mechanical parts and test stands to visualize backend logic.\n\nThe tool works as an agent skill, translating your conceptual architecture into crafted mechanical representations. It builds multi-part SVG figures with distinct shading, adds live telemetry panels, and can even include interactive WebGL canvas layers for effects like water caustics or glowing lamps. Everything runs using built-in modules without needing external services.\n\nIt is designed specifically for developers and technical writers who want to build better documentation and explain complex systems clearly. While it might be overkill if you just need a standard flowchart, it is an exceptional aid for teams that want to turn abstract code into concrete visual art.",
+          "Facebook_headline": "Create technical diagrams with AI",
+          "Facebook_lead": "Turn your system architecture into clear, beautiful isometric illustrations using an assistant skill built for developers and writers.",
+          "bluesky_headline": "Generate 3D technical diagrams using AI",
+          "bluesky_lead": "Turn complex backend logic into detailed isometric illustrations straight from your coding assistant.",
+          "devto_body": "## What it is\n\nAnatomy (wheresryan22/anatomy) is an open-source agent skill designed to generate interactive isometric technical illustrations and SVG diagrams directly from your coding assistant. Written in JavaScript and boasting over 25,000 stars, it bridges the gap between abstract backend logic and concrete visual artifacts.\n\n## How it works\n\nOperating as an agent-native skill, Anatomy translates conceptual architecture into crafted mechanical representations. Rather than relying on generic flowcharts, it invents physical analogies like pin-tumbler locks and test stands. It leverages Node's built-in modules to operate without heavy external dependencies, deploying directly into assistants like Claude Code, Antigravity, OpenCode, Codex, and MiniMax Code.\n\n## Key features\n\n- Builds multi-part SVG figures with four-tone isometric shading and framed cards\n- Integrates WebGL canvas layers for special effects like fire, water caustics, and lamp glow\n- Supports true 3D rotation modes for objects that spin or flex under mouse drag\n- Zero external dependencies, utilizing Node's built-in modules\n\n## Getting started\n\nClone the repository and integrate the skill into your preferred coding assistant environment to start generating interactive illustrations instantly.\n\n## When not to use it\n\nThis tool is an exceptional documentation aid for technical teams, but it is likely overkill if you just need a standard, simple flowchart.",
+          "seo_description": "Learn how to use Anatomy, an open-source agent skill to generate interactive isometric technical illustrations and SVG diagrams from code.",
+          "seo_query": "generate isometric technical diagrams with ai",
+          "seo_title": "Generate Isometric Technical Diagrams with AI - Anatomy",
+          "telegraph_angle": "Explain the architectural philosophy behind using physical analogies for software documentation and how agent skills enable multimodal generation workflows."
+        },
+        "tension": "Your static architecture drawings fail to communicate how moving parts interact under load, forcing readers to parse dense code instead.",
+        "turn": "This agent skill writes self-contained HTML and SVG pages that visualize abstract concepts as moving physical objects, though complex 3D rendering remains in beta.",
+        "verdict": "An exceptional documentation aid for technical teams, though overkill if you just need a standard flowchart.",
+        "who_for": "Developers and technical writers building documentation or explaining complex systems.",
+        "why_now": "The rise of agent-native skills allows complex multimodal generation workflows to run directly inside coding assistants without separate third-party services."
+      },
       "homepage": "https://skills.wheresryan.sh/anatomy",
       "id": 1410124849,
+      "image_url": "https://i.ibb.co/C3v19v7V/wheresryan22-anatomy-readme-preview-6e6100f3cb3b.jpg",
       "is_dual_use": false,
       "is_hidden_gem": false,
       "language": "JavaScript",
@@ -1966,32 +2010,37 @@
         "https://raw.githubusercontent.com/wheresryan22/anatomy/main/.github/assets/dial-indicator.webp"
       ],
       "name": "anatomy",
-      "non_software_reason": "",
       "open_issues": 72,
-      "open_issues_count": 72,
-      "owner_repo_count": 1,
+      "published_at": "2026-11-07T12:44:25.432371Z",
       "pushed_at": "2026-10-18T20:20:24Z",
-      "readme": "",
-      "readme_excerpt": "<h1 align=\"center\">Anatomy</h1>\n\n<p align=\"center\"><b>A Claude skill that explains an idea by building it as a real, working object.</b><br>Also runs in Antigravity, OpenCode, Codex and MiniMax Code.<br>Crafted, interactive isometric figures with many small precise parts, in SVG, WebGL and 3D.</p>\n\n<p align=\"center\">\n  <a href=\"https://code.claude.com/docs/en/skills\"><img src=\"https://img.shields.io/badge/Claude_Code-skill-1b1b19?style=flat-square&logo=claude&logoColor=white\" alt=\"Claude Code skill\"></a>\n  <a href=\"https://agentskills.io\"><img src=\"https://img.shields.io/badge/Agent_Skills-compatible-1b1b19?style=flat-square\" alt=\"Agent Skills compatible\"></a>\n  <a href=\"LICENSE\"><img src=\"https://img.shields.io/badge/license-MIT-1b1b19?style=flat-square\" alt=\"MIT license\"></a>\n  <a href=\"#requirements\"><img src=\"https://img.shields.io/badge/node-%E2%89%A5%2020.10-1b1b19?style=flat-square&logo=nodedotjs&logoColor=white\" alt=\"Node 20.10 or later\"></a>\n  <a href=\"#requirements\"><img src=\"https://img.shields.io/badge/dependencies-0-1b1b19?style=flat-square\" alt=\"No dependencies\"></a>\n  <a href=\"https://github.com/wheresryan22/anatomy/actions/workflows/ci.yml\"><img src=\"https://github.",
-      "readme_len": 25983,
+      "readme_fp": "92047f923629234b",
       "repo_id": 1410124849,
+      "revisit_of": "",
+      "revisit_reason": "",
       "score": 92.84,
-      "source_name": "github_search",
+      "slot": "europe_midday",
       "sources": [
         "github_search",
         "telegram:github"
       ],
-      "stargazers_count": 25655,
-      "stars": 25655,
+      "stars": 25665,
+      "telegram_chat_id": "@GitHub_Open_Source",
+      "telegram_link": "https://t.me/GitHub_Open_Source/3566",
+      "telegram_message_id": 3566,
+      "telegraph_url": "https://telegra.ph/Anatomy-Build-Interactive-Isometric-System-Diagrams-with-Claude-Code-11-07",
       "topics": [
         "agent-skill",
         "open-source",
         "svg",
         "vizualization"
       ],
-      "updated_at": "2026-11-07T11:12:34Z",
-      "url": "https://github.com/wheresryan22/anatomy"
-    },
+      "updated_at": "2026-11-07T12:31:22Z",
+      "url": "https://github.com/wheresryan22/anatomy",
+      "visual_host": "imgbb",
+      "visual_kind": "readme"
+    }
+  },
+  "queue": [
     {
       "archived": false,
       "contributors_count": 5,
@@ -7486,8 +7535,8 @@
     "wheresryan22/anatomy": {
       "first_seen_at": "2026-11-04T12:14:31.122191Z",
       "full_name": "wheresryan22/anatomy",
-      "last_decision": "queued",
-      "last_seen_at": "2026-11-07T11:15:13.948376Z",
+      "last_decision": "published",
+      "last_seen_at": "2026-11-07T12:44:25.432540Z",
       "repo_id": 1410124849,
       "sources": [
         "github_search",
