@@ -117,3 +117,4 @@
 {"reason": "slot_already_done", "slot": "europe_midday", "ts": "2026-11-07T17:51:28.546200Z", "type": "publish_skipped"}
 {"reason": "already_published_today", "ts": "2026-11-07T18:09:39.496086Z", "type": "article_skipped"}
 {"platform": "bluesky", "repo": "oldcircle/geo-sleuth", "ts": "2026-11-07T18:17:50.824035Z", "type": "crosspost_published", "url": "https://bsky.app/profile/githubopensource.bsky.social/post/3mzqizlmta62f"}
+{"deleted": 0, "ts": "2026-11-07T18:47:48.532307Z", "type": "moderation_completed", "updates": 0}
