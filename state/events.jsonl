@@ -98,3 +98,4 @@
 {"channel": "GitHub_Open_Source", "posts": 11, "ts": "2026-11-07T00:09:31.429295Z", "type": "metrics_collected", "updated": 11}
 {"attempts": 1, "detail": "HTTP 204", "slot": "collect", "ts": "2026-11-07T05:30:39.356929Z", "type": "watchdog_recovered", "verified": false}
 {"discovered": 426, "enriched": 120, "passed_gate": 77, "queued": 28, "rejections": {"blocklist:jailbreak": 1, "curation_repo": 2, "description_not_english": 7, "fork": 1, "narrow:library:boilerplate": 1, "narrow:library:generic-library": 1, "narrow:topic:awesome-list": 2, "narrow:topic:plugin": 1, "no_community": 6, "no_license": 18, "not_software:language:tex": 1, "not_software:topic:awesome": 2, "not_software:topic:notes": 1, "not_software:topic:roadmap": 1, "readme_not_english": 7, "stars<100": 8, "velocity_too_high": 2}, "ts": "2026-11-07T05:32:32.633917Z", "type": "collect_completed"}
+{"slot": "collect", "ts": "2026-11-07T06:00:35.551898Z", "type": "watchdog_verified"}
