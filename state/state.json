@@ -214,6 +214,116 @@
       "topic_key": "model-leaks-and-releases",
       "video_id": "efnEcbHnRa0",
       "video_url": "https://www.youtube.com/watch?v=efnEcbHnRa0"
+    },
+    {
+      "Gemini_video_input": false,
+      "article_markdown": "> **TL;DR** Google rolled out video generation and lower pricing for Gemini Omni 1.2 Flash, while Thinking Machines introduced Inkling 2 Small with Apache 2.0 weights planned. Meanwhile, OpenAI launched GPT-6 Cyber for security auditing, and Anthropic published fresh agent memory research.\n\n## What actually moved today\n\nGood morning, everyone! Grab your coffee and let's dive into the latest updates hitting the AI engineering ecosystem. Today brings a fascinating mix of concrete model drops, practical pricing shifts in media generation, and some heavy-hitting security releases. We are seeing real movement in both proprietary APIs and open-weight architectures, giving us plenty of new endpoints to test out in our local environments.\n\n## The model watch\n\n## Gemini Omni 1.2 Flash\n\nGoogle has officially rolled out video generation up to 15 seconds for **Gemini Omni 1.2 Flash**, replacing older endpoints like **gemini-omni-1.1-flash**. Alongside this capability, they dropped 720p API pricing by 30 percent to about $0.07 per second and introduced a new Interactions API for in-dialogue edits. You will want to re-run your multimodal evals to check if the cheaper generation holds up for your specific video iteration workflows.\n\n## Inkling 2 Small\n\nThinking Machines reported a 594B parameter MoE model with 17B active parameters under the name **Inkling 2 Small**. It is currently available in Tinker for inference and fine-tuning, with Apache 2.0 weights planned for the near future alongside demonstrations of automated fine-tuning for **Qwen3.5-4B**. It sits alongside models like **DeepSeek V4.1 Flash** and **GLM-5.3-Flash** as a strong baseline for open weights performance and advanced agentic tool usage.\n\n## GPT-6 Cyber\n\nOpenAI officially launched **GPT-6 Cyber** for approved Daybreak Red users. During early testing, it successfully found 948 vulnerabilities in the Linux kernel. This kind of automated security discovery at kernel scale shifts how vulnerability research and automated code auditing are conducted in production systems.\n\n## Anthropic Agent Memory and R&D Speed\n\nAnthropic published research on cross-session agent memory and dreaming mechanisms using **Claude 3.7 Sonnet** and **Opus 5**, following earlier iterations of **Opus 4.7**. Additionally, METR assessed that Anthropic internal model development speed doubled, driven 80 percent by AI use in R&D. Better session memory directly improves long-running autonomous agent reliability.\n\n## Rumours, clearly labelled\n\nAs always, keep in mind that unverified claims and leaks should be taken with a grain of salt until official documentation drops. Here is where things currently stand regarding unconfirmed reports:\n\n| Item | Status | Basis | Notes |\n| --- | --- | --- | --- |\n| Collaborative mode for Claude Code Projects | Unconfirmed | Partner screenshot and social media hint | Team members noted multiplayer is not yet available, though interface updates hint at future work. |\n| US AI market regulation shifts | Unconfirmed | Recent political election results | Market observers are speculating on policy changes, but no concrete legislative text has been finalized. |\n\n## Odd finds and small tools\n\nSometimes the smaller, lesser-known repositories provide the most immediate utility for our day-to-day work. An open-source face recognition SDK was recently released on GitHub, giving Python developers a straightforward way to add facial recognition without relying on external cloud APIs. It is a neat self-hosted alternative if you are building offline security or attendance logging tools.\n\n## What I would try this weekend\n\nIf you have some free time over your coffee this weekend, spin up a quick script to test the new Interactions API on **Gemini Omni 1.2 Flash** to see how smoothly you can perform in-dialogue video edits. Alternatively, grab the new Python face recognition SDK and spin up a local container to test its offline processing speed against your webcam feed.\n\n## Where this leaves us\n\nWe are continuing to see rapid iteration in multimodal generation costs and specialized security agents, but managing long-term session state remains an ongoing engineering challenge. While models are getting better at remembering context within a dialogue, bridging that across multiple days and sessions still requires custom database plumbing on our end.\n\nHow do you currently handle long-term session memory in your production AI agents?",
+      "article_title": "AI Brief Companion: Gemini Omni 1.2 Flash, Inkling 2 Small, and Kernel Vulnerability Audits",
+      "brief": {
+        "discussion_question": "How do you currently handle long-term session memory in your production AI agents?",
+        "headline": "New model drops from Google and Thinking Machines reshape video and open weights",
+        "hook": "10 exact names, 3 official launches, 0 only announced, 2 unverified claims. Gemini Omni 1.2 Flash leads the watch — what would you actually re-run first?",
+        "models": [
+          "Gemini Omni 1.2 Flash",
+          "Inkling 2 Small",
+          "GPT-6 Cyber",
+          "Claude 3.7 Sonnet",
+          "Opus 5",
+          "gemini-omni-1.1-flash",
+          "DeepSeek V4.1 Flash",
+          "GLM-5.3-Flash",
+          "Qwen3.5-4B",
+          "Opus 4.7"
+        ],
+        "stories": [
+          {
+            "basis": "official google blog post and pricing docs",
+            "bullets": [
+              "Rolled out video generation up to 15 seconds.",
+              "Dropped 720p API pricing by 30 percent to about $0.07 per second.",
+              "Introduced Interactions API for in-dialogue edits."
+            ],
+            "status": "official_release",
+            "title": "Google Gemini Omni 1.2 Flash",
+            "why": "Cheaper generation and interactive edits make real-time video iteration much more practical for developers."
+          },
+          {
+            "basis": "official thinking machines announcement",
+            "bullets": [
+              "Reported a 594B parameter MoE model with 17B active parameters.",
+              "Made it available in Tinker for inference and fine-tuning with Apache 2.0 weights planned.",
+              "Demonstrated automated fine-tuning of Qwen3.5-4B."
+            ],
+            "status": "demo_or_benchmark",
+            "title": "Thinking Machines Inkling 2 Small",
+            "why": "It sets a strong baseline for open weights performance and advanced agentic tool usage."
+          },
+          {
+            "basis": "official openai release notes",
+            "bullets": [
+              "Launched for approved Daybreak Red users.",
+              "Found 948 vulnerabilities in the Linux kernel during early testing."
+            ],
+            "status": "official_release",
+            "title": "OpenAI GPT-6 Cyber",
+            "why": "Automated security discovery at kernel scale shifts how vulnerability research is conducted."
+          },
+          {
+            "basis": "official anthropic research paper and metr blog",
+            "bullets": [
+              "Published research on cross-session agent memory and dreaming mechanisms.",
+              "METR assessed that Anthropic internal model development speed doubled, driven 80 percent by AI use in R&D."
+            ],
+            "status": "research_report",
+            "title": "Anthropic Agent Memory and R&D Speed",
+            "why": "Better session memory directly improves long-running autonomous agent reliability."
+          },
+          {
+            "basis": "github repository",
+            "bullets": [
+              "Released an open-source SDK for Python developers to add face recognition without cloud APIs."
+            ],
+            "status": "official_release",
+            "title": "Open-Source Face Recognition SDK",
+            "why": "Provides a self-hosted alternative for offline facial recognition integration."
+          }
+        ],
+        "summary": "An overview of recent AI releases including Gemini Omni 1.2 Flash, Inkling 2 Small, GPT-6 Cyber, and agent memory updates.",
+        "unconfirmed_claims": [
+          "Anthropic is working on a collaborative mode for Claude Code Projects.",
+          "US AI market impacted by recent election results regarding regulations.",
+          "Anthropic is working on a collaborative mode for Claude Code Projects. > Recent activity on the Projects page summarises the latest threads. > \"We don't have multiplayer yet,\" shared Lydia Hallie from Anthropic yesterday. Yet 👀 Anthropic is working on a collaborative mode for Claude Code Projects. > Recent activity on the Projects page summarises the latest threads. > \"We don't have multiplayer ye"
+        ],
+        "why_devs": "Keeping up with these model updates ensures your stack leverages the fastest and most cost-effective APIs available."
+      },
+      "headline": "New model drops from Google and Thinking Machines reshape video and open weights",
+      "image_url": "https://i.ibb.co/4RZqVpF3/ai-brief-f4700969b1d5.png",
+      "models": [
+        "Gemini Omni 1.2 Flash",
+        "Inkling 2 Small",
+        "GPT-6 Cyber",
+        "Claude 3.7 Sonnet",
+        "Opus 5",
+        "gemini-omni-1.1-flash",
+        "DeepSeek V4.1 Flash",
+        "GLM-5.3-Flash",
+        "Qwen3.5-4B",
+        "Opus 4.7"
+      ],
+      "official_url": "",
+      "published_at": "2026-11-07T19:19:05.714130Z",
+      "statuses": [
+        "official_release",
+        "demo_or_benchmark",
+        "official_release",
+        "research_report",
+        "official_release"
+      ],
+      "stories": 5,
+      "telegram_message_id": 3568,
+      "topic_key": "model-releases-and-agent-memory",
+      "video_id": "tg-20261107-e52848266f",
+      "video_url": "https://t.me/GitHub_Open_Source"
     }
   ],
   "publish_failures": {},
