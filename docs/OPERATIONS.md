@@ -488,7 +488,7 @@ cron `* * * * *`: таблица `SLOTS` по UTC-минутам дёргает
 `workflow_dispatch` напрямую (минуя очередь `schedule`), а `watchdog_tick`
 по-прежнему уходит в :00 и :30. GitHub cron остаётся fallback, Watchdog —
 вторая линия. На Workers Free это 1440 вызовов/сутки (~1,44 % от 100 000),
-1 cron trigger из 5, ~29 workflow_dispatch + 48 watchdog-тиков в сутки.
+1 cron trigger из 5, ~23 workflow_dispatch + 48 watchdog-тиков в сутки.
 **100 % гарантии нет:** у Cloudflare Cron Triggers нет ретраев и алертов,
 есть джиттер в секундах; дальше всё равно очередь GitHub Actions, Gemini,
 Telegram, dev.to и срок жизни токенов.

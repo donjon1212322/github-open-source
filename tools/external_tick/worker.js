@@ -9,7 +9,7 @@
 // Free plan economics (official Cloudflare limits, 2026):
 //   ONE cron trigger "* * * * *" = 1440 invocations/day, ~1.44% of the
 //   100,000 requests/day allowance; 10 ms CPU each; 1 of 5 allowed triggers.
-//   Only DUE minutes call GitHub (~29 workflow_dispatch + 48 watchdog ticks
+//   Only DUE minutes call GitHub (~23 workflow_dispatch + 48 watchdog ticks
 //   per day), so the extra load on GitHub Actions is small.
 //   Cron Triggers have NO retries and NO failure alerts - hence the fallback.
 //
@@ -24,7 +24,6 @@ const SLOTS = [
   ["12:43", { command: "publish", slot: "europe_midday" }],
   ["13:33", { command: "article" }],
   ["17:18", { command: "publish", slot: "us_peak" }],
-  ["18:23", { command: "facebook-handoff" }],
   ["19:18", { command: "news" }],
   ["19:53", { command: "news-article" }],
   ["20:23", { command: "metrics" }],
@@ -43,9 +42,11 @@ const SLOTS = [
   ["15:47", { command: "moderation" }],
   ["18:47", { command: "moderation" }],
   ["21:47", { command: "moderation" }],
-  ["16:13", { command: "digest" }, 0],
-  ["16:43", { command: "report" }, 0],
-  ["18:53", { command: "poll-close" }, 4],
+  // Deliberately NOT dispatched here (owner rule: "мейк не трогай"):
+  // facebook-handoff appends rows to the make.com Sheet, and the weekly
+  // digest / report / poll-close have no daily idempotency guard. A second
+  // trigger could double a row or a weekly post. They stay on GitHub cron
+  // and remain best-effort; the Watchdog is still the safety net.
 ];
 
 function minuteKey(date) {

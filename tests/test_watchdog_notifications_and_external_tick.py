@@ -117,6 +117,10 @@ def test_external_tick_recipe_is_complete_and_secret_free():
     assert "workflow_dispatch" in blob
     assert "SLOTS" in blob
     assert "NO retries" in blob
+    # Make.com and the weekly, non-idempotent commands must NOT be
+    # dispatched twice by the external clock.
+    for cmd in ("facebook-handoff", "digest", "report", "poll-close"):
+        assert f'command: "{cmd}"' not in blob, cmd
 
 
 def test_operations_doc_uses_the_current_ai_brief_cron():
