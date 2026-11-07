@@ -332,10 +332,10 @@
       ],
       "updated_at": "2026-11-03T19:43:33Z",
       "url": "https://github.com/horizon-rust/horizon",
-      "value_score": 43.05,
-      "views": 105,
-      "views_age_hours": 53.2,
-      "views_at_24h": 74,
+      "value_score": 45.24,
+      "views": 129,
+      "views_age_hours": 76.4,
+      "views_at_24h": 82,
       "views_history": [
         {
           "at": "2026-11-04T00:42:57.590427Z",
@@ -351,6 +351,11 @@
           "at": "2026-11-06T00:59:04.120234Z",
           "reactions": 0,
           "views": 105
+        },
+        {
+          "at": "2026-11-07T00:09:31.093816Z",
+          "reactions": 0,
+          "views": 129
         }
       ],
       "visual_host": "imgbb",
@@ -481,15 +486,20 @@
       ],
       "updated_at": "2026-11-05T16:43:30Z",
       "url": "https://github.com/InukaAsith/TwinDesk",
-      "value_score": 87.84,
-      "views": 51,
-      "views_age_hours": 8.0,
-      "views_at_24h": 99,
+      "value_score": 44.82,
+      "views": 81,
+      "views_age_hours": 31.2,
+      "views_at_24h": 73,
       "views_history": [
         {
           "at": "2026-11-06T00:59:01.636650Z",
           "reactions": 0,
           "views": 51
+        },
+        {
+          "at": "2026-11-07T00:09:29.408194Z",
+          "reactions": 0,
+          "views": 81
         }
       ],
       "visual_host": "imgbb",
@@ -623,10 +633,10 @@
       ],
       "updated_at": "2026-11-04T15:18:02Z",
       "url": "https://github.com/jub0t/Concat",
-      "value_score": 46.72,
-      "views": 90,
-      "views_age_hours": 33.6,
-      "views_at_24h": 78,
+      "value_score": 41.95,
+      "views": 110,
+      "views_age_hours": 56.8,
+      "views_at_24h": 76,
       "views_history": [
         {
           "at": "2026-11-05T00:56:49.363275Z",
@@ -637,6 +647,11 @@
           "at": "2026-11-06T00:59:03.186600Z",
           "reactions": 0,
           "views": 90
+        },
+        {
+          "at": "2026-11-07T00:09:30.412152Z",
+          "reactions": 0,
+          "views": 110
         }
       ],
       "visual_host": "imgbb",
@@ -779,10 +794,10 @@
       ],
       "updated_at": "2026-11-03T11:23:33Z",
       "url": "https://github.com/kajisho5/ffmpeg-skill",
-      "value_score": 45.16,
-      "views": 114,
-      "views_age_hours": 61.0,
-      "views_at_24h": 78,
+      "value_score": 42.49,
+      "views": 125,
+      "views_age_hours": 84.1,
+      "views_at_24h": 77,
       "views_history": [
         {
           "at": "2026-11-03T12:53:47.548432Z",
@@ -808,6 +823,11 @@
           "at": "2026-11-06T00:59:04.603866Z",
           "reactions": 0,
           "views": 114
+        },
+        {
+          "at": "2026-11-07T00:09:31.428439Z",
+          "reactions": 0,
+          "views": 125
         }
       ],
       "visual_host": "imgbb",
@@ -934,10 +954,10 @@
       ],
       "updated_at": "2026-11-04T19:56:57Z",
       "url": "https://github.com/KnifeLemon/Filee",
-      "value_score": 49.96,
-      "views": 82,
-      "views_age_hours": 29.0,
-      "views_at_24h": 76,
+      "value_score": 39.76,
+      "views": 101,
+      "views_age_hours": 52.2,
+      "views_at_24h": 72,
       "views_history": [
         {
           "at": "2026-11-05T00:56:48.997335Z",
@@ -948,6 +968,11 @@
           "at": "2026-11-06T00:59:02.659833Z",
           "reactions": 0,
           "views": 82
+        },
+        {
+          "at": "2026-11-07T00:09:30.080749Z",
+          "reactions": 0,
+          "views": 101
         }
       ],
       "visual_host": "imgbb",
@@ -1040,6 +1065,7 @@
       "open_issues": 330,
       "published_at": "2026-11-06T13:31:27.207975Z",
       "pushed_at": "2026-11-06T12:55:17Z",
+      "reactions": 0,
       "readme_fp": "4ec96d65273217ce",
       "repo_id": 1428347546,
       "revisit_of": "",
@@ -1074,6 +1100,17 @@
       ],
       "updated_at": "2026-11-06T13:29:37Z",
       "url": "https://github.com/l0ng-ai/openidea",
+      "value_score": 49.57,
+      "views": 45,
+      "views_age_hours": 10.6,
+      "views_at_24h": 75,
+      "views_history": [
+        {
+          "at": "2026-11-07T00:09:28.397909Z",
+          "reactions": 0,
+          "views": 45
+        }
+      ],
       "visual_host": "imgbb",
       "visual_kind": "card"
     },
@@ -1189,10 +1226,10 @@
       ],
       "updated_at": "2026-11-04T20:14:38Z",
       "url": "https://github.com/lnkiai/m3e-canvas",
-      "value_score": 51.11,
-      "views": 70,
-      "views_age_hours": 26.3,
-      "views_at_24h": 68,
+      "value_score": 39.8,
+      "views": 91,
+      "views_age_hours": 49.5,
+      "views_at_24h": 65,
       "views_history": [
         {
           "at": "2026-11-05T00:56:48.619443Z",
@@ -1203,6 +1240,11 @@
           "at": "2026-11-06T00:59:02.125669Z",
           "reactions": 0,
           "views": 70
+        },
+        {
+          "at": "2026-11-07T00:09:29.756486Z",
+          "reactions": 0,
+          "views": 91
         }
       ],
       "visual_host": "imgbb",
@@ -1293,6 +1335,7 @@
       "open_issues": 124,
       "published_at": "2026-11-06T15:04:45.638842Z",
       "pushed_at": "2026-11-06T14:12:24Z",
+      "reactions": 0,
       "readme_fp": "9d813d728c6037d9",
       "repo_id": 1427401105,
       "revisit_of": "",
@@ -1325,6 +1368,17 @@
       ],
       "updated_at": "2026-11-06T15:03:29Z",
       "url": "https://github.com/LNPANDY/NX2Apple",
+      "value_score": 56.81,
+      "views": 51,
+      "views_age_hours": 9.1,
+      "views_at_24h": 93,
+      "views_history": [
+        {
+          "at": "2026-11-07T00:09:28.062133Z",
+          "reactions": 0,
+          "views": 51
+        }
+      ],
       "visual_host": "imgbb",
       "visual_kind": "readme"
     },
@@ -1438,15 +1492,20 @@
       ],
       "updated_at": "2026-11-05T22:36:17Z",
       "url": "https://github.com/peach-mitao/peach",
-      "value_score": 44.1,
-      "views": 15,
-      "views_age_hours": 2.3,
-      "views_at_24h": 54,
+      "value_score": 44.67,
+      "views": 64,
+      "views_age_hours": 25.5,
+      "views_at_24h": 62,
       "views_history": [
         {
           "at": "2026-11-06T00:59:01.146940Z",
           "reactions": 0,
           "views": 15
+        },
+        {
+          "at": "2026-11-07T00:09:29.084603Z",
+          "reactions": 0,
+          "views": 64
         }
       ],
       "visual_host": "imgbb",
@@ -1549,6 +1608,7 @@
       "open_issues": 16,
       "published_at": "2026-11-06T11:14:35.944873Z",
       "pushed_at": "2026-11-06T08:38:24Z",
+      "reactions": 0,
       "readme_fp": "d3dc02edb4824ff9",
       "repo_id": 1397016507,
       "revisit_of": "",
@@ -1577,6 +1637,17 @@
       ],
       "updated_at": "2026-11-06T10:57:07Z",
       "url": "https://github.com/rehan-remade/universal-modder",
+      "value_score": 72.46,
+      "views": 68,
+      "views_age_hours": 12.9,
+      "views_at_24h": 102,
+      "views_history": [
+        {
+          "at": "2026-11-07T00:09:28.734681Z",
+          "reactions": 0,
+          "views": 68
+        }
+      ],
       "visual_host": "imgbb",
       "visual_kind": "readme"
     },
@@ -1693,9 +1764,9 @@
       ],
       "updated_at": "2026-11-03T22:10:24Z",
       "url": "https://github.com/wangzan101/Mika",
-      "value_score": 41.07,
-      "views": 99,
-      "views_age_hours": 50.6,
+      "value_score": 38.99,
+      "views": 110,
+      "views_age_hours": 73.8,
       "views_at_24h": 71,
       "views_history": [
         {
@@ -1712,6 +1783,11 @@
           "at": "2026-11-06T00:59:03.657312Z",
           "reactions": 0,
           "views": 99
+        },
+        {
+          "at": "2026-11-07T00:09:30.750792Z",
+          "reactions": 0,
+          "views": 110
         }
       ],
       "visual_host": "opengraph",
