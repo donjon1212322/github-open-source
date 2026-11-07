@@ -96,3 +96,4 @@
 {"deleted": 0, "ts": "2026-11-06T23:32:56.523106Z", "type": "moderation_completed", "updates": 0}
 {"Gemini_video_input": true, "models": 37, "official_url": "", "stories": 5, "topic": "model-leaks-and-releases", "ts": "2026-11-06T23:45:00.654595Z", "type": "ai_brief_published", "video_id": "efnEcbHnRa0"}
 {"channel": "GitHub_Open_Source", "posts": 11, "ts": "2026-11-07T00:09:31.429295Z", "type": "metrics_collected", "updated": 11}
+{"attempts": 1, "detail": "HTTP 204", "slot": "collect", "ts": "2026-11-07T05:30:39.356929Z", "type": "watchdog_recovered", "verified": false}

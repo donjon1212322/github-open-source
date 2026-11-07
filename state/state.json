@@ -71,7 +71,15 @@
       "repo": ""
     },
     "telegram_update_offset": 165231068,
-    "watchdog_dispatches": {}
+    "watchdog_dispatches": {
+      "2026-11-07:collect": {
+        "at": "2026-11-07T05:30:38.053834Z",
+        "attempts": 1,
+        "detail": "HTTP 204",
+        "dispatched": true,
+        "verified": false
+      }
+    }
   },
   "news_topics": [
     {
