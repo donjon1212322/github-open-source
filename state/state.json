@@ -12,11 +12,11 @@
   ],
   "last_runs": {
     "article": {
-      "finished_at": "2026-11-06T20:01:17.246507Z",
-      "published": false,
-      "reason": "already_published_today",
-      "repo": "",
-      "url": ""
+      "finished_at": "2026-11-07T13:33:46.538494Z",
+      "published": true,
+      "reason": "published",
+      "repo": "oldcircle/geo-sleuth",
+      "url": "https://dev.to/githubopensource/automate-photo-geolocation-with-ai-and-openstreetmap-26pk"
     },
     "collect": {
       "discovered": 647,
@@ -1398,7 +1398,13 @@
       "visual_kind": "readme"
     },
     "oldcircle/geo-sleuth": {
-      "articles": {},
+      "articles": {
+        "devto": {
+          "id": 4993741,
+          "published_at": "2026-11-07T13:33:46.538337Z",
+          "url": "https://dev.to/githubopensource/automate-photo-geolocation-with-ai-and-openstreetmap-26pk"
+        }
+      },
       "card_style": "",
       "category": "AI",
       "contributors_count": 14,
@@ -1412,6 +1418,7 @@
       },
       "description": "An agent skill that finds where a photo was taken — OpenStreetMap geometry, elevation skylines, satellite imagery and street view — and shows its work. Works with Claude Code, Codex, Cursor, Gemini CLI, OpenCode and GitHub Copilot.",
       "description_fp": "22a8b6c5425170fc",
+      "devto_cover_url": "https://i.ibb.co/fzJHHSx1/oldcircle-geo-sleuth-devto-cover-d9d608c5c952.png",
       "forks": 784,
       "full_name": "Oldcircle/geo-sleuth",
       "generated": {
