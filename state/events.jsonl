@@ -125,3 +125,4 @@
 {"channel": "GitHub_Open_Source", "posts": 12, "ts": "2026-11-07T20:23:52.316679Z", "type": "metrics_collected", "updated": 12}
 {"reason": "slot_already_done", "slot": "us_peak", "ts": "2026-11-07T20:57:02.268174Z", "type": "publish_skipped"}
 {"deleted": 0, "ts": "2026-11-07T21:47:49.265474Z", "type": "moderation_completed", "updates": 0}
+{"range": "facebook!A7:E7", "rows": 1, "ts": "2026-11-07T22:06:12.669774Z", "type": "facebook_handoff_queued"}
