@@ -124,3 +124,4 @@
 {"devto_id": 4995411, "ts": "2026-11-07T19:53:53.662859Z", "type": "news_article_published", "url": "https://dev.to/githubopensource/ai-brief-companion-gemini-omni-12-flash-inkling-2-small-and-kernel-vulnerability-audits-4gn6", "words": 677}
 {"channel": "GitHub_Open_Source", "posts": 12, "ts": "2026-11-07T20:23:52.316679Z", "type": "metrics_collected", "updated": 12}
 {"reason": "slot_already_done", "slot": "us_peak", "ts": "2026-11-07T20:57:02.268174Z", "type": "publish_skipped"}
+{"deleted": 0, "ts": "2026-11-07T21:47:49.265474Z", "type": "moderation_completed", "updates": 0}
