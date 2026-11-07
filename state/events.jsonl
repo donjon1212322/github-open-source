@@ -101,3 +101,5 @@
 {"slot": "collect", "ts": "2026-11-07T06:00:35.551898Z", "type": "watchdog_verified"}
 {"deleted": 0, "ts": "2026-11-07T06:39:24.458996Z", "type": "moderation_completed", "updates": 0}
 {"attempts": 1, "detail": "HTTP 204", "slot": "publish:europe_morning", "ts": "2026-11-07T08:30:39.174329Z", "type": "watchdog_recovered", "verified": false}
+{"preview_host": "imgbb", "repo": "oldcircle/geo-sleuth", "ts": "2026-11-07T08:31:10.030495Z", "type": "published_as_text"}
+{"repo": "oldcircle/geo-sleuth", "score": 93.057, "telegram_message_id": 3565, "telegraph_url": "https://telegra.ph/geo-sleuth-Geolocate-Photos-with-AI-Agents-and-OpenStreetMap-11-07", "ts": "2026-11-07T08:31:10.030884Z", "type": "project_published"}

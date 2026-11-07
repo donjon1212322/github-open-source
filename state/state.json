@@ -2,12 +2,12 @@
   "dead_letters": [],
   "gemini_window": [
     [
-      1793977474.3491588,
-      3948
+      1794040260.7530081,
+      3999
     ],
     [
-      1793977478.4689283,
-      1351
+      1794040264.2040968,
+      1397
     ]
   ],
   "last_runs": {
@@ -51,9 +51,9 @@
       "telegram_message_id": 3562
     },
     "publish:europe_morning": {
-      "finished_at": "2026-11-06T15:04:45.639068Z",
-      "repo": "lnpandy/nx2apple",
-      "telegram_message_id": 3563
+      "finished_at": "2026-11-07T08:31:10.030956Z",
+      "repo": "oldcircle/geo-sleuth",
+      "telegram_message_id": 3565
     },
     "publish:manual": {
       "finished_at": "2026-11-03T12:00:53.732414Z",
@@ -1395,6 +1395,130 @@
       "visual_host": "imgbb",
       "visual_kind": "readme"
     },
+    "oldcircle/geo-sleuth": {
+      "articles": {},
+      "card_style": "",
+      "category": "AI",
+      "contributors_count": 14,
+      "created_at": "2026-09-18T08:51:34Z",
+      "crossposts": {
+        "bluesky": {
+          "attempts": 0,
+          "due_at": "2026-11-07T18:00:00+00:00",
+          "status": "pending"
+        }
+      },
+      "description": "An agent skill that finds where a photo was taken — OpenStreetMap geometry, elevation skylines, satellite imagery and street view — and shows its work. Works with Claude Code, Codex, Cursor, Gemini CLI, OpenCode and GitHub Copilot.",
+      "description_fp": "22a8b6c5425170fc",
+      "forks": 784,
+      "full_name": "Oldcircle/geo-sleuth",
+      "generated": {
+        "article_markdown": "## What it is\n\ngeo-sleuth is an agent skill packaged as a SKILL.md configuration and a collection of Python scripts. It enables AI coding assistants to determine where a photo was taken by analyzing physical geography, such as elevation skylines, railway structures, and satellite imagery.\n\n## Why it matters\n\nStandard reverse image searches often fail when dealing with rural landscapes, nature scenes, or photos with stripped EXIF data. This tool shifts the workflow from visual guesswork to geometric verification, using spatial data to narrow down candidate positions algorithmically.\n\n## Key features\n\n- Query OpenStreetMap and elevation data for terrain matching.\n- Render 360-degree horizon skylines from candidate camera positions.\n- Cross-reference satellite imagery and street view tiles.\n- Output coordinates with an error radius, heading, and evidence image.\n- Run across Claude Code, Codex, Cursor, Gemini CLI, OpenCode, and GitHub Copilot.\n\n## Quick start\n\nTo add the skill to your agent environment, run:\n\n```bash\nnpx skills add Oldcircle/geo-sleuth\n```\n\n## Who should try it\n\nDevelopers, researchers, and technical investigators who frequently work with spatial data and want to test the limits of agentic workflows.\n\n## Verdict\n\nIt offers a clever approach to OSINT automation, combining deterministic scripts with model reasoning, though users should expect to wait for compute-heavy spatial scans.",
+        "article_title": "geo-sleuth: Geolocate Photos with AI Agents and OpenStreetMap",
+        "card_hook": "Find photo locations with AI agents",
+        "card_subline": "An agent skill that locates photos using geometry, elevation skylines, and satellite imagery",
+        "category": "AI",
+        "discussion_question": "Which agent framework do you use for running local skills?",
+        "hook": "Give your coding agent a photo and it returns exact coordinates using OpenStreetMap geometry and elevation data.",
+        "key_features": [
+          "Query OpenStreetMap and elevation data for terrain matching",
+          "Render 360-degree horizon skylines from candidate camera positions",
+          "Cross-reference satellite imagery and street view tiles",
+          "Output coordinates with an error radius, heading, and evidence image",
+          "Run across Claude Code, Codex, Cursor, Gemini CLI, OpenCode, and GitHub Copilot"
+        ],
+        "llm_used": true,
+        "quick_start": "npx skills add Oldcircle/geo-sleuth",
+        "safety": "ok",
+        "safety_reason": "Legitimate OSINT and developer tooling using public mapping data.",
+        "scene": "You stare at an EXIF-stripped photo of an anonymous bridge and a mountain ridge with zero text or landmarks to search for.",
+        "social_text": "Find where a photo was taken using OpenStreetMap geometry and elevation skylines with your coding agent.",
+        "summary": "This project implements an agent skill via a SKILL.md file and accompanying Python scripts that interact with mapping data and computer vision tools. Instead of relying purely on visual recognition, it uses single-purpose scripts to query OpenStreetMap, render elevation skylines, and match satellite tiles. The model orchestrates these scripts to filter candidates before arriving at a final coordinate estimate.",
+        "surfaces": {
+          "Facebook_body": "Finding where a photograph was taken can take hours of manual research across maps, satellite views, and elevation data. A new open-source tool automates this process for people who work with digital mapping and verification. By combining map geometry, satellite tiles, and horizon skylines, it narrows down candidate locations and provides a calculated estimate with supporting evidence.\n\nThe system works by letting an AI assistant run specialized scripts that query public mapping databases and terrain information. Instead of relying purely on visual recognition, the assistant uses structured data to filter possibilities before determining the final coordinates and heading.\n\nIt is designed for developers, investigators, and researchers who want to automate photo geolocation using their preferred coding assistants and AI command-line tools. Whether you are verifying historical images or sorting through field data, this project provides a systematic way to handle visual verification tasks.",
+          "Facebook_headline": "Find where any photo was taken automatically",
+          "Facebook_lead": "Turn any photo into exact map coordinates automatically. This tool helps developers and researchers find picture locations using mapping data and terrain matching.",
+          "bluesky_headline": "Find photo locations using map data and AI",
+          "bluesky_lead": "Give your coding agent an image to get precise coordinates through map geometry and elevation.",
+          "devto_body": "## What it is\n\ngeo-sleuth is an open-source Python project that extends AI coding agents with geolocation capabilities. Instead of relying solely on visual pattern matching, it provides structured scripts that query OpenStreetMap, elevation data, and satellite imagery to determine where a photo was taken.\n\n## How it works\n\nThe project implements an agent skill via a SKILL.md file and accompanying Python scripts. When provided with an image, the AI model orchestrates single-purpose scripts to query map geometry, render 360-degree horizon skylines from candidate positions, and cross-reference satellite tiles to filter candidates and output a final coordinate estimate with an error radius.\n\n## Key features\n\n- Query OpenStreetMap and elevation data for terrain matching\n- Render 360-degree horizon skylines from candidate camera positions\n- Cross-reference satellite imagery and street view tiles\n- Output coordinates with an error radius, heading, and evidence image\n- Compatible with Claude Code, Codex, Cursor, Gemini CLI, OpenCode, and GitHub Copilot\n\n## Getting started\n\nTo use geo-sleuth with your coding agent, clone the repository and ensure you have Python installed along with the required mapping and vision dependencies.\n\n```bash\ngit clone https://github.com/Oldcircle/geo-sleuth.git\ncd geo-sleuth\n```\n\nConfigure your agent environment to read the SKILL.md instructions and execute the underlying scripts as needed during your workflow.\n\n## When not to use it\n\nThis tool is not suited for real-time video tracking or environments without access to reliable mapping and elevation data. Run times depend heavily on the compute resources and AI model you use.",
+          "seo_description": "Find where a photo was taken using map data, elevation skylines, and AI coding agents. A practical open-source tool for developers and researchers.",
+          "seo_query": "automate photo geolocation with AI coding agents",
+          "seo_title": "Automate Photo Geolocation with AI and OpenStreetMap",
+          "telegraph_angle": "Explain how combining map geometry and AI coding agents changes automated geolocation and what trade-offs to expect."
+        },
+        "tension": "Manual reverse image searches fail because the scenery has no recognizable storefronts, leaving you to guess coordinates by eye.",
+        "turn": "This skill provides your agent with deterministic Python scripts that query geographic databases and test terrain skylines programmatically.",
+        "verdict": "An impressive tool for structured geolocation work, though run times depend heavily on the compute and model used.",
+        "who_for": "Developers and OSINT researchers who want to automate photo geolocation using AI coding agents.",
+        "why_now": "Coding agents capable of executing local Python scripts and reading custom markdown instructions have reached maturity."
+      },
+      "homepage": "",
+      "id": 1375615157,
+      "image_url": "https://i.ibb.co/Fk4Kx5cG/oldcircle-geo-sleuth-readme-preview-df550ab3fdae.jpg",
+      "is_dual_use": true,
+      "is_hidden_gem": false,
+      "language": "Python",
+      "license": {
+        "key": "mit",
+        "name": "MIT License",
+        "node_id": "MDc6TGljZW5zZTEz",
+        "spdx_id": "MIT",
+        "url": "https://api.github.com/licenses/mit"
+      },
+      "media_urls": [
+        "https://raw.githubusercontent.com/Oldcircle/geo-sleuth/main/docs/hero.gif",
+        "https://raw.githubusercontent.com/Oldcircle/geo-sleuth/main/docs/case/thumb.jpg",
+        "https://raw.githubusercontent.com/Oldcircle/geo-sleuth/main/docs/cases/desert/thumb.jpg",
+        "https://raw.githubusercontent.com/Oldcircle/geo-sleuth/main/docs/cases/cherry/thumb.jpg",
+        "https://raw.githubusercontent.com/Oldcircle/geo-sleuth/main/docs/case/02-pier-ruler.jpg",
+        "https://raw.githubusercontent.com/Oldcircle/geo-sleuth/main/docs/case/04-skyline-top3.jpg",
+        "https://raw.githubusercontent.com/Oldcircle/geo-sleuth/main/docs/case/06-evidence.jpg",
+        "https://raw.githubusercontent.com/Oldcircle/geo-sleuth/main/docs/case/03-region-scan.jpg"
+      ],
+      "name": "geo-sleuth",
+      "open_issues": 26,
+      "published_at": "2026-11-07T08:31:10.030654Z",
+      "pushed_at": "2026-11-05T08:11:52Z",
+      "readme_fp": "13c26746f6aafb87",
+      "repo_id": 1375615157,
+      "revisit_of": "",
+      "revisit_reason": "",
+      "score": 93.057,
+      "slot": "europe_morning",
+      "sources": [
+        "github_search",
+        "telegram:github"
+      ],
+      "stars": 6349,
+      "telegram_chat_id": "@GitHub_Open_Source",
+      "telegram_link": "https://t.me/GitHub_Open_Source/3565",
+      "telegram_message_id": 3565,
+      "telegraph_url": "https://telegra.ph/geo-sleuth-Geolocate-Photos-with-AI-Agents-and-OpenStreetMap-11-07",
+      "topics": [
+        "agent-skills",
+        "ai-agents",
+        "claude-code",
+        "codex",
+        "computer-vision",
+        "cursor",
+        "gemini-cli",
+        "geoguessr",
+        "geoint",
+        "geolocation",
+        "github-copilot",
+        "image-geolocation",
+        "opencode",
+        "openstreetmap",
+        "osint",
+        "photo-geolocation",
+        "reverse-image-search",
+        "satellite-imagery"
+      ],
+      "updated_at": "2026-11-07T08:30:07Z",
+      "url": "https://github.com/Oldcircle/geo-sleuth",
+      "visual_host": "imgbb",
+      "visual_kind": "readme"
+    },
     "peach-mitao/peach": {
       "articles": {},
       "card_style": "",
@@ -1808,81 +1932,6 @@
     }
   },
   "queue": [
-    {
-      "archived": false,
-      "contributors_count": 14,
-      "created_at": "2026-09-18T08:51:34Z",
-      "default_branch": "main",
-      "description": "An agent skill that finds where a photo was taken — OpenStreetMap geometry, elevation skylines, satellite imagery and street view — and shows its work. Works with Claude Code, Codex, Cursor, Gemini CLI, OpenCode and GitHub Copilot.",
-      "disabled": false,
-      "fork": false,
-      "forks": 782,
-      "forks_count": 782,
-      "full_name": "Oldcircle/geo-sleuth",
-      "has_readme": true,
-      "homepage": "",
-      "id": 1375615157,
-      "is_dual_use": true,
-      "is_hidden_gem": false,
-      "language": "Python",
-      "license": {
-        "key": "mit",
-        "name": "MIT License",
-        "node_id": "MDc6TGljZW5zZTEz",
-        "spdx_id": "MIT",
-        "url": "https://api.github.com/licenses/mit"
-      },
-      "media_urls": [
-        "https://raw.githubusercontent.com/Oldcircle/geo-sleuth/main/docs/hero.gif",
-        "https://raw.githubusercontent.com/Oldcircle/geo-sleuth/main/docs/case/thumb.jpg",
-        "https://raw.githubusercontent.com/Oldcircle/geo-sleuth/main/docs/cases/desert/thumb.jpg",
-        "https://raw.githubusercontent.com/Oldcircle/geo-sleuth/main/docs/cases/cherry/thumb.jpg",
-        "https://raw.githubusercontent.com/Oldcircle/geo-sleuth/main/docs/case/02-pier-ruler.jpg",
-        "https://raw.githubusercontent.com/Oldcircle/geo-sleuth/main/docs/case/04-skyline-top3.jpg",
-        "https://raw.githubusercontent.com/Oldcircle/geo-sleuth/main/docs/case/06-evidence.jpg",
-        "https://raw.githubusercontent.com/Oldcircle/geo-sleuth/main/docs/case/03-region-scan.jpg"
-      ],
-      "name": "geo-sleuth",
-      "non_software_reason": "",
-      "open_issues": 25,
-      "open_issues_count": 25,
-      "owner_repo_count": 1,
-      "pushed_at": "2026-11-05T08:11:52Z",
-      "readme": "",
-      "readme_excerpt": "<div align=\"center\">\n\n# 🧭 geo-sleuth\n\n**An agent skill that finds where a photo was taken — and shows its work.**\n\n<p align=\"center\">\n  <a href=\"README.md\"><img alt=\"English\" src=\"https://img.shields.io/badge/English-1f6feb?style=flat-square\"></a>\n  <a href=\"README.zh-CN.md\"><img alt=\"Simplified Chinese\" src=\"https://img.shields.io/badge/%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87-dbeafe?style=flat-square\"></a>\n  <a href=\"README.ja.md\"><img alt=\"Japanese\" src=\"https://img.shields.io/badge/%E6%97%A5%E6%9C%AC%E8%AA%9E-dbeafe?style=flat-square\"></a>\n</p>\n\n<p align=\"center\">\n  <a href=\"LICENSE\"><img alt=\"License: MIT\" src=\"https://img.shields.io/badge/License-MIT-yellow.svg\"></a>\n  <a href=\"https://www.python.org/downloads/\"><img alt=\"Python 3.10+\" src=\"https://img.shields.io/badge/python-3.10%2B-blue.svg\"></a>\n  <a href=\"https://agentskills.io\"><img alt=\"Agent Skill: SKILL.md\" src=\"https://img.shields.io/badge/Agent%20Skill-SKILL.md-8A2BE2.svg\"></a>\n  <a href=\"CONTRIBUTING.md\"><img alt=\"PRs welcome\" src=\"https://img.shields.io/badge/PRs-welcome-brightgreen.svg\"></a>\n  <a href=\"https://github.com/Oldcircle/geo-sleuth/stargazers\"><img alt=\"GitHub stars\" src=\"https://img.shields.io/github/stars",
-      "readme_len": 35204,
-      "repo_id": 1375615157,
-      "score": 93.057,
-      "source_name": "github_search",
-      "sources": [
-        "github_search",
-        "telegram:github"
-      ],
-      "stargazers_count": 6324,
-      "stars": 6324,
-      "topics": [
-        "agent-skills",
-        "ai-agents",
-        "claude-code",
-        "codex",
-        "computer-vision",
-        "cursor",
-        "gemini-cli",
-        "geoguessr",
-        "geoint",
-        "geolocation",
-        "github-copilot",
-        "image-geolocation",
-        "opencode",
-        "openstreetmap",
-        "osint",
-        "photo-geolocation",
-        "reverse-image-search",
-        "satellite-imagery"
-      ],
-      "updated_at": "2026-11-07T05:30:45Z",
-      "url": "https://github.com/Oldcircle/geo-sleuth"
-    },
     {
       "archived": false,
       "contributors_count": 6,
@@ -6097,8 +6146,8 @@
     "oldcircle/geo-sleuth": {
       "first_seen_at": "2026-11-07T05:32:32.588145Z",
       "full_name": "Oldcircle/geo-sleuth",
-      "last_decision": "queued",
-      "last_seen_at": "2026-11-07T05:32:32.588148Z",
+      "last_decision": "published",
+      "last_seen_at": "2026-11-07T08:31:10.030945Z",
       "repo_id": 1375615157,
       "sources": [
         "github_search",
