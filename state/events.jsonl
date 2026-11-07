@@ -126,3 +126,4 @@
 {"reason": "slot_already_done", "slot": "us_peak", "ts": "2026-11-07T20:57:02.268174Z", "type": "publish_skipped"}
 {"deleted": 0, "ts": "2026-11-07T21:47:49.265474Z", "type": "moderation_completed", "updates": 0}
 {"range": "facebook!A7:E7", "rows": 1, "ts": "2026-11-07T22:06:12.669774Z", "type": "facebook_handoff_queued"}
+{"reason": "news_already_published", "ts": "2026-11-07T22:47:29.914996Z", "type": "news_skipped"}
