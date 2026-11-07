@@ -21,7 +21,7 @@ from ghos_v6 import pipeline, watchdog
 from ghos_v6.config import Config
 from ghos_v6.state import StateStore
 
-DAY = "2026-11-06"
+DAY = datetime.now(timezone.utc).date().isoformat()
 
 
 def _config():
@@ -135,7 +135,7 @@ def test_watchdog_does_not_retry_a_quota_closed_slot(monkeypatch, tmp_path):
 
     # 21:30 Minsk = 18:30 UTC: us_peak is past its deadline.
     result = watchdog.watchdog_command(
-        Config(), store, now=datetime(2026, 11, 6, 18, 30, tzinfo=timezone.utc))
+        Config(), store, now=datetime.fromisoformat(f"{DAY}T18:30:00+00:00"))
 
     assert "publish:us_peak" not in result["missed"]
     assert result["dispatched"] == []
@@ -155,7 +155,7 @@ def test_watchdog_still_detects_a_genuinely_missed_us_peak(monkeypatch, tmp_path
     })
 
     result = watchdog.watchdog_command(
-        Config(), store, now=datetime(2026, 11, 6, 18, 30, tzinfo=timezone.utc))
+        Config(), store, now=datetime.fromisoformat(f"{DAY}T18:30:00+00:00"))
 
     assert "publish:us_peak" in result["missed"]
     assert "publish" in calls

@@ -106,6 +106,38 @@ class DevToClient:
             raise _error("dev.to", response)
         return dict(response.json() or {})
 
+    def publish_markdown(
+        self,
+        title: str,
+        body_markdown: str,
+        *,
+        tags: tuple[str, ...] = (),
+        cover_url: str = "",
+    ) -> dict[str, Any]:
+        """Publish an already-rendered standalone article (owner 2026-11-07).
+
+        Used ONLY by the second daily dev.to article built from the AI Brief.
+        ``article_of_day()`` and its project markdown pipeline are untouched.
+        """
+        if not self.configured:
+            raise PlatformError("DEV_API_KEY is not set")
+        if not body_markdown.strip():
+            raise PlatformError("dev.to article markdown is empty")
+        article: dict[str, Any] = {
+            "title": title[:120],
+            "body_markdown": body_markdown,
+            "published": True,
+            "tags": list(tags)[:4],
+        }
+        if cover_url.startswith("https://"):
+            article["main_image"] = cover_url
+        response = self._request(
+            "POST", "https://dev.to/api/articles", json={"article": article}
+        )
+        if response.status_code not in (200, 201):
+            raise _error("dev.to", response)
+        return dict(response.json() or {})
+
     def my_articles(self, per_page: int = 100) -> list[dict[str, Any]]:
         """Articles owned by this API key, including drafts."""
         response = self._request(
@@ -247,6 +279,8 @@ def build_link_facets(text: str) -> list[dict[str, Any]]:
         )
 
     return sorted(facets, key=lambda item: item["index"]["byteStart"])
+
+
 
 class BlueskyClient:
     def __init__(self, handle: str, app_password: str):

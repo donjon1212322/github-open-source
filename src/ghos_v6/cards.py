@@ -943,3 +943,80 @@ def render_project_card(
 
         return render_portrait_card(candidate, generated, output_path, issue_number=issue_number), "editorial_portrait"
     return render_editorial_card(candidate, generated, output_path, issue_number=issue_number), "editorial_daily"
+
+
+def render_ai_brief_card_v4(
+    headline: str,
+    standfirst: str,
+    models_line: str,
+    output_path: Path,
+    *,
+    stories: int = 0,
+    rumours: int = 0,
+) -> Path:
+    """Owner-approved card D (2026-11-07): narrative hook, no service labels.
+
+    Replaces the old "Glass Aurora / 05 STORIES VERIFIED" card, which the
+    owner rejected. Dark grid, one large intrigue phrase, gold contrast line,
+    a small factual footer. No external fonts or network resources.
+    """
+    from PIL import Image, ImageDraw  # local: keeps the module import light
+
+    cyan = (77, 216, 255)
+    mint = (126, 240, 200)
+    gold = (255, 205, 120)
+    white = (240, 246, 255)
+    dim = (146, 168, 200)
+    image = Image.new("RGB", (W, H), (8, 12, 22))
+    draw = ImageDraw.Draw(image)
+    for x in range(0, W, 80):
+        draw.line([(x, 0), (x, H)], fill=(14, 23, 40))
+    for y in range(0, H, 80):
+        draw.line([(0, y), (W, y)], fill=(14, 23, 40))
+    draw.rectangle([0, 0, 10, H], fill=cyan)
+
+    mono = _font("mono", 17, True)
+    mono_s = _font("mono", 17, False)
+    draw.text((64, 50), "AI BRIEF  /  TELEGRAM SOURCES", font=mono, fill=cyan)
+    handle = "@GitHub_Open_Source"
+    draw.text((W - 64 - draw.textlength(handle, font=mono_s), 52), handle, font=mono_s, fill=dim)
+    draw.line([(64, 104), (W - 64, 104)], fill=(34, 54, 88))
+
+    big = _font("sans", 62, True)
+    phrase = " ".join(str(standfirst or headline or "A 35-year-old math problem fell on a Tuesday.").split())
+
+    def wrap(text: str, font: Any, max_width: int) -> list[str]:
+        lines: list[str] = []
+        current = ""
+        for word in text.split():
+            trial = (current + " " + word).strip()
+            if draw.textlength(trial, font=font) <= max_width:
+                current = trial
+            else:
+                if current:
+                    lines.append(current)
+                current = word
+        if current:
+            lines.append(current)
+        return lines[:3]
+
+    lines = wrap(phrase, big, 1030)
+    top = 150
+    for index, line in enumerate(lines):
+        draw.text((64, top + index * 76), line, font=big, fill=gold if index == len(lines) - 1 else white)
+    sub_top = top + len(lines) * 76 + 30
+    sub = _font("sans", 25, False)
+    sub_lines = wrap(
+        "Telegram channels, not video round-ups. Rare finds stay in.", sub, 1000
+    )
+    for index, line in enumerate(sub_lines):
+        draw.text((66, sub_top + index * 36), line, font=sub, fill=dim)
+    draw.line([(64, 530), (W - 64, 530)], fill=(34, 54, 88))
+    footer = _font("mono", 19, True)
+    facts = f"{stories or 5} stories  ·  {rumours} rumours kept  ·  no ads"
+    draw.text((64, 556), facts, font=footer, fill=mint)
+    draw.text(
+        (W - 64 - draw.textlength("no hype", font=footer), 556), "no hype", font=footer, fill=dim
+    )
+    image.save(output_path)
+    return output_path

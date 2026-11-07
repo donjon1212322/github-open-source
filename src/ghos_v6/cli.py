@@ -22,6 +22,7 @@ from .pipeline import (
     metrics_command,
     moderation_command,
     news_command,
+    news_article_command,
     process_crossposts,
     publish_slot,
     remove_devto_articles,
@@ -65,7 +66,8 @@ def _parser() -> argparse.ArgumentParser:
         help="Comma-separated dev.to article ids to delete/unpublish",
     )
 
-    news = sub.add_parser("news", help="Publish one verified WorldofAI AI Brief")
+    news = sub.add_parser("news", help="Publish the daily AI Brief from Telegram channels")
+    sub.add_parser("news-article", help="Publish the second daily dev.to article from the AI Brief")
     news.add_argument("--force", action="store_true", help="Run even if FEATURE_AI_BRIEF=false")
     news.add_argument(
         "--refresh",
@@ -106,6 +108,8 @@ def _run_scheduled(config: Config, store: StateStore, schedule: str) -> dict[str
         # Daily since 2026-11-02: the video brief is a format with its own
         # slot, after the last project post, when the day's videos are out.
         "18 19 * * *": lambda: news_command(config, store),
+        # Second dev.to article of the day (owner decision 2026-11-07).
+        "53 19 * * *": lambda: news_article_command(config, store),
         # Weekly cycle: digest + poll on Sunday, poll closed on Thursday,
         # metrics every evening, learning after closing.
         "13 16 * * 0": lambda: digest_command(config, store),
@@ -161,6 +165,8 @@ def main(argv: list[str] | None = None) -> int:
             result = unseries_articles(config, store, ids=args.ids)
         elif args.command == "devto-remove":
             result = remove_devto_articles(config, store, ids=args.ids)
+        elif args.command == "news-article":
+            result = news_article_command(config, store)
         elif args.command == "news":
             result = news_command(config, store, force=args.force, refresh=args.refresh)
         elif args.command == "digest":

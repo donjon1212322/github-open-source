@@ -99,7 +99,8 @@ def test_crons_and_routes_still_agree_after_any_schedule_change():
     keys = set(re.findall(r'"([^"]+)"\s*:\s*lambda', routes_block))
     keys |= set(re.findall(r'"([^"]+)"\s*:', pairs_block))
     assert crons == keys, f"cron/route mismatch: {sorted(crons ^ keys)}"
-    assert len(crons) == 13
+    # 2026-11-07: +53 19 * * * for the second daily dev.to article.
+    assert len(crons) == 14
 
 
 def test_documentation_agrees_with_the_current_launch_decision():

@@ -1203,3 +1203,189 @@ def format_ai_brief(brief: dict[str, Any]) -> str:
         why = _clip_preserving(why, max(120, len(why) - 100), names)
         output = render()
     return output
+
+
+# ---------------------------------------------------------------------------
+# Owner decision 2026-11-07: the AI Brief no longer uses a YouTube round-up.
+# Discovery is the Telegram channel layer; the approved voice is narrative,
+# not a status report. The old functions above remain as the rollback path.
+# ---------------------------------------------------------------------------
+
+TELEGRAM_STYLE_GUIDE = """
+STYLE (owner approved 2026-11-07 - measured on 87 high-view channel posts):
+- Write like a curious engineer talking to other engineers, NEVER like a
+  status report. First person is allowed ("The thing I can't stop thinking
+  about..."). A little irony is fine.
+- Open with ONE sentence of intrigue or contrast, then a concrete number.
+  Example of the approved voice: "Three model launches showed up in four
+  channels this week. The thing I can't stop thinking about is a 35-year-old
+  math problem that quietly fell on a Tuesday."
+- FORBIDDEN service labels anywhere in the prose: "So what:", "Why devs
+  should care:", "Receipts", "Official release ·", "✅", "1️⃣", "▸",
+  "Sources", "Sponsor", "WorldofAI", "YouTube", channel names or URLs.
+  Status goes ONLY in each story's `status` field; evidence level goes in
+  `basis` as one short natural phrase such as "the model card is up" or
+  "the 30% is a vendor number, not a measurement".
+- Keep the RARE material: collections ("10 open source projects"), unusual
+  model lists, small tools, IP trust-score pages, odd repos. These are the
+  reason people read the channel. Never discard them as "noise".
+- Put numbers early: parameter counts, prices, seconds, percentages, dates.
+- End with one genuine question to the reader.
+""".strip()
+
+
+def synthesize_brief_telegram(
+    entry: dict[str, Any],
+    primary: dict[str, str],
+    client: GeminiClient,
+    *,
+    rumours: list[str] | None = None,
+) -> dict[str, Any]:
+    """Build the approved narrative digest from Telegram channel posts."""
+    rumour_block = "\n".join(f"- {item[:400]}" for item in (rumours or [])[:3])
+    prompt = f"""
+You are writing an English AI news DIGEST for developers. The input is a set
+of recent posts from independent technical channels. Treat them as raw
+material, never as an authority and never as something to cite.
+
+{TELEGRAM_STYLE_GUIDE}
+
+FACT RULES (owner corrections 04-07.11.2026):
+- An unannounced checkpoint, a leak, a partner-access screenshot, an
+  executive hint or a "release date?" post is NOT a release. Never write
+  "released", "launched", "shipped", "is out" for such a claim.
+- Each story MUST carry one of: official_release, announced_not_shipped,
+  research_report, demo_or_benchmark, leaked_checkpoint, teaser,
+  unconfirmed_rumour, official_document. WHEN IN DOUBT USE THE LOWER STATUS.
+- Rumours are KEPT, but only inside `unconfirmed_claims`, never mixed into a
+  confirmed story. Never merge a confirmed item and a rumour.
+- MODEL NEWS COMES FIRST. Corporate, funding, IPO or policy items are at most
+  ONE story and go LAST.
+- EXACT TECHNICAL NAMES ARE SACRED: copy every model, version, benchmark,
+  API and product identifier verbatim, including digits, dots and suffixes.
+- `basis` is ONE short phrase about the EVIDENCE LEVEL, never a channel,
+  a URL or a source list.
+- Extract FOUR TO SEVEN genuinely different stories. A digest with fewer
+  than four is incomplete. Include at least one rare/collection/odd-tool item
+  if the material contains one.
+- eligible=false ONLY when nothing factual at all can be extracted.
+- headline covers the whole digest (60-130 chars), leads with model news.
+- `hook` is the opening intrigue sentence described in STYLE. `card_hook` is
+  a shorter version for the cover card. `summary` frames the whole digest.
+- `why_devs` is ONE plain sentence woven into the voice, not a heading.
+- `topic_key` is a lowercase slug of the main theme.
+
+<channel_posts>
+{str(entry.get("description") or "")[:8000]}
+</channel_posts>
+
+<primary_source text for fact-checking only, never cite it>
+{primary.get("text") or ""}
+</primary_source>
+
+<rumours - keep, but only as unconfirmed_claims>
+{rumour_block}
+</rumours>
+""".strip()
+    result = enforce_claim_status(
+        client.generate_json(
+            prompt,
+            schema=NEWS_SCHEMA,
+            youtube_url="",
+            temperature=0.2,
+            max_output_tokens=16384,
+        )
+    )
+    # The owner asked to KEEP rumours. Do not let a terse model drop them.
+    claims = [str(item) for item in (result.get("unconfirmed_claims") or []) if str(item).strip()]
+    for item in (rumours or [])[:2]:
+        if item[:400] not in claims:
+            claims.append(item[:400])
+    result["unconfirmed_claims"] = claims[:3]
+    result["official_url"] = ""
+    result["official_name"] = ""
+    result["sourced"] = False
+    result["video_id"] = entry.get("video_id")
+    result["video_url"] = entry.get("url")
+    result["video_title"] = entry.get("title")
+    return result
+
+
+def format_ai_brief_digest(brief: dict[str, Any]) -> str:
+    """Approved narrative digest. No service labels, no source attribution."""
+    names = brief_model_names(brief)
+    hook = _clip_preserving(editorial_hook(brief) or brief.get("summary"), 320, names)
+    why = _clip_preserving(brief.get("why_devs") or brief.get("summary"), 260, names)
+    question = _clip(
+        brief.get("discussion_question") or "Which one would you open first?", 200
+    )
+    stories: list[dict[str, Any]] = [
+        {
+            "title": _clip_preserving(
+                clean_brief_headline(story["title"], preserve=names) or "Model update", 150, names
+            ),
+            "bullets": [_clip_preserving(bullet, 230, names) for bullet in story["bullets"][:3]],
+            "why": _clip_preserving(story.get("why") or "", 200, names),
+            "basis": _clip_preserving(story.get("basis") or "", 120, names),
+            "status": story.get("status") or "unconfirmed_rumour",
+        }
+        for story in brief_stories(brief)
+    ]
+    rumours = [
+        _clip_preserving(_clean_unconfirmed(item), 200, names)
+        for item in (brief.get("unconfirmed_claims") or [])
+        if _clean_unconfirmed(item)
+    ][:3]
+    models_line = " · ".join(names[:12])
+
+    def render() -> str:
+        lines = ["🛰️ <b>AI Brief</b> · <i>no ads, no hype</i>", ""]
+        if hook:
+            lines += [f"<b>{_esc(hook)}</b>", ""]
+        if models_line:
+            lines += [f"🧬 <b>In this brief:</b> {_esc(_clip(models_line, 420))}", ""]
+        for index, story in enumerate(stories, start=1):
+            lines += [f"<b>{index}/ {_esc(story['title'])}</b>"]
+            for bullet in story["bullets"]:
+                lines.append(_esc(bullet))
+            if story["why"]:
+                lines.append(_esc(story["why"]))
+            # Evidence level as a natural aside, not a status badge.
+            if story["basis"]:
+                lines.append(f"<i>{_esc(story['basis'])}</i>")
+            if story["status"] in {
+                "leaked_checkpoint", "teaser", "unconfirmed_rumour"
+            }:
+                lines.append("<i>◻️ Not confirmed — treat this as a rumour.</i>")
+            lines.append("")
+        if why:
+            lines += [_esc(why), ""]
+        if rumours:
+            lines += ["<b>◻️ Rumours we're keeping an eye on</b>", ""]
+            lines += [f"◻️ <i>{_esc(item)}</i>" for item in rumours]
+            lines.append("")
+        lines += [
+            f"<i>{_esc(question)}</i>",
+            "",
+            '📣 <a href="https://t.me/GitHub_Open_Source"><b>@GitHub_Open_Source</b></a>',
+            "", CHANNEL_TAG_DIVIDER, "#AINews #OpenSource",
+        ]
+        return "\n".join(lines)
+
+    def too_long(text: str) -> bool:
+        return utf16_len(text) > RAW_BUDGET or utf16_len(visible_text(text)) > VISIBLE_BUDGET
+
+    output = render()
+    while too_long(output) and rumours:
+        rumours.pop()
+        output = render()
+    while too_long(output) and len(stories) > 2:
+        stories.pop()
+        output = render()
+    while too_long(output) and stories and len(stories[-1]["bullets"]) > 1:
+        stories[-1]["bullets"].pop()
+        output = render()
+    while too_long(output) and hook:
+        hook = _clip_preserving(hook, max(120, len(hook) - 100), names)
+        output = render()
+    return output

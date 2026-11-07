@@ -13,7 +13,7 @@ from pathlib import Path
 from typing import Any
 
 from . import dedup, insights, polls
-from .cards import render_ai_brief_card, render_digest_card
+from .cards import render_ai_brief_card, render_ai_brief_card_v4, render_digest_card
 from .config import Config, telegram_message_link
 from .devto_cover import build_devto_cover
 from .content_adapters import build_crosspost_text, image_alt_text, public_telegram_link
@@ -33,10 +33,13 @@ from .news import (
     extract_primary_urls,
     fetch_primary_text,
     fetch_worldofai_entries,
+    synthesize_brief_telegram,
     format_ai_brief,
+    format_ai_brief_digest,
     select_latest_news_entry,
     synthesize_brief,
 )
+from .telegram_discovery import build_digest_material
 from .platforms import BlueskyClient, DevToClient, PlatformError
 from .rank import rank_candidates, select_candidate
 from .sources import GitHubApi, collect_candidates, enrich_candidate, enrich_candidates
@@ -1211,20 +1214,37 @@ def news_command(
         return {"ok": True, "published": False, "reason": "feature_ai_brief_disabled"}
     config.require("TELEGRAM_BOT_TOKEN", "GEMINI_API_KEY")
     chat_id = config.telegram_chat_id
+    # Owner decision 2026-11-07: full replacement of the YouTube round-up.
+    # FEATURE_TELEGRAM_DISCOVERY=false is the rollback switch; everything
+    # else about slots, UTC day boundary and the 3-post limit is untouched.
+    # Legacy/rollback configs without the new flag keep the old path.
+    use_telegram = bool(getattr(config, "feature_telegram_discovery", False))
+    material: dict[str, Any] = {}
+    if use_telegram:
+        try:
+            material = build_digest_material()
+        except Exception as exc:  # noqa: BLE001
+            reason = sanitize(str(exc))[:300]
+            store.event("news_skipped", reason="source_unavailable", error=reason)
+            store.save()
+            alert_owner(config, "AI Brief: каналы недоступны", reason)
+            logger.warning("AI Brief channel source unavailable; skipping: %s", reason)
+            return {"ok": True, "published": False, "reason": "source_unavailable", "error": reason}
     # Owner decision (2026-11-05): the AI Brief's YouTube video never had
     # capacity problems. Keep the original plain client: no shared TPM
     # budget, no 70 s heavy-call gap, no spare-model fallback.
     client = GeminiClient(config.Gemini_api_key, config.Gemini_model)
     telegram = TelegramClient(config.telegram_bot_token)
-    try:
-        entries = fetch_worldofai_entries()
-    except NewsSourceError as exc:
-        reason = sanitize(str(exc))[:300]
-        store.event("news_skipped", reason="source_unavailable", error=reason)
-        store.save()
-        alert_owner(config, "AI Brief: источник недоступен", reason)
-        logger.warning("AI Brief source unavailable; skipping: %s", reason)
-        return {"ok": True, "published": False, "reason": "source_unavailable", "error": reason}
+    if not use_telegram:
+        try:
+            entries = fetch_worldofai_entries()
+        except NewsSourceError as exc:
+            reason = sanitize(str(exc))[:300]
+            store.event("news_skipped", reason="source_unavailable", error=reason)
+            store.save()
+            alert_owner(config, "AI Brief: источник недоступен", reason)
+            logger.warning("AI Brief source unavailable; skipping: %s", reason)
+            return {"ok": True, "published": False, "reason": "source_unavailable", "error": reason}
 
     cutoff = datetime.now(timezone.utc) - timedelta(days=14)
     seen_video_ids: set[str] = set()
@@ -1238,15 +1258,22 @@ def news_command(
             recent_topic_keys.add(str(item["topic_key"]))
 
     # A refresh deliberately bypasses deduplication; freshness still applies.
-    entry, skip_reason = select_latest_news_entry(
-        entries,
-        set() if refresh else seen_video_ids,
-        set() if refresh else recent_topic_keys,
-    )
-    if entry is None:
-        store.event("news_skipped", reason=skip_reason, entries=len(entries))
-        store.save()
-        return {"ok": True, "published": False, "reason": skip_reason, "entries": len(entries)}
+    if use_telegram:
+        entry = material["entry"]
+        if not material["clusters"] and not material["rumours"]:
+            store.event("news_skipped", reason="not_a_digest", entries=0)
+            store.save()
+            return {"ok": True, "published": False, "reason": "not_a_digest", "stories": 0}
+    else:
+        entry, skip_reason = select_latest_news_entry(
+            entries,
+            set() if refresh else seen_video_ids,
+            set() if refresh else recent_topic_keys,
+        )
+        if entry is None:
+            store.event("news_skipped", reason=skip_reason, entries=len(entries))
+            store.save()
+            return {"ok": True, "published": False, "reason": skip_reason, "entries": len(entries)}
 
     existing: dict[str, Any] | None = None
     if refresh:
@@ -1260,18 +1287,25 @@ def news_command(
             None,
         )
 
-    primary: dict[str, str] = {}
-    for url in extract_primary_urls(entry):
-        primary = fetch_primary_text(url) or {}
-        if primary:
-            break
-    try:
-        brief = synthesize_brief(entry, primary, client, use_video=True)
-        video_input = True
-    except Exception as exc:  # noqa: BLE001
-        logger.warning("Gemini YouTube input failed; retrying text-only: %s", type(exc).__name__)
-        brief = synthesize_brief(entry, primary, client, use_video=False)
+    if use_telegram:
+        primary = material["primary"]
+        brief = synthesize_brief_telegram(
+            entry, primary, client, rumours=material["rumours"]
+        )
         video_input = False
+    else:
+        primary = {}
+        for url in extract_primary_urls(entry):
+            primary = fetch_primary_text(url) or {}
+            if primary:
+                break
+        try:
+            brief = synthesize_brief(entry, primary, client, use_video=True)
+            video_input = True
+        except Exception as exc:  # noqa: BLE001
+            logger.warning("Gemini YouTube input failed; retrying text-only: %s", type(exc).__name__)
+            brief = synthesize_brief(entry, primary, client, use_video=False)
+            video_input = False
     if not brief.get("eligible"):
         reason = str(brief.get("rejection_reason") or "gemini_ineligible")[:80]
         store.event("news_skipped", reason=reason, video_id=entry.get("video_id"))
@@ -1297,12 +1331,16 @@ def news_command(
             # The card uses the HOOK, not the dry summary, and knows how
             # many stories it represents (owner feedback 04.11.2026).
             standfirst = card_hook_text(brief)
-            card_path = render_ai_brief_card(
+            card_fn = render_ai_brief_card_v4 if use_telegram else render_ai_brief_card
+            card_kwargs: dict[str, Any] = {"stories": len(stories)}
+            if use_telegram:
+                card_kwargs["rumours"] = len(material.get("rumours") or [])
+            card_path = card_fn(
                 str(brief.get("headline") or "AI model watch"),
                 standfirst,
                 " · ".join(names[:2]),
                 Path(tmp) / "ai-brief.png",
-                stories=len(stories),
+                **card_kwargs,
             )
             uploaded, _hosted_by = _host_local_image(
                 config, card_path.read_bytes(), filename=card_path.name
@@ -1312,7 +1350,7 @@ def news_command(
     except Exception as exc:  # noqa: BLE001
         logger.warning("AI Brief Glass Aurora card failed; sending text only: %s", type(exc).__name__)
 
-    text = format_ai_brief(brief)
+    text = format_ai_brief_digest(brief) if use_telegram else format_ai_brief(brief)
     edited = False
     message_id: Any = None
     old_message_id = int((existing or {}).get("telegram_message_id") or 0)
@@ -1820,3 +1858,81 @@ def cleanup_test_posts(
     store.event("test_posts_cleaned", deleted=len(deleted), requested=len(records))
     store.save()
     return {"ok": True, "deleted": len(deleted), "message_ids": deleted}
+
+
+def news_article_command(config: Config, store: StateStore) -> dict[str, Any]:
+    """Owner decision 2026-11-07: a SECOND dev.to article for the day.
+
+    Built from the latest AI Brief, with its own title and angle. It is a
+    separate slot and a separate state marker; it never calls and never
+    modifies ``article_of_day()`` (the project article). Make.com, the Sheet,
+    the UTC day boundary, the 3-post limit and the timezone are untouched.
+    """
+    today = datetime.now(timezone.utc).date().isoformat()
+    last_runs = store.data.setdefault("last_runs", {})
+    marker = last_runs.get("news-article") or {}
+    if str(marker.get("finished_at") or "").startswith(today):
+        return {"ok": True, "published": False, "reason": "news_article_already_done"}
+    if not config.feature_devto:
+        return {"ok": True, "published": False, "reason": "feature_devto_disabled"}
+    topics = store.data.get("news_topics") or []
+    if not topics:
+        return {"ok": True, "published": False, "reason": "no_brief_today"}
+    topic = topics[-1]
+    if not str(topic.get("published_at") or "").startswith(today.replace("-", "")) and not str(
+        topic.get("published_at") or ""
+    ).startswith(today):
+        return {"ok": True, "published": False, "reason": "brief_not_from_today"}
+    config.require("DEV_API_KEY")
+    headline = str(topic.get("headline") or "AI model watch")
+    models = " · ".join(str(name) for name in (topic.get("models") or [])[:6])
+    title = f"{headline[:95]} — a developer's reading list"
+    body = "\n".join(
+        [
+            f"# {headline}",
+            "",
+            "This is a standalone companion to today's AI Brief on",
+            "@GitHub_Open_Source. It is not a project review and not a",
+            "round-up of a video: every item below came from independent",
+            "technical channels, with the evidence level written into the",
+            "text rather than hidden in a source list.",
+            "",
+            f"**Models in this brief:** {models or 'see the channel post'}",
+            "",
+            "## What is worth your time",
+            "",
+            "- Re-run any prompt or benchmark whose limits changed today.",
+            "- Treat rumours as rumours; they are labelled in the brief.",
+            "- Keep the odd finds: small repos and collections are often",
+            "  more useful than another flagship announcement.",
+            "",
+            "## Status",
+            "",
+            str(topic.get("statuses") or []),
+            "",
+            "Which of these would you put in a weekend eval first?",
+        ]
+    )
+    client = DevToClient(config.dev_api_key)
+    try:
+        result = client.publish_markdown(
+            title,
+            body,
+            tags=("ai", "opensource", "machinelearning", "news"),
+            cover_url=str(topic.get("image_url") or ""),
+        )
+    except Exception as exc:  # noqa: BLE001
+        reason = sanitize(str(exc))[:300]
+        store.event("news_article_skipped", reason="publish_failed", error=reason)
+        store.save()
+        return {"ok": False, "published": False, "reason": "publish_failed", "error": reason}
+    url = str(result.get("url") or "")
+    last_runs["news-article"] = {
+        "finished_at": datetime.now(timezone.utc).isoformat().replace("+00:00", "Z"),
+        "devto_id": result.get("id"),
+        "url": url,
+        "topic_key": topic.get("topic_key"),
+    }
+    store.event("news_article_published", devto_id=result.get("id"), url=url)
+    store.save()
+    return {"ok": True, "published": True, "devto_id": result.get("id"), "url": url}
