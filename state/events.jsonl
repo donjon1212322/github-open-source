@@ -115,3 +115,4 @@
 {"preview_host": "imgbb", "repo": "jhaizhou-ops/d2r-mobile", "ts": "2026-11-07T17:18:57.874724Z", "type": "published_as_text"}
 {"repo": "jhaizhou-ops/d2r-mobile", "score": 90.245, "telegram_message_id": 3567, "telegraph_url": "https://telegra.ph/jhaizhou-opsd2r-mobile-Native-Diablo-II-Resurrected-Compatibility-Layer-for-Mobile-11-07", "ts": "2026-11-07T17:18:57.874988Z", "type": "project_published"}
 {"reason": "slot_already_done", "slot": "europe_midday", "ts": "2026-11-07T17:51:28.546200Z", "type": "publish_skipped"}
+{"reason": "already_published_today", "ts": "2026-11-07T18:09:39.496086Z", "type": "article_skipped"}

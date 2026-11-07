@@ -12,11 +12,11 @@
   ],
   "last_runs": {
     "article": {
-      "finished_at": "2026-11-07T13:33:46.538494Z",
-      "published": true,
-      "reason": "published",
-      "repo": "oldcircle/geo-sleuth",
-      "url": "https://dev.to/githubopensource/automate-photo-geolocation-with-ai-and-openstreetmap-26pk"
+      "finished_at": "2026-11-07T18:09:39.496163Z",
+      "published": false,
+      "reason": "already_published_today",
+      "repo": "",
+      "url": ""
     },
     "collect": {
       "discovered": 647,
