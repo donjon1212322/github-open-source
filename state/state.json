@@ -46,6 +46,15 @@
       },
       "started_at": "2026-11-07T11:13:12.867332Z"
     },
+    "news-article": {
+      "devto_id": 4995411,
+      "finished_at": "2026-11-07T19:53:53.662838Z",
+      "published": true,
+      "title": "AI Brief Companion: Gemini Omni 1.2 Flash, Inkling 2 Small, and Kernel Vulnerability Audits",
+      "topic_key": "model-releases-and-agent-memory",
+      "url": "https://dev.to/githubopensource/ai-brief-companion-gemini-omni-12-flash-inkling-2-small-and-kernel-vulnerability-audits-4gn6",
+      "words": 677
+    },
     "publish:europe_midday": {
       "finished_at": "2026-11-07T12:44:25.432548Z",
       "repo": "wheresryan22/anatomy",

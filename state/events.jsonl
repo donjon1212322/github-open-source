@@ -121,3 +121,4 @@
 {"title": "AI Brief Companion: Gemini Omni 1.2 Flash, Inkling 2 Small, and Kernel Vulnerability Audits", "ts": "2026-11-07T19:19:04.003157Z", "type": "news_article_generated", "words": 677}
 {"Gemini_video_input": false, "models": 10, "official_url": "", "stories": 5, "topic": "model-releases-and-agent-memory", "ts": "2026-11-07T19:19:05.714190Z", "type": "ai_brief_published", "video_id": "tg-20261107-e52848266f"}
 {"deleted": 0, "ts": "2026-11-07T19:39:42.454564Z", "type": "moderation_completed", "updates": 0}
+{"devto_id": 4995411, "ts": "2026-11-07T19:53:53.662859Z", "type": "news_article_published", "url": "https://dev.to/githubopensource/ai-brief-companion-gemini-omni-12-flash-inkling-2-small-and-kernel-vulnerability-audits-4gn6", "words": 677}
