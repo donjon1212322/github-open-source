@@ -528,7 +528,8 @@
         "bluesky": {
           "attempts": 0,
           "due_at": "2026-11-07T18:00:00+00:00",
-          "status": "pending"
+          "held_reason": "not_best_of_day",
+          "status": "held"
         }
       },
       "description": "Open-source compatibility layer for Diablo II: Resurrected with the Reign of the Warlock expansion. Runs your own Switch copy natively on iPhone, iPad, Mac, Android and HarmonyOS — full touch controls, 60 fps, new endgame modes. Bring your own game files. 开源的《暗黑破坏神 II：狱火重生》术士君临 iOS / macOS / 安卓 / 鸿蒙兼容层",
@@ -1530,7 +1531,10 @@
         "bluesky": {
           "attempts": 0,
           "due_at": "2026-11-07T18:00:00+00:00",
-          "status": "pending"
+          "error": "",
+          "published_at": "2026-11-07T18:17:50.824009Z",
+          "status": "published",
+          "url": "https://bsky.app/profile/githubopensource.bsky.social/post/3mzqizlmta62f"
         }
       },
       "description": "An agent skill that finds where a photo was taken — OpenStreetMap geometry, elevation skylines, satellite imagery and street view — and shows its work. Works with Claude Code, Codex, Cursor, Gemini CLI, OpenCode and GitHub Copilot.",
@@ -2066,7 +2070,8 @@
         "bluesky": {
           "attempts": 0,
           "due_at": "2026-11-07T18:00:00+00:00",
-          "status": "pending"
+          "held_reason": "not_best_of_day",
+          "status": "held"
         }
       },
       "description": "An agent skill for creating detailed, interactive isometric illustrations of real-world machines and complex systems. Generates polished SVGs with optional WebGL shaders and 3D effects.",
