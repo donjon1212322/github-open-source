@@ -2,12 +2,12 @@
   "dead_letters": [],
   "gemini_window": [
     [
-      1794055428.9104085,
-      3928
+      1794071927.7683818,
+      3983
     ],
     [
-      1794055447.8863091,
-      1407
+      1794071931.7245042,
+      1456
     ]
   ],
   "last_runs": {
@@ -62,11 +62,9 @@
       "telegram_message_id": 3550
     },
     "publish:us_peak": {
-      "finished_at": "2026-11-06T17:20:55.332936Z",
-      "published": false,
-      "published_today": 3,
-      "reason": "daily_limit_reached",
-      "repo": ""
+      "finished_at": "2026-11-07T17:18:57.875034Z",
+      "repo": "jhaizhou-ops/d2r-mobile",
+      "telegram_message_id": 3567
     },
     "telegram_update_offset": 165231068,
     "watchdog_dispatches": {
@@ -517,6 +515,125 @@
           "views": 81
         }
       ],
+      "visual_host": "imgbb",
+      "visual_kind": "readme"
+    },
+    "jhaizhou-ops/d2r-mobile": {
+      "articles": {},
+      "card_style": "",
+      "category": "DevTools",
+      "contributors_count": 16,
+      "created_at": "2026-10-12T08:41:19Z",
+      "crossposts": {
+        "bluesky": {
+          "attempts": 0,
+          "due_at": "2026-11-07T18:00:00+00:00",
+          "status": "pending"
+        }
+      },
+      "description": "Open-source compatibility layer for Diablo II: Resurrected with the Reign of the Warlock expansion. Runs your own Switch copy natively on iPhone, iPad, Mac, Android and HarmonyOS — full touch controls, 60 fps, new endgame modes. Bring your own game files. 开源的《暗黑破坏神 II：狱火重生》术士君临 iOS / macOS / 安卓 / 鸿蒙兼容层",
+      "description_fp": "8a4deef1a21b723a",
+      "forks": 1318,
+      "full_name": "jhaizhou-ops/d2r-mobile",
+      "generated": {
+        "article_markdown": "## What it is\n\nd2r-mobile is an open-source compatibility layer designed to run Diablo II: Resurrected natively on iOS, macOS, Android, and HarmonyOS devices. Instead of relying on cloud streaming or heavy CPU emulation, the project executes the original aarch64 game binary directly on the host processor. A small native host provides the necessary system calls, file system access, and audio services, while graphics are routed through Metal on Apple platforms and Vulkan on Android.\n\n## Why it matters\n\nRunning complex console and PC titles on mobile devices usually incurs severe performance penalties due to translation layers or network overhead. By executing the native binary directly and translating shaders offline ahead of time, this project achieves console-grade performance and steady frame rates without runtime compilation stutter.\n\n## Key features\n\n- Executes original aarch64 game code natively without an emulated CPU.\n- Translates shaders offline for ahead-of-time compilation and zero runtime stutter.\n- Provides rebuilt touch controls with virtual sticks, gesture support, and automatic targeting.\n- Supports full offline play with local save sync across devices.\n- Runs at a steady 60 fps with whole-device power draw measured at about 3.8 W on supported hardware.\n\n## Quick start\n\nClone the repository to inspect the build instructions and host components:\n\n```bash\ngit clone https://github.com/jhaizhou-ops/d2r-mobile.git\n```\n\n## Who should try it\n\nThis project is ideal for developers and players who own a legal copy of the game and want to run it locally and offline on their Apple or Android devices.\n\n## Verdict\n\nA well-engineered compatibility layer that delivers native performance for single-player sessions, provided you bring your own game files.",
+        "article_title": "jhaizhou-ops/d2r-mobile: Native Diablo II Resurrected Compatibility Layer for Mobile",
+        "card_hook": "Diablo II natively on mobile",
+        "card_subline": "An open-source compatibility layer bringing your Switch game copy to iPhone, iPad, and Mac",
+        "category": "DevTools",
+        "discussion_question": "Which mobile platform would you prefer to run this compatibility layer on first?",
+        "hook": "Run Diablo II: Resurrected natively on iPhone, iPad, and Mac at a steady 60 fps using your own game files.",
+        "key_features": [
+          "Executes original aarch64 game code natively without an emulated CPU",
+          "Translates shaders offline for ahead-of-time compilation and zero runtime stutter",
+          "Provides rebuilt touch controls with virtual sticks, gesture support, and automatic targeting",
+          "Supports full offline play with local save sync across devices",
+          "Runs at a steady 60 fps with whole-device power draw measured at about 3.8 W on supported hardware"
+        ],
+        "llm_used": true,
+        "quick_start": "git clone https://github.com/jhaizhou-ops/d2r-mobile.git",
+        "safety": "ok",
+        "safety_reason": "The repository is a compatibility layer and game runtime for personal use with user-provided game files, not malicious software.",
+        "scene": "You want to run your own copy of Diablo II: Resurrected on your phone, but you are stuck waiting for a streaming session to connect or dealing with heavy emulation lag.",
+        "social_text": "Run Diablo II: Resurrected natively on mobile devices with this open-source compatibility layer.",
+        "summary": "The compatibility layer executes the original game program directly on ARM64 processors without CPU emulation, while routing graphics straight to Metal on Apple platforms and Vulkan on Android. A lightweight host handles system calls, file access, and audio, using offline-translated shaders to eliminate runtime stutter. Players supply their own game files to generate the required resources locally.",
+        "surfaces": {
+          "Facebook_body": "Playing complex computer games on mobile devices usually requires heavy cloud streaming or sluggish emulation that drains your battery. A new open source compatibility layer takes a different approach by running the game code natively on your device hardware, delivering a steady sixty frames per second while keeping power draw remarkably low. By handling system files and graphics translation efficiently, it allows you to enjoy the full experience offline without stuttering.\n\nThe project works by executing the original game program directly on your processor rather than emulating a separate computer. It translates the graphical shaders beforehand so your device does not lag during intense combat, and it routes visuals directly through the hardware graphics system. A lightweight host component manages your saved games, audio, and file access seamlessly in the background.\n\nThis is designed for players and enthusiasts who already own a copy of the game and want to take their single player adventures on the road. You will need to supply your own game files from your library to generate the necessary local resources before playing. If you love deep role-playing games and want to experience them on your phone or tablet without an internet connection, this project offers an impressive way to do so.",
+          "Facebook_headline": "Play your computer games on your phone",
+          "Facebook_lead": "Bring your own game files to run a beloved fantasy role-playing classic smoothly on your iPhone, iPad, or Android device with touch controls.",
+          "bluesky_headline": "Play Diablo II on your phone at 60 fps",
+          "bluesky_lead": "A new open source layer lets you run your own desktop game files natively on mobile devices.",
+          "devto_body": "## What it is\n\nd2r-mobile is an open-source compatibility layer written in C that enables users to run Diablo II: Resurrected natively on ARM64 devices including iOS, iPadOS, macOS, Android, and HarmonyOS. It executes the original game binary directly without CPU emulation, achieving a steady 60 fps at roughly 3.8 W power draw.\n\n## How it works\n\nThe runtime bypasses traditional heavy emulation by executing native aarch64 code directly on the host processor. Graphics are routed straight to Metal on Apple platforms and Vulkan on Android. A lightweight host manages system calls, file access, and audio, while offline shader translation eliminates runtime stutter through ahead-of-time compilation.\n\n## Key features\n\n- Native execution of aarch64 game code without CPU emulation\n- Ahead-of-time shader translation for zero runtime stutter\n- Rebuilt touch controls featuring virtual sticks and gesture support\n- Full offline play with local save synchronization\n- Optimized performance targeting 60 fps on supported hardware\n\n## Getting started\n\nClone the repository and provide your own legally obtained game files to generate the required local resources. Follow the build instructions in the README for your target mobile or desktop platform.\n\n## When not to use it\n\nThis project is not suitable for users who expect a plug-and-play storefront experience or online multiplayer matchmaking, as it requires you to supply your own game assets and focuses primarily on single-player offline sessions.",
+          "seo_description": "Play your desktop game files offline on iPhone, iPad, and Android with this open-source compatibility layer running at 60 fps.",
+          "seo_query": "how to play diablo 2 resurrected on mobile",
+          "seo_title": "Run Diablo II Resurrected on Mobile - Open Source Layer",
+          "telegraph_angle": "Explain how native execution and offline shader translation bypass traditional mobile emulation trade-offs."
+        },
+        "tension": "Traditional cloud streaming drains bandwidth and introduces input latency, while standard emulation wastes cycles translating instructions on hardware that is fully capable of running the native ARM64 binary directly.",
+        "turn": "This compatibility layer executes the original game program directly on mobile hardware with a rebuilt touch interface, though online multiplayer is not supported.",
+        "verdict": "An impressive engineering feat for running your own game files offline, best suited for single-player enthusiasts willing to bring their own assets.",
+        "who_for": "Developers and players who want to run their owned copy of Diablo II: Resurrected offline on mobile devices.",
+        "why_now": "Advances in native execution compatibility and ahead-of-time shader translation make it practical to run complex desktop and console game binaries smoothly on mobile hardware."
+      },
+      "homepage": "",
+      "id": 1415313946,
+      "image_url": "https://i.ibb.co/KxjbMfGx/jhaizhou-ops-d2r-mobile-readme-preview-43909c2987ec.jpg",
+      "is_dual_use": false,
+      "is_hidden_gem": false,
+      "language": "C",
+      "license": {
+        "key": "mit",
+        "name": "MIT License",
+        "node_id": "MDc6TGljZW5zZTEz",
+        "spdx_id": "MIT",
+        "url": "https://api.github.com/licenses/mit"
+      },
+      "media_urls": [
+        "https://github.com/jhaizhou-ops/d2r-mobile/releases/download/assets/hero_en.jpg",
+        "https://github.com/jhaizhou-ops/d2r-mobile/releases/download/assets/en_boss.jpg",
+        "https://github.com/jhaizhou-ops/d2r-mobile/releases/download/assets/ipad.jpg",
+        "https://github.com/jhaizhou-ops/d2r-mobile/releases/download/assets/act1.jpg",
+        "https://github.com/jhaizhou-ops/d2r-mobile/releases/download/assets/act2.jpg",
+        "https://github.com/jhaizhou-ops/d2r-mobile/releases/download/assets/act3.jpg",
+        "https://github.com/jhaizhou-ops/d2r-mobile/releases/download/assets/act4.jpg",
+        "https://github.com/jhaizhou-ops/d2r-mobile/releases/download/assets/act5.jpg"
+      ],
+      "name": "d2r-mobile",
+      "open_issues": 95,
+      "published_at": "2026-11-07T17:18:57.874843Z",
+      "pushed_at": "2026-11-04T21:07:53Z",
+      "readme_fp": "75744923b3a229a5",
+      "repo_id": 1415313946,
+      "revisit_of": "",
+      "revisit_reason": "",
+      "score": 90.245,
+      "slot": "us_peak",
+      "sources": [
+        "github_search"
+      ],
+      "stars": 5198,
+      "telegram_chat_id": "@GitHub_Open_Source",
+      "telegram_link": "https://t.me/GitHub_Open_Source/3567",
+      "telegram_message_id": 3567,
+      "telegraph_url": "https://telegra.ph/jhaizhou-opsd2r-mobile-Native-Diablo-II-Resurrected-Compatibility-Layer-for-Mobile-11-07",
+      "topics": [
+        "android",
+        "compatibility-layer",
+        "diablo-2-resurrected",
+        "diablo2",
+        "game-port",
+        "harmonyos",
+        "ios",
+        "ipad",
+        "iphone",
+        "mac",
+        "macos",
+        "metal",
+        "reign-of-the-warlock",
+        "vulkan"
+      ],
+      "updated_at": "2026-11-07T16:31:26Z",
+      "url": "https://github.com/jhaizhou-ops/d2r-mobile",
       "visual_host": "imgbb",
       "visual_kind": "readme"
     },
@@ -2335,76 +2452,6 @@
       ],
       "updated_at": "2026-11-07T10:51:25Z",
       "url": "https://github.com/modelflare-ai/AnyModelBot"
-    },
-    {
-      "archived": false,
-      "contributors_count": 16,
-      "created_at": "2026-10-12T08:41:19Z",
-      "default_branch": "main",
-      "description": "Open-source compatibility layer for Diablo II: Resurrected with the Reign of the Warlock expansion. Runs your own Switch copy natively on iPhone, iPad, Mac, Android and HarmonyOS — full touch controls, 60 fps, new endgame modes. Bring your own game files. 开源的《暗黑破坏神 II：狱火重生》术士君临 iOS / macOS / 安卓 / 鸿蒙兼容层",
-      "disabled": false,
-      "fork": false,
-      "forks": 1316,
-      "forks_count": 1316,
-      "full_name": "jhaizhou-ops/d2r-mobile",
-      "has_readme": true,
-      "homepage": "",
-      "id": 1415313946,
-      "is_dual_use": false,
-      "is_hidden_gem": false,
-      "language": "C",
-      "license": {
-        "key": "mit",
-        "name": "MIT License",
-        "node_id": "MDc6TGljZW5zZTEz",
-        "spdx_id": "MIT",
-        "url": "https://api.github.com/licenses/mit"
-      },
-      "media_urls": [
-        "https://github.com/jhaizhou-ops/d2r-mobile/releases/download/assets/hero_en.jpg",
-        "https://github.com/jhaizhou-ops/d2r-mobile/releases/download/assets/en_boss.jpg",
-        "https://github.com/jhaizhou-ops/d2r-mobile/releases/download/assets/ipad.jpg",
-        "https://github.com/jhaizhou-ops/d2r-mobile/releases/download/assets/act1.jpg",
-        "https://github.com/jhaizhou-ops/d2r-mobile/releases/download/assets/act2.jpg",
-        "https://github.com/jhaizhou-ops/d2r-mobile/releases/download/assets/act3.jpg",
-        "https://github.com/jhaizhou-ops/d2r-mobile/releases/download/assets/act4.jpg",
-        "https://github.com/jhaizhou-ops/d2r-mobile/releases/download/assets/act5.jpg"
-      ],
-      "name": "d2r-mobile",
-      "non_software_reason": "",
-      "open_issues": 92,
-      "open_issues_count": 92,
-      "owner_repo_count": 1,
-      "pushed_at": "2026-11-04T21:07:53Z",
-      "readme": "",
-      "readme_excerpt": "# D2R Mobile\n\n**An open-source compatibility layer for Diablo II: Resurrected with the Reign of the Warlock expansion, for iOS, macOS, Android and HarmonyOS.** It brings the Nintendo Switch release you bought, expansion included, to iPhone, iPad and Mac in full: the original game code runs natively, every control is rebuilt for touch, the frame rate holds at 60 fps, and you are in a game one second after the main menu. There is now a native macOS version as well (first version): on an Apple silicon Mac it starts on double-click and works with keyboard, mouse and gamepad. **Since v2.0 there is an Android version** (community port): the same game program executes natively on ARM64 Android phones, with the graphics reimplemented on Vulkan; on a Snapdragon 8+ Gen 1 phone the camp and the Den of Evil and Cow Level fights all run at a median 60 fps (see \"Android\" below); a HarmonyOS version runs on the same engine (community port: an unsigned shell from the Releases page that you re-sign yourself, nothing to build; see \"HarmonyOS\"). Apple TV 4K (3rd generation, A15) has a community port (developer preview) that has reached the character-selection screen only on its author's device; see t",
-      "readme_len": 50312,
-      "repo_id": 1415313946,
-      "score": 90.245,
-      "source_name": "github_search",
-      "sources": [
-        "github_search"
-      ],
-      "stargazers_count": 5189,
-      "stars": 5189,
-      "topics": [
-        "android",
-        "compatibility-layer",
-        "diablo-2-resurrected",
-        "diablo2",
-        "game-port",
-        "harmonyos",
-        "ios",
-        "ipad",
-        "iphone",
-        "mac",
-        "macos",
-        "metal",
-        "reign-of-the-warlock",
-        "vulkan"
-      ],
-      "updated_at": "2026-11-07T11:06:49Z",
-      "url": "https://github.com/jhaizhou-ops/d2r-mobile"
     },
     {
       "archived": false,
@@ -5423,8 +5470,8 @@
     "jhaizhou-ops/d2r-mobile": {
       "first_seen_at": "2026-11-04T12:14:31.124058Z",
       "full_name": "jhaizhou-ops/d2r-mobile",
-      "last_decision": "queued",
-      "last_seen_at": "2026-11-07T11:15:13.953585Z",
+      "last_decision": "published",
+      "last_seen_at": "2026-11-07T17:18:57.875027Z",
       "repo_id": 1415313946,
       "sources": [
         "github_search"

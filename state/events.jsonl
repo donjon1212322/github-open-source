@@ -112,3 +112,5 @@
 {"deleted": 0, "ts": "2026-11-07T13:36:30.375636Z", "type": "moderation_completed", "updates": 0}
 {"reason": "slot_already_done", "slot": "europe_morning", "ts": "2026-11-07T14:02:14.291353Z", "type": "publish_skipped"}
 {"deleted": 0, "ts": "2026-11-07T15:47:49.845300Z", "type": "moderation_completed", "updates": 0}
+{"preview_host": "imgbb", "repo": "jhaizhou-ops/d2r-mobile", "ts": "2026-11-07T17:18:57.874724Z", "type": "published_as_text"}
+{"repo": "jhaizhou-ops/d2r-mobile", "score": 90.245, "telegram_message_id": 3567, "telegraph_url": "https://telegra.ph/jhaizhou-opsd2r-mobile-Native-Diablo-II-Resurrected-Compatibility-Layer-for-Mobile-11-07", "ts": "2026-11-07T17:18:57.874988Z", "type": "project_published"}
