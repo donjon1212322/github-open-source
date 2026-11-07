@@ -192,8 +192,8 @@ python tools/state_branch.py status                        # размер, св�
 ожидающих запусков больше не вытесняют друг друга. Раньше созданный watchdog'ом
 `workflow_dispatch` отменялся следующим scheduled run до старта job.
 
-Watchdog следит за `collect`, тремя publish-слотами, AI Brief и **article of
-the day**. Маркер в `last_runs.watchdog_dispatches` считается подтверждённым
+Watchdog следит за `collect`, тремя publish-слотами, AI Brief, **article of
+the day** и **второй статьёй dev.to** (`news-article`, дедлайн 20:30 UTC). Маркер в `last_runs.watchdog_dispatches` считается подтверждённым
 только когда факт появился в `state`: `last_runs.*.finished_at`,
 `news_topics[].published_at` или `published[].articles.devto.published_at`.
 Сам `HTTP 204` подтверждением **не** считается; неподтверждённый слот можно
@@ -346,6 +346,7 @@ watchdog уже догнал этот слот в 14:14, — и он опубл�
 | `17 0,18,19,20,21,22,23 * * *` | crossposts |
 | `33 13 * * *` | article of the day |
 | `18 19 * * *` | AI Brief |
+| `53 19 * * *` | вторая статья dev.to из AI Brief |
 | `47 */3 * * *` | moderation |
 | `23 18 * * *` | Facebook handoff (make.com) |
 | `13 16 * * 0`, `53 18 * * 4`, `23 20 * * *`, `43 16 * * 0` | digest / poll / metrics / report |
@@ -459,3 +460,39 @@ Telegram, а не Bot API; с сервера её не видно. Предус�
   12 точных имён в «In this brief», 0 источников, 0 рекламы,
   0 inline-кнопок, дубля поста нет. YouTube-RSS отдавал 404 — сработал
   фолбэк на вкладку /videos.
+
+
+### 07.11.2026: полная статья dev.to и внешний поминутный будильник
+
+**Вторая статья — полноценный Gemini-текст, не шаблон.** Замечание владельца:
+«разве не Gemini формирует статью? статья должна быть полноценной
+многословной и профессионально сверстана, с дружелюбной подачей, возможны
+эмодзи». Первая реализация действительно собирала ~100 слов вручную и
+подставляла `str(list)` в body — это было ошибкой. Теперь
+`synthesize_news_article()` в `news.py` один раз вызывает Gemini при
+формировании брифа: 1000–1500 слов, `> **TL;DR**`, H2/H3, списки, таблица
+«подтверждено / не подтверждено», отдельная секция слухов, дружелюбный тон и
+умеренные эмодзи, без `Sources`/YouTube/Sponsor/служебных ярлыков, без
+выдуманных чисел. Готовый `article_title` + `article_markdown` и компактный
+структурированный `brief` сохраняются в `news_topics[-1]`.
+`news_article_command()` только публикует готовый markdown; если генерация
+в момент брифа не удалась, он один раз пересобирает статью из `brief`.
+Проектный `article_of_day()` и его markdown не трогаются.
+
+**Watchdog.** Слот `news-article` добавлен с дедлайном 20:30 UTC (23:30
+Минск), но не диспатчится вслепую: сначала проверяется, что сегодняшний
+бриф реально вышел. Маркер — `last_runs["news-article"].finished_at`.
+
+**Внешний будильник.** `tools/external_tick/worker.js` подготовлен под один
+cron `* * * * *`: таблица `SLOTS` по UTC-минутам дёргает
+`workflow_dispatch` напрямую (минуя очередь `schedule`), а `watchdog_tick`
+по-прежнему уходит в :00 и :30. GitHub cron остаётся fallback, Watchdog —
+вторая линия. На Workers Free это 1440 вызовов/сутки (~1,44 % от 100 000),
+1 cron trigger из 5, ~29 workflow_dispatch + 48 watchdog-тиков в сутки.
+**100 % гарантии нет:** у Cloudflare Cron Triggers нет ретраев и алертов,
+есть джиттер в секундах; дальше всё равно очередь GitHub Actions, Gemini,
+Telegram, dev.to и срок жизни токенов.
+
+**Статус деплоя Worker:** код в репозитории, но поминутный cron **ещё не
+задеплоен** — для `wrangler deploy` нужен новый Cloudflare API Token после
+ротации скомпрометированного. Живой Worker пока работает на `*/30`.

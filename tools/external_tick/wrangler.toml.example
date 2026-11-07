@@ -3,9 +3,10 @@
 #
 # Cloudflare Workers Free (official docs, checked 06.11.2026):
 #   5 Cron Triggers per account, 100,000 requests/day, 10 ms CPU invocation.
-#   One trigger at */30 = 48 requests/day, far below the daily allowance.
+#   ONE trigger at "* * * * *" = 1440 invocations/day (~1.44% of the daily
+#   allowance). Only due minutes call GitHub; the rest are no-ops.
 #   Cron Triggers have NO automatic retries and NO failure alerts: the Worker
-#   logs failures, and the watchdog itself still has its own schedule ticks.
+#   logs failures, GitHub cron is the fallback and the watchdog is the net.
 
 name = "ghos-v6-tick"
 main = "worker.js"
@@ -15,4 +16,4 @@ compatibility_date = "2026-11-06"
 GH_REPO = "OWNER/REPO"
 
 [triggers]
-crons = ["*/30 * * * *"]
+crons = ["* * * * *"]

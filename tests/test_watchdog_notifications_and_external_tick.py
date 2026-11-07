@@ -112,7 +112,11 @@ def test_external_tick_recipe_is_complete_and_secret_free():
     assert "/dispatches" in blob
     assert "GH_PAT" in blob and "GH_REPO" in blob
     assert "wrangler secret put" in blob
-    assert "*/30" in blob
+    assert "*/30" in blob, "the currently deployed 30-minute clock is documented"
+    assert "* * * * *" in blob, "minute-accurate clock is prepared in the repo"
+    assert "workflow_dispatch" in blob
+    assert "SLOTS" in blob
+    assert "NO retries" in blob
 
 
 def test_operations_doc_uses_the_current_ai_brief_cron():

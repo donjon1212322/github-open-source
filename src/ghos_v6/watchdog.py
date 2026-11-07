@@ -55,6 +55,9 @@ SLOTS: tuple[tuple[str, tuple[int, int], dict[str, str]], ...] = (
     ("article", (14, 0), {"command": "article"}),
     ("publish:us_peak", (18, 0), {"command": "publish", "slot": "us_peak"}),
     ("news", (20, 0), {"command": "news"}),
+    # 2026-11-07: the second dev.to article. Its own marker lives in
+    # last_runs["news-article"], so _has_run() verifies it generically.
+    ("news-article", (20, 30), {"command": "news-article"}),
 )
 
 # A dispatched but unverified slot may be retried, but never in a blind series.
@@ -196,6 +199,11 @@ def watchdog_command(config: Config, store: StateStore, *, now: datetime | None 
                 continue
             if now > deadline + timedelta(hours=ARTICLE_RECOVERY_WINDOW_HOURS):
                 continue
+
+        if key == "news-article" and not _has_run(store, "news", today):
+            # The article needs today's brief. Never fire a blind dispatch
+            # before the AI Brief has actually been published.
+            continue
 
         missed.append(key)
         prev = marks.get(mark)

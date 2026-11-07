@@ -21,6 +21,9 @@ REPO = Path(__file__).resolve().parents[1]
 
 # (relative path, original text, mutated text, why this is a real defect)
 MUTATIONS: list[tuple[str, str, str, str]] = [
+    ("src/ghos_v6/news.py", "1000-1500 words. Do not stop early",
+     "80-120 words. Keep it tiny",
+     "owner decision: the second dev.to article becomes a stub again"),
     ("src/ghos_v6/pipeline.py", "MAX_PROJECT_POSTS_PER_DAY = 3",
      "MAX_PROJECT_POSTS_PER_DAY = 4", "owner rule: 3 posts a day becomes 4"),
     ("src/ghos_v6/dedup.py", "COOLDOWN_DAYS = 90", "COOLDOWN_DAYS = 30",

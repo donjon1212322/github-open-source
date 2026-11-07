@@ -34,6 +34,7 @@ from .news import (
     fetch_primary_text,
     fetch_worldofai_entries,
     synthesize_brief_telegram,
+    synthesize_news_article,
     format_ai_brief,
     format_ai_brief_digest,
     select_latest_news_entry,
@@ -1212,6 +1213,18 @@ def news_command(
     """
     if not config.feature_ai_brief and not force:
         return {"ok": True, "published": False, "reason": "feature_ai_brief_disabled"}
+    # One brief per UTC day. A minute-accurate external dispatcher and a
+    # delayed GitHub schedule can deliver the same slot twice; never post
+    # twice. ``refresh`` deliberately bypasses this (it edits in place).
+    if not refresh:
+        today = datetime.now(timezone.utc).date().isoformat()
+        if any(
+            str(item.get("published_at") or "").startswith(today)
+            for item in (store.data.get("news_topics") or [])
+        ):
+            store.event("news_skipped", reason="news_already_published")
+            store.save()
+            return {"ok": True, "published": False, "reason": "news_already_published"}
     config.require("TELEGRAM_BOT_TOKEN", "GEMINI_API_KEY")
     chat_id = config.telegram_chat_id
     # Owner decision 2026-11-07: full replacement of the YouTube round-up.
@@ -1322,6 +1335,27 @@ def news_command(
         store.save()
         return {"ok": True, "published": False, "reason": "not_a_digest", "stories": len(stories)}
 
+    # Owner decision (2026-11-07): the companion dev.to article is a FULL
+    # Gemini-written long read, generated once here and stored in state.
+    # A failed companion must never kill the Telegram brief.
+    article_title = ""
+    article_markdown = ""
+    if use_telegram:
+        try:
+            generated_article = synthesize_news_article(brief, client)
+            article_title = generated_article["article_title"]
+            article_markdown = generated_article["article_markdown"]
+            store.event(
+                "news_article_generated",
+                words=len(article_markdown.split()),
+                title=article_title[:120],
+            )
+        except Exception as exc:  # noqa: BLE001 - a stub is worse than no article
+            logger.warning(
+                "AI Brief companion article generation failed: %s", type(exc).__name__
+            )
+            store.event("news_article_generation_failed", error=type(exc).__name__)
+
     topic_key = re.sub(r"[^a-z0-9]+", "-", str(brief.get("topic_key") or "").lower()).strip("-")
     # No YouTube link preview: it would attribute the source, which the
     # owner explicitly does not want. Only our own card is ever attached.
@@ -1387,6 +1421,27 @@ def news_command(
             str(item.get("status") or "") for item in (brief.get("stories") or []) if isinstance(item, dict)
         ][:12],
     }
+    if use_telegram:
+        # Structured brief is kept so the article slot can rebuild the markdown
+        # once if the first generation failed; no raw channel text is stored.
+        record.update(
+            {
+                "article_title": article_title,
+                "article_markdown": article_markdown,
+                "brief": {
+                    "headline": brief.get("headline") or "",
+                    "hook": brief.get("hook") or "",
+                    "summary": brief.get("summary") or "",
+                    "why_devs": brief.get("why_devs") or "",
+                    "discussion_question": brief.get("discussion_question") or "",
+                    "models": names[:12],
+                    "stories": stories,
+                    "unconfirmed_claims": [
+                        str(item) for item in (brief.get("unconfirmed_claims") or [])[:3]
+                    ],
+                },
+            }
+        )
     if existing is not None:
         existing.update(record)
     else:
@@ -1861,12 +1916,13 @@ def cleanup_test_posts(
 
 
 def news_article_command(config: Config, store: StateStore) -> dict[str, Any]:
-    """Owner decision 2026-11-07: a SECOND dev.to article for the day.
+    """Owner decision (2026-11-07): a SECOND dev.to article for the day.
 
-    Built from the latest AI Brief, with its own title and angle. It is a
-    separate slot and a separate state marker; it never calls and never
-    modifies ``article_of_day()`` (the project article). Make.com, the Sheet,
-    the UTC day boundary, the 3-post limit and the timezone are untouched.
+    A FULL, Gemini-written long read, generated together with the AI Brief
+    and stored in ``news_topics``. This command only publishes the finished
+    markdown; it never assembles a stub and never calls or modifies
+    ``article_of_day()`` (the project article). Make.com, the Sheet, the UTC
+    day boundary, the 3-post limit and the timezone are untouched.
     """
     today = datetime.now(timezone.utc).date().isoformat()
     last_runs = store.data.setdefault("last_runs", {})
@@ -1879,45 +1935,44 @@ def news_article_command(config: Config, store: StateStore) -> dict[str, Any]:
     if not topics:
         return {"ok": True, "published": False, "reason": "no_brief_today"}
     topic = topics[-1]
-    if not str(topic.get("published_at") or "").startswith(today.replace("-", "")) and not str(
-        topic.get("published_at") or ""
-    ).startswith(today):
+    if not str(topic.get("published_at") or "").startswith(today):
         return {"ok": True, "published": False, "reason": "brief_not_from_today"}
     config.require("DEV_API_KEY")
-    headline = str(topic.get("headline") or "AI model watch")
-    models = " · ".join(str(name) for name in (topic.get("models") or [])[:6])
-    title = f"{headline[:95]} — a developer's reading list"
-    body = "\n".join(
-        [
-            f"# {headline}",
-            "",
-            "This is a standalone companion to today's AI Brief on",
-            "@GitHub_Open_Source. It is not a project review and not a",
-            "round-up of a video: every item below came from independent",
-            "technical channels, with the evidence level written into the",
-            "text rather than hidden in a source list.",
-            "",
-            f"**Models in this brief:** {models or 'see the channel post'}",
-            "",
-            "## What is worth your time",
-            "",
-            "- Re-run any prompt or benchmark whose limits changed today.",
-            "- Treat rumours as rumours; they are labelled in the brief.",
-            "- Keep the odd finds: small repos and collections are often",
-            "  more useful than another flagship announcement.",
-            "",
-            "## Status",
-            "",
-            str(topic.get("statuses") or []),
-            "",
-            "Which of these would you put in a weekend eval first?",
-        ]
-    )
-    client = DevToClient(config.dev_api_key)
+
+    markdown = str(topic.get("article_markdown") or "").strip()
+    title = str(topic.get("article_title") or "").strip()
+    if not markdown:
+        # Generation happens with the brief. If Gemini was unavailable then,
+        # rebuild ONCE from the stored structured brief - never a blind series.
+        try:
+            config.require("GEMINI_API_KEY")
+            client = GeminiClient(config.Gemini_api_key, config.Gemini_model)
+            rebuilt = synthesize_news_article(topic.get("brief") or {}, client)
+            markdown = rebuilt["article_markdown"]
+            title = title or rebuilt["article_title"]
+            topic["article_markdown"] = markdown
+            topic["article_title"] = title
+            store.event("news_article_regenerated", words=len(markdown.split()))
+            store.save()
+        except Exception as exc:  # noqa: BLE001
+            reason = sanitize(str(exc))[:300]
+            store.event("news_article_skipped", reason="generation_failed", error=reason)
+            store.save()
+            return {
+                "ok": False,
+                "published": False,
+                "reason": "generation_failed",
+                "error": reason,
+            }
+    if not markdown:
+        return {"ok": True, "published": False, "reason": "article_not_ready"}
+    title = (title or str(topic.get("headline") or "AI model watch"))[:120]
+
+    devto = DevToClient(config.dev_api_key)
     try:
-        result = client.publish_markdown(
+        result = devto.publish_markdown(
             title,
-            body,
+            markdown,
             tags=("ai", "opensource", "machinelearning", "news"),
             cover_url=str(topic.get("image_url") or ""),
         )
@@ -1926,13 +1981,25 @@ def news_article_command(config: Config, store: StateStore) -> dict[str, Any]:
         store.event("news_article_skipped", reason="publish_failed", error=reason)
         store.save()
         return {"ok": False, "published": False, "reason": "publish_failed", "error": reason}
+
     url = str(result.get("url") or "")
+    words = len(markdown.split())
     last_runs["news-article"] = {
         "finished_at": datetime.now(timezone.utc).isoformat().replace("+00:00", "Z"),
         "devto_id": result.get("id"),
         "url": url,
         "topic_key": topic.get("topic_key"),
+        "published": True,
+        "words": words,
+        "title": title,
     }
-    store.event("news_article_published", devto_id=result.get("id"), url=url)
+    store.event("news_article_published", devto_id=result.get("id"), url=url, words=words)
     store.save()
-    return {"ok": True, "published": True, "devto_id": result.get("id"), "url": url}
+    return {
+        "ok": True,
+        "published": True,
+        "devto_id": result.get("id"),
+        "url": url,
+        "words": words,
+        "title": title,
+    }
