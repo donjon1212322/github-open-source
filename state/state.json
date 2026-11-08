@@ -1,4 +1,17 @@
 {
+  "active_poll": {
+    "chat_id": "@GitHub_Open_Source",
+    "message_id": 3572,
+    "opened_at": "2026-11-08T16:13:56.276838Z",
+    "question": "Which project should win Project of the Week?",
+    "repos": {
+      "Concat": "jub0t/Concat",
+      "Filee": "KnifeLemon/Filee",
+      "ffmpeg-skill": "kajisho5/ffmpeg-skill",
+      "m3e-canvas": "lnkiai/m3e-canvas",
+      "universal-modder": "rehan-remade/universal-modder"
+    }
+  },
   "dead_letters": [],
   "gemini_window": [
     [
@@ -44,6 +57,12 @@
         "stars<100": 10
       },
       "started_at": "2026-11-08T11:24:55.338486Z"
+    },
+    "digest": {
+      "finished_at": "2026-11-08T16:13:56.276995Z",
+      "poll_message_id": 3572,
+      "telegram_message_id": 3571,
+      "week": "2026-W45"
     },
     "news-article": {
       "devto_id": 4995411,

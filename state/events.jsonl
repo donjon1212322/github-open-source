@@ -147,3 +147,4 @@
 {"platform": "devto", "repo": "modelflare-ai/anymodelbot", "ts": "2026-11-08T13:33:51.662979Z", "type": "article_published", "url": "https://dev.to/githubopensource/run-local-ai-agents-in-chat-apps-open-source-tool-3c12"}
 {"reason": "slot_already_done", "slot": "europe_morning", "ts": "2026-11-08T14:17:53.791268Z", "type": "publish_skipped"}
 {"deleted": 0, "ts": "2026-11-08T15:47:52.143152Z", "type": "moderation_completed", "updates": 0}
+{"poll_message_id": 3572, "repos": ["jub0t/Concat", "rehan-remade/universal-modder", "KnifeLemon/Filee", "kajisho5/ffmpeg-skill", "lnkiai/m3e-canvas"], "telegram_message_id": 3571, "ts": "2026-11-08T16:13:56.276862Z", "type": "digest_published"}
