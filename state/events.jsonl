@@ -153,3 +153,4 @@
 {"preview_host": "imgbb", "repo": "ly05010419/macnativegames", "ts": "2026-11-08T17:19:00.445430Z", "type": "published_as_text"}
 {"repo": "ly05010419/macnativegames", "score": 89.03, "telegram_message_id": 3573, "telegraph_url": "https://telegra.ph/MacNativeGames-Run-Nintendo-Switch-ARM64-Code-Natively-on-Apple-Silicon-with-Metal-11-08", "ts": "2026-11-08T17:19:00.445837Z", "type": "project_published"}
 {"reason": "slot_already_done", "slot": "europe_midday", "ts": "2026-11-08T18:04:14.398814Z", "type": "publish_skipped"}
+{"deleted": 0, "ts": "2026-11-08T18:06:56.096118Z", "type": "moderation_completed", "updates": 6}
