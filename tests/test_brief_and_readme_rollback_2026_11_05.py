@@ -61,7 +61,14 @@ def test_news_command_uses_the_plain_original_client(monkeypatch, tmp_path) -> N
 
     assert result["reason"] == "source_unavailable"
     assert captured["args"] == (config.Gemini_api_key, config.Gemini_model)
-    assert captured["kwargs"] == {}, "AI Brief must not get budget/fallback/retry overrides"
+    # 08.11 free-tier audit: the ONLY allowed extra is the daily RPD counter.
+    # The owner-approved plain client still has no TPM window, no 70 s heavy
+    # gap, no spare-model fallback and no retry overrides.
+    kwargs = captured["kwargs"]
+    assert set(kwargs) == {"daily_cap"}
+    assert type(kwargs["daily_cap"]).__name__ == "GeminiDailyCap"
+    assert all(key not in kwargs for key in
+               ("budget", "fallback_model", "http_retries", "retry_post"))
 
 
 def test_plain_client_keeps_the_original_http_retry_policy() -> None:

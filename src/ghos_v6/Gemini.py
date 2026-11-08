@@ -246,7 +246,8 @@ def _clip_sentence(text: Any, limit: int) -> str:
 class GeminiClient:
     def __init__(self, api_key: str, model: str = "gemini-3.5-flash-lite",
                  budget: Any | None = None, fallback_model: str | None = None,
-                 http_retries: int = 1, retry_post: bool = True):
+                 http_retries: int = 1, retry_post: bool = True,
+                 daily_cap: Any | None = None):
         # Plain clients (AI Brief, Doctor) keep the original single HTTP
         # retry. publish_slot opts out: generate_with_backoff already spaces
         # attempts, and stacking short retries re-created the 05.11 TPM spike.
@@ -256,6 +257,8 @@ class GeminiClient:
         self.http_retries = http_retries
         self.retry_post = retry_post
         self.model = model.strip().lower().removeprefix("models/")
+        # Optional hard stop before the daily free-tier RPD is exhausted.
+        self.daily_cap = daily_cap
 
     @property
     def configured(self) -> bool:
@@ -286,6 +289,8 @@ class GeminiClient:
     ) -> dict[str, Any]:
         if not self.configured:
             raise RuntimeError("GEMINI_API_KEY is not set")
+        if self.daily_cap is not None:
+            self.daily_cap.consume()
         if self.budget is not None:
             self.budget.acquire(estimate_tokens(prompt, youtube_url), heavy=bool(youtube_url))
         parts: list[dict[str, Any]] = []
@@ -342,7 +347,8 @@ class GeminiClient:
                 spare = GeminiClient(self.api_key, self.fallback_model,
                                      budget=None, fallback_model=None,
                                      http_retries=self.http_retries,
-                                     retry_post=self.retry_post)
+                                     retry_post=self.retry_post,
+                                     daily_cap=None)  # already counted above
                 return spare.generate_json(
                     prompt, schema=schema, youtube_url=youtube_url,
                     temperature=temperature, max_output_tokens=max_output_tokens,

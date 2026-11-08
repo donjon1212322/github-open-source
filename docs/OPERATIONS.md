@@ -561,3 +561,46 @@ Week» — шесть типов недели (`job`, `direction`, `format`, `de
 `active_poll` и `last_runs.digest.poll_message_id`. Если удаление запрещено —
 команда возвращает `ok: false` и **ничего не публикует**, чтобы в канале не
 оказалось двух опросов. Второго поста дайджеста и потери комментариев нет.
+
+**Бюджет бесплатных лимитов (полный аудит 08.11).** Репозиторий **публичный**,
+поэтому минуты GitHub Actions на стандартных runners не тарифицируются
+([GitHub Docs](https://docs.github.com/en/actions/using-jobs/choosing-the-runner-for-a-job)).
+Остальные лимиты и фактическое потребление:
+
+| Сервис | Бесплатный лимит | Потребление проекта | Запас |
+| --- | --- | --- | --- |
+| Cloudflare Workers | 100 000 запросов/сутки, 10 ms CPU на cron, 50 subrequests, 5 cron-триггеров ([Limits](https://developers.cloudflare.com/workers/platform/limits/)) | 1 440 вызовов/сутки (1,44%), 1 триггер, 26 `workflow_dispatch` + 48 ticks = 74 subrequest/сутки | ~70× |
+| Gemini `gemini-3.5-flash-lite` | 15 RPM, 250K TPM, **500 RPD** на проект, сброс в полночь по Тихому океану ([Rate limits](https://aistudio.google.com/docs/rate-limits)) | ~15–30 логических вызовов/сутки в штатном режиме; `GeminiBudget` = 8 RPM / 150K TPM (53% / 60%) | >10× |
+| GitHub REST API | 5 000/час для PAT, 1 000/час/репозиторий для `GITHUB_TOKEN` ([Limits](https://docs.github.com/en/actions/reference/limits)) | ~74 вызова/сутки от Worker + ~10 на run; замер аудита: 35 использовано, 4 965 осталось | >50× |
+| GitHub Actions concurrency | 100 ожидающих run в группе при `queue: max`, 20 параллельных job, 500 MB артефактов ([Limits](https://docs.github.com/en/actions/reference/limits)) | пик 97 run/сутки (08.11), 87 артефактов / 3,8 MB при `retention-days: 1` | артефакты ~1% лимита |
+| Telegram Bot API | ~30 сообщений/сек, 20/мин в группе, ≤1/сек в чат ([Bots FAQ](https://core.telegram.org/bots/faq)) | 3 поста + бриф + дайджест + опрос + отчёт владельцу в сутки | >100× |
+| dev.to API | 10 созданий / 30 сек, 30 обновлений / 30 сек ([Forem API](https://developers.forem.com/api/v0)) | 1–2 статьи в сутки, обновления in-place | >10× |
+| Файл `state/state.json` | 100 MB на файл в GitHub, локальный guard 90 MB | 456 KB, `queue ≤ 28`, `views_history ≤ 8`, ротация `events.jsonl` до 2 000 строк, ежемесячный squash ветки `state` | ~200× |
+
+**Две новые защиты (08.11).** (1) `GeminiDailyCap` в `rate_limit.py`
+считает логические вызовы Gemini в `state.gemini_daily` по тихоокеанскому
+дню: один вызов = 3 единицы (учитываются HTTP-ретраи), жёсткий стоп на 450
+из 500 RPD. Кап подключён ко всем семи плановым `GeminiClient` в
+`pipeline.py`; AI Brief по-прежнему остаётся «plain client» без TPM-окна и
+70-секундной паузы (решение владельца 05.11). При срабатывании —
+детерминированный fallback там, где он предусмотрен, и уведомление
+владельцу, но **ни одного лишнего запроса к Gemini**. (2) `watchdog.py`:
+не более **3 попыток на слот в сутки** и не более **24 восстановительных
+dispatch в сутки**; после исчерпания — одно уведомление и остановка, а не
+бесконечная серия ретраев каждые 30 минут.
+
+**Что остаётся за владельцем (не менялось в этом аудите):**
+- `GH_PAT` в Worker истекает **2027-11-02 21:00 UTC** (заголовок
+  `github-authentication-token-expiration`). Ротация: сначала заменить
+  секрет новым fine-grained PAT (`Contents: write` + `Actions: write`, только
+  этот репозиторий), **не отзывая старые PAT до замены**, затем отозвать оба
+  старых. Cloudflare-токен 08.11 отозвать сразу. Без ротации внешний тик
+  остановится в ноябре 2027 года.
+- Cron-триггеры Cloudflare не имеют ретраев и оповещений об ошибках;
+  GitHub cron + watchdog остаются вторым и третьим контуром. Раз в месяц
+  стоит открывать логи Worker.
+- `facebook-handoff` по-прежнему идёт только через GitHub cron и не
+  dispatched из Worker (правило «мейк не трогай»); у него нет guard от
+  повторной строки в Sheet — не дублируйте dispatch вручную.
+- 100% гарантий по времени выхода нет: GitHub schedule, Cloudflare cron и
+  Gemini capacity — best effort, без SLA.

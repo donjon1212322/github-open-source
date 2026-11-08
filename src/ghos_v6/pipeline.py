@@ -20,7 +20,7 @@ from .content_adapters import build_crosspost_text, image_alt_text, public_teleg
 from .formatter import format_project_post
 from .gate import GateConfig, evaluate
 from .Gemini import GeminiClient, generate_project_content
-from .rate_limit import GeminiBudget
+from .rate_limit import GeminiBudget, GeminiDailyCap
 from .http import download_bytes, sanitize
 from .media import choose_visual
 from .media_host import ImgBBMediaHost
@@ -422,7 +422,8 @@ def publish_slot(config: Config, store: StateStore, slot: str = "manual") -> dic
     Gemini = GeminiClient(config.Gemini_api_key, config.Gemini_model,
                       budget=GeminiBudget(store),
                       fallback_model="gemini-3.1-flash-lite",
-                      http_retries=0, retry_post=False)
+                      http_retries=0, retry_post=False,
+                      daily_cap=GeminiDailyCap(store))
     api = GitHubApi(config.GitHub_token)
     gate_cfg = GateConfig()
     # One Gemini call per published post, never per queued candidate: the
@@ -1251,7 +1252,8 @@ def news_command(
     # Owner decision (2026-11-05): the AI Brief's YouTube video never had
     # capacity problems. Keep the original plain client: no shared TPM
     # budget, no 70 s heavy-call gap, no spare-model fallback.
-    client = GeminiClient(config.Gemini_api_key, config.Gemini_model)
+    client = GeminiClient(config.Gemini_api_key, config.Gemini_model,
+                          daily_cap=GeminiDailyCap(store))
     telegram = TelegramClient(config.telegram_bot_token)
     if not use_telegram:
         try:
@@ -1560,7 +1562,9 @@ def digest_command(config: Config, store: StateStore) -> dict[str, Any]:
         image_url, _hosted_by = _host_local_image(
             config, path.read_bytes(), filename=path.name
         )
-    gemini = GeminiClient(config.Gemini_api_key, config.Gemini_model) if config.Gemini_api_key else None
+    gemini = (GeminiClient(config.Gemini_api_key, config.Gemini_model,
+                           daily_cap=GeminiDailyCap(store))
+              if config.Gemini_api_key else None)
     spec = build_week_poll(store, client=gemini)
     poll_line = poll_decides_line(spec)
     # The previous poll's verdict stays private: it appears in report_command
@@ -1614,7 +1618,9 @@ def digest_command(config: Config, store: StateStore) -> dict[str, Any]:
 
 def poll_preview_command(config: Config, store: StateStore) -> dict[str, Any]:
     """Dry run: show the poll this week's data would produce. Publishes nothing."""
-    gemini = GeminiClient(config.Gemini_api_key, config.Gemini_model) if config.Gemini_api_key else None
+    gemini = (GeminiClient(config.Gemini_api_key, config.Gemini_model,
+                           daily_cap=GeminiDailyCap(store))
+              if config.Gemini_api_key else None)
     spec = build_week_poll(store, client=gemini)
     return {"ok": True, "published": False, **spec}
 
@@ -1654,7 +1660,9 @@ def poll_replace_command(config: Config, store: StateStore) -> dict[str, Any]:
         return {"ok": False, "reason": "delete_failed", "error": type(exc).__name__}
 
     # 3. Build and send the adaptive poll.
-    gemini = GeminiClient(config.Gemini_api_key, config.Gemini_model) if config.Gemini_api_key else None
+    gemini = (GeminiClient(config.Gemini_api_key, config.Gemini_model,
+                           daily_cap=GeminiDailyCap(store))
+              if config.Gemini_api_key else None)
     spec = build_week_poll(store, client=gemini)
     new_poll = polls.send_week_poll(
         telegram, chat_id, spec["question"], spec["options"],
@@ -2191,7 +2199,8 @@ def news_article_command(config: Config, store: StateStore) -> dict[str, Any]:
         # rebuild ONCE from the stored structured brief - never a blind series.
         try:
             config.require("GEMINI_API_KEY")
-            client = GeminiClient(config.Gemini_api_key, config.Gemini_model)
+            client = GeminiClient(config.Gemini_api_key, config.Gemini_model,
+                                  daily_cap=GeminiDailyCap(store))
             rebuilt = synthesize_news_article(topic.get("brief") or {}, client)
             markdown = rebuilt["article_markdown"]
             title = title or rebuilt["article_title"]
@@ -2324,7 +2333,8 @@ def quality_fix_command(config: Config, store: StateStore) -> dict[str, Any]:
     topic["brief"] = brief
     topic["devto_cover_url"] = ""  # force a fresh 1000x420 cover
 
-    client = GeminiClient(config.Gemini_api_key, config.Gemini_model)
+    client = GeminiClient(config.Gemini_api_key, config.Gemini_model,
+                          daily_cap=GeminiDailyCap(store))
     article = synthesize_news_article(brief, client)
     title = article["article_title"]
     markdown = article["article_markdown"]

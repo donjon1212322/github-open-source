@@ -75,6 +75,14 @@ WEEKLY_SLOTS: tuple[tuple[str, int, tuple[int, int], dict[str, str]], ...] = (
 DISPATCH_COOLDOWN_SECONDS = 1800.0        # 30 min between attempts for one slot
 ARTICLE_RECOVERY_WINDOW_HOURS = 6.0       # do not backfill yesterday's article
 
+# Long-term free-tier guard (08.11 audit): a slot that never writes its state
+# marker must not be re-dispatched every 30 minutes forever. 48 blind retries
+# a day would burn Actions runs, Gemini RPD and Telegram/dev.to quotas without
+# ever fixing the underlying problem. Three attempts per slot per day, and a
+# hard ceiling on the whole day's recovery traffic.
+MAX_ATTEMPTS_PER_SLOT = 3
+MAX_DAILY_DISPATCHES = 24
+
 
 def _date_of(value: Any):
     if not value:
@@ -102,6 +110,22 @@ def _stamp(moment: datetime) -> str:
 
 def _devto_published_at(record: dict[str, Any]) -> Any:
     return ((record.get("articles") or {}).get("devto") or {}).get("published_at")
+
+
+def _dispatch_allowed(marks: dict[str, Any], mark: str, today) -> tuple[bool, str]:
+    """Bound recovery traffic even when state never confirms a slot."""
+    prev = marks.get(mark)
+    tries = int((prev or {}).get("attempts", 0) or 0) if isinstance(prev, dict) else 0
+    if tries >= MAX_ATTEMPTS_PER_SLOT:
+        return False, "slot"
+    used = sum(
+        int((value or {}).get("attempts", 0) or 0)
+        for key, value in marks.items()
+        if str(key).startswith(str(today)) and isinstance(value, dict)
+    )
+    if used >= MAX_DAILY_DISPATCHES:
+        return False, "day"
+    return True, ""
 
 
 def _has_run(store: StateStore, key: str, today) -> bool:
@@ -171,6 +195,24 @@ def _notify(config: Config, text_html: str) -> bool:
         return False
 
 
+def _note_dispatch_cap(config: Config, store: StateStore, cap_state: dict[str, Any],
+                       scope: str, slot: str, alerts: list[str]) -> None:
+    store.event("watchdog_dispatch_capped", slot=slot, scope=scope,
+                max_attempts=MAX_ATTEMPTS_PER_SLOT,
+                max_daily=MAX_DAILY_DISPATCHES)
+    if cap_state.get("notified"):
+        return
+    cap_state["notified"] = True
+    message = (
+        "⚠️ <b>Рековери остановлено по лимиту</b>\n"
+        "Слот <code>%s</code> не подтвердился в state после %d попыток "
+        "(дневной предел — %d). Повторы прекращены до конца суток, "
+        "проверь Actions вручную." % (slot, MAX_ATTEMPTS_PER_SLOT, MAX_DAILY_DISPATCHES)
+    )
+    if _notify(config, message):
+        alerts.append(message)
+
+
 def watchdog_command(config: Config, store: StateStore, *, now: datetime | None = None) -> dict[str, Any]:
     now = now or datetime.now(timezone.utc)
     today = now.date()
@@ -178,10 +220,18 @@ def watchdog_command(config: Config, store: StateStore, *, now: datetime | None 
     repo = os.getenv("GITHUB_REPOSITORY") or ""
     last = store.data.setdefault("last_runs", {})
     marks: dict[str, Any] = last.setdefault("watchdog_dispatches", {})
+    caps: dict[str, Any] = last.setdefault("watchdog_caps", {})
     changed = False
     for old in [k for k in marks if not str(k).startswith(str(today))]:
         del marks[old]
         changed = True   # persist the cleanup of yesterday's unverified marks
+    for old in [k for k in caps if k != str(today)]:
+        del caps[old]
+        changed = True
+    if str(today) not in caps:
+        caps[str(today)] = {"notified": False}
+        changed = True
+    cap_state = caps[str(today)]
 
     missed: list[str] = []
     dispatched: list[str] = []
@@ -231,6 +281,11 @@ def watchdog_command(config: Config, store: StateStore, *, now: datetime | None 
                 # Already tried recently; wait for state to confirm instead of
                 # firing a blind series of retries.
                 continue
+
+        allowed, cap_scope = _dispatch_allowed(marks, mark, today)
+        if not allowed:
+            _note_dispatch_cap(config, store, cap_state, cap_scope, key, alerts)
+            continue
 
         ok, detail = _dispatch(repo, inputs, token)
         attempts = int(prev.get("attempts", 1) if prev else 0) + 1
@@ -289,6 +344,11 @@ def watchdog_command(config: Config, store: StateStore, *, now: datetime | None 
             started = _datetime_of(prev.get("at")) or now
             if (now - started).total_seconds() < DISPATCH_COOLDOWN_SECONDS:
                 continue
+        allowed, cap_scope = _dispatch_allowed(marks, mark, today)
+        if not allowed:
+            _note_dispatch_cap(config, store, cap_state, cap_scope, key, alerts)
+            continue
+
         ok, detail = _dispatch(repo, inputs, token)
         attempts = int(prev.get("attempts", 1) if prev else 0) + 1
         marks[mark] = {
