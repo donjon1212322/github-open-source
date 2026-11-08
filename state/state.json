@@ -94,6 +94,12 @@
       "repo": "jhaizhou-ops/d2r-mobile",
       "telegram_message_id": 3567
     },
+    "report": {
+      "finished_at": "2026-11-08T16:43:49.336567Z",
+      "projects_7d": 16,
+      "sent": true,
+      "week": "2026-W45"
+    },
     "telegram_update_offset": 165231068,
     "watchdog_dispatches": {}
   },
