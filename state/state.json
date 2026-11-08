@@ -90,11 +90,11 @@
   ],
   "last_runs": {
     "article": {
-      "finished_at": "2026-11-08T13:33:51.663093Z",
-      "published": true,
-      "reason": "published",
-      "repo": "modelflare-ai/anymodelbot",
-      "url": "https://dev.to/githubopensource/run-local-ai-agents-in-chat-apps-open-source-tool-3c12"
+      "finished_at": "2026-11-08T18:25:46.451348Z",
+      "published": false,
+      "reason": "already_published_today",
+      "repo": "",
+      "url": ""
     },
     "collect": {
       "discovered": 643,
