@@ -2,12 +2,12 @@
   "dead_letters": [],
   "gemini_window": [
     [
-      1794122029.6613405,
-      4033
+      1794141836.755394,
+      3953
     ],
     [
-      1794122034.2765222,
-      1487
+      1794141840.4767673,
+      1419
     ]
   ],
   "last_runs": {
@@ -56,9 +56,9 @@
       "words": 1023
     },
     "publish:europe_midday": {
-      "finished_at": "2026-11-07T12:44:25.432548Z",
-      "repo": "wheresryan22/anatomy",
-      "telegram_message_id": 3566
+      "finished_at": "2026-11-08T12:44:05.921598Z",
+      "repo": "lexmount/moli",
+      "telegram_message_id": 3570
     },
     "publish:europe_morning": {
       "finished_at": "2026-11-08T07:13:59.311205Z",
@@ -1408,6 +1408,126 @@
       "visual_host": "imgbb",
       "visual_kind": "card"
     },
+    "lexmount/moli": {
+      "articles": {},
+      "card_style": "",
+      "category": "DevTools",
+      "contributors_count": 33,
+      "created_at": "2026-08-10T13:20:30Z",
+      "crossposts": {
+        "bluesky": {
+          "attempts": 0,
+          "due_at": "2026-11-08T18:00:00+00:00",
+          "status": "pending"
+        }
+      },
+      "description": "Best headless browser for AI agents. Lite, Fast, High-Compatibility. Built in Rust",
+      "description_fp": "c2052649dd75c345",
+      "forks": 638,
+      "full_name": "lexmount/moli",
+      "generated": {
+        "article_markdown": "## What it is\n\nMoli is a production-ready headless browser written in Rust designed specifically for AI agents, web crawling, and automated testing workloads. Rather than forcing continuous visual rendering, it treats the native DOM and style state as the primary source of truth, performing layout and software paint operations strictly on demand.\n\n## Why it matters\n\nMost browser automation tasks require page structure rather than a rendered visual viewport. Traditional tools continuously maintain a visual state that wastes CPU cycles and memory. Moli optimizes this cost model by reading runtime state directly for text extraction, DOM queries, and JavaScript execution, only triggering box construction and Taffy layout when visual outputs like screenshots or coordinate inputs are explicitly requested.\n\n## Key features\n\n- Execute CDP, WebDriver Classic, and WebDriver BiDi through a single unified automation binary.\n- Dump pages directly to HTML, Markdown, JSON, or compact semantic text trees via CLI.\n- Run full V8 JavaScript, CSS cascade, Fetch/XHR/WebSocket, and profile-scoped storage.\n- Enable full box construction and Taffy layout on demand by passing the --layout flag.\n- Connect Playwright directly over Chrome DevTools Protocol without extra drivers.\n\n## Quick start\n\nOn Linux or macOS:\n\n```sh\ncurl --proto '=https' --tlsv1.2 -fsSL \\\n  https://github.com/lexmount/moli/releases/latest/download/moli-installer.sh | sh\n```\n\nOn Windows, run in PowerShell:\n\n```powershell\npowershell -ExecutionPolicy ByPass -c \"irm https://github.com/lexmount/moli/releases/latest/download/moli-installer.ps1 | iex\"\n```\n\n## Who should try it\n\nDevelopers building autonomous web agents, heavy scraping pipelines, or automated test suites who want to reduce the resource overhead associated with running traditional browser binaries.\n\n## Verdict\n\nMoli offers a pragmatic architecture for text-heavy agent workflows and scraping pipelines, though teams requiring complex browser extensions should test thoroughly before migrating.",
+        "article_title": "Moli: A Fast Headless Rust Browser for AI Agents and Web Scraping",
+        "card_hook": "Headless Rust browser for AI agents",
+        "card_subline": "Fetch pages, run JS, and automate tasks with a fraction of the memory footprint of traditional browsers",
+        "category": "DevTools",
+        "discussion_question": "Do your AI agents mostly need raw page text or full visual rendering?",
+        "hook": "Moli is a headless Rust browser built for AI agents that skips visual layout until you actually need pixels.",
+        "key_features": [
+          "Execute CDP, WebDriver Classic, and WebDriver BiDi through a single unified automation binary",
+          "Dump pages directly to HTML, Markdown, JSON, or compact semantic text trees via CLI",
+          "Run full V8 JavaScript, CSS cascade, Fetch/XHR/WebSocket, and profile-scoped storage",
+          "Enable full box construction and Taffy layout on demand by passing the --layout flag",
+          "Connect Playwright directly over Chrome DevTools Protocol without extra drivers"
+        ],
+        "llm_used": true,
+        "quick_start": "curl --proto '=https' --tlsv1.2 -fsSL https://github.com/lexmount/moli/releases/latest/download/moli-installer.sh | sh",
+        "safety": "ok",
+        "safety_reason": "Legitimate open-source headless browser designed for web automation and AI agent workflows.",
+        "scene": "Your AI agent script spins up a standard headless browser to pull text from a dozen target sites, and memory usage climbs by a gigabyte within minutes.",
+        "social_text": "Moli is a headless Rust browser for AI agents that skips visual layout until you actually need pixels.",
+        "summary": "Moli is a production-ready headless browser built in Rust that treats the native DOM and style state as its single source of truth. Instead of maintaining a continuously rendered visual world, it skips layout and paint operations entirely during DOM queries, Markdown extractions, and JavaScript execution. When visual tasks like screenshots or bounding-box calculations are requested, it generates layout and pixels on demand before discarding the state.",
+        "surfaces": {
+          "Facebook_body": "Automating web tasks with AI usually means running heavy software behind the scenes just to read simple text. That approach wastes massive amounts of memory and slows down your computer.\n\nThis project takes a smarter route by skipping the graphics entirely. Instead of drawing every page on an invisible screen, it processes the underlying text and data directly. It only creates a visual layout when you specifically ask for an image or a screenshot.\n\nIt runs JavaScript, handles network requests, and connects easily with popular automation setups. Developers building web scrapers, data pipelines, and automated assistants will find it a fast way to handle web pages without the usual resource drain.",
+          "Facebook_headline": "Run web tasks for AI without the heavy browser",
+          "Facebook_lead": "Stop wasting computer memory on invisible web pages. This tool extracts text and data instantly for automated tasks.",
+          "bluesky_headline": "Web scraping for AI without rendering pixels",
+          "bluesky_lead": "A lightweight Rust browser engine that skips layout and paint operations until you actually need images.",
+          "devto_body": "## What it is\n\nMoli is a headless browser built in Rust designed specifically for AI agents and automated web scraping pipelines. Unlike traditional headless browsers that maintain a continuously rendered visual world, Moli treats the native DOM and style state as its single source of truth.\n\n## How it works\n\nThe core architectural advantage is skipping layout and paint operations entirely during DOM queries, Markdown extractions, and JavaScript execution. When visual tasks like screenshots or bounding-box calculations are requested, it generates layout and pixels on demand using Taffy before discarding the state.\n\n## Key features\n\n- Execute CDP, WebDriver Classic, and WebDriver BiDi through a single unified automation binary\n- Dump pages directly to HTML, Markdown, JSON, or compact semantic text trees via CLI\n- Run full V8 JavaScript, CSS cascade, Fetch/XHR/WebSocket, and profile-scoped storage\n- Enable full box construction and Taffy layout on demand by passing the --layout flag\n- Connect Playwright directly over Chrome DevTools Protocol without extra drivers\n\n## Getting started\n\nClone the repository from lexmount/moli. Ensure you have Rust installed, then build the project using cargo build --release to set up the automation binary for your scraping pipelines.\n\n## When not to use it\n\nTeams heavily dependent on specialized browser extensions should verify compatibility first, as extension support is not the primary focus of this lightweight automation engine.",
+          "seo_description": "Discover Moli, a headless browser built in Rust that skips visual rendering during data extraction to save memory and CPU for AI agents.",
+          "seo_query": "headless browser for AI agents",
+          "seo_title": "Fast headless browser for AI agents - Moli",
+          "telegraph_angle": "Explain the architectural trade-offs of skipping visual rendering in browser automation and why it matters for resource-constrained AI pipelines."
+        },
+        "tension": "Traditional browsers force full layout calculations, DOM painting, and visual rendering loops even when your script only needs raw HTML or Markdown text.",
+        "turn": "Moli handles DOM queries, JavaScript execution, and network inspection directly from the browser runtime state without triggering layout or paint steps.",
+        "verdict": "An efficient choice for agent pipelines and scraping tasks, though teams heavily dependent on specialized browser extensions should verify compatibility first.",
+        "who_for": "Developers building web-scraping pipelines, browser-use agents, and LLM evaluation environments.",
+        "why_now": "AI agents increasingly need to interact with complex web applications, but running full instances of traditional browsers for text extraction wastes massive amounts of memory and CPU."
+      },
+      "homepage": "https://browser.lexmount.com",
+      "id": 1329849289,
+      "image_url": "https://i.ibb.co/nqPJPYs7/lexmount-moli-readme-preview-7d11f1cf2789.jpg",
+      "is_dual_use": false,
+      "is_hidden_gem": false,
+      "language": "Rust",
+      "license": {
+        "key": "apache-2.0",
+        "name": "Apache License 2.0",
+        "node_id": "MDc6TGljZW5zZTI=",
+        "spdx_id": "Apache-2.0",
+        "url": "https://api.github.com/licenses/apache-2.0"
+      },
+      "media_urls": [
+        "https://raw.githubusercontent.com/lexmount/moli/main/assets/moli-browser-banner.jpg",
+        "https://raw.githubusercontent.com/lexmount/moli/main/assets/moli-game.jpg",
+        "https://raw.githubusercontent.com/lexmount/moli/main/assets/moli-devtools-rust-lang.jpg",
+        "https://raw.githubusercontent.com/lexmount/moli/main/assets/moli_ondemand_rendering_flow.svg",
+        "https://raw.githubusercontent.com/lexmount/moli/main/assets/lexbench-five-engine-caliber-b-light.jpg",
+        "https://raw.githubusercontent.com/lexmount/moli/main/assets/lexbench-efficiency-map-light.jpg",
+        "https://raw.githubusercontent.com/lexmount/moli-metrics/main/assets/star-history.svg"
+      ],
+      "name": "moli",
+      "open_issues": 578,
+      "published_at": "2026-11-08T12:44:05.921353Z",
+      "pushed_at": "2026-11-08T12:43:46Z",
+      "readme_fp": "ced176b4eeba54b9",
+      "repo_id": 1329849289,
+      "revisit_of": "",
+      "revisit_reason": "",
+      "score": 90.5,
+      "slot": "europe_midday",
+      "sources": [
+        "github_search"
+      ],
+      "stars": 23001,
+      "telegram_chat_id": "@GitHub_Open_Source",
+      "telegram_link": "https://t.me/GitHub_Open_Source/3570",
+      "telegram_message_id": 3570,
+      "telegraph_url": "https://telegra.ph/Moli-A-Fast-Headless-Rust-Browser-for-AI-Agents-and-Web-Scraping-11-08",
+      "topics": [
+        "ai-agents",
+        "ai-tools",
+        "browser",
+        "browser-automation",
+        "cloud-browser",
+        "headless",
+        "headless-browser",
+        "kitesurf",
+        "playwright",
+        "puppeteer",
+        "rust",
+        "servo",
+        "web-crawler",
+        "web-crawling",
+        "web-scraper",
+        "web-scraping"
+      ],
+      "updated_at": "2026-11-08T12:43:51Z",
+      "url": "https://github.com/lexmount/moli",
+      "visual_host": "imgbb",
+      "visual_kind": "readme"
+    },
     "lnkiai/m3e-canvas": {
       "articles": {},
       "card_style": "",
@@ -2619,77 +2739,6 @@
       ],
       "updated_at": "2026-11-08T11:21:00Z",
       "url": "https://github.com/JuneYaooo/rea-video"
-    },
-    {
-      "archived": false,
-      "contributors_count": 33,
-      "created_at": "2026-08-10T13:20:30Z",
-      "default_branch": "main",
-      "description": "Best headless browser for AI agents. Lite, Fast, High-Compatibility. Built in Rust",
-      "disabled": false,
-      "fork": false,
-      "forks": 638,
-      "forks_count": 638,
-      "full_name": "lexmount/moli",
-      "has_readme": true,
-      "homepage": "https://browser.lexmount.com",
-      "id": 1329849289,
-      "is_dual_use": false,
-      "is_hidden_gem": false,
-      "language": "Rust",
-      "license": {
-        "key": "apache-2.0",
-        "name": "Apache License 2.0",
-        "node_id": "MDc6TGljZW5zZTI=",
-        "spdx_id": "Apache-2.0",
-        "url": "https://api.github.com/licenses/apache-2.0"
-      },
-      "media_urls": [
-        "https://raw.githubusercontent.com/lexmount/moli/main/assets/moli-browser-banner.jpg",
-        "https://raw.githubusercontent.com/lexmount/moli/main/assets/moli-game.jpg",
-        "https://raw.githubusercontent.com/lexmount/moli/main/assets/moli-devtools-rust-lang.jpg",
-        "https://raw.githubusercontent.com/lexmount/moli/main/assets/moli_ondemand_rendering_flow.svg",
-        "https://raw.githubusercontent.com/lexmount/moli/main/assets/lexbench-five-engine-caliber-b-light.jpg",
-        "https://raw.githubusercontent.com/lexmount/moli/main/assets/lexbench-efficiency-map-light.jpg",
-        "https://raw.githubusercontent.com/lexmount/moli-metrics/main/assets/star-history.svg"
-      ],
-      "name": "moli",
-      "non_software_reason": "",
-      "open_issues": 586,
-      "open_issues_count": 586,
-      "owner_repo_count": 1,
-      "pushed_at": "2026-11-08T11:24:29Z",
-      "readme": "",
-      "readme_excerpt": "<p align=\"center\">\n  <picture>\n    <source\n      media=\"(prefers-color-scheme: dark)\"\n      srcset=\"assets/moli-browser-banner-dark.jpg\"\n    />\n    <source\n      media=\"(prefers-color-scheme: light)\"\n      srcset=\"assets/moli-browser-banner.jpg\"\n    />\n    <img\n      src=\"assets/moli-browser-banner.jpg\"\n      alt=\"Moli Browser — Structure first. Pixels on demand. Open source browser for AI agents.\"\n      width=\"1086\"\n    />\n  </picture>\n</p>\n\n<h1 align=\"center\">Moli</h1>\n\n<p align=\"center\">\n  <strong>English</strong> |\n  <a href=\"docs/README.zh-CN.md\">简体中文</a> |\n  <a href=\"docs/README.ja.md\">日本語</a> |\n  <a href=\"docs/README.de.md\">Deutsch</a> |\n  <a href=\"docs/README.fr.md\">Français</a> |\n  <a href=\"docs/README.es.md\">Español</a> |\n  <a href=\"docs/README.ko.md\">한국어</a>\n</p>\n\n<p align=\"center\">\n  <a href=\"https://discord.gg/4eXGtdWWnq\">\n    <img src=\"https://img.shields.io/badge/Discord-Join%20Community-5865F2\" alt=\"Discord\" />\n  </a>\n  <a href=\"assets/moli-feedback-wechat-group.png\">\n    <img src=\"https://img.shields.io/badge/WeChat-Join%20Community-07C160\" alt=\"WeChat\" />\n  </a>\n</p>\n\n<p align=\"center\">\n  <a href=\"https://www.producthunt.com/products/lexmount-browser?launch=moli-b",
-      "readme_len": 17737,
-      "repo_id": 1329849289,
-      "score": 90.5,
-      "source_name": "github_search",
-      "sources": [
-        "github_search"
-      ],
-      "stargazers_count": 22991,
-      "stars": 22991,
-      "topics": [
-        "ai-agents",
-        "ai-tools",
-        "browser",
-        "browser-automation",
-        "cloud-browser",
-        "headless",
-        "headless-browser",
-        "kitesurf",
-        "playwright",
-        "puppeteer",
-        "rust",
-        "servo",
-        "web-crawler",
-        "web-crawling",
-        "web-scraper",
-        "web-scraping"
-      ],
-      "updated_at": "2026-11-08T11:23:43Z",
-      "url": "https://github.com/lexmount/moli"
     },
     {
       "archived": false,
@@ -6484,8 +6533,8 @@
     "lexmount/moli": {
       "first_seen_at": "2026-11-04T12:14:31.122783Z",
       "full_name": "lexmount/moli",
-      "last_decision": "queued",
-      "last_seen_at": "2026-11-08T11:27:12.970090Z",
+      "last_decision": "published",
+      "last_seen_at": "2026-11-08T12:44:05.921588Z",
       "repo_id": 1329849289,
       "sources": [
         "github_search"
