@@ -1,16 +1,81 @@
 {
   "active_poll": {
+    "axis": "job",
     "chat_id": "@GitHub_Open_Source",
-    "message_id": 3572,
-    "opened_at": "2026-11-08T16:13:56.276838Z",
-    "question": "Which project should win Project of the Week?",
+    "clusters": [
+      "agent-skills",
+      "avatar",
+      "3d-modeling",
+      "kotlin"
+    ],
+    "families": [
+      "ai_tools",
+      "typescript",
+      "media",
+      "platforms"
+    ],
+    "gemini_fallback": false,
+    "message_id": 3574,
+    "opened_at": "2026-11-08T18:09:53.700070Z",
+    "option_keys": [
+      "job_agent-skills_1",
+      "job_avatar_2",
+      "job_3d-modeling_3",
+      "job_kotlin_4"
+    ],
+    "option_map": {
+      "job_3d-modeling_3": "tangency-labs/solidcraft",
+      "job_agent-skills_1": "JuneYaooo/rea-video",
+      "job_avatar_2": "livliv-dev/player",
+      "job_kotlin_4": "pengchujin/aerial-tv"
+    },
+    "option_topics": {
+      "job_3d-modeling_3": [
+        "3d-modeling",
+        "brep",
+        "cad",
+        "egui",
+        "mcp",
+        "parametric-cad"
+      ],
+      "job_agent-skills_1": [
+        "agent-skills",
+        "ai-video",
+        "aigc-detection",
+        "claude-code",
+        "codex",
+        "ffmpeg"
+      ],
+      "job_avatar_2": [
+        "avatar",
+        "character",
+        "face-tracking",
+        "lip-sync",
+        "pngtuber",
+        "vrm"
+      ],
+      "job_kotlin_4": []
+    },
+    "post_text": "📰 <b>The Open Source Daily — Top 5 of the Week</b>\n\n1. <b><a href=\"https://t.me/GitHub_Open_Source/3554\">Concat</a></b>\n   ⭐ 14 124 — Edit videos locally with a free open-source CapCut alternative featuring a native Rust engine and MCP server.\n\n2. <b><a href=\"https://t.me/GitHub_Open_Source/3555\">Filee</a></b>\n   ⭐ 21 937 — Convert 263 file formats offline simply by dragging and dropping them right at your cursor.\n\n3. <b><a href=\"https://t.me/GitHub_Open_Source/3550\">ffmpeg-skill</a></b>\n   ⭐ 4 424 — Equip Claude Code or Cursor with 42 local FFmpeg tools that cut, caption, and normalise video without cloud APIs.\n\n4. <b><a href=\"https://t.me/GitHub_Open_Source/3556\">m3e-canvas</a></b>\n   ⭐ 10 038 — Design Material 3 Expressive wireframes in your browser and export them as prompts for AI coding agents.\n\n5. <b><a href=\"https://t.me/GitHub_Open_Source/3561\">universal-modder</a></b>\n   ⭐ 9 457 — Point Claude or Codex at any PC game directory to research engines, generate assets, and build mods automatically.\n\n──────────────\n↗️ <b>Forward this Top 5</b> to a teammate who should see it.\n🗳️ Which job we cover next week — vote below, it shapes next week's picks.\n📣 <a href=\"https://t.me/GitHub_Open_Source\"><b>@GitHub_Open_Source</b></a> — daily open-source picks",
+    "question": "Which of these would save you time this week? We will cover the winning job with a real open-source tool next week.",
+    "replaced_from": 3572,
     "repos": {
-      "Concat": "jub0t/Concat",
-      "Filee": "KnifeLemon/Filee",
-      "ffmpeg-skill": "kajisho5/ffmpeg-skill",
-      "m3e-canvas": "lnkiai/m3e-canvas",
-      "universal-modder": "rehan-remade/universal-modder"
-    }
+      "job_3d-modeling_3": "tangency-labs/solidcraft",
+      "job_agent-skills_1": "JuneYaooo/rea-video",
+      "job_avatar_2": "livliv-dev/player",
+      "job_kotlin_4": "pengchujin/aerial-tv"
+    },
+    "simplified": false,
+    "type": "job"
+  },
+  "audience_profile": {
+    "axes": {},
+    "confidence": {},
+    "last_result": "",
+    "type_history": [],
+    "updated_at": "",
+    "version": 1,
+    "weeks": []
   },
   "dead_letters": [],
   "gemini_window": [
@@ -62,7 +127,9 @@
       "card_metric": "stars",
       "finished_at": "2026-11-08T16:13:56.276995Z",
       "image_url": "https://i.ibb.co/H192d3y/sunday-digest-stars-fb74bf98fbc9.png",
-      "poll_message_id": 3572,
+      "poll_message_id": 3574,
+      "poll_type": "job",
+      "post_text": "📰 <b>The Open Source Daily — Top 5 of the Week</b>\n\n1. <b><a href=\"https://t.me/GitHub_Open_Source/3554\">Concat</a></b>\n   ⭐ 14 124 — Edit videos locally with a free open-source CapCut alternative featuring a native Rust engine and MCP server.\n\n2. <b><a href=\"https://t.me/GitHub_Open_Source/3555\">Filee</a></b>\n   ⭐ 21 937 — Convert 263 file formats offline simply by dragging and dropping them right at your cursor.\n\n3. <b><a href=\"https://t.me/GitHub_Open_Source/3550\">ffmpeg-skill</a></b>\n   ⭐ 4 424 — Equip Claude Code or Cursor with 42 local FFmpeg tools that cut, caption, and normalise video without cloud APIs.\n\n4. <b><a href=\"https://t.me/GitHub_Open_Source/3556\">m3e-canvas</a></b>\n   ⭐ 10 038 — Design Material 3 Expressive wireframes in your browser and export them as prompts for AI coding agents.\n\n5. <b><a href=\"https://t.me/GitHub_Open_Source/3561\">universal-modder</a></b>\n   ⭐ 9 457 — Point Claude or Codex at any PC game directory to research engines, generate assets, and build mods automatically.\n\n──────────────\n↗️ <b>Forward this Top 5</b> to a teammate who should see it.\n🗳️ Which job we cover next week — vote below, it shapes next week's picks.\n📣 <a href=\"https://t.me/GitHub_Open_Source\"><b>@GitHub_Open_Source</b></a> — daily open-source picks",
       "telegram_message_id": 3571,
       "week": "2026-W45"
     },
@@ -345,6 +412,44 @@
       "topic_key": "model-releases-and-agent-memory",
       "video_id": "tg-20261107-e52848266f",
       "video_url": "https://t.me/GitHub_Open_Source"
+    }
+  ],
+  "poll_history": [
+    {
+      "axis": "",
+      "closed_at": "2026-11-08T18:09:53.700043Z",
+      "options": [
+        {
+          "share": 0.2,
+          "text": "Concat",
+          "votes": 1
+        },
+        {
+          "share": 0.4,
+          "text": "universal-modder",
+          "votes": 2
+        },
+        {
+          "share": 0.0,
+          "text": "Filee",
+          "votes": 0
+        },
+        {
+          "share": 0.4,
+          "text": "ffmpeg-skill",
+          "votes": 2
+        },
+        {
+          "share": 0.0,
+          "text": "m3e-canvas",
+          "votes": 0
+        }
+      ],
+      "profile_result": "Archived when the poll was replaced by the adaptive format.",
+      "question": "Which project should win Project of the Week?",
+      "replaced": true,
+      "total_voters": 5,
+      "type": "legacy"
     }
   ],
   "publish_failures": {},
