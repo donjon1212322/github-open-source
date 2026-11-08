@@ -18,6 +18,7 @@ from .pipeline import (
     collect_command,
     digest_command,
     digest_card_fix_command,
+    poll_preview_command,
     facebook_handoff_command,
     learn_command,
     metrics_command,
@@ -83,6 +84,7 @@ def _parser() -> argparse.ArgumentParser:
 
     sub.add_parser("digest", help="Publish Sunday Top 5 and poll")
     sub.add_parser("digest-card-fix", help="Replace the live Sunday card with stars, in place")
+    sub.add_parser("poll-preview", help="Dry run: show this week's adaptive poll without publishing")
     sub.add_parser("report", help="Send the weekly owner report")
     metrics = sub.add_parser("metrics", help="Read views for recent posts from the public widget")
     metrics.add_argument("--limit", type=int, default=12)
@@ -182,6 +184,8 @@ def main(argv: list[str] | None = None) -> int:
             result = digest_command(config, store)
         elif args.command == "digest-card-fix":
             result = digest_card_fix_command(config, store)
+        elif args.command == "poll-preview":
+            result = poll_preview_command(config, store)
         elif args.command == "report":
             result = report_command(config, store)
         elif args.command == "metrics":

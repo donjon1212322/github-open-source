@@ -47,6 +47,8 @@ from .platforms import BlueskyClient, DevToClient, PlatformError
 from .rank import rank_candidates, select_candidate
 from .sources import GitHubApi, collect_candidates, enrich_candidate, enrich_candidates
 from .state import StateStore, iso_now, iso_week_key
+from .polls_design import (audience_ranking_model, build_week_poll,
+                           merge_models, record_poll_result)
 from .telegram import TelegramClient, is_fatal_error
 from .telegraph import TelegraphClient
 
@@ -436,7 +438,8 @@ def publish_slot(config: Config, store: StateStore, slot: str = "manual") -> dic
         candidate = select_candidate(
             list(store.data.get("queue") or []),
             published_today,
-            store.data.get("value_model"),
+            merge_models(store.data.get("value_model"),
+                         audience_ranking_model(store.data.get("audience_profile"))),
         )
         if candidate is None:
             store.event("publish_skipped", slot=slot, reason="no_candidate")
@@ -1501,9 +1504,15 @@ def mark_weekly(store: StateStore, name: str, *, now: datetime | None = None, **
     }
 
 
-def digest_text(records: list[dict[str, Any]]) -> str:
+LEGACY_POLL_LINE = "🗳️ Vote in the poll below: which one deserves Project of the Week?"
+
+
+def digest_text(records: list[dict[str, Any]], *, poll_line: str = LEGACY_POLL_LINE,
+                result_line: str = "") -> str:
     """The Sunday post text. Shared by the publisher and the in-place card fix."""
     lines = ["📰 <b>The Open Source Daily — Top 5 of the Week</b>", ""]
+    if result_line:
+        lines += [html.escape(result_line), ""]
     for index, record in enumerate(records, 1):
         name = html.escape(str(record.get("name") or record.get("full_name") or "Project"))
         link = public_telegram_link(record) or str(record.get("url") or "")
@@ -1522,7 +1531,7 @@ def digest_text(records: list[dict[str, Any]]) -> str:
     lines += [
         "──────────────",
         "↗️ <b>Forward this Top 5</b> to a teammate who should see it.",
-        "🗳️ Vote in the poll below: which one deserves Project of the Week?",
+        poll_line,
         '📣 <a href="https://t.me/GitHub_Open_Source"><b>@GitHub_Open_Source</b></a> — daily open-source picks',
     ]
     return "\n".join(lines)
@@ -1544,19 +1553,20 @@ def digest_command(config: Config, store: StateStore) -> dict[str, Any]:
         image_url, _hosted_by = _host_local_image(
             config, path.read_bytes(), filename=path.name
         )
-    text = digest_text(records)
+    gemini = GeminiClient(config.Gemini_api_key, config.Gemini_model) if config.Gemini_api_key else None
+    spec = build_week_poll(store, client=gemini)
+    poll_line = ("🗳️ " + spec["decides"][:1].upper() + spec["decides"][1:]
+                 + " — vote below, it shapes next week's picks.")
+    result_line = str((store.data.get("audience_profile") or {}).get("last_result") or "")
+    text = digest_text(records, poll_line=poll_line, result_line=result_line)
     sent = telegram.send_text(chat_id, text, preview_url=image_url)
     poll = None
-    poll_labels = {
-        str(record.get("name") or record.get("full_name") or "Project"): str(record.get("full_name") or "")
-        for record in records
-    }
     try:
         poll = polls.send_week_poll(
             telegram,
             chat_id,
-            "Which project should win Project of the Week?",
-            list(poll_labels),
+            spec["question"],
+            spec["options"],
             hours=polls.DEFAULT_WEEK_POLL_HOURS,
         )
         store.data["active_poll"] = {
@@ -1564,8 +1574,16 @@ def digest_command(config: Config, store: StateStore) -> dict[str, Any]:
             # close_poll_command resolves the real chat from the config.
             "chat_id": chat_id if config.is_main_target else "test",
             "message_id": (poll or {}).get("message_id"),
-            "question": "Which project should win Project of the Week?",
-            "repos": poll_labels,
+            "question": spec["question"],
+            "type": spec["type"], "axis": spec["axis"],
+            "option_keys": spec["option_keys"],
+            "option_map": spec["option_map"],
+            "option_topics": spec["option_topics"],
+            "clusters": spec["clusters"],
+            "simplified": spec["simplified"],
+            "gemini_fallback": spec["gemini_fallback"],
+            "post_text": text,
+            "repos": spec["option_map"],
             "opened_at": iso_now(),
         }
     except Exception as exc:  # noqa: BLE001
@@ -1575,14 +1593,23 @@ def digest_command(config: Config, store: StateStore) -> dict[str, Any]:
         telegram_message_id=sent.get("message_id"),
         poll_message_id=(poll or {}).get("message_id"),
         repos=[record.get("full_name") for record in records],
+        poll_type=spec["type"], gemini_fallback=spec["gemini_fallback"],
     )
     mark_weekly(
         store, "digest",
         telegram_message_id=sent.get("message_id"),
         poll_message_id=(poll or {}).get("message_id"),
+        poll_type=spec["type"], gemini_fallback=spec["gemini_fallback"],
     )
     store.save()
     return {"ok": True, "published": True, "telegram_message_id": sent.get("message_id"), "count": len(records)}
+
+
+def poll_preview_command(config: Config, store: StateStore) -> dict[str, Any]:
+    """Dry run: show the poll this week's data would produce. Publishes nothing."""
+    gemini = GeminiClient(config.Gemini_api_key, config.Gemini_model) if config.Gemini_api_key else None
+    spec = build_week_poll(store, client=gemini)
+    return {"ok": True, "published": False, **spec}
 
 
 def digest_card_fix_command(config: Config, store: StateStore) -> dict[str, Any]:
@@ -1609,7 +1636,8 @@ def digest_card_fix_command(config: Config, store: StateStore) -> dict[str, Any]
     if not image_url:
         return {"ok": False, "reason": "upload_failed"}
     TelegramClient(config.telegram_bot_token).edit_text(
-        config.telegram_chat_id, message_id, digest_text(records),
+        config.telegram_chat_id, message_id,
+        str(marker.get("post_text") or "") or digest_text(records),
         preview_url=image_url,
     )
     marker["image_url"] = image_url
@@ -1707,30 +1735,40 @@ def close_poll_command(config: Config, store: StateStore) -> dict[str, Any]:
     except Exception as exc:  # noqa: BLE001
         logger.warning("stopPoll failed: %s", sanitize(str(exc))[:200])
         return {"ok": False, "closed": False, "reason": "stop_poll_failed"}
+    keys = list(poll.get("option_keys") or [])
     entries = []
-    for option in tally.get("options") or []:
+    for index, option in enumerate(tally.get("options") or []):
         entries.append(
             {
                 "label": option["text"],
                 "votes": option["votes"],
                 "share": option["share"],
+                "key": keys[index] if index < len(keys) else "",
                 "repo": (poll.get("repos") or {}).get(option["text"], ""),
             }
         )
+    profile = record_poll_result(store, tally, poll)
     store.data.setdefault("poll_history", []).append(
         {
             "closed_at": iso_now(),
             "question": tally.get("question") or poll.get("question") or "",
             "total_voters": tally.get("total_voters") or 0,
+            "type": poll.get("type") or "",
+            "axis": poll.get("axis") or "",
+            "low_confidence": bool(profile.get("legacy")) or int(tally.get("total_voters") or 0) < 8,
+            "profile_result": profile.get("result") or "",
             "options": entries,
         }
     )
     winner = polls.winner({"options": entries})
     store.data["active_poll"] = {}
-    store.event("poll_closed", total_voters=tally.get("total_voters"), winner=(winner or {}).get("label"))
+    store.event("poll_closed", total_voters=tally.get("total_voters"), winner=(winner or {}).get("label"),
+                poll_type=poll.get("type") or "", profile_result=profile.get("result") or "")
     mark_weekly(store, "poll-close", total_voters=tally.get("total_voters"))
     store.save()
-    return {"ok": True, "closed": True, "winner": winner, "options": entries, "total_voters": tally.get("total_voters")}
+    return {"ok": True, "closed": True, "winner": winner, "options": entries,
+            "total_voters": tally.get("total_voters"), "poll_type": poll.get("type") or "",
+            "profile_result": profile.get("result") or "", "legacy": bool(profile.get("legacy"))}
 
 
 def learn_command(config: Config, store: StateStore) -> dict[str, Any]:
@@ -1871,6 +1909,9 @@ def report_command(config: Config, store: StateStore) -> dict[str, Any]:
         f"Dead letters: <b>{len(store.data.get('dead_letters') or [])}</b>",
         f"AI Briefs recorded: <b>{len(store.data.get('news_topics') or [])}</b>",
     ]
+    audience = store.data.get("audience_profile") or {}
+    if audience.get("last_result"):
+        lines += ["", f"Audience poll: {html.escape(str(audience['last_result']))}"]
     if top:
         lines += ["", "<b>Top by editorial score</b>"]
         for index, record in enumerate(top, 1):
