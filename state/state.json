@@ -4728,6 +4728,10 @@
       "url": "https://github.com/dataelement/dsh-desktop"
     }
   ],
+  "rumour_memory": {
+    "anthropic claude code collaborative mode multiplayer projects working": "2026-11-08",
+    "codex hinted limits reset tibo tweets upcoming": "2026-11-08"
+  },
   "seen_repos": {
     "0xcodez/cleanly": {
       "first_seen_at": "2026-11-03T11:59:59.697932Z",
@@ -9026,9 +9030,5 @@
     }
   },
   "suppressed": {},
-  "version": 1,
-  "rumour_memory": {
-    "anthropic claude code collaborative mode multiplayer projects working": "2026-11-08",
-    "codex hinted limits reset tibo tweets upcoming": "2026-11-08"
-  }
+  "version": 1
 }
