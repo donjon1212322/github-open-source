@@ -89,6 +89,43 @@ def cluster_key(candidate: dict[str, Any]) -> str:
     return str(candidate.get("category") or candidate.get("language") or "misc").strip().lower()
 
 
+# Coarse domains. Distinct GitHub topics are NOT distinct subject matter:
+# claude-code / codex / agent-skills / agentic-ai are all "AI tooling".
+# Four options from four "different" topics like that still read as one poll.
+_FAMILY_TOPICS: dict[str, set[str]] = {
+    "ai_tools": {"claude-code", "ai-agents", "codex", "agent-skills", "agentic-ai",
+                 "llm", "deepseek", "mcp", "claude-code-plugin", "prompt-engineering",
+                 "anthropic", "coding-agents", "computer-use", "gemini-cli"},
+    "platforms": {"macos", "ios", "android", "windows", "linux", "swift", "swiftui",
+                  "tauri", "launcher", "apple-silicon"},
+    "media": {"subtitles", "cad", "animation", "audio-player", "video", "3d",
+              "vulkan", "graphics", "gamedev", "tv", "image"},
+    "languages": {"rust", "python", "javascript", "typescript", "go", "shell", "c",
+                  "cpp", "kotlin"},
+    "self_hosted": {"self-hosted", "privacy", "home-automation", "docker", "local-first"},
+    "cli_tools": {"cli", "gui", "developer-tools", "terminal", "tui"},
+}
+_FAMILY_KEYWORDS = (
+    ("ai_tools", ("agent", "llm", "model", "prompt", "claude", "gpt", "gemini")),
+    ("media", ("video", "audio", "3d", "cad", "animation", "subtitle", "render")),
+    ("platforms", ("macos", "ios", "android", "windows", "linux", "tv ")),
+)
+
+
+def family_key(candidate: dict[str, Any]) -> str:
+    """Broad subject family, so four options are four genuinely different jobs."""
+    for topic in (str(t).strip().lower() for t in (candidate.get("topics") or [])):
+        for family, members in _FAMILY_TOPICS.items():
+            if topic in members:
+                return family
+    blob = (str(candidate.get("description") or "") + " "
+            + str((candidate.get("generated") or {}).get("hook") or "")).lower()
+    for family, words in _FAMILY_KEYWORDS:
+        if any(word in blob for word in words):
+            return family
+    return str(candidate.get("language") or "misc").strip().lower()
+
+
 def _fallback_label(candidate: dict[str, Any]) -> str:
     """Deterministic, name-free job statement from the queue description."""
     raw = _clean(candidate.get("description") or (candidate.get("generated") or {}).get("hook") or "")
@@ -163,24 +200,31 @@ def job_labels(candidates: list[dict[str, Any]], client: Any | None) -> tuple[li
 
 
 def _distinct_candidates(queue: list[dict[str, Any]], limit: int = 4) -> list[dict[str, Any]]:
-    """At most one candidate per cluster, highest score first."""
+    """One candidate per broad family AND per cluster, highest score first."""
     ranked = sorted(queue, key=lambda c: float(c.get("score") or 0), reverse=True)
     picked: list[dict[str, Any]] = []
-    seen: set[str] = set()
-    for candidate in ranked:
-        key = cluster_key(candidate)
-        if key in seen:
-            continue
-        seen.add(key)
-        picked.append(candidate)
+    families: set[str] = set()
+    clusters: set[str] = set()
+    for strict in (True, False):
+        for candidate in ranked:
+            if candidate in picked:
+                continue
+            family = family_key(candidate)
+            cluster = cluster_key(candidate)
+            if strict and (family in families or cluster in clusters):
+                continue
+            if not strict and cluster in clusters:
+                continue
+            families.add(family)
+            clusters.add(cluster)
+            picked.append(candidate)
+            if len(picked) == limit:
+                return picked
+    for candidate in ranked:  # homogeneous queue: fill without the guard
+        if candidate not in picked:
+            picked.append(candidate)
         if len(picked) == limit:
             break
-    if len(picked) < limit:  # queue is homogeneous; fill without the guard
-        for candidate in ranked:
-            if candidate not in picked:
-                picked.append(candidate)
-            if len(picked) == limit:
-                break
     return picked
 
 
@@ -263,6 +307,7 @@ def build_week_poll(store: StateStore, *, client: Any = None, now: Any = None) -
     option_map: dict[str, str] = {}
     topics_map: dict[str, list[str]] = {}
     clusters: list[str] = []
+    families: list[str] = []
     used_fallback = True
 
     if poll_type in ("job", "direction"):
@@ -277,6 +322,7 @@ def build_week_poll(store: StateStore, *, client: Any = None, now: Any = None) -
             option_map[key] = str(candidate.get("full_name") or "")
             topics_map[key] = [str(t).lower() for t in (candidate.get("topics") or [])][:6]
             clusters.append(cluster_key(candidate))
+            families.append(family_key(candidate))
     elif poll_type == "reality_check":
         shift = _view_shift(store) or "open-source"
         label = shift.title()
@@ -307,6 +353,7 @@ def build_week_poll(store: StateStore, *, client: Any = None, now: Any = None) -
         "option_map": option_map,
         "option_topics": topics_map,
         "clusters": clusters,
+        "families": families,
         "axis": poll_type,
         "simplified": simplify,
         "gemini_fallback": used_fallback,

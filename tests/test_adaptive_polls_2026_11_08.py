@@ -86,6 +86,7 @@ def test_options_come_from_distinct_clusters(tmp_path: Path):
     spec = polls_design.build_week_poll(store, client=GoodGemini())
     assert spec["type"] == "job"
     assert len(set(spec["clusters"])) == len(spec["clusters"]), "no four identical AI agents"
+    assert len(set(spec["families"])) == len(spec["families"]), "no four AI-agent-only options"
     assert len(spec["options"]) == 4
     assert all("claude-code" not in o.lower() for o in spec["options"])
     assert all(len(o) <= 100 for o in spec["options"])
@@ -224,3 +225,17 @@ def test_poll_preview_publishes_nothing(monkeypatch, tmp_path: Path):
     assert result["published"] is False
     assert result["options"] and result["question"]
     assert calls == []
+
+
+def test_live_style_skew_still_gives_four_different_subjects(tmp_path: Path):
+    """Reproduce 08.11: 9 claude-code, 7 ai-agents, 6 codex in the queue."""
+    store = StateStore(tmp_path / "state.json")
+    items = [_candidate(i, cluster="claude-code") for i in range(9)]
+    items += [_candidate(20 + i, cluster="ai-agents") for i in range(7)]
+    items += [_candidate(40 + i, cluster="codex") for i in range(6)]
+    items += [_candidate(60 + i, cluster=c) for i, c in
+              enumerate(("macos", "rust", "subtitles", "gamedev", "windows"))]
+    store.data["queue"] = items
+    spec = polls_design.build_week_poll(store, client=GoodGemini())
+    assert len(set(spec["families"])) == 4
+    assert spec["families"].count("ai_tools") <= 1
