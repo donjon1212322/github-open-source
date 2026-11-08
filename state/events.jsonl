@@ -155,3 +155,4 @@
 {"reason": "slot_already_done", "slot": "europe_midday", "ts": "2026-11-08T18:04:14.398814Z", "type": "publish_skipped"}
 {"deleted": 0, "ts": "2026-11-08T18:06:56.096118Z", "type": "moderation_completed", "updates": 6}
 {"archived_votes": 5, "digest_edited": true, "new_message_id": 3574, "old_message_id": 3572, "poll_type": "job", "ts": "2026-11-08T18:09:53.700078Z", "type": "poll_replaced"}
+{"platform": "bluesky", "repo": "modelflare-ai/anymodelbot", "ts": "2026-11-08T18:17:51.438106Z", "type": "crosspost_published", "url": "https://bsky.app/profile/githubopensource.bsky.social/post/3mzszijmcoc2n"}

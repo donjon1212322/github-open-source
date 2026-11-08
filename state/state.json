@@ -1550,7 +1550,8 @@
         "bluesky": {
           "attempts": 0,
           "due_at": "2026-11-08T18:00:00+00:00",
-          "status": "pending"
+          "held_reason": "not_best_of_day",
+          "status": "held"
         }
       },
       "description": "Best headless browser for AI agents. Lite, Fast, High-Compatibility. Built in Rust",
@@ -1958,7 +1959,8 @@
         "bluesky": {
           "attempts": 0,
           "due_at": "2026-11-08T18:00:00+00:00",
-          "status": "pending"
+          "held_reason": "not_best_of_day",
+          "status": "held"
         }
       },
       "description": "Play your own Tears of the Kingdom and Breath of the Wild natively on Apple silicon Mac, iPhone and iPad. Not an emulator: the game's ARM64 code runs directly, NVN rebuilt on Metal. Bring your own game.",
@@ -2072,7 +2074,10 @@
         "bluesky": {
           "attempts": 0,
           "due_at": "2026-11-08T18:00:00+00:00",
-          "status": "pending"
+          "error": "",
+          "published_at": "2026-11-08T18:17:51.438077Z",
+          "status": "published",
+          "url": "https://bsky.app/profile/githubopensource.bsky.social/post/3mzszijmcoc2n"
         }
       },
       "description": "🤖 Open-source, local-first alternative to Grok Bot, OpenAI dots and Claude Duet. Your own AI bots on any model: GPT, Claude, Gemini, Grok, DeepSeek, Kimi, GLM and 70+ more through one Modelflare key. Reach them in the app, WeChat or Feishu; they remember you, work in the background, run commands and use your computer. Pay per use.",
