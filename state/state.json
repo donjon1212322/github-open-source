@@ -76,24 +76,7 @@
       "telegram_message_id": 3567
     },
     "telegram_update_offset": 165231068,
-    "watchdog_dispatches": {
-      "2026-11-07:collect": {
-        "at": "2026-11-07T05:30:38.053834Z",
-        "attempts": 1,
-        "detail": "HTTP 204",
-        "dispatched": true,
-        "verified": true,
-        "verified_at": "2026-11-07T06:00:35.551864Z"
-      },
-      "2026-11-07:publish:europe_morning": {
-        "at": "2026-11-07T08:30:37.840183Z",
-        "attempts": 1,
-        "detail": "HTTP 204",
-        "dispatched": true,
-        "verified": true,
-        "verified_at": "2026-11-07T08:58:15.197798Z"
-      }
-    }
+    "watchdog_dispatches": {}
   },
   "news_topics": [
     {
