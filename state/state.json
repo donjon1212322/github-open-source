@@ -15,12 +15,12 @@
   "dead_letters": [],
   "gemini_window": [
     [
-      1794141836.755394,
-      3953
+      1794158329.5610502,
+      3951
     ],
     [
-      1794141840.4767673,
-      1419
+      1794158333.289815,
+      1440
     ]
   ],
   "last_runs": {
@@ -92,9 +92,9 @@
       "telegram_message_id": 3550
     },
     "publish:us_peak": {
-      "finished_at": "2026-11-07T17:18:57.875034Z",
-      "repo": "jhaizhou-ops/d2r-mobile",
-      "telegram_message_id": 3567
+      "finished_at": "2026-11-08T17:19:00.445934Z",
+      "repo": "ly05010419/macnativegames",
+      "telegram_message_id": 3573
     },
     "report": {
       "finished_at": "2026-11-08T16:43:49.336567Z",
@@ -1843,6 +1843,114 @@
       "visual_host": "imgbb",
       "visual_kind": "readme"
     },
+    "ly05010419/macnativegames": {
+      "articles": {},
+      "card_style": "editorial_daily",
+      "category": "DevTools",
+      "contributors_count": 120,
+      "created_at": "2026-10-17T19:52:00Z",
+      "crossposts": {
+        "bluesky": {
+          "attempts": 0,
+          "due_at": "2026-11-08T18:00:00+00:00",
+          "status": "pending"
+        }
+      },
+      "description": "Play your own Tears of the Kingdom and Breath of the Wild natively on Apple silicon Mac, iPhone and iPad. Not an emulator: the game's ARM64 code runs directly, NVN rebuilt on Metal. Bring your own game.",
+      "description_fp": "84a3bd420e016b39",
+      "forks": 1092,
+      "full_name": "ly05010419/MacNativeGames",
+      "generated": {
+        "article_markdown": "## What it is\n\nMacNativeGames is a technical exploration focused on running Nintendo Switch game code natively on Apple silicon Macs, iPhones, and iPads. Rather than relying on a traditional hardware emulator, the project executes the game's original ARM64 binary code directly on the host CPU while rebuilding the NVN graphics pipeline on top of Apple's Metal API.\n\n## Why it matters\n\nBy leveraging the shared ARM64 architecture between Apple chips and the Switch's NVIDIA Tegra processor, this approach avoids the heavy overhead of CPU instruction translation. Graphics commands are mapped directly to Metal, allowing games to utilize modern Apple hardware acceleration while maintaining the original game logic and execution flow.\n\n## Key features\n\n- Executes original ARM64 game code directly on Apple silicon.\n- Translates NVN graphics API calls directly to Apple Metal.\n- Supports building native macOS applications and iOS IPAs from user-supplied dumps.\n- Offers experimental 6DoF VR streaming for Meta Quest 3 headsets.\n- Includes support documentation for community ports and auxiliary runtime hosts.\n\n## Quick start\n\nTo inspect the project structure and build scripts, clone the repository:\n\n```bash\ngit clone https://github.com/ly05010419/MacNativeGames.git\n```\n\n## Who should try it\n\nThis project fits developers and systems programmers interested in binary translation, graphics API mapping, and ARM architecture execution. It requires users to supply their own legally obtained game ROMs and system keys.\n\n## Verdict\n\nA fascinating technical deep dive into cross-platform binary compatibility. It demands manual setup and patience, but offers a compelling look at native execution on Apple silicon.",
+        "article_title": "MacNativeGames: Run Nintendo Switch ARM64 Code Natively on Apple Silicon with Metal",
+        "card_hook": "Native Nintendo Switch games on Apple Silicon",
+        "card_subline": "Run Switch ARM64 code directly on Mac, iPhone, and iPad using Metal graphics translation",
+        "category": "DevTools",
+        "discussion_question": "Which Nintendo Switch title would you test first with a native ARM64 runtime?",
+        "hook": "Run Tears of the Kingdom ARM64 code natively on Apple silicon with NVN graphics rebuilt on Metal.",
+        "key_features": [
+          "Executes game ARM64 code directly on Apple silicon without a full system emulator",
+          "Translates Nintendo NVN graphics calls into Apple Metal for native rendering",
+          "Builds local macOS applications or iOS IPAs using a provided build script",
+          "Supports running titles like Tears of the Kingdom up to 4K resolution on supported Macs",
+          "Includes experimental 6DoF VR streaming support for Meta Quest 3 via USB-C"
+        ],
+        "llm_used": true,
+        "quick_start": "git clone https://github.com/ly05010419/MacNativeGames.git",
+        "safety": "ok",
+        "safety_reason": "The project is a technical exploration of native execution and graphics translation using user-provided legal game dumps, containing no copyrighted game files or distribution code.",
+        "scene": "You sit at your desk with an Apple silicon Mac, a legal backup of your Nintendo Switch game cartridge, and a build script that needs to compile a native package.",
+        "social_text": "Run Nintendo Switch ARM64 game code natively on Apple silicon Macs by translating NVN graphics to Metal.",
+        "summary": "The project takes dumped Nintendo Switch ROMs and system keys, recompiles the native ARM64 game code to run directly on Apple silicon, and translates NVN graphics API calls into Apple Metal. A minimal host environment handles system services while the actual game binaries execute without hardware emulation. Users supply their own game files and keys to build local macOS apps or iOS IPAs.",
+        "surfaces": {
+          "Facebook_body": "Playing console games on a computer usually requires a heavy emulator that mimics entire hardware systems. A new open source approach takes a different path by letting game code run directly on modern Mac processors without that heavy middle layer. Because newer computer processors share a similar family design with certain console chips, the game instructions can be translated to run natively while graphics are adapted for Apple graphics technology. This results in smooth performance and support for high resolutions like 4K on capable hardware. It also includes experimental features like streaming to virtual reality headsets. This project is built for developers and hobbyists who have strong command line experience and want to explore native ARM code execution using their own legally obtained game files and system keys.",
+          "Facebook_headline": "Play Nintendo Switch games on your Mac",
+          "Facebook_lead": "Turn your legally owned Switch game files into native Mac apps that run without hardware emulation.",
+          "bluesky_headline": "Run Switch games natively on Apple silicon",
+          "bluesky_lead": "Recompiles ARM64 game code and translates graphics to Metal without an emulator.",
+          "devto_body": "## What it is\nMacNativeGames is an open-source project written in C that recompiles Nintendo Switch ARM64 game binaries to execute natively on Apple silicon Macs, iPhones, and iPads. Rather than running a traditional full-system emulator, it translates NVN graphics API calls into Apple Metal and provides a minimal host environment for system services.\n\n## How it works\nThe software takes user-supplied Switch ROMs and system keys, recompiles the native ARM64 game code to run directly on the host Apple silicon architecture, and reroutes graphics rendering through Metal. Because Apple silicon shares the same ARM64 architecture family as the Switch's Tegra processor, direct binary execution becomes practical.\n\n## Key features\n- Direct execution of game ARM64 code on Apple silicon without full system emulation\n- NVN graphics API translation into Apple Metal for native rendering\n- Build scripts to generate local macOS applications or iOS IPAs\n- Support for titles like Tears of the Kingdom up to 4K resolution\n- Experimental 6DoF VR streaming support for Meta Quest 3 via USB-C\n\n## Getting started\nTo use this project, you need an Apple silicon Mac, your own physical game copies, dumped ROMs, and system keys. Clone the repository from GitHub, ensure you have the required build tools for C, and run the provided build script to compile your local macOS app or iOS IPA.\n\n## When not to use it\nThis project is not a polished plug-and-play consumer application. It requires significant command-line patience, technical familiarity with compiling C projects, and user-provided proprietary game assets.",
+          "seo_description": "Play Nintendo Switch games natively on Apple silicon Macs and iOS devices by translating ARM64 code and graphics to Metal. For developers and enthusiasts.",
+          "seo_query": "run switch games natively on apple silicon",
+          "seo_title": "MacNativeGames - Run Switch games natively on Apple silicon",
+          "telegraph_angle": "Explore the technical architecture of direct ARM-to-ARM binary translation versus traditional emulation on Apple silicon."
+        },
+        "tension": "Traditional emulation wastes CPU cycles translating foreign architectures and interpreting hardware layers, dragging down performance even on powerful desktop chips.",
+        "turn": "This project bypasses the emulator entirely by running the game's original ARM64 instructions directly on Apple silicon and mapping graphics calls straight to Metal.",
+        "verdict": "An impressive technical exploration of native game porting, best suited for developers with strong command-line patience and their own legally dumped game assets.",
+        "who_for": "Developers and enthusiasts with Apple silicon Macs who own physical Nintendo Switch game copies and want to explore native ARM-to-ARM execution.",
+        "why_now": "Apple silicon shares the same ARM64 architecture family as the Switch's Tegra processor, making direct binary execution and graphics translation practical on modern macOS and iOS hardware."
+      },
+      "homepage": "",
+      "id": 1423689866,
+      "image_url": "https://i.ibb.co/rGc17sRD/ly05010419-Mac-Native-Games-preview-b61e4aca3328.jpg",
+      "is_dual_use": false,
+      "is_hidden_gem": false,
+      "language": "C",
+      "license": {
+        "key": "mit",
+        "name": "MIT License",
+        "node_id": "MDc6TGljZW5zZTEz",
+        "spdx_id": "MIT",
+        "url": "https://api.github.com/licenses/mit"
+      },
+      "media_urls": [],
+      "name": "MacNativeGames",
+      "open_issues": 313,
+      "published_at": "2026-11-08T17:19:00.445589Z",
+      "pushed_at": "2026-11-06T07:36:14Z",
+      "readme_fp": "452bad1ab27a9ecb",
+      "repo_id": 1423689866,
+      "revisit_of": "",
+      "revisit_reason": "",
+      "score": 89.03,
+      "slot": "us_peak",
+      "sources": [
+        "github_search"
+      ],
+      "stars": 7320,
+      "telegram_chat_id": "@GitHub_Open_Source",
+      "telegram_link": "https://t.me/GitHub_Open_Source/3573",
+      "telegram_message_id": 3573,
+      "telegraph_url": "https://telegra.ph/MacNativeGames-Run-Nintendo-Switch-ARM64-Code-Natively-on-Apple-Silicon-with-Metal-11-08",
+      "topics": [
+        "apple-silicon",
+        "arm64",
+        "breath-of-the-wild",
+        "game-port",
+        "ios",
+        "ipados",
+        "macos",
+        "metal",
+        "native-port",
+        "tears-of-the-kingdom",
+        "ultrawide",
+        "zelda"
+      ],
+      "updated_at": "2026-11-08T16:58:38Z",
+      "url": "https://github.com/ly05010419/MacNativeGames",
+      "visual_host": "imgbb",
+      "visual_kind": "card"
+    },
     "modelflare-ai/anymodelbot": {
       "articles": {
         "devto": {
@@ -3029,65 +3137,6 @@
       ],
       "updated_at": "2026-11-08T11:26:11Z",
       "url": "https://github.com/Donchitos/Claude-Code-Game-Studios"
-    },
-    {
-      "archived": false,
-      "contributors_count": 120,
-      "created_at": "2026-10-17T19:52:00Z",
-      "default_branch": "main",
-      "description": "Play your own Tears of the Kingdom and Breath of the Wild natively on Apple silicon Mac, iPhone and iPad. Not an emulator: the game's ARM64 code runs directly, NVN rebuilt on Metal. Bring your own game.",
-      "disabled": false,
-      "fork": false,
-      "forks": 1087,
-      "forks_count": 1087,
-      "full_name": "ly05010419/MacNativeGames",
-      "has_readme": true,
-      "homepage": "",
-      "id": 1423689866,
-      "is_dual_use": false,
-      "is_hidden_gem": false,
-      "language": "C",
-      "license": {
-        "key": "mit",
-        "name": "MIT License",
-        "node_id": "MDc6TGljZW5zZTEz",
-        "spdx_id": "MIT",
-        "url": "https://api.github.com/licenses/mit"
-      },
-      "media_urls": [],
-      "name": "MacNativeGames",
-      "non_software_reason": "",
-      "open_issues": 296,
-      "open_issues_count": 296,
-      "owner_repo_count": 1,
-      "pushed_at": "2026-11-06T07:36:14Z",
-      "readme": "",
-      "readme_excerpt": "# MacNativeGames\n\n<p align=\"center\"><b>A technical exploration: can a Nintendo Switch game's NVN graphics be ported to Metal?</b><br>\nTested with your own copies of Tears of the Kingdom and Breath of the Wild on Mac, iPhone and iPad. Not an emulator: the game's own ARM64 code runs directly on Apple chips.</p>\n\n[English](#english) | [中文](#chinese)\n\n# English\n\n## Legal\n\n**You must own the game.** Use this project only with games that you bought, and with keys and system files dumped from your own Nintendo Switch. This is an independent, non-commercial project. It is not affiliated with, endorsed by, or sponsored by Nintendo. The Legend of Zelda and Nintendo Switch are trademarks of Nintendo.\n\nThe repository contains no game content and distributes none: no game program, art, text, audio, shaders or keys. Everything the game needs is made on your own computer from your own files when you build the app. The app you build contains the game, so it is for your own use only; do not share it. What the repository does hold is the information needed to make the port work: the patch code, the addresses and hashes used to check your files, and the [shared shader list](docs/shader-list.md), whic",
-      "readme_len": 28656,
-      "repo_id": 1423689866,
-      "score": 89.03,
-      "source_name": "github_search",
-      "sources": [
-        "github_search"
-      ],
-      "stargazers_count": 7295,
-      "stars": 7295,
-      "topics": [
-        "apple-silicon",
-        "arm64",
-        "breath-of-the-wild",
-        "game-port",
-        "ios",
-        "ipados",
-        "macos",
-        "metal",
-        "native-port",
-        "tears-of-the-kingdom",
-        "ultrawide",
-        "zelda"
-      ],
-      "updated_at": "2026-11-08T10:40:26Z",
-      "url": "https://github.com/ly05010419/MacNativeGames"
     },
     {
       "archived": false,
@@ -6699,8 +6748,8 @@
     "ly05010419/macnativegames": {
       "first_seen_at": "2026-11-04T12:14:31.121242Z",
       "full_name": "ly05010419/MacNativeGames",
-      "last_decision": "queued",
-      "last_seen_at": "2026-11-08T11:27:12.969504Z",
+      "last_decision": "published",
+      "last_seen_at": "2026-11-08T17:19:00.445921Z",
       "repo_id": 1423689866,
       "sources": [
         "github_search"

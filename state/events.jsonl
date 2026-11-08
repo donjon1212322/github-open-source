@@ -150,3 +150,5 @@
 {"poll_message_id": 3572, "repos": ["jub0t/Concat", "rehan-remade/universal-modder", "KnifeLemon/Filee", "kajisho5/ffmpeg-skill", "lnkiai/m3e-canvas"], "telegram_message_id": 3571, "ts": "2026-11-08T16:13:56.276862Z", "type": "digest_published"}
 {"projects_7d": 16, "sent": true, "ts": "2026-11-08T16:43:49.336423Z", "type": "weekly_report"}
 {"image_url": "https://i.ibb.co/H192d3y/sunday-digest-stars-fb74bf98fbc9.png", "message_id": 3571, "ts": "2026-11-08T16:53:45.686330Z", "type": "digest_card_replaced"}
+{"preview_host": "imgbb", "repo": "ly05010419/macnativegames", "ts": "2026-11-08T17:19:00.445430Z", "type": "published_as_text"}
+{"repo": "ly05010419/macnativegames", "score": 89.03, "telegram_message_id": 3573, "telegraph_url": "https://telegra.ph/MacNativeGames-Run-Nintendo-Switch-ARM64-Code-Natively-on-Apple-Silicon-with-Metal-11-08", "ts": "2026-11-08T17:19:00.445837Z", "type": "project_published"}
