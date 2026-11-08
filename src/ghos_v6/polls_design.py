@@ -378,11 +378,13 @@ def _update_profile(store: StateStore, tally: dict[str, Any], poll: dict[str, An
     history: list[Any] = profile.setdefault("type_history", [])
     week = iso_week_key(now)
     winner_key = ""
+    winner_label = ""
     best = -1
     for i, option in enumerate(entries):
         if int(option.get("votes") or 0) > best and i < len(keys):
             best = int(option.get("votes") or 0)
             winner_key = keys[i]
+            winner_label = str(option.get("text") or "")
 
     if not low:
         weights: dict[str, float] = dict(axes.get(axis) or {})
@@ -402,11 +404,12 @@ def _update_profile(store: StateStore, tally: dict[str, Any], poll: dict[str, An
                 profile.setdefault("key_topics", {})[key] = topics_map.get(key, [])
         confidence[axis] = round(min(1.0, float(confidence.get(axis, 0.0))
                                     + votes / (4 * MIN_SIGNAL_VOTES)), 4)
-        result = f"{votes} votes shaped {DECIDES.get(axis, 'the next picks')}; " \
-                 f"we will favour “{(winner_key or 'the winner').replace('_', ' ')}” this week."
+        human = winner_label or "the most popular choice"
+        result = (f"Last week: {votes} votes picked “{human}”. "
+                  f"We are leaning into that this week.")
     else:
-        reason = "not enough votes" if votes < MIN_SIGNAL_VOTES else "no poll metadata"
-        result = f"Last week's poll had {reason}, so the mix stays unchanged — asking a simpler question this time."
+        result = ("Last week: not enough votes to change the mix — "
+                  "asking a simpler question this time.")
 
     weeks.append({
         "week": week, "type": spec_meta.get("type") or axis, "axis": axis,
@@ -432,8 +435,9 @@ def record_poll_result(store: StateStore, tally: dict[str, Any], poll: dict[str,
     }
     if not meta["axis"] or not meta["option_keys"]:
         profile = _profile(store)
-        profile["last_result"] = ("Last week's poll had no design metadata; "
-                                 "counted as archive only.")
+        profile["last_result"] = ("Last week: that poll was the old format, "
+                                 "so we are starting fresh — your vote now "
+                                 "shapes next week's picks.")
         profile["updated_at"] = iso_now()
         return {"ok": True, "legacy": True, "result": profile["last_result"]}
     result = _update_profile(store, tally, poll, meta)

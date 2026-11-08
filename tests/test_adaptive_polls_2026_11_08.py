@@ -157,6 +157,7 @@ def test_low_turnout_is_archive_only(tmp_path: Path):
     assert not profile["axes"], "a single vote must not move the ranking"
     assert profile["confidence"] == {}
     assert "not enough votes" in profile["last_result"]
+    assert "metadata" not in profile["last_result"]
 
 
 def test_enough_votes_updates_ema_and_confidence(tmp_path: Path):
@@ -176,7 +177,7 @@ def test_legacy_poll_without_metadata_is_archive(tmp_path: Path):
                                              {"message_id": 3572, "repos": {}})
     assert result["legacy"] is True
     assert not store.data["audience_profile"].get("axes")
-    assert "metadata" in store.data["audience_profile"]["last_result"]
+    assert "old format" in store.data["audience_profile"]["last_result"]
 
 
 def test_digest_text_uses_human_lines_and_no_service_labels():
@@ -239,3 +240,10 @@ def test_live_style_skew_still_gives_four_different_subjects(tmp_path: Path):
     spec = polls_design.build_week_poll(store, client=GoodGemini())
     assert len(set(spec["families"])) == 4
     assert spec["families"].count("ai_tools") <= 1
+
+
+def test_winner_copy_is_human_not_an_internal_key(tmp_path: Path):
+    store = StateStore(tmp_path / "state.json")
+    result = polls_design.record_poll_result(store, _tally([9, 2, 1, 0]), _designed_poll())
+    assert "Last week: 12 votes picked" in result["result"]
+    assert "job_" not in result["result"] and "k0" not in result["result"]
