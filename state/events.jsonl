@@ -164,3 +164,4 @@
 {"channel": "GitHub_Open_Source", "posts": 12, "ts": "2026-11-08T20:23:54.668112Z", "type": "metrics_collected", "updated": 12}
 {"after": 2, "before": 3, "message_id": 3575, "ts": "2026-11-08T20:57:19.020400Z", "type": "brief_rumours_deduped"}
 {"reason": "slot_already_done", "slot": "us_peak", "ts": "2026-11-08T21:13:18.457784Z", "type": "publish_skipped"}
+{"deleted": 0, "ts": "2026-11-08T21:47:52.360693Z", "type": "moderation_completed", "updates": 3}
