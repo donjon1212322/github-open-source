@@ -957,37 +957,44 @@ def render_ai_brief_card_v4(
     facts_line: str = "",
     date_label: str = "",
 ) -> Path:
-    """Owner-approved card D (2026-11-07), corrected 2026-11-08.
+    """Owner-approved card D, made legible after Telegram re-compression.
 
-    The approved mock carried a meaningful intrigue line plus concrete
-    facts. The first live card instead printed service telemetry
-    ("10 exact names, 3 official launches...") and clipped it with "..."
-    because the renderer hard-limited the wrap to three lines. Now the
-    type size is fitted to the phrase so it is ALWAYS rendered complete,
-    and the supporting lines carry facts rather than process descriptions.
+    Owner 08.11 (second pass): Telegram shows the card as a LINK PREVIEW and
+    re-compresses it. The 80px grid caused moire, and 17-19px masthead,
+    handle and footer text disappeared. Everything small is now at least
+    24px and the grid is gone; the gold/white contrast survives JPEG.
     """
-    from PIL import Image, ImageDraw  # local: keeps the module import light
+    from datetime import date as _date  # local: keeps the module import light
+    from PIL import Image, ImageDraw
 
-    cyan = (77, 216, 255)
-    mint = (126, 240, 200)
+    cyan = (110, 226, 255)
+    mint = (140, 248, 208)
     gold = (255, 205, 120)
-    white = (240, 246, 255)
-    dim = (146, 168, 200)
+    white = (244, 249, 255)
+    dim = (188, 208, 232)          # was (146,168,200): too dim after JPEG
+    rule = (52, 78, 118)
     image = Image.new("RGB", (W, H), (8, 12, 22))
     draw = ImageDraw.Draw(image)
-    for x in range(0, W, 80):
-        draw.line([(x, 0), (x, H)], fill=(14, 23, 40))
-    for y in range(0, H, 80):
-        draw.line([(0, y), (W, y)], fill=(14, 23, 40))
-    draw.rectangle([0, 0, 10, H], fill=cyan)
+    # No 80px grid: it turned into moire once Telegram downscaled the PNG.
+    draw.rectangle([0, 0, 12, H], fill=cyan)
 
-    mono = _font("mono", 17, True)
-    mono_s = _font("mono", 17, False)
-    masthead = f"AI BRIEF  /  {date_label or 'TELEGRAM SOURCES'}"
-    draw.text((64, 50), masthead, font=mono, fill=cyan)
+    label = " ".join(str(date_label or "").split())
+    try:
+        label = _date.fromisoformat(label[:10]).strftime("%d %b %Y").upper()
+    except ValueError:
+        pass
+    if not label:
+        label = "TELEGRAM SOURCES"
+
+    mono = _font("mono", 24, True)
+    mono_s = _font("mono", 23, False)
+    draw.text((64, 46), f"AI BRIEF  /  {label}", font=mono, fill=cyan)
     handle = "@GitHub_Open_Source"
-    draw.text((W - 64 - draw.textlength(handle, font=mono_s), 52), handle, font=mono_s, fill=dim)
-    draw.line([(64, 104), (W - 64, 104)], fill=(34, 54, 88))
+    draw.text(
+        (W - 64 - draw.textlength(handle, font=mono_s), 48),
+        handle, font=mono_s, fill=dim,
+    )
+    draw.line([(64, 108), (W - 64, 108)], fill=rule, width=2)
 
     def wrap(text: str, font: Any, max_width: int) -> list[str]:
         out: list[str] = []
@@ -1015,7 +1022,7 @@ def render_ai_brief_card_v4(
         candidate_font = _font("sans", size, True)
         candidate_lines = wrap(phrase, candidate_font, 1030)
         candidate_h = round(size * 1.23)
-        if len(candidate_lines) <= 3 and 150 + len(candidate_lines) * candidate_h <= 430:
+        if len(candidate_lines) <= 3 and 158 + len(candidate_lines) * candidate_h <= 418:
             big, lines, line_h = candidate_font, candidate_lines, candidate_h
             break
     else:  # pragma: no cover - only an absurdly long phrase reaches here
@@ -1023,30 +1030,30 @@ def render_ai_brief_card_v4(
         lines = wrap(phrase, big, 1030)[:4]
         line_h = 46
 
-    top = 150
+    top = 158
     for index, line in enumerate(lines):
         draw.text(
             (64, top + index * line_h), line, font=big,
             fill=gold if index == len(lines) - 1 else white,
         )
-    sub_top = top + len(lines) * line_h + 30
-    sub = _font("sans", 25, False)
-    # Facts, not a description of our own process (owner 08.11).
+    sub_top = top + len(lines) * line_h + 28
+    sub = _font("sans", 30, False)
     sub_text = " ".join(str(subhead or models_line or "").split())
     if not sub_text:
         sub_text = f"{stories or 5} stories worth checking before your next eval run."
     sub_lines = wrap(sub_text, sub, 1000)[:2]
     for index, line in enumerate(sub_lines):
-        draw.text((66, sub_top + index * 36), line, font=sub, fill=dim)
-    draw.line([(64, 530), (W - 64, 530)], fill=(34, 54, 88))
-    footer = _font("mono", 19, True)
+        draw.text((66, sub_top + index * 42), line, font=sub, fill=dim)
+    draw.line([(64, 532), (W - 64, 532)], fill=rule, width=2)
+    footer = _font("mono", 24, True)
     facts = " ".join(str(facts_line or models_line or "").split())
     if not facts:
         facts = f"{stories or 5} stories  ·  no ads"
-    draw.text((64, 556), facts[:90], font=footer, fill=mint)
+    draw.text((64, 556), facts[:80], font=footer, fill=mint)
     right = "no ads · no hype"
     draw.text(
-        (W - 64 - draw.textlength(right, font=footer), 556), right, font=footer, fill=dim
+        (W - 64 - draw.textlength(right, font=footer), 556),
+        right, font=footer, fill=dim,
     )
     image.save(output_path)
     return output_path

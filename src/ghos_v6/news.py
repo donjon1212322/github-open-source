@@ -1519,12 +1519,13 @@ STRUCTURE (adapt the wording, keep every section):
 """.strip()
 
 
+# Owner 08.11 (clarified): "обратная связь я имел в виду ссылку на
+# телеграм канал в статье dev.to". No dev.to comments CTA, no inline buttons
+# in Telegram posts - the channel's native comments are the feedback there.
 DISCUSSION_CTA = (
     "\n\n---\n\n"
-    "💬 **Your turn.** What would you actually test first, and where did this "
-    "brief get something wrong? Tell me in the comments below — I read every "
-    "reply. Want to keep the conversation going? Join the discussion in the "
-    "channel: https://t.me/GitHub_Open_Source\n"
+    "💬 Questions, corrections or a better way to run these evals? Feedback "
+    "and discussion are in the channel: https://t.me/GitHub_Open_Source\n"
 )
 
 _ALTERNATE_QUESTIONS = (
@@ -1557,7 +1558,7 @@ def ensure_distinct_question(markdown: str, brief_question: str) -> str:
 def append_discussion_cta(markdown: str) -> str:
     """Explicit feedback channel (owner 08.11): comments + discussion link."""
     body = markdown.rstrip()
-    if "comments below" in body.lower() and "t.me/GitHub_Open_Source" in body:
+    if "feedback and discussion are in the channel" in body.lower():
         return body + "\n"
     return body + DISCUSSION_CTA
 
@@ -1634,14 +1635,24 @@ The article MUST be at least 1000 words and MUST NOT reuse brief_question.
     # Owner 07.11: the companion article must be a full long read. One
     # controlled expansion request (not a retry series) when Gemini stops
     # short; never publish a 600-word stub silently.
-    if len(markdown.split()) < 1000:
+    # Owner 08.11: "выполни свои рекомендации" - the 968-word live article
+    # was still short of the 1000-1500 requirement. Up to TWO additive
+    # passes (not error retries): each asks Gemini to KEEP every sentence
+    # and append new concrete subsections. Best draft wins.
+    for _pass in range(2):
+        words = len(markdown.split())
+        if words >= 1000:
+            break
         try:
             expanded = client.generate_json(
-                prompt + "\n\nYour previous draft was only "
-                + str(len(markdown.split()))
-                + " words. Rewrite it to 1100-1400 words by adding NEW concrete "
-                "technical detail to each section. No repetition, no filler, "
-                "no new facts beyond brief_data.",
+                prompt + "\n\nYour draft is " + str(words)
+                + " words and MUST be at least 1150. Return the FULL article: "
+                "keep every existing sentence unchanged, then APPEND new "
+                "concrete subsections under the existing H2 headings totalling "
+                "at least " + str(1200 - words) + " new words - mechanics, "
+                "what a developer would re-run, limits and what is still "
+                "unknown. No repetition, no filler, no new facts beyond "
+                "brief_data, no new links.",
                 schema=NEWS_ARTICLE_SCHEMA,
                 youtube_url="",
                 temperature=0.4,
@@ -1650,11 +1661,14 @@ The article MUST be at least 1000 words and MUST NOT reuse brief_question.
             candidate = adapters.normalize_article_markdown(
                 adapters._strip_leading_h1(str(expanded.get("article_markdown") or ""))
             )
-            if len(candidate.split()) > len(markdown.split()):
+            if len(candidate.split()) > words:
                 markdown = candidate
                 title = str(expanded.get("article_title") or title).strip()
         except Exception:  # noqa: BLE001 - publish the best draft we have
             logger.warning("article expansion unavailable; keeping original draft")
+            break
+    if len(markdown.split()) < 1000:
+        logger.warning("article still short after expansion: %d words", len(markdown.split()))
     markdown = ensure_distinct_question(
         markdown, str(brief.get("discussion_question") or "")
     )

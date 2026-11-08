@@ -178,14 +178,50 @@ def test_article_ends_with_a_comments_cta_and_a_distinct_question():
     assert QUESTION not in fixed
     assert "?" in fixed
     with_cta = append_discussion_cta(fixed)
-    assert "comments below" in with_cta.lower()
+    # Owner clarified: feedback = the Telegram channel link in the dev.to
+    # article. No dev.to comments CTA, no inline buttons in the post.
     assert "https://t.me/GitHub_Open_Source" in with_cta
-    assert append_discussion_cta(with_cta).count("comments below") == 1
+    assert "feedback and discussion are in the channel" in with_cta.lower()
+    assert "comments below" not in with_cta.lower()
+    assert append_discussion_cta(with_cta).count("t.me/GitHub_Open_Source") == 1
 
 
 # ---------------------------------------------------------------------------
 # 4. The live artefacts are EDITED, never duplicated.
 # ---------------------------------------------------------------------------
+def test_card_is_legible_after_telegram_link_preview_recompression(tmp_path: Path):
+    """Owner 08.11: the card was 'замылена', small captions unreadable."""
+    source = Path(__file__).resolve().parents[1] / "src/ghos_v6/cards.py"
+    text = source.read_text()
+    body = text[text.index("def render_ai_brief_card_v4("):]
+    assert "for x in range(0, W, 80)" not in body, "80px grid causes moire after downscale"
+    assert '_font("mono", 17' not in body
+    assert '_font("mono", 19' not in body
+    assert '_font("sans", 25' not in body
+    path = tmp_path / "legible.png"
+    render_ai_brief_card_v4(
+        "New model drops", "Gemini Omni 1.2 Flash — Rolled out video generation up to 15 seconds",
+        "Gemini Omni 1.2 Flash · Inkling 2 Small", path,
+        stories=5, subhead="Gemini Omni 1.2 Flash · Inkling 2 Small · GPT-6 Cyber",
+        facts_line="15 seconds  ·  30 percent  ·  594B", date_label="2026-11-07",
+    )
+    with Image.open(path) as im:
+        assert im.size == (1200, 630)
+
+
+def test_edit_payload_has_no_inline_buttons_native_comments_stay():
+    """Owner 08.11: 'кнопки в постах не нужны, там коментарии'."""
+    from ghos_v6.telegram_payload import build_edit_message_payload
+    payload = build_edit_message_payload(
+        "@GitHub_Open_Source", 3568, "<b>AI Brief</b>",
+        preview_url="https://i.ibb.co/card.png",
+    )
+    assert "reply_markup" not in payload
+    assert "inline_keyboard" not in payload
+    assert payload["message_id"] == 3568
+    assert payload["parse_mode"] == "HTML"
+
+
 def test_update_markdown_puts_to_the_existing_article_never_posts(monkeypatch):
     from ghos_v6.platforms import DevToClient
 
@@ -285,7 +321,7 @@ def test_quality_fix_updates_the_live_post_and_article_in_place(monkeypatch, tmp
     assert "10 exact names" not in str(edited["text"])
     assert str(edited["text"]).count("collaborative mode for Claude Code Projects") == 1
     assert updated["id"] == 4995411
-    assert "comments below" in str(updated["body"])
+    assert "https://t.me/GitHub_Open_Source" in str(updated["body"])
     assert QUESTION not in str(updated["body"])
     assert updated["cover_url"] == "https://i.ibb.co/devto-cover.png"
     assert store.data["news_topics"][0]["image_url"] == "https://i.ibb.co/new-card.png"
