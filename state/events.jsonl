@@ -144,3 +144,4 @@
 {"preview_host": "imgbb", "repo": "lexmount/moli", "ts": "2026-11-08T12:44:05.921186Z", "type": "published_as_text"}
 {"repo": "lexmount/moli", "score": 90.5, "telegram_message_id": 3570, "telegraph_url": "https://telegra.ph/Moli-A-Fast-Headless-Rust-Browser-for-AI-Agents-and-Web-Scraping-11-08", "ts": "2026-11-08T12:44:05.921539Z", "type": "project_published"}
 {"deleted": 0, "ts": "2026-11-08T12:47:50.752421Z", "type": "moderation_completed", "updates": 0}
+{"platform": "devto", "repo": "modelflare-ai/anymodelbot", "ts": "2026-11-08T13:33:51.662979Z", "type": "article_published", "url": "https://dev.to/githubopensource/run-local-ai-agents-in-chat-apps-open-source-tool-3c12"}

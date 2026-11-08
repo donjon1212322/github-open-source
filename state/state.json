@@ -12,11 +12,11 @@
   ],
   "last_runs": {
     "article": {
-      "finished_at": "2026-11-07T18:09:39.496163Z",
-      "published": false,
-      "reason": "already_published_today",
-      "repo": "",
-      "url": ""
+      "finished_at": "2026-11-08T13:33:51.663093Z",
+      "published": true,
+      "reason": "published",
+      "repo": "modelflare-ai/anymodelbot",
+      "url": "https://dev.to/githubopensource/run-local-ai-agents-in-chat-apps-open-source-tool-3c12"
     },
     "collect": {
       "discovered": 643,
@@ -1817,7 +1817,13 @@
       "visual_kind": "readme"
     },
     "modelflare-ai/anymodelbot": {
-      "articles": {},
+      "articles": {
+        "devto": {
+          "id": 4998777,
+          "published_at": "2026-11-08T13:33:51.662959Z",
+          "url": "https://dev.to/githubopensource/run-local-ai-agents-in-chat-apps-open-source-tool-3c12"
+        }
+      },
       "card_style": "",
       "category": "AI",
       "contributors_count": 6,
@@ -1831,6 +1837,7 @@
       },
       "description": "🤖 Open-source, local-first alternative to Grok Bot, OpenAI dots and Claude Duet. Your own AI bots on any model: GPT, Claude, Gemini, Grok, DeepSeek, Kimi, GLM and 70+ more through one Modelflare key. Reach them in the app, WeChat or Feishu; they remember you, work in the background, run commands and use your computer. Pay per use.",
       "description_fp": "452080c06c4c89a5",
+      "devto_cover_url": "https://i.ibb.co/Vphs2gRc/modelflare-ai-anymodelbot-devto-cover-ccf6b41b85ae.png",
       "forks": 44,
       "full_name": "modelflare-ai/AnyModelBot",
       "generated": {
