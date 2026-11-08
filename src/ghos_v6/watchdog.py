@@ -197,9 +197,15 @@ def _notify(config: Config, text_html: str) -> bool:
 
 def _note_dispatch_cap(config: Config, store: StateStore, cap_state: dict[str, Any],
                        scope: str, slot: str, alerts: list[str]) -> None:
-    store.event("watchdog_dispatch_capped", slot=slot, scope=scope,
-                max_attempts=MAX_ATTEMPTS_PER_SLOT,
-                max_daily=MAX_DAILY_DISPATCHES)
+    # One audit event per capped slot per day, not one per watchdog tick:
+    # 72 ticks/day would otherwise flood events.jsonl and push real history
+    # out of the 2 000-line rotation window.
+    slots = cap_state.setdefault("slots", [])
+    if slot not in slots:
+        slots.append(slot)
+        store.event("watchdog_dispatch_capped", slot=slot, scope=scope,
+                    max_attempts=MAX_ATTEMPTS_PER_SLOT,
+                    max_daily=MAX_DAILY_DISPATCHES)
     if cap_state.get("notified"):
         return
     cap_state["notified"] = True
