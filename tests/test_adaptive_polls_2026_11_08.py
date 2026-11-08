@@ -185,12 +185,19 @@ def test_digest_text_uses_human_lines_and_no_service_labels():
         [{"name": "Concat", "stars": 14124, "score": 95,
           "generated": {"hook": "Edit videos locally."}}],
         poll_line="🗳️ Which job we cover next week — vote below.",
-        result_line="Last week: not enough votes to change the mix.",
     )
     assert "Which job we cover next week" in text
-    assert "Last week: not enough votes" in text
     assert "Project of the Week" not in text
     assert "views" not in text.lower()
+
+
+def test_poll_verdict_stays_private_to_the_owner_report():
+    """Owner 08.11: results must NOT be posted into the channel."""
+    import inspect
+    assert "last_result" not in inspect.getsource(pipeline.digest_command)
+    assert "result_line" not in inspect.getsource(pipeline.digest_text)
+    assert "last_result" in inspect.getsource(pipeline.report_command)
+    assert "Audience poll" in inspect.getsource(pipeline.report_command)
 
 
 def test_ranking_profile_nudges_but_stays_clamped(tmp_path: Path):

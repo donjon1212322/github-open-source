@@ -1513,12 +1513,13 @@ def poll_decides_line(spec: dict[str, Any]) -> str:
     return "🗳️ " + decides[:1].upper() + decides[1:] + " — vote below, it shapes next week's picks."
 
 
-def digest_text(records: list[dict[str, Any]], *, poll_line: str = LEGACY_POLL_LINE,
-                result_line: str = "") -> str:
-    """The Sunday post text. Shared by the publisher and the in-place card fix."""
+def digest_text(records: list[dict[str, Any]], *, poll_line: str = LEGACY_POLL_LINE) -> str:
+    """The Sunday post text. Shared by the publisher and the in-place card fix.
+
+    Owner 08.11: poll results go ONLY to the owner report. They are
+    deliberately not a parameter here, so a digest post can never leak them.
+    """
     lines = ["📰 <b>The Open Source Daily — Top 5 of the Week</b>", ""]
-    if result_line:
-        lines += [html.escape(result_line), ""]
     for index, record in enumerate(records, 1):
         name = html.escape(str(record.get("name") or record.get("full_name") or "Project"))
         link = public_telegram_link(record) or str(record.get("url") or "")
@@ -1562,8 +1563,9 @@ def digest_command(config: Config, store: StateStore) -> dict[str, Any]:
     gemini = GeminiClient(config.Gemini_api_key, config.Gemini_model) if config.Gemini_api_key else None
     spec = build_week_poll(store, client=gemini)
     poll_line = poll_decides_line(spec)
-    result_line = str((store.data.get("audience_profile") or {}).get("last_result") or "")
-    text = digest_text(records, poll_line=poll_line, result_line=result_line)
+    # The previous poll's verdict stays private: it appears in report_command
+    # (owner only), never in the public channel post.
+    text = digest_text(records, poll_line=poll_line)
     sent = telegram.send_text(chat_id, text, preview_url=image_url)
     poll = None
     try:
@@ -2014,6 +2016,7 @@ def report_command(config: Config, store: StateStore) -> dict[str, Any]:
         f"Dead letters: <b>{len(store.data.get('dead_letters') or [])}</b>",
         f"AI Briefs recorded: <b>{len(store.data.get('news_topics') or [])}</b>",
     ]
+    # Owner 08.11: the poll verdict belongs in this private report only.
     audience = store.data.get("audience_profile") or {}
     if audience.get("last_result"):
         lines += ["", f"Audience poll: {html.escape(str(audience['last_result']))}"]
