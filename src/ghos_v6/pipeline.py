@@ -29,7 +29,9 @@ from .news import (
     NewsSourceError,
     brief_model_names,
     brief_stories,
+    brief_number_facts,
     card_hook_text,
+    dedupe_claims,
     extract_primary_urls,
     fetch_primary_text,
     fetch_worldofai_entries,
@@ -1366,7 +1368,15 @@ def news_command(
             # many stories it represents (owner feedback 04.11.2026).
             standfirst = card_hook_text(brief)
             card_fn = render_ai_brief_card_v4 if use_telegram else render_ai_brief_card
-            card_kwargs: dict[str, Any] = {"stories": len(stories)}
+            card_kwargs: dict[str, Any] = {
+                "stories": len(stories),
+                # Owner 08.11: the supporting lines must carry concrete
+                # facts, not a description of our own process.
+                "subhead": " · ".join(names[:3]),
+                # Numbers, not the same model names twice (owner 08.11).
+                "facts_line": "  ·  ".join(brief_number_facts(brief)[:3]),
+                "date_label": datetime.now(timezone.utc).strftime("%d %b %Y").upper(),
+            }
             if use_telegram:
                 card_kwargs["rumours"] = len(material.get("rumours") or [])
             card_path = card_fn(
@@ -1968,13 +1978,17 @@ def news_article_command(config: Config, store: StateStore) -> dict[str, Any]:
         return {"ok": True, "published": False, "reason": "article_not_ready"}
     title = (title or str(topic.get("headline") or "AI model watch"))[:120]
 
+    # dev.to re-encodes main_image into 1000x420 fit=cover. The 1200x630
+    # Telegram card loses its masthead and footer there, so host a dedicated
+    # cover first (owner 08.11: "карточка обрезана").
+    cover_url = _ensure_devto_cover(config, topic) or str(topic.get("image_url") or "")
     devto = DevToClient(config.dev_api_key)
     try:
         result = devto.publish_markdown(
             title,
             markdown,
             tags=("ai", "opensource", "machinelearning", "news"),
-            cover_url=str(topic.get("image_url") or ""),
+            cover_url=cover_url,
         )
     except Exception as exc:  # noqa: BLE001
         reason = sanitize(str(exc))[:300]
@@ -2002,4 +2016,118 @@ def news_article_command(config: Config, store: StateStore) -> dict[str, Any]:
         "url": url,
         "words": words,
         "title": title,
+    }
+
+
+def quality_fix_command(config: Config, store: StateStore) -> dict[str, Any]:
+    """Owner 08.11: fix the LIVE AI Brief post and companion article in place.
+
+    No duplicate Telegram message and no second dev.to article. Re-renders
+    the card with a meaningful headline, removes duplicated rumours and the
+    duplicated closing question, regenerates the long read with a comments
+    CTA, and hosts a dedicated 1000x420 dev.to cover.
+    """
+    topics = store.data.get("news_topics") or []
+    last_runs = store.data.setdefault("last_runs", {})
+    marker = last_runs.get("news-article") or {}
+    if not topics:
+        return {"ok": True, "reason": "no_brief"}
+    day = str(marker.get("finished_at") or "")[:10]
+    topic = next(
+        (
+            item for item in reversed(topics)
+            if day and str(item.get("published_at") or "").startswith(day)
+        ),
+        None,
+    ) or topics[-1]
+    brief = dict(topic.get("brief") or {})
+    if not brief:
+        return {"ok": True, "reason": "brief_not_stored"}
+    # The stored hook is the old telemetry string; the new formatter rebuilds
+    # a meaningful line from the audited stories instead.
+    brief["narrative_hook"] = str(brief.get("narrative_hook") or brief.get("hook") or "")
+    brief["card_hook_raw"] = str(brief.get("card_hook") or "")
+    brief["unconfirmed_claims"] = dedupe_claims(brief.get("unconfirmed_claims"))
+    config.require("TELEGRAM_BOT_TOKEN", "GEMINI_API_KEY", "DEV_API_KEY")
+
+    names = brief_model_names(brief)
+    stories = brief_stories(brief)
+    preview_url = str(topic.get("image_url") or "")
+    try:
+        with tempfile.TemporaryDirectory() as tmp:
+            card = render_ai_brief_card_v4(
+                str(brief.get("headline") or "AI model watch"),
+                card_hook_text(brief),
+                " · ".join(names[:2]),
+                Path(tmp) / "ai-brief.png",
+                stories=len(stories),
+                subhead=" · ".join(names[:3]),
+                facts_line="  ·  ".join(brief_number_facts(brief)[:3]),
+                date_label=str(topic.get("published_at") or "")[:10],
+            )
+            uploaded, _host = _host_local_image(
+                config, card.read_bytes(), filename="ai-brief-quality-fix.png"
+            )
+            if uploaded:
+                preview_url = uploaded
+    except Exception as exc:  # noqa: BLE001 - keep the old image, edit the text
+        logger.warning("quality fix card failed: %s", type(exc).__name__)
+
+    text = format_ai_brief_digest(brief)
+    message_id = int(topic.get("telegram_message_id") or 0)
+    edited = False
+    if message_id:
+        try:
+            TelegramClient(config.telegram_bot_token).edit_text(
+                config.telegram_chat_id, message_id, text, preview_url=preview_url
+            )
+            edited = True
+        except Exception as exc:  # noqa: BLE001
+            logger.warning("quality fix telegram edit failed: %s", type(exc).__name__)
+
+    topic["image_url"] = preview_url
+    topic["brief"] = brief
+    topic["devto_cover_url"] = ""  # force a fresh 1000x420 cover
+
+    client = GeminiClient(config.Gemini_api_key, config.Gemini_model)
+    article = synthesize_news_article(brief, client)
+    title = article["article_title"]
+    markdown = article["article_markdown"]
+    topic["article_title"] = title
+    topic["article_markdown"] = markdown
+    cover_url = _ensure_devto_cover(config, topic) or preview_url
+    article_id = marker.get("devto_id")
+    devto = DevToClient(config.dev_api_key)
+    if article_id:
+        result = devto.update_markdown(
+            article_id, title, markdown,
+            tags=("ai", "opensource", "machinelearning", "news"),
+            cover_url=cover_url,
+        )
+        action = "updated"
+        marker["words"] = len(markdown.split())
+        marker["title"] = title
+        marker["updated_at"] = iso_now()
+    else:
+        result = devto.publish_markdown(
+            title, markdown,
+            tags=("ai", "opensource", "machinelearning", "news"),
+            cover_url=cover_url,
+        )
+        action = "created"
+        marker = {
+            "devto_id": result.get("id"), "url": result.get("url"),
+            "published": True, "words": len(markdown.split()), "title": title,
+            "finished_at": iso_now(),
+        }
+        last_runs["news-article"] = marker
+    store.event(
+        "quality_fix_applied", action=action, telegram_edited=edited,
+        words=len(markdown.split()), devto_id=marker.get("devto_id"),
+    )
+    store.save()
+    return {
+        "ok": True, "action": action, "telegram_edited": edited,
+        "devto_id": marker.get("devto_id"), "words": len(markdown.split()),
+        "title": title, "cover_url": cover_url,
     }

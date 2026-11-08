@@ -17,6 +17,7 @@ on:
           - devto-remove
           - news
           - news-article
+          - quality-fix
           - digest
           - report
           - moderation
@@ -143,7 +144,7 @@ jobs:
         run: |
           if [[ "$EVENT_NAME" == "workflow_dispatch" ]]; then
             case "$COMMAND" in
-              collect|publish|crossposts|article|article-update|article-unseries|devto-remove|news|news-article|digest|report|moderation|facebook-handoff|metrics|learn|poll-close) ;;
+              collect|publish|crossposts|article|article-update|article-unseries|devto-remove|news|news-article|quality-fix|digest|report|moderation|facebook-handoff|metrics|learn|poll-close) ;;
               *) echo "::error::invalid command: $COMMAND"; exit 1 ;;
             esac
             if [[ "$COMMAND" == "publish" ]]; then

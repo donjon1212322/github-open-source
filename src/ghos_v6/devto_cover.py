@@ -9,8 +9,8 @@ sides instead. This module produces one 1000x420 cover that survives both:
 * the whole 1200x630 card is scaled down, nothing is cropped;
 * it sits inside a 760x399 safe area in the middle of the canvas, so the
   side margins are what a social-card crop removes;
-* the margins use the card's own paper colour, so the result reads as one
-  continuous "project file" sheet rather than a letterboxed photo.
+* the margins use the card's own background colour, so the result reads as
+  one continuous sheet rather than a letterboxed photo.
 """
 from __future__ import annotations
 
@@ -22,10 +22,12 @@ COVER_W, COVER_H = 1000, 420
 CARD_W, CARD_H = 1200, 630
 # 760/1200 == 399/630; the card stays proportional and fully visible.
 SAFE_W, SAFE_H = 760, 399
-PAPER = (247, 239, 222)
-INK = (27, 23, 16)
-RULE = (205, 191, 166)
-RED = (179, 52, 42)
+# Card D is a dark grid (owner 08.11). Matching margins make the 1000x420
+# cover read as one continuous sheet instead of a light letterbox.
+PAPER = (8, 12, 22)
+INK = (34, 54, 88)
+RULE = (34, 54, 88)
+RED = (77, 216, 255)
 
 
 def build_devto_cover(card_bytes: bytes) -> bytes:
@@ -46,7 +48,7 @@ def build_devto_cover(card_bytes: bytes) -> bytes:
 
     draw = ImageDraw.Draw(canvas)
     # Hairlines make the wide margins deliberate; the outer frame keeps the
-    # cover bounded even on dev.to's dark theme.
+    # cover bounded even on dev.to's dark theme. Nothing is cropped.
     draw.line((left - 1, 0, left - 1, COVER_H), fill=RULE, width=1)
     draw.line((left + size[0], 0, left + size[0], COVER_H), fill=RULE, width=1)
     draw.rectangle((0, 0, COVER_W - 1, COVER_H - 1), outline=INK, width=3)

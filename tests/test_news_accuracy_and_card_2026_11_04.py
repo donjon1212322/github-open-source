@@ -240,7 +240,7 @@ def test_news_command_hands_the_hook_and_story_count_to_the_card(monkeypatch, tm
             captured["text"] = text
             return {"message_id": 42}
 
-    def _card(headline, standfirst, models_line, path, *, stories=0):
+    def _card(headline, standfirst, models_line, path, *, stories=0, **kwargs):
         captured.update(headline=headline, standfirst=standfirst, stories=stories)
         return card
 
@@ -253,7 +253,10 @@ def test_news_command_hands_the_hook_and_story_count_to_the_card(monkeypatch, tm
 
     result = pipeline.news_command(_config(), StateStore(tmp_path))
     assert result["published"] is True
-    assert "exact names" in captured["standfirst"]
+    # Owner 08.11: service counters are banned from the cover card.
+    assert "exact names" not in captured["standfirst"]
+    assert "official launches" not in captured["standfirst"]
+    assert captured["standfirst"]
     assert "This digest covers" not in captured["standfirst"]
     assert captured["stories"] == 2
     assert "Leaked checkpoint" in captured["text"]
@@ -268,8 +271,10 @@ def test_card_never_cuts_the_hook_mid_phrase():
     )
     short = card_hook_text({"hook": long_hook})
     assert len(short) <= 115
-    assert short.endswith("…"), "a shortened hook must mark the cut explicitly"
-    assert not short[:-1].endswith(("a", "the", "and", "of", "on")), "no dangling article"
+    # Owner 08.11: a clipped phrase with "..." is meaningless. The card now
+    # fits its type size to a COMPLETE phrase instead.
+    assert "…" not in short and "..." not in short
+    assert not short.endswith(("a", "the", "and", "of", "on")), "no dangling article"
     geo = ai_brief_card_geometry(_draw(), LONG_HEADLINE, short)
     assert " ".join(geo["stand_lines"]) == short, "the card must not chop the hook"
     assert geo["stand_bottom"] <= AI_BRIEF_BAND_TOP - 8

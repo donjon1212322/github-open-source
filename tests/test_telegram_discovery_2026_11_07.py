@@ -231,8 +231,10 @@ def test_second_devto_article_is_idempotent_and_separate(tmp_path: Path):
     from ghos_v6.state import StateStore
 
     store = StateStore(tmp_path / "state.json")
+    from datetime import datetime, timezone
+    today = datetime.now(timezone.utc).date().isoformat()
     store.data["last_runs"] = {
-        "news-article": {"finished_at": "2026-11-07T01:00:00Z"}
+        "news-article": {"finished_at": f"{today}T01:00:00Z"}
     }
     result = news_article_command(Config(), store)
     assert result["published"] is False

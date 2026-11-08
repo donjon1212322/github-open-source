@@ -953,12 +953,18 @@ def render_ai_brief_card_v4(
     *,
     stories: int = 0,
     rumours: int = 0,
+    subhead: str = "",
+    facts_line: str = "",
+    date_label: str = "",
 ) -> Path:
-    """Owner-approved card D (2026-11-07): narrative hook, no service labels.
+    """Owner-approved card D (2026-11-07), corrected 2026-11-08.
 
-    Replaces the old "Glass Aurora / 05 STORIES VERIFIED" card, which the
-    owner rejected. Dark grid, one large intrigue phrase, gold contrast line,
-    a small factual footer. No external fonts or network resources.
+    The approved mock carried a meaningful intrigue line plus concrete
+    facts. The first live card instead printed service telemetry
+    ("10 exact names, 3 official launches...") and clipped it with "..."
+    because the renderer hard-limited the wrap to three lines. Now the
+    type size is fitted to the phrase so it is ALWAYS rendered complete,
+    and the supporting lines carry facts rather than process descriptions.
     """
     from PIL import Image, ImageDraw  # local: keeps the module import light
 
@@ -977,16 +983,14 @@ def render_ai_brief_card_v4(
 
     mono = _font("mono", 17, True)
     mono_s = _font("mono", 17, False)
-    draw.text((64, 50), "AI BRIEF  /  TELEGRAM SOURCES", font=mono, fill=cyan)
+    masthead = f"AI BRIEF  /  {date_label or 'TELEGRAM SOURCES'}"
+    draw.text((64, 50), masthead, font=mono, fill=cyan)
     handle = "@GitHub_Open_Source"
     draw.text((W - 64 - draw.textlength(handle, font=mono_s), 52), handle, font=mono_s, fill=dim)
     draw.line([(64, 104), (W - 64, 104)], fill=(34, 54, 88))
 
-    big = _font("sans", 62, True)
-    phrase = " ".join(str(standfirst or headline or "A 35-year-old math problem fell on a Tuesday.").split())
-
     def wrap(text: str, font: Any, max_width: int) -> list[str]:
-        lines: list[str] = []
+        out: list[str] = []
         current = ""
         for word in text.split():
             trial = (current + " " + word).strip()
@@ -994,29 +998,56 @@ def render_ai_brief_card_v4(
                 current = trial
             else:
                 if current:
-                    lines.append(current)
+                    out.append(current)
                 current = word
         if current:
-            lines.append(current)
-        return lines[:3]
+            out.append(current)
+        return out
 
-    lines = wrap(phrase, big, 1030)
+    phrase = " ".join(
+        str(standfirst or headline or "A 35-year-old math problem fell on a Tuesday.").split()
+    )
+    # Fit the WHOLE phrase: no fixed three-line cut and no ellipsis.
+    lines: list[str] = []
+    big = _font("sans", 62, True)
+    line_h = 76
+    for size in range(62, 35, -2):
+        candidate_font = _font("sans", size, True)
+        candidate_lines = wrap(phrase, candidate_font, 1030)
+        candidate_h = round(size * 1.23)
+        if len(candidate_lines) <= 3 and 150 + len(candidate_lines) * candidate_h <= 430:
+            big, lines, line_h = candidate_font, candidate_lines, candidate_h
+            break
+    else:  # pragma: no cover - only an absurdly long phrase reaches here
+        big = _font("sans", 36, True)
+        lines = wrap(phrase, big, 1030)[:4]
+        line_h = 46
+
     top = 150
     for index, line in enumerate(lines):
-        draw.text((64, top + index * 76), line, font=big, fill=gold if index == len(lines) - 1 else white)
-    sub_top = top + len(lines) * 76 + 30
+        draw.text(
+            (64, top + index * line_h), line, font=big,
+            fill=gold if index == len(lines) - 1 else white,
+        )
+    sub_top = top + len(lines) * line_h + 30
     sub = _font("sans", 25, False)
-    sub_lines = wrap(
-        "Telegram channels, not video round-ups. Rare finds stay in.", sub, 1000
-    )
+    # Facts, not a description of our own process (owner 08.11).
+    sub_text = " ".join(str(subhead or models_line or "").split())
+    if not sub_text:
+        sub_text = f"{stories or 5} stories worth checking before your next eval run."
+    sub_lines = wrap(sub_text, sub, 1000)[:2]
     for index, line in enumerate(sub_lines):
         draw.text((66, sub_top + index * 36), line, font=sub, fill=dim)
     draw.line([(64, 530), (W - 64, 530)], fill=(34, 54, 88))
     footer = _font("mono", 19, True)
-    facts = f"{stories or 5} stories  ·  {rumours} rumours kept  ·  no ads"
-    draw.text((64, 556), facts, font=footer, fill=mint)
+    facts = " ".join(str(facts_line or models_line or "").split())
+    if not facts:
+        facts = f"{stories or 5} stories  ·  no ads"
+    draw.text((64, 556), facts[:90], font=footer, fill=mint)
+    right = "no ads · no hype"
     draw.text(
-        (W - 64 - draw.textlength("no hype", font=footer), 556), "no hype", font=footer, fill=dim
+        (W - 64 - draw.textlength(right, font=footer), 556), right, font=footer, fill=dim
     )
     image.save(output_path)
     return output_path
+

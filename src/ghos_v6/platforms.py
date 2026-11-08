@@ -138,6 +138,43 @@ class DevToClient:
             raise _error("dev.to", response)
         return dict(response.json() or {})
 
+    def update_markdown(
+        self,
+        article_id: int | str,
+        title: str,
+        body_markdown: str,
+        *,
+        tags: tuple[str, ...] = (),
+        cover_url: str = "",
+    ) -> dict[str, Any]:
+        """PUT an already-rendered standalone article back in place.
+
+        Unlike ``update_article`` this does NOT rebuild a project review: it
+        preserves the Gemini-written companion article verbatim. No duplicate
+        post is created (owner 08.11: fix the live article in place).
+        """
+        if not self.configured:
+            raise PlatformError("DEV_API_KEY is not set")
+        if not body_markdown.strip():
+            raise PlatformError("dev.to article markdown is empty")
+        article: dict[str, Any] = {
+            "title": title[:120],
+            "body_markdown": body_markdown,
+            "published": True,
+            "tags": list(tags)[:4],
+            "series": None,
+        }
+        if cover_url.startswith("https://"):
+            article["main_image"] = cover_url
+        response = self._request(
+            "PUT", f"https://dev.to/api/articles/{article_id}",
+            json={"article": article},
+        )
+        if response.status_code not in {200, 201}:
+            raise _error("dev.to update", response)
+        return dict(response.json() or {})
+
+
     def my_articles(self, per_page: int = 100) -> list[dict[str, Any]]:
         """Articles owned by this API key, including drafts."""
         response = self._request(

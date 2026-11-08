@@ -23,6 +23,7 @@ from .pipeline import (
     moderation_command,
     news_command,
     news_article_command,
+    quality_fix_command,
     process_crossposts,
     publish_slot,
     remove_devto_articles,
@@ -68,6 +69,10 @@ def _parser() -> argparse.ArgumentParser:
 
     news = sub.add_parser("news", help="Publish the daily AI Brief from Telegram channels")
     sub.add_parser("news-article", help="Publish the second daily dev.to article from the AI Brief")
+    sub.add_parser(
+        "quality-fix",
+        help="Fix the live AI Brief post and companion article in place (no duplicates)",
+    )
     news.add_argument("--force", action="store_true", help="Run even if FEATURE_AI_BRIEF=false")
     news.add_argument(
         "--refresh",
@@ -167,6 +172,8 @@ def main(argv: list[str] | None = None) -> int:
             result = remove_devto_articles(config, store, ids=args.ids)
         elif args.command == "news-article":
             result = news_article_command(config, store)
+        elif args.command == "quality-fix":
+            result = quality_fix_command(config, store)
         elif args.command == "news":
             result = news_command(config, store, force=args.force, refresh=args.refresh)
         elif args.command == "digest":
