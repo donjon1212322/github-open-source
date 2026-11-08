@@ -80,7 +80,10 @@ def test_telegraph_author_url_is_the_real_channel():
 
 
 def test_digest_uses_only_public_links():
-    src = inspect.getsource(digest_command)
+    # 08.11: the post text lives in digest_text(), shared with the in-place
+    # card fix, so the link policy is asserted on that builder.
+    from ghos_v6.pipeline import digest_text
+    src = inspect.getsource(digest_command) + inspect.getsource(digest_text)
     assert "public_telegram_link(record)" in src
     assert 'record.get("telegram_link")' not in src
 

@@ -889,26 +889,23 @@ def render_digest_card(records: Iterable[dict[str, Any]], output_path: Path) -> 
     for index, record in enumerate(list(records)[:5], 1):
         name = str(record.get("name") or record.get("full_name") or "Project")
         meta = " · ".join(part for part in [str(record.get("language") or ""), str(record.get("category") or "")] if part)
-        if record.get("views_at_24h"):
-            metric = f"{int(record['views_at_24h']):,} views".replace(",", " ")
-        elif record.get("views"):
-            metric = f"{int(record['views']):,} views".replace(",", " ")
-        else:
-            metric = f"score {float(record.get('score') or 0):.0f}"
+        # Owner 08.11: internal traffic counts are nobody's business in the
+        # channel (and at this scale they are not a useful signal either).
+        # Show the one number a reader can actually compare: GitHub stars.
+        try:
+            metric = f"{int(record['stars']):,} stars".replace(",", " ")
+        except (KeyError, TypeError, ValueError):
+            metric = "stars n/a"
         draw.text((62, y), str(index), font=_font("serif", 38, True), fill="#b3342a")
         draw.text((115, y), name, font=_fit(draw, name, "sans", 32, 560, True, 19), fill="#111111")
-        draw.text((700, y + 4), meta, font=_font("sans", 21), fill="#5c5c5c")
-        draw.text((1135, y), metric, font=_font("serif", 29, True), fill="#111111", anchor="ra")
+        # 08.11: star counts are much wider than the old short numbers; keep
+        # a clear gutter before the longest meta line ("TypeScript · DevTools").
+        draw.text((680, y + 6), meta, font=_font("sans", 19), fill="#5c5c5c")
+        draw.text((1135, y + 1), metric, font=_font("serif", 27, True), fill="#111111", anchor="ra")
         y += 58
         draw.line((60, y - 10, 1140, y - 10), fill="#cdbfa6", width=3)
-    top = list(records)[:5]
-    measured = sum(1 for r in top if r.get("views_at_24h") or r.get("views"))
-    if measured == len(top) and measured:
-        note = "Ranked by measured 24-hour views"
-    elif measured:
-        note = "Views where measured · editorial score otherwise"
-    else:
-        note = "Ranked by editorial score until view metrics are connected"
+    # Human-readable only: no internal counters, no service labels.
+    note = "This week's five picks · GitHub stars shown"
     draw.text((58, 562), note, font=_font("sans", 19), fill="#5c5c5c")
     draw.text((1145, 590), BRAND, font=_font("sans", 19, True), fill="#b3342a", anchor="ra")
     output_path.parent.mkdir(parents=True, exist_ok=True)

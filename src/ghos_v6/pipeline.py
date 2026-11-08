@@ -1501,22 +1501,8 @@ def mark_weekly(store: StateStore, name: str, *, now: datetime | None = None, **
     }
 
 
-def digest_command(config: Config, store: StateStore) -> dict[str, Any]:
-    guard = weekly_guard(store, "digest")
-    if guard:
-        return guard
-    config.require("TELEGRAM_BOT_TOKEN")
-    chat_id = config.telegram_chat_id
-    records = sorted(_recent_records(store, days=7), key=lambda item: float(item.get("score") or 0), reverse=True)[:5]
-    if not records:
-        return {"ok": True, "published": False, "reason": "no_records"}
-    telegram = TelegramClient(config.telegram_bot_token)
-    image_url = ""
-    with tempfile.TemporaryDirectory() as tmp:
-        path = render_digest_card(records, Path(tmp) / "sunday-digest.png")
-        image_url, _hosted_by = _host_local_image(
-            config, path.read_bytes(), filename=path.name
-        )
+def digest_text(records: list[dict[str, Any]]) -> str:
+    """The Sunday post text. Shared by the publisher and the in-place card fix."""
     lines = ["📰 <b>The Open Source Daily — Top 5 of the Week</b>", ""]
     for index, record in enumerate(records, 1):
         name = html.escape(str(record.get("name") or record.get("full_name") or "Project"))
@@ -1539,7 +1525,27 @@ def digest_command(config: Config, store: StateStore) -> dict[str, Any]:
         "🗳️ Vote in the poll below: which one deserves Project of the Week?",
         '📣 <a href="https://t.me/GitHub_Open_Source"><b>@GitHub_Open_Source</b></a> — daily open-source picks',
     ]
-    sent = telegram.send_text(chat_id, "\n".join(lines), preview_url=image_url)
+    return "\n".join(lines)
+
+
+def digest_command(config: Config, store: StateStore) -> dict[str, Any]:
+    guard = weekly_guard(store, "digest")
+    if guard:
+        return guard
+    config.require("TELEGRAM_BOT_TOKEN")
+    chat_id = config.telegram_chat_id
+    records = sorted(_recent_records(store, days=7), key=lambda item: float(item.get("score") or 0), reverse=True)[:5]
+    if not records:
+        return {"ok": True, "published": False, "reason": "no_records"}
+    telegram = TelegramClient(config.telegram_bot_token)
+    image_url = ""
+    with tempfile.TemporaryDirectory() as tmp:
+        path = render_digest_card(records, Path(tmp) / "sunday-digest.png")
+        image_url, _hosted_by = _host_local_image(
+            config, path.read_bytes(), filename=path.name
+        )
+    text = digest_text(records)
+    sent = telegram.send_text(chat_id, text, preview_url=image_url)
     poll = None
     poll_labels = {
         str(record.get("name") or record.get("full_name") or "Project"): str(record.get("full_name") or "")
@@ -1577,6 +1583,41 @@ def digest_command(config: Config, store: StateStore) -> dict[str, Any]:
     )
     store.save()
     return {"ok": True, "published": True, "telegram_message_id": sent.get("message_id"), "count": len(records)}
+
+
+def digest_card_fix_command(config: Config, store: StateStore) -> dict[str, Any]:
+    """Owner 08.11: replace the LIVE Sunday card (views -> stars) in place.
+
+    Edits the existing message via editMessageText with a freshly hosted
+    image URL. No new post, no second poll, no change to the text or comments.
+    """
+    last_runs = store.data.setdefault("last_runs", {})
+    marker = last_runs.get("digest") or {}
+    message_id = int(marker.get("telegram_message_id") or 0)
+    if not message_id:
+        return {"ok": True, "reason": "no_digest_post"}
+    records = sorted(_recent_records(store, days=7),
+                     key=lambda item: float(item.get("score") or 0), reverse=True)[:5]
+    if not records:
+        return {"ok": True, "reason": "no_records"}
+    config.require("TELEGRAM_BOT_TOKEN")
+    with tempfile.TemporaryDirectory() as tmp:
+        path = render_digest_card(records, Path(tmp) / "sunday-digest-stars.png")
+        image_url, _hosted_by = _host_local_image(
+            config, path.read_bytes(), filename=path.name
+        )
+    if not image_url:
+        return {"ok": False, "reason": "upload_failed"}
+    TelegramClient(config.telegram_bot_token).edit_text(
+        config.telegram_chat_id, message_id, digest_text(records),
+        preview_url=image_url,
+    )
+    marker["image_url"] = image_url
+    marker["card_metric"] = "stars"
+    store.event("digest_card_replaced", message_id=message_id, image_url=image_url)
+    store.save()
+    return {"ok": True, "edited": True, "message_id": message_id,
+            "image_url": image_url, "count": len(records)}
 
 
 def _channel_handle(config: Config) -> str:
