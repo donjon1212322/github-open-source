@@ -128,3 +128,4 @@
 {"range": "facebook!A7:E7", "rows": 1, "ts": "2026-11-07T22:06:12.669774Z", "type": "facebook_handoff_queued"}
 {"reason": "news_already_published", "ts": "2026-11-07T22:47:29.914996Z", "type": "news_skipped"}
 {"channel": "GitHub_Open_Source", "posts": 12, "ts": "2026-11-07T23:40:36.508738Z", "type": "metrics_collected", "updated": 12}
+{"deleted": 0, "ts": "2026-11-08T00:47:50.917591Z", "type": "moderation_completed", "updates": 0}
