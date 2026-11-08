@@ -78,6 +78,10 @@
     "weeks": []
   },
   "dead_letters": [],
+  "gemini_daily": {
+    "day": "2026-11-08",
+    "units": 15
+  },
   "gemini_window": [
     [
       1794158329.5610502,
@@ -416,6 +420,97 @@
       "telegram_message_id": 3568,
       "topic_key": "model-releases-and-agent-memory",
       "video_id": "tg-20261107-e52848266f",
+      "video_url": "https://t.me/GitHub_Open_Source"
+    },
+    {
+      "Gemini_video_input": false,
+      "article_markdown": "> **TL;DR** Ricursive launched the dense Ripple 65B Preview model with a 1M context window, Thinking Machines introduced the Inkling 2 Small MoE model, and Anthropic published file-based agent memory research. This digest covers concrete mechanics for these new releases and explores open-source developer tooling.\n\n## What actually moved today\n\nThe landscape for foundational and fine-tuned models shifted this week with dense parameter drops and large-scale Mixture-of-Experts architectures going live. Engineers working with local runtimes or custom inference endpoints now have access to a dense 65-billion parameter checkpoint trained from scratch on 12 trillion tokens. At the same time, new routing mechanisms in smaller active-parameter footprints are changing how we think about edge and serverless inference efficiency. Beyond raw model weights, structural research into persistent agent memory addresses the perennial problem of context degradation across long-running sessions.\n\nMemory management in autonomous agents has traditionally relied on heavy vector stores or naive sliding windows that drop critical context. Recent findings from Anthropic suggest that file-based notes combined with periodic consolidation phases yield significantly better task stability over extended horizons. By shifting the paradigm from purely vector-based retrieval to structured, human-readable file notes, developers can inspect, debug, and version-control agent state natively. This architectural shift bypasses many of the opacity issues inherent in black-box memory vectors.\n\n## The model watch\n\n## Ripple 65B Preview\n\nRicursive released **Ripple 65B Preview**, a dense 65-billion parameter model trained completely from scratch on 12 trillion tokens. The model features a native 1M context window and achieved a score of 80.52 on TerminalBench 2.1. For developers, this release proves that independent teams can successfully train large dense models without relying on continuous distillation from existing frontier checkpoints. You would want to re-run your command-line evaluation suite on this model to test its long-context instruction following and terminal interaction capabilities. The exact mechanics of its 1M context handling remain an active area of investigation for local inference providers.\n\n## Inkling 2 Small\n\nThinking Machines launched **Inkling 2 Small**, featuring 17 billion active parameters out of a total 594 billion MoE architecture. It achieved 72.1% on DeepSWE v1.1, offering an alternative routing mechanism for multimodal inputs alongside adjustable effort settings. Developers should test this model when balancing latency constraints with complex reasoning tasks, as the adjustable effort setting lets you tune compute expenditure per request. Evaluating how the model handles mixed modality prompts under high throughput will determine its viability in production serving layers.\n\n## Anthropic Agent Memory Architecture\n\nAnthropic published research detailing how to organize agent memory between sessions using file-based notes and explicit dreaming or consolidation phases. Testing on internal Stainless documents demonstrated that task criteria success rose from 13% to 48% over 128 sessions. Developers can implement this pattern immediately by giving agents write access to a local scratchpad directory and enforcing a summary phase at the end of each task loop. This approach eliminates the overhead of managing complex embedding databases while keeping the agent's state fully transparent.\n\n## Replica Claude Skills Collection\n\nAn open-source collection of 11 Claude skills named **Replica** was released to help developers reverse-engineer applications and scaffold new codebases from scratch. This repository provides structured prompts and tool definitions that guide an agent through architectural analysis and greenfield implementation. It gives teams a reproducible framework for turning existing software systems into functional starting points for AI-driven development. Integrating these skills into your daily workflow can streamline the transition from legacy code audits to clean rewrites.\n\n## Rumours, clearly labelled\n\nIt is important to keep unverified claims separate from confirmed production releases. The following items are based on community discussions, leaks, or unannounced interface hints and should not be treated as available features:\n\n| Item | Status | Basis | Verified |\n| :--- | :--- | :--- | :--- |\n| Claude Code Projects multiplayer mode | Unannounced hint | Employee social posts and UI text | No |\n| Codex limits reset schedule | Rumour | Community speculation | No |\n\nLydia Hallie from Anthropic noted that multiplayer collaboration for Claude Code Projects is not yet available, despite recent interface updates hinting at shared thread summaries. Treat any workflow assumptions around real-time collaborative editing as speculative until an official release note lands.\n\n## Odd finds and small tools\n\nDeveloper tooling often improves through small, focused open-source utilities rather than massive platform announcements. This week features lightweight CLI tools designed to audit local model memory consumption and format context windows for minimal token overhead. Integrating these utilities into local testing pipelines helps catch memory leaks and context overflows before pushing changes to staging environments. Keeping an eye on independent repositories often reveals ingenious solutions to everyday developer friction.\n\n## What I would try this weekend\n\nIf I had free cycles this weekend, I would spin up an instance of **Ripple 65B Preview** on a multi-GPU local node and run it against a custom terminal automation benchmark. I would also implement the file-based agent memory pattern described in Anthropic's recent research, replacing a standard vector database with a local JSON scratchpad and a nightly summary routine. Testing how an agent maintains state across fifty consecutive coding tasks using only flat files provides immediate insight into the viability of simpler state management strategies.\n\n## Where this leaves us\n\nWe are seeing a maturation of both dense architectures and lightweight MoE routing, alongside a healthy push toward transparent, file-based agent state management. While models like **Ripple 65B Preview** and **Inkling 2 Small** expand our inference options, questions remain regarding their long-term training data provenance and optimal quantization paths. The shift away from opaque vector stores toward explicit file notes represents a pragmatic maturity in how we build persistent agents. The tooling is becoming simpler, more inspectable, and much easier to integrate into standard developer workflows.\n\nHow do you structure your agent's state files when avoiding traditional databases?\n\n## Migration and Evaluation Checklist\n\nTransitioning workloads across the latest releases requires a structured verification process, especially when incorporating models like Ripple 65B Preview, Inkling 2 Small, Sonnet 3.7, Opus 5, DeepSeek V4.1 Flash, GLM-5.3-Flash, and Claude into existing production pipelines. Begin your migration by auditing current baseline metrics against the specific evaluation benches cited in recent documentation. For dense architectures featuring extended context windows, verify that local inference layers can handle maximum token inputs without memory fragmentation or latency spikes. When integrating Mixture of Experts variants, run targeted tests on multimodal routing efficiency and adjustable effort settings to establish optimal compute expenditure thresholds per request. For persistent memory updates utilizing file-based notes rather than traditional vector stores, execute a staged rollout over a limited number of sessions to monitor task criteria stability and state corruption risks. Validate that all local scratchpad directories maintain proper read and write permissions during automated consolidation phases. Finally, ensure your command-line evaluation suites are fully updated to test instruction following under high throughput conditions before deploying any new model weights to staging or production environments.\n\n---\n\n💬 Questions, corrections or a better way to run these evals? Feedback and discussion are in the channel: https://t.me/GitHub_Open_Source\n",
+      "article_title": "Dense Models, Mixture-of-Experts, and Agent Memory Architectures",
+      "brief": {
+        "discussion_question": "How are you currently handling persistent memory in your production AI agents?",
+        "headline": "Three new models and a 65B open weights release dropped on Tuesday.",
+        "hook": "7 exact names, 4 official launches, 0 only announced, 0 unverified claims. Ripple 65B Preview leads the watch — what would you actually re-run first?",
+        "models": [
+          "Ripple 65B Preview",
+          "Inkling 2 Small",
+          "Sonnet 3.7",
+          "Opus 5",
+          "DeepSeek V4.1 Flash",
+          "GLM-5.3-Flash",
+          "Claude"
+        ],
+        "stories": [
+          {
+            "basis": "the model release is live on OpenRouter",
+            "bullets": [
+              "Ricursive released Ripple 65B Preview, a dense 65-billion parameter model trained from scratch on 12 trillion tokens.",
+              "It features a 1M context window and scored 80.52 on TerminalBench 2.1."
+            ],
+            "status": "official_release",
+            "title": "Ripple 65B Preview Released",
+            "why": "It demonstrates that small teams can train large, competitive dense models from scratch."
+          },
+          {
+            "basis": "the official announcement and documentation are up",
+            "bullets": [
+              "Thinking Machines released Inkling 2 Small with 17 billion active parameters out of 594 billion.",
+              "It achieved 72.1% on DeepSWE v1.1."
+            ],
+            "status": "official_release",
+            "title": "Thinking Machines Launches Inkling 2 Small",
+            "why": "It offers an alternative MoE architecture with multimodal inputs and adjustable effort settings."
+          },
+          {
+            "basis": "the research post is published on Anthropic's site",
+            "bullets": [
+              "Anthropic published research on organizing agent memory between sessions using file-based notes and dreaming phases.",
+              "Tests on internal Stainless documents showed task criteria success rising from 13% to 48% over 128 sessions."
+            ],
+            "status": "official_release",
+            "title": "Anthropic Details Agent Memory Architecture",
+            "why": "It provides a concrete blueprint for managing long-term agent context without complex vector databases."
+          },
+          {
+            "basis": "the GitHub repository is public",
+            "bullets": [
+              "A free open-source collection of 11 Claude skills named Replica was released to help reverse-engineer and build apps from scratch."
+            ],
+            "status": "official_release",
+            "title": "Replica: Claude Skills Collection",
+            "why": "It gives developers a structured way to turn existing products into architectural starting points using AI agents."
+          }
+        ],
+        "summary": "This digest covers new open weights models like Ripple 65B Preview, Inkling 2 Small from Thinking Machines, Anthropic's agent memory research, and several developer tools.",
+        "unconfirmed_claims": [
+          "Anthropic is working on a collaborative multiplayer mode for Claude Code Projects.",
+          "Tibo's tweets hinted at an upcoming Codex limits reset.",
+          "Anthropic is working on a collaborative mode for Claude Code Projects. > Recent activity on the Projects page summarises the latest threads. > \"We don't have multiplayer yet,\" shared Lydia Hallie from Anthropic yesterday. Yet 👀 Anthropic is working on a collaborative mode for Claude Code Projects. > Recent activity on the Projects page summarises the latest threads. > \"We don't have multiplayer ye"
+        ],
+        "why_devs": "These updates give developers new dense and MoE models, practical agent memory patterns, and open-source coding toolkits."
+      },
+      "headline": "Three new models and a 65B open weights release dropped on Tuesday.",
+      "image_url": "https://i.ibb.co/Xfs1MDbX/ai-brief-75488effa230.png",
+      "models": [
+        "Ripple 65B Preview",
+        "Inkling 2 Small",
+        "Sonnet 3.7",
+        "Opus 5",
+        "DeepSeek V4.1 Flash",
+        "GLM-5.3-Flash",
+        "Claude"
+      ],
+      "official_url": "",
+      "published_at": "2026-11-08T19:19:18.304774Z",
+      "statuses": [
+        "official_release",
+        "official_release",
+        "official_release",
+        "official_release"
+      ],
+      "stories": 4,
+      "telegram_message_id": 3575,
+      "topic_key": "ai-model-releases-and-memory",
+      "video_id": "tg-20261108-407d9b62a9",
       "video_url": "https://t.me/GitHub_Open_Source"
     }
   ],
