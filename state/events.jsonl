@@ -165,3 +165,4 @@
 {"after": 2, "before": 3, "message_id": 3575, "ts": "2026-11-08T20:57:19.020400Z", "type": "brief_rumours_deduped"}
 {"reason": "slot_already_done", "slot": "us_peak", "ts": "2026-11-08T21:13:18.457784Z", "type": "publish_skipped"}
 {"deleted": 0, "ts": "2026-11-08T21:47:52.360693Z", "type": "moderation_completed", "updates": 3}
+{"range": "facebook!A8:E8", "rows": 1, "ts": "2026-11-08T22:18:52.098076Z", "type": "facebook_handoff_queued"}
