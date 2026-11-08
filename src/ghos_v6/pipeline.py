@@ -1507,6 +1507,12 @@ def mark_weekly(store: StateStore, name: str, *, now: datetime | None = None, **
 LEGACY_POLL_LINE = "🗳️ Vote in the poll below: which one deserves Project of the Week?"
 
 
+def poll_decides_line(spec: dict[str, Any]) -> str:
+    """One human line in the digest explaining what the vote actually decides."""
+    decides = str(spec.get("decides") or "what we publish next")
+    return "🗳️ " + decides[:1].upper() + decides[1:] + " — vote below, it shapes next week's picks."
+
+
 def digest_text(records: list[dict[str, Any]], *, poll_line: str = LEGACY_POLL_LINE,
                 result_line: str = "") -> str:
     """The Sunday post text. Shared by the publisher and the in-place card fix."""
@@ -1555,8 +1561,7 @@ def digest_command(config: Config, store: StateStore) -> dict[str, Any]:
         )
     gemini = GeminiClient(config.Gemini_api_key, config.Gemini_model) if config.Gemini_api_key else None
     spec = build_week_poll(store, client=gemini)
-    poll_line = ("🗳️ " + spec["decides"][:1].upper() + spec["decides"][1:]
-                 + " — vote below, it shapes next week's picks.")
+    poll_line = poll_decides_line(spec)
     result_line = str((store.data.get("audience_profile") or {}).get("last_result") or "")
     text = digest_text(records, poll_line=poll_line, result_line=result_line)
     sent = telegram.send_text(chat_id, text, preview_url=image_url)
@@ -1610,6 +1615,106 @@ def poll_preview_command(config: Config, store: StateStore) -> dict[str, Any]:
     gemini = GeminiClient(config.Gemini_api_key, config.Gemini_model) if config.Gemini_api_key else None
     spec = build_week_poll(store, client=gemini)
     return {"ok": True, "published": False, **spec}
+
+
+def poll_replace_command(config: Config, store: StateStore) -> dict[str, Any]:
+    """Owner 08.11: replace TODAY's already-published poll with the adaptive one.
+
+    Telegram cannot edit a poll's question or options after sending - only
+    stopPoll exists. So the honest replacement is: archive the old tally,
+    delete the old message, send the new poll, and edit the digest post's
+    single "what this poll decides" line in place. The digest card and its
+    comments survive; no second digest post is created.
+    """
+    config.require("TELEGRAM_BOT_TOKEN")
+    chat_id = config.telegram_chat_id
+    old = dict(store.data.get("active_poll") or {})
+    old_id = int(old.get("message_id") or 0)
+    if not old_id:
+        return {"ok": True, "reason": "no_active_poll"}
+    telegram = TelegramClient(config.telegram_bot_token)
+    poll_chat_id = old.get("chat_id") or chat_id
+    if poll_chat_id == "test":
+        poll_chat_id = chat_id
+
+    # 1. Keep the 5 votes already cast: stopPoll returns the official tally.
+    tally: dict[str, Any] = {}
+    try:
+        tally = polls.close_poll(telegram, poll_chat_id, old_id)
+    except Exception as exc:  # noqa: BLE001 - archive is best effort
+        logger.warning("poll replace: old tally unavailable: %s", type(exc).__name__)
+
+    # 2. Remove the old poll. If deletion is denied, publish NOTHING rather
+    #    than leaving two competing polls in the channel.
+    try:
+        telegram.api("deleteMessage", {"chat_id": chat_id, "message_id": old_id})
+    except Exception as exc:  # noqa: BLE001
+        return {"ok": False, "reason": "delete_failed", "error": type(exc).__name__}
+
+    # 3. Build and send the adaptive poll.
+    gemini = GeminiClient(config.Gemini_api_key, config.Gemini_model) if config.Gemini_api_key else None
+    spec = build_week_poll(store, client=gemini)
+    new_poll = polls.send_week_poll(
+        telegram, chat_id, spec["question"], spec["options"],
+        hours=polls.DEFAULT_WEEK_POLL_HOURS,
+    )
+    new_id = int((new_poll or {}).get("message_id") or 0)
+    if not new_id:
+        return {"ok": False, "reason": "send_failed"}
+
+    # 4. Fix the digest post: only the poll line changes, the star card stays.
+    last_runs = store.data.setdefault("last_runs", {})
+    marker = last_runs.get("digest") or {}
+    digest_id = int(marker.get("telegram_message_id") or 0)
+    text = ""
+    edited = False
+    if digest_id:
+        by_name = {str(r.get("full_name")): r for r in store.published_records()}
+        records = [by_name[name] for name in (old.get("repos") or {}).values()
+                   if name in by_name]
+        if records:
+            text = digest_text(records, poll_line=poll_decides_line(spec))
+            try:
+                telegram.edit_text(chat_id, digest_id, text,
+                                   preview_url=str(marker.get("image_url") or ""))
+                marker["post_text"] = text
+                edited = True
+            except Exception as exc:  # noqa: BLE001
+                logger.warning("poll replace: digest edit failed: %s", type(exc).__name__)
+
+    # 5. Archive the old result, then point everything at the new poll.
+    store.data.setdefault("poll_history", []).append({
+        "closed_at": iso_now(),
+        "question": tally.get("question") or old.get("question") or "",
+        "total_voters": tally.get("total_voters") or 0,
+        "type": "legacy", "axis": "", "replaced": True,
+        "profile_result": "Archived when the poll was replaced by the adaptive format.",
+        "options": tally.get("options") or [],
+    })
+    store.data["active_poll"] = {
+        "chat_id": chat_id if config.is_main_target else "test",
+        "message_id": new_id,
+        "question": spec["question"],
+        "type": spec["type"], "axis": spec["axis"],
+        "option_keys": spec["option_keys"], "option_map": spec["option_map"],
+        "option_topics": spec["option_topics"], "clusters": spec["clusters"],
+        "families": spec.get("families") or [],
+        "simplified": spec["simplified"], "gemini_fallback": spec["gemini_fallback"],
+        "post_text": text, "repos": spec["option_map"],
+        "replaced_from": old_id, "opened_at": iso_now(),
+    }
+    if marker:
+        marker["poll_message_id"] = new_id
+        marker["poll_type"] = spec["type"]
+    store.event("poll_replaced", old_message_id=old_id, new_message_id=new_id,
+                archived_votes=tally.get("total_voters") or 0,
+                poll_type=spec["type"], digest_edited=edited)
+    store.save()
+    return {"ok": True, "old_message_id": old_id, "new_message_id": new_id,
+            "archived_votes": tally.get("total_voters") or 0,
+            "poll_type": spec["type"], "question": spec["question"],
+            "options": spec["options"], "digest_edited": edited,
+            "gemini_fallback": spec["gemini_fallback"]}
 
 
 def digest_card_fix_command(config: Config, store: StateStore) -> dict[str, Any]:

@@ -247,3 +247,102 @@ def test_winner_copy_is_human_not_an_internal_key(tmp_path: Path):
     result = polls_design.record_poll_result(store, _tally([9, 2, 1, 0]), _designed_poll())
     assert "Last week: 12 votes picked" in result["result"]
     assert "job_" not in result["result"] and "k0" not in result["result"]
+
+
+def _replace_state(tmp_path: Path) -> StateStore:
+    store = StateStore(tmp_path / "state.json")
+    names = ["Concat", "universal-modder", "Filee", "ffmpeg-skill", "m3e-canvas"]
+    store.data["published"] = {
+        f"p{i}": {"full_name": f"org/{n}", "name": n, "stars": 1000 + i,
+                  "score": 90 - i, "published_at": (NOW - timedelta(days=1)).isoformat(),
+                  "generated": {"hook": f"Do something useful with {n}."}}
+        for i, n in enumerate(names)
+    }
+    store.data["queue"] = _queue()
+    store.data["active_poll"] = {
+        "chat_id": "@GitHub_Open_Source", "message_id": 3572,
+        "question": "Which project should win Project of the Week?",
+        "repos": {n: f"org/{n}" for n in names},
+        "opened_at": "2026-11-08T16:13:56Z",
+    }
+    store.data["last_runs"] = {"digest": {
+        "week": "2026-W45", "telegram_message_id": 3571,
+        "poll_message_id": 3572, "card_metric": "stars",
+        "image_url": "https://i.ibb.co/CARD/sunday-digest-stars.png",
+    }}
+    return store
+
+
+class ReplaceTelegram:
+    def __init__(self, *a, **k):
+        self.calls: list[dict] = []
+
+    def api(self, method, payload=None):
+        self.calls.append({"op": method, "payload": dict(payload or {})})
+        if method == "stopPoll":
+            return {"question": "Which project should win Project of the Week?",
+                    "total_voter_count": 5,
+                    "options": [{"text": n, "voter_count": v} for n, v in
+                                (("Concat", 1), ("universal-modder", 2),
+                                 ("Filee", 0), ("ffmpeg-skill", 2), ("m3e-canvas", 0))]}
+        if method == "sendPoll":
+            return {"message_id": 3574}
+        return {"ok": True}
+
+    def edit_text(self, chat_id, message_id, text, *, preview_url=""):
+        self.calls.append({"op": "edit_text", "message_id": message_id,
+                           "text": text, "preview_url": preview_url})
+        return {"message_id": message_id}
+
+    def send_text(self, *a, **k):
+        self.calls.append({"op": "send_text"})
+        return {"message_id": 9999}
+
+
+def test_poll_replace_archives_votes_and_points_at_the_new_poll(monkeypatch, tmp_path: Path):
+    fake = ReplaceTelegram()
+    monkeypatch.setattr(pipeline, "TelegramClient", lambda *a, **k: fake)
+    for key, value in (("TELEGRAM_BOT_TOKEN", "test-tg"),
+                       ("TELEGRAM_TEST_CHANNEL_ID", "-1001234567890")):
+        monkeypatch.setenv(key, value)
+    store = _replace_state(tmp_path)
+    result = pipeline.poll_replace_command(Config.from_env(), store)
+
+    assert result["ok"] is True
+    assert result["old_message_id"] == 3572 and result["new_message_id"] == 3574
+    assert result["archived_votes"] == 5 and result["digest_edited"] is True
+    ops = [c["op"] for c in fake.calls]
+    assert "stopPoll" in ops and "deleteMessage" in ops and "sendPoll" in ops
+    assert "edit_text" in ops and "send_text" not in ops, "no duplicate digest post"
+
+    edit = next(c for c in fake.calls if c["op"] == "edit_text")
+    assert edit["message_id"] == 3571
+    assert edit["preview_url"] == "https://i.ibb.co/CARD/sunday-digest-stars.png"
+    assert "Project of the Week" not in edit["text"]
+    assert "shapes next week's picks" in edit["text"]
+    assert "⭐ 1 000" in edit["text"]
+
+    poll = store.data["active_poll"]
+    assert poll["message_id"] == 3574 and poll["replaced_from"] == 3572
+    assert poll["option_keys"] and poll["type"] == "job"
+    assert store.data["last_runs"]["digest"]["poll_message_id"] == 3574
+    archived = store.data["poll_history"][-1]
+    assert archived["total_voters"] == 5 and archived["replaced"] is True
+
+
+def test_poll_replace_publishes_nothing_if_deletion_is_denied(monkeypatch, tmp_path: Path):
+    class Denied(ReplaceTelegram):
+        def api(self, method, payload=None):
+            if method == "deleteMessage":
+                raise RuntimeError("not enough rights")
+            return super().api(method, payload)
+
+    fake = Denied()
+    monkeypatch.setattr(pipeline, "TelegramClient", lambda *a, **k: fake)
+    monkeypatch.setenv("TELEGRAM_BOT_TOKEN", "test-tg")
+    monkeypatch.setenv("TELEGRAM_TEST_CHANNEL_ID", "-1001234567890")
+    store = _replace_state(tmp_path)
+    result = pipeline.poll_replace_command(Config.from_env(), store)
+    assert result["ok"] is False and result["reason"] == "delete_failed"
+    assert not [c for c in fake.calls if c["op"] in ("sendPoll", "edit_text", "send_text")]
+    assert store.data["active_poll"]["message_id"] == 3572
