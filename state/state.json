@@ -438,6 +438,7 @@
           "GLM-5.3-Flash",
           "Claude"
         ],
+        "narrative_hook": "Three model releases showed up in multiple channels this week, but the thing I can't stop thinking about is a 65-billion parameter model trained by a",
         "stories": [
           {
             "basis": "the model release is live on OpenRouter",
@@ -482,8 +483,7 @@
         "summary": "This digest covers new open weights models like Ripple 65B Preview, Inkling 2 Small from Thinking Machines, Anthropic's agent memory research, and several developer tools.",
         "unconfirmed_claims": [
           "Anthropic is working on a collaborative multiplayer mode for Claude Code Projects.",
-          "Tibo's tweets hinted at an upcoming Codex limits reset.",
-          "Anthropic is working on a collaborative mode for Claude Code Projects. > Recent activity on the Projects page summarises the latest threads. > \"We don't have multiplayer yet,\" shared Lydia Hallie from Anthropic yesterday. Yet 👀 Anthropic is working on a collaborative mode for Claude Code Projects. > Recent activity on the Projects page summarises the latest threads. > \"We don't have multiplayer ye"
+          "Tibo's tweets hinted at an upcoming Codex limits reset."
         ],
         "why_devs": "These updates give developers new dense and MoE models, practical agent memory patterns, and open-source coding toolkits."
       },
@@ -500,6 +500,7 @@
         "Claude"
       ],
       "official_url": "",
+      "post_text": "🛰️ <b>AI Brief</b> · <i>no ads, no hype</i>\n\n<b>Three model releases showed up in multiple channels this week, but the thing I can't stop thinking about is a 65-billion parameter model trained by a</b>\n\n🧬 <b>In this brief:</b> Ripple 65B Preview · Inkling 2 Small · Sonnet 3.7 · Opus 5 · DeepSeek V4.1 Flash · GLM-5.3-Flash · Claude\n\n<b>1/ Ripple 65B Preview Released</b>\nRicursive released Ripple 65B Preview, a dense 65-billion parameter model trained from scratch on 12 trillion tokens.\nIt features a 1M context window and scored 80.52 on TerminalBench 2.1.\nIt demonstrates that small teams can train large, competitive dense models from scratch.\n<i>the model release is live on OpenRouter</i>\n\n<b>2/ Thinking Machines Launches Inkling 2 Small</b>\nThinking Machines released Inkling 2 Small with 17 billion active parameters out of 594 billion.\nIt achieved 72.1% on DeepSWE v1.1.\nIt offers an alternative MoE architecture with multimodal inputs and adjustable effort settings.\n<i>the official announcement and documentation are up</i>\n\n<b>3/ Anthropic Details Agent Memory Architecture</b>\nAnthropic published research on organizing agent memory between sessions using file-based notes and dreaming phases.\nTests on internal Stainless documents showed task criteria success rising from 13% to 48% over 128 sessions.\nIt provides a concrete blueprint for managing long-term agent context without complex vector databases.\n<i>the research post is published on Anthropic's site</i>\n\n<b>4/ Replica: Claude Skills Collection</b>\nA free open-source collection of 11 Claude skills named Replica was released to help reverse-engineer and build apps from scratch.\nIt gives developers a structured way to turn existing products into architectural starting points using AI agents.\n<i>the GitHub repository is public</i>\n\n<b>◻️ Rumours we're keeping an eye on</b>\n\n◻️ <i>Anthropic is working on a collaborative multiplayer mode for Claude Code Projects.</i>\n◻️ <i>Tibo's tweets hinted at an upcoming Codex limits reset.</i>\n\n<i>How are you currently handling persistent memory in your production AI agents?</i>\n\n📣 <a href=\"https://t.me/GitHub_Open_Source\"><b>@GitHub_Open_Source</b></a>\n\n========================================\n#AINews #OpenSource",
       "published_at": "2026-11-08T19:19:18.304774Z",
       "statuses": [
         "official_release",
