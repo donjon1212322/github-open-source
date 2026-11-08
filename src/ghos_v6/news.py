@@ -19,6 +19,7 @@ from defusedxml import ElementTree as ET
 
 from .formatter import CHANNEL_TAG_DIVIDER, utf16_len, visible_text
 from .Gemini import GeminiClient
+from .rumours import dedupe_claims
 from .http import USER_AGENT, UnsafeUrl, download_bytes, sanitize, validate_public_url
 
 logger = logging.getLogger(__name__)
@@ -848,33 +849,6 @@ def _looks_like_service_copy(text: Any) -> bool:
     return any(marker in low for marker in _SERVICE_COPY_MARKERS)
 
 
-def _rumour_key(value: Any) -> str:
-    """Normalised story key so a re-worded duplicate cannot enter a digest."""
-    text = " ".join(str(value or "").split()).lower()
-    # Channel posts often append a quoted aside ("> Recent activity ...").
-    for marker in (">", " - ", " — ", "; "):
-        if marker in text:
-            text = text.split(marker, 1)[0]
-    words = [w.strip(".,!?:;\"'()[]") for w in text.split()]
-    return " ".join(w for w in words if w)[:120]
-
-
-def dedupe_claims(items: Any, limit: int = 3) -> list[str]:
-    """Keep first occurrence of each claim; never repeat one story twice."""
-    out: list[str] = []
-    seen: set[str] = set()
-    for item in items or []:
-        text = " ".join(str(item or "").split())
-        if not text:
-            continue
-        key = _rumour_key(text)
-        if not key or key in seen:
-            continue
-        seen.add(key)
-        out.append(text[:400])
-        if len(out) >= limit:
-            break
-    return out
 
 
 def brief_number_facts(brief: dict[str, Any], limit: int = 3) -> list[str]:

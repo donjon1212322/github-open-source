@@ -21,6 +21,7 @@ from .formatter import format_project_post
 from .gate import GateConfig, evaluate
 from .Gemini import GeminiClient, generate_project_content
 from .rate_limit import GeminiBudget, GeminiDailyCap
+from .rumours import filter_recent_rumours, remember_rumours
 from .http import download_bytes, sanitize
 from .media import choose_visual
 from .media_host import ImgBBMediaHost
@@ -1326,6 +1327,12 @@ def news_command(
             logger.warning("Gemini YouTube input failed; retrying text-only: %s", type(exc).__name__)
             brief = synthesize_brief(entry, primary, client, use_video=False)
             video_input = False
+    # Owner 08.11, second duplicate incident: the 48-hour discovery window
+    # overlaps a daily brief, so yesterday's rumours must not be reprinted
+    # today. Same-day keys are ignored so `news --refresh` stays intact.
+    brief["unconfirmed_claims"] = filter_recent_rumours(
+        store, brief.get("unconfirmed_claims")
+    )
     if not brief.get("eligible"):
         reason = str(brief.get("rejection_reason") or "gemini_ineligible")[:80]
         store.event("news_skipped", reason=reason, video_id=entry.get("video_id"))
@@ -1429,6 +1436,8 @@ def news_command(
         "published_at": iso_now(),
         "telegram_message_id": message_id,
         "image_url": preview_url,
+        "post_text": text,
+        "narrative_hook": str(brief.get("narrative_hook") or brief.get("hook") or ""),
         "Gemini_video_input": video_input,
         "stories": len(stories),
         "models": names[:12],
@@ -1457,6 +1466,7 @@ def news_command(
                 },
             }
         )
+    remember_rumours(store, brief.get("unconfirmed_claims"))
     if existing is not None:
         existing.update(record)
     else:
@@ -2376,3 +2386,121 @@ def quality_fix_command(config: Config, store: StateStore) -> dict[str, Any]:
         "devto_id": marker.get("devto_id"), "words": len(markdown.split()),
         "title": title, "cover_url": cover_url,
     }
+
+
+_RUMOUR_HEADER = "<b>◻️ Rumours we're keeping an eye on</b>"
+
+
+def replace_rumour_block(text_html: str, claims: list[str]) -> str | None:
+    """Swap only the rumour lines of an already published brief.
+
+    Everything else — hook, stories, question, card link — stays byte-identical.
+    """
+    if _RUMOUR_HEADER not in text_html:
+        return None
+    head, tail = text_html.split(_RUMOUR_HEADER, 1)
+    match = re.match(r"\n\n(?:◻️ <i>.*?</i>\n?)+", tail, re.S)
+    if not match:
+        return None
+    if not claims:
+        return head + tail[match.end():].lstrip("\n")
+    lines = "".join(f"◻️ <i>{html.escape(claim)}</i>\n" for claim in claims)
+    return head + _RUMOUR_HEADER + "\n\n" + lines + tail[match.end():]
+
+
+def _live_brief_hook(channel: str, message_id: int) -> str:
+    """Recover the published hook from the public post page.
+
+    Used only for older briefs that predate ``post_text`` in state. Read-only,
+    best-effort: if the page is unavailable the caller edits nothing.
+    """
+    url = f"https://t.me/s/{channel}/{message_id}?embed=1&mode=tme"
+    try:
+        response = requests.get(
+            url, timeout=20,
+            headers={"User-Agent": "Mozilla/5.0 (compatible; ghos-v6)"},
+        )
+        if response.status_code != 200:
+            return ""
+        page = response.text
+    except Exception as exc:  # noqa: BLE001 - best effort only
+        logger.warning("brief hook fetch failed: %s", type(exc).__name__)
+        return ""
+    marker = f'data-post="{channel}/{message_id}"'
+    start = page.find(marker)
+    if start < 0:
+        return ""
+    segment = page[start:]
+    nxt = segment.find('data-post="', len(marker))
+    if nxt > 0:
+        segment = segment[:nxt]
+    body = re.search(
+        r'<div class="tgme_widget_message_text[^"]*"[^>]*>(.*?)</div>',
+        segment, re.S,
+    )
+    if not body:
+        return ""
+    clean = re.sub(r'<i class="emoji".*?</i>', "", body.group(1), flags=re.S)
+    hook = re.search(r"<br\s*/?><br\s*/?><b>(.*?)</b>", clean, re.S)
+    if not hook:
+        return ""
+    return html.unescape(re.sub(r"<[^>]+>", "", hook.group(1))).strip()
+
+
+def brief_dedup_fix_command(config: Config, store: StateStore) -> dict[str, Any]:
+    """Owner 08.11 (2nd incident): remove duplicated rumours from the LIVE brief.
+
+    In-place ``editMessageText`` only. No new Telegram post, no new card, no
+    Gemini call, no dev.to article, no change to any other live message.
+    Returns ``ok: false`` and touches nothing when the exact text cannot be
+    reconstructed.
+    """
+    topics = store.data.get("news_topics") or []
+    if not topics:
+        return {"ok": True, "reason": "no_brief"}
+    topic = topics[-1]
+    message_id = int(topic.get("telegram_message_id") or 0)
+    if not message_id:
+        return {"ok": False, "reason": "no_message_id"}
+    brief = dict(topic.get("brief") or {})
+    if not brief:
+        return {"ok": True, "reason": "brief_not_stored"}
+    before = [str(item) for item in (brief.get("unconfirmed_claims") or [])]
+    claims = dedupe_claims(before)
+    if len(claims) == len(before):
+        return {"ok": True, "reason": "already_clean", "message_id": message_id,
+                "claims": claims}
+
+    post_text = str(topic.get("post_text") or "")
+    text = replace_rumour_block(post_text, claims) if post_text else None
+    if text is None:
+        hook = str(topic.get("narrative_hook") or "") or _live_brief_hook(
+            str(config.telegram_chat_id).lstrip("@"), message_id
+        )
+        if not hook:
+            return {"ok": False, "reason": "live_text_unavailable",
+                    "message_id": message_id}
+        brief["narrative_hook"] = hook
+        brief["unconfirmed_claims"] = claims
+        text = format_ai_brief_digest(brief)
+    if not text:
+        return {"ok": False, "reason": "render_failed", "message_id": message_id}
+
+    config.require("TELEGRAM_BOT_TOKEN")
+    try:
+        TelegramClient(config.telegram_bot_token).edit_text(
+            config.telegram_chat_id, message_id, text,
+            preview_url=str(topic.get("image_url") or ""),
+        )
+    except Exception as exc:  # noqa: BLE001 - report honestly, never repost
+        return {"ok": False, "reason": "edit_failed",
+                "error": type(exc).__name__, "message_id": message_id}
+
+    brief["unconfirmed_claims"] = claims
+    topic["brief"] = brief
+    topic["post_text"] = text
+    store.event("brief_rumours_deduped", message_id=message_id,
+                before=len(before), after=len(claims))
+    store.save()
+    return {"ok": True, "edited": True, "message_id": message_id,
+            "before": len(before), "after": len(claims), "claims": claims}

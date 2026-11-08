@@ -13,6 +13,7 @@ from .http import sanitize
 from .pipeline import (
     alert_owner,
     article_of_day,
+    brief_dedup_fix_command,
     cleanup_test_posts,
     close_poll_command,
     collect_command,
@@ -75,6 +76,10 @@ def _parser() -> argparse.ArgumentParser:
     sub.add_parser(
         "quality-fix",
         help="Fix the live AI Brief post and companion article in place (no duplicates)",
+    )
+    sub.add_parser(
+        "brief-dedup-fix",
+        help="Remove duplicated rumours from the live AI Brief in place (no new post)",
     )
     news.add_argument("--force", action="store_true", help="Run even if FEATURE_AI_BRIEF=false")
     news.add_argument(
@@ -180,6 +185,8 @@ def main(argv: list[str] | None = None) -> int:
             result = news_article_command(config, store)
         elif args.command == "quality-fix":
             result = quality_fix_command(config, store)
+        elif args.command == "brief-dedup-fix":
+            result = brief_dedup_fix_command(config, store)
         elif args.command == "news":
             result = news_command(config, store, force=args.force, refresh=args.refresh)
         elif args.command == "digest":

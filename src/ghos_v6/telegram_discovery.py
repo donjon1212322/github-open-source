@@ -27,6 +27,7 @@ from typing import Any, Callable
 from urllib.request import Request, urlopen
 
 from .http import USER_AGENT
+from .rumours import clean_rumour_text
 
 # Six daily signal channels + two hint channels that carry the leaks the owner
 # explicitly asked to keep. All are independent, non-official channels.
@@ -294,7 +295,9 @@ def build_digest_material(
     return {
         "entry": entry,
         "primary": {"text": corpus, "url": "", "title": "channel posts"},
-        "rumours": [c["text"][:400] for c in rumours[:3]],
+        # Owner 08.11 (second duplicate incident): channel clusters can be a
+        # chain of "> ..." quotes and emoji reposts. Keep one clean claim.
+        "rumours": [clean_rumour_text(c["text"], limit=400) for c in rumours[:3]],
         "clusters": selected,
         "stats": {
             "raw": len(raw),
