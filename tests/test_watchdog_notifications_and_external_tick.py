@@ -40,7 +40,9 @@ def test_first_successful_dispatch_is_silent(monkeypatch, tmp_path):
     calls, sent = _wire(monkeypatch)
     store = StateStore(tmp_path)
     result = watchdog_command(Config(), store, now=datetime(2026, 11, 5, 21, 0, tzinfo=timezone.utc))
-    assert len(calls) == 5                      # article needs a project today
+    # 5 daily slots (article needs a project today) + Thursday's weekly
+    # poll-close recovery, which is now safe because the command is guarded.
+    assert len(calls) == 6
     assert result["failed"] == []
     assert sent == [], "an accepted HTTP 204 is not yet a problem to report"
     assert result["alerts"] == []
@@ -64,8 +66,8 @@ def test_failed_dispatch_alerts_immediately(monkeypatch, tmp_path):
     _calls, sent = _wire(monkeypatch, ok=False)
     store = StateStore(tmp_path)
     result = watchdog_command(Config(), store, now=datetime(2026, 11, 5, 21, 0, tzinfo=timezone.utc))
-    assert len(result["failed"]) == 5
-    assert len(sent) == 5
+    assert len(result["failed"]) == 6
+    assert len(sent) == 6
     assert all("не удался" in text and "Пропущен слот" in text for text in sent)
 
 
@@ -117,10 +119,13 @@ def test_external_tick_recipe_is_complete_and_secret_free():
     assert "workflow_dispatch" in blob
     assert "SLOTS" in blob
     assert "NO retries" in blob
-    # Make.com and the weekly, non-idempotent commands must NOT be
-    # dispatched twice by the external clock.
-    for cmd in ("facebook-handoff", "digest", "report", "poll-close"):
-        assert f'command: "{cmd}"' not in blob, cmd
+    # Make.com stays off the external clock (owner rule: "мейк не трогай").
+    assert 'command: "facebook-handoff"' not in blob
+    # Weekly commands are now idempotent (ISO-week guard) and ARE dispatched
+    # on the exact minute, pinned to their UTC weekday.
+    assert '["16:13", { command: "digest" }, 0]' in blob
+    assert '["16:43", { command: "report" }, 0]' in blob
+    assert '["18:53", { command: "poll-close" }, 4]' in blob
 
 
 def test_operations_doc_uses_the_current_ai_brief_cron():

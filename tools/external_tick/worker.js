@@ -42,11 +42,16 @@ const SLOTS = [
   ["15:47", { command: "moderation" }],
   ["18:47", { command: "moderation" }],
   ["21:47", { command: "moderation" }],
-  // Deliberately NOT dispatched here (owner rule: "мейк не трогай"):
-  // facebook-handoff appends rows to the make.com Sheet, and the weekly
-  // digest / report / poll-close have no daily idempotency guard. A second
-  // trigger could double a row or a weekly post. They stay on GitHub cron
-  // and remain best-effort; the Watchdog is still the safety net.
+  // Weekly cycle (owner 08.11): these commands now write an ISO-week marker
+  // in state, so a second trigger is a no-op instead of a duplicate post.
+  // With the guard in place they can be dispatched on the exact minute.
+  // JS getUTCDay(): 0 = Sunday, 4 = Thursday.
+  ["16:13", { command: "digest" }, 0],
+  ["16:43", { command: "report" }, 0],
+  ["18:53", { command: "poll-close" }, 4],
+  // Still NOT dispatched here (owner rule: "мейк не трогай"):
+  // facebook-handoff appends rows to the make.com Sheet with no idempotency
+  // guard. A second trigger could double a row. It stays on GitHub cron.
 ];
 
 function minuteKey(date) {

@@ -17,6 +17,13 @@ from typing import Any
 logger = logging.getLogger(__name__)
 
 
+def iso_week_key(moment: datetime | None = None) -> str:
+    """UTC ISO-week stamp used as the idempotency key for weekly slots."""
+    day = (moment or datetime.now(timezone.utc)).date()
+    year, week, _ = day.isocalendar()
+    return f"{year}-W{week:02d}"
+
+
 def _parse_ts(value: Any) -> datetime | None:
     """Parse an ISO timestamp from state, tolerating the naive form."""
     if not value:

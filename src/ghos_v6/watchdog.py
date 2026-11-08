@@ -42,7 +42,7 @@ from datetime import datetime, timedelta, timezone
 from typing import Any
 
 from .config import Config
-from .state import StateStore
+from .state import StateStore, iso_week_key
 from .telegram import TelegramClient
 
 logger = logging.getLogger(__name__)
@@ -58,6 +58,17 @@ SLOTS: tuple[tuple[str, tuple[int, int], dict[str, str]], ...] = (
     # 2026-11-07: the second dev.to article. Its own marker lives in
     # last_runs["news-article"], so _has_run() verifies it generically.
     ("news-article", (20, 30), {"command": "news-article"}),
+)
+
+# Owner 08.11: weekly slots used to be the ONLY ones with no safety net,
+# because a second trigger would create a duplicate digest/poll. The weekly
+# commands now write an ISO-week marker in ``last_runs`` (see pipeline.py),
+# so they are idempotent and CAN be recovered. Weekday uses Python's
+# convention: Monday=0 ... Sunday=6 (worker.js uses JS getUTCDay: Sunday=0).
+WEEKLY_SLOTS: tuple[tuple[str, int, tuple[int, int], dict[str, str]], ...] = (
+    ("digest", 6, (16, 20), {"command": "digest"}),          # cron 16:13Z Sun
+    ("report", 6, (16, 50), {"command": "report"}),          # cron 16:43Z Sun
+    ("poll-close", 3, (19, 0), {"command": "poll-close"}),   # cron 18:53Z Thu
 )
 
 # A dispatched but unverified slot may be retried, but never in a blind series.
@@ -109,6 +120,12 @@ def _has_run(store: StateStore, key: str, today) -> bool:
         done = (store.data.get("last_runs", {}).get("article") or {}).get("finished_at")
         return _date_of(done) == today
     return _date_of((store.data.get("last_runs", {}).get(key) or {}).get("finished_at")) == today
+
+
+def _has_run_weekly(store: StateStore, key: str, now: datetime) -> bool:
+    """Weekly proof: the ISO-week marker, not an HTTP 204."""
+    done = (store.data.get("last_runs") or {}).get(key) or {}
+    return str(done.get("week") or "") == iso_week_key(now)
 
 
 def _today_project_count(store: StateStore, today) -> int:
@@ -247,8 +264,50 @@ def watchdog_command(config: Config, store: StateStore, *, now: datetime | None 
         if message and _notify(config, message):
             alerts.append(message)
 
+    # Weekly recovery: only on the matching UTC weekday, and only when the
+    # ISO-week marker is absent. A late native cron and this dispatch can
+    # both fire in the same week - the command's guard makes the second a
+    # harmless no-op, so no duplicate digest/poll/report is possible.
+    weekly_active = [slot for slot in WEEKLY_SLOTS if slot[1] == now.weekday()]
+    for key, _weekday, (hour, minute), inputs in weekly_active:
+        deadline = now.replace(hour=hour, minute=minute, second=0, microsecond=0)
+        mark = f"{today}:{key}"
+        if _has_run_weekly(store, key, now):
+            prev = marks.get(mark)
+            if prev and not prev.get("verified"):
+                prev["verified"] = True
+                prev["verified_at"] = _stamp(now)
+                changed = True
+                store.event("watchdog_verified", slot=key)
+                verified.append(key)
+            continue
+        if now < deadline:
+            continue
+        missed.append(key)
+        prev = marks.get(mark)
+        if prev:
+            started = _datetime_of(prev.get("at")) or now
+            if (now - started).total_seconds() < DISPATCH_COOLDOWN_SECONDS:
+                continue
+        ok, detail = _dispatch(repo, inputs, token)
+        attempts = int(prev.get("attempts", 1) if prev else 0) + 1
+        marks[mark] = {
+            "at": _stamp(now), "dispatched": ok, "verified": False,
+            "detail": detail[:200], "attempts": attempts,
+        }
+        changed = True
+        (dispatched if ok else failed).append(key)
+        store.event("watchdog_recovered" if ok else "watchdog_dispatch_failed",
+                    slot=key, detail=detail[:200], verified=False, attempts=attempts)
+        if not ok:
+            message = ("⚠️ <b>Пропущен слот</b> <code>%s</code>\n"
+                       "Повтор <b>не удался</b> (%s). Проверь Actions."
+                       % (key, detail[:200]))
+            if _notify(config, message):
+                alerts.append(message)
+
     if missed or changed:
         store.save()
-    return {"ok": True, "checked": len(SLOTS), "missed": missed,
+    return {"ok": True, "checked": len(SLOTS) + len(weekly_active), "missed": missed,
             "dispatched": dispatched, "verified": verified, "failed": failed,
             "alerts": alerts}

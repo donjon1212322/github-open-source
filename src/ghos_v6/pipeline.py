@@ -46,7 +46,7 @@ from .telegram_discovery import build_digest_material
 from .platforms import BlueskyClient, DevToClient, PlatformError
 from .rank import rank_candidates, select_candidate
 from .sources import GitHubApi, collect_candidates, enrich_candidate, enrich_candidates
-from .state import StateStore, iso_now
+from .state import StateStore, iso_now, iso_week_key
 from .telegram import TelegramClient, is_fatal_error
 from .telegraph import TelegraphClient
 
@@ -1480,7 +1480,31 @@ def news_command(
     }
 
 
+def weekly_guard(store: StateStore, name: str, *, now: datetime | None = None) -> dict[str, Any] | None:
+    """Refuse a SECOND weekly post/poll in the same UTC ISO week.
+
+    Owner 08.11: weekly slots must be recoverable by the watchdog without
+    ever producing a duplicate digest, poll or owner report. A marker is
+    written ONLY after the real side effect succeeded.
+    """
+    marker = (store.data.get("last_runs") or {}).get(name) or {}
+    if str(marker.get("week") or "") == iso_week_key(now):
+        return {"ok": True, "published": False, "reason": f"{name}_already_done"}
+    return None
+
+
+def mark_weekly(store: StateStore, name: str, *, now: datetime | None = None, **extra: Any) -> None:
+    """Record a successful weekly run. Caller still owns ``store.save()``."""
+    last_runs = store.data.setdefault("last_runs", {})
+    last_runs[name] = {
+        "week": iso_week_key(now), "finished_at": iso_now(), **extra,
+    }
+
+
 def digest_command(config: Config, store: StateStore) -> dict[str, Any]:
+    guard = weekly_guard(store, "digest")
+    if guard:
+        return guard
     config.require("TELEGRAM_BOT_TOKEN")
     chat_id = config.telegram_chat_id
     records = sorted(_recent_records(store, days=7), key=lambda item: float(item.get("score") or 0), reverse=True)[:5]
@@ -1545,6 +1569,11 @@ def digest_command(config: Config, store: StateStore) -> dict[str, Any]:
         telegram_message_id=sent.get("message_id"),
         poll_message_id=(poll or {}).get("message_id"),
         repos=[record.get("full_name") for record in records],
+    )
+    mark_weekly(
+        store, "digest",
+        telegram_message_id=sent.get("message_id"),
+        poll_message_id=(poll or {}).get("message_id"),
     )
     store.save()
     return {"ok": True, "published": True, "telegram_message_id": sent.get("message_id"), "count": len(records)}
@@ -1617,9 +1646,16 @@ def metrics_command(config: Config, store: StateStore, *, limit: int = 12) -> di
 
 def close_poll_command(config: Config, store: StateStore) -> dict[str, Any]:
     """Close this week's poll and store the tally — the raw taste signal."""
+    guard = weekly_guard(store, "poll-close")
+    if guard:
+        return guard
     config.require("TELEGRAM_BOT_TOKEN")
     poll = store.data.get("active_poll") or {}
     if not poll.get("message_id"):
+        # Nothing to close, but the slot is honestly handled: do not let the
+        # watchdog dispatch it every 30 minutes until midnight.
+        mark_weekly(store, "poll-close", reason="no_active_poll")
+        store.save()
         return {"ok": True, "closed": False, "reason": "no_active_poll"}
     telegram = TelegramClient(config.telegram_bot_token)
     try:
@@ -1651,6 +1687,7 @@ def close_poll_command(config: Config, store: StateStore) -> dict[str, Any]:
     winner = polls.winner({"options": entries})
     store.data["active_poll"] = {}
     store.event("poll_closed", total_voters=tally.get("total_voters"), winner=(winner or {}).get("label"))
+    mark_weekly(store, "poll-close", total_voters=tally.get("total_voters"))
     store.save()
     return {"ok": True, "closed": True, "winner": winner, "options": entries, "total_voters": tally.get("total_voters")}
 
@@ -1663,6 +1700,9 @@ def learn_command(config: Config, store: StateStore) -> dict[str, Any]:
     median, clamp the multiplier to 0.85..1.15, and write it to state so
     the next selection can use it. No model, no hidden weights.
     """
+    guard = weekly_guard(store, "learn")
+    if guard:
+        return guard
     records = [r for r in store.published_records() if r.get("views") is not None]
     # 5 posts is not a sample: with the observed spread (sd≈8 on a median of
     # 49) five posts give a ±14% confidence interval, wider than any effect
@@ -1712,6 +1752,7 @@ def learn_command(config: Config, store: StateStore) -> dict[str, Any]:
         record.pop("_groups", None)
     store.data["value_model"] = model
     store.event("value_model_updated", samples=model["samples"], median=model["median_score"])
+    mark_weekly(store, "learn", samples=model["samples"])
     store.save()
     return {"ok": True, "learned": True, **model}
 
@@ -1774,6 +1815,9 @@ def facebook_handoff_command(config: Config, store: StateStore, *, limit: int = 
 
 
 def report_command(config: Config, store: StateStore) -> dict[str, Any]:
+    guard = weekly_guard(store, "report")
+    if guard:
+        return guard
     records = _recent_records(store, days=7)
     top = sorted(records, key=lambda item: float(item.get("score") or 0), reverse=True)[:3]
     languages = Counter(str(record.get("language") or "Unknown") for record in records)
@@ -1801,6 +1845,7 @@ def report_command(config: Config, store: StateStore) -> dict[str, Any]:
     if config.telegram_bot_token and config.telegram_owner_chat_id:
         sent = TelegramClient(config.telegram_bot_token).send_owner(config.telegram_owner_chat_id, text)
     store.event("weekly_report", sent=bool(sent), projects_7d=len(records))
+    mark_weekly(store, "report", sent=bool(sent), projects_7d=len(records))
     store.save()
     return {"ok": True, "sent": bool(sent), "projects_7d": len(records), "text": text}
 

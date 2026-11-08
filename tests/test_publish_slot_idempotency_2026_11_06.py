@@ -138,8 +138,10 @@ def test_watchdog_does_not_retry_a_quota_closed_slot(monkeypatch, tmp_path):
         Config(), store, now=datetime.fromisoformat(f"{DAY}T18:30:00+00:00"))
 
     assert "publish:us_peak" not in result["missed"]
-    assert result["dispatched"] == []
-    assert calls == [], "no blind retries after an honest quota refusal"
+    # Weekly recovery is allowed (guarded commands); the point is that
+    # NO publish slot is retried after the daily quota closed.
+    assert not [k for k in result["dispatched"] if k.startswith("publish:")]
+    assert not any("us_peak" in str(c) for c in calls), "no blind retries after an honest quota refusal"
     assert not any("us_peak" in a for a in alerts)
 
 
