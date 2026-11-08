@@ -170,6 +170,11 @@
       "week": "2026-W45"
     },
     "telegram_update_offset": 165231075,
+    "watchdog_caps": {
+      "2026-11-08": {
+        "notified": false
+      }
+    },
     "watchdog_dispatches": {}
   },
   "news_topics": [
