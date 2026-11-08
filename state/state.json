@@ -2,12 +2,12 @@
   "dead_letters": [],
   "gemini_window": [
     [
-      1794071927.7683818,
-      3983
+      1794122029.6613405,
+      4033
     ],
     [
-      1794071931.7245042,
-      1456
+      1794122034.2765222,
+      1487
     ]
   ],
   "last_runs": {
@@ -55,9 +55,9 @@
       "telegram_message_id": 3566
     },
     "publish:europe_morning": {
-      "finished_at": "2026-11-07T08:31:10.030956Z",
-      "repo": "oldcircle/geo-sleuth",
-      "telegram_message_id": 3565
+      "finished_at": "2026-11-08T07:13:59.311205Z",
+      "repo": "modelflare-ai/anymodelbot",
+      "telegram_message_id": 3569
     },
     "publish:manual": {
       "finished_at": "2026-11-03T12:00:53.732414Z",
@@ -1690,6 +1690,133 @@
       "visual_host": "imgbb",
       "visual_kind": "readme"
     },
+    "modelflare-ai/anymodelbot": {
+      "articles": {},
+      "card_style": "",
+      "category": "AI",
+      "contributors_count": 6,
+      "created_at": "2026-10-27T08:51:18Z",
+      "crossposts": {
+        "bluesky": {
+          "attempts": 0,
+          "due_at": "2026-11-08T18:00:00+00:00",
+          "status": "pending"
+        }
+      },
+      "description": "🤖 Open-source, local-first alternative to Grok Bot, OpenAI dots and Claude Duet. Your own AI bots on any model: GPT, Claude, Gemini, Grok, DeepSeek, Kimi, GLM and 70+ more through one Modelflare key. Reach them in the app, WeChat or Feishu; they remember you, work in the background, run commands and use your computer. Pay per use.",
+      "description_fp": "452080c06c4c89a5",
+      "forks": 44,
+      "full_name": "modelflare-ai/AnyModelBot",
+      "generated": {
+        "article_markdown": "## What it is\n\nAnyModelBot is a local-first desktop application built for Windows, macOS, and Linux that lets you run autonomous AI agents right on your own machine. Each bot acts as a distinct persona equipped with its own default model, isolated workspace directory, and persistent memory. Instead of forcing you into a single proprietary ecosystem, the project bridges your local file system and external chat networks like WeChat, Feishu, Telegram, Slack, and Discord into a unified operational hub.\n\n## Why it matters\n\nMany developer workflows involve juggling multiple chat web apps while manually copy-pasting code, executing shell scripts, and tracking context across disparate systems. AnyModelBot addresses this fragmentation by keeping your conversations, memory fragments, and API keys stored locally on your device. By routing requests through Modelflare or your own direct vendor keys, it gives you the flexibility to swap between GPT, Claude, Gemini, Grok, and DeepSeek without changing your interface.\n\n## Key features\n\n- Connect 70+ models across 13 providers using a single Modelflare billing key.\n- Deploy multi-channel bots to WeChat, Feishu, Slack, and Discord alongside desktop chat.\n- Enforce granular workspace permissions with read-only, workspace-bound, and full access tiers.\n- Run background tasks and scheduled routines that ping you only when human decisions are needed.\n- Import custom agent skills via packaged ZIP archives containing SKILL.md definitions.\n\n## Quick start\n\nTo run the project locally from source, ensure you have Node.js 22.13+ and Go 1.26.8+ installed, then execute the following commands:\n\n```bash\ngit clone https://github.com/modelflare-ai/AnyModelBot.git\ncd AnyModelBot\nnpm install\nnpm run setup\nnpm start\n```\n\n## Who should try it\n\nThis tool fits developers who want a self-hosted alternative to proprietary AI assistants and need deep integration with local files and everyday messaging platforms. If you prefer managing your own prompts, workspaces, and model choices without giving up desktop automation, it is worth exploring.\n\n## Verdict\n\nAnyModelBot offers a mature, open-source approach to local agent execution with transparent permission boundaries. While it requires trusting external gateways for multi-model routing unless you supply direct API keys, its flexibility makes it a strong choice for local-first developer automation.",
+        "article_title": "AnyModelBot: Local-First Open-Source AI Agents for Desktop and Chat Apps",
+        "card_hook": "Run personal AI bots locally",
+        "card_subline": "Connect GPT, Claude, and 70+ models to WeChat, Feishu, and Telegram with a single key",
+        "category": "AI",
+        "discussion_question": "Which chat channel would you deploy your first local agent to?",
+        "hook": "Deploy a local-first AI agent to WeChat, Feishu, and Telegram that runs commands with a single Modelflare key.",
+        "key_features": [
+          "Connect 70+ models across 13 providers using a single Modelflare billing key",
+          "Deploy multi-channel bots to WeChat, Feishu, Slack, and Discord alongside desktop chat",
+          "Enforce granular workspace permissions with read-only, workspace-bound, and full access tiers",
+          "Run background tasks and scheduled routines that ping you only when human decisions are needed",
+          "Import custom agent skills via packaged ZIP archives containing SKILL.md definitions"
+        ],
+        "llm_used": true,
+        "quick_start": "git clone https://github.com/modelflare-ai/AnyModelBot.git && cd AnyModelBot && npm install && npm start",
+        "safety": "ok",
+        "safety_reason": "The project is a legitimate local-first open-source AI agent workspace application and development tool.",
+        "scene": "You spend your afternoon copying code snippets between chat windows and manually executing file scripts while locked into a single vendor's desktop ecosystem.",
+        "social_text": "Run local-first AI agents across WeChat, Feishu, and Telegram using any model through Modelflare.",
+        "summary": "AnyModelBot is a local-first desktop application that runs AI agents with their own isolated workspaces, memory stores, and custom personas. It interfaces with an integrated Modelflare account or direct vendor API keys while executing local shell commands and file operations behind user-approved permission guardrails. Communication bridges extend the local runtime out to external chat channels like WeChat, Feishu, and Telegram without sacrificing local state ownership.",
+        "surfaces": {
+          "Facebook_body": "Running artificial intelligence assistants usually means relying on separate website tabs that cannot see your local files or work in the background. A new open-source application lets you run your own automated assistants directly on your computer, connecting them to messaging apps you already use every day like WeChat and Telegram.\n\nThe application acts as a bridge between dozens of different intelligence providers and your desktop environment. It operates inside secure boundaries, meaning you decide exactly which folders and commands the assistant can access. You can set it to run routine background tasks, organize local files, or answer questions through your chat apps without switching windows.\n\nThis tool is designed for developers and power users who want self-hosted automation without being locked into a single provider's desktop software. It requires comfort with running desktop applications and setting up local permissions, but it offers complete control over your data and multi-model flexibility.",
+          "Facebook_headline": "Control your computer using AI in your favorite chat apps",
+          "Facebook_lead": "Bring seventy different artificial intelligence models directly into your daily messaging apps while keeping your files safely on your own computer.",
+          "bluesky_headline": "Run local AI agents across chat apps from your desktop",
+          "bluesky_lead": "Connect your files and chat apps to over seventy models with a single billing key.",
+          "devto_body": "## What it is\n\nAnyModelBot is an open-source, Python-based desktop application designed to run local-first AI agents with isolated workspaces, persistent memory, and custom personas. It bridges local execution environments with external messaging platforms like WeChat, Feishu, Slack, and Telegram.\n\n## How it works\n\nThe application initializes a local runtime that manages agent state and connects to over 70 models across 13 providers using a single billing key. It executes shell commands and file operations behind user-approved permission guardrails, ensuring that background tasks and scheduled routines operate securely within designated workspace boundaries.\n\n## Key features\n\n- Connect 70+ models across 13 providers using a single billing key\n- Deploy multi-channel bots to WeChat, Feishu, Slack, and Discord alongside desktop chat\n- Enforce granular workspace permissions with read-only, workspace-bound, and full access tiers\n- Run background tasks and scheduled routines that ping you only when human decisions are needed\n- Import custom agent skills via packaged ZIP archives containing SKILL.md definitions\n\n## Getting started\n\nClone the repository from GitHub and install the dependencies locally:\n\n```bash\ngit clone https://github.com/modelflare-ai/AnyModelBot.git\ncd AnyModelBot\npip install -r requirements.txt\npython main.py\n```\n\nEnsure you configure your workspace permissions and supply your provider keys or billing key before executing shell-enabled workflows.\n\n## When not to use it\n\nAvoid this tool if you require a zero-config cloud-hosted solution or if you are uncomfortable running local applications with shell execution privileges on your machine.",
+          "seo_description": "Run local AI assistants connected to chat apps and desktop files with this open-source tool for developers and power users.",
+          "seo_query": "open source local AI agent chat app",
+          "seo_title": "Run Local AI Agents in Chat Apps - Open Source Tool",
+          "telegraph_angle": "Explain how local-first AI agents bridge desktop files and chat apps with granular permission guardrails."
+        },
+        "tension": "Your current setup traps your chat history behind closed proprietary web apps, blocks you from swapping underlying models, and gives assistants unchecked disk access.",
+        "turn": "AnyModelBot brings local execution and multi-model routing into an open-source client, though you still need to trust Modelflare's gateway for proxied provider requests.",
+        "verdict": "An exceptionally practical tool for developers tired of web-only chat interfaces, provided you are comfortable running a local Electron app with shell access.",
+        "who_for": "Developers who want self-hosted, multi-model AI assistants integrated directly into desktop files and chat apps.",
+        "why_now": "The rise of agentic workflows requiring local file access has collided with the need for multi-model routing without vendor-locked desktop wrappers."
+      },
+      "homepage": "https://anymodel.bot/",
+      "id": 1435475558,
+      "image_url": "https://i.ibb.co/cK2sFLYC/modelflare-ai-anymodelbot-readme-preview-bfd69ba8fe59.jpg",
+      "is_dual_use": false,
+      "is_hidden_gem": false,
+      "language": "Python",
+      "license": {
+        "key": "mit",
+        "name": "MIT License",
+        "node_id": "MDc6TGljZW5zZTEz",
+        "spdx_id": "MIT",
+        "url": "https://api.github.com/licenses/mit"
+      },
+      "media_urls": [
+        "https://raw.githubusercontent.com/modelflare-ai/AnyModelBot/master/docs/assets/hero/hero-demo.gif",
+        "https://raw.githubusercontent.com/modelflare-ai/AnyModelBot/master/docs/assets/download/install-windows.gif",
+        "https://raw.githubusercontent.com/modelflare-ai/AnyModelBot/master/docs/assets/features/agent-files.gif",
+        "https://raw.githubusercontent.com/modelflare-ai/AnyModelBot/master/docs/assets/features/computer-use.gif",
+        "https://raw.githubusercontent.com/modelflare-ai/AnyModelBot/master/docs/assets/features/media-generation.gif",
+        "https://raw.githubusercontent.com/modelflare-ai/AnyModelBot/master/docs/assets/features/first-run.gif",
+        "https://raw.githubusercontent.com/modelflare-ai/AnyModelBot/master/docs/assets/features/model-switch.gif",
+        "https://raw.githubusercontent.com/modelflare-ai/AnyModelBot/master/docs/assets/features/memory.gif"
+      ],
+      "name": "AnyModelBot",
+      "open_issues": 0,
+      "published_at": "2026-11-08T07:13:59.310826Z",
+      "pushed_at": "2026-11-07T19:38:47Z",
+      "readme_fp": "1869f04fcef48637",
+      "repo_id": 1435475558,
+      "revisit_of": "",
+      "revisit_reason": "",
+      "score": 92.94,
+      "slot": "europe_morning",
+      "sources": [
+        "github_search",
+        "telegram:github_repos",
+        "telegram:gitbless"
+      ],
+      "stars": 2737,
+      "telegram_chat_id": "@GitHub_Open_Source",
+      "telegram_link": "https://t.me/GitHub_Open_Source/3569",
+      "telegram_message_id": 3569,
+      "telegraph_url": "https://telegra.ph/AnyModelBot-Local-First-Open-Source-AI-Agents-for-Desktop-and-Chat-Apps-11-08",
+      "topics": [
+        "ai-agent",
+        "ai-assistant",
+        "chatbot",
+        "claude",
+        "computer-use",
+        "deepseek",
+        "desktop-app",
+        "dsh",
+        "electron",
+        "feishu",
+        "gemini",
+        "gpt",
+        "grok",
+        "llm",
+        "local-first",
+        "modelflare",
+        "multi-model",
+        "openai-compatible",
+        "personal-ai-agent",
+        "wechat"
+      ],
+      "updated_at": "2026-11-08T06:27:10Z",
+      "url": "https://github.com/modelflare-ai/AnyModelBot",
+      "visual_host": "imgbb",
+      "visual_kind": "readme"
+    },
     "oldcircle/geo-sleuth": {
       "articles": {
         "devto": {
@@ -2414,84 +2541,6 @@
     }
   },
   "queue": [
-    {
-      "archived": false,
-      "contributors_count": 6,
-      "created_at": "2026-10-27T08:51:18Z",
-      "default_branch": "master",
-      "description": "🤖 Open-source, local-first alternative to Grok Bot, OpenAI dots and Claude Duet. Your own AI bots on any model: GPT, Claude, Gemini, Grok, DeepSeek, Kimi, GLM and 70+ more through one Modelflare key. Reach them in the app, WeChat or Feishu; they remember you, work in the background, run commands and use your computer. Pay per use.",
-      "disabled": false,
-      "fork": false,
-      "forks": 43,
-      "forks_count": 43,
-      "full_name": "modelflare-ai/AnyModelBot",
-      "has_readme": true,
-      "homepage": "https://anymodel.bot/",
-      "id": 1435475558,
-      "is_dual_use": false,
-      "is_hidden_gem": false,
-      "language": "Python",
-      "license": {
-        "key": "mit",
-        "name": "MIT License",
-        "node_id": "MDc6TGljZW5zZTEz",
-        "spdx_id": "MIT",
-        "url": "https://api.github.com/licenses/mit"
-      },
-      "media_urls": [
-        "https://raw.githubusercontent.com/modelflare-ai/AnyModelBot/master/docs/assets/hero/hero-demo.gif",
-        "https://raw.githubusercontent.com/modelflare-ai/AnyModelBot/master/docs/assets/download/install-windows.gif",
-        "https://raw.githubusercontent.com/modelflare-ai/AnyModelBot/master/docs/assets/features/agent-files.gif",
-        "https://raw.githubusercontent.com/modelflare-ai/AnyModelBot/master/docs/assets/features/computer-use.gif",
-        "https://raw.githubusercontent.com/modelflare-ai/AnyModelBot/master/docs/assets/features/media-generation.gif",
-        "https://raw.githubusercontent.com/modelflare-ai/AnyModelBot/master/docs/assets/features/first-run.gif",
-        "https://raw.githubusercontent.com/modelflare-ai/AnyModelBot/master/docs/assets/features/model-switch.gif",
-        "https://raw.githubusercontent.com/modelflare-ai/AnyModelBot/master/docs/assets/features/memory.gif"
-      ],
-      "name": "AnyModelBot",
-      "non_software_reason": "",
-      "open_issues": 0,
-      "open_issues_count": 0,
-      "owner_repo_count": 1,
-      "pushed_at": "2026-11-07T19:38:47Z",
-      "readme": "",
-      "readme_excerpt": "<p align=\"center\">\n  <a href=\"https://github.com/modelflare-ai/AnyModelBot/releases\">\n    <img src=\"docs/assets/brand/logo-eyes.webp\" width=\"120\" height=\"120\" alt=\"AnyModelBot 的 Eyes 标志：两只竖向胶囊形的眼睛，会左右张望\">\n  </a>\n</p>\n\n<h1 align=\"center\">\n  <picture>\n    <source media=\"(prefers-color-scheme: dark)\" srcset=\"docs/assets/brand/wordmark-dark.svg\">\n    <img src=\"docs/assets/brand/wordmark-light.svg\" height=\"40\" alt=\"AnyModelBot\">\n  </picture>\n</h1>\n\n<p align=\"center\"><b>跑在你自己电脑上的 AI 机器人。任意模型，按量付费。</b></p>\n\n<p align=\"center\">\n  <a href=\"https://anymodel.bot/\">官网</a> |\n  <a href=\"https://github.com/modelflare-ai/AnyModelBot/releases\">下载</a> |\n  简体中文 |\n  <a href=\"./README_en.md\">English</a> |\n  <a href=\"./README_ja.md\">日本語</a> |\n  <a href=\"./README_ko.md\">한국어</a> |\n  <a href=\"./README_ru.md\">Русский</a> |\n  <a href=\"https://modelflare.dev/?utm_source=anymodelbot&utm_campaign=amb_readme\">Modelflare</a> |\n  <a href=\"https://modelflare.dev/pricing?utm_source=anymodelbot&utm_campaign=amb_readme\">价格</a> |\n  <a href=\"./docs/development.md\">开发文档</a> |\n  <a href=\"https://github.com/modelflare-ai/AnyModelBot/issues\">问题反馈</a>\n</p>\n\n<div align=\"center\">\n\n[![Release][release-shield]][releases-link]\n[![",
-      "readme_len": 22195,
-      "repo_id": 1435475558,
-      "score": 92.94,
-      "source_name": "github_search",
-      "sources": [
-        "github_search",
-        "telegram:github_repos",
-        "telegram:gitbless"
-      ],
-      "stargazers_count": 2735,
-      "stars": 2735,
-      "topics": [
-        "ai-agent",
-        "ai-assistant",
-        "chatbot",
-        "claude",
-        "computer-use",
-        "deepseek",
-        "desktop-app",
-        "dsh",
-        "electron",
-        "feishu",
-        "gemini",
-        "gpt",
-        "grok",
-        "llm",
-        "local-first",
-        "modelflare",
-        "multi-model",
-        "openai-compatible",
-        "personal-ai-agent",
-        "wechat"
-      ],
-      "updated_at": "2026-11-08T03:22:27Z",
-      "url": "https://github.com/modelflare-ai/AnyModelBot"
-    },
     {
       "archived": false,
       "contributors_count": 5,
@@ -6639,8 +6688,8 @@
     "modelflare-ai/anymodelbot": {
       "first_seen_at": "2026-11-03T11:59:59.674735Z",
       "full_name": "modelflare-ai/AnyModelBot",
-      "last_decision": "queued",
-      "last_seen_at": "2026-11-08T04:25:24.753916Z",
+      "last_decision": "published",
+      "last_seen_at": "2026-11-08T07:13:59.311192Z",
       "repo_id": 1435475558,
       "sources": [
         "github_search",
