@@ -160,3 +160,4 @@
 {"deleted": 0, "ts": "2026-11-08T18:47:46.270343Z", "type": "moderation_completed", "updates": 1}
 {"title": "Dense Models, Mixture-of-Experts, and Agent Memory Architectures", "ts": "2026-11-08T19:19:16.263139Z", "type": "news_article_generated", "words": 1174}
 {"Gemini_video_input": false, "models": 7, "official_url": "", "stories": 4, "topic": "ai-model-releases-and-memory", "ts": "2026-11-08T19:19:18.304827Z", "type": "ai_brief_published", "video_id": "tg-20261108-407d9b62a9"}
+{"devto_id": 5000128, "ts": "2026-11-08T19:53:51.490525Z", "type": "news_article_published", "url": "https://dev.to/githubopensource/dense-models-mixture-of-experts-and-agent-memory-architectures-353a", "words": 1174}

@@ -138,14 +138,13 @@
       "week": "2026-W45"
     },
     "news-article": {
-      "devto_id": 4995411,
-      "finished_at": "2026-11-07T19:53:53.662838Z",
+      "devto_id": 5000128,
+      "finished_at": "2026-11-08T19:53:51.490504Z",
       "published": true,
-      "title": "Gemini Omni 1.2 Flash, Inkling 2 Small, and the Evolving State of Open Weights and Video APIs",
-      "topic_key": "model-releases-and-agent-memory",
-      "updated_at": "2026-11-08T05:47:56.545167Z",
-      "url": "https://dev.to/githubopensource/ai-brief-companion-gemini-omni-12-flash-inkling-2-small-and-kernel-vulnerability-audits-4gn6",
-      "words": 1023
+      "title": "Dense Models, Mixture-of-Experts, and Agent Memory Architectures",
+      "topic_key": "ai-model-releases-and-memory",
+      "url": "https://dev.to/githubopensource/dense-models-mixture-of-experts-and-agent-memory-architectures-353a",
+      "words": 1174
     },
     "publish:europe_midday": {
       "finished_at": "2026-11-08T12:44:05.921598Z",
@@ -488,6 +487,7 @@
         ],
         "why_devs": "These updates give developers new dense and MoE models, practical agent memory patterns, and open-source coding toolkits."
       },
+      "devto_cover_url": "https://i.ibb.co/B2tD1kN9/project-devto-cover-d8a0ae09411a.png",
       "headline": "Three new models and a 65B open weights release dropped on Tuesday.",
       "image_url": "https://i.ibb.co/Xfs1MDbX/ai-brief-75488effa230.png",
       "models": [
