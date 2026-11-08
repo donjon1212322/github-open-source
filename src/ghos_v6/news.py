@@ -1667,6 +1667,41 @@ The article MUST be at least 1000 words and MUST NOT reuse brief_question.
         except Exception:  # noqa: BLE001 - publish the best draft we have
             logger.warning("article expansion unavailable; keeping original draft")
             break
+    # A full rewrite tends to come back SHORTER than the draft. When we are
+    # still under 1000 words, append a genuinely NEW section instead of
+    # asking Gemini to rewrite everything again. All prose is still written
+    # by Gemini; the publisher only concatenates.
+    if len(markdown.split()) < 1000:
+        for angle in (
+            "a migration and eval checklist for the exact identifiers in brief_data",
+            "edge cases, failure modes and what to measure before trusting these releases",
+        ):
+            try:
+                section_raw = client.generate_json(
+                    "You are extending ONE dev.to article with ONE additional "
+                    "section. Write 220-320 words of NEW material about "
+                    + angle + ". Start with a ## heading. Do NOT repeat any "
+                    "sentence, number or example already present, do NOT ask "
+                    "questions, do NOT add links, do NOT invent facts beyond "
+                    "brief_data. Return ONLY this new section in "
+                    "article_markdown (article_title may be empty).\n\n"
+                    "<existing_article>\n" + markdown[-6000:] + "\n</existing_article>\n\n"
+                    "<brief_data>\n" + json.dumps(payload, ensure_ascii=False)[:6000]
+                    + "\n</brief_data>",
+                    schema=NEWS_ARTICLE_SCHEMA,
+                    youtube_url="",
+                    temperature=0.5,
+                    max_output_tokens=8192,
+                )
+                section = adapters.normalize_article_markdown(
+                    str(section_raw.get("article_markdown") or "")
+                ).strip()
+                if len(section.split()) >= 90 and section.startswith("##"):
+                    markdown = markdown.rstrip() + "\n\n" + section
+            except Exception:  # noqa: BLE001 - keep the best draft we have
+                logger.warning("article addendum unavailable; keeping draft")
+            if len(markdown.split()) >= 1000:
+                break
     if len(markdown.split()) < 1000:
         logger.warning("article still short after expansion: %d words", len(markdown.split()))
     markdown = ensure_distinct_question(
