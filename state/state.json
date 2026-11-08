@@ -59,7 +59,9 @@
       "started_at": "2026-11-08T11:24:55.338486Z"
     },
     "digest": {
+      "card_metric": "stars",
       "finished_at": "2026-11-08T16:13:56.276995Z",
+      "image_url": "https://i.ibb.co/H192d3y/sunday-digest-stars-fb74bf98fbc9.png",
       "poll_message_id": 3572,
       "telegram_message_id": 3571,
       "week": "2026-W45"
