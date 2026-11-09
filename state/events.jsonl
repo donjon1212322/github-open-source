@@ -190,3 +190,4 @@
 {"platform": "bluesky", "repo": "debpalash/voicestudio", "ts": "2026-11-09T19:17:47.975701Z", "type": "crosspost_published", "url": "https://bsky.app/profile/githubopensource.bsky.social/post/3mzvncnn3sz2z"}
 {"title": "Claude Fable 5.2 Pricing Drops, ModRetro Chromatic Integration, and New AI Coding Tools", "ts": "2026-11-09T19:19:13.340965Z", "type": "news_article_generated", "words": 1036}
 {"Gemini_video_input": false, "models": 8, "official_url": "", "stories": 5, "topic": "ai-model-releases-and-tools", "ts": "2026-11-09T19:19:14.926806Z", "type": "ai_brief_published", "video_id": "tg-20261109-8ab806241d"}
+{"after": 1, "before": 3, "hook_repaired": true, "message_id": 3579, "ts": "2026-11-09T19:41:19.156827Z", "type": "brief_rumours_repaired"}
