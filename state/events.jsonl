@@ -195,3 +195,4 @@
 {"deleted": 0, "ts": "2026-11-09T20:10:52.986037Z", "type": "moderation_completed", "updates": 0}
 {"channel": "GitHub_Open_Source", "posts": 12, "ts": "2026-11-09T20:23:54.911152Z", "type": "metrics_collected", "updated": 12}
 {"deleted": 0, "ts": "2026-11-09T21:47:50.561169Z", "type": "moderation_completed", "updates": 0}
+{"reason": "slot_already_done", "slot": "europe_midday", "ts": "2026-11-09T22:41:49.181163Z", "type": "publish_skipped"}
