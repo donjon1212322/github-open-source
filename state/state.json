@@ -94,11 +94,11 @@
   ],
   "last_runs": {
     "article": {
-      "finished_at": "2026-11-09T13:33:50.498167Z",
-      "published": true,
-      "reason": "published",
-      "repo": "debpalash/voicestudio",
-      "url": "https://dev.to/githubopensource/open-source-local-voice-cloning-and-dubbing-software-2l2"
+      "finished_at": "2026-11-09T23:05:36.833134Z",
+      "published": false,
+      "reason": "already_published_today",
+      "repo": "",
+      "url": ""
     },
     "collect": {
       "discovered": 624,
