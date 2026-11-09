@@ -754,6 +754,7 @@
       "open_issues": 111,
       "published_at": "2026-11-09T07:14:04.159541Z",
       "pushed_at": "2026-11-09T07:03:44Z",
+      "reactions": 0,
       "readme_fp": "07fc1302fa0ee84f",
       "repo_id": 1206390571,
       "revisit_of": "",
@@ -791,6 +792,17 @@
       ],
       "updated_at": "2026-11-09T07:10:35Z",
       "url": "https://github.com/debpalash/VoiceStudio",
+      "value_score": 64.6,
+      "views": 78,
+      "views_age_hours": 13.2,
+      "views_at_24h": 115,
+      "views_history": [
+        {
+          "at": "2026-11-09T20:23:51.035356Z",
+          "reactions": 0,
+          "views": 78
+        }
+      ],
       "visual_host": "imgbb",
       "visual_kind": "readme"
     },
@@ -1232,10 +1244,10 @@
       ],
       "updated_at": "2026-11-07T16:31:26Z",
       "url": "https://github.com/jhaizhou-ops/d2r-mobile",
-      "value_score": 40.57,
-      "views": 86,
-      "views_age_hours": 30.5,
-      "views_at_24h": 78,
+      "value_score": 37.88,
+      "views": 100,
+      "views_age_hours": 51.1,
+      "views_at_24h": 71,
       "views_history": [
         {
           "at": "2026-11-07T20:23:48.978856Z",
@@ -1256,6 +1268,11 @@
           "at": "2026-11-08T23:48:20.255673Z",
           "reactions": 0,
           "views": 86
+        },
+        {
+          "at": "2026-11-09T20:23:52.757093Z",
+          "reactions": 0,
+          "views": 100
         }
       ],
       "visual_host": "imgbb",
@@ -1876,10 +1893,10 @@
       ],
       "updated_at": "2026-11-06T13:29:37Z",
       "url": "https://github.com/l0ng-ai/openidea",
-      "value_score": 28.37,
-      "views": 79,
-      "views_age_hours": 58.3,
-      "views_at_24h": 54,
+      "value_score": 28.63,
+      "views": 87,
+      "views_age_hours": 78.9,
+      "views_at_24h": 55,
       "views_history": [
         {
           "at": "2026-11-07T00:09:28.397909Z",
@@ -1905,6 +1922,11 @@
           "at": "2026-11-08T23:48:21.751105Z",
           "reactions": 0,
           "views": 79
+        },
+        {
+          "at": "2026-11-09T20:23:54.496919Z",
+          "reactions": 0,
+          "views": 87
         }
       ],
       "visual_host": "imgbb",
@@ -2029,10 +2051,10 @@
       ],
       "updated_at": "2026-11-08T12:43:51Z",
       "url": "https://github.com/lexmount/moli",
-      "value_score": 37.49,
-      "views": 44,
-      "views_age_hours": 11.1,
-      "views_at_24h": 72,
+      "value_score": 37.53,
+      "views": 75,
+      "views_age_hours": 31.7,
+      "views_at_24h": 67,
       "views_history": [
         {
           "at": "2026-11-08T20:23:51.525147Z",
@@ -2043,6 +2065,11 @@
           "at": "2026-11-08T23:48:19.516215Z",
           "reactions": 0,
           "views": 44
+        },
+        {
+          "at": "2026-11-09T20:23:51.889178Z",
+          "reactions": 0,
+          "views": 75
         }
       ],
       "visual_host": "imgbb",
@@ -2322,9 +2349,9 @@
       ],
       "updated_at": "2026-11-06T15:03:29Z",
       "url": "https://github.com/LNPANDY/NX2Apple",
-      "value_score": 34.71,
-      "views": 96,
-      "views_age_hours": 56.7,
+      "value_score": 34.78,
+      "views": 105,
+      "views_age_hours": 77.3,
       "views_at_24h": 67,
       "views_history": [
         {
@@ -2351,6 +2378,11 @@
           "at": "2026-11-08T23:48:21.392180Z",
           "reactions": 0,
           "views": 96
+        },
+        {
+          "at": "2026-11-09T20:23:54.051478Z",
+          "reactions": 0,
+          "views": 105
         }
       ],
       "visual_host": "imgbb",
@@ -2463,10 +2495,10 @@
       ],
       "updated_at": "2026-11-08T16:58:38Z",
       "url": "https://github.com/ly05010419/MacNativeGames",
-      "value_score": 47.11,
-      "views": 42,
-      "views_age_hours": 6.5,
-      "views_at_24h": 90,
+      "value_score": 43.9,
+      "views": 82,
+      "views_age_hours": 27.1,
+      "views_at_24h": 78,
       "views_history": [
         {
           "at": "2026-11-08T20:23:51.207233Z",
@@ -2477,6 +2509,11 @@
           "at": "2026-11-08T23:48:19.141680Z",
           "reactions": 0,
           "views": 42
+        },
+        {
+          "at": "2026-11-09T20:23:51.452316Z",
+          "reactions": 0,
+          "views": 82
         }
       ],
       "visual_host": "imgbb",
@@ -2566,6 +2603,7 @@
       "open_issues": 942,
       "published_at": "2026-11-09T17:19:05.625627Z",
       "pushed_at": "2026-11-09T17:18:41Z",
+      "reactions": 0,
       "readme_fp": "22b95797283748eb",
       "repo_id": 1331261687,
       "revisit_of": "",
@@ -2595,6 +2633,17 @@
       ],
       "updated_at": "2026-11-09T17:18:47Z",
       "url": "https://github.com/milind-soni/OpenMausBot",
+      "value_score": 62.08,
+      "views": 38,
+      "views_age_hours": 3.1,
+      "views_at_24h": 116,
+      "views_history": [
+        {
+          "at": "2026-11-09T20:23:50.165040Z",
+          "reactions": 0,
+          "views": 38
+        }
+      ],
       "visual_host": "imgbb",
       "visual_kind": "readme"
     },
@@ -2738,10 +2787,10 @@
       ],
       "updated_at": "2026-11-08T06:27:10Z",
       "url": "https://github.com/modelflare-ai/AnyModelBot",
-      "value_score": 40.43,
-      "views": 61,
-      "views_age_hours": 16.6,
-      "views_at_24h": 78,
+      "value_score": 38.97,
+      "views": 84,
+      "views_age_hours": 37.2,
+      "views_at_24h": 69,
       "views_history": [
         {
           "at": "2026-11-08T20:23:51.833382Z",
@@ -2752,6 +2801,11 @@
           "at": "2026-11-08T23:48:19.884414Z",
           "reactions": 0,
           "views": 61
+        },
+        {
+          "at": "2026-11-09T20:23:52.323047Z",
+          "reactions": 0,
+          "views": 84
         }
       ],
       "visual_host": "imgbb",
@@ -2894,10 +2948,10 @@
       ],
       "updated_at": "2026-11-07T08:30:07Z",
       "url": "https://github.com/Oldcircle/geo-sleuth",
-      "value_score": 32.63,
-      "views": 78,
-      "views_age_hours": 39.3,
-      "views_at_24h": 63,
+      "value_score": 32.77,
+      "views": 90,
+      "views_age_hours": 59.9,
+      "views_at_24h": 62,
       "views_history": [
         {
           "at": "2026-11-07T20:23:49.572286Z",
@@ -2918,6 +2972,11 @@
           "at": "2026-11-08T23:48:21.021230Z",
           "reactions": 0,
           "views": 78
+        },
+        {
+          "at": "2026-11-09T20:23:53.618614Z",
+          "reactions": 0,
+          "views": 90
         }
       ],
       "visual_host": "imgbb",
@@ -3198,10 +3257,10 @@
       ],
       "updated_at": "2026-11-06T10:57:07Z",
       "url": "https://github.com/rehan-remade/universal-modder",
-      "value_score": 37.68,
-      "views": 106,
-      "views_age_hours": 60.6,
-      "views_at_24h": 72,
+      "value_score": 37.18,
+      "views": 114,
+      "views_age_hours": 81.2,
+      "views_at_24h": 71,
       "views_history": [
         {
           "at": "2026-11-07T00:09:28.734681Z",
@@ -3227,6 +3286,11 @@
           "at": "2026-11-08T23:48:22.122949Z",
           "reactions": 0,
           "views": 106
+        },
+        {
+          "at": "2026-11-09T20:23:54.910408Z",
+          "reactions": 0,
+          "views": 114
         }
       ],
       "visual_host": "imgbb",
@@ -3317,6 +3381,7 @@
       "open_issues": 1573,
       "published_at": "2026-11-09T12:43:57.979862Z",
       "pushed_at": "2026-11-09T11:57:02Z",
+      "reactions": 0,
       "readme_fp": "41ccf08626e08eee",
       "repo_id": 1398185212,
       "revisit_of": "",
@@ -3341,6 +3406,17 @@
       ],
       "updated_at": "2026-11-09T12:26:16Z",
       "url": "https://github.com/storytold/lightcraft",
+      "value_score": 63.87,
+      "views": 59,
+      "views_age_hours": 7.7,
+      "views_at_24h": 117,
+      "views_history": [
+        {
+          "at": "2026-11-09T20:23:50.600277Z",
+          "reactions": 0,
+          "views": 59
+        }
+      ],
       "visual_host": "imgbb",
       "visual_kind": "readme"
     },
@@ -3602,10 +3678,10 @@
       ],
       "updated_at": "2026-11-07T12:31:22Z",
       "url": "https://github.com/wheresryan22/anatomy",
-      "value_score": 29.64,
-      "views": 67,
-      "views_age_hours": 35.1,
-      "views_at_24h": 57,
+      "value_score": 28.57,
+      "views": 77,
+      "views_age_hours": 55.7,
+      "views_at_24h": 54,
       "views_history": [
         {
           "at": "2026-11-07T20:23:49.272412Z",
@@ -3626,6 +3702,11 @@
           "at": "2026-11-08T23:48:20.633244Z",
           "reactions": 0,
           "views": 67
+        },
+        {
+          "at": "2026-11-09T20:23:53.183924Z",
+          "reactions": 0,
+          "views": 77
         }
       ],
       "visual_host": "imgbb",
