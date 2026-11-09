@@ -138,13 +138,13 @@
       "week": "2026-W45"
     },
     "news-article": {
-      "devto_id": 5000128,
-      "finished_at": "2026-11-08T19:53:51.490504Z",
+      "devto_id": 5006496,
+      "finished_at": "2026-11-09T19:53:53.326778Z",
       "published": true,
-      "title": "Dense Models, Mixture-of-Experts, and Agent Memory Architectures",
-      "topic_key": "ai-model-releases-and-memory",
-      "url": "https://dev.to/githubopensource/dense-models-mixture-of-experts-and-agent-memory-architectures-353a",
-      "words": 1174
+      "title": "Claude Fable 5.2 Pricing Drops, ModRetro Chromatic Integration, and New AI Coding Tools",
+      "topic_key": "ai-model-releases-and-tools",
+      "url": "https://dev.to/githubopensource/claude-fable-52-pricing-drops-modretro-chromatic-integration-and-new-ai-coding-tools-1m00",
+      "words": 1036
     },
     "publish:europe_midday": {
       "finished_at": "2026-11-09T12:43:57.980084Z",
@@ -589,6 +589,7 @@
         ],
         "why_devs": "Lower inference costs and new design skills give developers practical leverage to ship faster right now."
       },
+      "devto_cover_url": "https://i.ibb.co/YF9zJ4Yf/project-devto-cover-70b6e40dce47.png",
       "headline": "claude-fable-5-2 · Fable 5.1 · Opus 5.5 lead the model watch",
       "image_url": "https://i.ibb.co/7Nd888Yj/ai-brief-224ec804b43c.png",
       "models": [
