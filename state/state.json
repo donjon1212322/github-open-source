@@ -94,11 +94,11 @@
   ],
   "last_runs": {
     "article": {
-      "finished_at": "2026-11-08T18:25:46.451348Z",
-      "published": false,
-      "reason": "already_published_today",
-      "repo": "",
-      "url": ""
+      "finished_at": "2026-11-09T13:33:50.498167Z",
+      "published": true,
+      "reason": "published",
+      "repo": "debpalash/voicestudio",
+      "url": "https://dev.to/githubopensource/open-source-local-voice-cloning-and-dubbing-software-2l2"
     },
     "collect": {
       "discovered": 624,
@@ -556,7 +556,13 @@
   "publish_failures": {},
   "published": {
     "debpalash/voicestudio": {
-      "articles": {},
+      "articles": {
+        "devto": {
+          "id": 5004689,
+          "published_at": "2026-11-09T13:33:50.498036Z",
+          "url": "https://dev.to/githubopensource/open-source-local-voice-cloning-and-dubbing-software-2l2"
+        }
+      },
       "card_style": "",
       "category": "AI",
       "contributors_count": 156,
@@ -570,6 +576,7 @@
       },
       "description": "VoiceStudio is the open-source, fully-local ElevenLabs alternative — voice cloning, voice design, video dubbing, dictation, transcription & audiobook creation in 646 languages.",
       "description_fp": "9a0bc160b5ae88ca",
+      "devto_cover_url": "https://i.ibb.co/S74f1sXx/debpalash-voicestudio-devto-cover-d76e8d4d1a75.png",
       "forks": 11707,
       "full_name": "debpalash/VoiceStudio",
       "generated": {
