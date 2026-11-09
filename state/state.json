@@ -80,16 +80,16 @@
   "dead_letters": [],
   "gemini_daily": {
     "day": "2026-11-08",
-    "units": 15
+    "units": 21
   },
   "gemini_window": [
     [
-      1794158329.5610502,
-      3951
+      1794208435.7328453,
+      3997
     ],
     [
-      1794158333.289815,
-      1440
+      1794208438.8635485,
+      1348
     ]
   ],
   "last_runs": {
@@ -154,9 +154,9 @@
       "telegram_message_id": 3570
     },
     "publish:europe_morning": {
-      "finished_at": "2026-11-08T07:13:59.311205Z",
-      "repo": "modelflare-ai/anymodelbot",
-      "telegram_message_id": 3569
+      "finished_at": "2026-11-09T07:14:04.159779Z",
+      "repo": "debpalash/voicestudio",
+      "telegram_message_id": 3576
     },
     "publish:manual": {
       "finished_at": "2026-11-03T12:00:53.732414Z",
@@ -557,6 +557,130 @@
   ],
   "publish_failures": {},
   "published": {
+    "debpalash/voicestudio": {
+      "articles": {},
+      "card_style": "",
+      "category": "AI",
+      "contributors_count": 156,
+      "created_at": "2026-04-09T21:40:26Z",
+      "crossposts": {
+        "bluesky": {
+          "attempts": 0,
+          "due_at": "2026-11-09T18:00:00+00:00",
+          "status": "pending"
+        }
+      },
+      "description": "VoiceStudio is the open-source, fully-local ElevenLabs alternative — voice cloning, voice design, video dubbing, dictation, transcription & audiobook creation in 646 languages.",
+      "description_fp": "9a0bc160b5ae88ca",
+      "forks": 11707,
+      "full_name": "debpalash/VoiceStudio",
+      "generated": {
+        "article_markdown": "## What it is\n\nVoiceStudio is an open-source, locally-run speech workspace designed to handle voice cloning, text-to-speech, transcription, and video dubbing across hundreds of languages. Rather than relying on cloud APIs, it runs locally on your machine.\n\n## Why it matters\n\nCloud-based voice generation and transcription services often come with recurring usage fees and require sending audio data to third-party servers. VoiceStudio offers a self-hosted alternative that keeps everything on your own hardware.\n\n## Key features\n\n- Clone voices using reference recordings locally\n- Translate and dub videos with synchronized speech timing\n- Generate new voices entirely from text descriptions\n- Transcribe audio files or dictate via desktop widgets\n- Automate workflows using local APIs and watch folders\n\n## Quick start\n\n```bash\ngit clone https://github.com/debpalash/VoiceStudio.git\ncd VoiceStudio\n```\n\n## Who should try it\n\nDevelopers, content creators, and privacy-conscious engineers who need offline speech synthesis and transcription capabilities without cloud lock-in.\n\n## Verdict\n\nA powerful local speech studio that successfully replaces cloud-dependent APIs for offline audio workloads.",
+        "article_title": "VoiceStudio: Open-Source Local Voice Cloning and Speech Studio",
+        "card_hook": "Run ElevenLabs locally",
+        "card_subline": "Open-source voice cloning, transcription, and dubbing in 646 languages",
+        "category": "AI",
+        "discussion_question": "Which local speech model engine do you prefer for offline transcription tasks?",
+        "hook": "Run local voice cloning, transcription, and dubbing across 646 languages completely on your own hardware.",
+        "key_features": [
+          "Clone voices from a clean reference recording on your machine",
+          "Dub videos with translated speech matched to the original timing",
+          "Design entirely new voices using text descriptions",
+          "Transcribe audio and dictate text using a floating desktop widget",
+          "Automate pipelines locally via built-in APIs and watch folders"
+        ],
+        "llm_used": true,
+        "quick_start": "git clone https://github.com/debpalash/VoiceStudio.git\ncd VoiceStudio",
+        "safety": "ok",
+        "safety_reason": "Legitimate open-source AI voice toolkit and local-first alternative to cloud speech services.",
+        "scene": "You drop a clean audio reference into a proprietary API dashboard and watch your monthly bill climb for a few seconds of test audio.",
+        "social_text": "Run open-source voice cloning, transcription, and dubbing locally across 646 languages without cloud APIs.",
+        "summary": "VoiceStudio runs fully on local hardware to handle text-to-speech, transcription, and translation workflows without depending on external cloud APIs. It manages underlying speech engines locally, giving developers an open-source alternative for audio generation tasks.",
+        "surfaces": {
+          "Facebook_body": "Stop paying recurring fees for cloud-based audio tools when you can handle voice cloning, translation, and transcription directly on your own computer. This open-source software runs completely offline, giving you full control over your audio files and keeping your data private.\n\nThe system manages advanced speech models locally on your hardware. You can clone a voice from a clean audio sample, translate videos into hundreds of languages while matching the original timing, or dictate text using a floating desktop widget. It is designed for creators and developers who need high-accuracy speech processing without relying on external servers.\n\nYou will need a capable computer with a decent graphics card to run the models smoothly. If you have the hardware, it offers a powerful way to handle audio production, video dubbing, and text-to-speech tasks for free.",
+          "Facebook_headline": "Clone voices and translate videos right on your PC",
+          "Facebook_lead": "Stop paying cloud fees for audio tools. This free software lets you clone voices, translate videos, and transcribe speech entirely on your own computer.",
+          "bluesky_headline": "Clone and dub voices offline in 646 languages",
+          "bluesky_lead": "Run complete audio workflows and voice cloning on your own hardware without paying cloud fees.",
+          "devto_body": "## What it is\n\nVoiceStudio is an open-source, local-first alternative to cloud speech platforms. Written in Python, it allows developers and creators to run voice cloning, translation, transcription, and text-to-speech workflows entirely on their own hardware.\n\n## How it works\n\nThe project runs underlying speech and translation models locally, completely bypassing external cloud services. It manages tasks through built-in local interfaces, automated watch folders, and local APIs, ensuring all audio processing happens on your machine.\n\n## Key features\n\n- Clone voices using clean reference recordings\n- Dub videos with translated speech matched to original timing\n- Generate new voices using text descriptions\n- Transcribe audio and dictate text via a desktop widget\n- Automate local pipelines using built-in APIs\n\n## Getting started\n\nClone the repository from GitHub and ensure you have Python and a compatible GPU installed to handle local model inference:\n\n```bash\ngit clone https://github.com/debpalash/VoiceStudio\ncd VoiceStudio\n```\n\nFollow the local setup instructions in the repository to install dependencies and run the application.\n\n## When not to use it\n\nSkip this tool if you lack a dedicated GPU with sufficient VRAM, as running large speech models locally requires substantial hardware resources.",
+          "seo_description": "Run local voice cloning, video dubbing, and transcription in 646 languages without cloud APIs. An open-source audio tool for creators and developers.",
+          "seo_query": "open source local voice cloning software",
+          "seo_title": "Open-source local voice cloning and dubbing software",
+          "telegraph_angle": "Explain the architectural shift from cloud speech APIs to local-first hardware execution, including hardware requirements and trade-offs."
+        },
+        "tension": "Cloud speech providers charge per character while locking your voice data and processing pipelines behind restrictive usage tiers.",
+        "turn": "VoiceStudio brings voice cloning, design, and dubbing directly to your machine as an open-source tool, though managing large local speech models still requires adequate hardware.",
+        "verdict": "An essential open-source alternative for anyone tired of cloud speech API fees, provided you have the hardware to run local models.",
+        "who_for": "Developers and creators building audio-heavy workflows who need local-first speech processing.",
+        "why_now": "Local speech models have matured to a point where high-accuracy cloning and translation can run entirely offline on consumer hardware."
+      },
+      "homepage": "https://voicestudio.sh",
+      "id": 1206390571,
+      "image_url": "https://i.ibb.co/8DPKGtCQ/debpalash-voicestudio-readme-preview-fbf5aeb5ff33.jpg",
+      "is_dual_use": false,
+      "is_hidden_gem": false,
+      "language": "Python",
+      "license": {
+        "key": "agpl-3.0",
+        "name": "GNU Affero General Public License v3.0",
+        "node_id": "MDc6TGljZW5zZTE=",
+        "spdx_id": "AGPL-3.0",
+        "url": "https://api.github.com/licenses/agpl-3.0"
+      },
+      "media_urls": [
+        "https://raw.githubusercontent.com/debpalash/VoiceStudio/main/docs/media/electron/voicestudio.gif",
+        "https://raw.githubusercontent.com/debpalash/VoiceStudio/main/docs/media/electron/voice-cloning.webp",
+        "https://raw.githubusercontent.com/debpalash/VoiceStudio/main/docs/media/electron/dubbing.webp",
+        "https://raw.githubusercontent.com/debpalash/VoiceStudio/main/docs/media/electron/voice-design.webp",
+        "https://raw.githubusercontent.com/debpalash/VoiceStudio/main/docs/media/electron/models.webp",
+        "https://raw.githubusercontent.com/debpalash/VoiceStudio/main/docs/media/electron/overview.webp",
+        "https://raw.githubusercontent.com/debpalash/VoiceStudio/main/docs/media/electron/model-packs.webp",
+        "https://raw.githubusercontent.com/debpalash/VoiceStudio/main/docs/assets/voicestudio-pro.svg"
+      ],
+      "name": "VoiceStudio",
+      "open_issues": 111,
+      "published_at": "2026-11-09T07:14:04.159541Z",
+      "pushed_at": "2026-11-09T07:03:44Z",
+      "readme_fp": "07fc1302fa0ee84f",
+      "repo_id": 1206390571,
+      "revisit_of": "",
+      "revisit_reason": "",
+      "score": 94.0,
+      "slot": "europe_morning",
+      "sources": [
+        "telegram:github"
+      ],
+      "stars": 105327,
+      "telegram_chat_id": "@GitHub_Open_Source",
+      "telegram_link": "https://t.me/GitHub_Open_Source/3576",
+      "telegram_message_id": 3576,
+      "telegraph_url": "https://telegra.ph/VoiceStudio-Open-Source-Local-Voice-Cloning-and-Speech-Studio-11-09",
+      "topics": [
+        "ai",
+        "audiobook",
+        "cuda",
+        "dubbing",
+        "elevenlabs-alternative",
+        "huggingface",
+        "local-first",
+        "mlx",
+        "omnivoice-studio",
+        "speech-to-text",
+        "text-to-speech",
+        "transcription",
+        "translate",
+        "tts",
+        "voice-ai",
+        "voice-cloning",
+        "voice-generation",
+        "voicestudio",
+        "workflow"
+      ],
+      "updated_at": "2026-11-09T07:10:35Z",
+      "url": "https://github.com/debpalash/VoiceStudio",
+      "visual_host": "imgbb",
+      "visual_kind": "readme"
+    },
     "horizon-rust/horizon": {
       "articles": {
         "devto": {
@@ -3170,81 +3294,6 @@
   "queue": [
     {
       "archived": false,
-      "contributors_count": 156,
-      "created_at": "2026-04-09T21:40:26Z",
-      "default_branch": "main",
-      "description": "VoiceStudio is the open-source, fully-local ElevenLabs alternative — voice cloning, voice design, video dubbing, dictation, transcription & audiobook creation in 646 languages.",
-      "disabled": false,
-      "fork": false,
-      "forks": 11690,
-      "forks_count": 11690,
-      "full_name": "debpalash/VoiceStudio",
-      "has_readme": true,
-      "homepage": "https://voicestudio.sh",
-      "id": 1206390571,
-      "is_dual_use": false,
-      "is_hidden_gem": false,
-      "language": "Python",
-      "license": {
-        "key": "agpl-3.0",
-        "name": "GNU Affero General Public License v3.0",
-        "node_id": "MDc6TGljZW5zZTE=",
-        "spdx_id": "AGPL-3.0",
-        "url": "https://api.github.com/licenses/agpl-3.0"
-      },
-      "media_urls": [
-        "https://raw.githubusercontent.com/debpalash/OmniVoice-Studio/main/docs/media/electron/voicestudio.gif",
-        "https://raw.githubusercontent.com/debpalash/OmniVoice-Studio/main/docs/media/electron/voice-cloning.webp",
-        "https://raw.githubusercontent.com/debpalash/OmniVoice-Studio/main/docs/media/electron/dubbing.webp",
-        "https://raw.githubusercontent.com/debpalash/OmniVoice-Studio/main/docs/media/electron/voice-design.webp",
-        "https://raw.githubusercontent.com/debpalash/OmniVoice-Studio/main/docs/media/electron/models.webp",
-        "https://raw.githubusercontent.com/debpalash/OmniVoice-Studio/main/docs/media/electron/overview.webp",
-        "https://raw.githubusercontent.com/debpalash/OmniVoice-Studio/main/docs/media/electron/model-packs.webp",
-        "https://raw.githubusercontent.com/debpalash/OmniVoice-Studio/main/docs/assets/voicestudio-pro.svg"
-      ],
-      "name": "VoiceStudio",
-      "non_software_reason": "",
-      "open_issues": 107,
-      "open_issues_count": 107,
-      "owner_repo_count": 1,
-      "pushed_at": "2026-11-09T04:22:52Z",
-      "readme": "",
-      "readme_excerpt": "<div align=\"center\">\n  <h1><sub><img src=\"docs/logo.png\" alt=\"\" width=\"36\" height=\"36\" /></sub> VoiceStudio</h1>\n  <p>\n    <a href=\"https://trendshift.io/repositories/28176?utm_source=repository-badge&amp;utm_medium=badge&amp;utm_campaign=badge-repository-28176\" target=\"_blank\" rel=\"noopener noreferrer\"><img src=\"https://trendshift.io/api/badge/repositories/28176\" alt=\"Trendshift badge showing where VoiceStudio ranks among trending repositories\" width=\"220\" height=\"48\" /></a>\n  </p>\n  <p>\n    <strong>🎉 <a href=\"https://github.com/debpalash/VoiceStudio/stargazers\">100,000 GitHub stars — thank you!</a></strong>\n  </p>\n  <h2>AI voice studio. On your device.</h2>\n  <h3>Clone, design, dub, dictate, transcribe and narrate in 646 languages.</h3>\n  <p>Runs on your laptop, desktop, servers, phone, tablets and more</p>\n  <p>\n    <a href=\"https://voicestudio.sh/?utm_source=github&utm_medium=readme&utm_campaign=project\">Website</a> ·\n    <a href=\"https://github.com/debpalash/VoiceStudio/releases/latest\">Download</a> ·\n    <a href=\"#get-started\">Get started</a> ·\n    <a href=\"#documentation\">Docs</a> ·\n    <a href=\"https://voicestudio.sh/pro?utm_source=github&amp;utm_medium=readme&amp;utm_campa",
-      "readme_len": 29903,
-      "repo_id": 1206390571,
-      "score": 94.0,
-      "source_name": "telegram:github",
-      "sources": [
-        "telegram:github"
-      ],
-      "stargazers_count": 105187,
-      "stars": 105187,
-      "topics": [
-        "ai",
-        "audiobook",
-        "cuda",
-        "dubbing",
-        "elevenlabs-alternative",
-        "huggingface",
-        "local-first",
-        "mlx",
-        "omnivoice-studio",
-        "speech-to-text",
-        "text-to-speech",
-        "transcription",
-        "translate",
-        "tts",
-        "voice-ai",
-        "voice-cloning",
-        "voice-generation",
-        "voicestudio",
-        "workflow"
-      ],
-      "updated_at": "2026-11-09T04:25:02Z",
-      "url": "https://github.com/debpalash/VoiceStudio"
-    },
-    {
-      "archived": false,
       "contributors_count": 250,
       "created_at": "2026-09-30T14:09:27Z",
       "default_branch": "main",
@@ -5747,8 +5796,8 @@
     "debpalash/voicestudio": {
       "first_seen_at": "2026-11-09T04:26:30.729407Z",
       "full_name": "debpalash/VoiceStudio",
-      "last_decision": "queued",
-      "last_seen_at": "2026-11-09T04:26:30.729408Z",
+      "last_decision": "published",
+      "last_seen_at": "2026-11-09T07:14:04.159770Z",
       "repo_id": 1206390571,
       "sources": [
         "telegram:github"
