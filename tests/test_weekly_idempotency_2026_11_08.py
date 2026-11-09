@@ -128,8 +128,10 @@ def test_watchdog_recovers_the_sunday_digest_and_then_stays_quiet(monkeypatch, t
     assert len([c for c in calls if c.get("command") == "digest"]) == 1
 
     # A late native GitHub cron arrives afterwards and writes the marker.
-    pipeline.mark_weekly(store, "digest", telegram_message_id=1234)
-    pipeline.mark_weekly(store, "report", sent=True)
+    # The marker must be written for the SAME ISO week the watchdog checks;
+    # otherwise this test silently depends on the wall-clock date.
+    pipeline.mark_weekly(store, "digest", now=SUNDAY, telegram_message_id=1234)
+    pipeline.mark_weekly(store, "report", now=SUNDAY, sent=True)
     calls.clear()
     later = watchdog.watchdog_command(Config(), store, now=SUNDAY.replace(hour=17, minute=30))
     assert "digest" not in later["dispatched"]

@@ -42,6 +42,33 @@ MIN_TOKENS = 4               # shorter claims are compared literally
 MEMORY_DAYS = 3              # a rumour may not return within three days
 MEMORY_MAX_KEYS = 200        # bounded even after years of daily briefs
 
+# Owner 09.11: once yesterday's rumours were filtered out, the "keep up to
+# three rumours" fallback pulled personal/corporate gossip straight from the
+# channels ("Jensen Huang accused of ties to a Chinese spy", "multi-billion
+# dollar divorce for Nvidia CEO"). Those are neither model news nor exact
+# technical names. A rumour belongs in the block only when it is about AI
+# technology AND is not celebrity/political/financial gossip.
+GOSSIP_MARKERS: tuple[str, ...] = (
+    "divorce", "spy", "espionage", "accused", "allegation", "alleged",
+    "affair", "wedding", "girlfriend", "boyfriend", "scandal", "celebrity",
+    "arrest", "politics", "election", "president", "senator", "regulation",
+    "ipo", "funding", "valuation", "stock", "shares", "layoff", "acquisition",
+    "merger", "revenue", "dividend", "billionaire", "net worth", "dating",
+    "personal life", "war", "military", "sanctions",
+)
+_TECH_RE = re.compile(
+    r"\b(?:ai|llm|llms?|models?|gpt|claude|gemini|llama|qwen|mistral|"
+    r"deepseek|codex|cursor|windsurf|copilot|openai|anthropic|huggingface|"
+    r"astra|sonnet|opus|fable|mythos|grok|ripple|inkling|"
+    r"openrouter|bedrock|aws|benchmarks?|parameters?|tokens?|context window|"
+    r"apis?|sdk|checkpoint|weights|pricing|price|agents?|inference|training|"
+    r"release|preview|beta|leaks?|leaked|screenshot|limits|reset|open source|"
+    r"open-source|github|repo|library|framework|mcp|coding|dataset|fine-tune|"
+    r"quantized|diffusion|transformer|neural|gpu|tpu|multimodal|reasoning|"
+    r"version|update|ide|plugin|extension)\b",
+    re.IGNORECASE,
+)
+
 
 def clean_rumour_text(value: Any, limit: int = 240) -> str:
     """One complete, quoteless claim — never a clipped repost chain."""
@@ -134,6 +161,33 @@ def filter_recent_rumours(store: Any, claims: Iterable[Any] | None, *,
             continue
         out.append(text[:400])
     return out
+
+
+def is_rumour_relevant(value: Any) -> bool:
+    """True only for a technology rumour, never personal/corporate gossip."""
+    text = clean_rumour_text(value).lower()
+    if not text:
+        return False
+    if any(marker in text for marker in GOSSIP_MARKERS):
+        return False
+    return bool(_TECH_RE.search(text))
+
+
+def prune_rumour_memory(store: Any, keep_claims: Iterable[Any] | None, *,
+                        now: datetime | None = None) -> int:
+    """Drop TODAY's memory keys that did not survive the final rumour block.
+
+    Owner 09.11: gossip that was published before the fix must not stay in
+    state as if it were a legitimate rumour. Keys from previous days stay.
+    """
+    today, _cutoff = _day_bounds(now, MEMORY_DAYS)
+    keep = {_rumour_key(c) for c in keep_claims or []}
+    memory = _memory(store)
+    stale = [k for k, day in memory.items() if day == today and k not in keep]
+    for key in stale:
+        del memory[key]
+    store.data["rumour_memory"] = memory
+    return len(stale)
 
 
 def remember_rumours(store: Any, claims: Iterable[Any] | None, *,

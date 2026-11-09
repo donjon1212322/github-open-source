@@ -27,7 +27,7 @@ from typing import Any, Callable
 from urllib.request import Request, urlopen
 
 from .http import USER_AGENT
-from .rumours import clean_rumour_text
+from .rumours import clean_rumour_text, is_rumour_relevant
 
 # Six daily signal channels + two hint channels that carry the leaks the owner
 # explicitly asked to keep. All are independent, non-official channels.
@@ -265,7 +265,10 @@ def build_digest_material(
     kept = [post for post in recent if not is_promo(post["text"])]
     clusters = cluster_posts(kept)
     confirmed = [c for c in clusters if c["status"] != "unconfirmed_rumour"]
-    rumours = [c for c in clusters if c["status"] == "unconfirmed_rumour"]
+    rumours = [
+        c for c in clusters
+        if c["status"] == "unconfirmed_rumour" and is_rumour_relevant(c["text"])
+    ]
 
     # Model news first, at most one corporate/IPO story; collections stay in.
     ordered = sorted(

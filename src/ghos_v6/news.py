@@ -19,7 +19,7 @@ from defusedxml import ElementTree as ET
 
 from .formatter import CHANNEL_TAG_DIVIDER, utf16_len, visible_text
 from .Gemini import GeminiClient
-from .rumours import dedupe_claims
+from .rumours import dedupe_claims, is_rumour_relevant
 from .http import USER_AGENT, UnsafeUrl, download_bytes, sanitize, validate_public_url
 
 logger = logging.getLogger(__name__)
@@ -906,11 +906,14 @@ def _safe_hook(brief: dict[str, Any]) -> str:
     the audited stories, which keeps the 04.11 anti-hallucination rule.
     """
     raw = " ".join(str(brief.get("narrative_hook") or brief.get("hook") or "").split())
+    names = [str(n).lower() for n in brief_model_names(brief)]
     if raw and not _looks_like_service_copy(raw):
-        names = [str(n).lower() for n in brief_model_names(brief)]
         if any(ch.isdigit() for ch in raw) or any(n and n in raw.lower() for n in names):
-            return raw[:150]
-    return _narrative_hook(brief) or raw[:150]
+            # Owner 09.11: raw[:150] cut post 3579 mid-word
+            # ("...how fast the benchmarks are mo"). Clip on a word boundary;
+            # the caller (320 chars) does the real length limit.
+            return _clip_preserving(raw, 320, names)
+    return _narrative_hook(brief) or _clip_preserving(raw, 320, names)
 
 
 def editorial_hook(brief: dict[str, Any]) -> str:
@@ -1408,10 +1411,13 @@ FACT RULES (owner corrections 04-07.11.2026):
     # The owner asked to KEEP rumours. Do not let a terse model drop them.
     # Normalised dedupe: a channel post that repeats the same rumour with an
     # extra quoted aside must not appear twice inside one post (owner 08.11).
-    claims = dedupe_claims(
-        [str(item) for item in (result.get("unconfirmed_claims") or [])]
-        + [str(item) for item in (rumours or [])[:3]]
-    )
+    # Owner 09.11: raw channel clusters used to be appended verbatim. Once
+    # the 3-day memory removed yesterday's claims, that fell back to personal
+    # gossip. Keep rumours, but only technology rumours, and never fill three
+    # slots at any cost.
+    candidates = [str(item) for item in (result.get("unconfirmed_claims") or [])]
+    candidates += [str(item) for item in (rumours or [])[:3]]
+    claims = dedupe_claims([c for c in candidates if is_rumour_relevant(c)])
     result["unconfirmed_claims"] = claims
     result["official_url"] = ""
     result["official_name"] = ""

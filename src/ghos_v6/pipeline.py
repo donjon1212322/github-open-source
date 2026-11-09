@@ -21,13 +21,17 @@ from .formatter import format_project_post
 from .gate import GateConfig, evaluate
 from .Gemini import GeminiClient, generate_project_content
 from .rate_limit import GeminiBudget, GeminiDailyCap
-from .rumours import filter_recent_rumours, remember_rumours
+from .rumours import (
+    filter_recent_rumours, is_rumour_relevant, prune_rumour_memory,
+    remember_rumours,
+)
 from .http import download_bytes, sanitize
 from .media import choose_visual
 from .media_host import ImgBBMediaHost
 from .upload import shrink_for_web_preview
 from .news import (
     NewsSourceError,
+    _clip_preserving,
     brief_model_names,
     brief_stories,
     brief_number_facts,
@@ -1330,9 +1334,12 @@ def news_command(
     # Owner 08.11, second duplicate incident: the 48-hour discovery window
     # overlaps a daily brief, so yesterday's rumours must not be reprinted
     # today. Same-day keys are ignored so `news --refresh` stays intact.
-    brief["unconfirmed_claims"] = filter_recent_rumours(
-        store, brief.get("unconfirmed_claims")
-    )
+    brief["unconfirmed_claims"] = [
+        claim for claim in filter_recent_rumours(
+            store, brief.get("unconfirmed_claims")
+        )
+        if is_rumour_relevant(claim)
+    ]
     if not brief.get("eligible"):
         reason = str(brief.get("rejection_reason") or "gemini_ineligible")[:80]
         store.event("news_skipped", reason=reason, video_id=entry.get("video_id"))
@@ -2404,8 +2411,20 @@ def replace_rumour_block(text_html: str, claims: list[str]) -> str | None:
         return None
     if not claims:
         return head + tail[match.end():].lstrip("\n")
-    lines = "".join(f"◻️ <i>{html.escape(claim)}</i>\n" for claim in claims)
+    lines = "".join(f"◻️ <i>{html.escape(claim, quote=False)}</i>\n" for claim in claims)
     return head + _RUMOUR_HEADER + "\n\n" + lines + tail[match.end():]
+
+
+def replace_brief_hook(text_html: str, hook: str) -> str:
+    """Repair a hook that was clipped mid-word in an already published brief."""
+    if not hook:
+        return text_html
+    return re.sub(
+        r"(<b>)([^<]*)(</b>\n\n🧬)",
+        lambda m: m.group(1) + html.escape(hook, quote=False) + m.group(3),
+        text_html,
+        count=1,
+    )
 
 
 def _live_brief_hook(channel: str, message_id: int) -> str:
@@ -2448,12 +2467,12 @@ def _live_brief_hook(channel: str, message_id: int) -> str:
 
 
 def brief_dedup_fix_command(config: Config, store: StateStore) -> dict[str, Any]:
-    """Owner 08.11 (2nd incident): remove duplicated rumours from the LIVE brief.
+    """Owner 08.11 / 09.11: repair the LIVE brief's rumour block and hook.
 
     In-place ``editMessageText`` only. No new Telegram post, no new card, no
     Gemini call, no dev.to article, no change to any other live message.
     Returns ``ok: false`` and touches nothing when the exact text cannot be
-    reconstructed.
+    reconstructed. Idempotent: a second run returns ``already_clean``.
     """
     topics = store.data.get("news_topics") or []
     if not topics:
@@ -2466,10 +2485,9 @@ def brief_dedup_fix_command(config: Config, store: StateStore) -> dict[str, Any]
     if not brief:
         return {"ok": True, "reason": "brief_not_stored"}
     before = [str(item) for item in (brief.get("unconfirmed_claims") or [])]
-    claims = dedupe_claims(before)
-    if len(claims) == len(before):
-        return {"ok": True, "reason": "already_clean", "message_id": message_id,
-                "claims": claims}
+    # Owner 09.11: dedupe AND keep only technology rumours. Never fill three
+    # slots with personal/corporate gossip from the channels.
+    claims = [c for c in dedupe_claims(before) if is_rumour_relevant(c)]
 
     post_text = str(topic.get("post_text") or "")
     text = replace_rumour_block(post_text, claims) if post_text else None
@@ -2486,6 +2504,18 @@ def brief_dedup_fix_command(config: Config, store: StateStore) -> dict[str, Any]
     if not text:
         return {"ok": False, "reason": "render_failed", "message_id": message_id}
 
+    full_hook = str(topic.get("narrative_hook") or "")
+    hook_repaired = False
+    if post_text and full_hook:
+        repaired = replace_brief_hook(
+            text, _clip_preserving(full_hook, 320, brief_model_names(brief))
+        )
+        hook_repaired = repaired != text
+        text = repaired
+    if post_text and text == post_text:
+        return {"ok": True, "reason": "already_clean", "message_id": message_id,
+                "claims": claims}
+
     config.require("TELEGRAM_BOT_TOKEN")
     try:
         TelegramClient(config.telegram_bot_token).edit_text(
@@ -2499,8 +2529,11 @@ def brief_dedup_fix_command(config: Config, store: StateStore) -> dict[str, Any]
     brief["unconfirmed_claims"] = claims
     topic["brief"] = brief
     topic["post_text"] = text
-    store.event("brief_rumours_deduped", message_id=message_id,
-                before=len(before), after=len(claims))
+    prune_rumour_memory(store, claims)
+    store.event("brief_rumours_repaired", message_id=message_id,
+                before=len(before), after=len(claims),
+                hook_repaired=hook_repaired)
     store.save()
     return {"ok": True, "edited": True, "message_id": message_id,
-            "before": len(before), "after": len(claims), "claims": claims}
+            "before": len(before), "after": len(claims),
+            "hook_repaired": hook_repaired, "claims": claims}
