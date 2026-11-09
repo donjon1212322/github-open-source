@@ -571,7 +571,10 @@
         "bluesky": {
           "attempts": 0,
           "due_at": "2026-11-09T18:00:00+00:00",
-          "status": "pending"
+          "error": "",
+          "published_at": "2026-11-09T19:17:47.975679Z",
+          "status": "published",
+          "url": "https://bsky.app/profile/githubopensource.bsky.social/post/3mzvncnn3sz2z"
         }
       },
       "description": "VoiceStudio is the open-source, fully-local ElevenLabs alternative — voice cloning, voice design, video dubbing, dictation, transcription & audiobook creation in 646 languages.",
@@ -2384,7 +2387,8 @@
         "bluesky": {
           "attempts": 0,
           "due_at": "2026-11-09T18:00:00+00:00",
-          "status": "pending"
+          "held_reason": "not_best_of_day",
+          "status": "held"
         }
       },
       "description": "Open-source Grok Bot alternative with a virtual machine that bots can use",
@@ -3133,7 +3137,8 @@
         "bluesky": {
           "attempts": 0,
           "due_at": "2026-11-09T18:00:00+00:00",
-          "status": "pending"
+          "held_reason": "not_best_of_day",
+          "status": "held"
         }
       },
       "description": "LightCraft: An open-source non-destructive photo editor written by scratch in pure Rust",

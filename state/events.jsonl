@@ -187,3 +187,4 @@
 {"repo": "milind-soni/openmausbot", "score": 90.5, "telegram_message_id": 3578, "telegraph_url": "https://telegra.ph/OpenMausBot-Open-Source-Local-AI-Agent-Chat-Client-11-09", "ts": "2026-11-09T17:19:05.625818Z", "type": "project_published"}
 {"reason": "slot_already_done", "slot": "europe_morning", "ts": "2026-11-09T17:29:17.458090Z", "type": "publish_skipped"}
 {"deleted": 0, "ts": "2026-11-09T18:47:47.152100Z", "type": "moderation_completed", "updates": 0}
+{"platform": "bluesky", "repo": "debpalash/voicestudio", "ts": "2026-11-09T19:17:47.975701Z", "type": "crosspost_published", "url": "https://bsky.app/profile/githubopensource.bsky.social/post/3mzvncnn3sz2z"}
