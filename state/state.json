@@ -80,16 +80,16 @@
   "dead_letters": [],
   "gemini_daily": {
     "day": "2026-11-09",
-    "units": 6
+    "units": 12
   },
   "gemini_window": [
     [
-      1794228229.1362731,
-      3910
+      1794244735.5892687,
+      3930
     ],
     [
-      1794228233.1722367,
-      1407
+      1794244739.3124208,
+      1348
     ]
   ],
   "last_runs": {
@@ -162,9 +162,9 @@
       "telegram_message_id": 3550
     },
     "publish:us_peak": {
-      "finished_at": "2026-11-08T17:19:00.445934Z",
-      "repo": "ly05010419/macnativegames",
-      "telegram_message_id": 3573
+      "finished_at": "2026-11-09T17:19:05.625893Z",
+      "repo": "milind-soni/openmausbot",
+      "telegram_message_id": 3578
     },
     "report": {
       "finished_at": "2026-11-08T16:43:49.336567Z",
@@ -2374,6 +2374,121 @@
       "visual_host": "imgbb",
       "visual_kind": "card"
     },
+    "milind-soni/openmausbot": {
+      "articles": {},
+      "card_style": "",
+      "category": "AI",
+      "contributors_count": 233,
+      "created_at": "2026-08-11T18:58:55Z",
+      "crossposts": {
+        "bluesky": {
+          "attempts": 0,
+          "due_at": "2026-11-09T18:00:00+00:00",
+          "status": "pending"
+        }
+      },
+      "description": "Open-source Grok Bot alternative with a virtual machine that bots can use",
+      "description_fp": "7500284817ca2ce6",
+      "forks": 2673,
+      "full_name": "milind-soni/OpenMausBot",
+      "generated": {
+        "article_markdown": "## What it is\n\nOpenMausBot is an open-source, local-first alternative to cloud-hosted agent applications. It provides a chat-style interface where every agent acts like a contact in a messaging app. Under the hood, a local harness server manages agent processes running on local CLI tools, giving each bot its own model, memory, and virtual machine.\n\n## Why it matters\n\nMany personal AI agent platforms run entirely in the cloud, keeping transcripts and execution environments on remote servers. OpenMausBot shifts that control back to the developer's machine. By using existing local CLIs and storing data locally, it lets users run multi-agent workflows without vendor lock-in or mandatory cloud subscriptions.\n\n## Key features\n\n- Run multiple AI bots side by side with individual models, memories, and virtual machines.\n- Inspect live screen previews of agent cloud desktops or route actions to local environments.\n- Approve or deny shell commands and file edits via inline interactive chat cards.\n- Connect 500+ apps using OAuth sessions through a built-in marketplace.\n- Organize agents into separate channels with distinct instructions and working folders.\n\n## Quick start\n\nTo get started with the repository, clone it locally:\n\n```bash\ngit clone https://github.com/milind-soni/OpenMausBot.git\n```\n\n## Who should try it\n\nDevelopers who want to experiment with local AI agent workflows, custom models, and isolated execution environments without relying on third-party cloud apps.\n\n## Verdict\n\nOpenMausBot is a well-designed local orchestrator for developers who want chat-based AI assistants with real execution capabilities on their own hardware.",
+        "article_title": "OpenMausBot: Open-Source Local AI Agent Chat Client",
+        "card_hook": "AI agents in a chat app",
+        "card_subline": "Run local AI agents with their own isolated computers and apps",
+        "category": "AI",
+        "discussion_question": "Which AI CLI model do you use most often for your daily coding tasks?",
+        "hook": "Manage multiple local AI agents in a chat interface with their own virtual machines using OpenMausBot.",
+        "key_features": [
+          "Run multiple AI bots side by side with individual models, memories, and virtual machines",
+          "Inspect live screen previews of agent cloud desktops or route actions to local environments",
+          "Approve or deny shell commands and file edits via inline interactive chat cards",
+          "Connect 500+ apps using OAuth sessions through a built-in marketplace",
+          "Organize agents into separate channels with distinct instructions and working folders"
+        ],
+        "llm_used": true,
+        "quick_start": "git clone https://github.com/milind-soni/OpenMausBot.git",
+        "safety": "ok",
+        "safety_reason": "The repository is a legitimate open-source AI agent management tool and chat client.",
+        "scene": "You spend your day juggling multiple AI coding assistants across different tabs, copying code snippets back and forth while wishing they could just run tests in a shared workspace.",
+        "social_text": "Run a local team of AI coding agents in a chat app with their own virtual machines and connected tools using OpenMausBot.",
+        "summary": "OpenMausBot runs as a local harness server on the machine, orchestrating multiple CLI-based AI agents inside a messaging app interface. Each agent manages its own transcripts and environment configurations locally while communicating with connected apps through Composio and isolated virtual machines.",
+        "surfaces": {
+          "Facebook_body": "Running multiple smart assistants on your computer does not have to mean sharing your private data with big cloud companies.\n\nThis open-source tool lets you chat with a roster of helpful assistants directly from your desktop. Each assistant works inside its own protected workspace, meaning they can safely organize files or run commands while you keep total control.\n\nYou can review and approve every action your assistants take right inside the chat window, so nothing happens without your permission. Connect your favorite tools and organize your helpers into separate channels for different tasks.\n\nIt is built for developers and privacy-conscious users who want the power of modern AI assistants without being locked into a subscription or sending sensitive files to remote servers. Everything stays on your machine, giving you complete peace of mind while you work.",
+          "Facebook_headline": "Run your own private AI assistants at home",
+          "Facebook_lead": "Manage multiple helpful AI bots in one simple chat window, keeping all your personal data completely private on your own computer without cloud subscriptions.",
+          "bluesky_headline": "Run local AI agents in isolated virtual machines",
+          "bluesky_lead": "Chat with multiple AI bots side by side while keeping your data and models completely private.",
+          "devto_body": "## What it is\n\nOpenMausBot is an open-source TypeScript application that provides a local chat harness for managing multiple command-line-based AI agents. It gives each agent an isolated virtual machine and local transcript storage, operating as a privacy-focused alternative to cloud-locked agent environments.\n\n## How it works\n\nThe application runs as a local harness server on your machine. It orchestrates multiple agents inside a messaging app interface. Each agent maintains its own environment configurations and memory, while interacting with external services through isolated virtual machines and OAuth integrations.\n\n## Key features\n\n- Run multiple AI bots concurrently with individual models and memories\n- Inspect live screen previews or route actions to local environments\n- Approve or deny shell commands and file edits via inline interactive chat cards\n- Connect over 500 applications using built-in OAuth sessions\n- Organize agents into separate channels with distinct working folders\n\n## Getting started\n\nClone the repository from GitHub, install the dependencies using npm or yarn, and start the local harness server to launch the chat interface.\n\n## When not to use it\n\nSkip this tool if you prefer fully managed cloud services or do not have the hardware resources to run local virtual machines alongside your AI workflows.",
+          "seo_description": "Run multiple local AI agents in isolated virtual machines with this open-source chat harness. Ideal for developers seeking privacy.",
+          "seo_query": "local AI agent harness open source",
+          "seo_title": "Open-source local AI agent harness - OpenMausBot",
+          "telegraph_angle": "Explore the architectural trade-offs of running local virtual machines for AI agents versus relying on managed cloud services."
+        },
+        "tension": "Cloud-locked agent tools trap your data and transcripts on external servers while forcing you into a single-model ecosystem.",
+        "turn": "OpenMausBot replaces that single-box setup with a local chat app where every agent runs your preferred CLI models and uses its own virtual machine.",
+        "verdict": "An effective local harness for developers who want a chat-based roster of AI agents without cloud lock-in.",
+        "who_for": "Developers wanting a local-first alternative to cloud-locked AI agent apps.",
+        "why_now": "The rise of closed cloud-hosted agent apps makes a local, bring-your-own-model alternative timely for developers who prefer data privacy."
+      },
+      "homepage": "https://www.mausbot.com/",
+      "id": 1331261687,
+      "image_url": "https://i.ibb.co/bMbdjxV1/milind-soni-openmausbot-readme-preview-b675ac7eeddf.jpg",
+      "is_dual_use": false,
+      "is_hidden_gem": false,
+      "language": "TypeScript",
+      "license": {
+        "key": "apache-2.0",
+        "name": "Apache License 2.0",
+        "node_id": "MDc6TGljZW5zZTI=",
+        "spdx_id": "Apache-2.0",
+        "url": "https://api.github.com/licenses/apache-2.0"
+      },
+      "media_urls": [
+        "https://raw.githubusercontent.com/milind-soni/OpenMausBot/main/docs/screenshots/hero.png",
+        "https://raw.githubusercontent.com/milind-soni/OpenMausBot/main/docs/screenshots/model-picker.png",
+        "https://raw.githubusercontent.com/milind-soni/OpenMausBot/main/docs/screenshots/computer-panel.png",
+        "https://raw.githubusercontent.com/milind-soni/OpenMausBot/main/docs/screenshots/approval-card.png",
+        "https://raw.githubusercontent.com/milind-soni/OpenMausBot/main/docs/screenshots/marketplace.png",
+        "https://raw.githubusercontent.com/milind-soni/OpenMausBot/main/docs/screenshots/context-menu.png",
+        "https://raw.githubusercontent.com/milind-soni/OpenMausBot/main/docs/screenshots/app-settings.png"
+      ],
+      "name": "OpenMausBot",
+      "open_issues": 942,
+      "published_at": "2026-11-09T17:19:05.625627Z",
+      "pushed_at": "2026-11-09T17:18:41Z",
+      "readme_fp": "22b95797283748eb",
+      "repo_id": 1331261687,
+      "revisit_of": "",
+      "revisit_reason": "",
+      "score": 90.5,
+      "slot": "us_peak",
+      "sources": [
+        "github_search"
+      ],
+      "stars": 19455,
+      "telegram_chat_id": "@GitHub_Open_Source",
+      "telegram_link": "https://t.me/GitHub_Open_Source/3578",
+      "telegram_message_id": 3578,
+      "telegraph_url": "https://telegra.ph/OpenMausBot-Open-Source-Local-AI-Agent-Chat-Client-11-09",
+      "topics": [
+        "ai-agents",
+        "claude-code",
+        "codex",
+        "computer-use",
+        "docker",
+        "electron",
+        "grok",
+        "grok-bot",
+        "grok-bot-alternative",
+        "self-hosted",
+        "typescript"
+      ],
+      "updated_at": "2026-11-09T17:18:47Z",
+      "url": "https://github.com/milind-soni/OpenMausBot",
+      "visual_host": "imgbb",
+      "visual_kind": "readme"
+    },
     "modelflare-ai/anymodelbot": {
       "articles": {
         "devto": {
@@ -3556,72 +3671,6 @@
       ],
       "updated_at": "2026-11-09T13:08:59Z",
       "url": "https://github.com/anefzaoui/misterdownloadmanager"
-    },
-    {
-      "archived": false,
-      "contributors_count": 233,
-      "created_at": "2026-08-11T18:58:55Z",
-      "default_branch": "main",
-      "description": "Open-source Grok Bot alternative with a virtual machine that bots can use",
-      "disabled": false,
-      "fork": false,
-      "forks": 2645,
-      "forks_count": 2645,
-      "full_name": "milind-soni/OpenMausBot",
-      "has_readme": true,
-      "homepage": "https://www.mausbot.com/",
-      "id": 1331261687,
-      "is_dual_use": false,
-      "is_hidden_gem": false,
-      "language": "TypeScript",
-      "license": {
-        "key": "apache-2.0",
-        "name": "Apache License 2.0",
-        "node_id": "MDc6TGljZW5zZTI=",
-        "spdx_id": "Apache-2.0",
-        "url": "https://api.github.com/licenses/apache-2.0"
-      },
-      "media_urls": [
-        "https://raw.githubusercontent.com/milind-soni/OpenMausBot/main/docs/screenshots/hero.png",
-        "https://raw.githubusercontent.com/milind-soni/OpenMausBot/main/docs/screenshots/model-picker.png",
-        "https://raw.githubusercontent.com/milind-soni/OpenMausBot/main/docs/screenshots/computer-panel.png",
-        "https://raw.githubusercontent.com/milind-soni/OpenMausBot/main/docs/screenshots/approval-card.png",
-        "https://raw.githubusercontent.com/milind-soni/OpenMausBot/main/docs/screenshots/marketplace.png",
-        "https://raw.githubusercontent.com/milind-soni/OpenMausBot/main/docs/screenshots/context-menu.png",
-        "https://raw.githubusercontent.com/milind-soni/OpenMausBot/main/docs/screenshots/app-settings.png"
-      ],
-      "name": "OpenMausBot",
-      "non_software_reason": "",
-      "open_issues": 880,
-      "open_issues_count": 880,
-      "owner_repo_count": 1,
-      "pushed_at": "2026-11-09T12:29:21Z",
-      "readme": "",
-      "readme_excerpt": "<div align=\"center\">\n\n# OpenMausBot\n\n**The open-source Grok Bot alternative: your own team of AI bots, in a chat app.**\n\n[**openmausbot.com**](https://www.openmausbot.com) &nbsp;·&nbsp; [Download](https://www.openmausbot.com/download) &nbsp;·&nbsp; [Open source Grok Bot alternative, compared](https://www.openmausbot.com/blog/grok-bot-vs-openmausbot)\n\n<sub>OpenMausBot is an open-source Grok Bot alternative: an independent project inspired by **Grok Bot**, and the open-source alternative to **Meta Muse**, **OpenAI dots** and **Cue by Manus** — bring-your-own-agent, local-first, on the models you already have. Also known as **MausBot**; formerly **OpenGrokBot**. Not affiliated with xAI, Meta, OpenAI or Manus.</sub>\n\nEvery bot in the sidebar is a real agent — Claude or Codex running locally under the hood — with its own\npersonality, its own model, its own cloud computer, and its own connected apps.\nTalk to them like contacts. Watch them work. Approve what matters.\n\n![TypeScript](https://img.shields.io/badge/TypeScript-strict-3178C6?logo=typescript&logoColor=white)\n![React](https://img.shields.io/badge/React-19-61DAFB?logo=react&logoColor=black)\n![Electron](https://img.shields.io/badge/",
-      "readme_len": 32760,
-      "repo_id": 1331261687,
-      "score": 90.5,
-      "source_name": "github_search",
-      "sources": [
-        "github_search"
-      ],
-      "stargazers_count": 19226,
-      "stars": 19226,
-      "topics": [
-        "ai-agents",
-        "claude-code",
-        "codex",
-        "computer-use",
-        "docker",
-        "electron",
-        "grok",
-        "grok-bot",
-        "grok-bot-alternative",
-        "self-hosted",
-        "typescript"
-      ],
-      "updated_at": "2026-11-09T13:07:28Z",
-      "url": "https://github.com/milind-soni/OpenMausBot"
     },
     {
       "archived": false,
@@ -7872,8 +7921,8 @@
     "milind-soni/openmausbot": {
       "first_seen_at": "2026-11-04T12:14:31.123651Z",
       "full_name": "milind-soni/OpenMausBot",
-      "last_decision": "queued",
-      "last_seen_at": "2026-11-09T13:11:10.842153Z",
+      "last_decision": "published",
+      "last_seen_at": "2026-11-09T17:19:05.625881Z",
       "repo_id": 1331261687,
       "sources": [
         "github_search"
