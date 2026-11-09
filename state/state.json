@@ -79,17 +79,17 @@
   },
   "dead_letters": [],
   "gemini_daily": {
-    "day": "2026-11-08",
-    "units": 21
+    "day": "2026-11-09",
+    "units": 6
   },
   "gemini_window": [
     [
-      1794208435.7328453,
-      3997
+      1794228229.1362731,
+      3910
     ],
     [
-      1794208438.8635485,
-      1348
+      1794228233.1722367,
+      1407
     ]
   ],
   "last_runs": {
@@ -149,9 +149,9 @@
       "words": 1174
     },
     "publish:europe_midday": {
-      "finished_at": "2026-11-08T12:44:05.921598Z",
-      "repo": "lexmount/moli",
-      "telegram_message_id": 3570
+      "finished_at": "2026-11-09T12:43:57.980084Z",
+      "repo": "storytold/lightcraft",
+      "telegram_message_id": 3577
     },
     "publish:europe_morning": {
       "finished_at": "2026-11-09T07:14:04.159779Z",
@@ -3003,6 +3003,117 @@
       "visual_host": "imgbb",
       "visual_kind": "readme"
     },
+    "storytold/lightcraft": {
+      "articles": {},
+      "card_style": "",
+      "category": "DevTools",
+      "contributors_count": 251,
+      "created_at": "2026-09-30T14:09:27Z",
+      "crossposts": {
+        "bluesky": {
+          "attempts": 0,
+          "due_at": "2026-11-09T18:00:00+00:00",
+          "status": "pending"
+        }
+      },
+      "description": "LightCraft: An open-source non-destructive photo editor written by scratch in pure Rust",
+      "description_fp": "081ac092eefeb00b",
+      "forks": 6021,
+      "full_name": "storytold/lightcraft",
+      "generated": {
+        "article_markdown": "## What it is\n\nLightCraft is an open-source photo library and RAW developer built from scratch in pure Rust. It operates natively on macOS, Windows, and Linux, and runs in the browser via WebAssembly. Designed as a complete darkroom in a single application, it handles demanding raw formats while keeping original image files untouched through a non-destructive editing architecture.\n\n## Why it matters\n\nTraditional digital asset management tools often rely on heavy proprietary runtimes or subscription models. LightCraft offers a transparent, high-performance alternative written in systems code, featuring a 32-bit float pipeline that computes adjustments in modern perceptual color spaces. It also integrates an MCP server, allowing AI agents to drive the editing workflow end to end.\n\n## Key features\n\n- Operates a 32-bit float, scene-referred pipeline for highlight rolloff and shadow recovery.\n- Provides luminance, color range, sky, and subject masking with SAM 3 object selection.\n- Includes 41 hand-built presets and customizable 8-band color mixer adjustments.\n- Exposes a Model Context Protocol server enabling end-to-end AI agent control.\n- Manages local photo libraries with side-by-side comparison and history tracking.\n\n## Quick start\n\nTo get started with the repository, clone it locally:\n\n```bash\ngit clone https://github.com/storytold/lightcraft.git\n```\n\n## Who should try it\n\nPhotographers, developers, and open-source advocates who want a fast, local-first alternative to commercial photo editing suites will find LightCraft a compelling addition to their workflow.\n\n## Verdict\n\nLightCraft provides a powerful, transparent raw development pipeline with impressive performance. While certain advanced segmentation features require manual model configuration, it stands out as a robust tool for anyone seeking native photo editing control.",
+        "article_title": "LightCraft: An Open-Source RAW Photo Editor Built in Rust",
+        "card_hook": "Non-destructive RAW photo editing in Rust",
+        "card_subline": "A native open-source photo library and RAW developer built for desktop, web, and AI agent automation",
+        "category": "DevTools",
+        "discussion_question": "Which raw development feature do you miss most when using web-based editors?",
+        "hook": "Process RAW photo files locally in pure Rust with an open-source editor that runs natively across platforms and via WebAssembly.",
+        "key_features": [
+          "Operates a 32-bit float, scene-referred pipeline for highlight rolloff and shadow recovery",
+          "Provides luminance, color range, sky, and subject masking with SAM 3 object selection",
+          "Includes 41 hand-built presets and customizable 8-band color mixer adjustments",
+          "Exposes a Model Context Protocol server enabling end-to-end AI agent control",
+          "Manages local photo libraries with side-by-side comparison and history tracking"
+        ],
+        "llm_used": true,
+        "quick_start": "git clone https://github.com/storytold/lightcraft.git",
+        "safety": "ok",
+        "safety_reason": "The repository is a legitimate open-source photo editing application and raw developer.",
+        "scene": "You drop a batch of raw files into your editor, waiting for the UI to freeze while it generates previews.",
+        "social_text": "Process raw photos locally with an open-source, non-destructive editor built in pure Rust.",
+        "summary": "LightCraft processes raw image files through a scene-referred, wide-gamut, 32-bit float pipeline built entirely in Rust. It decouples editing metadata from original files to ensure non-destructive adjustments, rendering local changes via edge-aware guided filters and OkLCh perceptual color spaces. The architecture supports multi-platform native execution alongside browser deployment via WebAssembly.",
+        "surfaces": {
+          "Facebook_body": "Managing professional photo edits without heavy proprietary software has always been a challenge for photographers who want full ownership of their workflow. A new open-source tool lets you process raw image files locally with advanced masking, color adjustments, and non-destructive editing.\n\nBuilt entirely in Rust, the software uses a high-precision pipeline to handle highlights and shadows cleanly. It separates your editing steps from the original files so you can experiment safely, and it even runs directly in your web browser thanks to modern browser technology.\n\nDesigned for photographers and developers who value open-source flexibility, this editor provides a robust alternative to traditional commercial suites without sacrificing performance.",
+          "Facebook_headline": "Edit your photos without proprietary software",
+          "Facebook_lead": "Process raw image files with complete control over your photo editing pipeline using an open-source editor built for photographers and developers.",
+          "bluesky_headline": "Edit raw photos locally in pure Rust",
+          "bluesky_lead": "An open-source image editor with a scene-referred pipeline and browser support via WebAssembly.",
+          "devto_body": "## What it is\n\nLightCraft is an open-source, non-destructive RAW photo editor written from scratch in Rust. It features a 32-bit float, scene-referred pipeline designed for precise highlight rolloff, shadow recovery, and advanced color grading.\n\n## How it works\n\nThe architecture processes images using edge-aware guided filters and the OkLCh perceptual color space. Editing metadata is stored separately from the original files to ensure non-destructive adjustments. It supports native multi-platform execution and compiles to WebAssembly for browser deployment.\n\n## Key features\n\n- 32-bit float, scene-referred processing pipeline\n- Advanced masking including luminance, color range, and AI-assisted object selection\n- 41 hand-built presets and an 8-band color mixer\n- Built-in Model Context Protocol server for AI agent control\n- Local library management with history tracking\n\n## Getting started\n\nClone the repository from GitHub and ensure you have a standard Rust compilation toolchain installed. Build the project natively using Cargo.\n\n## When not to use it\n\nIf you require heavy proprietary ecosystem integration, cloud-first synchronization out of the box, or extensive third-party plugin support from commercial vendors, this tool may not fit your current workflow.",
+          "seo_description": "Process raw image files locally with an open-source, non-destructive photo editor built in Rust. Ideal for photographers and developers.",
+          "seo_query": "open source raw photo editor rust",
+          "seo_title": "Open-Source RAW Photo Editor - LightCraft",
+          "telegraph_angle": "Explain the architectural shift toward Rust-based media pipelines and what this means for open-source photography."
+        },
+        "tension": "Proprietary photo tools lock your catalog behind subscriptions and opaque subscription models while consuming gigabytes of RAM for basic adjustments.",
+        "turn": "LightCraft delivers a high-performance, non-destructive darkroom written entirely in Rust, though advanced AI masking features require separately managed models.",
+        "verdict": "An exceptional open-source option for developers and photographers who want complete control over their image pipeline without heavy proprietary runtimes.",
+        "who_for": "Photographers and developers seeking a native, open-source RAW processing pipeline.",
+        "why_now": "The maturity of Rust graphics ecosystems and WebAssembly performance now make it practical to build high-performance image processing pipelines outside traditional proprietary suites."
+      },
+      "homepage": "https://getartcraft.com/apps/lightcraft",
+      "id": 1398185212,
+      "image_url": "https://i.ibb.co/XrBbnx05/storytold-lightcraft-readme-preview-70d396ac0b65.jpg",
+      "is_dual_use": false,
+      "is_hidden_gem": false,
+      "language": "Rust",
+      "license": {
+        "key": "apache-2.0",
+        "name": "Apache License 2.0",
+        "node_id": "MDc6TGljZW5zZTI=",
+        "spdx_id": "Apache-2.0",
+        "url": "https://api.github.com/licenses/apache-2.0"
+      },
+      "media_urls": [
+        "https://raw.githubusercontent.com/storytold/lightcraft/main/docs/images/hero-tetons.jpg",
+        "https://raw.githubusercontent.com/storytold/lightcraft/main/docs/images/grid-demo.jpg",
+        "https://raw.githubusercontent.com/storytold/lightcraft/main/docs/images/curve-tetons.jpg",
+        "https://raw.githubusercontent.com/storytold/lightcraft/main/docs/images/grading-migrant-mother.jpg",
+        "https://raw.githubusercontent.com/storytold/lightcraft/main/docs/images/ba-tetons.jpg",
+        "https://raw.githubusercontent.com/storytold/lightcraft/main/docs/images/ba-migrant-mother.jpg",
+        "https://raw.githubusercontent.com/storytold/lightcraft/main/docs/images/ba-earthrise.jpg",
+        "https://raw.githubusercontent.com/storytold/lightcraft/main/docs/images/ba-blue-marble.jpg"
+      ],
+      "name": "lightcraft",
+      "open_issues": 1573,
+      "published_at": "2026-11-09T12:43:57.979862Z",
+      "pushed_at": "2026-11-09T11:57:02Z",
+      "readme_fp": "41ccf08626e08eee",
+      "repo_id": 1398185212,
+      "revisit_of": "",
+      "revisit_reason": "",
+      "score": 93.5,
+      "slot": "europe_midday",
+      "sources": [
+        "github_search"
+      ],
+      "stars": 15738,
+      "telegram_chat_id": "@GitHub_Open_Source",
+      "telegram_link": "https://t.me/GitHub_Open_Source/3577",
+      "telegram_message_id": 3577,
+      "telegraph_url": "https://telegra.ph/LightCraft-An-Open-Source-RAW-Photo-Editor-Built-in-Rust-11-09",
+      "topics": [
+        "art",
+        "photography",
+        "raw",
+        "raw-editor",
+        "raw-processing",
+        "rust"
+      ],
+      "updated_at": "2026-11-09T12:26:16Z",
+      "url": "https://github.com/storytold/lightcraft",
+      "visual_host": "imgbb",
+      "visual_kind": "readme"
+    },
     "wangzan101/mika": {
       "articles": {},
       "card_style": "editorial_daily",
@@ -3292,68 +3403,6 @@
     }
   },
   "queue": [
-    {
-      "archived": false,
-      "contributors_count": 250,
-      "created_at": "2026-09-30T14:09:27Z",
-      "default_branch": "main",
-      "description": "LightCraft: An open-source non-destructive photo editor written by scratch in pure Rust",
-      "disabled": false,
-      "fork": false,
-      "forks": 6018,
-      "forks_count": 6018,
-      "full_name": "storytold/lightcraft",
-      "has_readme": true,
-      "homepage": "https://getartcraft.com/apps/lightcraft",
-      "id": 1398185212,
-      "is_dual_use": false,
-      "is_hidden_gem": false,
-      "language": "Rust",
-      "license": {
-        "key": "apache-2.0",
-        "name": "Apache License 2.0",
-        "node_id": "MDc6TGljZW5zZTI=",
-        "spdx_id": "Apache-2.0",
-        "url": "https://api.github.com/licenses/apache-2.0"
-      },
-      "media_urls": [
-        "https://raw.githubusercontent.com/storytold/lightcraft/main/docs/images/hero-tetons.jpg",
-        "https://raw.githubusercontent.com/storytold/lightcraft/main/docs/images/grid-demo.jpg",
-        "https://raw.githubusercontent.com/storytold/lightcraft/main/docs/images/curve-tetons.jpg",
-        "https://raw.githubusercontent.com/storytold/lightcraft/main/docs/images/grading-migrant-mother.jpg",
-        "https://raw.githubusercontent.com/storytold/lightcraft/main/docs/images/ba-tetons.jpg",
-        "https://raw.githubusercontent.com/storytold/lightcraft/main/docs/images/ba-migrant-mother.jpg",
-        "https://raw.githubusercontent.com/storytold/lightcraft/main/docs/images/ba-earthrise.jpg",
-        "https://raw.githubusercontent.com/storytold/lightcraft/main/docs/images/ba-blue-marble.jpg"
-      ],
-      "name": "lightcraft",
-      "non_software_reason": "",
-      "open_issues": 1590,
-      "open_issues_count": 1590,
-      "owner_repo_count": 4,
-      "pushed_at": "2026-11-09T03:09:45Z",
-      "readme": "",
-      "readme_excerpt": "<p align=\"center\">\n  <a href=\"https://getartcraft.com/\">\n    <picture>\n      <source media=\"(prefers-color-scheme: dark)\" srcset=\"docs/brand/artcraft-logo-white.svg\">\n      <img alt=\"ArtCraft\" src=\"docs/brand/artcraft-logo.svg\" width=\"200\">\n    </picture>\n  </a>\n</p>\n\n\n<p align=\"center\">\n  <img src=\"assets/app-icon/hicolor/256x256/apps/ai.storyteller.lightcraft.png\" width=\"128\" height=\"128\" alt=\"LightCraft icon: an engraved lynx on an amber tile\">\n</p>\n\n<h1 align=\"center\">LightCraft</h1>\n\n<h3 align=\"center\">Your photos. Your pixels. Your machine.</h3>\n\n<p align=\"center\">\n  <a href=\"README.md\">English</a> ·\n  <a href=\"README.zh-hans.md\">简体中文</a> ·\n  <a href=\"README.zh-hant.md\">繁體中文</a>\n</p>\n\n<p align=\"center\">\n  <b>Photo library and raw development; an open-source, non-destructive photo library and raw developer, built in pure Rust.</b><br>\n  Native on macOS, Windows and Linux. In the browser via WebAssembly. Drivable end to end by AI agents over MCP.\n</p>\n\n<p align=\"center\">\n  <img alt=\"Pure Rust\" src=\"https://img.shields.io/badge/pure-Rust-f2a516?style=flat-square&logo=rust&logoColor=white\">\n  <img alt=\"macOS, Windows, Linux and Web\" src=\"https://img.shields.io/badge/macOS%20%C2%B",
-      "readme_len": 53619,
-      "repo_id": 1398185212,
-      "score": 93.5,
-      "source_name": "github_search",
-      "sources": [
-        "github_search"
-      ],
-      "stargazers_count": 15724,
-      "stars": 15724,
-      "topics": [
-        "art",
-        "photography",
-        "raw",
-        "raw-editor",
-        "raw-processing",
-        "rust"
-      ],
-      "updated_at": "2026-11-09T04:18:16Z",
-      "url": "https://github.com/storytold/lightcraft"
-    },
     {
       "archived": false,
       "contributors_count": 249,
@@ -8819,8 +8868,8 @@
     "storytold/lightcraft": {
       "first_seen_at": "2026-11-04T12:14:31.144249Z",
       "full_name": "storytold/lightcraft",
-      "last_decision": "queued",
-      "last_seen_at": "2026-11-09T04:26:30.702827Z",
+      "last_decision": "published",
+      "last_seen_at": "2026-11-09T12:43:57.980075Z",
       "repo_id": 1398185212,
       "sources": [
         "github_search"
