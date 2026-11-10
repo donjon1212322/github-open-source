@@ -25,6 +25,9 @@ from .rumours import (
     filter_recent_rumours, is_rumour_relevant, prune_rumour_memory,
     remember_rumours,
 )
+from .brief_memory import (
+    duplicate_story_ratio, recent_cluster_keys, remember_brief,
+)
 from .http import download_bytes, sanitize
 from .media import choose_visual
 from .media_host import ImgBBMediaHost
@@ -1261,7 +1264,9 @@ def news_command(
     material: dict[str, Any] = {}
     if use_telegram:
         try:
-            material = build_digest_material()
+            material = build_digest_material(
+                exclude_keys=recent_cluster_keys(store)
+            )
         except Exception as exc:  # noqa: BLE001
             reason = sanitize(str(exc))[:300]
             store.event("news_skipped", reason="source_unavailable", error=reason)
@@ -1355,6 +1360,19 @@ def news_command(
         )
         if is_rumour_relevant(claim)
     ]
+    # Owner 10.11: never reprint a digest. Discovery already excluded recent
+    # cluster keys; this second barrier catches a reworded story that Gemini
+    # rebuilt from a differently-keyed source. A refresh edits in place and is
+    # deliberately allowed through.
+    if not refresh:
+        ratio = duplicate_story_ratio(store, brief.get("stories") or [])
+        if ratio >= 0.5:
+            store.event("news_skipped", reason="duplicate_digest",
+                        duplicate_ratio=round(ratio, 2))
+            store.save()
+            return {"ok": True, "published": False,
+                    "reason": "duplicate_digest",
+                    "duplicate_ratio": round(ratio, 2)}
     if not brief.get("eligible"):
         reason = str(brief.get("rejection_reason") or "gemini_ineligible")[:80]
         store.event("news_skipped", reason=reason, video_id=entry.get("video_id"))
@@ -1489,6 +1507,12 @@ def news_command(
             }
         )
     remember_rumours(store, brief.get("unconfirmed_claims"))
+    remember_brief(
+        store,
+        [c.get("key") for c in (material.get("clusters") or [])]
+        + [str(k) for k in (material.get("rumour_keys") or [])],
+        brief.get("stories") or [],
+    )
     if existing is not None:
         existing.update(record)
     else:

@@ -23,7 +23,7 @@ import html
 import re
 from collections import defaultdict
 from datetime import datetime, timedelta, timezone
-from typing import Any, Callable
+from typing import Any, Callable, Iterable
 from urllib.request import Request, urlopen
 
 from .http import USER_AGENT
@@ -243,9 +243,12 @@ def build_digest_material(
     fetcher: Fetcher | None = None,
     channels: tuple[str, ...] = CHANNELS,
     window_hours: int = 48,
+    exclude_keys: Iterable[str] = (),
 ) -> dict[str, Any]:
     """Read channels, drop only ads, cluster duplicates, keep rumours.
 
+    ``exclude_keys`` removes clusters already printed in a recent brief, so a
+    48-hour window cannot refill today's corpus with yesterday's stories.
     Returns a payload compatible with the existing AI Brief pipeline plus
     ``rumours``, ``clusters`` and ``stats`` for the new formatter.
     """
@@ -264,6 +267,9 @@ def build_digest_material(
     ads = [post for post in recent if is_promo(post["text"])]
     kept = [post for post in recent if not is_promo(post["text"])]
     clusters = cluster_posts(kept)
+    excluded = set(exclude_keys or ())
+    removed = len([c for c in clusters if c["key"] in excluded])
+    clusters = [c for c in clusters if c["key"] not in excluded]
     confirmed = [c for c in clusters if c["status"] != "unconfirmed_rumour"]
     rumours = [
         c for c in clusters
@@ -303,6 +309,7 @@ def build_digest_material(
         # chain of "> ..." quotes and emoji reposts. Keep one clean claim.
         "rumours": [clean_rumour_text(c["text"], limit=400) for c in rumours[:3]],
         "clusters": selected,
+        "rumour_keys": [c["key"] for c in rumours[:3]],
         "stats": {
             "raw": len(raw),
             "recent": len(recent),
@@ -313,5 +320,6 @@ def build_digest_material(
             "rumours": len(rumours),
             "channels": len(channels),
             "errors": errors,
+            "excluded": removed,
         },
     }
