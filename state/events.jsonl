@@ -226,3 +226,4 @@
 {"deleted": 0, "ts": "2026-11-10T18:47:50.957086Z", "type": "moderation_completed", "updates": 0}
 {"reason": "news_already_published", "ts": "2026-11-10T19:18:49.723374Z", "type": "news_skipped"}
 {"reason": "slot_already_done", "slot": "europe_midday", "ts": "2026-11-10T19:59:57.139388Z", "type": "publish_skipped"}
+{"channel": "GitHub_Open_Source", "posts": 12, "ts": "2026-11-10T20:23:56.459347Z", "type": "metrics_collected", "updated": 12}
