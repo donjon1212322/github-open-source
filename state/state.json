@@ -962,7 +962,8 @@
         "bluesky": {
           "attempts": 0,
           "due_at": "2026-11-10T18:00:00+00:00",
-          "status": "pending"
+          "held_reason": "not_best_of_day",
+          "status": "held"
         }
       },
       "description": "Turn Claude Code into a full game dev studio — 49 AI agents, 72 workflow skills, and a complete coordination system mirroring real studio hierarchy.",
@@ -1715,7 +1716,10 @@
         "bluesky": {
           "attempts": 0,
           "due_at": "2026-11-10T18:00:00+00:00",
-          "status": "pending"
+          "error": "",
+          "published_at": "2026-11-10T18:17:51.552108Z",
+          "status": "published",
+          "url": "https://bsky.app/profile/githubopensource.bsky.social/post/3mzy2gem2ig2q"
         },
         "facebook_sheet": {
           "at": "2026-11-10T01:40:54.594070Z",
@@ -3875,7 +3879,8 @@
         "bluesky": {
           "attempts": 0,
           "due_at": "2026-11-10T18:00:00+00:00",
-          "status": "pending"
+          "held_reason": "not_best_of_day",
+          "status": "held"
         }
       },
       "description": "Open-source desktop SQL workspace with 3 built-in database drivers and 29 shipped driver plugins, including SQL Server, DuckDB, ClickHouse and Redis. Built-in MCP server for Claude, Cursor and Devin, SQL notebooks and visual EXPLAIN.",
