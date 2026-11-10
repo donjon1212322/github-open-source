@@ -973,6 +973,11 @@
           "due_at": "2026-11-10T18:00:00+00:00",
           "held_reason": "not_best_of_day",
           "status": "held"
+        },
+        "facebook_sheet": {
+          "at": "2026-11-10T23:35:52.611405Z",
+          "status": "queued",
+          "via": "make.com"
         }
       },
       "description": "Turn Claude Code into a full game dev studio — 49 AI agents, 72 workflow skills, and a complete coordination system mirroring real studio hierarchy.",

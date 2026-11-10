@@ -231,3 +231,4 @@
 {"deleted": 0, "ts": "2026-11-10T21:27:02.401536Z", "type": "moderation_completed", "updates": 0}
 {"deleted": 0, "ts": "2026-11-10T21:47:52.586234Z", "type": "moderation_completed", "updates": 0}
 {"reason": "slot_already_done", "slot": "us_peak", "ts": "2026-11-10T22:24:43.815386Z", "type": "publish_skipped"}
+{"range": "facebook!A10:E10", "rows": 1, "ts": "2026-11-10T23:35:52.611434Z", "type": "facebook_handoff_queued"}
