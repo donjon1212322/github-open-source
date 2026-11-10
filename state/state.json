@@ -120,11 +120,11 @@
   ],
   "last_runs": {
     "article": {
-      "finished_at": "2026-11-10T13:33:50.885538Z",
-      "published": true,
-      "reason": "published",
-      "repo": "juneyaooo/rea-video",
-      "url": "https://dev.to/githubopensource/reverse-engineer-video-timelines-open-source-tool-378c"
+      "finished_at": "2026-11-10T20:32:41.863198Z",
+      "published": false,
+      "reason": "already_published_today",
+      "repo": "",
+      "url": ""
     },
     "collect": {
       "discovered": 697,
