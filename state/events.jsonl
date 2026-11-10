@@ -208,3 +208,4 @@
 {"channel": "GitHub_Open_Source", "posts": 12, "ts": "2026-11-10T02:46:57.200959Z", "type": "metrics_collected", "updated": 12}
 {"deleted": 0, "ts": "2026-11-10T03:47:45.894553Z", "type": "moderation_completed", "updates": 0}
 {"deleted": 0, "ts": "2026-11-10T03:50:39.100547Z", "type": "moderation_completed", "updates": 0}
+{"discovered": 471, "enriched": 120, "passed_gate": 65, "queued": 28, "rejections": {"curation_repo": 1, "description_not_english": 4, "narrow:topic:awesome-list": 1, "no_community": 11, "no_license": 34, "no_push_date": 2, "no_readme": 2, "not_software:topic:awesome": 1, "not_software:topic:book": 1, "readme_not_english": 6, "stars<100": 14}, "ts": "2026-11-10T04:25:30.028442Z", "type": "collect_completed"}
