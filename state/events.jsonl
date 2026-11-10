@@ -203,3 +203,4 @@
 {"range": "facebook!A9:E9", "rows": 1, "ts": "2026-11-10T01:40:54.594093Z", "type": "facebook_handoff_queued"}
 {"title": "Claude Fable 5.2, Open Source Weight Drops, and Agentic Trading Tools", "ts": "2026-11-10T02:11:14.213214Z", "type": "news_article_generated", "words": 1076}
 {"Gemini_video_input": false, "models": 10, "official_url": "", "stories": 5, "topic": "ai-models-and-tools-digest", "ts": "2026-11-10T02:11:16.549935Z", "type": "ai_brief_published", "video_id": "tg-20261110-a3d844ab81"}
+{"devto_id": 5008047, "ts": "2026-11-10T02:26:24.805643Z", "type": "news_article_published", "url": "https://dev.to/githubopensource/claude-fable-52-open-source-weight-drops-and-agentic-trading-tools-hf8", "words": 1076}

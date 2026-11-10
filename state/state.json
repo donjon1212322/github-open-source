@@ -138,13 +138,13 @@
       "week": "2026-W45"
     },
     "news-article": {
-      "devto_id": 5006496,
-      "finished_at": "2026-11-09T19:53:53.326778Z",
+      "devto_id": 5008047,
+      "finished_at": "2026-11-10T02:26:24.805619Z",
       "published": true,
-      "title": "Claude Fable 5.2 Pricing Drops, ModRetro Chromatic Integration, and New AI Coding Tools",
-      "topic_key": "ai-model-releases-and-tools",
-      "url": "https://dev.to/githubopensource/claude-fable-52-pricing-drops-modretro-chromatic-integration-and-new-ai-coding-tools-1m00",
-      "words": 1036
+      "title": "Claude Fable 5.2, Open Source Weight Drops, and Agentic Trading Tools",
+      "topic_key": "ai-models-and-tools-digest",
+      "url": "https://dev.to/githubopensource/claude-fable-52-open-source-weight-drops-and-agentic-trading-tools-hf8",
+      "words": 1076
     },
     "publish:europe_midday": {
       "finished_at": "2026-11-09T12:43:57.980084Z",
@@ -700,6 +700,7 @@
         ],
         "why_devs": "These updates give developers cheaper high-tier inference, fresh open-source weights, and practical design and hardware integrations to build with right now."
       },
+      "devto_cover_url": "https://i.ibb.co/My25Pbyv/project-devto-cover-8d4025d439a6.png",
       "headline": "Claude Fable 5.2 drops prices, OpenAI ships a Game Boy, and open-source models surge",
       "image_url": "https://i.ibb.co/XfJfCvdz/ai-brief-3b0cdb33fca3.png",
       "models": [
