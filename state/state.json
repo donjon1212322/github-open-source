@@ -80,7 +80,7 @@
   "dead_letters": [],
   "gemini_daily": {
     "day": "2026-11-09",
-    "units": 33
+    "units": 51
   },
   "gemini_window": [
     [
@@ -617,6 +617,118 @@
       "telegram_message_id": 3579,
       "topic_key": "ai-model-releases-and-tools",
       "video_id": "tg-20261109-8ab806241d",
+      "video_url": "https://t.me/GitHub_Open_Source"
+    },
+    {
+      "Gemini_video_input": false,
+      "article_markdown": "> **TL;DR** Anthropic dropped **claude-fable-5-2** with a 20% price cut and faster generation speeds, while OpenAI released a retro-hardware Codex edition. Meanwhile, open-source weights saw fresh dense models and agent design skills hit GitHub.\n\n## What actually moved today\n\nInfrastructure economics and developer tooling shifted this week as pricing models dropped across major providers and fresh open-source weights landed on HuggingFace. Instead of relying purely on speculative announcements, engineering teams saw concrete releases that directly impact local inference, API budgets, and agent capabilities. The balance between closed-source API efficiency and unconstrained local weights continues to narrow.\n\n## The model watch\n\n## claude-fable-5-2\n\nAnthropic officially released **claude-fable-5-2**, pricing it at $8 per million input tokens and $40 per million output tokens. The model card shows generation speeds up to 30% faster than **Fable 5.1**, alongside a newly introduced fast mode that pushes generation speeds up to 2.5 times higher. For teams running high-throughput pipelines, this pricing adjustment makes high-tier intelligence viable for synchronous user-facing features without blowing out operational budgets. You will want to re-run your latency benchmarks and token cost projections against your existing prompt evaluation suites.\n\n## Ripple-65B-Preview and Arete-27B\n\nRicursive shipped **Ripple-65B-Preview**, a 65-billion parameter dense model trained from scratch on 12 trillion tokens under the Apache 2.0 license. At the same time, Nous Research released **Arete-27B**, a specialized fine-tune of Qwen3.8-27B aimed at removing state framing and political refusals. Joining them is **TwIL-8B**, built on IBM Granite foundations to target Olympiad-level mathematical reasoning tasks. Re-running your local evaluation harnesses against these weights will highlight how dense open-source architectures are catching up to proprietary mid-tier options.\n\n## Codex and Hardware Integrations\n\nOpenAI partnered on the ModRetro Chromatic Codex Edition, priced at $200 with a transparent design and full compatibility with retro Game Boy cartridges. Developers can use **Codex** alongside a dedicated ModRetro Chromatic plugin to generate ROMs directly via GB Studio. It is an unusual form factor that connects code generation straight to physical hardware constraints.\n\n| Status | Item | Details |\n| :--- | :--- | :--- |\n| Confirmed | claude-fable-5-2 | $8/M input, $40/M output, live on API |\n| Confirmed | Ripple-65B-Preview | 65B dense model, Apache 2.0, 12T tokens |\n| Confirmed | Arete-27B | Qwen3.8-27B fine-tune, reduced refusals |\n| Unconfirmed | Rate-limit distribution | User-specific tier resets based on subscription seniority |\n\n## Rumours, clearly labelled\n\nWhispers are circulating regarding Anthropic's rollout strategy for subscription accounts. Unverified community claims suggest that user rate-limit resets are being distributed based on subscription seniority, with accounts under six months receiving a single reset and older accounts receiving multiple. This information remains unconfirmed by official documentation and should not be relied upon for capacity planning.\n\n## Odd finds and small tools\n\nAn open-source collection titled AI Design Skills was published under an MIT license, providing structured instructions for coding assistants like **Claude Code**, **Cursor**, and **Windsurf**. It packages specialized workflows specifically designed to handle landing page layouts and convert static UI designs into smooth CSS animations. In parallel, T-Investments opened a Model Context Protocol server, allowing external AI agents to securely connect to live financial trading infrastructure to analyze markets and execute orders with mandatory user confirmation.\n\n## What I would try this weekend\n\nIf you have spare hardware cycles this weekend, pull down **Ripple-65B-Preview** and test it against your local quantization setups to check memory footprints. Next, take the AI Design Skills repository and drop the instructions into your **Cursor** or **Windsurf** workspace to see how well it handles automated CSS component generation. Finally, run a cost-per-task comparison on your text transformation pipeline using the newly priced **claude-fable-5-2** endpoint versus your current default model.\n\n## Where this leaves us\n\nToday's landscape demonstrates that infrastructure costs are steadily decreasing while the barrier to local model deployment gets lower. While proprietary APIs offer cheaper high-speed reasoning, open-source weights give developers total ownership over safety filters and runtime environments. The missing piece remains consistent governance for agentic workflows interacting with real-world financial and physical systems. What specific performance bottleneck in your current stack are you hoping these new model releases will solve first?\n\n## Migration and eval checklist for identifiers\n\nTransitioning production workloads to these newly introduced assets requires a systematic verification process to maintain system integrity. When updating your configuration files, ensure that exact identifiers such as claude-fable-5-2, Opus 5.5, Ripple-65B-Preview, Arete-27B, TwIL-8B, Codex, Fable 5.1, Claude Code, Cursor, and Windsurf are mapped correctly across all environment variables and deployment scripts. Begin your migration by auditing your current dependency trees to isolate legacy endpoints before swapping in newer model strings. For closed-source APIs, verify that your billing alerts match the updated per-token pricing tiers to prevent unexpected overages during high-volume inference spikes. Local deployment pipelines must undergo rigorous stress testing to measure exact memory consumption, especially when allocating hardware resources for larger parameter configurations. Establish a baseline evaluation suite that compares output quality, formatting consistency, and execution latency side by side against your previous production defaults. Automated regression tests should be executed continuously during the initial rollout phase to catch subtle tokenization discrepancies or instruction-following regressions early. Document any custom tool integrations or plugin parameters thoroughly, ensuring that development teams understand how to leverage updated helper scripts without altering core system logic. Finally, establish a rollback protocol with pre-configured fallback keys so that production traffic can be diverted instantly if downstream latency exceeds acceptable operational thresholds during the transition window.\n\n## Assessing failure modes and pre-flight telemetry\n\nDeploying these architectures into high-concurrency environments requires strict pre-flight telemetry audits to isolate edge cases before user traffic hits new endpoints. When scaling dense weights or high-speed inference hooks, monitor out-of-memory triggers during peak throughput windows, as sudden context length expansions can instantly exhaust available VRAM allocations. Tokenization drift represents another critical failure mode, particularly when transitioning legacy prompt templates to unconstrained or fine-tuned variants where altered refusal boundaries might trigger unexpected safety blocks or malformed JSON payloads. Measure token latency distributions at the 99th percentile rather than relying on median averages, since bursty fast-mode generation patterns can introduce severe queue delays downstream. For agentic integrations tied to external execution layers, verify that rate-limit handling mechanisms gracefully back off without corrupting active transaction states or duplicating transactional commands. Simulating adverse network conditions during staging tests will help identify silent degradation vectors before production rollout.\n\n---\n\n💬 Questions, corrections or a better way to run these evals? Feedback and discussion are in the channel: https://t.me/GitHub_Open_Source\n",
+      "article_title": "Claude Fable 5.2, Open Source Weight Drops, and Agentic Trading Tools",
+      "brief": {
+        "discussion_question": "Which of this week's releases are you planning to test in your local environment first?",
+        "headline": "Claude Fable 5.2 drops prices, OpenAI ships a Game Boy, and open-source models surge",
+        "hook": "10 exact names, 4 official launches, 0 only announced, 1 unverified claim. claude-fable-5-2 leads the watch — what would you actually re-run first?",
+        "models": [
+          "claude-fable-5-2",
+          "Opus 5.5",
+          "Ripple-65B-Preview",
+          "Arete-27B",
+          "TwIL-8B",
+          "Codex",
+          "Fable 5.1",
+          "Claude Code",
+          "Cursor",
+          "Windsurf"
+        ],
+        "stories": [
+          {
+            "basis": "the model card and official announcement are up",
+            "bullets": [
+              "Anthropic released Claude Fable 5.2, priced at $8 per million input tokens and $40 per million output tokens.",
+              "The model is up to 30% faster than Fable 5.1, with a fast mode accelerating generation up to 2.5 times.",
+              "User rate-limit resets are being distributed based on subscription seniority."
+            ],
+            "status": "official_release",
+            "title": "Claude Fable 5.2 Arrives with Lower Prices and Faster Speeds",
+            "why": "It delivers performance close to larger models at a fraction of the inference cost, improving developer efficiency."
+          },
+          {
+            "basis": "the official supply store listing is live",
+            "bullets": [
+              "OpenAI released the ModRetro Chromatic in a Codex Edition for $200, featuring a transparent design compatible with Game Boy cartridges.",
+              "Developer tools allow writing games using Codex and a ModRetro Chromatic plugin to generate ROMs via GB Studio."
+            ],
+            "status": "official_release",
+            "title": "OpenAI Launches ModRetro Chromatic Codex Edition",
+            "why": "It bridges AI code generation directly with retro hardware ecosystems."
+          },
+          {
+            "basis": "HuggingFace repository updates are live",
+            "bullets": [
+              "Ricursive released Ripple-65B-Preview, a 65-billion parameter dense model trained from scratch on 12 trillion tokens under Apache 2.0.",
+              "Nous Research released Arete-27B, a fine-tune of Qwen3.8-27B designed to remove state framing and political refusals.",
+              "IBM Granite based TwIL-8B arrived for Olympiad-level math tasks."
+            ],
+            "status": "official_release",
+            "title": "Ripple-65B and Arete-27B Lead Open Source Updates",
+            "why": "Engineers get powerful new dense and unconstrained open-source options for local deployment and specialized reasoning."
+          },
+          {
+            "basis": "the GitHub repository is public",
+            "bullets": [
+              "An open-source collection of design instructions called AI Design Skills was released under an MIT license.",
+              "It includes specialized workflows for landing page design and converting static layouts into animations."
+            ],
+            "status": "official_release",
+            "title": "AI Design Skills for Coding Agents",
+            "why": "It upgrades coding assistants with UI and UX design capabilities out of the box."
+          },
+          {
+            "basis": "the company documentation and hackathon announcement are public",
+            "bullets": [
+              "T-Investments opened a Model Context Protocol server enabling external AI agents to connect securely to its trading infrastructure.",
+              "Agents can analyze markets, execute orders, and rebalance portfolios with mandatory user confirmation."
+            ],
+            "status": "demo_or_benchmark",
+            "title": "Trading via Model Context Protocol in T-Investments",
+            "why": "It standardizes secure agentic access to live financial systems."
+          }
+        ],
+        "summary": "This week's AI digest covers Anthropic's release of Claude Fable 5.2 with 20% lower pricing, OpenAI launching the ModRetro Chromatic Codex Edition, open-source model releases including Ripple-65B and Arete-27B, open-source AI design instructions, and trading via Model Context Protocol.",
+        "unconfirmed_claims": [
+          "Anthropic is distributing 1 to 3 rate-limit resets based on subscription duration",
+          "Anthropic прямо сейчас раздают всем юзерам Ultra от 1 до 3 ресетов В зависимости от длительности подписки: <6 месяцев: 1 6–12 месяцев: 2"
+        ],
+        "why_devs": "These updates give developers cheaper high-tier inference, fresh open-source weights, and practical design and hardware integrations to build with right now."
+      },
+      "headline": "Claude Fable 5.2 drops prices, OpenAI ships a Game Boy, and open-source models surge",
+      "image_url": "https://i.ibb.co/XfJfCvdz/ai-brief-3b0cdb33fca3.png",
+      "models": [
+        "claude-fable-5-2",
+        "Opus 5.5",
+        "Ripple-65B-Preview",
+        "Arete-27B",
+        "TwIL-8B",
+        "Codex",
+        "Fable 5.1",
+        "Claude Code",
+        "Cursor",
+        "Windsurf"
+      ],
+      "narrative_hook": "Three model releases showed up in four channels this week. The thing I can't stop thinking about is an AI company selling a $200 transparent Game Boy handheld.",
+      "official_url": "",
+      "post_text": "🛰️ <b>AI Brief</b> · <i>no ads, no hype</i>\n\n<b>Three model releases showed up in four channels this week. The thing I can't stop thinking about is an AI company selling a $200 transparent Game Boy handheld.</b>\n\n🧬 <b>In this brief:</b> claude-fable-5-2 · Opus 5.5 · Ripple-65B-Preview · Arete-27B · TwIL-8B · Codex · Fable 5.1 · Claude Code · Cursor · Windsurf\n\n<b>1/ Claude Fable 5.2 Arrives with Lower Prices and Faster Speeds</b>\nAnthropic released Claude Fable 5.2, priced at $8 per million input tokens and $40 per million output tokens.\nThe model is up to 30% faster than Fable 5.1, with a fast mode accelerating generation up to 2.5 times.\nUser rate-limit resets are being distributed based on subscription seniority.\nIt delivers performance close to larger models at a fraction of the inference cost, improving developer efficiency.\n<i>the model card and official announcement are up</i>\n\n<b>2/ OpenAI Launches ModRetro Chromatic Codex Edition</b>\nOpenAI released the ModRetro Chromatic in a Codex Edition for $200, featuring a transparent design compatible with Game Boy cartridges.\nDeveloper tools allow writing games using Codex and a ModRetro Chromatic plugin to generate ROMs via GB Studio.\nIt bridges AI code generation directly with retro hardware ecosystems.\n<i>the official supply store listing is live</i>\n\n<b>3/ Ripple-65B and Arete-27B Lead Open Source Updates</b>\nRicursive released Ripple-65B-Preview, a 65-billion parameter dense model trained from scratch on 12 trillion tokens under Apache 2.0.\nNous Research released Arete-27B, a fine-tune of Qwen3.8-27B designed to remove state framing and political refusals.\nIBM Granite based TwIL-8B arrived for Olympiad-level math tasks.\nEngineers get powerful new dense and unconstrained open-source options for local deployment and specialized reasoning.\n<i>HuggingFace repository updates are live</i>\n\n<b>4/ AI Design Skills for Coding Agents</b>\nAn open-source collection of design instructions called AI Design Skills was released under an MIT license.\nIt includes specialized workflows for landing page design and converting static layouts into animations.\nIt upgrades coding assistants with UI and UX design capabilities out of the box.\n<i>the GitHub repository is public</i>\n\n<b>5/ Trading via Model Context Protocol in T-Investments</b>\nT-Investments opened a Model Context Protocol server enabling external AI agents to connect securely to its trading infrastructure.\nAgents can analyze markets, execute orders, and rebalance portfolios with mandatory user confirmation.\nIt standardizes secure agentic access to live financial systems.\n<i>the company documentation and hackathon announcement are public</i>\n\n<b>◻️ Rumours we're keeping an eye on</b>\n\n◻️ <i>Anthropic is distributing 1 to 3 rate-limit resets based on subscription duration</i>\n◻️ <i>Anthropic прямо сейчас раздают всем юзерам Ultra от 1 до 3 ресетов В зависимости от длительности подписки: &lt;6 месяцев: 1 6–12 месяцев: 2</i>\n\n<i>Which of this week's releases are you planning to test in your local environment first?</i>\n\n📣 <a href=\"https://t.me/GitHub_Open_Source\"><b>@GitHub_Open_Source</b></a>\n\n========================================\n#AINews #OpenSource",
+      "published_at": "2026-11-10T02:11:16.549817Z",
+      "statuses": [
+        "official_release",
+        "official_release",
+        "official_release",
+        "official_release",
+        "demo_or_benchmark"
+      ],
+      "stories": 5,
+      "telegram_message_id": 3581,
+      "topic_key": "ai-models-and-tools-digest",
+      "video_id": "tg-20261110-a3d844ab81",
       "video_url": "https://t.me/GitHub_Open_Source"
     }
   ],
@@ -5467,7 +5579,9 @@
     }
   ],
   "rumour_memory": {
+    "anthropic based distributing duration limit rate resets subscription": "2026-11-10",
     "anthropic claude code collaborative mode multiplayer projects working": "2026-11-08",
+    "anthropic ultra": "2026-11-10",
     "aws bedrock claude fable mythos page pricing spotted": "2026-11-09",
     "codex hinted limits reset tibo tweets upcoming": "2026-11-08"
   },
