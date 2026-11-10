@@ -105,17 +105,17 @@
   },
   "dead_letters": [],
   "gemini_daily": {
-    "day": "2026-11-09",
-    "units": 57
+    "day": "2026-11-10",
+    "units": 6
   },
   "gemini_window": [
     [
-      1794294828.8677237,
-      4011
+      1794314629.908296,
+      3949
     ],
     [
-      1794294835.1073797,
-      1437
+      1794314634.2975667,
+      1408
     ]
   ],
   "last_runs": {
@@ -167,9 +167,9 @@
       "words": 1076
     },
     "publish:europe_midday": {
-      "finished_at": "2026-11-09T12:43:57.980084Z",
-      "repo": "storytold/lightcraft",
-      "telegram_message_id": 3577
+      "finished_at": "2026-11-10T12:43:58.867856Z",
+      "repo": "donchitos/claude-code-game-studios",
+      "telegram_message_id": 3583
     },
     "publish:europe_morning": {
       "finished_at": "2026-11-10T07:14:01.045138Z",
@@ -942,6 +942,114 @@
       ],
       "visual_host": "imgbb",
       "visual_kind": "readme"
+    },
+    "donchitos/claude-code-game-studios": {
+      "articles": {},
+      "card_style": "editorial_daily",
+      "category": "AI",
+      "contributors_count": 1,
+      "created_at": "2026-02-12T05:21:38Z",
+      "crossposts": {
+        "bluesky": {
+          "attempts": 0,
+          "due_at": "2026-11-10T18:00:00+00:00",
+          "status": "pending"
+        }
+      },
+      "description": "Turn Claude Code into a full game dev studio — 49 AI agents, 72 workflow skills, and a complete coordination system mirroring real studio hierarchy.",
+      "description_fp": "598e5327feb365d2",
+      "forks": 4954,
+      "full_name": "Donchitos/Claude-Code-Game-Studios",
+      "generated": {
+        "article_markdown": "## What it is\n\nClaude Code Game Studios is a project template and workflow system designed to turn the Claude Code assistant into an interactive game development environment. Instead of starting from an empty folder, you open Claude Code in the repository and provide a high-level game concept. The system guides you through a few targeted questions, generates a design brief, builds a playable browser prototype, and runs headless browser checks to catch visual bugs before you start playing.\n\n## Why it matters\n\nPrototyping new game ideas often involves tedious setup, from configuring build tools to writing initial boilerplate for rendering and input handling. By structuring the interaction into distinct phases—briefing, building, checking, and growing—this workflow reduces the friction of getting a playable loop on screen. It provides a repeatable path from a vague idea to a tested browser game without manual scaffolding.\n\n## Key features\n\n- Generate a one-page game brief from a single prompt and a few genre questions.\n- Build a playable browser game prototype with automated headless browser verification.\n- Grow prototypes into full Vite and TypeScript web projects with structured feature additions.\n- Configure project rigor levels from minimal to full across GDD sections and QA evidence.\n- Support alternative game engines including Godot, Unity, and Unreal Engine 5.\n\n## Quick start\n\nClone the repository and open Claude Code in the root folder to begin your first session:\n\n```bash\ngit clone https://github.com/Donchitos/Claude-Code-Game-Studios.git my-game\ncd my-game\n```\n\n## Who should try it\n\nThis project fits solo developers and hobbyists who want to explore rapid AI-assisted game prototyping in the browser. It is less suited for teams that already have strict custom engine pipelines or those who prefer total manual control over every line of architectural code.\n\n## Verdict\n\nAn interesting approach to structuring AI coding assistants for creative work, offering a clear path from text prompt to playable code. Try it if you want to speed up game jams or concept validation.",
+        "article_title": "Claude Code Game Studios: Build Browser Games with AI Agents",
+        "card_hook": "Build games with Claude Code",
+        "card_subline": "A complete coordination system for turning ideas into playable browser games",
+        "category": "AI",
+        "discussion_question": "Which game engine would you integrate with this workflow first?",
+        "hook": "Turn Claude Code into a game studio with 49 AI agents and 72 workflow skills for browser games.",
+        "key_features": [
+          "Generate a one-page game brief from a single prompt and a few genre questions",
+          "Build a playable browser game prototype with automated headless browser verification",
+          "Grow prototypes into full Vite and TypeScript web projects with structured feature additions",
+          "Configure project rigor levels from minimal to full across GDD sections and QA evidence",
+          "Support alternative game engines including Godot, Unity, and Unreal Engine 5"
+        ],
+        "llm_used": true,
+        "quick_start": "git clone https://github.com/Donchitos/Claude-Code-Game-Studios.git my-game && cd my-game",
+        "safety": "ok",
+        "safety_reason": "The repository is a legitimate game development template and workflow assistant for Claude Code.",
+        "scene": "You open your terminal, stare at an empty code directory, and try to figure out how to structure a new indie game prototype without spending three weekends on boilerplate.",
+        "social_text": "Turn Claude Code into a game studio with structured workflows for browser game prototyping.",
+        "summary": "This repository provides a structured workflow on top of Claude Code that guides you from a short text prompt to a playable browser prototype. It uses a series of prompts and skills to generate game briefs, build initial codebases, and run headless browser checks before handing the project back to you for iteration or growth into a full TypeScript web project.",
+        "surfaces": {
+          "Facebook_body": "Building browser games from scratch is time-consuming, but a new open-source workflow helps solo creators turn short text ideas into playable web prototypes without writing every line of code by hand.\n\nThis project adds a structured system of specialized digital assistants to your existing command-line coding tool. When you share a game concept, the automated helpers guide you through a brief, write the initial code, and test the game in a headless browser before handing the project back to you.\n\nWhether you want to test a quick arcade concept or grow a prototype into a full web project using TypeScript, this system handles the repetitive setup so you can focus on creative iteration. It is designed for developers, hobbyists, and creators who want to rapidly prototype games using structured multi-agent workflows, though you should skip it if you prefer writing all game mechanics and architecture entirely from scratch.",
+          "Facebook_headline": "Create browser games using simple text prompts",
+          "Facebook_lead": "Turn your coding assistant into a complete game studio with automated helpers that take you from a short idea to a playable browser prototype in minutes.",
+          "bluesky_headline": "Build browser games from text prompts with 49 AI agents",
+          "bluesky_lead": "Turn your command line assistant into a complete game studio that builds playable browser prototypes for you.",
+          "devto_body": "## What it is\n\nClaude-Code-Game-Studios is a shell-based workflow wrapper that turns your command-line coding assistant into a coordinated game development studio. Featuring 49 specialized AI agents and 72 workflow skills, it bridges the gap between raw text prompts and playable browser game prototypes.\n\n## How it works\n\nThe repository provides structured prompts and skills that guide you step-by-step. It starts by generating a one-page game brief based on your initial prompt and genre questions. From there, it builds the initial code, runs automated headless browser checks to verify functionality, and lets you scale the project into a full Vite and TypeScript web application.\n\n## Key features\n\n- Generate a complete one-page game brief from a single text prompt.\n- Build playable browser game prototypes with automated verification.\n- Configure project rigor levels from minimal to full across design sections and QA evidence.\n- Grow prototypes into full Vite and TypeScript web projects with structured feature additions.\n- Support alternative game engines including Godot, Unity, and Unreal Engine 5.\n\n## Getting started\n\nClone the repository into your local environment where you have your command-line assistant configured. Follow the setup instructions in the readme to integrate the workflow skills and begin prompting your first game brief.\n\n## When not to use it\n\nSkip this project if you prefer writing all your game mechanics, architecture, and code entirely from scratch without AI assistance.",
+          "seo_description": "Learn how to turn your command line coding assistant into a game studio with automated agents to build playable browser prototypes.",
+          "seo_query": "how to build browser games with ai agents",
+          "seo_title": "AI Browser Game Prototyping Workflow - Open Source Guide",
+          "telegraph_angle": "Explain the mechanics of multi-agent game prototyping and how it transforms command-line coding assistants into structured studios."
+        },
+        "tension": "Manually scaffolding game loops, writing design docs, and setting up basic browser assets drains hours of development time before you even know if the core mechanic is fun.",
+        "turn": "This tool orchestrates Claude Code to generate a playable browser prototype from a brief, though you still need to drive the gameplay direction and handle deeper engine integration.",
+        "verdict": "Great for solo developers looking to rapidly test game concepts in the browser, but skip it if you prefer writing all your game mechanics and architecture from scratch.",
+        "who_for": "Developers and creators looking to prototype and build games using AI agent workflows.",
+        "why_now": "The rise of advanced CLI-based coding assistants makes fully orchestrated multi-agent game dev workflows practical directly inside your local repository."
+      },
+      "homepage": "",
+      "id": 1155965274,
+      "image_url": "https://i.ibb.co/twgMCX7p/Donchitos-Claude-Code-Game-Studios-preview-21499f85441d.jpg",
+      "is_dual_use": false,
+      "is_hidden_gem": false,
+      "language": "Shell",
+      "license": {
+        "key": "mit",
+        "name": "MIT License",
+        "node_id": "MDc6TGljZW5zZTEz",
+        "spdx_id": "MIT",
+        "url": "https://api.github.com/licenses/mit"
+      },
+      "media_urls": [],
+      "name": "Claude-Code-Game-Studios",
+      "open_issues": 96,
+      "published_at": "2026-11-10T12:43:58.867583Z",
+      "pushed_at": "2026-11-09T23:33:14Z",
+      "readme_fp": "3118563b38e374fd",
+      "repo_id": 1155965274,
+      "revisit_of": "",
+      "revisit_reason": "",
+      "score": 92.0,
+      "slot": "europe_midday",
+      "sources": [
+        "telegram:open_source_friend"
+      ],
+      "stars": 37863,
+      "telegram_chat_id": "@GitHub_Open_Source",
+      "telegram_link": "https://t.me/GitHub_Open_Source/3583",
+      "telegram_message_id": 3583,
+      "telegraph_url": "https://telegra.ph/Claude-Code-Game-Studios-Build-Browser-Games-with-AI-Agents-11-10",
+      "topics": [
+        "ai-agents",
+        "ai-assisted-development",
+        "anthropic",
+        "claude",
+        "claude-code",
+        "game-design",
+        "game-development",
+        "gamedev",
+        "godot",
+        "indie-game-dev",
+        "unity",
+        "unreal-engine"
+      ],
+      "updated_at": "2026-11-10T12:40:35Z",
+      "url": "https://github.com/Donchitos/Claude-Code-Game-Studios",
+      "visual_host": "imgbb",
+      "visual_kind": "card"
     },
     "horizon-rust/horizon": {
       "articles": {
@@ -4238,65 +4346,6 @@
     },
     {
       "archived": false,
-      "contributors_count": 1,
-      "created_at": "2026-02-12T05:21:38Z",
-      "default_branch": "main",
-      "description": "Turn Claude Code into a full game dev studio — 49 AI agents, 72 workflow skills, and a complete coordination system mirroring real studio hierarchy.",
-      "disabled": false,
-      "fork": false,
-      "forks": 4939,
-      "forks_count": 4939,
-      "full_name": "Donchitos/Claude-Code-Game-Studios",
-      "has_readme": true,
-      "homepage": "",
-      "id": 1155965274,
-      "is_dual_use": false,
-      "is_hidden_gem": false,
-      "language": "Shell",
-      "license": {
-        "key": "mit",
-        "name": "MIT License",
-        "node_id": "MDc6TGljZW5zZTEz",
-        "spdx_id": "MIT",
-        "url": "https://api.github.com/licenses/mit"
-      },
-      "media_urls": [],
-      "name": "Claude-Code-Game-Studios",
-      "non_software_reason": "",
-      "open_issues": 96,
-      "open_issues_count": 96,
-      "owner_repo_count": 1,
-      "pushed_at": "2026-11-09T23:33:14Z",
-      "readme": "",
-      "readme_excerpt": "<p align=\"center\">\n  <h1 align=\"center\">Claude Code Game Studios</h1>\n  <p align=\"center\">\n    Describe a game. Claude Code asks a few questions, writes a one-page brief,\n    and builds a playable browser game from it.\n    <br />\n    Then you change it, grow it and finish it, one step at a time.\n  </p>\n</p>\n\n<p align=\"center\">\n  <a href=\"LICENSE\"><img src=\"https://img.shields.io/badge/license-MIT-blue.svg\" alt=\"MIT License\"></a>\n  <a href=\"https://code.claude.com/docs\"><img src=\"https://img.shields.io/badge/built%20for-Claude%20Code-f5f5f5?logo=anthropic\" alt=\"Built for Claude Code\"></a>\n  <a href=\"https://www.buymeacoffee.com/donchitos3\"><img src=\"https://img.shields.io/badge/Buy%20Me%20a%20Coffee-Support%20this%20project-FFDD00?logo=buymeacoffee&logoColor=black\" alt=\"Buy Me a Coffee\"></a>\n  <a href=\"https://github.com/sponsors/Donchitos\"><img src=\"https://img.shields.io/badge/GitHub%20Sponsors-Support%20this%20project-ea4aaa?logo=githubsponsors&logoColor=white\" alt=\"GitHub Sponsors\"></a>\n</p>\n\n---\n\n## Make me a game\n\nOpen Claude Code in a copy of this repository and say what you want:\n\n```\n/prototype a fishing game where the rare fish only bite at dusk\n```\n\n1. **A few questions.*",
-      "readme_len": 29781,
-      "repo_id": 1155965274,
-      "score": 92.0,
-      "source_name": "telegram:open_source_friend",
-      "sources": [
-        "telegram:open_source_friend"
-      ],
-      "stargazers_count": 37658,
-      "stars": 37658,
-      "topics": [
-        "ai-agents",
-        "ai-assisted-development",
-        "anthropic",
-        "claude",
-        "claude-code",
-        "game-design",
-        "game-development",
-        "gamedev",
-        "godot",
-        "indie-game-dev",
-        "unity",
-        "unreal-engine"
-      ],
-      "updated_at": "2026-11-10T04:14:32Z",
-      "url": "https://github.com/Donchitos/Claude-Code-Game-Studios"
-    },
-    {
-      "archived": false,
       "contributors_count": 17,
       "created_at": "2026-09-21T11:12:53Z",
       "default_branch": "main",
@@ -6943,8 +6992,8 @@
     "donchitos/claude-code-game-studios": {
       "first_seen_at": "2026-11-06T12:20:43.199407Z",
       "full_name": "Donchitos/Claude-Code-Game-Studios",
-      "last_decision": "queued",
-      "last_seen_at": "2026-11-10T04:25:30.010377Z",
+      "last_decision": "published",
+      "last_seen_at": "2026-11-10T12:43:58.867844Z",
       "repo_id": 1155965274,
       "sources": [
         "telegram:open_source_friend"
