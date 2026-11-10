@@ -120,11 +120,11 @@
   ],
   "last_runs": {
     "article": {
-      "finished_at": "2026-11-09T23:05:36.833134Z",
-      "published": false,
-      "reason": "already_published_today",
-      "repo": "",
-      "url": ""
+      "finished_at": "2026-11-10T13:33:50.885538Z",
+      "published": true,
+      "reason": "published",
+      "repo": "juneyaooo/rea-video",
+      "url": "https://dev.to/githubopensource/reverse-engineer-video-timelines-open-source-tool-378c"
     },
     "collect": {
       "discovered": 697,
@@ -1700,7 +1700,13 @@
       "visual_kind": "readme"
     },
     "juneyaooo/rea-video": {
-      "articles": {},
+      "articles": {
+        "devto": {
+          "id": 5011193,
+          "published_at": "2026-11-10T13:33:50.885393Z",
+          "url": "https://dev.to/githubopensource/reverse-engineer-video-timelines-open-source-tool-378c"
+        }
+      },
       "card_style": "",
       "category": "AI",
       "contributors_count": 7,
@@ -1719,6 +1725,7 @@
       },
       "description": "Reverse-engineer any video, shot by shot: filmed, AI-generated or coded, and how to remake it. 逆向一切视频，逐个镜头看是拍的、AI 生成的还是代码做的，再告诉你怎么复刻。",
       "description_fp": "f049f0313374c13a",
+      "devto_cover_url": "https://i.ibb.co/6005t7y7/juneyaooo-rea-video-devto-cover-aff2bcdb8c14.png",
       "forks": 789,
       "full_name": "JuneYaooo/rea-video",
       "generated": {
