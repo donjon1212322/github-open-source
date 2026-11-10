@@ -166,6 +166,10 @@
       "telegram_message_id": 3571,
       "week": "2026-W45"
     },
+    "news": {
+      "finished_at": "2026-11-10T19:18:49.723467Z",
+      "reason": "already_published"
+    },
     "news-article": {
       "devto_id": 5008047,
       "finished_at": "2026-11-10T02:26:24.805619Z",

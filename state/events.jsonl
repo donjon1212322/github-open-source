@@ -224,3 +224,4 @@
 {"reason": "slot_already_done", "slot": "us_peak", "ts": "2026-11-10T17:18:47.753168Z", "type": "publish_skipped"}
 {"platform": "bluesky", "repo": "juneyaooo/rea-video", "ts": "2026-11-10T18:17:51.552134Z", "type": "crosspost_published", "url": "https://bsky.app/profile/githubopensource.bsky.social/post/3mzy2gem2ig2q"}
 {"deleted": 0, "ts": "2026-11-10T18:47:50.957086Z", "type": "moderation_completed", "updates": 0}
+{"reason": "news_already_published", "ts": "2026-11-10T19:18:49.723374Z", "type": "news_skipped"}
