@@ -230,3 +230,4 @@
 {"reason": "already_published_today", "ts": "2026-11-10T20:32:41.863125Z", "type": "article_skipped"}
 {"deleted": 0, "ts": "2026-11-10T21:27:02.401536Z", "type": "moderation_completed", "updates": 0}
 {"deleted": 0, "ts": "2026-11-10T21:47:52.586234Z", "type": "moderation_completed", "updates": 0}
+{"reason": "slot_already_done", "slot": "us_peak", "ts": "2026-11-10T22:24:43.815386Z", "type": "publish_skipped"}
