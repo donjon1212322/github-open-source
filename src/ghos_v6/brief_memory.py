@@ -123,6 +123,30 @@ def duplicate_story_ratio(store: Any, stories: Iterable[Any], *,
     return duplicates / len(items)
 
 
+def filter_repeated_stories(store: Any, stories: Iterable[Any], *,
+                            now: datetime | None = None,
+                            days: int = MEMORY_DAYS) -> tuple[list[Any], int]:
+    """Drop INDIVIDUAL stories printed on a previous day.
+
+    The whole-brief ratio guard alone would still let one or two stale
+    stories through; the owner asked for no duplicates at all.
+    """
+    today, cutoff = _bounds(now, days)
+    memory = _memory(store)
+    prior = [frozenset(k.split()) for k, day in _fresh(memory["stories"], cutoff).items()
+             if day < today]
+    kept: list[Any] = []
+    removed = 0
+    for story in stories or []:
+        if isinstance(story, dict) and any(
+            _similar(story_tokens(story.get("title")), old) for old in prior
+        ):
+            removed += 1
+        else:
+            kept.append(story)
+    return kept, removed
+
+
 def remember_brief(store: Any, cluster_keys: Iterable[Any],
                    stories: Iterable[Any], *, now: datetime | None = None,
                    days: int = MEMORY_DAYS) -> int:

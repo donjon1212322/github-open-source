@@ -14,6 +14,7 @@ from ghos_v6 import pipeline
 from ghos_v6.brief_memory import (
     _similar,
     duplicate_story_ratio,
+    filter_repeated_stories,
     recent_cluster_keys,
     remember_brief,
     story_tokens,
@@ -151,6 +152,7 @@ def test_news_command_refuses_a_duplicate_digest(monkeypatch, tmp_path):
     result = pipeline.news_command(config, store)
     assert result["reason"] == "duplicate_digest", result
     assert result["duplicate_ratio"] >= 0.5
+    assert result["removed"] >= 4
     assert result["published"] is False
 
 
@@ -181,3 +183,24 @@ def test_news_command_publishes_when_stories_are_new(monkeypatch, tmp_path):
     )
     result = pipeline.news_command(config, store)
     assert result["reason"] != "duplicate_digest", result
+
+
+def test_individual_repeats_are_removed_not_just_a_whole_brief():
+    store = _Store()
+    remember_brief(store, ["story:old"], STORIES_3579, now=DAY1)
+    mixed = STORIES_3579[:2] + [
+        {"title": "Qwen4 Sparse Agent Toolkit", "what_happened": ["Alibaba released a toolkit."]},
+        {"title": "Llama 5 Mini On-Device", "what_happened": ["Meta shipped a small model."]},
+        {"title": "Gemini Omni Flash Benchmark", "what_happened": ["Google published scores."]},
+    ]
+    fresh, removed = filter_repeated_stories(store, mixed, now=DAY2)
+    assert removed == 2
+    assert len(fresh) == 3
+    assert all("Claude" not in str(f.get("title")) for f in fresh)
+
+
+def test_no_repeats_left_after_filtering():
+    store = _Store()
+    remember_brief(store, [], STORIES_3579, now=DAY1)
+    fresh, _removed = filter_repeated_stories(store, STORIES_3581, now=DAY2)
+    assert len(fresh) <= 1, fresh

@@ -26,7 +26,8 @@ from .rumours import (
     remember_rumours,
 )
 from .brief_memory import (
-    duplicate_story_ratio, recent_cluster_keys, remember_brief,
+    duplicate_story_ratio, filter_repeated_stories, recent_cluster_keys,
+    remember_brief,
 )
 from .http import download_bytes, sanitize
 from .media import choose_visual
@@ -1360,19 +1361,31 @@ def news_command(
         )
         if is_rumour_relevant(claim)
     ]
-    # Owner 10.11: never reprint a digest. Discovery already excluded recent
-    # cluster keys; this second barrier catches a reworded story that Gemini
+    # Owner 10.11: never reprint a story. Discovery already excluded recent
+    # cluster keys; this second barrier removes any reworded story Gemini
     # rebuilt from a differently-keyed source. A refresh edits in place and is
     # deliberately allowed through.
     if not refresh:
         ratio = duplicate_story_ratio(store, brief.get("stories") or [])
-        if ratio >= 0.5:
-            store.event("news_skipped", reason="duplicate_digest",
+        original_count = len(brief_stories(brief))
+        fresh_stories, removed = filter_repeated_stories(
+            store, brief.get("stories") or []
+        )
+        brief["stories"] = fresh_stories
+        if removed:
+            store.event("news_stories_deduplicated", removed=removed,
                         duplicate_ratio=round(ratio, 2))
+        if len(brief_stories(brief)) < 2 and removed:
+            # Only intercede when the memory actually removed stories. A
+            # plain one-story digest must still reach the original guard.
+            # A one-story digest was already rejected before this feature;
+            # keep that honest reason instead of re-labelling it a duplicate.
+            reason = "not_a_digest" if original_count < 2 else "duplicate_digest"
+            store.event("news_skipped", reason=reason,
+                        removed=removed, duplicate_ratio=round(ratio, 2))
             store.save()
-            return {"ok": True, "published": False,
-                    "reason": "duplicate_digest",
-                    "duplicate_ratio": round(ratio, 2)}
+            return {"ok": True, "published": False, "reason": reason,
+                    "removed": removed, "duplicate_ratio": round(ratio, 2)}
     if not brief.get("eligible"):
         reason = str(brief.get("rejection_reason") or "gemini_ineligible")[:80]
         store.event("news_skipped", reason=reason, video_id=entry.get("video_id"))
