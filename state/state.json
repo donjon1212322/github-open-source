@@ -106,16 +106,16 @@
   "dead_letters": [],
   "gemini_daily": {
     "day": "2026-11-09",
-    "units": 51
+    "units": 57
   },
   "gemini_window": [
     [
-      1794271431.7271783,
-      3977
+      1794294828.8677237,
+      4011
     ],
     [
-      1794271436.7602847,
-      1388
+      1794294835.1073797,
+      1437
     ]
   ],
   "last_runs": {
@@ -172,9 +172,9 @@
       "telegram_message_id": 3577
     },
     "publish:europe_morning": {
-      "finished_at": "2026-11-09T07:14:04.159779Z",
-      "repo": "debpalash/voicestudio",
-      "telegram_message_id": 3576
+      "finished_at": "2026-11-10T07:14:01.045138Z",
+      "repo": "tabularisdb/tabularis",
+      "telegram_message_id": 3582
     },
     "publish:manual": {
       "finished_at": "2026-11-03T12:00:53.732414Z",
@@ -3741,6 +3741,127 @@
       "visual_host": "imgbb",
       "visual_kind": "readme"
     },
+    "tabularisdb/tabularis": {
+      "articles": {},
+      "card_style": "",
+      "category": "DevTools",
+      "contributors_count": 161,
+      "created_at": "2026-01-26T21:48:07Z",
+      "crossposts": {
+        "bluesky": {
+          "attempts": 0,
+          "due_at": "2026-11-10T18:00:00+00:00",
+          "status": "pending"
+        }
+      },
+      "description": "Open-source desktop SQL workspace with 3 built-in database drivers and 29 shipped driver plugins, including SQL Server, DuckDB, ClickHouse and Redis. Built-in MCP server for Claude, Cursor and Devin, SQL notebooks and visual EXPLAIN.",
+      "description_fp": "26a1ec6c3f685fb5",
+      "forks": 416,
+      "full_name": "TabularisDB/tabularis",
+      "generated": {
+        "article_markdown": "## What it is\n\nTabularis is an open-source desktop SQL workspace designed to manage relational and analytical databases in a single interface. Built with TypeScript, it ships with core support for PostgreSQL, MySQL, and SQLite, while handling dozens of other systems—such as DuckDB, ClickHouse, and Redis—through a modular plugin system. Beyond a standard query editor, it incorporates SQL notebooks and visual query building.\n\n## Why it matters\n\nMost database clients treat AI assistance as an afterthought or lock it behind paid cloud features. Tabularis embeds a Model Context Protocol (MCP) server directly into the desktop application. This allows local coding assistants like Claude, Cursor, and Devin to read your database schemas and execute queries inside the same environment where you inspect your data.\n\n## Key features\n\n- Execute queries using 3 built-in drivers and 29 shipped driver plugins including DuckDB and ClickHouse.\n- Integrate AI agents like Claude, Cursor, and Devin via the built-in Model Context Protocol server.\n- Build interactive documents mixing SQL cells, Markdown, cross-cell variables, and charts.\n- Inspect query performance using interactive visual EXPLAIN graphs.\n- Write plugins in any language using JSON-RPC over stdio.\n- Connect to local models via Ollama for text-to-SQL generation.\n\n## Quick start\n\n```bash\nwinget install Debba.Tabularis    # Windows\nbrew install --cask tabularis     # macOS\nsudo snap install tabularis       # Linux\n```\n\n## Who should try it\n\nDevelopers and data engineers who frequently query analytical or embedded databases and want to connect their local AI coding assistants directly to their database schemas.\n\n## Verdict\n\nTabularis is a strong alternative to legacy database clients if you rely on modern workflow tools like SQL notebooks and want seamless MCP integration for AI agents. If you require hundreds of obscure enterprise database drivers out of the box, traditional tools like DBeaver may still fit better.",
+        "article_title": "Tabularis: Open-Source Desktop SQL Workspace and MCP Server for AI Agents",
+        "card_hook": "Desktop SQL workspace with built-in AI agents",
+        "card_subline": "Query DuckDB, ClickHouse, and Redis with an integrated MCP server for Claude, Cursor, and Devin",
+        "category": "DevTools",
+        "discussion_question": "Which database driver do you find yourself missing the most in lightweight GUI clients?",
+        "hook": "An open-source desktop SQL workspace with 29 shipped driver plugins and a built-in MCP server for AI agents.",
+        "key_features": [
+          "Execute queries using 3 built-in drivers and 29 shipped driver plugins including DuckDB and ClickHouse",
+          "Integrate AI agents like Claude, Cursor, and Devin via the built-in Model Context Protocol server",
+          "Build interactive documents mixing SQL cells, Markdown, cross-cell variables, and charts",
+          "Inspect query performance using interactive visual EXPLAIN graphs",
+          "Write plugins in any language using JSON-RPC over stdio",
+          "Connect to local models via Ollama for text-to-SQL generation"
+        ],
+        "llm_used": true,
+        "quick_start": "winget install Debba.Tabularis",
+        "safety": "ok",
+        "safety_reason": "Legitimate open-source database client and developer workspace tool.",
+        "scene": "You open three different database clients just to check a few tables across PostgreSQL, DuckDB, and Redis, while trying to copy schemas over to your AI coding assistant.",
+        "social_text": "An open-source desktop SQL workspace featuring 29 driver plugins and a built-in MCP server for AI coding assistants.",
+        "summary": "Tabularis combines a traditional relational database client with modern workflow tools like SQL notebooks and visual query builders. It relies on a plugin architecture communicating via JSON-RPC over stdio to support dozens of drivers without bloating the core binary. By integrating a Model Context Protocol server directly into the desktop workspace, it allows external coding assistants to inspect schemas and run queries natively.",
+        "surfaces": {
+          "Facebook_body": "If you work with data, you likely have a dozen different apps installed just to look at your tables. It is a constant cycle of switching windows, copying connection strings, and losing your place. This new desktop workspace aims to simplify that by acting as a single hub for almost any database you use.\n\nIt supports 32 different types of databases out of the box, from the ones you use for analytics to the ones embedded in your local projects. You can run queries, build visual charts, and write notes all in one document, similar to how a notebook works for code.\n\nWhat makes this interesting is how it handles modern automation. It includes a built-in server that allows your AI coding assistants to see your database structure and run queries for you. Instead of manually pasting schema details into a chat window, the AI can inspect your database directly to help you debug or write complex queries. It is designed for developers and data engineers who want to keep their workflow in one window while leveraging modern AI tools.",
+          "Facebook_headline": "A single dashboard for all your databases",
+          "Facebook_lead": "Stop switching between different database apps. This workspace lets you query dozens of database types in one place and even lets your AI coding assistant help with your data.",
+          "bluesky_headline": "Manage all your databases in one workspace",
+          "bluesky_lead": "This tool connects to 32 different database types and lets AI agents query your data directly.",
+          "devto_body": "## What it is\n\nTabularis is an open-source desktop SQL workspace built with TypeScript. It serves as a unified interface for database management, combining the functionality of a traditional SQL client with the interactive features of a notebook environment. Unlike monolithic database tools, Tabularis uses a plugin architecture based on JSON-RPC over stdio, allowing it to support 32 different database drivers without bloating the core binary.\n\n## How it works\n\nAt its core, Tabularis acts as a host for database drivers. By communicating via JSON-RPC over stdio, the application keeps the heavy lifting of database connectivity separate from the UI. This allows developers to write custom plugins in any language. The workspace itself supports SQL notebooks, where you can mix SQL cells, Markdown, and cross-cell variables to create interactive data documents.\n\n## Key features\n\n- **Extensive Driver Support:** Ships with 3 built-in drivers and 29 additional plugins, covering major systems like DuckDB, ClickHouse, SQL Server, and Redis.\n- **Native AI Integration:** Includes a built-in Model Context Protocol (MCP) server. This allows AI agents like Claude, Cursor, or Devin to connect directly to your workspace to inspect schemas and execute queries.\n- **Visual Query Analysis:** Features interactive visual EXPLAIN graphs to help debug query performance.\n- **Notebook Interface:** Supports charts, Markdown, and variable sharing across cells.\n\n## Getting started\n\nTabularis is available as a desktop application. You can download the latest release from the official GitHub repository. Once installed, you can manage connections via the settings menu and install additional driver plugins as needed. The project is open-source, allowing for community contributions to the plugin ecosystem.\n\n## When not to use it\n\nIf you require a strictly web-based database management tool or are working in an environment where local desktop software is restricted, Tabularis may not be the right fit. Additionally, while the MCP integration is powerful, it is specifically optimized for local AI agent workflows; if your team relies on cloud-based database administration portals, you may find the desktop-first approach limiting.",
+          "seo_description": "Tabularis is an open-source desktop SQL client supporting 32 database drivers and built-in AI agent integration via the Model Context Protocol.",
+          "seo_query": "open source sql client with ai integration",
+          "seo_title": "Open-source SQL workspace with AI integration - Tabularis",
+          "telegraph_angle": "Explain how the Model Context Protocol changes the way developers interact with local databases by allowing AI agents to query data directly."
+        },
+        "tension": "Juggling separate heavyweight tools wastes time and disconnects your local database workflow from the coding assistants you use all day.",
+        "turn": "Tabularis puts multiple database drivers, SQL notebooks, and an MCP server into one native desktop app, though it still has fewer native drivers out of the box than legacy enterprise tools.",
+        "verdict": "An efficient choice for developers working with modern analytics or embedded databases who want native AI agent context.",
+        "who_for": "Developers and data engineers juggling multiple databases who want AI agent integration inside their SQL workspace.",
+        "why_now": "The rise of Model Context Protocol (MCP) clients like Claude and Cursor makes direct desktop integration practical for local database workflows."
+      },
+      "homepage": "https://tabularis.dev",
+      "id": 1142800652,
+      "image_url": "https://i.ibb.co/My2MzYvp/tabularisdb-tabularis-readme-preview-40164162e8b6.jpg",
+      "is_dual_use": false,
+      "is_hidden_gem": false,
+      "language": "TypeScript",
+      "license": {
+        "key": "apache-2.0",
+        "name": "Apache License 2.0",
+        "node_id": "MDc6TGljZW5zZTI=",
+        "spdx_id": "Apache-2.0",
+        "url": "https://api.github.com/licenses/apache-2.0"
+      },
+      "media_urls": [
+        "https://raw.githubusercontent.com/TabularisDB/website/main/public/img/overview.gif",
+        "https://raw.githubusercontent.com/TabularisDB/tabularis/main/.github/assets/banner-light.png#gh-light-mode-only",
+        "https://raw.githubusercontent.com/TabularisDB/tabularis/main/.github/assets/banner-dark.png#gh-dark-mode-only"
+      ],
+      "name": "tabularis",
+      "open_issues": 116,
+      "published_at": "2026-11-10T07:14:01.044842Z",
+      "pushed_at": "2026-11-10T05:42:57Z",
+      "readme_fp": "c3f57a022eb4c828",
+      "repo_id": 1142800652,
+      "revisit_of": "",
+      "revisit_reason": "",
+      "score": 91.924,
+      "slot": "europe_morning",
+      "sources": [
+        "telegram:open_source_friend"
+      ],
+      "stars": 5435,
+      "telegram_chat_id": "@GitHub_Open_Source",
+      "telegram_link": "https://t.me/GitHub_Open_Source/3582",
+      "telegram_message_id": 3582,
+      "telegraph_url": "https://telegra.ph/Tabularis-Open-Source-Desktop-SQL-Workspace-and-MCP-Server-for-AI-Agents-11-10",
+      "topics": [
+        "ai-agent",
+        "ai-assistant",
+        "cross-platform",
+        "database-client",
+        "database-gui",
+        "database-tool",
+        "er-diagram",
+        "mariadb",
+        "mcp",
+        "mcp-server",
+        "mysql",
+        "postgresql",
+        "rust",
+        "sql",
+        "sql-editor",
+        "sql-notebook",
+        "sqlite",
+        "tauri",
+        "typescript",
+        "visual-query-builder"
+      ],
+      "updated_at": "2026-11-10T07:09:57Z",
+      "url": "https://github.com/TabularisDB/tabularis",
+      "visual_host": "imgbb",
+      "visual_kind": "readme"
+    },
     "wangzan101/mika": {
       "articles": {},
       "card_style": "editorial_daily",
@@ -4173,77 +4294,6 @@
       ],
       "updated_at": "2026-11-10T04:14:32Z",
       "url": "https://github.com/Donchitos/Claude-Code-Game-Studios"
-    },
-    {
-      "archived": false,
-      "contributors_count": 161,
-      "created_at": "2026-01-26T21:48:07Z",
-      "default_branch": "main",
-      "description": "Open-source desktop SQL workspace with 3 built-in database drivers and 29 shipped driver plugins, including SQL Server, DuckDB, ClickHouse and Redis. Built-in MCP server for Claude, Cursor and Devin, SQL notebooks and visual EXPLAIN.",
-      "disabled": false,
-      "fork": false,
-      "forks": 416,
-      "forks_count": 416,
-      "full_name": "TabularisDB/tabularis",
-      "has_readme": true,
-      "homepage": "https://tabularis.dev",
-      "id": 1142800652,
-      "is_dual_use": false,
-      "is_hidden_gem": false,
-      "language": "TypeScript",
-      "license": {
-        "key": "apache-2.0",
-        "name": "Apache License 2.0",
-        "node_id": "MDc6TGljZW5zZTI=",
-        "spdx_id": "Apache-2.0",
-        "url": "https://api.github.com/licenses/apache-2.0"
-      },
-      "media_urls": [
-        "https://raw.githubusercontent.com/TabularisDB/website/main/public/img/overview.gif",
-        "https://raw.githubusercontent.com/TabularisDB/tabularis/main/.github/assets/banner-light.png#gh-light-mode-only",
-        "https://raw.githubusercontent.com/TabularisDB/tabularis/main/.github/assets/banner-dark.png#gh-dark-mode-only"
-      ],
-      "name": "tabularis",
-      "non_software_reason": "",
-      "open_issues": 118,
-      "open_issues_count": 118,
-      "owner_repo_count": 1,
-      "pushed_at": "2026-11-09T22:41:08Z",
-      "readme": "",
-      "readme_excerpt": "<br />\n<p align=\"center\">\n  <img src=\".github/assets/banner-light.png#gh-light-mode-only\" alt=\"Tabularis\" width=\"100%\">\n  <img src=\".github/assets/banner-dark.png#gh-dark-mode-only\" alt=\"Tabularis\" width=\"100%\">\n</p>\n\n# Tabularis\n\nTabularis is an open-source desktop SQL workspace with 3 built-in database drivers and 29 shipped driver plugins, including DuckDB, ClickHouse, Redis and Firestore. Its built-in MCP server lets Claude, Cursor and Devin (formerly Windsurf) read your schema and run queries in the same app you already use.\n\n<p align=\"center\">\n  <b><a href=\"https://tabularis.dev\">Website</a></b> ·\n  <b><a href=\"https://tabularis.dev/wiki\">Docs</a></b> ·\n  <b><a href=\"https://tabularis.dev/download\">Download</a></b> ·\n  <b><a href=\"./CHANGELOG.md\">Changelog</a></b>\n</p>\n\n<br />\n\n<p align=\"center\">\n  <img src=\"https://img.shields.io/github/release/TabularisDB/tabularis.svg?style=flat\" alt=\"Release\" />\n  <img src=\"https://img.shields.io/github/stars/TabularisDB/tabularis?style=flat\" alt=\"Stars\" />\n  <img src=\"https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2FTabularisDB%2Ftabularis%2Fdownload-stats%2Fdownloads.json&amp;style=flat\" alt=\"Downloads\" />\n ",
-      "readme_len": 35594,
-      "repo_id": 1142800652,
-      "score": 91.924,
-      "source_name": "telegram:open_source_friend",
-      "sources": [
-        "telegram:open_source_friend"
-      ],
-      "stargazers_count": 5432,
-      "stars": 5432,
-      "topics": [
-        "ai-agent",
-        "ai-assistant",
-        "cross-platform",
-        "database-client",
-        "database-gui",
-        "database-tool",
-        "er-diagram",
-        "mariadb",
-        "mcp",
-        "mcp-server",
-        "mysql",
-        "postgresql",
-        "rust",
-        "sql",
-        "sql-editor",
-        "sql-notebook",
-        "sqlite",
-        "tauri",
-        "typescript",
-        "visual-query-builder"
-      ],
-      "updated_at": "2026-11-10T03:57:48Z",
-      "url": "https://github.com/TabularisDB/tabularis"
     },
     {
       "archived": false,
@@ -10326,8 +10376,8 @@
     "tabularisdb/tabularis": {
       "first_seen_at": "2026-11-10T04:25:30.015019Z",
       "full_name": "TabularisDB/tabularis",
-      "last_decision": "queued",
-      "last_seen_at": "2026-11-10T04:25:30.015021Z",
+      "last_decision": "published",
+      "last_seen_at": "2026-11-10T07:14:01.045126Z",
       "repo_id": 1142800652,
       "sources": [
         "telegram:open_source_friend"
