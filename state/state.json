@@ -10388,5 +10388,31 @@
     }
   },
   "suppressed": {},
-  "version": 1
+  "version": 1,
+  "brief_memory": {
+    "clusters": {
+      "https://www.anthropic.com/claude-fable-and-mythos-5-2": "2026-11-10",
+      "https://openai.com/supply": "2026-11-10",
+      "https://github.com/elayadesign/ai-design-skills": "2026-11-10",
+      "https://openai.com/supply/co-lab/chromatic": "2026-11-10",
+      "story:ripple-65b": "2026-11-10",
+      "https://github.com/morluto/rea": "2026-11-10",
+      "text:в-тинвестициях-теперь-можно-торговать-с-помощью": "2026-11-10",
+      "text:anthropic-прямо-сейчас-раздают-всем-юзерам-ultra": "2026-11-10",
+      "text:breaking-claude-fable-52-and-claude-mythos": "2026-11-10",
+      "text:вышел-fable-52": "2026-11-10"
+    },
+    "stories": {
+      "claude fable": "2026-11-09",
+      "chromatic modretro openai teases": "2026-11-09",
+      "design skills": "2026-11-09",
+      "app binary rea reconstruction": "2026-11-09",
+      "investments mcp trading": "2026-11-09",
+      "claude fable prices speeds": "2026-11-10",
+      "chromatic codex modretro openai": "2026-11-10",
+      "27b 65b arete open ripple source updates": "2026-11-10",
+      "coding design skills": "2026-11-10",
+      "context investments protocol trading": "2026-11-10"
+    }
+  }
 }
