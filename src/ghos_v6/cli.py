@@ -11,6 +11,7 @@ from .config import Config
 from .doctor import run_doctor
 from .http import sanitize
 from .pipeline import (
+    _news_slot_open,
     alert_owner,
     article_of_day,
     brief_dedup_fix_command,
@@ -123,7 +124,15 @@ def _run_scheduled(config: Config, store: StateStore, schedule: str) -> dict[str
         "33 13 * * *": lambda: article_of_day(config, store),
         # Daily since 2026-11-02: the video brief is a format with its own
         # slot, after the last project post, when the day's videos are out.
-        "18 19 * * *": lambda: news_command(config, store),
+        # Owner 10.11: GitHub once delivered this cron ~7h late (02:10 UTC),
+        # so the brief went out at 05:11 Minsk with yesterday's material.
+        # Refuse an out-of-slot SCHEDULE run without writing a marker; the
+        # 19:18 cron / 20:00 watchdog can still publish the evening brief.
+        "18 19 * * *": lambda: (
+            {"ok": True, "published": False, "reason": "news_before_scheduled_slot"}
+            if not _news_slot_open()
+            else news_command(config, store)
+        ),
         # Second dev.to article of the day (owner decision 2026-11-07).
         "53 19 * * *": lambda: news_article_command(config, store),
         # Weekly cycle: digest + poll on Sunday, poll closed on Thursday,

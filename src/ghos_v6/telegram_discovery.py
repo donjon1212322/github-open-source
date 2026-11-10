@@ -267,7 +267,8 @@ def build_digest_material(
     confirmed = [c for c in clusters if c["status"] != "unconfirmed_rumour"]
     rumours = [
         c for c in clusters
-        if c["status"] == "unconfirmed_rumour" and is_rumour_relevant(c["text"])
+        if c["status"] == "unconfirmed_rumour"
+        and is_rumour_relevant(c["text"], english_only=False)
     ]
 
     # Model news first, at most one corporate/IPO story; collections stay in.

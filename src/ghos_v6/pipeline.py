@@ -1205,6 +1205,18 @@ def remove_devto_articles(config: Config, store: StateStore, ids: str = "") -> d
     return {"ok": True, "removed": removed, "missing": missing, "blocked": blocked}
 
 
+# Owner 10.11: GitHub delivered the "18 19 * * *" AI Brief schedule almost
+# seven hours late (02:10 UTC instead of 19:18 UTC), so the brief went out at
+# 05:11 Minsk with yesterday's 48-hour material. The cron string, cadence and
+# UTC-day boundary stay untouched; a too-early run simply refuses to publish
+# and leaves no marker, so the 19:18 cron / 20:00 watchdog can still run.
+NEWS_EARLIEST_HOUR_UTC = 19
+
+
+def _news_slot_open(now: datetime | None = None) -> bool:
+    return (now or datetime.now(timezone.utc)).hour >= NEWS_EARLIEST_HOUR_UTC
+
+
 def news_command(
     config: Config,
     store: StateStore,
@@ -1234,6 +1246,9 @@ def news_command(
             for item in (store.data.get("news_topics") or [])
         ):
             store.event("news_skipped", reason="news_already_published")
+            store.data.setdefault("last_runs", {})["news"] = {
+                "finished_at": iso_now(), "reason": "already_published",
+            }
             store.save()
             return {"ok": True, "published": False, "reason": "news_already_published"}
     config.require("TELEGRAM_BOT_TOKEN", "GEMINI_API_KEY")
@@ -1478,6 +1493,11 @@ def news_command(
         existing.update(record)
     else:
         store.data.setdefault("news_topics", []).append(record)
+    store.data.setdefault("last_runs", {})["news"] = {
+        "finished_at": iso_now(),
+        "telegram_message_id": message_id,
+        "reason": "refreshed" if edited else "published",
+    }
     store.event(
         "ai_brief_republished" if edited else "ai_brief_published",
         video_id=entry.get("video_id"),

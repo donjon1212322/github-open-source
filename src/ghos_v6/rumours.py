@@ -56,6 +56,12 @@ GOSSIP_MARKERS: tuple[str, ...] = (
     "merger", "revenue", "dividend", "billionaire", "net worth", "dating",
     "personal life", "war", "military", "sanctions",
 )
+# Owner 10.11: post 3581 printed a raw Russian channel line next to its
+# English twin. The brief is English-only (standing acceptance), so a rumour
+# containing Cyrillic/CJK text is rejected before it reaches Gemini or state.
+_NON_ENGLISH_RE = re.compile(
+    "[\u0400-\u04FF\u4E00-\u9FFF\u3040-\u30FF\uAC00-\uD7AF]"
+)
 _TECH_RE = re.compile(
     r"\b(?:ai|llm|llms?|models?|gpt|claude|gemini|llama|qwen|mistral|"
     r"deepseek|codex|cursor|windsurf|copilot|openai|anthropic|huggingface|"
@@ -163,10 +169,15 @@ def filter_recent_rumours(store: Any, claims: Iterable[Any] | None, *,
     return out
 
 
-def is_rumour_relevant(value: Any) -> bool:
-    """True only for a technology rumour, never personal/corporate gossip."""
+def is_rumour_relevant(value: Any, *, english_only: bool = True) -> bool:
+    """True only for a technology rumour, never personal/corporate gossip.
+
+    ``english_only=False`` is for raw channel clusters: many source channels
+    are Russian, and their posts must still reach Gemini as material (standing
+    rule: drop only ads). The FINAL published claims are always English-only.
+    """
     text = clean_rumour_text(value).lower()
-    if not text:
+    if not text or (english_only and _NON_ENGLISH_RE.search(text)):
         return False
     if any(marker in text for marker in GOSSIP_MARKERS):
         return False

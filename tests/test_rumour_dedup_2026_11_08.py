@@ -8,7 +8,7 @@ general fix: semantic de-duplication, clean channel text and cross-day memory.
 from __future__ import annotations
 
 import json
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
 from ghos_v6 import pipeline
@@ -294,11 +294,15 @@ def test_brief_repair_fixes_3579_in_place_and_prunes_gossip_memory(monkeypatch, 
         "post_text": post_text,
         "brief": _brief(LIVE_3579_CLAIMS),
     }]
+    # prune_rumour_memory() only removes TODAY's stale keys; keep the test
+    # independent of the wall-clock date.
+    today = datetime.now(timezone.utc).date()
+    yesterday = (today - timedelta(days=1)).isoformat()
     store.data["rumour_memory"] = {
-        "aws bedrock claude fable mythos page pricing spotted": "2026-11-09",
-        "accused chinese huang jensen spy ties": "2026-11-09",
-        "billion ceo divorce dollar multi nvidia potential speculation": "2026-11-09",
-        "anthropic claude code collaborative mode multiplayer projects working": "2026-11-08",
+        "aws bedrock claude fable mythos page pricing spotted": today.isoformat(),
+        "accused chinese huang jensen spy ties": today.isoformat(),
+        "billion ceo divorce dollar multi nvidia potential speculation": today.isoformat(),
+        "anthropic claude code collaborative mode multiplayer projects working": yesterday,
     }
     result = pipeline.brief_dedup_fix_command(Config.from_env(), store)
     assert result["ok"] is True and result["edited"] is True
