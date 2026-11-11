@@ -1909,7 +1909,8 @@
         "bluesky": {
           "attempts": 0,
           "due_at": "2026-11-11T18:00:00+00:00",
-          "status": "pending"
+          "held_reason": "not_best_of_day",
+          "status": "held"
         }
       },
       "description": "A comprehensive logo-design skill for Claude, Gemini CLI, Codex and other AI agents: principles, process, SVG craft, testing tools and a 1,400+ logo reference library.",
@@ -3649,7 +3650,8 @@
         "bluesky": {
           "attempts": 0,
           "due_at": "2026-11-11T18:00:00+00:00",
-          "status": "pending"
+          "held_reason": "not_best_of_day",
+          "status": "held"
         }
       },
       "description": "244 pixel art effects, every one a small piece of code. Plus a Claude Code skill to make your own.",
@@ -4661,7 +4663,10 @@
         "bluesky": {
           "attempts": 0,
           "due_at": "2026-11-11T18:00:00+00:00",
-          "status": "pending"
+          "error": "",
+          "published_at": "2026-11-11T18:18:05.195069Z",
+          "status": "published",
+          "url": "https://bsky.app/profile/githubopensource.bsky.social/post/3n22kvow6ho2a"
         }
       },
       "description": "知了 Cicada · 任何会议和直播的实时字幕、同声传译、AI 会议纪要，Mac、Windows、Linux、Android 免费开源。Live subtitles, interpreting and meeting notes for any call or stream, on Mac, Windows, Linux and Android.",
