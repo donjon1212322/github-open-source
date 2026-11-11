@@ -6335,8 +6335,8 @@
   },
   "schedule_health": {
     "2026-11-11": {
-      "last_schedule": "43 12 * * *",
-      "late_ignored": 4,
+      "last_schedule": "47 */3 * * *",
+      "late_ignored": 5,
       "notified": true,
       "skipped_brief": ""
     }
