@@ -4,7 +4,9 @@ from __future__ import annotations
 import argparse
 import json
 import logging
+import os
 import sys
+from datetime import datetime, timedelta, timezone
 from typing import Any
 
 from .config import Config
@@ -37,7 +39,7 @@ from .pipeline import (
     unseries_articles,
 )
 from .state import StateStore
-from .watchdog import watchdog_command
+from .watchdog import NEWS_TERMINAL_REASONS, watchdog_command
 
 
 def _parser() -> argparse.ArgumentParser:
@@ -112,8 +114,170 @@ def _parser() -> argparse.ArgumentParser:
     return parser
 
 
-def _run_scheduled(config: Config, store: StateStore, schedule: str) -> dict[str, Any]:
+
+# Owner 11.11: GitHub's ``schedule`` events are best-effort. On 09-10.11 the
+# SAME evening slots arrived a second time 6-8 hours late (17:18 -> 00:44,
+# 19:18 -> 02:11, 19:53 -> 02:26). Those late duplicates published a second
+# project and a second AI Brief inside the NEXT UTC day, consumed that day's
+# 3-post quota and its one-brief marker, and made the on-time evening slots
+# no-ops. The minute-accurate Cloudflare Worker already dispatches every
+# publishing command on time (workflow_dispatch, 0-minute start lag). A late
+# native cron therefore must be IGNORED, not executed. Watchdog remains the
+# recovery net for a genuinely missed slot.
+SCHEDULE_TOLERANCE_MINUTES = 15.0
+LATE_SCHEDULE_EXEMPT = frozenset({
+    # Owner 11.11: "фейсбук включен, он работает нормально" - do not touch it.
+    "23 18 * * *",
+    # Thursday close+learn: both commands are ISO-week idempotent, so a late
+    # run is a no-op, not a duplicate post/article.
+    "53 18 * * 4",
+})
+
+NEWS_ALERT_REASONS = frozenset({
+    "not_a_digest", "duplicate_digest", "source_unavailable", "gemini_ineligible",
+})
+_NEWS_SKIP_TEXT = {
+    "not_a_digest": "В каналах не набралось двух разных историй — бриф не вышел, повтор вчерашнего не опубликован.",
+    "duplicate_digest": "Все истории уже были в прошлых брифах — сегодня брифа нет, дубль не вышел.",
+    "source_unavailable": "Каналы-источники недоступны — бриф пропущен; Watchdog сделает ещё одну попытку.",
+    "gemini_ineligible": "Gemini не нашёл фактических новостей — бриф не опубликован.",
+}
+
+
+def _cron_values(field: str, low: int, high: int) -> list[int]:
+    """Parse the small cron subset actually used in pipeline.yml."""
+    try:
+        if field == "*":
+            return list(range(low, high + 1))
+        if field.startswith("*/"):
+            step = max(1, int(field[2:]))
+            return list(range(low, high + 1, step))
+        return [int(part) for part in field.split(",") if low <= int(part) <= high]
+    except ValueError:
+        return []
+
+
+def _latest_expected_run(schedule: str, now: datetime) -> datetime | None:
+    """Most recent UTC occurrence this cron string was supposed to fire."""
+    parts = schedule.split()
+    if len(parts) != 5:
+        return None
+    minutes = _cron_values(parts[0], 0, 59)
+    hours = _cron_values(parts[1], 0, 23)
+    doms = _cron_values(parts[2], 1, 31)
+    months = _cron_values(parts[3], 1, 12)
+    dows = _cron_values(parts[4], 0, 7)
+    if not all((minutes, hours, doms, months, dows)):
+        return None
+    best: datetime | None = None
+    for offset in range(8):
+        day = (now - timedelta(days=offset)).date()
+        if day.month not in months or day.day not in doms:
+            continue
+        # cron: 0 = Sunday; Python weekday(): 0 = Monday.
+        cron_dow = (day.weekday() + 1) % 7
+        if cron_dow not in dows and not (cron_dow == 0 and 7 in dows):
+            continue
+        for hour in hours:
+            for minute in minutes:
+                candidate = datetime(day.year, day.month, day.day, hour, minute,
+                                     tzinfo=timezone.utc)
+                if candidate <= now and (best is None or candidate > best):
+                    best = candidate
+    return best
+
+
+def _late_schedule_minutes(schedule: str, now: datetime) -> float | None:
+    expected = _latest_expected_run(schedule, now)
+    if expected is None:
+        return None       # unknown cron shape: do not silently drop the command
+    return (now - expected).total_seconds() / 60.0
+
+
+def _schedule_health(store: StateStore, now: datetime) -> tuple[dict[str, Any], dict[str, Any]]:
+    health = store.data.setdefault("schedule_health", {})
+    day = now.date().isoformat()
+    cutoff = (now - timedelta(days=14)).date().isoformat()
+    for key in [k for k in health if len(k) == 10 and k[4:5] == "-" and k < cutoff]:
+        del health[key]
+    return health, health.setdefault(day, {"late_ignored": 0, "skipped_brief": ""})
+
+
+def _note_late_schedule(config: Config, store: StateStore, schedule: str,
+                        late: float, now: datetime) -> dict[str, Any]:
+    """Record the ignored late cron and tell the owner ONCE per UTC day."""
+    _health, entry = _schedule_health(store, now)
+    entry["late_ignored"] = int(entry.get("late_ignored") or 0) + 1
+    entry["last_schedule"] = schedule
+    store.event("late_schedule_ignored", schedule=schedule,
+                minutes_late=round(late, 1))
+    if not entry.get("notified"):
+        entry["notified"] = True
+        alert_owner(
+            config,
+            "⏰ Запоздалый GitHub-cron проигнорирован",
+            "%s: опоздание %.1f ч. Слот уже отработал внешним будильником в "
+            "нужную минуту; второй пост или статья не созданы." % (schedule, late / 60),
+        )
+    store.save()
+    return {"ok": True, "published": False, "reason": "late_schedule_ignored",
+            "schedule": schedule, "minutes_late": round(late, 1)}
+
+
+def _record_news_outcome(config: Config, store: StateStore, result: dict[str, Any],
+                         *, refresh: bool = False,
+                         now: datetime | None = None) -> dict[str, Any]:
+    """Owner 11.11: a skipped brief must be visible, not a silent gap.
+
+    An honest refusal (no fresh stories / source down) is a completed slot:
+    the watchdog must not fire three blind retries for it. The owner gets one
+    private message per day, and the de-dup counters are kept for the weekly
+    report so the new filter can be judged on 2-3 real briefs.
+    """
+    reason = str(result.get("reason") or "")
+    if refresh or result.get("published") or not reason:
+        return result
+    if reason not in NEWS_TERMINAL_REASONS and reason not in NEWS_ALERT_REASONS:
+        return result
+    moment = now or datetime.now(timezone.utc)
+    day = moment.date().isoformat()
+    normalized = "already_published" if reason == "news_already_published" else reason
+    last_runs = store.data.setdefault("last_runs", {})
+    previous = last_runs.get("news") or {}
+    same = (str(previous.get("finished_at") or "").startswith(day)
+            and str(previous.get("reason") or "") == normalized)
+    if normalized in NEWS_TERMINAL_REASONS and not same:
+        last_runs["news"] = {
+            "finished_at": moment.isoformat().replace("+00:00", "Z"),
+            "reason": normalized,
+            "published": False,
+        }
+    _health, entry = _schedule_health(store, moment)
+    entry["skipped_brief"] = normalized
+    if normalized in NEWS_ALERT_REASONS and not same:
+        alert_owner(config, "🛰️ AI Brief сегодня не вышел",
+                    _NEWS_SKIP_TEXT.get(normalized, normalized))
+    removed = int(result.get("removed") or result.get("stories_removed") or 0)
+    if removed or result.get("duplicate_ratio") is not None:
+        stats = store.data.setdefault("brief_dedup_stats", [])
+        stats.append({"date": day, "removed": removed,
+                      "ratio": float(result.get("duplicate_ratio") or 0),
+                      "kept": int(result.get("stories") or 0)})
+        del stats[:-30]
+    store.save()
+    return result
+
+
+def _run_scheduled(config: Config, store: StateStore, schedule: str, *,
+                  now: datetime | None = None,
+                  enforce_window: bool | None = None) -> dict[str, Any]:
     normalized = " ".join(schedule.split())
+    moment = now or datetime.now(timezone.utc)
+    enforce = (os.getenv("EVENT_NAME") == "schedule") if enforce_window is None else enforce_window
+    if enforce and normalized not in LATE_SCHEDULE_EXEMPT:
+        late = _late_schedule_minutes(normalized, moment)
+        if late is not None and late > SCHEDULE_TOLERANCE_MINUTES:
+            return _note_late_schedule(config, store, normalized, late, moment)
     routes: dict[str, Any] = {
         "23 4 * * *": lambda: collect_command(config, store, extra_pages=[1, 2]),
         # Three posts a day (owner decision): morning EU, evening EU, US peak.
@@ -131,7 +295,7 @@ def _run_scheduled(config: Config, store: StateStore, schedule: str) -> dict[str
         "18 19 * * *": lambda: (
             {"ok": True, "published": False, "reason": "news_before_scheduled_slot"}
             if not _news_slot_open()
-            else news_command(config, store)
+            else _record_news_outcome(config, store, news_command(config, store))
         ),
         # Second dev.to article of the day (owner decision 2026-11-07).
         "53 19 * * *": lambda: news_article_command(config, store),
@@ -197,7 +361,11 @@ def main(argv: list[str] | None = None) -> int:
         elif args.command == "brief-dedup-fix":
             result = brief_dedup_fix_command(config, store)
         elif args.command == "news":
-            result = news_command(config, store, force=args.force, refresh=args.refresh)
+            result = _record_news_outcome(
+                config, store,
+                news_command(config, store, force=args.force, refresh=args.refresh),
+                refresh=args.refresh,
+            )
         elif args.command == "digest":
             result = digest_command(config, store)
         elif args.command == "digest-card-fix":

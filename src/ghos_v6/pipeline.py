@@ -1221,6 +1221,25 @@ def _news_slot_open(now: datetime | None = None) -> bool:
     return (now or datetime.now(timezone.utc)).hour >= NEWS_EARLIEST_HOUR_UTC
 
 
+# Owner 11.11: the standing rule is ZERO corporate / IPO / S-1 / policy
+# stories in the AI Brief. Gemini is now told to omit them; this is the
+# deterministic second barrier. A concrete tool or integration story stays.
+_CORPORATE_STORY_STATUSES = frozenset({"official_document"})
+
+
+def _drop_corporate_stories(brief: dict[str, Any]) -> int:
+    dropped = 0
+    kept: list[Any] = []
+    for story in brief.get("stories") or []:
+        if isinstance(story, dict) and str(story.get("status") or "").strip().lower() in _CORPORATE_STORY_STATUSES:
+            dropped += 1
+            continue
+        kept.append(story)
+    if dropped:
+        brief["stories"] = kept
+    return dropped
+
+
 def news_command(
     config: Config,
     store: StateStore,
@@ -1352,6 +1371,12 @@ def news_command(
             logger.warning("Gemini YouTube input failed; retrying text-only: %s", type(exc).__name__)
             brief = synthesize_brief(entry, primary, client, use_video=False)
             video_input = False
+    # Owner 11.11: zero corporate / IPO / S-1 / policy stories in the brief.
+    # A refresh edits an already published post and is left untouched.
+    if not refresh:
+        dropped_corporate = _drop_corporate_stories(brief)
+        if dropped_corporate:
+            store.event("corporate_stories_dropped", count=dropped_corporate)
     # Owner 08.11, second duplicate incident: the 48-hour discovery window
     # overlaps a daily brief, so yesterday's rumours must not be reprinted
     # today. Same-day keys are ignored so `news --refresh` stays intact.
@@ -1365,12 +1390,14 @@ def news_command(
     # cluster keys; this second barrier removes any reworded story Gemini
     # rebuilt from a differently-keyed source. A refresh edits in place and is
     # deliberately allowed through.
+    removed_count = 0
     if not refresh:
         ratio = duplicate_story_ratio(store, brief.get("stories") or [])
         original_count = len(brief_stories(brief))
         fresh_stories, removed = filter_repeated_stories(
             store, brief.get("stories") or []
         )
+        removed_count = removed
         brief["stories"] = fresh_stories
         if removed:
             store.event("news_stories_deduplicated", removed=removed,
@@ -1555,6 +1582,7 @@ def news_command(
         "sourced": bool(brief.get("sourced")),
         "video_id": record["video_id"],
         "stories": len(stories),
+        "stories_removed": removed_count,
         "models": len(names),
     }
 
@@ -2112,6 +2140,35 @@ def report_command(config: Config, store: StateStore) -> dict[str, Any]:
         lines += ["", "<b>Languages</b>: " + ", ".join(f"{k} {v}" for k, v in languages.most_common(6))]
     if sources:
         lines.append("<b>Sources</b>: " + ", ".join(f"{k} {v}" for k, v in sources.most_common(6)))
+    # Owner 11.11: no more guessing. The private report states whether the
+    # external clock is being second-guessed by late GitHub crons, whether a
+    # brief was honestly skipped, how the new de-dup filter behaves on real
+    # briefs, and whether the polls carry enough votes to be a signal.
+    from .polls_design import MIN_SIGNAL_VOTES  # noqa: PLC0415
+    health = store.data.get("schedule_health") or {}
+    days = sorted(k for k in health if len(k) == 10 and k[4:5] == "-")[-7:]
+    late = sum(int((health[d] or {}).get("late_ignored") or 0) for d in days)
+    skips = [f"{d}: {html.escape(str((health[d] or {}).get('skipped_brief')))}"
+             for d in days if (health[d] or {}).get("skipped_brief")]
+    lines += ["", "<b>Schedule health (7d)</b>",
+              f"Late GitHub crons ignored: <b>{late}</b>",
+              "Skipped AI Briefs: " + ("; ".join(skips) if skips else "none")]
+    stats = [x for x in (store.data.get("brief_dedup_stats") or []) if isinstance(x, dict)]
+    if stats:
+        removed = sum(int(x.get("removed") or 0) for x in stats)
+        avg = sum(float(x.get("ratio") or 0) for x in stats) / len(stats)
+        lines.append(f"AI Brief de-dup: {len(stats)} run(s), {removed} old stories removed, "
+                     f"mean duplicate ratio {avg:.2f}")
+    else:
+        lines.append("AI Brief de-dup: no brief has passed the new filter yet")
+    history = store.data.get("poll_history") or []
+    last_poll = history[-1] if history and isinstance(history[-1], dict) else {}
+    votes = sum(int(o.get("votes") or 0) for o in (last_poll.get("options") or [])
+                if isinstance(o, dict))
+    profile = store.data.get("audience_profile") or {}
+    if votes < MIN_SIGNAL_VOTES or not profile.get("type_history"):
+        lines.append(f"Audience poll: <b>insufficient signal</b> ({votes}/{MIN_SIGNAL_VOTES} votes); "
+                     "adaptive type ranking not applied")
     text = "\n".join(lines)
     sent = None
     if config.telegram_bot_token and config.telegram_owner_chat_id:
@@ -2300,6 +2357,10 @@ def news_article_command(config: Config, store: StateStore) -> dict[str, Any]:
     # Telegram card loses its masthead and footer there, so host a dedicated
     # cover first (owner 08.11: "карточка обрезана").
     cover_url = _ensure_devto_cover(config, topic) or str(topic.get("image_url") or "")
+    # Owner 11.11: guarantee the agreed H2/H3 structure even for markdown
+    # generated before the normalisation fix. Structural only, no new prose.
+    from .content_adapters import ensure_h3_subheadings  # noqa: PLC0415
+    markdown = ensure_h3_subheadings(markdown)
     devto = DevToClient(config.dev_api_key)
     try:
         result = devto.publish_markdown(

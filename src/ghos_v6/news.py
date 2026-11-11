@@ -644,8 +644,8 @@ CONTENT RULES:
 - A video with ten or more chapters yields AT LEAST FIVE stories. Each
   separately named model, checkpoint, API or agent deserves its own story.
   Group only chapters that describe the SAME announcement.
-- MODEL NEWS COMES FIRST. Corporate, funding, IPO or policy stories are at
-  most ONE item and go LAST.
+- MODEL NEWS COMES FIRST. Corporate, funding, IPO, S-1 or policy stories
+  are NOT items: omit them entirely (owner rule 11.11, ZERO such items).
 - EXACT TECHNICAL NAMES ARE SACRED. Copy every model, checkpoint, version,
   benchmark, API and product identifier VERBATIM: keep digits, dots, hyphens,
   spaces, capitalisation and suffixes. Never rename, translate, shorten,
@@ -1362,8 +1362,9 @@ FACT RULES (owner corrections 04-07.11.2026):
   unconfirmed_rumour, official_document. WHEN IN DOUBT USE THE LOWER STATUS.
 - Rumours are KEPT, but only inside `unconfirmed_claims`, never mixed into a
   confirmed story. Never merge a confirmed item and a rumour.
-- MODEL NEWS COMES FIRST. Corporate, funding, IPO or policy items are at most
-  ONE story and go LAST.
+- MODEL NEWS COMES FIRST. Corporate, funding, IPO, S-1 or policy items are
+  NOT stories: omit them entirely. ZERO such items in `stories` (owner rule
+  11.11). A concrete tool or integration is fine; company money news is not.
 - EXACT TECHNICAL NAMES ARE SACRED: copy every model, version, benchmark,
   API and product identifier verbatim, including digits, dots and suffixes.
 - `basis` is ONE short phrase about the EVIDENCE LEVEL, never a channel,
@@ -1460,7 +1461,9 @@ FORMATTING (professional Markdown that dev.to renders beautifully):
   "let's dive in", "today brings a fascinating mix" or any greeting. Open
   on a concrete technical fact in the very first sentence.
 - Use ## H2 sections with descriptive names and short paragraphs of two to
-  four sentences. Use ### H3 for individual model stories.
+  four sentences. Use ### H3 for individual model stories: at least TWO ### H3
+  subheadings are MANDATORY inside the H2 sections. A long read made only of
+  H2 headings is incomplete and will be rejected.
 - Use real Markdown bullet lists, bold for exact identifiers, and one small
   Markdown table separating confirmed items from unconfirmed ones.
 - End with a friendly, specific question a developer can answer in one line.
@@ -1477,8 +1480,8 @@ FACT RULES (owner corrections 04-07.11.2026):
   lower evidence level.
 - Rumours stay ONLY in the dedicated rumours section and are explicitly
   marked as not confirmed. Never merge a rumour with a confirmed story.
-- MODEL NEWS COMES FIRST. Corporate, funding, IPO or policy items are at
-  most one short section and go LAST.
+- MODEL NEWS COMES FIRST. Corporate, funding, IPO, S-1 or policy items get
+  NO section at all: ZERO of them in the article (owner rule 11.11).
 - Keep rare finds, collections and odd small tools: they are often more
   useful than another flagship announcement. Never filter them as "noise".
 - No invented numbers, dates, quotes, benchmarks or links. If evidence is
@@ -1688,6 +1691,10 @@ The article MUST be at least 1000 words and MUST NOT reuse brief_question.
         markdown, str(brief.get("discussion_question") or "")
     )
     markdown = append_discussion_cta(markdown)
+    # Owner 11.11: the agreed structure includes H3. Normalisation now keeps
+    # Gemini's ### headings; this structural fallback demotes two per-story
+    # H2 headings when Gemini emitted none. No prose is added here.
+    markdown = adapters.ensure_h3_subheadings(markdown)
     if not title:
         title = str(brief.get("headline") or "AI model watch: a developer's reading list")
     return {"article_title": title[:120], "article_markdown": markdown[:20_000]}

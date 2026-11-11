@@ -107,6 +107,8 @@ jobs:
       FEATURE_DEVTO: ${{ vars.FEATURE_DEVTO }}
       FEATURE_BLUESKY: ${{ vars.FEATURE_BLUESKY }}
       FEATURE_AI_BRIEF: ${{ vars.FEATURE_AI_BRIEF }}
+      # Owner 11.11: explicit rollback switch (default true in config.py).
+      FEATURE_TELEGRAM_DISCOVERY: ${{ vars.FEATURE_TELEGRAM_DISCOVERY }}
       FEATURE_SHEETS_HANDOFF: ${{ vars.FEATURE_SHEETS_HANDOFF }}
       FACEBOOK_SHEETS_ID: ${{ vars.FACEBOOK_SHEETS_ID }}
       FACEBOOK_SHEETS_RANGE: ${{ vars.FACEBOOK_SHEETS_RANGE }}

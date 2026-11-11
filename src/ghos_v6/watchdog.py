@@ -83,6 +83,18 @@ ARTICLE_RECOVERY_WINDOW_HOURS = 6.0       # do not backfill yesterday's article
 MAX_ATTEMPTS_PER_SLOT = 3
 MAX_DAILY_DISPATCHES = 24
 
+# Owner 11.11: an AI Brief that is honestly refused (only repeated stories,
+# fewer than two stories, feature off, already published) IS a completed
+# slot. Without this the watchdog would dispatch the news command up to three
+# more times for a deliberate no-post day, and the owner would never learn
+# why the brief did not appear. Transient failures (source_unavailable) are
+# deliberately NOT terminal: one recovery attempt is still useful.
+NEWS_TERMINAL_REASONS = frozenset({
+    "published", "refreshed", "already_published", "news_already_published",
+    "not_a_digest", "duplicate_digest", "feature_ai_brief_disabled",
+    "gemini_ineligible",
+})
+
 
 def _date_of(value: Any):
     if not value:
@@ -131,8 +143,12 @@ def _dispatch_allowed(marks: dict[str, Any], mark: str, today) -> tuple[bool, st
 def _has_run(store: StateStore, key: str, today) -> bool:
     """Proof the slot actually completed, not merely that dispatch was accepted."""
     if key == "news":
-        return any(_date_of(n.get("published_at")) == today
-                   for n in (store.data.get("news_topics") or []))
+        if any(_date_of(n.get("published_at")) == today
+               for n in (store.data.get("news_topics") or [])):
+            return True
+        marker = (store.data.get("last_runs") or {}).get("news") or {}
+        return (_date_of(marker.get("finished_at")) == today
+                and str(marker.get("reason") or "") in NEWS_TERMINAL_REASONS)
     if key == "article":
         if any(_date_of(_devto_published_at(r)) == today
                for r in (store.data.get("published") or {}).values()):

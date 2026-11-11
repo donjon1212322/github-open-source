@@ -616,6 +616,10 @@ def normalize_article_markdown(text: Any) -> str:
     renders sections instead of a single block of text.
     """
     raw = str(text or "").replace("\\#\\#", "##").replace("\\#", "#")
+    # Owner 11.11: Gemini's "### H3" subheadings were being flattened into
+    # H2 by the next re.sub, so live dev.to articles had 11 H2 and zero H3.
+    # Protect them with a token first, restore them after the H2 pass.
+    raw = re.sub(r"\s+#{3}\s+", "\n\n@@H3@@ ", raw)
     # A heading marker must start its own line, with air around it.
     raw = re.sub(r"\s+#{2,3}\s+", "\n\n## ", raw)
     raw = re.sub(
@@ -626,8 +630,39 @@ def normalize_article_markdown(text: Any) -> str:
     # " - " separated feature lists become real Markdown bullets.
     raw = re.sub(r"\s+-\s+", "\n- ", raw)
     raw = re.sub(r"(?m)^(##[^\n]*)\n(?!\n)", r"\1\n\n", raw)
+    raw = raw.replace("@@H3@@ ", "### ")
     lines = [line.rstrip() for line in raw.splitlines()]
     return re.sub(r"\n{3,}", "\n\n", "\n".join(lines)).strip()
+
+
+def ensure_h3_subheadings(text: Any) -> str:
+    """Guarantee at least two ``###`` subheadings in the long read.
+
+    Owner 11.11: article 5008047 shipped with 11 H2 and no H3. Gemini is
+    asked for H3 in NEWS_ARTICLE_STYLE, but when it omits them the article
+    still has to satisfy the agreed structure. Purely structural: only
+    heading levels change, no prose is written or invented here. H2 sections
+    that are not one of the known article sections are per-story sections,
+    so demoting two of them to H3 is the honest representation.
+    """
+    raw = str(text or "")
+    if re.search(r"(?m)^###\s+\S", raw):
+        return raw
+    lines = raw.splitlines()
+    standard = {section.lower() for section in ARTICLE_SECTIONS}
+    standard |= {
+        "what actually moved today", "the model watch", "rumours, clearly labelled",
+        "odd finds and small tools", "what i would try this weekend",
+        "where this leaves us", "migration and eval checklist for identifiers",
+        "assessing failure modes and pre-flight telemetry",
+    }
+    candidates = [
+        index for index, line in enumerate(lines)
+        if line.startswith("## ") and line[3:].strip().lower() not in standard
+    ]
+    for index in candidates[:2]:
+        lines[index] = "### " + lines[index][3:]
+    return "\n".join(lines) if candidates else raw
 
 
 def build_devto_body(record: dict[str, Any], generated: dict[str, Any] | None = None) -> str:
