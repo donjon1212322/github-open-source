@@ -236,3 +236,4 @@
 {"deleted": 0, "ts": "2026-11-11T00:47:50.643265Z", "type": "moderation_completed", "updates": 0}
 {"deleted": 0, "ts": "2026-11-11T01:29:37.884626Z", "type": "moderation_completed", "updates": 0}
 {"deleted": 0, "ts": "2026-11-11T03:47:45.852491Z", "type": "moderation_completed", "updates": 0}
+{"discovered": 379, "enriched": 120, "passed_gate": 68, "queued": 28, "rejections": {"blocklist:jailbreak": 2, "curation_repo": 3, "description_not_english": 7, "narrow:library:boilerplate": 1, "narrow:topic:awesome-list": 3, "narrow:topic:plugin": 1, "no_community": 9, "no_license": 28, "no_push_date": 1, "no_readme": 2, "not_software:topic:awesome": 3, "not_software:topic:music": 2, "readme_not_english": 9, "stars<100": 14}, "ts": "2026-11-11T04:25:29.617821Z", "type": "collect_completed"}
