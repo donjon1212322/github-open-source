@@ -106,16 +106,16 @@
   "dead_letters": [],
   "gemini_daily": {
     "day": "2026-11-11",
-    "units": 6
+    "units": 12
   },
   "gemini_window": [
     [
-      1794401029.6095624,
-      3925
+      1794417532.4822228,
+      3916
     ],
     [
-      1794401034.057248,
-      1481
+      1794417542.6222036,
+      1409
     ]
   ],
   "last_runs": {
@@ -189,9 +189,9 @@
       "telegram_message_id": 3550
     },
     "publish:us_peak": {
-      "finished_at": "2026-11-10T00:44:11.049373Z",
-      "repo": "juneyaooo/rea-video",
-      "telegram_message_id": 3580
+      "finished_at": "2026-11-11T17:19:17.006267Z",
+      "repo": "patch-gg/pixelfx",
+      "telegram_message_id": 3586
     },
     "report": {
       "finished_at": "2026-11-08T16:43:49.336567Z",
@@ -3639,6 +3639,113 @@
       "visual_host": "imgbb",
       "visual_kind": "readme"
     },
+    "patch-gg/pixelfx": {
+      "articles": {},
+      "card_style": "editorial_daily",
+      "category": "DevTools",
+      "contributors_count": 1,
+      "created_at": "2026-10-30T06:43:25Z",
+      "crossposts": {
+        "bluesky": {
+          "attempts": 0,
+          "due_at": "2026-11-11T18:00:00+00:00",
+          "status": "pending"
+        }
+      },
+      "description": "244 pixel art effects, every one a small piece of code. Plus a Claude Code skill to make your own.",
+      "description_fp": "aa09806bce36ed2a",
+      "forks": 901,
+      "full_name": "patch-gg/pixelfx",
+      "generated": {
+        "article_markdown": "## What it is\n\nPixelfx is a library of 244 pixel art effects—fire, melee, weather, UI, and more—where every effect is defined as a small piece of JavaScript code. Instead of managing hundreds of static sprite sheets, you treat your VFX as data. You can run them directly in a browser canvas, or use the included CLI tools to render them into transparent PNG sprite sheets with Aseprite-compatible JSON metadata for use in engines like Godot, Unity, or Phaser.\n\nBeyond just the visuals, the project includes an \"acting\" system. It understands that a good hit effect isn't just the explosion—it's the wind-up, the freeze on contact, and the recovery. You can chain these moves together to create combat sequences that feel responsive rather than floaty.\n\n## Why it matters\n\nIf you have ever spent an entire weekend redrawing a sword slash because the timing felt slightly off, you know the pain of static pixel art assets. Pixelfx changes the medium. Because the effects are code, you can change the palette, the timing, or the scale without ever opening an image editor. \n\nThis is particularly useful when combined with the included Claude Code skill. You can ask an agent to \"make this hit effect punchier\" or \"add a wind-up to this spell,\" and it iterates on the code rather than trying to manipulate pixels directly. It turns the VFX pipeline into a feedback loop of code, render, and refine.\n\n## Key features\n\n*   **Extensive Library:** 244 effects covering categories like arcane, sci-fi, nature, and UI.\n*   **Engine Agnostic:** While it runs natively in JS, the CLI tools allow you to export sprite sheets for any engine that supports Aseprite-style JSON.\n*   **Palette Control:** Every effect accepts a palette array, allowing you to recolor fire or magic effects programmatically without touching the source code.\n*   **Acting System:** Built-in support for character poses, wind-ups, and hit-stops, making it easier to sync VFX with combat logic.\n*   **AI Integration:** A dedicated Claude Code plugin allows for iterative generation and refinement of new effects.\n\n## Quick start\n\nTo get started, install the package directly from GitHub:\n\n```bash\nnpm i github:patch-gg/pixelfx\n```\n\nOnce installed, you can import effects directly into your project or use the CLI tools to export assets for other engines.\n\n## Who should try it\n\nThis is a great fit for solo indie developers or small teams working on browser-based games who want to move fast. If you are already comfortable with JavaScript and want to automate the tedious parts of VFX creation, this will save you a significant amount of time. If you are strictly a non-coder artist, the learning curve for the JS-based authoring might be steeper than traditional tools.\n\n## Verdict\n\nPixelfx is a smart, pragmatic approach to a common game dev bottleneck. It won't replace a dedicated animator for complex character work, but for the hundreds of small effects that clutter a game, it is an efficient, highly customizable solution.",
+        "article_title": "Managing Pixel Art VFX with Code and AI: An Introduction to Pixelfx",
+        "card_hook": "Pixel art VFX as code",
+        "card_subline": "244 procedural effects for browser games and sprite sheet export",
+        "category": "DevTools",
+        "discussion_question": "Do you prefer hand-animating your VFX or using procedural code-based systems?",
+        "hook": "Stop drawing frame-by-frame: 244 pixel art effects that are just code, with a Claude skill to generate your own.",
+        "key_features": [
+          "244 pre-built effects across 21 categories like fire, melee, and weather.",
+          "Zero-dependency JS implementation for browser canvas games.",
+          "CLI tools to export any effect as a transparent PNG sprite sheet with Aseprite-compatible JSON metadata.",
+          "Acting system that handles character wind-ups, hit-stops, and screen shake automatically.",
+          "Claude Code skill for iterative generation, refinement, and sprite sheet exporting."
+        ],
+        "llm_used": true,
+        "quick_start": "npm i github:patch-gg/pixelfx",
+        "safety": "ok",
+        "safety_reason": "Legitimate open-source game development library.",
+        "scene": "You are staring at a blank canvas in your game engine, trying to animate a simple sword slash that doesn't look like a stiff cardboard cutout.",
+        "social_text": "Stop drawing frame-by-frame. Pixelfx gives you 244 pixel art effects defined as code, with a Claude skill to generate your own and export them as sprite sheets for any engine.",
+        "summary": "Pixelfx provides a library of 244 pixel art effects defined entirely as JavaScript code rather than static assets. It includes tools to render these effects into sprite sheets for any game engine or run them directly in a browser canvas. The system also includes an \"acting\" layer that chains wind-ups, hits, and recoveries, plus a Claude Code plugin to generate new effects iteratively.",
+        "surfaces": {
+          "Facebook_body": "Creating visual effects for games like fire, weather, or sword strikes is often the most tedious part of development. Usually, artists have to draw every single frame by hand, which takes hours of repetitive work. A new tool changes this process by treating these effects as code rather than static images. With this library, you get access to 244 pre-built visual effects that you can drop directly into your project. Because they are defined as code, you can tweak them instantly without needing to redraw anything. It even includes an automated system to handle character movements like wind-ups and screen shakes, making your game feel polished with much less effort. If you need something specific, there is an included assistant tool that helps you generate new effects iteratively. This is an ideal solution for solo developers or small teams who want high-quality visual flair in their browser-based games without the massive time commitment of traditional animation workflows.",
+          "Facebook_headline": "Stop drawing pixel art effects frame-by-frame",
+          "Facebook_lead": "Create professional game effects using simple code instead of manual animation, with a library of 244 ready-to-use styles.",
+          "bluesky_headline": "Generate pixel art effects with code, not frames",
+          "bluesky_lead": "Access 244 pre-built effects and use an AI assistant to create your own, saving you hours of manual drawing.",
+          "devto_body": "## What it is\n\nPixelfx is a zero-dependency JavaScript library that defines pixel art visual effects as code rather than static sprite sheets. It provides a collection of 244 pre-built effects across 21 categories, including fire, melee, and weather, designed to run directly in a browser canvas or be exported for use in any game engine.\n\n## How it works\n\nThe library treats visual effects as mathematical functions. Instead of loading heavy image assets, you invoke the effect via JavaScript. This allows for real-time manipulation of parameters like color, scale, and duration. It also includes an 'acting' layer that manages the timing of animations, such as wind-ups, hit-stops, and screen shake, synchronizing them with your game logic.\n\n## Key features\n\n- **244 Pre-built Effects:** A vast library covering common game needs like combat, environmental, and UI effects.\n- **Zero-Dependency:** Lightweight implementation that works out of the box in any browser environment.\n- **Export Capability:** CLI tools allow you to export any effect as a transparent PNG sprite sheet, complete with Aseprite-compatible JSON metadata for easy import into engines like Unity, Godot, or Phaser.\n- **AI Integration:** Includes a Claude Code skill to generate, refine, and export new effects iteratively.\n\n## Getting started\n\nTo install the package, use your preferred package manager:\n\n`npm install pixelfx`\n\nOnce installed, you can import the effects directly into your canvas rendering loop. For custom effects, use the provided CLI tool to interface with the Claude Code skill, which helps generate the underlying JavaScript logic based on your prompts.\n\n## When not to use it\n\nThis library is built specifically for JavaScript and browser-based workflows. If you are working in a non-web environment that does not support JavaScript execution, you will be limited to using the CLI export tools to generate static assets, which negates the benefit of the dynamic, code-based manipulation. Additionally, if your art style requires complex, hand-painted textures that cannot be defined algorithmically, this library will not replace traditional animation tools.",
+          "seo_description": "Use Pixelfx to generate pixel art visual effects using JavaScript code. Ideal for indie game developers needing rapid VFX prototyping and sprite sheets.",
+          "seo_query": "how to generate pixel art effects with code",
+          "seo_title": "Generate Pixel Art Effects with Code - Pixelfx",
+          "telegraph_angle": "Explain how treating visual effects as code rather than static assets changes the indie game development workflow, focusing on the trade-off between algorithmic flexibility and artistic control."
+        },
+        "tension": "You spend hours in Aseprite tweaking individual pixels, only to realize the timing is off, the colors clash with your palette, and you have to redraw the whole sequence to fix the wind-up.",
+        "turn": "Pixelfx shifts the workflow by defining effects as code, allowing you to tweak timing, palette, and animation data programmatically or via an AI agent, while still exporting standard sprite sheets for engines like Godot or Unity.",
+        "verdict": "Essential for solo devs who want high-quality VFX without the manual art grind, though you'll need to be comfortable with JS to get the most out of the custom effects.",
+        "who_for": "Indie game developers working in browser-based engines or those needing rapid VFX prototyping.",
+        "why_now": "Pixel art VFX are notoriously tedious to animate; having a library that treats them as code—and lets an LLM agent refine them—changes the workflow from manual drawing to iterative tweaking."
+      },
+      "homepage": "https://patch-gg.github.io/pixelfx/",
+      "id": 1439372976,
+      "image_url": "https://i.ibb.co/6fZgV4Z/patch-gg-pixelfx-preview-8d22562e964f.jpg",
+      "is_dual_use": false,
+      "is_hidden_gem": false,
+      "language": "JavaScript",
+      "license": {
+        "key": "mit",
+        "name": "MIT License",
+        "node_id": "MDc6TGljZW5zZTEz",
+        "spdx_id": "MIT",
+        "url": "https://api.github.com/licenses/mit"
+      },
+      "media_urls": [
+        "https://raw.githubusercontent.com/patch-gg/pixelfx/main/docs/readme/montage.gif",
+        "https://raw.githubusercontent.com/patch-gg/pixelfx/main/docs/readme/acts.gif"
+      ],
+      "name": "pixelfx",
+      "open_issues": 11,
+      "published_at": "2026-11-11T17:19:17.005938Z",
+      "pushed_at": "2026-11-09T09:51:43Z",
+      "readme_fp": "1cf5ba3ec9f95645",
+      "repo_id": 1439372976,
+      "revisit_of": "",
+      "revisit_reason": "",
+      "score": 89.437,
+      "slot": "us_peak",
+      "sources": [
+        "github_search"
+      ],
+      "stars": 6940,
+      "telegram_chat_id": "@GitHub_Open_Source",
+      "telegram_link": "https://t.me/GitHub_Open_Source/3586",
+      "telegram_message_id": 3586,
+      "telegraph_url": "https://telegra.ph/Managing-Pixel-Art-VFX-with-Code-and-AI-An-Introduction-to-Pixelfx-11-11",
+      "topics": [
+        "agent-skills",
+        "animation",
+        "canvas",
+        "claude-code-plugin",
+        "gamedev",
+        "pixel-art",
+        "sprite-sheet",
+        "vfx"
+      ],
+      "updated_at": "2026-11-11T17:12:20Z",
+      "url": "https://github.com/patch-gg/pixelfx",
+      "visual_host": "imgbb",
+      "visual_kind": "card"
+    },
     "peach-mitao/peach": {
       "articles": {},
       "card_style": "",
@@ -4663,64 +4770,6 @@
     }
   },
   "queue": [
-    {
-      "archived": false,
-      "contributors_count": 1,
-      "created_at": "2026-10-30T06:43:25Z",
-      "default_branch": "main",
-      "description": "244 pixel art effects, every one a small piece of code. Plus a Claude Code skill to make your own.",
-      "disabled": false,
-      "fork": false,
-      "forks": 883,
-      "forks_count": 883,
-      "full_name": "patch-gg/pixelfx",
-      "has_readme": true,
-      "homepage": "https://patch-gg.github.io/pixelfx/",
-      "id": 1439372976,
-      "is_dual_use": false,
-      "is_hidden_gem": false,
-      "language": "JavaScript",
-      "license": {
-        "key": "mit",
-        "name": "MIT License",
-        "node_id": "MDc6TGljZW5zZTEz",
-        "spdx_id": "MIT",
-        "url": "https://api.github.com/licenses/mit"
-      },
-      "media_urls": [
-        "https://raw.githubusercontent.com/patch-gg/pixelfx/main/docs/readme/montage.gif",
-        "https://raw.githubusercontent.com/patch-gg/pixelfx/main/docs/readme/acts.gif"
-      ],
-      "name": "pixelfx",
-      "non_software_reason": "",
-      "open_issues": 11,
-      "open_issues_count": 11,
-      "owner_repo_count": 1,
-      "pushed_at": "2026-11-09T09:51:43Z",
-      "readme": "",
-      "readme_excerpt": "<p align=\"center\">\n  <img src=\"docs/readme/montage.gif\" width=\"800\" alt=\"A grid of pixel art effects playing at once: a campfire, a burning skull, a waterfall, a plasma ball, a portal, a tornado and more.\">\n</p>\n\n# pixelfx.\n\n**<!-- count -->244<!-- /count --> pixel art effects and animations, every one a small piece of code.** Fire,\nexplosions, magic, weather, UI, pickups, critters and more. Play them live, recolor and mirror them, drop them into\na browser game, or export sprite sheets for any engine. Plus a Claude Code skill that makes new ones the way a\npicky pixel artist would: draft, render, look, refine.\n\nEvery effect that involves a character is **acted out**: he winds up, lets go, freezes on contact and recovers, and a\ntarget takes the hit. Twelve whole moves chain the effects into attacks from wind-up to recovery.\n\n**[open the gallery](https://patch-gg.github.io/pixelfx/)** · [catalog](docs/CATALOG.md) · [acting](#acting) ·\n[the skill](#the-skill) · [make your own](#make-your-own) · [publish it on patch](#publish-it-on-patch) ·\n[how it works](#how-it-works)\n\nThe method is [Hugo Duprez](https://x.com/HugoDuprez)'s, from [How to make (good) pixel art effects with\nClaude](http",
-      "readme_len": 11933,
-      "repo_id": 1439372976,
-      "score": 89.437,
-      "source_name": "github_search",
-      "sources": [
-        "github_search"
-      ],
-      "stargazers_count": 6727,
-      "stars": 6727,
-      "topics": [
-        "agent-skills",
-        "animation",
-        "canvas",
-        "claude-code-plugin",
-        "gamedev",
-        "pixel-art",
-        "sprite-sheet",
-        "vfx"
-      ],
-      "updated_at": "2026-11-11T04:23:29Z",
-      "url": "https://github.com/patch-gg/pixelfx"
-    },
     {
       "archived": false,
       "contributors_count": 65,
@@ -10145,8 +10194,8 @@
     "patch-gg/pixelfx": {
       "first_seen_at": "2026-11-04T12:14:31.120877Z",
       "full_name": "patch-gg/pixelfx",
-      "last_decision": "queued",
-      "last_seen_at": "2026-11-11T04:25:29.572502Z",
+      "last_decision": "published",
+      "last_seen_at": "2026-11-11T17:19:17.006253Z",
       "repo_id": 1439372976,
       "sources": [
         "github_search",

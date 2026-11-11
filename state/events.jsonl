@@ -249,3 +249,5 @@
 {"platform": "devto", "repo": "wquguru/cicada", "ts": "2026-11-11T13:33:49.794022Z", "type": "article_published", "url": "https://dev.to/githubopensource/open-source-live-subtitles-and-meeting-notes-cicada-1g46"}
 {"minutes_late": 479.3, "schedule": "13 7 * * *", "ts": "2026-11-11T15:12:18.468332Z", "type": "late_schedule_ignored"}
 {"deleted": 0, "ts": "2026-11-11T15:47:47.704000Z", "type": "moderation_completed", "updates": 1}
+{"preview_host": "imgbb", "repo": "patch-gg/pixelfx", "ts": "2026-11-11T17:19:17.005758Z", "type": "published_as_text"}
+{"repo": "patch-gg/pixelfx", "score": 89.437, "telegram_message_id": 3586, "telegraph_url": "https://telegra.ph/Managing-Pixel-Art-VFX-with-Code-and-AI-An-Introduction-to-Pixelfx-11-11", "ts": "2026-11-11T17:19:17.006177Z", "type": "project_published"}
