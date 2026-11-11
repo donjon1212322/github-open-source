@@ -120,11 +120,11 @@
   ],
   "last_runs": {
     "article": {
-      "finished_at": "2026-11-10T20:32:41.863198Z",
-      "published": false,
-      "reason": "already_published_today",
-      "repo": "",
-      "url": ""
+      "finished_at": "2026-11-11T13:33:49.794126Z",
+      "published": true,
+      "reason": "published",
+      "repo": "wquguru/cicada",
+      "url": "https://dev.to/githubopensource/open-source-live-subtitles-and-meeting-notes-cicada-1g46"
     },
     "collect": {
       "discovered": 379,
@@ -4539,7 +4539,13 @@
       "visual_kind": "readme"
     },
     "wquguru/cicada": {
-      "articles": {},
+      "articles": {
+        "devto": {
+          "id": 5017322,
+          "published_at": "2026-11-11T13:33:49.794002Z",
+          "url": "https://dev.to/githubopensource/open-source-live-subtitles-and-meeting-notes-cicada-1g46"
+        }
+      },
       "card_style": "",
       "category": "AI",
       "contributors_count": 6,
@@ -4553,6 +4559,7 @@
       },
       "description": "知了 Cicada · 任何会议和直播的实时字幕、同声传译、AI 会议纪要，Mac、Windows、Linux、Android 免费开源。Live subtitles, interpreting and meeting notes for any call or stream, on Mac, Windows, Linux and Android.",
       "description_fp": "e91fcecb88899108",
+      "devto_cover_url": "https://i.ibb.co/YTJ3Jktx/wquguru-cicada-devto-cover-606966dc3e58.png",
       "forks": 370,
       "full_name": "wquguru/cicada",
       "generated": {
