@@ -256,3 +256,4 @@
 {"duplicate_ratio": 0.25, "removed": 1, "ts": "2026-11-11T19:19:10.688185Z", "type": "news_stories_deduplicated"}
 {"title": "Claude Fable 5.2, Gemini 4 Carbon, and Native GIF Generation in Images 2.6", "ts": "2026-11-11T19:19:41.367301Z", "type": "news_article_generated", "words": 1098}
 {"Gemini_video_input": false, "models": 3, "official_url": "", "stories": 3, "topic": "ai-hardware-and-model-releases", "ts": "2026-11-11T19:19:43.331445Z", "type": "ai_brief_published", "video_id": "tg-20261111-18b087bee2"}
+{"minutes_late": 428.6, "schedule": "43 12 * * *", "ts": "2026-11-11T19:51:33.084669Z", "type": "late_schedule_ignored"}
