@@ -260,3 +260,4 @@
 {"minutes_late": 66.1, "schedule": "47 */3 * * *", "ts": "2026-11-11T19:53:05.002518Z", "type": "late_schedule_ignored"}
 {"devto_id": 5018987, "ts": "2026-11-11T19:53:51.783929Z", "type": "news_article_published", "url": "https://dev.to/githubopensource/claude-fable-52-gemini-4-carbon-and-native-gif-generation-in-images-26-4157", "words": 1098}
 {"deleted": 0, "ts": "2026-11-11T21:47:49.858357Z", "type": "moderation_completed", "updates": 0}
+{"minutes_late": 372.0, "schedule": "18 17 * * *", "ts": "2026-11-11T23:29:58.026386Z", "type": "late_schedule_ignored"}
