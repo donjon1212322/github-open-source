@@ -253,3 +253,6 @@
 {"repo": "patch-gg/pixelfx", "score": 89.437, "telegram_message_id": 3586, "telegraph_url": "https://telegra.ph/Managing-Pixel-Art-VFX-with-Code-and-AI-An-Introduction-to-Pixelfx-11-11", "ts": "2026-11-11T17:19:17.006177Z", "type": "project_published"}
 {"platform": "bluesky", "repo": "wquguru/cicada", "ts": "2026-11-11T18:18:05.195094Z", "type": "crosspost_published", "url": "https://bsky.app/profile/githubopensource.bsky.social/post/3n22kvow6ho2a"}
 {"deleted": 0, "ts": "2026-11-11T18:47:51.452622Z", "type": "moderation_completed", "updates": 0}
+{"duplicate_ratio": 0.25, "removed": 1, "ts": "2026-11-11T19:19:10.688185Z", "type": "news_stories_deduplicated"}
+{"title": "Claude Fable 5.2, Gemini 4 Carbon, and Native GIF Generation in Images 2.6", "ts": "2026-11-11T19:19:41.367301Z", "type": "news_article_generated", "words": 1098}
+{"Gemini_video_input": false, "models": 3, "official_url": "", "stories": 3, "topic": "ai-hardware-and-model-releases", "ts": "2026-11-11T19:19:43.331445Z", "type": "ai_brief_published", "video_id": "tg-20261111-18b087bee2"}

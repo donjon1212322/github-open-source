@@ -79,20 +79,33 @@
   },
   "brief_memory": {
     "clusters": {
+      "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-carbon-now-available": "2026-11-11",
+      "https://github.com/chenliu-1996/figures4papers": "2026-11-11",
       "https://github.com/elayadesign/ai-design-skills": "2026-11-10",
+      "https://github.com/jamesondh/chimera-vocal-synth/pull/66": "2026-11-11",
       "https://github.com/morluto/rea": "2026-11-10",
+      "https://openai.com/index/introducing-businesses-chatgpt": "2026-11-11",
       "https://openai.com/supply": "2026-11-10",
       "https://openai.com/supply/co-lab/chromatic": "2026-11-10",
       "https://www.anthropic.com/claude-fable-and-mythos-5-2": "2026-11-10",
+      "https://www.anthropic.com/news/roadshow-launch": "2026-11-11",
+      "https://www.anthropic.com/research/claude-electronics-design": "2026-11-11",
+      "story:gpt-image-2-6": "2026-11-11",
       "story:ripple-65b": "2026-11-10",
+      "text:anthropic-выпустила-гайд-какую-модель-claude-ставить": "2026-11-11",
       "text:anthropic-прямо-сейчас-раздают-всем-юзерам-ultra": "2026-11-10",
+      "text:anthropic-также-заявили-что-fable-52-решила": "2026-11-11",
       "text:breaking-claude-fable-52-and-claude-mythos": "2026-11-10",
+      "text:google-gemini-decision-1-model-has-been": "2026-11-11",
       "text:в-тинвестициях-теперь-можно-торговать-с-помощью": "2026-11-10",
       "text:вышел-fable-52": "2026-11-10"
     },
     "stories": {
       "27b 65b arete open ripple source updates": "2026-11-10",
+      "adds gifs images native openai": "2026-11-11",
       "app binary rea reconstruction": "2026-11-09",
+      "carbon gemini": "2026-11-11",
+      "charts figures4papers scientific skill": "2026-11-11",
       "chromatic codex modretro openai": "2026-11-10",
       "chromatic modretro openai teases": "2026-11-09",
       "claude fable": "2026-11-09",
@@ -106,7 +119,7 @@
   "dead_letters": [],
   "gemini_daily": {
     "day": "2026-11-11",
-    "units": 12
+    "units": 27
   },
   "gemini_window": [
     [
@@ -161,8 +174,9 @@
       "week": "2026-W45"
     },
     "news": {
-      "finished_at": "2026-11-10T19:18:49.723467Z",
-      "reason": "already_published"
+      "finished_at": "2026-11-11T19:19:43.331437Z",
+      "reason": "published",
+      "telegram_message_id": 3587
     },
     "news-article": {
       "devto_id": 5008047,
@@ -756,6 +770,79 @@
       "telegram_message_id": 3581,
       "topic_key": "ai-models-and-tools-digest",
       "video_id": "tg-20261110-a3d844ab81",
+      "video_url": "https://t.me/GitHub_Open_Source"
+    },
+    {
+      "Gemini_video_input": false,
+      "article_markdown": "> **TL;DR** Gemini 4 Carbon expands Google's flagship lineup while OpenAI introduces native GIF generation in Images 2.6 with a fifty percent speed boost. Meanwhile, community repositories like Figures4papers are automating scientific chart generation for academic pipelines.\n\n## What actually moved today\n\nThe ecosystem is shifting toward multimodal workflows that handle specialized formats without external conversion layers. Developers working with asset generation pipelines or large context processing now have direct API endpoints for tasks that previously required complex orchestration.\n\n### The shift in multimodal pipelines\n\nHandling animations and complex visual assets used to mean chaining multiple generation steps together. Recent official updates bring these capabilities natively into the primary interaction loops. This reduces latency and error rates in automated publishing scripts.\n\n### Infrastructure and developer tooling\n\nModel providers are concurrently tightening API rate limits while improving throughput for smaller model variants. For backend engineers, this means re-evaluating fallback logic and timeout configurations across microservices that rely on external inference.\n\n## The model watch\n\nOfficial releases this week focus on throughput improvements and specialized output formats. These updates alter how we handle asset generation and long-context reasoning in production.\n\n### Gemini 4 Carbon\n\nGoogle released **Gemini 4 Carbon** via its official developer channels this week. The model expands the available lineup, focusing on improved context handling and instruction following for enterprise workloads. Developers managing heavy document ingestion pipelines should re-run their standard benchmark suites to check latency changes against previous iterations.\n\nThe concrete mechanics involve revised tokenization layers that reduce overhead on multi-language inputs. What remains unknown is how the pricing structure will scale for high-volume batch processing over extended periods. You will want to test your specific prompt templates to see if parsing behavior has shifted.\n\n### Images 2.6\n\nOpenAI introduced **Images 2.6** with native GIF generation capabilities directly inside ChatGPT interfaces. Generation speed has also increased by fifty percent compared to the previous version, altering how interactive UI prototypes incorporate dynamic visuals. For frontend developers, this means faster prototyping cycles when generating placeholder animations or UI mockups on the fly.\n\nThe underlying architecture handles temporal consistency better across frames without requiring explicit seed anchoring. However, fine-grained control over frame rates and compression artifacts remains limited through the standard chat interface. We need deeper API documentation to understand the exact parameter space available for programmatic generation.\n\n| Item | Status | Basis |\n|---|---|---|\n| Gemini 4 Carbon | Confirmed | Official blog post |\n| Images 2.6 | Confirmed | Official release notes |\n| Figures4papers | Confirmed | Public GitHub repository |\n| Gemini Decision 1 | Unconfirmed | API string sighting |\n\n## Rumours, clearly labelled\n\nUnverified claims are circulating across developer forums regarding upcoming model releases and unannounced checkpoints. These items are not confirmed and should not be factored into production planning.\n\n### Unannounced API sightings\n\nReports indicate a **Gemini Decision 1** model was spotted on Google internal APIs, though no official documentation or release notes accompany the sighting. Similarly, unverified discussions suggest **Claude Fable 5.2** might have addressed specific theoretical physics benchmark problems in private testing environments. We also see conflicting details regarding internal Anthropic model routing guides.\n\nNone of these claims have official backing or reproducible evaluation scripts available to the public. Treating them as active capabilities in your architecture would introduce significant reliability risks until Google or Anthropic publishes official specifications.\n\n## Odd finds and small tools\n\nEcosystem growth often happens in small, focused repositories rather than flagship model announcements. Keeping an eye on these utilities can save hours of custom scripting.\n\n### Figures4papers and academic visualization\n\nThe open-source **Figures4papers** AI Skill for scientific charts recently crossed ten thousand stars on GitHub. It automates the creation of publication-ready visualizations directly from raw data inputs, streamlining academic publishing workflows. If you regularly generate complex charts for technical documentation or research papers, this repository provides a solid baseline to inspect.\n\nAnother notable utility is a lightweight local CLI wrapper that simplifies batch inference routing for local models. While less flashy than commercial endpoints, these small tools bridge the gap between experimental research and daily developer workflows.\n\n## What I would try this weekend\n\nIf you have spare time this weekend, focus on testing how native GIF generation in **Images 2.6** integrates into your automated documentation pipelines. Write a short script to generate animated diagrams for your README files directly from descriptive text prompts.\n\nNext, take **Gemini 4 Carbon** and run your toughest multi-document summarization prompt against it to measure exact token efficiency gains. Compare the output quality and latency directly against your current production baseline to see if migration makes financial sense for your team.\n\n## Where this leaves us\n\nWe are seeing a clear consolidation around native multimodal capabilities and faster iteration cycles in text-to-image pipelines. Developers benefit from reduced friction in asset generation and broader model choices for heavy backend workloads.\n\nAt the same time, exact pricing tiers, rate limit behaviors under heavy load, and the true capabilities of unconfirmed checkpoints remain unknown. Maintain defensive coding practices, keep fallback providers configured, and rely strictly on official documentation rather than forum speculation.\n\nWhat local automation script or workflow pipeline are you planning to upgrade first with these new models?\n\n## Migration and eval checklist for Claude Fable 5.2, Gemini 4 Carbon, and Images 2.6\n\nTransitioning production workloads to the latest model generation requires a structured validation process to catch regressions before end users notice. When migrating services dependent on Claude Fable 5.2, verify that hardware design outputs adhere to strict geometric constraints and tolerance limits. Automated test suites should ingest standard CAD interchange files and parse structural dimensions programmatically to ensure precision across iterative runs. For deployments utilizing Gemini 4 Carbon, establish rigorous latency benchmarks that measure time to first token under simulated peak enterprise traffic. Track memory consumption closely during multi-document ingestion cycles to prevent unexpected out-of-memory errors in containerized microservices.\n\nIntegration scripts interacting with Images 2.6 need updated error handling to manage rate limits and timeout exceptions gracefully during high-volume batch GIF creation. Build dedicated fallback routines that route failed visual generation tasks to secondary endpoints without crashing upstream publishing workflows. Furthermore, maintain comprehensive logging for every API payload to audit temporal consistency and compression ratios across generated frames. Establish continuous monitoring dashboards that track error frequencies and response durations independently for each provider. Finally, keep staging environments isolated from production channels until all token efficiency metrics and pricing tier adjustments are fully accounted for in your financial forecasting models.\n\n---\n\n💬 Questions, corrections or a better way to run these evals? Feedback and discussion are in the channel: https://t.me/GitHub_Open_Source\n",
+      "article_title": "Claude Fable 5.2, Gemini 4 Carbon, and Native GIF Generation in Images 2.6",
+      "brief": {
+        "discussion_question": "Have you tried using any recent models for physical hardware design or complex local scripting yet?",
+        "headline": "Claude Fable 5.2 designs physical hardware and Gemini 4 Carbon drops",
+        "hook": "3 exact names, 3 official launches, 0 only announced, 1 unverified claim. Claude Fable 5.2 leads the watch — what would you actually re-run first?",
+        "models": [
+          "Claude Fable 5.2",
+          "Gemini 4 Carbon",
+          "Images 2.6"
+        ],
+        "stories": [
+          {
+            "basis": "the official blog post is live",
+            "bullets": [
+              "Google released Gemini 4 Carbon."
+            ],
+            "status": "official_release",
+            "title": "Gemini 4 Carbon release",
+            "why": "Expands the available model lineup from Google."
+          },
+          {
+            "basis": "the official release notes are up",
+            "bullets": [
+              "OpenAI introduced Images 2.6 with native GIF generation in ChatGPT.",
+              "Generation speed increased by 50%."
+            ],
+            "status": "official_release",
+            "title": "OpenAI Images 2.6 adds native GIFs",
+            "why": "Simplifies animated asset creation directly inside chat interfaces."
+          },
+          {
+            "basis": "the GitHub repository is public",
+            "bullets": [
+              "An open-source repository for generating publication-ready charts reached over 10000 stars on GitHub."
+            ],
+            "status": "research_report",
+            "title": "Figures4papers AI Skill for scientific charts",
+            "why": "Automates complex scientific visualizations for academic publishing."
+          }
+        ],
+        "summary": "This week features hardware-designing models, new image animation updates in ChatGPT, and various open-source tools.",
+        "unconfirmed_claims": [
+          "Gemini Decision 1 model spotted on Google APIs",
+          "Claude Fable 5.2 solved two theoretical physics problems",
+          "Anthropic model routing guide and benchmark claims"
+        ],
+        "why_devs": "These releases directly impact daily coding workflows, asset pipelines, and hardware prototyping."
+      },
+      "headline": "Claude Fable 5.2 designs physical hardware and Gemini 4 Carbon drops",
+      "image_url": "https://i.ibb.co/q38dmgZj/ai-brief-ea2a879b52c7.png",
+      "models": [
+        "Claude Fable 5.2",
+        "Gemini 4 Carbon",
+        "Images 2.6"
+      ],
+      "narrative_hook": "Three model updates dropped across four channels this week, but the thing I can't stop thinking about is an AI actually designing physical electronics from a single prompt.",
+      "official_url": "",
+      "post_text": "🛰️ <b>AI Brief</b> · <i>no ads, no hype</i>\n\n<b>Gemini 4 Carbon release — Google released Gemini 4 Carbon</b>\n\n🧬 <b>In this brief:</b> Claude Fable 5.2 · Gemini 4 Carbon · Images 2.6\n\n<b>1/ Gemini 4 Carbon release</b>\nGoogle released Gemini 4 Carbon.\nExpands the available model lineup from Google.\n<i>the official blog post is live</i>\n\n<b>2/ OpenAI Images 2.6 adds native GIFs</b>\nOpenAI introduced Images 2.6 with native GIF generation in ChatGPT.\nGeneration speed increased by 50%.\nSimplifies animated asset creation directly inside chat interfaces.\n<i>the official release notes are up</i>\n\n<b>3/ Figures4papers AI Skill for scientific charts</b>\nAn open-source repository for generating publication-ready charts reached over 10000 stars on GitHub.\nAutomates complex scientific visualizations for academic publishing.\n<i>the GitHub repository is public</i>\n\n<b>◻️ Rumours we're keeping an eye on</b>\n\n◻️ <i>Gemini Decision 1 model spotted on Google APIs</i>\n◻️ <i>Claude Fable 5.2 solved two theoretical physics problems</i>\n◻️ <i>Anthropic model routing guide and benchmark claims</i>\n\n<i>Have you tried using any recent models for physical hardware design or complex local scripting yet?</i>\n\n📣 <a href=\"https://t.me/GitHub_Open_Source\"><b>@GitHub_Open_Source</b></a>\n\n========================================\n#AINews #OpenSource",
+      "published_at": "2026-11-11T19:19:43.331276Z",
+      "statuses": [
+        "official_release",
+        "official_release",
+        "research_report"
+      ],
+      "stories": 3,
+      "telegram_message_id": 3587,
+      "topic_key": "ai-hardware-and-model-releases",
+      "video_id": "tg-20261111-18b087bee2",
       "video_url": "https://t.me/GitHub_Open_Source"
     }
   ],
@@ -6239,8 +6326,11 @@
   ],
   "rumour_memory": {
     "anthropic based distributing duration limit rate resets subscription": "2026-11-10",
+    "anthropic benchmark claims guide model routing": "2026-11-11",
     "anthropic claude code collaborative mode multiplayer projects working": "2026-11-08",
+    "apis decision gemini google model spotted": "2026-11-11",
     "aws bedrock claude fable mythos page pricing spotted": "2026-11-09",
+    "claude fable physics problems solved theoretical": "2026-11-11",
     "codex hinted limits reset tibo tweets upcoming": "2026-11-08"
   },
   "schedule_health": {
