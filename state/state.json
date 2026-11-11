@@ -179,13 +179,13 @@
       "telegram_message_id": 3587
     },
     "news-article": {
-      "devto_id": 5008047,
-      "finished_at": "2026-11-10T02:26:24.805619Z",
+      "devto_id": 5018987,
+      "finished_at": "2026-11-11T19:53:51.783905Z",
       "published": true,
-      "title": "Claude Fable 5.2, Open Source Weight Drops, and Agentic Trading Tools",
-      "topic_key": "ai-models-and-tools-digest",
-      "url": "https://dev.to/githubopensource/claude-fable-52-open-source-weight-drops-and-agentic-trading-tools-hf8",
-      "words": 1076
+      "title": "Claude Fable 5.2, Gemini 4 Carbon, and Native GIF Generation in Images 2.6",
+      "topic_key": "ai-hardware-and-model-releases",
+      "url": "https://dev.to/githubopensource/claude-fable-52-gemini-4-carbon-and-native-gif-generation-in-images-26-4157",
+      "words": 1098
     },
     "publish:europe_midday": {
       "finished_at": "2026-11-11T12:43:59.103591Z",
@@ -823,6 +823,7 @@
         ],
         "why_devs": "These releases directly impact daily coding workflows, asset pipelines, and hardware prototyping."
       },
+      "devto_cover_url": "https://i.ibb.co/PsgZKgX9/project-devto-cover-db8c4b879c3b.png",
       "headline": "Claude Fable 5.2 designs physical hardware and Gemini 4 Carbon drops",
       "image_url": "https://i.ibb.co/q38dmgZj/ai-brief-ea2a879b52c7.png",
       "models": [
