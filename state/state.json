@@ -105,17 +105,17 @@
   },
   "dead_letters": [],
   "gemini_daily": {
-    "day": "2026-11-10",
-    "units": 12
+    "day": "2026-11-11",
+    "units": 6
   },
   "gemini_window": [
     [
-      1794381232.2038639,
-      3971
+      1794401029.6095624,
+      3925
     ],
     [
-      1794381236.582095,
-      1424
+      1794401034.057248,
+      1481
     ]
   ],
   "last_runs": {
@@ -174,9 +174,9 @@
       "words": 1076
     },
     "publish:europe_midday": {
-      "finished_at": "2026-11-10T12:43:58.867856Z",
-      "repo": "donchitos/claude-code-game-studios",
-      "telegram_message_id": 3583
+      "finished_at": "2026-11-11T12:43:59.103591Z",
+      "repo": "kaankiziltug/logo-design-skill",
+      "telegram_message_id": 3585
     },
     "publish:europe_morning": {
       "finished_at": "2026-11-11T07:14:04.069899Z",
@@ -1896,6 +1896,119 @@
           "views": 66
         }
       ],
+      "visual_host": "imgbb",
+      "visual_kind": "readme"
+    },
+    "kaankiziltug/logo-design-skill": {
+      "articles": {},
+      "card_style": "",
+      "category": "AI",
+      "contributors_count": 3,
+      "created_at": "2026-09-26T08:23:34Z",
+      "crossposts": {
+        "bluesky": {
+          "attempts": 0,
+          "due_at": "2026-11-11T18:00:00+00:00",
+          "status": "pending"
+        }
+      },
+      "description": "A comprehensive logo-design skill for Claude, Gemini CLI, Codex and other AI agents: principles, process, SVG craft, testing tools and a 1,400+ logo reference library.",
+      "description_fp": "dc06363c100b74c9",
+      "forks": 520,
+      "full_name": "kaankiziltug/logo-design-skill",
+      "generated": {
+        "article_markdown": "## What it is\n\nLogo Design Skill is a comprehensive identity-design package built for AI agents that support the Agent Skills format, including Claude Code, Gemini CLI, and Codex CLI. Rather than treating logo creation as a single text-to-image prompt, it equips your agent with structured design principles, geometric construction rules, optical correction guides, and a searchable reference library of over 1,400 real-world SVG logos.\n\n## Why it matters\n\nMost LLMs struggle with vector geometry, typography, and scaling constraints, usually resulting in unusable raster art or broken SVG paths. This project bridges the gap by pairing markdown instructions with dependency-free Python scripts that audit vector outputs against real-world technical requirements. It enforces a strict checkpoint workflow, pausing after initial concepts so you can steer the visual direction before the agent builds out full color palettes and brand guidelines.\n\n## Key features\n\n- Searchable CLI reference library of 1,400+ real-world SVG logos classified by geometry and industry.\n- Dependency-free Python auditing tools to test SVGs at 16px, one-colour, reversed, and mirror states.\n- Built-in checkpoint workflow that halts design execution for human review and selection.\n- Automated export capabilities for complete favicon, app-icon, and web-manifest sets.\n- Generation of client presentation boards featuring industry-specific mockup previews.\n\n## Quick start\n\nTo install the skill for Claude Code via the plugin marketplace, run:\n\n```\n/plugin marketplace add kaankiziltug/logo-design-skill\n/plugin install logo-design@logo-design-skill\n```\n\nAlternatively, clone the repository to use it with Gemini CLI or Codex CLI:\n\n```bash\ngit clone https://github.com/kaankiziltug/logo-design-skill.git\n```\n\n## Who should try it\n\nThis project fits developers, indie hackers, and technical founders who want consistent, scalable vector assets generated directly inside their terminal environment without relying on external design software for initial concepts.\n\n## Verdict\n\nAn impressively rigorous toolkit that turns an AI coding assistant into a competent brand designer. It demands a multimodal model capable of inspecting its own rendered drafts, but it delivers remarkably clean, production-ready vector assets for technical projects.",
+        "article_title": "Logo Design Skill for Claude and AI Agents: SVG Craft and Brand Guidelines",
+        "card_hook": "AI-powered logo design for developers",
+        "card_subline": "Add professional identity design, SVG testing, and a 1,400+ logo reference library to your favorite AI agent",
+        "category": "AI",
+        "discussion_question": "Which AI agent do you currently use for your terminal workflows?",
+        "hook": "Turn Claude or Gemini into a disciplined identity designer with an SVG-crafting skill and 1,400+ logo reference library.",
+        "key_features": [
+          "Reference library of 1,400+ real-world SVG logos classified by mark type, technique, geometry, and industry",
+          "Dependency-free Python auditing tools to test SVGs at 16px, one-colour, reversed, squint, and mirror views",
+          "Interactive checkpoint workflow that stops after initial concepts to let you choose a direction before coloring",
+          "Automated export of complete favicon, app-icon, and web-manifest sets from vector designs",
+          "Client presentation board generator with industry-specific mockups and layout previews"
+        ],
+        "llm_used": true,
+        "quick_start": "git clone https://github.com/kaankiziltug/logo-design-skill.git",
+        "safety": "ok",
+        "safety_reason": "The repository is a legitimate development skill for AI agents focusing on brand design and SVG generation.",
+        "scene": "You prompt your coding assistant for a quick app logo, and it spits out a generic raster image with warped text and a fake background.",
+        "social_text": "Turn your AI coding assistant into a disciplined brand identity designer with local SVG testing tools and a 1,400+ logo reference library.",
+        "summary": "This agent skill integrates directly into tools like Claude Code and Gemini CLI to handle the end-to-end identity design process. Instead of generating unconstrained graphics, it reads categorical conventions from a built-in reference library, constructs vector marks in raw SVG, and audits them against strict optical and technical constraints. It replaces vague prompt-and-pray image generation with a structured pipeline that outputs production-ready vector assets and brand guidelines.",
+        "surfaces": {
+          "Facebook_body": "Creating professional branding usually requires expensive software or hiring a specialist. If you are a builder who spends all day in the terminal, you can now generate clean, scalable vector logos using plain text instructions.\n\nInstead of creating blurry images, this tool uses a structured library of real-world design examples and built-in testing rules. It builds vector graphics step by step, checks how they look at tiny sizes or in black and white, and exports everything you need for websites and apps.\n\nIt is built specifically for developers, solo founders, and technical hobbyists who want proper branding without opening a design suite. While it is not a replacement for a branding agency when you need a complex campaign, it is a fast way to get production-ready assets for side projects and tools.",
+          "Facebook_headline": "Design clean logos using text commands",
+          "Facebook_lead": "Turn your assistant into a professional identity designer. Generate real vector artwork, check it against strict design rules, and export web-ready assets without leaving your code editor.",
+          "bluesky_headline": "Build real vector logos using AI and reference libraries",
+          "bluesky_lead": "A disciplined workflow for developers to generate production-ready SVG brand marks from the terminal.",
+          "devto_body": "## What it is\n\nlogo-design-skill is an open-source agent skill designed to guide AI assistants like Claude Code and Gemini CLI through the end-to-end process of creating professional vector identities. Instead of relying on unconstrained image generation, it enforces structured design rules using an integrated reference library of over 1,400 classified SVG marks.\n\n## How it works\n\nThe project integrates directly into your terminal-based AI workflow. When prompted, the agent consults categorical conventions from its reference library, constructs vector graphics in raw SVG code, and runs a series of automated checks before presenting final assets. The process includes interactive checkpoints where you can review initial concepts before the model commits to color and detail.\n\n## Key features\n\n- Reference library of 1,400+ classified real-world SVG logos.\n- Dependency-free Python auditing tools for testing SVG legibility at 16px, one-colour, reversed, squint, and mirror views.\n- Interactive checkpoints for concept selection.\n- Automated export pipelines for favicons, app icons, and web manifests.\n- Client presentation board generator with mockup previews.\n\n## Getting started\n\nClone the repository and integrate the skill into your preferred AI agent environment supporting custom skills. Ensure you have Python installed for running the SVG auditing scripts.\n\n```bash\ngit clone https://github.com/kaankiziltug/logo-design-skill.git\n```\n\n## When not to use it\n\nThis project is tailored for developers and technical builders who appreciate constraints and automation. It is likely overkill if you only need a quick, low-resolution placeholder image or require complex raster illustrations.",
+          "seo_description": "Create production-ready vector logos and brand assets from your terminal using an open-source AI agent skill with built-in design auditing.",
+          "seo_query": "open source ai logo generator",
+          "seo_title": "Open-source AI logo generator - logo-design-skill",
+          "telegraph_angle": "Explain how the project brings engineering constraints to AI image generation, detailing its auditing pipeline and trade-offs for developers."
+        },
+        "tension": "You spend twenty minutes cleaning up jagged bitmap edges, fixing broken viewBox attributes, and trying to force an LLM to understand vector scaling.",
+        "turn": "This skill provides a structured framework for AI agents to generate clean SVG assets and run automated scaling tests before showing you any drafts.",
+        "verdict": "An exceptionally thorough workflow tool for developers who appreciate constraints and automation, though overkill if you just need a quick placeholder.",
+        "who_for": "Developers and builders who need clean branding or vector assets without leaving the terminal.",
+        "why_now": "With the rise of Agent Skills and multimodal models capable of rendering and inspecting their own drafts, AI agents can finally execute disciplined, multi-step design engineering instead of flat image generation."
+      },
+      "homepage": "",
+      "id": 1388867993,
+      "image_url": "https://i.ibb.co/d4nTNv9n/kaankiziltug-logo-design-skill-readme-preview-8eeae4842cdc.jpg",
+      "is_dual_use": false,
+      "is_hidden_gem": false,
+      "language": "HTML",
+      "license": {
+        "key": "mit",
+        "name": "MIT License",
+        "node_id": "MDc6TGljZW5zZTEz",
+        "spdx_id": "MIT",
+        "url": "https://api.github.com/licenses/mit"
+      },
+      "media_urls": [
+        "https://raw.githubusercontent.com/kaankiziltug/logo-design-skill/main/docs/images/hero.png",
+        "https://raw.githubusercontent.com/kaankiziltug/logo-design-skill/main/docs/images/covers-28.png",
+        "https://raw.githubusercontent.com/kaankiziltug/logo-design-skill/main/docs/images/kiln-concepts.png",
+        "https://raw.githubusercontent.com/kaankiziltug/logo-design-skill/main/docs/images/kiln-board.png",
+        "https://raw.githubusercontent.com/kaankiziltug/logo-design-skill/main/docs/images/zestly-concepts.png",
+        "https://raw.githubusercontent.com/kaankiziltug/logo-design-skill/main/docs/images/zestly-board.png",
+        "https://raw.githubusercontent.com/kaankiziltug/logo-design-skill/main/docs/images/maison-orvelle-concepts.png",
+        "https://raw.githubusercontent.com/kaankiziltug/logo-design-skill/main/docs/images/maison-orvelle-board.png"
+      ],
+      "name": "logo-design-skill",
+      "open_issues": 6,
+      "published_at": "2026-11-11T12:43:59.103326Z",
+      "pushed_at": "2026-11-06T07:40:27Z",
+      "readme_fp": "c6e41cb3b5ce86f0",
+      "repo_id": 1388867993,
+      "revisit_of": "",
+      "revisit_reason": "",
+      "score": 89.928,
+      "slot": "europe_midday",
+      "sources": [
+        "github_search"
+      ],
+      "stars": 6583,
+      "telegram_chat_id": "@GitHub_Open_Source",
+      "telegram_link": "https://t.me/GitHub_Open_Source/3585",
+      "telegram_message_id": 3585,
+      "telegraph_url": "https://telegra.ph/Logo-Design-Skill-for-Claude-and-AI-Agents-SVG-Craft-and-Brand-Guidelines-11-11",
+      "topics": [
+        "agent-skills",
+        "branding",
+        "claude",
+        "claude-skills",
+        "codex",
+        "gemini-cli",
+        "logo-design",
+        "svg"
+      ],
+      "updated_at": "2026-11-11T12:42:13Z",
+      "url": "https://github.com/kaankiziltug/logo-design-skill",
       "visual_host": "imgbb",
       "visual_kind": "readme"
     },
@@ -4543,70 +4656,6 @@
     }
   },
   "queue": [
-    {
-      "archived": false,
-      "contributors_count": 3,
-      "created_at": "2026-09-26T08:23:34Z",
-      "default_branch": "main",
-      "description": "A comprehensive logo-design skill for Claude, Gemini CLI, Codex and other AI agents: principles, process, SVG craft, testing tools and a 1,400+ logo reference library.",
-      "disabled": false,
-      "fork": false,
-      "forks": 515,
-      "forks_count": 515,
-      "full_name": "kaankiziltug/logo-design-skill",
-      "has_readme": true,
-      "homepage": "",
-      "id": 1388867993,
-      "is_dual_use": false,
-      "is_hidden_gem": false,
-      "language": "HTML",
-      "license": {
-        "key": "mit",
-        "name": "MIT License",
-        "node_id": "MDc6TGljZW5zZTEz",
-        "spdx_id": "MIT",
-        "url": "https://api.github.com/licenses/mit"
-      },
-      "media_urls": [
-        "https://raw.githubusercontent.com/kaankiziltug/logo-design-skill/main/docs/images/hero.png",
-        "https://raw.githubusercontent.com/kaankiziltug/logo-design-skill/main/docs/images/covers-28.png",
-        "https://raw.githubusercontent.com/kaankiziltug/logo-design-skill/main/docs/images/kiln-concepts.png",
-        "https://raw.githubusercontent.com/kaankiziltug/logo-design-skill/main/docs/images/kiln-board.png",
-        "https://raw.githubusercontent.com/kaankiziltug/logo-design-skill/main/docs/images/zestly-concepts.png",
-        "https://raw.githubusercontent.com/kaankiziltug/logo-design-skill/main/docs/images/zestly-board.png",
-        "https://raw.githubusercontent.com/kaankiziltug/logo-design-skill/main/docs/images/maison-orvelle-concepts.png",
-        "https://raw.githubusercontent.com/kaankiziltug/logo-design-skill/main/docs/images/maison-orvelle-board.png"
-      ],
-      "name": "logo-design-skill",
-      "non_software_reason": "",
-      "open_issues": 6,
-      "open_issues_count": 6,
-      "owner_repo_count": 1,
-      "pushed_at": "2026-11-06T07:40:27Z",
-      "readme": "",
-      "readme_excerpt": "# Logo Design Skill for Claude & AI Agents\n\n[![Sponsor](https://img.shields.io/badge/Sponsor-ea4aaa?logo=githubsponsors&logoColor=white)](https://github.com/sponsors/kaankiziltug) [![Tests](https://github.com/kaankiziltug/logo-design-skill/actions/workflows/test.yml/badge.svg)](https://github.com/kaankiziltug/logo-design-skill/actions/workflows/test.yml) [![The New 100: #14](https://www.theagenticleaderboard.com/badges/new/logo-design-skill.svg)](#)\n\n![Twenty-eight example runs of the logo-design skill](docs/images/hero.png)\n\nA comprehensive **logo-design skill** that turns Claude — or any agent that supports Agent Skills, such as Gemini\nCLI, Codex CLI, Cursor or GitHub Copilot — into a disciplined identity designer, from the first brief to\nproduction-ready SVG files and brand guidelines.\n\n- **Principles & process** — discovery and briefs, word mapping, choosing the right mark type, concepting,\n  geometric construction, optical corrections (overshoot, bone effect, irradiation…), colour, typography, lockups,\n  testing, presentation, delivery, redesigns and identity systems.\n- **A reference library of 1,400+ real-world SVG logos**, each visually classified by mark type, technique,\n  ",
-      "readme_len": 32263,
-      "repo_id": 1388867993,
-      "score": 89.928,
-      "source_name": "github_search",
-      "sources": [
-        "github_search"
-      ],
-      "stargazers_count": 6518,
-      "stars": 6518,
-      "topics": [
-        "agent-skills",
-        "branding",
-        "claude",
-        "claude-skills",
-        "codex",
-        "gemini-cli",
-        "logo-design",
-        "svg"
-      ],
-      "updated_at": "2026-11-11T04:07:56Z",
-      "url": "https://github.com/kaankiziltug/logo-design-skill"
-    },
     {
       "archived": false,
       "contributors_count": 1,
@@ -8743,8 +8792,8 @@
     "kaankiziltug/logo-design-skill": {
       "first_seen_at": "2026-11-03T11:59:59.673823Z",
       "full_name": "kaankiziltug/logo-design-skill",
-      "last_decision": "queued",
-      "last_seen_at": "2026-11-11T04:25:29.573904Z",
+      "last_decision": "published",
+      "last_seen_at": "2026-11-11T12:43:59.103580Z",
       "repo_id": 1388867993,
       "sources": [
         "github_search"
