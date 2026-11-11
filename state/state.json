@@ -106,16 +106,16 @@
   "dead_letters": [],
   "gemini_daily": {
     "day": "2026-11-10",
-    "units": 6
+    "units": 12
   },
   "gemini_window": [
     [
-      1794314629.908296,
-      3949
+      1794381232.2038639,
+      3971
     ],
     [
-      1794314634.2975667,
-      1408
+      1794381236.582095,
+      1424
     ]
   ],
   "last_runs": {
@@ -179,9 +179,9 @@
       "telegram_message_id": 3583
     },
     "publish:europe_morning": {
-      "finished_at": "2026-11-10T07:14:01.045138Z",
-      "repo": "tabularisdb/tabularis",
-      "telegram_message_id": 3582
+      "finished_at": "2026-11-11T07:14:04.069899Z",
+      "repo": "wquguru/cicada",
+      "telegram_message_id": 3584
     },
     "publish:manual": {
       "finished_at": "2026-11-03T12:00:53.732414Z",
@@ -4424,23 +4424,67 @@
       ],
       "visual_host": "imgbb",
       "visual_kind": "readme"
-    }
-  },
-  "queue": [
-    {
-      "archived": false,
+    },
+    "wquguru/cicada": {
+      "articles": {},
+      "card_style": "",
+      "category": "AI",
       "contributors_count": 6,
       "created_at": "2026-11-01T05:41:23Z",
-      "default_branch": "main",
+      "crossposts": {
+        "bluesky": {
+          "attempts": 0,
+          "due_at": "2026-11-11T18:00:00+00:00",
+          "status": "pending"
+        }
+      },
       "description": "知了 Cicada · 任何会议和直播的实时字幕、同声传译、AI 会议纪要，Mac、Windows、Linux、Android 免费开源。Live subtitles, interpreting and meeting notes for any call or stream, on Mac, Windows, Linux and Android.",
-      "disabled": false,
-      "fork": false,
-      "forks": 369,
-      "forks_count": 369,
+      "description_fp": "e91fcecb88899108",
+      "forks": 370,
       "full_name": "wquguru/cicada",
-      "has_readme": true,
+      "generated": {
+        "article_markdown": "## What it is\n\nCicada is an open-source application designed to provide live bilingual subtitles, simultaneous interpretation, and structured meeting notes across macOS, Windows, Linux, and Android. Rather than forcing you to invite external bot participants into your video calls, it taps directly into system audio to process speech in real time. On Apple silicon Macs, recognition runs entirely on-device, keeping your audio private.\n\n## Why it matters\n\nMultilingual technical discussions and livestreams often lead to cognitive overload as you try to parse unfamiliar terminology on the fly. Cicada bridges the language barrier by listening to system audio, cleaning up misheard terms via context, and generating organized records including to-do items, summaries, and fishbone diagrams without routing data through proprietary meeting bots.\n\n## Key features\n\n- Captures system audio directly without injecting bots into Zoom, Teams, or Google Meet.\n- Runs speech recognition entirely on-device for Apple silicon Macs without external API keys.\n- Translates speech and broadcasts your voice back in the target language when holding the talk key.\n- Organizes notes into summaries, topics, to-dos, and a fishbone diagram with jump-to-line support.\n- Separates speakers automatically using a local voiceprint model and retains audio locally.\n\n## Quick start\n\nTo inspect the source code, clone the repository:\n\n```bash\ngit clone https://github.com/wquguru/cicada.git\n```\n\n## Who should try it\n\nDevelopers, open-source maintainers, and remote teams who frequently participate in cross-border calls, international conferences, or technical livestreams and need reliable local transcription.\n\n## Verdict\n\nCicada offers a robust, privacy-focused approach to live translation and meeting notes. While non-Mac platforms require an external AI service key for full functionality, its ability to operate locally without meeting bots makes it a valuable utility for daily remote collaboration.",
+        "article_title": "Cicada: Real-Time Subtitles, Translation, and Meeting Notes for Developers",
+        "card_hook": "Live subtitles and notes for any call",
+        "card_subline": "Open-source real-time translation, meeting notes, and speech interpreting across desktop and mobile",
+        "category": "AI",
+        "discussion_question": "Which meeting platform do you use most often?",
+        "hook": "Get live bilingual subtitles and structured notes on Mac, Windows, Linux, and Android without sending bots to your calls.",
+        "key_features": [
+          "Captures system audio directly without injecting bots into Zoom, Teams, or Google Meet",
+          "Runs speech recognition entirely on-device for Apple silicon Macs without external API keys",
+          "Translates speech and broadcasts your voice back in the target language when holding the talk key",
+          "Organizes notes into summaries, topics, to-dos, and a fishbone diagram with jump-to-line support",
+          "Separates speakers automatically using a local voiceprint model and retains audio locally"
+        ],
+        "llm_used": true,
+        "quick_start": "git clone https://github.com/wquguru/cicada.git",
+        "safety": "ok",
+        "safety_reason": "Legitimate open-source translation and transcription client.",
+        "scene": "You join an unfamiliar engineering sync where everyone is speaking a second language, and your notes app is a chaotic wall of fragmented thoughts.",
+        "social_text": "Live bilingual subtitles and automated meeting notes for Mac, Windows, Linux, and Android without bots.",
+        "summary": "Cicada hooks directly into system audio to process speech locally on Apple silicon or via configured API endpoints on other platforms. It uses speech-to-text models to generate bilingual transcripts and structured summaries on the fly, while routing voice output through a virtual audio driver when interpreting. All raw recordings and transcripts remain stored locally in your application support directory.",
+        "surfaces": {
+          "Facebook_body": "Handling international calls and live streams often means struggling with language barriers or dealing with annoying recording bots that join your meetings. There is a better way to get help during live conversations without inviting third-party participants to your calls.\n\nThis open-source application captures audio directly from your computer system to generate live subtitles, translations, and organized summaries in real time. On Apple computers, everything runs locally on your device for complete privacy, while other platforms can connect to your preferred speech processing services.\n\nThe tool automatically separates different speakers, organizes your notes into actionable tasks, and can even translate your voice during a conversation. All raw recordings and transcripts are saved securely in your local files rather than being stored on remote servers.\n\nIt is built specifically for remote workers, developers, and anyone spending hours on international video calls who wants instant transcription and private note-taking without cloud subscription fees.",
+          "Facebook_headline": "Get live captions and notes on your calls",
+          "Facebook_lead": "Stop inviting clumsy recording bots to your meetings. Get live captions, translation, and organized notes that stay private on your device.",
+          "bluesky_headline": "Live subtitles and notes for any call",
+          "bluesky_lead": "Get real-time bilingual transcripts and summaries on your computer without sending recording bots to your meetings.",
+          "devto_body": "## What it is\n\nCicada is an open-source Swift application designed to provide real-time speech recognition, live bilingual subtitles, and structured meeting notes directly from your system audio. It eliminates the need for third-party recording bots in video conferencing software.\n\n## How it works\n\nThe application intercepts system audio streams locally. On Apple silicon Macs, it leverages on-device speech models to process transcription completely offline. On other operating systems, it routes audio through configured endpoints and can broadcast interpreted voice output using a virtual audio driver.\n\n## Key features\n\n- Captures system audio without injecting bots into Zoom, Teams, or Google Meet\n- Runs offline speech recognition natively on Apple silicon hardware\n- Translates speech and broadcasts interpreted voice output in target languages\n- Automatically organizes meeting transcripts into summaries, topics, and to-dos\n- Separates speakers using local voiceprint models with local data retention\n\n## Getting started\n\nClone the repository from GitHub and ensure you have Swift installed. Build the project locally for your target operating system. Configure external API keys if you are running the software on non-Apple platforms.\n\n## When not to use it\n\nAvoid this tool if you require out-of-the-box zero-configuration setup on Windows or Linux, as non-Mac platforms currently require manual API key configuration for speech processing.",
+          "seo_description": "Get real-time bilingual subtitles, translation, and structured meeting notes for any call without bots. Open-source tool for remote workers.",
+          "seo_query": "open source live meeting transcriber",
+          "seo_title": "Open-Source Live Subtitles and Meeting Notes - Cicada",
+          "telegraph_angle": "Explain the privacy benefits of processing call audio locally and the trade-offs of configuring external APIs on non-Mac platforms."
+        },
+        "tension": "Important technical decisions and action items slip past while you struggle to keep up with live translation.",
+        "turn": "Cicada streams bilingual captions and structured notes directly onto your screen, though phone call audio still requires external speaker output due to OS limits.",
+        "verdict": "An exceptionally thorough tool for handling multilingual calls, provided you are comfortable configuring an API key on non-Mac platforms.",
+        "who_for": "Developers and remote workers who spend hours on international calls and livestreams.",
+        "why_now": "On-device speech recognition models have matured to the point where real-time transcription runs locally on consumer laptops without cloud latency."
+      },
       "homepage": "https://cicada.indaloop.app",
       "id": 1441521221,
+      "image_url": "https://i.ibb.co/BHwQwD9g/wquguru-cicada-readme-preview-f78f5a846d93.jpg",
       "is_dual_use": false,
       "is_hidden_gem": false,
       "language": "Swift",
@@ -4459,23 +4503,24 @@
         "https://raw.githubusercontent.com/wquguru/cicada/main/docs/icon.png"
       ],
       "name": "cicada",
-      "non_software_reason": "",
       "open_issues": 5,
-      "open_issues_count": 5,
-      "owner_repo_count": 1,
+      "published_at": "2026-11-11T07:14:04.069598Z",
       "pushed_at": "2026-11-10T16:34:38Z",
-      "readme": "",
-      "readme_excerpt": "<p align=\"center\">\n  <img src=\"docs/icon.png\" width=\"128\" height=\"128\" alt=\"Cicada icon\">\n</p>\n\n<h1 align=\"center\">Cicada · 知了</h1>\n\n<p align=\"center\">\n  Every call. Every stream. No language barrier.<br>\n  Understand, speak back, and remember everything. Live meeting notes, bilingual transcripts, subtitles and interpreting on Mac, Windows, Linux and Android.\n</p>\n\n<p align=\"center\">\n  <a href=\"https://cicada.indaloop.app\"><img src=\"https://img.shields.io/badge/Website-cicada.indaloop.app-E8552B?style=for-the-badge\" alt=\"Website: cicada.indaloop.app\" height=\"36\"></a>\n  &nbsp;\n  <a href=\"https://cicada.indaloop.app/en/download/\"><img src=\"https://img.shields.io/badge/Download-Mac%20·%20Windows%20·%20Linux%20·%20Android-15171C?style=for-the-badge\" alt=\"Download for Mac, Windows, Linux and Android\" height=\"36\"></a>\n</p>\n\n<p align=\"center\">\n  <img src=\"https://img.shields.io/badge/macOS-14.4%2B-black\" alt=\"macOS 14.4+\">\n  <img src=\"https://img.shields.io/badge/Windows-10%202004%2B-black\" alt=\"Windows 10 2004+\">\n  <img src=\"https://img.shields.io/badge/Ubuntu-22.04%2B-black\" alt=\"Ubuntu 22.04+\">\n  <img src=\"https://img.shields.io/badge/Android-10%2B-black\" alt=\"Android 10+\">\n  <img src=",
-      "readme_len": 17479,
+      "readme_fp": "e1a08e729c2c1684",
       "repo_id": 1441521221,
+      "revisit_of": "",
+      "revisit_reason": "",
       "score": 94.258,
-      "source_name": "github_search",
+      "slot": "europe_morning",
       "sources": [
         "github_search",
         "telegram:gitbless"
       ],
-      "stargazers_count": 2139,
-      "stars": 2139,
+      "stars": 2143,
+      "telegram_chat_id": "@GitHub_Open_Source",
+      "telegram_link": "https://t.me/GitHub_Open_Source/3584",
+      "telegram_message_id": 3584,
+      "telegraph_url": "https://telegra.ph/Cicada-Real-Time-Subtitles-Translation-and-Meeting-Notes-for-Developers-11-11",
       "topics": [
         "android",
         "linux",
@@ -4491,9 +4536,13 @@
         "translation",
         "windows"
       ],
-      "updated_at": "2026-11-11T04:22:57Z",
-      "url": "https://github.com/wquguru/cicada"
-    },
+      "updated_at": "2026-11-11T05:20:16Z",
+      "url": "https://github.com/wquguru/cicada",
+      "visual_host": "imgbb",
+      "visual_kind": "readme"
+    }
+  },
+  "queue": [
     {
       "archived": false,
       "contributors_count": 3,
@@ -11589,8 +11638,8 @@
     "wquguru/cicada": {
       "first_seen_at": "2026-11-04T12:14:31.126202Z",
       "full_name": "wquguru/cicada",
-      "last_decision": "queued",
-      "last_seen_at": "2026-11-11T04:25:29.572162Z",
+      "last_decision": "published",
+      "last_seen_at": "2026-11-11T07:14:04.069887Z",
       "repo_id": 1441521221,
       "sources": [
         "github_search",
