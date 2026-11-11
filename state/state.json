@@ -6133,6 +6133,14 @@
     "aws bedrock claude fable mythos page pricing spotted": "2026-11-09",
     "codex hinted limits reset tibo tweets upcoming": "2026-11-08"
   },
+  "schedule_health": {
+    "2026-11-11": {
+      "last_schedule": "47 */3 * * *",
+      "late_ignored": 1,
+      "notified": true,
+      "skipped_brief": ""
+    }
+  },
   "seen_repos": {
     "0xcodez/cleanly": {
       "first_seen_at": "2026-11-03T11:59:59.697932Z",
