@@ -180,6 +180,12 @@
       "queued": 1,
       "reason": "queued"
     },
+    "metrics": {
+      "checked": 12,
+      "finished_at": "2026-11-12T20:23:48.469046Z",
+      "reason": "measured",
+      "updated": 12
+    },
     "news": {
       "finished_at": "2026-11-11T19:19:43.331437Z",
       "reason": "published",
@@ -1040,6 +1046,7 @@
       "open_issues": 198,
       "published_at": "2026-11-12T16:24:59.872172Z",
       "pushed_at": "2026-11-12T16:15:20Z",
+      "reactions": 0,
       "readme_fp": "12c5526436e559ea",
       "repo_id": 1437814166,
       "revisit_of": "",
@@ -1078,6 +1085,17 @@
       ],
       "updated_at": "2026-11-12T16:22:40Z",
       "url": "https://github.com/anefzaoui/misterdownloadmanager",
+      "value_score": 43.01,
+      "views": 31,
+      "views_age_hours": 4.0,
+      "views_at_24h": 81,
+      "views_history": [
+        {
+          "at": "2026-11-12T20:23:49.200465Z",
+          "reactions": 0,
+          "views": 31
+        }
+      ],
       "visual_host": "imgbb",
       "visual_kind": "readme"
     },
@@ -1213,10 +1231,10 @@
       ],
       "updated_at": "2026-11-09T07:10:35Z",
       "url": "https://github.com/debpalash/VoiceStudio",
-      "value_score": 40.67,
-      "views": 101,
-      "views_age_hours": 41.5,
-      "views_at_24h": 79,
+      "value_score": 36.1,
+      "views": 116,
+      "views_age_hours": 85.2,
+      "views_at_24h": 71,
       "views_history": [
         {
           "at": "2026-11-09T20:23:51.035356Z",
@@ -1237,6 +1255,11 @@
           "at": "2026-11-11T00:43:01.193552Z",
           "reactions": 0,
           "views": 101
+        },
+        {
+          "at": "2026-11-12T20:23:52.652347Z",
+          "reactions": 0,
+          "views": 116
         }
       ],
       "visual_host": "imgbb",
@@ -1354,10 +1377,10 @@
       ],
       "updated_at": "2026-11-10T12:40:35Z",
       "url": "https://github.com/Donchitos/Claude-Code-Game-Studios",
-      "value_score": 50.7,
-      "views": 63,
-      "views_age_hours": 12.0,
-      "views_at_24h": 98,
+      "value_score": 45.26,
+      "views": 122,
+      "views_age_hours": 55.7,
+      "views_at_24h": 85,
       "views_history": [
         {
           "at": "2026-11-10T20:23:51.567285Z",
@@ -1368,6 +1391,11 @@
           "at": "2026-11-11T00:42:58.805097Z",
           "reactions": 0,
           "views": 63
+        },
+        {
+          "at": "2026-11-12T20:23:50.929963Z",
+          "reactions": 0,
+          "views": 122
         }
       ],
       "visual_host": "imgbb",
@@ -2157,10 +2185,10 @@
       ],
       "updated_at": "2026-11-10T00:43:22Z",
       "url": "https://github.com/JuneYaooo/rea-video",
-      "value_score": 34.04,
-      "views": 66,
-      "views_age_hours": 24.0,
-      "views_at_24h": 66,
+      "value_score": 29.34,
+      "views": 86,
+      "views_age_hours": 67.7,
+      "views_at_24h": 57,
       "views_history": [
         {
           "at": "2026-11-10T02:46:53.771622Z",
@@ -2176,6 +2204,11 @@
           "at": "2026-11-11T00:42:59.746390Z",
           "reactions": 0,
           "views": 66
+        },
+        {
+          "at": "2026-11-12T20:23:51.621612Z",
+          "reactions": 0,
+          "views": 86
         }
       ],
       "visual_host": "imgbb",
@@ -2266,6 +2299,7 @@
       "open_issues": 6,
       "published_at": "2026-11-11T12:43:59.103326Z",
       "pushed_at": "2026-11-06T07:40:27Z",
+      "reactions": 0,
       "readme_fp": "c6e41cb3b5ce86f0",
       "repo_id": 1388867993,
       "revisit_of": "",
@@ -2292,6 +2326,17 @@
       ],
       "updated_at": "2026-11-11T12:42:13Z",
       "url": "https://github.com/kaankiziltug/logo-design-skill",
+      "value_score": 44.77,
+      "views": 94,
+      "views_age_hours": 31.7,
+      "views_at_24h": 84,
+      "views_history": [
+        {
+          "at": "2026-11-12T20:23:50.245429Z",
+          "reactions": 0,
+          "views": 94
+        }
+      ],
       "visual_host": "imgbb",
       "visual_kind": "readme"
     },
@@ -3360,6 +3405,7 @@
       "open_issues": 458,
       "published_at": "2026-11-12T03:31:32.749505Z",
       "pushed_at": "2026-11-11T23:58:33Z",
+      "reactions": 0,
       "readme_fp": "b7ae855febec9b9d",
       "repo_id": 1391438314,
       "revisit_of": "",
@@ -3398,6 +3444,17 @@
       ],
       "updated_at": "2026-11-12T02:38:18Z",
       "url": "https://github.com/Louis-CFM/coucou",
+      "value_score": 44.43,
+      "views": 66,
+      "views_age_hours": 16.9,
+      "views_at_24h": 83,
+      "views_history": [
+        {
+          "at": "2026-11-12T20:23:49.537689Z",
+          "reactions": 0,
+          "views": 66
+        }
+      ],
       "visual_host": "imgbb",
       "visual_kind": "readme"
     },
@@ -3661,10 +3718,10 @@
       ],
       "updated_at": "2026-11-09T17:18:47Z",
       "url": "https://github.com/milind-soni/OpenMausBot",
-      "value_score": 38.71,
-      "views": 84,
-      "views_age_hours": 31.4,
-      "views_at_24h": 75,
+      "value_score": 32.75,
+      "views": 99,
+      "views_age_hours": 75.1,
+      "views_at_24h": 64,
       "views_history": [
         {
           "at": "2026-11-09T20:23:50.165040Z",
@@ -3685,6 +3742,11 @@
           "at": "2026-11-11T00:43:00.215590Z",
           "reactions": 0,
           "views": 84
+        },
+        {
+          "at": "2026-11-12T20:23:51.962445Z",
+          "reactions": 0,
+          "views": 99
         }
       ],
       "visual_host": "imgbb",
@@ -4134,6 +4196,7 @@
       "open_issues": 11,
       "published_at": "2026-11-11T17:19:17.005938Z",
       "pushed_at": "2026-11-09T09:51:43Z",
+      "reactions": 0,
       "readme_fp": "1cf5ba3ec9f95645",
       "repo_id": 1439372976,
       "revisit_of": "",
@@ -4160,6 +4223,17 @@
       ],
       "updated_at": "2026-11-11T17:12:20Z",
       "url": "https://github.com/patch-gg/pixelfx",
+      "value_score": 42.02,
+      "views": 82,
+      "views_age_hours": 27.1,
+      "views_at_24h": 78,
+      "views_history": [
+        {
+          "at": "2026-11-12T20:23:49.892460Z",
+          "reactions": 0,
+          "views": 82
+        }
+      ],
       "visual_host": "imgbb",
       "visual_kind": "card"
     },
@@ -4587,10 +4661,10 @@
       ],
       "updated_at": "2026-11-09T12:26:16Z",
       "url": "https://github.com/storytold/lightcraft",
-      "value_score": 38.49,
-      "views": 89,
-      "views_age_hours": 36.0,
-      "views_at_24h": 75,
+      "value_score": 33.08,
+      "views": 104,
+      "views_age_hours": 79.7,
+      "views_at_24h": 65,
       "views_history": [
         {
           "at": "2026-11-09T20:23:50.600277Z",
@@ -4611,6 +4685,11 @@
           "at": "2026-11-11T00:43:00.726855Z",
           "reactions": 0,
           "views": 89
+        },
+        {
+          "at": "2026-11-12T20:23:52.306150Z",
+          "reactions": 0,
+          "views": 104
         }
       ],
       "visual_host": "imgbb",
@@ -4736,10 +4815,10 @@
       ],
       "updated_at": "2026-11-10T07:09:57Z",
       "url": "https://github.com/TabularisDB/tabularis",
-      "value_score": 42.53,
-      "views": 67,
-      "views_age_hours": 17.5,
-      "views_at_24h": 82,
+      "value_score": 35.79,
+      "views": 102,
+      "views_age_hours": 61.2,
+      "views_at_24h": 69,
       "views_history": [
         {
           "at": "2026-11-10T20:23:52.006772Z",
@@ -4750,6 +4829,11 @@
           "at": "2026-11-11T00:42:59.275365Z",
           "reactions": 0,
           "views": 67
+        },
+        {
+          "at": "2026-11-12T20:23:51.272916Z",
+          "reactions": 0,
+          "views": 102
         }
       ],
       "visual_host": "imgbb",
@@ -5144,6 +5228,7 @@
       "open_issues": 25,
       "published_at": "2026-11-12T18:14:14.820884Z",
       "pushed_at": "2026-11-12T17:40:39Z",
+      "reactions": 0,
       "readme_fp": "db980fc843d4942c",
       "repo_id": 1330417082,
       "revisit_of": "",
@@ -5178,6 +5263,17 @@
       ],
       "updated_at": "2026-11-12T18:08:30Z",
       "url": "https://github.com/WhiteTowerAI/ohmygame",
+      "value_score": 45.16,
+      "views": 23,
+      "views_age_hours": 2.2,
+      "views_at_24h": 85,
+      "views_history": [
+        {
+          "at": "2026-11-12T20:23:48.860915Z",
+          "reactions": 0,
+          "views": 23
+        }
+      ],
       "visual_host": "imgbb",
       "visual_kind": "readme"
     },
@@ -5272,6 +5368,7 @@
       "open_issues": 5,
       "published_at": "2026-11-11T07:14:04.069598Z",
       "pushed_at": "2026-11-10T16:34:38Z",
+      "reactions": 0,
       "readme_fp": "e1a08e729c2c1684",
       "repo_id": 1441521221,
       "revisit_of": "",
@@ -5304,6 +5401,17 @@
       ],
       "updated_at": "2026-11-11T05:20:16Z",
       "url": "https://github.com/wquguru/cicada",
+      "value_score": 42.61,
+      "views": 97,
+      "views_age_hours": 37.2,
+      "views_at_24h": 80,
+      "views_history": [
+        {
+          "at": "2026-11-12T20:23:50.590028Z",
+          "reactions": 0,
+          "views": 97
+        }
+      ],
       "visual_host": "imgbb",
       "visual_kind": "readme"
     }
