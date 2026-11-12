@@ -2,9 +2,9 @@
 
 Both coasts (evening Eastern + morning Pacific), fixed UTC minutes so DST
 shifts both zones together, three posts and the 03:00 Minsk day boundary kept.
-The live Cloudflare Worker is NOT redeployed in this session, so cli.main()
-must refuse the retired due-slot names instead of publishing Europe-timed
-posts a second time.
+The live Cloudflare Worker was redeployed 12.11 with the same due minutes;
+cli.main() still refuses retired slot names as a safety net against stale,
+late or accidental dispatches.
 """
 from __future__ import annotations
 

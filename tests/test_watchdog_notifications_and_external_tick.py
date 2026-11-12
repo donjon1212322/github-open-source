@@ -120,8 +120,8 @@ def test_external_tick_recipe_is_complete_and_secret_free():
     assert "SLOTS" in blob
     assert "NO retries" in blob
     # Owner 12.11: Facebook is recovered by watchdog.SLOTS, NOT by a due
-    # Worker slot (no Cloudflare token => no redeploy). Keep Make off the
-    # external clock, but document the new daily idempotency marker.
+    # Worker slot. The Worker WAS redeployed for the US slots, but Make/Sheet
+    # stays off the external clock. Document the daily idempotency marker.
     assert 'command: "facebook-handoff"' not in blob
     assert "ежедневный маркер" in blob
     # Weekly commands are now idempotent (ISO-week guard) and ARE dispatched

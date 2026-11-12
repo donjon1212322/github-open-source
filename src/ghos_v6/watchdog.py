@@ -51,8 +51,9 @@ logger = logging.getLogger(__name__)
 SLOTS: tuple[tuple[str, tuple[int, int], dict[str, str]], ...] = (
     # Owner 12.11: US-audience timing. Deadlines follow the new due minutes:
     # collect 00:23Z, evening 01:13Z, article 13:33Z, morning 16:23Z,
-    # midday 18:13Z. The live Worker is NOT redeployed; these watchdog ticks
-    # are the recovery path for the new schedule until it is.
+    # midday 18:13Z. The Worker was redeployed 12.11 with the same minutes;
+    # these deadlines remain the recovery net when a dispatch is lost to
+    # Cloudflare jitter, a runner queue or a 503.
     ("collect", (0, 30), {"command": "collect"}),
     ("publish:us_evening", (1, 30), {"command": "publish", "slot": "us_evening"}),
     ("article", (14, 0), {"command": "article"}),
@@ -60,9 +61,10 @@ SLOTS: tuple[tuple[str, tuple[int, int], dict[str, str]], ...] = (
     ("publish:us_midday", (18, 30), {"command": "publish", "slot": "us_midday"}),
     # Owner 12.11: Facebook no longer waits for the late native GitHub cron.
     # facebook_handoff_command() writes a daily marker, so this dispatch and
-    # an on-time cron cannot double a Sheet row. The live Worker is NOT
-    # redeployed (no Cloudflare token in this session): the watchdog ticks at
-    # 18:27/18:30 are the exact-minute recovery. Keep Facebook ENABLED.
+    # an on-time cron cannot double a Sheet row. The redeployed Worker
+    # deliberately has NO facebook-handoff due slot (Make/Sheet untouched),
+    # so the watchdog ticks at 18:27/18:30 are the exact-minute recovery.
+    # Keep Facebook ENABLED.
     ("facebook-handoff", (18, 30), {"command": "facebook-handoff"}),
     ("news", (20, 0), {"command": "news"}),
     # 2026-11-07: the second dev.to article. Its own marker lives in

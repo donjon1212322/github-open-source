@@ -125,12 +125,11 @@ def _parser() -> argparse.ArgumentParser:
 # native cron therefore must be IGNORED, not executed. Watchdog remains the
 # recovery net for a genuinely missed slot.
 SCHEDULE_TOLERANCE_MINUTES = 15.0
-# Owner 12.11: the three project slots are now aimed at the US audience.
-# The live Cloudflare Worker still has the OLD 07:13/12:43/17:18Z due slots
-# and cannot be redeployed here (no API token). Those stale dispatches arrive
-# as workflow_dispatch with legacy slot names; cli.main() refuses anything
-# outside this set so they can never publish a Europe-timed post again.
-# Native crons and watchdog dispatches use the new names below.
+# Owner 12.11: the three project slots are aimed at the US audience and the
+# live Worker was redeployed the same day with the same due minutes. Refuse
+# every other slot name anyway: a stale queued dispatch, a late duplicate or
+# a typo must never publish a Europe-timed post again. Native crons and
+# watchdog dispatches use the new names below; "manual" stays exempt.
 PUBLISH_SLOTS = frozenset({"us_evening", "us_morning", "us_midday"})
 LATE_SCHEDULE_EXEMPT = frozenset({
     # Thursday close+learn: both commands are ISO-week idempotent, so a late
