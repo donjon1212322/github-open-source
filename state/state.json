@@ -269,7 +269,10 @@
     "telegram_update_offset": 165231082,
     "watchdog_caps": {
       "2026-11-12": {
-        "notified": false
+        "notified": true,
+        "slots": [
+          "poll-close"
+        ]
       }
     },
     "watchdog_dispatches": {
@@ -292,6 +295,14 @@
       "2026-11-12:news": {
         "at": "2026-11-12T20:30:50.202100Z",
         "attempts": 2,
+        "detail": "HTTP 204",
+        "dispatched": true,
+        "verified": true,
+        "verified_at": "2026-11-12T21:00:51.366942Z"
+      },
+      "2026-11-12:news-article": {
+        "at": "2026-11-12T21:00:51.366942Z",
+        "attempts": 1,
         "detail": "HTTP 204",
         "dispatched": true,
         "verified": false

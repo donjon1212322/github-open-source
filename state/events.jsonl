@@ -302,3 +302,6 @@
 {"title": "Gemini 4 Hydrogen, Gemini Decision 1, and GPT-6 Cyber Drop New Capabilities for Developers", "ts": "2026-11-12T20:32:33.232139Z", "type": "news_article_generated", "words": 1221}
 {"Gemini_video_input": false, "models": 4, "official_url": "", "stories": 4, "topic": "model-releases-and-tools", "ts": "2026-11-12T20:32:35.205924Z", "type": "ai_brief_published", "video_id": "tg-20261112-0c9368efb7"}
 {"minutes_late": 446.6, "schedule": "33 13 * * *", "ts": "2026-11-12T20:59:38.596089Z", "type": "late_schedule_ignored"}
+{"slot": "news", "ts": "2026-11-12T21:00:51.367042Z", "type": "watchdog_verified"}
+{"attempts": 1, "detail": "HTTP 204", "slot": "news-article", "ts": "2026-11-12T21:00:52.881922Z", "type": "watchdog_recovered", "verified": false}
+{"max_attempts": 3, "max_daily": 24, "scope": "slot", "slot": "poll-close", "ts": "2026-11-12T21:00:52.882241Z", "type": "watchdog_dispatch_capped"}
