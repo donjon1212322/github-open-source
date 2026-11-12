@@ -290,3 +290,4 @@
 {"range": "facebook!A11:E11", "rows": 1, "ts": "2026-11-12T18:31:13.625204Z", "type": "facebook_handoff_queued"}
 {"slot": "facebook-handoff", "ts": "2026-11-12T18:38:37.377307Z", "type": "watchdog_verified"}
 {"deleted": 0, "ts": "2026-11-12T18:47:48.035664Z", "type": "moderation_completed", "updates": 0}
+{"attempts": 1, "detail": "HTTP 204", "slot": "poll-close", "ts": "2026-11-12T19:00:50.975229Z", "type": "watchdog_recovered", "verified": false}
