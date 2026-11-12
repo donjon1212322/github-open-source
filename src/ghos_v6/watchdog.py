@@ -29,7 +29,7 @@ Owner decisions (2026-11-06):
 - Publish slots are idempotent. ``publish_slot()`` refuses a second run of a
   slot already finished this UTC day (a late GitHub cron) and records
   ``daily_limit_reached`` as a finished slot, so the watchdog never retries a
-  quota-closed ``publish:us_peak`` through the night.
+  quota-closed ``publish:us_midday`` through the night.
 """
 from __future__ import annotations
 
@@ -49,11 +49,15 @@ logger = logging.getLogger(__name__)
 
 # key -> (UTC deadline hour, minute) -> workflow_dispatch inputs
 SLOTS: tuple[tuple[str, tuple[int, int], dict[str, str]], ...] = (
-    ("collect", (5, 30), {"command": "collect"}),
-    ("publish:europe_morning", (8, 30), {"command": "publish", "slot": "europe_morning"}),
-    ("publish:europe_midday", (13, 30), {"command": "publish", "slot": "europe_midday"}),
+    # Owner 12.11: US-audience timing. Deadlines follow the new due minutes:
+    # collect 00:23Z, evening 01:13Z, article 13:33Z, morning 16:23Z,
+    # midday 18:13Z. The live Worker is NOT redeployed; these watchdog ticks
+    # are the recovery path for the new schedule until it is.
+    ("collect", (0, 30), {"command": "collect"}),
+    ("publish:us_evening", (1, 30), {"command": "publish", "slot": "us_evening"}),
     ("article", (14, 0), {"command": "article"}),
-    ("publish:us_peak", (18, 0), {"command": "publish", "slot": "us_peak"}),
+    ("publish:us_morning", (16, 30), {"command": "publish", "slot": "us_morning"}),
+    ("publish:us_midday", (18, 30), {"command": "publish", "slot": "us_midday"}),
     # Owner 12.11: Facebook no longer waits for the late native GitHub cron.
     # facebook_handoff_command() writes a daily marker, so this dispatch and
     # an on-time cron cannot double a Sheet row. The live Worker is NOT

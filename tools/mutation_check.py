@@ -56,7 +56,7 @@ MUTATIONS: list[tuple[str, str, str, str]] = [
      "square cards, explicitly rejected by the owner"),
     ("src/ghos_v6/telegram_payload.py", '"prefer_large_media": True',
      '"prefer_large_media": False', "large preview above the text disabled"),
-    (".github/workflows/pipeline.yml", 'cron: "13 7 * * *"', 'cron: "11 7 * * *"',
+    (".github/workflows/pipeline.yml", 'cron: "13 1 * * *"', 'cron: "11 1 * * *"',
      "a scheduled slot drifts away from its route"),
     (".env.example", "FEATURE_TELEGRAPH=true", "FEATURE_TELEGRAPH=false",
      "documented default contradicts the owner rule"),

@@ -2,13 +2,12 @@
 
 Two owner-reported inconsistencies:
 
-1. GitHub delivered the 10:13 Minsk ``europe_morning`` cron at 18:04, hours
+1. GitHub delivered the old 10:13 Minsk morning cron at 18:04, hours
    after the watchdog had already recovered that slot. The late cron published
-   a second project and consumed the quota reserved for ``us_peak``.
+   a second project and consumed the quota reserved for the last slot.
 2. ``daily_limit_reached`` was an honest refusal but never wrote
-   ``last_runs.publish:<slot>``, so the watchdog kept treating
-   ``publish:us_peak`` as missed and would have escalated to warnings every
-   30 minutes until 03:00 Minsk.
+   ``last_runs.publish:<slot>``, so the watchdog kept treating the last slot
+   as missed and would have escalated to warnings every 30 minutes.
 
 Owner decision: slots are idempotent, and a quota-closed slot is a finished
 slot. Manual dispatches stay exempt from the idempotency guard.
@@ -52,11 +51,11 @@ def _forbid_network(monkeypatch) -> None:
 def test_late_cron_cannot_repeat_a_recovered_slot(monkeypatch, tmp_path):
     _forbid_network(monkeypatch)
     store = _store(tmp_path, count=1)
-    store.data["last_runs"]["publish:europe_morning"] = {
+    store.data["last_runs"]["publish:us_evening"] = {
         "finished_at": f"{DAY}T11:14:35Z", "repo": "owner/repo0",
     }
 
-    result = pipeline.publish_slot(_config(), store, "europe_morning")
+    result = pipeline.publish_slot(_config(), store, "us_evening")
 
     assert result["reason"] == "slot_already_done"
     assert result["published"] is False
@@ -70,11 +69,11 @@ def test_late_cron_cannot_repeat_a_recovered_slot(monkeypatch, tmp_path):
 def test_yesterdays_marker_does_not_block_todays_slot(monkeypatch, tmp_path):
     _forbid_network(monkeypatch)
     store = _store(tmp_path, count=3)
-    store.data["last_runs"]["publish:europe_morning"] = {
+    store.data["last_runs"]["publish:us_evening"] = {
         "finished_at": "2026-11-05T07:13:00Z", "repo": "owner/old",
     }
 
-    result = pipeline.publish_slot(_config(), store, "europe_morning")
+    result = pipeline.publish_slot(_config(), store, "us_evening")
 
     assert result["reason"] == "daily_limit_reached", "a fresh UTC day is not blocked"
 
@@ -83,11 +82,11 @@ def test_daily_limit_records_a_finished_slot(monkeypatch, tmp_path):
     _forbid_network(monkeypatch)
     store = _store(tmp_path, count=3)
 
-    result = pipeline.publish_slot(_config(), store, "us_peak")
+    result = pipeline.publish_slot(_config(), store, "us_midday")
 
     assert result["reason"] == "daily_limit_reached"
     assert result["published_today"] == 3
-    slot = store.data["last_runs"]["publish:us_peak"]
+    slot = store.data["last_runs"]["publish:us_midday"]
     assert slot["finished_at"].startswith(DAY)
     assert slot["reason"] == "daily_limit_reached"
     assert slot["published"] is False
@@ -97,7 +96,7 @@ def test_daily_limit_records_a_finished_slot(monkeypatch, tmp_path):
 def test_manual_dispatch_is_exempt_from_the_slot_guard(monkeypatch, tmp_path):
     _forbid_network(monkeypatch)
     store = _store(tmp_path, count=3)
-    store.data["last_runs"]["publish:europe_morning"] = {
+    store.data["last_runs"]["publish:us_evening"] = {
         "finished_at": f"{DAY}T11:14:35Z", "repo": "owner/repo0",
     }
 
@@ -126,38 +125,38 @@ def test_watchdog_does_not_retry_a_quota_closed_slot(monkeypatch, tmp_path):
     store.data["news_topics"] = [{"published_at": f"{DAY}T00:19:57Z"}]
     store.data["last_runs"].update({
         "collect": {"finished_at": f"{DAY}T05:30:00Z"},
-        "publish:europe_morning": {"finished_at": f"{DAY}T11:14:35Z"},
-        "publish:europe_midday": {"finished_at": f"{DAY}T13:31:27Z"},
+        "publish:us_evening": {"finished_at": f"{DAY}T11:14:35Z"},
+        "publish:us_morning": {"finished_at": f"{DAY}T13:31:27Z"},
         "article": {"finished_at": f"{DAY}T16:34:34Z"},
-        "publish:us_peak": {"finished_at": f"{DAY}T15:04:45Z",
+        "publish:us_midday": {"finished_at": f"{DAY}T15:04:45Z",
                             "reason": "daily_limit_reached", "published": False},
     })
 
-    # 21:30 Minsk = 18:30 UTC: us_peak is past its deadline.
+    # 18:30 UTC: the last US-audience slot is past its deadline.
     result = watchdog.watchdog_command(
         Config(), store, now=datetime.fromisoformat(f"{DAY}T18:30:00+00:00"))
 
-    assert "publish:us_peak" not in result["missed"]
+    assert "publish:us_midday" not in result["missed"]
     # Weekly recovery is allowed (guarded commands); the point is that
     # NO publish slot is retried after the daily quota closed.
     assert not [k for k in result["dispatched"] if k.startswith("publish:")]
-    assert not any("us_peak" in str(c) for c in calls), "no blind retries after an honest quota refusal"
-    assert not any("us_peak" in a for a in alerts)
+    assert not any("us_midday" in str(c) for c in calls), "no blind retries after an honest quota refusal"
+    assert not any("us_midday" in a for a in alerts)
 
 
-def test_watchdog_still_detects_a_genuinely_missed_us_peak(monkeypatch, tmp_path):
+def test_watchdog_still_detects_a_genuinely_missed_last_slot(monkeypatch, tmp_path):
     calls, _ = _wire(monkeypatch)
     store = _store(tmp_path, count=3)
     store.data["news_topics"] = [{"published_at": f"{DAY}T00:19:57Z"}]
     store.data["last_runs"].update({
         "collect": {"finished_at": f"{DAY}T05:30:00Z"},
-        "publish:europe_morning": {"finished_at": f"{DAY}T11:14:35Z"},
-        "publish:europe_midday": {"finished_at": f"{DAY}T13:31:27Z"},
+        "publish:us_evening": {"finished_at": f"{DAY}T11:14:35Z"},
+        "publish:us_morning": {"finished_at": f"{DAY}T13:31:27Z"},
         "article": {"finished_at": f"{DAY}T16:34:34Z"},
     })
 
     result = watchdog.watchdog_command(
         Config(), store, now=datetime.fromisoformat(f"{DAY}T18:30:00+00:00"))
 
-    assert "publish:us_peak" in result["missed"]
+    assert "publish:us_midday" in result["missed"]
     assert "publish" in calls

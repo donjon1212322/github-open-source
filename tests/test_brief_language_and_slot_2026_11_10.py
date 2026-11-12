@@ -1,8 +1,9 @@
 """Owner 10.11: post 3581 went out at 02:11 UTC (05:11 Minsk) instead of the
 planned 19:18 UTC slot, and printed a raw Russian channel line next to its
 English twin. These regressions lock in the language filter and the schedule
-guard. The cron string, cadence and UTC-day boundary are deliberately NOT
-changed: an early run simply refuses to publish.
+guard. This 10.11 fix deliberately left cadence and the UTC-day boundary
+alone: an early run simply refuses to publish. The 12.11 US-audience
+retiming is a separate, later decision.
 """
 from __future__ import annotations
 

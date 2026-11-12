@@ -46,12 +46,14 @@ on:
         type: string
         default: ""
   schedule:
-    # Three posts a day (owner decision, 2026-11-01).
-    # Off-minute crons: GitHub delays/drops schedules at :00/:15/:30/:45.
-    - cron: "23 4 * * *"     # collect
-    - cron: "13 7 * * *"     # publish · Europe morning
-    - cron: "43 12 * * *"    # publish · Europe midday
-    - cron: "18 17 * * *"    # publish · US peak
+    # Three posts a day (owner decision, 2026-11-01), retimed 12.11 for the
+    # US audience: evening Eastern + morning Pacific. Fixed UTC minutes keep
+    # both coasts inside their target windows in winter AND summer (DST shifts
+    # both zones together by one hour). Off-minute crons avoid GitHub :00/:15/:30/:45.
+    - cron: "23 0 * * *"     # collect, before the US-evening post
+    - cron: "13 1 * * *"     # publish · US evening ET / late afternoon PT
+    - cron: "23 16 * * *"    # publish · US morning PT / late morning ET
+    - cron: "13 18 * * *"    # publish · US midday (after both coasts wake up)
     # Weekly cycle: digest + poll on Sunday, close + learn on Thursday.
     - cron: "13 16 * * 0"    # Sunday digest + week poll
     - cron: "53 18 * * 4"    # close poll, update value model (after crossposts/handoff)

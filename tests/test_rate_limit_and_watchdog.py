@@ -87,8 +87,8 @@ def test_watchdog_is_idempotent_and_alerts_on_missed_slots(monkeypatch, tmp_path
     first = watchdog_command(Config(), store, now=now)
     second = watchdog_command(Config(), store, now=now)
     # 05.11 is Thursday, so the guarded weekly poll-close is also recovered.
-    assert first["missed"] == ["collect", "publish:europe_morning",
-                               "publish:europe_midday", "publish:us_peak",
+    assert first["missed"] == ["collect", "publish:us_evening",
+                               "publish:us_morning", "publish:us_midday",
                                "facebook-handoff", "news", "metrics", "poll-close"]
     assert len(calls) == 8       # article needs a project; news-article waits for a brief
     assert second["dispatched"] == [] and second["failed"] == []
@@ -148,7 +148,7 @@ def test_state_confirmation_marks_the_slot_verified(monkeypatch, tmp_path):
     store.data["published"]["owner/repo"]["articles"] = {
         "devto": {"published_at": "2026-11-05T14:45:00Z"}
     }
-    for key in ("collect", "publish:europe_morning", "publish:europe_midday"):
+    for key in ("collect", "publish:us_evening", "publish:us_morning"):
         store.data["last_runs"][key] = {"finished_at": "2026-11-05T14:40:00Z"}
 
     second = watchdog_command(Config(), store, now=datetime(2026, 11, 5, 15, 1, tzinfo=timezone.utc))
@@ -183,14 +183,14 @@ def test_stale_markers_are_cleaned_and_persisted(monkeypatch, tmp_path):
     _wire(monkeypatch)
     store = StateStore(tmp_path)
     store.data["last_runs"] = {"watchdog_dispatches": {
-        "2026-11-05:publish:europe_midday": {
+        "2026-11-05:publish:us_morning": {
             "at": "2026-11-05T23:44:21Z", "ok": True,
         }
     }}
     store.save()
     watchdog_command(Config(), store, now=datetime(2026, 11, 6, 2, 37, tzinfo=timezone.utc))
     reread = StateStore(tmp_path).data["last_runs"]["watchdog_dispatches"]
-    assert "2026-11-05:publish:europe_midday" not in reread
+    assert "2026-11-05:publish:us_morning" not in reread
 
 
 def test_concurrency_keeps_pending_runs_instead_of_evicting_them():

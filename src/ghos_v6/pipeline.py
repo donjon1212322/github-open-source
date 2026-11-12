@@ -350,8 +350,8 @@ def _publish_slot_done_today(store: StateStore, slot: str) -> bool:
     """A late GitHub cron must not repeat a slot the watchdog already recovered.
 
     Owner decision (2026-11-06): the 10:13 Minsk cron arrived at 18:04 and
-    published a second project under ``europe_morning``, consuming the
-    three-a-day quota that belonged to ``us_peak``. Manual dispatches stay
+    published a second project under the morning slot, consuming the
+    three-a-day quota that belonged to the last slot. Manual dispatches stay
     exempt: they are explicit operator commands, not a scheduler retry.
     """
     if slot == "manual":
@@ -366,7 +366,7 @@ def _finish_publish_slot(store: StateStore, slot: str, result: dict[str, Any]) -
 
     ``daily_limit_reached`` is a completed slot: nothing is left to publish in
     these UTC days. Without this marker the watchdog treated
-    ``publish:us_peak`` as missed and escalated to a warning every 30 minutes.
+    ``publish:us_midday`` as missed and escalated to a warning every 30 minutes.
     """
     store.data.setdefault("last_runs", {})[_publish_slot_key(slot)] = {
         "finished_at": iso_now(),
@@ -382,8 +382,9 @@ def _crosspost_due(now: datetime | None = None) -> datetime:
     """Crossposts wait until the day's last project slot.
 
     A crosspost sent 30 minutes after the morning post would crown the
-    morning post before the midday/evening projects exist. 18:00 UTC is after
-    the 17:15 slot, so the winner is chosen from the whole day.
+    morning post before the later projects exist. 18:00 UTC is a floor; the
+    18:17Z crosspost lands after the 18:13Z last slot, so the winner is
+    chosen from the whole day.
     """
     now = now or datetime.now(timezone.utc)
     due = now + timedelta(minutes=30)

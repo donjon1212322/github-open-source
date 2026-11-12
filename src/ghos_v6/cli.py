@@ -125,6 +125,13 @@ def _parser() -> argparse.ArgumentParser:
 # native cron therefore must be IGNORED, not executed. Watchdog remains the
 # recovery net for a genuinely missed slot.
 SCHEDULE_TOLERANCE_MINUTES = 15.0
+# Owner 12.11: the three project slots are now aimed at the US audience.
+# The live Cloudflare Worker still has the OLD 07:13/12:43/17:18Z due slots
+# and cannot be redeployed here (no API token). Those stale dispatches arrive
+# as workflow_dispatch with legacy slot names; cli.main() refuses anything
+# outside this set so they can never publish a Europe-timed post again.
+# Native crons and watchdog dispatches use the new names below.
+PUBLISH_SLOTS = frozenset({"us_evening", "us_morning", "us_midday"})
 LATE_SCHEDULE_EXEMPT = frozenset({
     # Thursday close+learn: both commands are ISO-week idempotent, so a late
     # run is a no-op, not a duplicate post/article.
@@ -308,11 +315,13 @@ def _run_scheduled(config: Config, store: StateStore, schedule: str, *,
         if late is not None and late > SCHEDULE_TOLERANCE_MINUTES:
             return _note_late_schedule(config, store, normalized, late, moment)
     routes: dict[str, Any] = {
-        "23 4 * * *": lambda: collect_command(config, store, extra_pages=[1, 2]),
-        # Three posts a day (owner decision): morning EU, evening EU, US peak.
-        "13 7 * * *": lambda: publish_slot(config, store, "europe_morning"),
-        "43 12 * * *": lambda: publish_slot(config, store, "europe_midday"),
-        "18 17 * * *": lambda: publish_slot(config, store, "us_peak"),
+        "23 0 * * *": lambda: collect_command(config, store, extra_pages=[1, 2]),
+        # Owner 12.11: three posts for the US audience, fixed UTC minutes.
+        # 01:13Z = 20:13 EST / 17:13 PST (evening ET); 16:23Z = 11:23 EST /
+        # 08:23 PST (morning PT); 18:13Z = 13:13 EST / 10:13 PST (midday).
+        "13 1 * * *": lambda: publish_slot(config, store, "us_evening"),
+        "23 16 * * *": lambda: publish_slot(config, store, "us_morning"),
+        "13 18 * * *": lambda: publish_slot(config, store, "us_midday"),
         "17 0,18,19,20,21,22,23 * * *": lambda: process_crossposts(config, store),
         "33 13 * * *": lambda: article_of_day(config, store),
         # Daily since 2026-11-02: the video brief is a format with its own
@@ -372,7 +381,18 @@ def main(argv: list[str] | None = None) -> int:
         if args.command == "collect":
             result = collect_command(config, store, extra_pages=args.pages)
         elif args.command == "publish":
-            result = publish_slot(config, store, args.slot)
+            slot = str(args.slot)
+            if slot not in PUBLISH_SLOTS and slot != "manual":
+                # 12.11: the undeployed Worker still sends the retired
+                # europe_* / us_peak slot names. Refuse them instead of
+                # letting a stale dispatch publish at the old Europe time.
+                result = {"ok": True, "published": False,
+                          "reason": "unknown_slot", "slot": slot}
+                if store is not None:
+                    store.event("publish_skipped", slot=slot, reason="unknown_slot")
+                    store.save()
+            else:
+                result = publish_slot(config, store, slot)
         elif args.command == "crossposts":
             result = process_crossposts(config, store)
         elif args.command == "article":

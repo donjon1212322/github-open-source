@@ -19,11 +19,13 @@
 // UTC "HH:MM" -> workflow_dispatch inputs. Keep in sync with pipeline.yml.
 // Third element is an optional UTC day-of-week (0 = Sunday).
 const SLOTS = [
-  ["04:23", { command: "collect" }],
-  ["07:13", { command: "publish", slot: "europe_morning" }],
-  ["12:43", { command: "publish", slot: "europe_midday" }],
+  // Owner 12.11: US audience. Fixed UTC minutes keep evening ET and
+  // morning PT inside their windows in both winter and summer time.
+  ["00:23", { command: "collect" }],
+  ["01:13", { command: "publish", slot: "us_evening" }],   // 20:13 EST / 17:13 PST
   ["13:33", { command: "article" }],
-  ["17:18", { command: "publish", slot: "us_peak" }],
+  ["16:23", { command: "publish", slot: "us_morning" }],   // 11:23 EST / 08:23 PST
+  ["18:13", { command: "publish", slot: "us_midday" }],    // 13:13 EST / 10:13 PST
   ["19:18", { command: "news" }],
   ["19:53", { command: "news-article" }],
   ["20:23", { command: "metrics" }],

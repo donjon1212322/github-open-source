@@ -48,9 +48,9 @@ def test_late_minutes_match_the_real_incident():
     # A one-minute jitter is still on time.
     assert cli._late_schedule_minutes(
         "18 19 * * *", datetime(2026, 11, 10, 19, 19, tzinfo=UTC)) == 1.0
-    # 17:18 us_peak arrived at 00:44 the next day: 7 h 26 m late.
+    # 18:13Z midday slot, late-cron shape: still parseable.
     assert cli._late_schedule_minutes(
-        "18 17 * * *", datetime(2026, 11, 10, 0, 44, tzinfo=UTC)) is not None
+        "13 18 * * *", datetime(2026, 11, 10, 0, 44, tzinfo=UTC)) is not None
     # Moderation every three hours uses "*/3".
     assert cli._late_schedule_minutes(
         "47 */3 * * *", datetime(2026, 11, 11, 3, 48, tzinfo=UTC)) == 1.0
@@ -79,7 +79,7 @@ def test_late_duplicate_cron_is_ignored_without_publishing(monkeypatch, tmp_path
     events = store.events_path.read_text(encoding="utf-8")
     assert "late_schedule_ignored" in events
     # Only ONE owner message per UTC day, even with a cascade of late crons.
-    cli._run_scheduled(Config(), store, "43 12 * * *",
+    cli._run_scheduled(Config(), store, "23 16 * * *",
                        now=moment + timedelta(minutes=3), enforce_window=True)
     assert len(alerts) == 1
     assert store.data["schedule_health"]["2026-11-10"]["late_ignored"] == 2
@@ -99,7 +99,7 @@ def test_on_time_cron_still_runs_its_command(monkeypatch, tmp_path):
 def test_guard_is_enabled_by_the_workflow_event_name(monkeypatch, tmp_path):
     monkeypatch.setenv("EVENT_NAME", "schedule")
     monkeypatch.setattr(cli, "alert_owner", lambda *a, **k: None)
-    result = cli._run_scheduled(Config(), StateStore(tmp_path), "43 12 * * *",
+    result = cli._run_scheduled(Config(), StateStore(tmp_path), "23 16 * * *",
                                 now=datetime(2026, 11, 10, 19, 59, tzinfo=UTC))
     assert result["reason"] == "late_schedule_ignored"
 

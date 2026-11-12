@@ -44,7 +44,7 @@ def test_three_posts_per_day_is_pinned_in_code_docs_and_schedule():
     assert "3 поста в день" in OWNER_RULES
     slots = _publish_crons_and_slots()
     assert len(slots) == 3, "exactly three project slots may exist"
-    assert sorted(slots.values()) == ["europe_midday", "europe_morning", "us_peak"]
+    assert sorted(slots.values()) == ["us_evening", "us_midday", "us_morning"]
     workflow = (REPO / ".github" / "workflows" / "pipeline.yml").read_text(encoding="utf-8")
     for cron in slots:
         assert f'cron: "{cron}"' in workflow
