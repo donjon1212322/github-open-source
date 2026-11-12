@@ -281,3 +281,5 @@
 {"deleted": 0, "ts": "2026-11-12T12:47:57.501063Z", "type": "moderation_completed", "updates": 0}
 {"platform": "devto", "repo": "louis-cfm/coucou", "ts": "2026-11-12T13:33:54.570779Z", "type": "article_published", "url": "https://dev.to/githubopensource/mac-notch-ai-assistant-manager-coucou-1mhg"}
 {"deleted": 0, "ts": "2026-11-12T15:47:48.997150Z", "type": "moderation_completed", "updates": 0}
+{"preview_host": "imgbb", "repo": "anefzaoui/misterdownloadmanager", "ts": "2026-11-12T16:24:59.872076Z", "type": "published_as_text"}
+{"repo": "anefzaoui/misterdownloadmanager", "score": 95.208, "telegram_message_id": 3589, "telegraph_url": "https://telegra.ph/Managing-Downloads-with-Mister-Download-Manager-11-12", "ts": "2026-11-12T16:24:59.872309Z", "type": "project_published"}

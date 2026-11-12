@@ -118,17 +118,17 @@
   },
   "dead_letters": [],
   "gemini_daily": {
-    "day": "2026-11-11",
-    "units": 33
+    "day": "2026-11-12",
+    "units": 6
   },
   "gemini_window": [
     [
-      1794454275.8319685,
-      3985
+      1794500629.3538373,
+      4005
     ],
     [
-      1794454287.128425,
-      1375
+      1794500663.0945425,
+      1372
     ]
   ],
   "last_runs": {
@@ -208,6 +208,11 @@
       "finished_at": "2026-11-12T03:31:32.749702Z",
       "repo": "louis-cfm/coucou",
       "telegram_message_id": 3588
+    },
+    "publish:us_morning": {
+      "finished_at": "2026-11-12T16:24:59.872354Z",
+      "repo": "anefzaoui/misterdownloadmanager",
+      "telegram_message_id": 3589
     },
     "publish:us_peak": {
       "finished_at": "2026-11-11T17:19:17.006267Z",
@@ -911,6 +916,131 @@
   ],
   "publish_failures": {},
   "published": {
+    "anefzaoui/misterdownloadmanager": {
+      "articles": {},
+      "card_style": "",
+      "category": "DevTools",
+      "contributors_count": 20,
+      "created_at": "2026-10-29T01:25:19Z",
+      "crossposts": {
+        "bluesky": {
+          "attempts": 0,
+          "due_at": "2026-11-12T18:00:00+00:00",
+          "status": "pending"
+        }
+      },
+      "description": "misterdownloadmanager: The ultimate open-source, clean-room download manager written from scratch in pure Rust for Windows, Mac, and Linux",
+      "description_fp": "5d63cf2a38a51b43",
+      "forks": 613,
+      "full_name": "anefzaoui/misterdownloadmanager",
+      "generated": {
+        "article_markdown": "## What it is\n\nMister Download Manager (MDM) is a clean-room, open-source download manager written entirely in Rust. If you have spent years relying on legacy tools like IDM, you know the drill: they are often paid, proprietary, and filled with nag screens. MDM aims to replicate that familiar interface—the toolbar, the categories, the progress windows—but rebuilds it from the ground up using the egui framework for a native, performant experience across Windows, macOS, and Linux.\n\n## Why it matters\n\nMost download managers today are stuck in a cycle of bloatware. They often require licenses, force you into trials, or clutter your system with unnecessary telemetry. MDM shifts the paradigm by offering a lightweight, open-source alternative that doesn't sacrifice speed. Because it is written in Rust, it manages resources efficiently, which is particularly noticeable when handling multiple concurrent downloads or large files. It treats torrents and magnet links as first-class citizens, meaning you don't need a separate client for those tasks.\n\n## Key features\n\n- **Rust-native architecture:** Built for memory safety and high-speed throughput.\n- **Universal support:** Handles standard HTTP/HTTPS downloads, magnet links, and .torrent files.\n- **Browser integration:** Includes extensions for Firefox, Chrome, Edge, and Brave to intercept downloads automatically.\n- **Cross-platform:** Works natively on Windows, macOS, and Linux (including support for X11 and Wayland sessions).\n- **No-bloat design:** No ads, no trials, and no sign-up requirements.\n\n## Quick start\n\nIf you are on Windows, you can install it using the Windows Package Manager (winget). Open your terminal and run:\n\n```bash\nwinget install AhmedNefzaoui.MisterDownloadManager\n```\n\nFor other platforms, you can download the latest binaries directly from the GitHub releases page. Linux users can choose between .deb, .rpm, or AppImage formats depending on their distribution.\n\n## Who should try it\n\nThis tool is for anyone who frequently manages large downloads and is tired of the 'nagware' model of traditional download managers. If you are a developer who appreciates open-source software and wants a tool that respects your system resources, MDM is a great fit. It is also ideal for users who want to consolidate their HTTP and torrent downloading into a single, unified interface.\n\n## Verdict\n\nMDM is a refreshing take on a utility category that has been stagnant for years. It doesn't try to reinvent the wheel; it simply makes the wheel faster, free, and open-source. While it is still a relatively young project, it is stable enough for daily use and provides a clean, performant experience that makes proprietary alternatives feel obsolete. If you are looking for a reliable, no-nonsense downloader, this is the one to grab.",
+        "article_title": "Managing Downloads with Mister Download Manager",
+        "card_hook": "A faster, open-source alternative to IDM",
+        "card_subline": "A cross-platform download manager written in Rust that handles torrents and browser integration without the bloat",
+        "category": "DevTools",
+        "discussion_question": "Do you still use a dedicated download manager, or do you just rely on your browser's built-in downloader?",
+        "hook": "Download files faster than IDM with this open-source Rust tool that works on Windows, Mac, and Linux.",
+        "key_features": [
+          "Written in Rust for memory safety and performance",
+          "Supports magnet links and .torrent files alongside standard HTTP downloads",
+          "Provides browser extensions for Firefox, Chrome, Edge, and Brave",
+          "Ships as a single binary with no external dependencies",
+          "Includes native support for Windows, macOS, and Linux (X11/Wayland)"
+        ],
+        "llm_used": true,
+        "quick_start": "winget install AhmedNefzaoui.MisterDownloadManager",
+        "safety": "ok",
+        "safety_reason": "This is a standard open-source download manager utility.",
+        "scene": "You click a download link in your browser, and instead of the file starting, you are hit with a 'buy now' nag screen or a slow, bloated proprietary manager that feels like it is from 2005.",
+        "social_text": "Stop paying for download managers. Mister Download Manager is a fast, open-source, Rust-based alternative that handles torrents and standard downloads without the ads or bloat.",
+        "summary": "Built from scratch in Rust using the egui framework, this manager optimizes connection streams to accelerate file transfers. It integrates directly into browsers to intercept download requests, replacing proprietary managers with a native, cross-platform binary that handles standard HTTP downloads, magnet links, and torrent files.",
+        "surfaces": {
+          "Facebook_body": "If you are tired of download managers that feel like they are slowing down your computer with ads and unnecessary features, there is a better way. A new, open-source tool allows you to manage your downloads efficiently without the bloat found in most commercial software.\n\nThis application is built to be fast and lightweight. It sits quietly in the background, intercepting your download requests from your web browser and handling them directly. Whether you are grabbing a standard file from a website or using a magnet link, this tool manages the connection streams to ensure you get your files as quickly as possible.\n\nIt works seamlessly on Windows, Mac, and Linux, meaning you can have the same consistent experience regardless of which computer you use. Because it is built with a focus on simplicity, it does not come with trial periods, pop-ups, or invasive tracking. It is a straightforward utility designed for anyone who wants a reliable, no-nonsense way to organize and speed up their file transfers.",
+          "Facebook_headline": "A faster, cleaner way to download files",
+          "Facebook_lead": "Stop using bloated software to manage your downloads. This free, open-source tool handles everything from standard files to torrents without the ads or extra junk.",
+          "bluesky_headline": "Download files faster with this open-source tool",
+          "bluesky_lead": "It replaces cluttered, ad-filled download managers with a fast, native application for Windows, Mac, and Linux.",
+          "devto_body": "## What it is\n\nMisterDownloadManager is a high-performance download manager written in Rust. It is designed to replace proprietary, ad-heavy download managers with a clean, memory-safe, and cross-platform alternative. It supports standard HTTP downloads, magnet links, and torrent files, acting as a native handler for your browser's download requests.\n\n## How it works\n\nThe tool is built using the egui framework for the interface and leverages Rust's concurrency model to optimize connection streams. By intercepting browser download requests, it manages the transfer process independently of the browser's built-in downloader, which often lacks advanced queuing and acceleration features.\n\n## Key features\n\n- **Performance:** Written in Rust, ensuring low memory footprint and high efficiency.\n- **Universal Support:** Handles HTTP, magnet links, and torrent files in one interface.\n- **Browser Integration:** Includes extensions for Firefox, Chrome, Edge, and Brave to intercept downloads automatically.\n- **Portability:** Ships as a single binary with no external dependencies or runtime requirements.\n- **Cross-Platform:** Native support for Windows, macOS, and Linux (X11/Wayland).\n\n## Getting started\n\nBecause it is a single binary, installation is straightforward. You can download the latest release for your operating system directly from the GitHub repository. Once installed, ensure you add the browser extension to your preferred web browser to enable automatic interception of download links.\n\n```bash\n# Example for Linux users\nchmod +x misterdownloadmanager\n./misterdownloadmanager\n```\n\n## When not to use it\n\nWhile highly efficient, this tool is currently in active development. If you require advanced enterprise features like complex scheduling, cloud storage integration, or deep protocol support beyond standard torrents and HTTP, you might find the current feature set too minimal. It is best suited for users who prioritize speed, privacy, and a clean interface over complex configuration options.",
+          "seo_description": "A lightweight, open-source download manager written in Rust. Speed up your file transfers on Windows, Mac, and Linux without ads or bloatware.",
+          "seo_query": "open source download manager for windows mac linux",
+          "seo_title": "Fast Open Source Download Manager - Rust Alternative",
+          "telegraph_angle": "Focus on the shift away from ad-supported proprietary software toward lightweight, memory-safe Rust utilities for everyday file management."
+        },
+        "tension": "These tools often waste system resources, force you into paid subscriptions, or simply fail to handle modern connection speeds, leaving you waiting for files that should have finished seconds ago.",
+        "turn": "This project provides a clean-room implementation that matches the familiar workflow of legacy managers but strips away the bloat, ads, and licensing fees, all while leveraging Rust for better throughput.",
+        "verdict": "A solid, no-nonsense utility for anyone tired of proprietary bloatware; if you need a reliable, open-source downloader that just works, this is the one to grab.",
+        "who_for": "Developers and power users who want a lightweight, open-source download manager.",
+        "why_now": "The ecosystem of proprietary download managers is increasingly cluttered with ads and trial-ware, making a performant, open-source alternative in Rust a welcome shift."
+      },
+      "homepage": "https://misterdownloadmanager.com",
+      "id": 1437814166,
+      "image_url": "https://i.ibb.co/wFPr5vZf/anefzaoui-misterdownloadmanager-readme-preview-5a37311013aa.jpg",
+      "is_dual_use": false,
+      "is_hidden_gem": false,
+      "language": "Rust",
+      "license": {
+        "key": "gpl-3.0",
+        "name": "GNU General Public License v3.0",
+        "node_id": "MDc6TGljZW5zZTk=",
+        "spdx_id": "GPL-3.0",
+        "url": "https://api.github.com/licenses/gpl-3.0"
+      },
+      "media_urls": [
+        "https://raw.githubusercontent.com/anefzaoui/misterdownloadmanager/main/docs/images/browsers/edge.png",
+        "https://raw.githubusercontent.com/anefzaoui/misterdownloadmanager/main/docs/images/browsers/brave.png",
+        "https://raw.githubusercontent.com/anefzaoui/misterdownloadmanager/main/docs/images/browsers/opera.png",
+        "https://raw.githubusercontent.com/anefzaoui/misterdownloadmanager/main/docs/images/main-light.webp",
+        "https://raw.githubusercontent.com/anefzaoui/misterdownloadmanager/main/docs/images/races-light.svg",
+        "https://raw.githubusercontent.com/anefzaoui/misterdownloadmanager/main/docs/images/main-linux.webp",
+        "https://raw.githubusercontent.com/anefzaoui/misterdownloadmanager/main/crates/app/assets/flags/za.svg",
+        "https://raw.githubusercontent.com/anefzaoui/misterdownloadmanager/main/crates/app/assets/flags/al.svg"
+      ],
+      "name": "misterdownloadmanager",
+      "open_issues": 198,
+      "published_at": "2026-11-12T16:24:59.872172Z",
+      "pushed_at": "2026-11-12T16:15:20Z",
+      "readme_fp": "12c5526436e559ea",
+      "repo_id": 1437814166,
+      "revisit_of": "",
+      "revisit_reason": "",
+      "score": 95.208,
+      "slot": "us_morning",
+      "sources": [
+        "github_search"
+      ],
+      "stars": 7635,
+      "telegram_chat_id": "@GitHub_Open_Source",
+      "telegram_link": "https://t.me/GitHub_Open_Source/3589",
+      "telegram_message_id": 3589,
+      "telegraph_url": "https://telegra.ph/Managing-Downloads-with-Mister-Download-Manager-11-12",
+      "topics": [
+        "bittorrent-client",
+        "debrid",
+        "download-accelerator",
+        "download-manager",
+        "downloadmanager",
+        "egui",
+        "file-downloader",
+        "gallery-dl",
+        "idm",
+        "idm-alternative",
+        "internet-download-manager",
+        "m3u8-downloader",
+        "magnet",
+        "playlist-downloader",
+        "real-debrid",
+        "rust",
+        "torrent-client",
+        "video-downloader",
+        "youtube-downloader",
+        "yt-dlp"
+      ],
+      "updated_at": "2026-11-12T16:22:40Z",
+      "url": "https://github.com/anefzaoui/misterdownloadmanager",
+      "visual_host": "imgbb",
+      "visual_kind": "readme"
+    },
     "debpalash/voicestudio": {
       "articles": {
         "devto": {
@@ -5021,82 +5151,6 @@
   "queue": [
     {
       "archived": false,
-      "contributors_count": 20,
-      "created_at": "2026-10-29T01:25:19Z",
-      "default_branch": "main",
-      "description": "misterdownloadmanager: The ultimate open-source, clean-room download manager written from scratch in pure Rust for Windows, Mac, and Linux",
-      "disabled": false,
-      "fork": false,
-      "forks": 545,
-      "forks_count": 545,
-      "full_name": "anefzaoui/misterdownloadmanager",
-      "has_readme": true,
-      "homepage": "https://misterdownloadmanager.com",
-      "id": 1437814166,
-      "is_dual_use": false,
-      "is_hidden_gem": false,
-      "language": "Rust",
-      "license": {
-        "key": "gpl-3.0",
-        "name": "GNU General Public License v3.0",
-        "node_id": "MDc6TGljZW5zZTk=",
-        "spdx_id": "GPL-3.0",
-        "url": "https://api.github.com/licenses/gpl-3.0"
-      },
-      "media_urls": [
-        "https://raw.githubusercontent.com/anefzaoui/misterdownloadmanager/main/docs/images/browsers/edge.png",
-        "https://raw.githubusercontent.com/anefzaoui/misterdownloadmanager/main/docs/images/browsers/brave.png",
-        "https://raw.githubusercontent.com/anefzaoui/misterdownloadmanager/main/docs/images/browsers/opera.png",
-        "https://raw.githubusercontent.com/anefzaoui/misterdownloadmanager/main/docs/images/main-light.webp",
-        "https://raw.githubusercontent.com/anefzaoui/misterdownloadmanager/main/docs/images/races-light.svg",
-        "https://raw.githubusercontent.com/anefzaoui/misterdownloadmanager/main/docs/images/main-linux.webp",
-        "https://raw.githubusercontent.com/anefzaoui/misterdownloadmanager/main/crates/app/assets/flags/za.svg",
-        "https://raw.githubusercontent.com/anefzaoui/misterdownloadmanager/main/crates/app/assets/flags/al.svg"
-      ],
-      "name": "misterdownloadmanager",
-      "non_software_reason": "",
-      "open_issues": 206,
-      "open_issues_count": 206,
-      "owner_repo_count": 1,
-      "pushed_at": "2026-11-12T02:55:37Z",
-      "readme": "",
-      "readme_excerpt": "# Mister Download Manager\n\n<p align=\"center\">\n  <img src=\"docs/images/logo.png\" alt=\"Mister Download Manager's logo\" width=\"160\">\n</p>\n\n<h3 align=\"center\">Downloads faster than IDM. Free, forever.</h3>\n\n<p align=\"center\">🌐 <a href=\"https://misterdownloadmanager.com\"><b>misterdownloadmanager.com</b></a>: the official website, with the downloads, help and news</p>\n\n<p align=\"center\">\n  <a href=\"https://github.com/anefzaoui/misterdownloadmanager/releases/latest\"><img src=\"https://img.shields.io/badge/Download%20for-Windows-2a78d6?style=flat-square&logo=data%3Aimage%2Fsvg%2Bxml%3Bbase64%2CPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0id2hpdGUiPjxwYXRoIGQ9Ik0yIDMuNWw4LjUtMS4ydjguMkgyek0xMS41IDIuMkwyMiAuOHY5LjdIMTEuNXpNMiAxMS41aDguNXY4LjJMMiAxOC41ek0xMS41IDExLjVIMjJ2OS43bC0xMC41LTEuNHoiLz48L3N2Zz4%3D\" alt=\"Download for Windows\" height=\"34\"></a>\n  <a href=\"https://github.com/anefzaoui/misterdownloadmanager/releases/latest\"><img src=\"https://img.shields.io/badge/Download%20for-macOS-2a78d6?style=flat-square&logo=apple&logoColor=white\" alt=\"Download for macOS\" height=\"34\"></a>\n  <a href=\"https://github.com/anefzaoui/misterdownloadmanager/releases/lat",
-      "readme_len": 40911,
-      "repo_id": 1437814166,
-      "score": 95.208,
-      "source_name": "github_search",
-      "sources": [
-        "github_search"
-      ],
-      "stargazers_count": 6969,
-      "stars": 6969,
-      "topics": [
-        "bittorrent-client",
-        "debrid",
-        "download-accelerator",
-        "download-manager",
-        "downloadmanager",
-        "egui",
-        "file-downloader",
-        "gallery-dl",
-        "idm",
-        "idm-alternative",
-        "internet-download-manager",
-        "m3u8-downloader",
-        "magnet",
-        "playlist-downloader",
-        "real-debrid",
-        "rust",
-        "torrent-client",
-        "video-downloader",
-        "youtube-downloader",
-        "yt-dlp"
-      ],
-      "updated_at": "2026-11-12T03:29:06Z",
-      "url": "https://github.com/anefzaoui/misterdownloadmanager"
-    },
-    {
-      "archived": false,
       "contributors_count": 154,
       "created_at": "2026-09-23T16:22:35Z",
       "default_branch": "main",
@@ -7095,8 +7149,8 @@
     "anefzaoui/misterdownloadmanager": {
       "first_seen_at": "2026-11-09T13:11:10.840929Z",
       "full_name": "anefzaoui/misterdownloadmanager",
-      "last_decision": "queued",
-      "last_seen_at": "2026-11-12T03:33:37.433316Z",
+      "last_decision": "published",
+      "last_seen_at": "2026-11-12T16:24:59.872348Z",
       "repo_id": 1437814166,
       "sources": [
         "github_search"
