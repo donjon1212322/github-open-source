@@ -54,10 +54,21 @@ SLOTS: tuple[tuple[str, tuple[int, int], dict[str, str]], ...] = (
     ("publish:europe_midday", (13, 30), {"command": "publish", "slot": "europe_midday"}),
     ("article", (14, 0), {"command": "article"}),
     ("publish:us_peak", (18, 0), {"command": "publish", "slot": "us_peak"}),
+    # Owner 12.11: Facebook no longer waits for the late native GitHub cron.
+    # facebook_handoff_command() writes a daily marker, so this dispatch and
+    # an on-time cron cannot double a Sheet row. The live Worker is NOT
+    # redeployed (no Cloudflare token in this session): the watchdog ticks at
+    # 18:27/18:30 are the exact-minute recovery. Keep Facebook ENABLED.
+    ("facebook-handoff", (18, 30), {"command": "facebook-handoff"}),
     ("news", (20, 0), {"command": "news"}),
     # 2026-11-07: the second dev.to article. Its own marker lives in
     # last_runs["news-article"], so _has_run() verifies it generically.
     ("news-article", (20, 30), {"command": "news-article"}),
+    # Owner 12.11: 11.11 20:23Z metrics dispatch was startup_failure, no
+    # runner, no marker, and the late native cron was correctly ignored.
+    # metrics_command() now writes a daily marker after a real measurement;
+    # without it this slot recovers the lost views snapshot on the next tick.
+    ("metrics", (20, 30), {"command": "metrics"}),
 )
 
 # Owner 08.11: weekly slots used to be the ONLY ones with no safety net,

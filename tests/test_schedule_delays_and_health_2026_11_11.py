@@ -104,15 +104,35 @@ def test_guard_is_enabled_by_the_workflow_event_name(monkeypatch, tmp_path):
     assert result["reason"] == "late_schedule_ignored"
 
 
-def test_facebook_and_thursday_are_deliberately_exempt(monkeypatch, tmp_path):
+def test_late_facebook_cron_is_ignored_like_every_other_slot(monkeypatch, tmp_path):
+    """Owner 12.11: Facebook stays enabled but is no longer guard-exempt."""
     seen: list[str] = []
     monkeypatch.setattr(cli, "facebook_handoff_command", lambda config, store: (
         seen.append("fb"), {"ok": True, "queued": 1})[1])
-    result = cli._run_scheduled(Config(), StateStore(tmp_path), "23 18 * * *",
-                                now=datetime(2026, 11, 11, 2, 0, tzinfo=UTC),
+    monkeypatch.setattr(cli, "alert_owner", lambda *a, **k: None)
+    store = StateStore(tmp_path)
+    # 11.11 18:23Z cron actually arrived 12.11 00:53Z (+6.5 h).
+    result = cli._run_scheduled(Config(), store, "23 18 * * *",
+                                now=datetime(2026, 11, 12, 0, 53, tzinfo=UTC),
                                 enforce_window=True)
-    assert result["queued"] == 1 and seen == ["fb"]
-    assert cli.LATE_SCHEDULE_EXEMPT == frozenset({"23 18 * * *", "53 18 * * 4"})
+    assert result["reason"] == "late_schedule_ignored"
+    assert result["minutes_late"] > 300 and seen == []
+    assert store.data["schedule_health"]["2026-11-12"]["late_ignored"] == 1
+    assert cli.LATE_SCHEDULE_EXEMPT == frozenset({"53 18 * * 4"})
+
+
+def test_thursday_close_learn_remains_exempt(monkeypatch, tmp_path):
+    calls: list[str] = []
+    monkeypatch.setattr(cli, "close_poll_command",
+                        lambda config, store: (calls.append("close"),
+                                              {"ok": True, "closed": True})[1])
+    monkeypatch.setattr(cli, "learn_command",
+                        lambda config, store: (calls.append("learn"),
+                                              {"ok": True, "updated": 1})[1])
+    result = cli._run_scheduled(Config(), StateStore(tmp_path), "53 18 * * 4",
+                                now=datetime(2026, 11, 12, 2, 0, tzinfo=UTC),
+                                enforce_window=True)
+    assert result["ok"] is True and calls == ["close", "learn"]
 
 
 def test_skipped_brief_is_terminal_visible_and_not_retried(monkeypatch, tmp_path):
@@ -150,6 +170,22 @@ def test_published_brief_result_is_left_alone(tmp_path):
     result = {"ok": True, "published": True, "stories": 5}
     assert cli._record_news_outcome(Config(), store, result) is result
     assert "news" not in (store.data.get("last_runs") or {})
+
+
+def test_published_brief_now_records_dedup_stats(tmp_path):
+    """12.11: the weekly report must see a PUBLISHED brief's filter result."""
+    store = StateStore(tmp_path)
+    result = {"ok": True, "published": True, "stories": 3,
+              "stories_removed": 1, "duplicate_ratio": 0.25}
+    moment = datetime(2026, 11, 11, 19, 19, tzinfo=UTC)
+    assert cli._record_news_outcome(Config(), store, result, now=moment) is result
+    stats = store.data["brief_dedup_stats"]
+    assert len(stats) == 1
+    assert stats[-1]["removed"] == 1 and stats[-1]["kept"] == 3
+    assert stats[-1]["published"] is True
+    assert "news" not in (store.data.get("last_runs") or {})
+    cli._record_news_outcome(Config(), store, result, now=moment)
+    assert len(store.data["brief_dedup_stats"]) == 1, "exact repeat must not double count"
 
 
 def test_watchdog_terminal_reasons_are_explicit():

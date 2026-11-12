@@ -214,7 +214,7 @@ def test_watchdog_covers_news_article_but_waits_for_the_brief(monkeypatch, tmp_p
     now = datetime(2026, 11, 5, 21, 0, tzinfo=timezone.utc)
     first = watchdog.watchdog_command(Config(), store, now=now)
     # 05.11 is Thursday, so the weekly poll-close slot is checked too.
-    assert first["checked"] == len(watchdog.SLOTS) + 1 == 8
+    assert first["checked"] == len(watchdog.SLOTS) + 1
     assert "news-article" not in calls, "no blind dispatch before the brief exists"
 
     store.data["news_topics"] = [{"published_at": "2026-11-05T19:20:00Z"}]

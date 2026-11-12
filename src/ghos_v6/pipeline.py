@@ -1608,6 +1608,22 @@ def mark_weekly(store: StateStore, name: str, *, now: datetime | None = None, **
     }
 
 
+def mark_daily(store: StateStore, name: str, *, now: datetime | None = None,
+               **extra: Any) -> None:
+    """Owner 12.11: proof a daily idempotent slot REALLY finished.
+
+    ``watchdog._has_run()`` reads ``last_runs[name].finished_at``. A command
+    that only returned HTTP 204 (or never got a runner at all) writes nothing,
+    so the watchdog can dispatch it again. Caller still owns ``store.save()``.
+    """
+    moment = now or datetime.now(timezone.utc)
+    last_runs = store.data.setdefault("last_runs", {})
+    last_runs[name] = {
+        "finished_at": moment.astimezone(timezone.utc).isoformat().replace("+00:00", "Z"),
+        **extra,
+    }
+
+
 LEGACY_POLL_LINE = "🗳️ Vote in the poll below: which one deserves Project of the Week?"
 
 
@@ -1881,14 +1897,20 @@ def _channel_handle(config: Config) -> str:
     return raw
 
 
-def metrics_command(config: Config, store: StateStore, *, limit: int = 12) -> dict[str, Any]:
+def metrics_command(config: Config, store: StateStore, *, limit: int = 12,
+                     now: datetime | None = None) -> dict[str, Any]:
     """Read views for recent posts from the public widget (no credentials).
 
     Telegram gives nobody a client-side session here, so this is the only
-    free way to know whether a card worked. Runs are idempotent.
+    free way to know whether a card worked. Runs are idempotent. Owner 12.11:
+    a daily marker lets the watchdog recover a snapshot GitHub never started
+    (11.11 20:23Z was ``startup_failure``, no runner, no marker, no retry).
     """
+    moment = now or datetime.now(timezone.utc)
     channel = _channel_handle(config)
     if not channel:
+        mark_daily(store, "metrics", now=moment, reason="channel_not_public",
+                   checked=0, updated=0)
         store.event("metrics_skipped", reason="channel_not_public")
         store.save()
         return {
@@ -1926,6 +1948,13 @@ def metrics_command(config: Config, store: StateStore, *, limit: int = 12) -> di
         record["value_score"] = insights.value_score(record, median_views=insights.median_views(store.published_records()))
         updated += 1
     store.event("metrics_collected", posts=len(records), updated=updated, channel=channel)
+    # Proof only when a measurement actually landed. A run that saw posts but
+    # updated none is a transient fetch failure: leave the slot recoverable
+    # instead of writing a false "done" marker.
+    if updated or not records:
+        mark_daily(store, "metrics", now=moment,
+                   reason="measured" if updated else "no_posts",
+                   checked=len(records), updated=updated)
     store.save()
     return {"ok": True, "checked": len(records), "updated": updated, "channel": channel}
 
@@ -2053,7 +2082,8 @@ def learn_command(config: Config, store: StateStore) -> dict[str, Any]:
     return {"ok": True, "learned": True, **model}
 
 
-def facebook_handoff_command(config: Config, store: StateStore, *, limit: int = 1) -> dict[str, Any]:
+def facebook_handoff_command(config: Config, store: StateStore, *, limit: int = 1,
+                              now: datetime | None = None) -> dict[str, Any]:
     """Queue Facebook posts for make.com by appending rows to a spreadsheet.
 
     This is the bridge to the chain that already works: Google service
@@ -2062,10 +2092,23 @@ def facebook_handoff_command(config: Config, store: StateStore, *, limit: int = 
 
     Rows are only appended when ``FEATURE_SHEETS_HANDOFF`` is on and both
     Sheets settings exist. Everything is logged, and a Sheets outage never
-    stops the Telegram pipeline.
+    stops the Telegram pipeline. Owner 12.11: a per-UTC-day marker makes a
+    second trigger (late GitHub cron, watchdog recovery) a harmless no-op, so
+    the handoff can leave the unpunctual native cron without doubling a Sheet
+    row. Facebook stays ENABLED; Make/Sheet/webhook are untouched.
     """
     from .content_adapters import build_Facebook_text, facebook_media_url
     from .sheets import append_rows, row_for
+
+    moment = now or datetime.now(timezone.utc)
+    today = moment.date().isoformat()
+    last_runs = store.data.setdefault("last_runs", {})
+    marker = last_runs.get("facebook-handoff") or {}
+    # ``nothing_pending`` stays retryable: a project published later in the
+    # same UTC day must still reach the Sheet. Any other outcome is final.
+    if (str(marker.get("finished_at") or "").startswith(today)
+            and marker.get("reason") != "nothing_pending"):
+        return {"ok": True, "queued": 0, "reason": "already_done"}
 
     if not config.feature_sheets_handoff:
         return {"ok": True, "queued": 0, "reason": "feature_disabled"}
@@ -2073,7 +2116,6 @@ def facebook_handoff_command(config: Config, store: StateStore, *, limit: int = 
     # The handoff takes the best post of the day, not the oldest. The old
     # implementation sorted by published_at ascending and queued the first
     # row, so the best project of the day could be skipped for days.
-    today = datetime.now(timezone.utc).date().isoformat()
     candidates: list[tuple[float, dict[str, Any]]] = []
     for record in store.published_records():
         if (record.get("crossposts") or {}).get("facebook_sheet", {}).get("status") == "queued":
@@ -2083,6 +2125,9 @@ def facebook_handoff_command(config: Config, store: StateStore, *, limit: int = 
             continue
         candidates.append((float(record.get("score") or 0), record))
     if not candidates:
+        mark_daily(store, "facebook-handoff", now=moment,
+                   reason="nothing_pending", queued=0)
+        store.save()
         return {"ok": True, "queued": 0, "reason": "nothing_pending"}
     candidates.sort(key=lambda item: item[0], reverse=True)
     selected = [record for _, record in candidates[:limit]]
@@ -2106,6 +2151,8 @@ def facebook_handoff_command(config: Config, store: StateStore, *, limit: int = 
         crossposts = record.setdefault("crossposts", {})
         crossposts["facebook_sheet"] = {"status": "queued", "at": iso_now(), "via": "make.com"}
     store.event("facebook_handoff_queued", rows=len(rows), range=result.get("range", ""))
+    mark_daily(store, "facebook-handoff", now=moment, reason="queued",
+               queued=len(rows))
     store.save()
     return {"ok": True, "queued": len(rows), "range": result.get("range", ""), "projects": [r.get("full_name") for r in selected]}
 

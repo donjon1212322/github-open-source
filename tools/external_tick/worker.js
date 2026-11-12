@@ -49,9 +49,11 @@ const SLOTS = [
   ["16:13", { command: "digest" }, 0],
   ["16:43", { command: "report" }, 0],
   ["18:53", { command: "poll-close" }, 4],
-  // Still NOT dispatched here (owner rule: "мейк не трогай"):
-  // facebook-handoff appends rows to the make.com Sheet with no idempotency
-  // guard. A second trigger could double a row. It stays on GitHub cron.
+  // Facebook is deliberately NOT added here. Owner 12.11 asked to fix the
+  // 6.5 h late GitHub cron, not to redeploy this Worker: no Cloudflare token
+  // is available in the session. facebook_handoff_command() now carries a
+  // per-UTC-day idempotency marker, and watchdog.SLOTS dispatches the handoff
+  // on the 18:27/18:30 ticks. Make/Sheet/webhook stay untouched.
 ];
 
 function minuteKey(date) {

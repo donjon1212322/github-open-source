@@ -89,10 +89,11 @@ def test_watchdog_is_idempotent_and_alerts_on_missed_slots(monkeypatch, tmp_path
     # 05.11 is Thursday, so the guarded weekly poll-close is also recovered.
     assert first["missed"] == ["collect", "publish:europe_morning",
                                "publish:europe_midday", "publish:us_peak",
-                               "news", "poll-close"]
-    assert len(calls) == 6       # one dispatch attempt per missed slot; article needs a project
+                               "facebook-handoff", "news", "metrics", "poll-close"]
+    assert len(calls) == 8       # article needs a project; news-article waits for a brief
     assert second["dispatched"] == [] and second["failed"] == []
-    assert calls == ["collect", "publish", "publish", "publish", "news", "poll-close"]
+    assert calls == ["collect", "publish", "publish", "publish",
+                     "facebook-handoff", "news", "metrics", "poll-close"]
 
 
 def test_http_204_is_not_verified_without_state_confirmation(monkeypatch, tmp_path):

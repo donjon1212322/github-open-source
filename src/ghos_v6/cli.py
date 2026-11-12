@@ -126,10 +126,13 @@ def _parser() -> argparse.ArgumentParser:
 # recovery net for a genuinely missed slot.
 SCHEDULE_TOLERANCE_MINUTES = 15.0
 LATE_SCHEDULE_EXEMPT = frozenset({
-    # Owner 11.11: "фейсбук включен, он работает нормально" - do not touch it.
-    "23 18 * * *",
     # Thursday close+learn: both commands are ISO-week idempotent, so a late
     # run is a no-op, not a duplicate post/article.
+    # Owner 12.11 ("да сделай нужные правки включая фейсбук"): Facebook is NO
+    # LONGER exempt. Its native cron arrived 6.5 h late on 11.11. It now has
+    # a daily idempotency marker and a watchdog slot, so a late duplicate is
+    # ignored exactly like every other publishing slot. Facebook itself stays
+    # enabled; Make/Sheet/webhook are untouched.
     "53 18 * * 4",
 })
 
@@ -224,6 +227,33 @@ def _note_late_schedule(config: Config, store: StateStore, schedule: str,
             "schedule": schedule, "minutes_late": round(late, 1)}
 
 
+def _record_brief_dedup_stats(store: StateStore, result: dict[str, Any],
+                              moment: datetime) -> None:
+    """One row per DISTINCT news outcome, including a PUBLISHED brief.
+
+    Owner 12.11: the counter used to be written only when a brief was
+    skipped, so after `3587` published on 11.11 with one duplicate removed
+    the weekly report still claimed "no brief has passed the new filter yet".
+    Exact repeats (the same result recorded twice) must not double count.
+    """
+    day = moment.date().isoformat()
+    removed = int(result.get("removed") or result.get("stories_removed") or 0)
+    ratio = float(result.get("duplicate_ratio") or 0)
+    kept = int(result.get("stories") or 0)
+    published = bool(result.get("published"))
+    reason = str(result.get("reason") or ("published" if published else ""))
+    fingerprint = "|".join((day, str(published), reason, str(removed),
+                            f"{ratio:.4f}", str(kept)))
+    stats = store.data.setdefault("brief_dedup_stats", [])
+    if (stats and isinstance(stats[-1], dict)
+            and stats[-1].get("fingerprint") == fingerprint):
+        return
+    stats.append({"date": day, "removed": removed, "ratio": ratio,
+                  "kept": kept, "published": published, "reason": reason,
+                  "fingerprint": fingerprint})
+    del stats[:-30]
+
+
 def _record_news_outcome(config: Config, store: StateStore, result: dict[str, Any],
                          *, refresh: bool = False,
                          now: datetime | None = None) -> dict[str, Any]:
@@ -231,17 +261,23 @@ def _record_news_outcome(config: Config, store: StateStore, result: dict[str, An
 
     An honest refusal (no fresh stories / source down) is a completed slot:
     the watchdog must not fire three blind retries for it. The owner gets one
-    private message per day, and the de-dup counters are kept for the weekly
-    report so the new filter can be judged on 2-3 real briefs.
+    private message per day. Owner 12.11: the de-dup counters are recorded
+    for EVERY non-refresh run, including a published brief, so the weekly
+    report can judge the filter on 2-3 real briefs.
     """
-    reason = str(result.get("reason") or "")
-    if refresh or result.get("published") or not reason:
-        return result
-    if reason not in NEWS_TERMINAL_REASONS and reason not in NEWS_ALERT_REASONS:
+    if refresh:
         return result
     moment = now or datetime.now(timezone.utc)
+    _record_brief_dedup_stats(store, result, moment)
+    reason = str(result.get("reason") or "")
     day = moment.date().isoformat()
     normalized = "already_published" if reason == "news_already_published" else reason
+    if result.get("published") or not reason:
+        store.save()
+        return result
+    if reason not in NEWS_TERMINAL_REASONS and reason not in NEWS_ALERT_REASONS:
+        store.save()
+        return result
     last_runs = store.data.setdefault("last_runs", {})
     previous = last_runs.get("news") or {}
     same = (str(previous.get("finished_at") or "").startswith(day)
@@ -257,13 +293,6 @@ def _record_news_outcome(config: Config, store: StateStore, result: dict[str, An
     if normalized in NEWS_ALERT_REASONS and not same:
         alert_owner(config, "🛰️ AI Brief сегодня не вышел",
                     _NEWS_SKIP_TEXT.get(normalized, normalized))
-    removed = int(result.get("removed") or result.get("stories_removed") or 0)
-    if removed or result.get("duplicate_ratio") is not None:
-        stats = store.data.setdefault("brief_dedup_stats", [])
-        stats.append({"date": day, "removed": removed,
-                      "ratio": float(result.get("duplicate_ratio") or 0),
-                      "kept": int(result.get("stories") or 0)})
-        del stats[:-30]
     store.save()
     return result
 

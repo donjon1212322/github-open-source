@@ -40,9 +40,9 @@ def test_first_successful_dispatch_is_silent(monkeypatch, tmp_path):
     calls, sent = _wire(monkeypatch)
     store = StateStore(tmp_path)
     result = watchdog_command(Config(), store, now=datetime(2026, 11, 5, 21, 0, tzinfo=timezone.utc))
-    # 5 daily slots (article needs a project today) + Thursday's weekly
-    # poll-close recovery, which is now safe because the command is guarded.
-    assert len(calls) == 6
+    # 7 daily dispatches (article needs a project, news-article waits
+    # for a brief) + Thursday's guarded weekly poll-close recovery.
+    assert len(calls) == 8
     assert result["failed"] == []
     assert sent == [], "an accepted HTTP 204 is not yet a problem to report"
     assert result["alerts"] == []
@@ -66,8 +66,8 @@ def test_failed_dispatch_alerts_immediately(monkeypatch, tmp_path):
     _calls, sent = _wire(monkeypatch, ok=False)
     store = StateStore(tmp_path)
     result = watchdog_command(Config(), store, now=datetime(2026, 11, 5, 21, 0, tzinfo=timezone.utc))
-    assert len(result["failed"]) == 6
-    assert len(sent) == 6
+    assert len(result["failed"]) == 8
+    assert len(sent) == 8
     assert all("не удался" in text and "Пропущен слот" in text for text in sent)
 
 
@@ -119,8 +119,11 @@ def test_external_tick_recipe_is_complete_and_secret_free():
     assert "workflow_dispatch" in blob
     assert "SLOTS" in blob
     assert "NO retries" in blob
-    # Make.com stays off the external clock (owner rule: "мейк не трогай").
+    # Owner 12.11: Facebook is recovered by watchdog.SLOTS, NOT by a due
+    # Worker slot (no Cloudflare token => no redeploy). Keep Make off the
+    # external clock, but document the new daily idempotency marker.
     assert 'command: "facebook-handoff"' not in blob
+    assert "ежедневный маркер" in blob
     # Weekly commands are now idempotent (ISO-week guard) and ARE dispatched
     # on the exact minute, pinned to their UTC weekday.
     assert '["16:13", { command: "digest" }, 0]' in blob

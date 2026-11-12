@@ -121,7 +121,7 @@ def test_watchdog_recovers_the_sunday_digest_and_then_stays_quiet(monkeypatch, t
         store.data.setdefault("last_runs", {})[key] = {"finished_at": SUNDAY.isoformat()}
 
     first = watchdog.watchdog_command(Config(), store, now=SUNDAY)
-    assert first["checked"] == len(watchdog.SLOTS) + 2 == 9
+    assert first["checked"] == len(watchdog.SLOTS) + 2
     assert "digest" in first["dispatched"]
     assert "report" in first["dispatched"]
     assert "poll-close" not in first["dispatched"]
@@ -144,7 +144,7 @@ def test_watchdog_ignores_weekly_slots_on_the_wrong_weekday(monkeypatch, tmp_pat
     monkeypatch.setattr(watchdog, "_notify", lambda config, text: False)
     store = StateStore(tmp_path / "state.json")
     result = watchdog.watchdog_command(Config(), store, now=FRIDAY)
-    assert result["checked"] == len(watchdog.SLOTS) == 7
+    assert result["checked"] == len(watchdog.SLOTS)
     assert not any(k in result["missed"] for k in ("digest", "report", "poll-close"))
 
 
@@ -153,6 +153,6 @@ def test_thursday_poll_close_is_the_only_weekly_slot(monkeypatch, tmp_path: Path
     monkeypatch.setattr(watchdog, "_notify", lambda config, text: False)
     store = StateStore(tmp_path / "state.json")
     result = watchdog.watchdog_command(Config(), store, now=THURSDAY)
-    assert result["checked"] == len(watchdog.SLOTS) + 1 == 8
+    assert result["checked"] == len(watchdog.SLOTS) + 1
     assert "poll-close" in result["dispatched"]
     assert "digest" not in result["dispatched"]
