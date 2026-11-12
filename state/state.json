@@ -119,16 +119,16 @@
   "dead_letters": [],
   "gemini_daily": {
     "day": "2026-11-12",
-    "units": 6
+    "units": 12
   },
   "gemini_window": [
     [
-      1794500629.3538373,
-      4005
+      1794507227.8072414,
+      3468
     ],
     [
-      1794500663.0945425,
-      1372
+      1794507239.5607407,
+      1410
     ]
   ],
   "last_runs": {
@@ -208,6 +208,11 @@
       "finished_at": "2026-11-12T03:31:32.749702Z",
       "repo": "louis-cfm/coucou",
       "telegram_message_id": 3588
+    },
+    "publish:us_midday": {
+      "finished_at": "2026-11-12T18:14:14.821078Z",
+      "repo": "whitetowerai/ohmygame",
+      "telegram_message_id": 3590
     },
     "publish:us_morning": {
       "finished_at": "2026-11-12T16:24:59.872354Z",
@@ -5021,6 +5026,124 @@
       "visual_host": "imgbb",
       "visual_kind": "readme"
     },
+    "whitetowerai/ohmygame": {
+      "articles": {},
+      "card_style": "",
+      "category": "DevTools",
+      "contributors_count": 16,
+      "created_at": "2026-08-11T02:24:24Z",
+      "crossposts": {
+        "bluesky": {
+          "attempts": 0,
+          "due_at": "2026-11-12T18:44:14.820867+00:00",
+          "status": "pending"
+        }
+      },
+      "description": "The open-source studio for making games with AI. Your own one-person game studio. Everything you need to make games with AI, in one app. Game canvas.  Bring your own key.",
+      "description_fp": "459c7857920897cc",
+      "forks": 270,
+      "full_name": "WhiteTowerAI/ohmygame",
+      "generated": {
+        "article_markdown": "## What it is\n\nOhMyGame is an open-source, Electron-based studio designed to consolidate the fragmented game development workflow. Instead of jumping between an IDE, a 3D modeler, a sound editor, and a browser, you use this single application as a canvas. You connect your own LLM provider via API keys, and the agent takes over the heavy lifting: it drafts design documents, writes the code, generates assets, and even runs the game to test for bugs.\n\n## Why it matters\n\nGame development is notoriously context-heavy. A simple prototype often requires you to maintain a complex pipeline of assets and code across multiple specialized applications. OhMyGame attempts to solve this by creating a unified environment where the AI agent understands the entire project state. By bringing the agent into the studio, it can handle the repetitive tasks of asset generation and integration, allowing you to focus on the game design itself.\n\n## Key features\n\n* **Automated dev loop:** The agent handles design, coding, playtesting, and debugging in a continuous cycle.\n* **Unified asset canvas:** Generate 3D models, audio, and images directly on the canvas, keeping everything organized.\n* **One-click publishing:** Deploy games to the web with built-in support for multiplayer, leaderboards, and save states.\n* **Plugin ecosystem:** Extends functionality to existing engines like Godot, Unity, Unreal, and Blender.\n* **BYO Agent:** Compatible with Claude Code, Codex, and 40+ other model providers.\n\n## Quick start\n\nTo get started with the source code, ensure you have Bun 1.4.2+ and Node.js 22.19+ installed:\n\n```bash\ngit clone https://github.com/WhiteTowerAI/ohmygame.git\ncd ohmygame\nbun install --frozen-lockfile\nbun run dev\n```\n\n## Who should try it\n\nThis tool is ideal for solo developers and prototypers who want to build web-based games quickly. If you are tired of the friction caused by switching between five different creative tools just to iterate on a single mechanic, this provides a much-needed consolidation. However, if you are deeply entrenched in a specific engine like Unity or Unreal, you might find this more useful as a companion tool for prototyping rather than a full replacement for your existing production environment.\n\n## Verdict\n\nOhMyGame is a promising step toward making game development more accessible and less fragmented. It is not a magic bullet—you still need to manage your own API keys and model providers—but it successfully removes the operational overhead that often kills a project before it gets off the ground. It is worth a look if you want to speed up your prototyping phase.",
+        "article_title": "How to build web games with an AI agent using OhMyGame",
+        "card_hook": "An AI-powered game studio in one app",
+        "card_subline": "Design, code, and publish games without switching between five different creative tools",
+        "category": "DevTools",
+        "discussion_question": "Do you prefer an all-in-one agentic studio or keeping your IDE and asset tools separate?",
+        "hook": "Build and publish web games entirely through an AI agent that handles the code, assets, and multiplayer logic.",
+        "key_features": [
+          "Automates the full dev loop: design, coding, playtesting, and debugging.",
+          "Centralizes asset generation for 3D models, audio, and images on a single canvas.",
+          "Deploys games directly to the web with built-in multiplayer, leaderboards, and save states.",
+          "Supports plugin-based integration for Godot, Unity, Unreal, and Blender workflows.",
+          "Allows BYO agent (Claude Code, Codex) and 40+ model providers via API keys."
+        ],
+        "llm_used": true,
+        "quick_start": "git clone https://github.com/WhiteTowerAI/ohmygame.git",
+        "safety": "ok",
+        "safety_reason": "This is a legitimate game development tool and IDE wrapper.",
+        "scene": "You have an idea for a mechanics-heavy web game, so you open your IDE, a browser for documentation, a prompt window for image generation, and a sound editor, only to lose momentum while syncing assets between them.",
+        "social_text": "Stop switching between five apps to build a game. OhMyGame is an open-source studio that lets an AI agent handle the design, code, assets, and deployment in one canvas.",
+        "summary": "OhMyGame is an Electron-based studio that centralizes the game development lifecycle. It acts as a canvas where you connect your own LLM providers to handle design, coding, and asset generation. Instead of juggling separate tools for 3D models, audio, and IDEs, the agent manages the entire loop from drafting the design doc to deploying a playable web link.",
+        "surfaces": {
+          "Facebook_body": "Building a game usually means switching between a dozen different programs to handle art, sound, coding, and server setup. It is a fragmented process that slows down creativity, especially for solo builders.\n\nThis new project simplifies that workflow by putting everything into one interface. You act as the director, and an AI agent handles the heavy lifting of writing the code, generating the assets, and setting up the multiplayer logic. Instead of managing separate files for 3D models or audio, you work on a single canvas that connects to your preferred AI models to bring your ideas to life.\n\nIt is designed for solo developers and hobbyists who want to get a prototype running quickly. Once you are happy with the result, the tool handles the deployment, giving you a playable web link with built-in leaderboards and save states. While it is not meant to replace professional game engines for massive, complex projects, it is a powerful way to turn ideas into playable games without the usual technical overhead.",
+          "Facebook_headline": "Create your own web games with AI",
+          "Facebook_lead": "Stop juggling multiple design and coding apps. This new tool lets you build, test, and publish web games entirely through one AI-powered workspace.",
+          "bluesky_headline": "Build web games using a single AI agent",
+          "bluesky_lead": "This tool manages coding, asset creation, and multiplayer deployment so you can stay in one window.",
+          "devto_body": "## What it is\n\nOhMyGame is an Electron-based development environment that treats game creation as an agentic workflow. Rather than manually integrating disparate tools for coding, asset generation, and deployment, it centralizes the entire lifecycle into a single TypeScript-based application. It is essentially a headless studio where you bring your own LLM providers (via API keys) to drive the development process.\n\n## How it works\n\nAt its core, the application acts as an orchestrator. You provide the high-level design requirements, and the internal agent interprets these to generate code, create assets (3D models, audio, images), and manage the game loop. It abstracts the boilerplate of web game development, allowing you to focus on the game design rather than the underlying infrastructure.\n\n## Key features\n\n*   **Unified Workflow:** Automates the full development loop, including design, coding, playtesting, and debugging.\n*   **Integrated Asset Generation:** Centralizes the creation of 3D models, audio, and images directly within the canvas.\n*   **One-Click Deployment:** Deploys games directly to the web with built-in support for multiplayer, leaderboards, and save states.\n*   **Plugin Ecosystem:** Includes integration support for Godot, Unity, Unreal, and Blender workflows.\n*   **Model Agnostic:** Supports 40+ model providers, allowing you to swap between different LLMs depending on your specific coding or creative needs.\n\n## Getting started\n\nSince this is an Electron application, you can clone the repository from WhiteTowerAI/ohmygame. Ensure you have Node.js installed, then run the standard installation commands:\n\n```bash\ngit clone https://github.com/WhiteTowerAI/ohmygame\ncd ohmygame\nnpm install\nnpm run dev\n```\n\nYou will need to configure your API keys within the settings to connect your preferred AI providers before the agent can begin generating code or assets.\n\n## When not to use it\n\nWhile OhMyGame is excellent for rapid prototyping and web-based projects, it is not a replacement for full-scale game engines like Unity or Unreal. If your project requires highly specific custom shaders, complex physics simulations, or deep engine-level optimizations, you should treat this tool as a companion for prototyping rather than your primary production environment.",
+          "seo_description": "Use an AI-powered studio to build, code, and deploy web games in one place. Perfect for solo developers and rapid prototyping.",
+          "seo_query": "how to build web games with AI",
+          "seo_title": "Build Web Games with AI - Open Source Studio",
+          "telegraph_angle": "Explain how agentic workflows are consolidating the fragmented game development stack for solo creators."
+        },
+        "tension": "Every asset tweak requires exporting, importing, and re-linking, turning a simple iteration into a twenty-minute chore that kills your creative flow.",
+        "turn": "This project brings the agent into the studio, letting it handle the asset pipeline and code generation in one place, though you still need to manage your own API keys and model providers.",
+        "verdict": "It is a solid choice for rapid prototyping and web-based games, but power users of specific engines like Unity will likely treat it as a companion rather than a replacement.",
+        "who_for": "Solo developers and prototypers who want to build games without context-switching between specialized tools.",
+        "why_now": "The shift toward agentic workflows makes it possible to consolidate the fragmented game dev stack into a single, LLM-driven interface."
+      },
+      "homepage": "https://ohmygame.ai/",
+      "id": 1330417082,
+      "image_url": "https://i.ibb.co/Hs09fMR/whitetowerai-ohmygame-readme-preview-fbbd2638a532.jpg",
+      "is_dual_use": false,
+      "is_hidden_gem": false,
+      "language": "TypeScript",
+      "license": {
+        "key": "apache-2.0",
+        "name": "Apache License 2.0",
+        "node_id": "MDc6TGljZW5zZTI=",
+        "spdx_id": "Apache-2.0",
+        "url": "https://api.github.com/licenses/apache-2.0"
+      },
+      "media_urls": [
+        "https://raw.githubusercontent.com/WhiteTowerAI/ohmygame/main/docs/assets/screenshot.webp",
+        "https://raw.githubusercontent.com/WhiteTowerAI/ohmygame/main/docs/assets/banner.webp",
+        "https://raw.githubusercontent.com/WhiteTowerAI/ohmygame/main/docs/assets/showcase/interactive-film.webp",
+        "https://raw.githubusercontent.com/WhiteTowerAI/ohmygame/main/docs/assets/showcase/island-builder.webp",
+        "https://raw.githubusercontent.com/WhiteTowerAI/ohmygame/main/docs/assets/showcase/deckbuilding-roguelike.webp"
+      ],
+      "name": "ohmygame",
+      "open_issues": 25,
+      "published_at": "2026-11-12T18:14:14.820884Z",
+      "pushed_at": "2026-11-12T17:40:39Z",
+      "readme_fp": "db980fc843d4942c",
+      "repo_id": 1330417082,
+      "revisit_of": "",
+      "revisit_reason": "",
+      "score": 89.654,
+      "slot": "us_midday",
+      "sources": [
+        "github_search"
+      ],
+      "stars": 2155,
+      "telegram_chat_id": "@GitHub_Open_Source",
+      "telegram_link": "https://t.me/GitHub_Open_Source/3590",
+      "telegram_message_id": 3590,
+      "telegraph_url": "https://telegra.ph/How-to-build-web-games-with-an-AI-agent-using-OhMyGame-11-12",
+      "topics": [
+        "ai-coding",
+        "ai-coding-agent",
+        "ai-game-design",
+        "ai-game-dev",
+        "ai-game-development",
+        "ai-image",
+        "ai-video",
+        "canvas",
+        "game-ai",
+        "game-assets",
+        "game-development",
+        "gamedev",
+        "open-game",
+        "open-google-playground",
+        "pi-agent",
+        "pi-coding-agent-theme"
+      ],
+      "updated_at": "2026-11-12T18:08:30Z",
+      "url": "https://github.com/WhiteTowerAI/ohmygame",
+      "visual_host": "imgbb",
+      "visual_kind": "readme"
+    },
     "wquguru/cicada": {
       "articles": {
         "devto": {
@@ -5279,75 +5402,6 @@
       ],
       "updated_at": "2026-11-12T03:21:54Z",
       "url": "https://github.com/microsoft/TokenEconomizer"
-    },
-    {
-      "archived": false,
-      "contributors_count": 14,
-      "created_at": "2026-08-11T02:24:24Z",
-      "default_branch": "main",
-      "description": "The open-source studio for making games with AI. Your own one-person game studio. Everything you need to make games with AI, in one app. Game canvas.  Bring your own key.",
-      "disabled": false,
-      "fork": false,
-      "forks": 269,
-      "forks_count": 269,
-      "full_name": "WhiteTowerAI/ohmygame",
-      "has_readme": true,
-      "homepage": "https://ohmygame.ai/",
-      "id": 1330417082,
-      "is_dual_use": false,
-      "is_hidden_gem": false,
-      "language": "TypeScript",
-      "license": {
-        "key": "apache-2.0",
-        "name": "Apache License 2.0",
-        "node_id": "MDc6TGljZW5zZTI=",
-        "spdx_id": "Apache-2.0",
-        "url": "https://api.github.com/licenses/apache-2.0"
-      },
-      "media_urls": [
-        "https://raw.githubusercontent.com/WhiteTowerAI/ohmygame/main/docs/assets/banner.webp",
-        "https://raw.githubusercontent.com/WhiteTowerAI/ohmygame/main/docs/assets/first-run-onboarding.png",
-        "https://raw.githubusercontent.com/WhiteTowerAI/ohmygame/main/docs/assets/showcase/interactive-film.webp",
-        "https://raw.githubusercontent.com/WhiteTowerAI/ohmygame/main/docs/assets/showcase/island-builder.webp",
-        "https://raw.githubusercontent.com/WhiteTowerAI/ohmygame/main/docs/assets/showcase/deckbuilding-roguelike.webp"
-      ],
-      "name": "ohmygame",
-      "non_software_reason": "",
-      "open_issues": 22,
-      "open_issues_count": 22,
-      "owner_repo_count": 1,
-      "pushed_at": "2026-11-12T03:23:47Z",
-      "readme": "",
-      "readme_excerpt": "<div align=\"center\">\n\n<img src=\"docs/assets/banner.webp\" alt=\"OhMyGame — the open-source studio for making games with AI\" width=\"100%\" />\n\n**Your own one-person game studio.** Everything you need to make games with AI, in one app.\n\n**Make a game. Ship it everywhere. Earn from it.**\n\n<p>\n  <a href=\"https://ohmygame.ai/download/mac\"><img src=\"https://img.shields.io/badge/Download-macOS%20(Apple%20silicon)-000000?style=for-the-badge&logo=apple&logoColor=white\" alt=\"Download for macOS\" /></a>\n  <a href=\"https://ohmygame.ai/download/windows\"><img src=\"https://img.shields.io/badge/Download-Windows%20x64-0078D4?style=for-the-badge&logo=windows&logoColor=white\" alt=\"Download for Windows\" /></a>\n</p>\n\n<p>\n  <a href=\"#how-its-built\"><img src=\"https://img.shields.io/badge/built%20on-Pi-7c3aed?style=flat-square\" alt=\"Built on Pi\" /></a>\n  <a href=\"#any-model-your-keys\"><img src=\"https://img.shields.io/badge/models-40%2B%20providers%20%C2%B7%20BYOK-black?style=flat-square\" alt=\"40+ model providers, BYOK\" /></a>\n  <a href=\"LICENSE\"><img src=\"https://img.shields.io/badge/license-Apache%202.0-blue?style=flat-square\" alt=\"License Apache 2.0\" /></a>\n  <a href=\"https://discord.gg/TkrgvGQ2Zc\"><img src",
-      "readme_len": 18290,
-      "repo_id": 1330417082,
-      "score": 89.654,
-      "source_name": "github_search",
-      "sources": [
-        "github_search"
-      ],
-      "stargazers_count": 2119,
-      "stars": 2119,
-      "topics": [
-        "ai-coding",
-        "ai-coding-agent",
-        "ai-game-design",
-        "ai-game-dev",
-        "ai-game-development",
-        "ai-image",
-        "ai-video",
-        "canvas",
-        "game-ai",
-        "game-assets",
-        "game-development",
-        "gamedev",
-        "open-game",
-        "open-google-playground",
-        "pi-agent",
-        "pi-coding-agent-theme"
-      ],
-      "updated_at": "2026-11-12T03:24:56Z",
-      "url": "https://github.com/WhiteTowerAI/ohmygame"
     },
     {
       "archived": false,
@@ -12436,8 +12490,8 @@
     "whitetowerai/ohmygame": {
       "first_seen_at": "2026-11-09T13:11:10.845197Z",
       "full_name": "WhiteTowerAI/ohmygame",
-      "last_decision": "queued",
-      "last_seen_at": "2026-11-12T03:33:37.436710Z",
+      "last_decision": "published",
+      "last_seen_at": "2026-11-12T18:14:14.821071Z",
       "repo_id": 1330417082,
       "sources": [
         "github_search"

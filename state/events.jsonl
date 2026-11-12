@@ -283,3 +283,5 @@
 {"deleted": 0, "ts": "2026-11-12T15:47:48.997150Z", "type": "moderation_completed", "updates": 0}
 {"preview_host": "imgbb", "repo": "anefzaoui/misterdownloadmanager", "ts": "2026-11-12T16:24:59.872076Z", "type": "published_as_text"}
 {"repo": "anefzaoui/misterdownloadmanager", "score": 95.208, "telegram_message_id": 3589, "telegraph_url": "https://telegra.ph/Managing-Downloads-with-Mister-Download-Manager-11-12", "ts": "2026-11-12T16:24:59.872309Z", "type": "project_published"}
+{"preview_host": "imgbb", "repo": "whitetowerai/ohmygame", "ts": "2026-11-12T18:14:14.820762Z", "type": "published_as_text"}
+{"repo": "whitetowerai/ohmygame", "score": 89.654, "telegram_message_id": 3590, "telegraph_url": "https://telegra.ph/How-to-build-web-games-with-an-AI-agent-using-OhMyGame-11-12", "ts": "2026-11-12T18:14:14.821033Z", "type": "project_published"}
