@@ -305,7 +305,8 @@
         "attempts": 1,
         "detail": "HTTP 204",
         "dispatched": true,
-        "verified": false
+        "verified": true,
+        "verified_at": "2026-11-12T21:30:52.048921Z"
       },
       "2026-11-12:poll-close": {
         "at": "2026-11-12T20:30:50.202100Z",
