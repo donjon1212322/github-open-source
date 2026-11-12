@@ -294,3 +294,4 @@
 {"command": "news", "error": "HttpError: Gemini generateContent failed: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.", "ts": "2026-11-12T19:19:15.836601Z", "type": "command_failed"}
 {"attempts": 1, "detail": "HTTP 204", "slot": "news", "ts": "2026-11-12T20:00:50.915214Z", "type": "watchdog_recovered", "verified": false}
 {"attempts": 2, "detail": "HTTP 204", "slot": "poll-close", "ts": "2026-11-12T20:00:52.253128Z", "type": "watchdog_recovered", "verified": false}
+{"command": "news", "error": "HttpError: Gemini generateContent failed: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.", "ts": "2026-11-12T20:01:21.493979Z", "type": "command_failed"}
