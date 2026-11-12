@@ -931,7 +931,10 @@
         "bluesky": {
           "attempts": 0,
           "due_at": "2026-11-12T18:00:00+00:00",
-          "status": "pending"
+          "error": "",
+          "published_at": "2026-11-12T18:17:57.719565Z",
+          "status": "published",
+          "url": "https://bsky.app/profile/githubopensource.bsky.social/post/3n253ef4zpt2u"
         }
       },
       "description": "misterdownloadmanager: The ultimate open-source, clean-room download manager written from scratch in pure Rust for Windows, Mac, and Linux",
@@ -3249,7 +3252,8 @@
         "bluesky": {
           "attempts": 0,
           "due_at": "2026-11-12T18:00:00+00:00",
-          "status": "pending"
+          "held_reason": "not_best_of_day",
+          "status": "held"
         }
       },
       "description": "A tiny friend in your Mac's notch and on your iPhone that keeps an eye on your AI coding agents: Claude Code, Codex, Cursor, Gemini CLI, Antigravity and more. Approve from the notch or your Lock Screen.",
@@ -5036,7 +5040,8 @@
         "bluesky": {
           "attempts": 0,
           "due_at": "2026-11-12T18:44:14.820867+00:00",
-          "status": "pending"
+          "held_reason": "not_best_of_day",
+          "status": "held"
         }
       },
       "description": "The open-source studio for making games with AI. Your own one-person game studio. Everything you need to make games with AI, in one app. Game canvas.  Bring your own key.",
