@@ -133,11 +133,11 @@
   ],
   "last_runs": {
     "article": {
-      "finished_at": "2026-11-11T13:33:49.794126Z",
+      "finished_at": "2026-11-12T13:33:54.570913Z",
       "published": true,
       "reason": "published",
-      "repo": "wquguru/cicada",
-      "url": "https://dev.to/githubopensource/open-source-live-subtitles-and-meeting-notes-cicada-1g46"
+      "repo": "louis-cfm/coucou",
+      "url": "https://dev.to/githubopensource/mac-notch-ai-assistant-manager-coucou-1mhg"
     },
     "collect": {
       "discovered": 430,
@@ -3099,7 +3099,13 @@
       "visual_kind": "readme"
     },
     "louis-cfm/coucou": {
-      "articles": {},
+      "articles": {
+        "devto": {
+          "id": 5023711,
+          "published_at": "2026-11-12T13:33:54.570753Z",
+          "url": "https://dev.to/githubopensource/mac-notch-ai-assistant-manager-coucou-1mhg"
+        }
+      },
       "card_style": "",
       "category": "DevTools",
       "contributors_count": 65,
@@ -3113,6 +3119,7 @@
       },
       "description": "A tiny friend in your Mac's notch and on your iPhone that keeps an eye on your AI coding agents: Claude Code, Codex, Cursor, Gemini CLI, Antigravity and more. Approve from the notch or your Lock Screen.",
       "description_fp": "7aab66ad36406a31",
+      "devto_cover_url": "https://i.ibb.co/849Q7LF9/louis-cfm-coucou-devto-cover-1af356489f8f.png",
       "forks": 1174,
       "full_name": "Louis-CFM/coucou",
       "generated": {
