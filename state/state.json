@@ -217,13 +217,13 @@
       "telegram_message_id": 3591
     },
     "news-article": {
-      "devto_id": 5018987,
-      "finished_at": "2026-11-11T19:53:51.783905Z",
+      "devto_id": 5025588,
+      "finished_at": "2026-11-12T21:01:14.566273Z",
       "published": true,
-      "title": "Claude Fable 5.2, Gemini 4 Carbon, and Native GIF Generation in Images 2.6",
-      "topic_key": "ai-hardware-and-model-releases",
-      "url": "https://dev.to/githubopensource/claude-fable-52-gemini-4-carbon-and-native-gif-generation-in-images-26-4157",
-      "words": 1098
+      "title": "Gemini 4 Hydrogen, Gemini Decision 1, and GPT-6 Cyber Drop New Capabilities for Developers",
+      "topic_key": "model-releases-and-tools",
+      "url": "https://dev.to/githubopensource/gemini-4-hydrogen-gemini-decision-1-and-gpt-6-cyber-drop-new-capabilities-for-developers-2d15",
+      "words": 1221
     },
     "publish:europe_midday": {
       "finished_at": "2026-11-11T12:43:59.103591Z",
@@ -1015,6 +1015,7 @@
         ],
         "why_devs": "These releases give developers cheaper agent loops, specialized decision models, and automated security tools."
       },
+      "devto_cover_url": "https://i.ibb.co/7tyjXSPk/project-devto-cover-3007e08c1688.png",
       "headline": "New model drops from Google and OpenAI reshape coding, decision routing, and vulnerability research.",
       "image_url": "https://i.ibb.co/bgyVJ6gs/ai-brief-2f9b711c6f25.png",
       "models": [
