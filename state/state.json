@@ -219,7 +219,22 @@
         "notified": false
       }
     },
-    "watchdog_dispatches": {}
+    "watchdog_dispatches": {
+      "2026-11-12:collect": {
+        "at": "2026-11-12T03:30:52.333602Z",
+        "attempts": 1,
+        "detail": "HTTP 204",
+        "dispatched": true,
+        "verified": false
+      },
+      "2026-11-12:publish:us_evening": {
+        "at": "2026-11-12T03:30:52.333602Z",
+        "attempts": 1,
+        "detail": "HTTP 204",
+        "dispatched": true,
+        "verified": false
+      }
+    }
   },
   "news_topics": [
     {
