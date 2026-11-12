@@ -308,3 +308,4 @@
 {"devto_id": 5025588, "ts": "2026-11-12T21:01:14.566297Z", "type": "news_article_published", "url": "https://dev.to/githubopensource/gemini-4-hydrogen-gemini-decision-1-and-gpt-6-cyber-drop-new-capabilities-for-developers-2d15", "words": 1221}
 {"slot": "news-article", "ts": "2026-11-12T21:30:52.049007Z", "type": "watchdog_verified"}
 {"deleted": 0, "ts": "2026-11-12T21:47:54.161854Z", "type": "moderation_completed", "updates": 0}
+{"minutes_late": 357.5, "schedule": "23 16 * * *", "ts": "2026-11-12T22:20:29.999843Z", "type": "late_schedule_ignored"}
