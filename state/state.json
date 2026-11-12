@@ -258,9 +258,16 @@
         "verified": true,
         "verified_at": "2026-11-12T18:38:37.377210Z"
       },
-      "2026-11-12:poll-close": {
-        "at": "2026-11-12T19:00:49.746418Z",
+      "2026-11-12:news": {
+        "at": "2026-11-12T20:00:49.408672Z",
         "attempts": 1,
+        "detail": "HTTP 204",
+        "dispatched": true,
+        "verified": false
+      },
+      "2026-11-12:poll-close": {
+        "at": "2026-11-12T20:00:49.408672Z",
+        "attempts": 2,
         "detail": "HTTP 204",
         "dispatched": true,
         "verified": false
