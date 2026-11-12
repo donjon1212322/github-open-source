@@ -288,3 +288,4 @@
 {"platform": "bluesky", "repo": "anefzaoui/misterdownloadmanager", "ts": "2026-11-12T18:17:57.719595Z", "type": "crosspost_published", "url": "https://bsky.app/profile/githubopensource.bsky.social/post/3n253ef4zpt2u"}
 {"attempts": 1, "detail": "HTTP 204", "slot": "facebook-handoff", "ts": "2026-11-12T18:30:51.611342Z", "type": "watchdog_recovered", "verified": false}
 {"range": "facebook!A11:E11", "rows": 1, "ts": "2026-11-12T18:31:13.625204Z", "type": "facebook_handoff_queued"}
+{"slot": "facebook-handoff", "ts": "2026-11-12T18:38:37.377307Z", "type": "watchdog_verified"}
