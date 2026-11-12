@@ -286,3 +286,4 @@
 {"preview_host": "imgbb", "repo": "whitetowerai/ohmygame", "ts": "2026-11-12T18:14:14.820762Z", "type": "published_as_text"}
 {"repo": "whitetowerai/ohmygame", "score": 89.654, "telegram_message_id": 3590, "telegraph_url": "https://telegra.ph/How-to-build-web-games-with-an-AI-agent-using-OhMyGame-11-12", "ts": "2026-11-12T18:14:14.821033Z", "type": "project_published"}
 {"platform": "bluesky", "repo": "anefzaoui/misterdownloadmanager", "ts": "2026-11-12T18:17:57.719595Z", "type": "crosspost_published", "url": "https://bsky.app/profile/githubopensource.bsky.social/post/3n253ef4zpt2u"}
+{"attempts": 1, "detail": "HTTP 204", "slot": "facebook-handoff", "ts": "2026-11-12T18:30:51.611342Z", "type": "watchdog_recovered", "verified": false}
