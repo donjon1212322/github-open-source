@@ -263,3 +263,4 @@
 {"minutes_late": 372.0, "schedule": "18 17 * * *", "ts": "2026-11-11T23:29:58.026386Z", "type": "late_schedule_ignored"}
 {"minutes_late": 21.0, "schedule": "17 0,18,19,20,21,22,23 * * *", "ts": "2026-11-12T00:38:01.966964Z", "type": "late_schedule_ignored"}
 {"deleted": 0, "ts": "2026-11-12T00:47:48.627889Z", "type": "moderation_completed", "updates": 0}
+{"minutes_late": 375.4, "schedule": "18 19 * * *", "ts": "2026-11-12T01:33:26.050892Z", "type": "late_schedule_ignored"}
