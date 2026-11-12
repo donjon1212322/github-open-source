@@ -77,28 +77,49 @@
     "version": 1,
     "weeks": []
   },
+  "brief_dedup_stats": [
+    {
+      "date": "2026-11-12",
+      "fingerprint": "2026-11-12|True|published|0|0.0000|4",
+      "kept": 4,
+      "published": true,
+      "ratio": 0.0,
+      "reason": "published",
+      "removed": 0
+    }
+  ],
   "brief_memory": {
     "clusters": {
       "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-carbon-now-available": "2026-11-11",
+      "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-hydrogen": "2026-11-12",
+      "https://blog.google/innovation-and-ai/technology/developers-tools/gemini-decisions-api": "2026-11-12",
       "https://github.com/chenliu-1996/figures4papers": "2026-11-11",
       "https://github.com/elayadesign/ai-design-skills": "2026-11-10",
       "https://github.com/jamesondh/chimera-vocal-synth/pull/66": "2026-11-11",
       "https://github.com/morluto/rea": "2026-11-10",
+      "https://github.com/telegrammessenger/widget-sandbox": "2026-11-12",
+      "https://ipo.anthropic.com": "2026-11-12",
+      "https://nvidianews.nvidia.com/news/nvidia-announces-ceo-transition": "2026-11-12",
       "https://openai.com/index/introducing-businesses-chatgpt": "2026-11-11",
       "https://openai.com/supply": "2026-11-10",
       "https://openai.com/supply/co-lab/chromatic": "2026-11-10",
       "https://www.anthropic.com/claude-fable-and-mythos-5-2": "2026-11-10",
       "https://www.anthropic.com/news/roadshow-launch": "2026-11-11",
       "https://www.anthropic.com/research/claude-electronics-design": "2026-11-11",
+      "story:gpt-6-cyber": "2026-11-12",
       "story:gpt-image-2-6": "2026-11-11",
       "story:ripple-65b": "2026-11-10",
       "text:anthropic-выпустила-гайд-какую-модель-claude-ставить": "2026-11-11",
       "text:anthropic-прямо-сейчас-раздают-всем-юзерам-ultra": "2026-11-10",
       "text:anthropic-также-заявили-что-fable-52-решила": "2026-11-11",
       "text:breaking-claude-fable-52-and-claude-mythos": "2026-11-10",
+      "text:google-gemini-4-hydrogen-flash-is-rolling": "2026-11-12",
       "text:google-gemini-decision-1-model-has-been": "2026-11-11",
       "text:в-тинвестициях-теперь-можно-торговать-с-помощью": "2026-11-10",
-      "text:вышел-fable-52": "2026-11-10"
+      "text:вышел-fable-52": "2026-11-10",
+      "text:да-это-просто-pong-от-fable-52": "2026-11-12",
+      "text:институт-airi-и-сколтех-разработали-систему-для": "2026-11-12",
+      "text:похоже-fable-нащупала-новый-способ-делать-игры": "2026-11-12"
     },
     "stories": {
       "27b 65b arete open ripple source updates": "2026-11-10",
@@ -112,14 +133,18 @@
       "claude fable prices speeds": "2026-11-10",
       "coding design skills": "2026-11-10",
       "context investments protocol trading": "2026-11-10",
+      "cyber gpt": "2026-11-12",
+      "decision gemini": "2026-11-12",
       "design skills": "2026-11-09",
+      "gemini hydrogen": "2026-11-12",
+      "interactive telegram widgets": "2026-11-12",
       "investments mcp trading": "2026-11-09"
     }
   },
   "dead_letters": [],
   "gemini_daily": {
     "day": "2026-11-12",
-    "units": 18
+    "units": 33
   },
   "gemini_window": [
     [
@@ -187,9 +212,9 @@
       "updated": 12
     },
     "news": {
-      "finished_at": "2026-11-11T19:19:43.331437Z",
+      "finished_at": "2026-11-12T20:32:35.205912Z",
       "reason": "published",
-      "telegram_message_id": 3587
+      "telegram_message_id": 3591
     },
     "news-article": {
       "devto_id": 5018987,
@@ -911,6 +936,96 @@
       "telegram_message_id": 3587,
       "topic_key": "ai-hardware-and-model-releases",
       "video_id": "tg-20261111-18b087bee2",
+      "video_url": "https://t.me/GitHub_Open_Source"
+    },
+    {
+      "Gemini_video_input": false,
+      "article_markdown": "> **TL;DR** Google's Gemini 4 Hydrogen brings major speed and coding leaps, Gemini Decision 1 introduces probability-based routing, and OpenAI's GPT-6 Cyber automates advanced vulnerability research.\n\n## What actually moved today\n\nThe landscape of developer tooling shifted with concrete, official releases focusing on execution speed, structured routing, and automated security. Instead of abstract concept drops, today brings actual API endpoints, model cards, and developer documentation that you can test immediately. These releases directly impact how we architect agent loops, handle conditional logic in backend systems, and audit complex codebases for vulnerabilities.\n\nInfrastructure costs and execution constraints have long dictated how we build applications with large language models. The introduction of dedicated routing models and drastically cheaper pricing tiers changes the math on running continuous background tasks. We are moving past the era where every decision required generating full natural language responses.\n\n## The model watch\n\n### Gemini 4 Hydrogen and Gemini 3.8 Flash\n\nGoogle released **Gemini 4 Hydrogen** as a fast model specifically engineered for coding tasks and agent workflows. It scores 57% on **Terminal-Bench 4.1**, marking a massive jump compared to the 18.2% score of its predecessor, **Gemini 3.8 Flash**. API pricing for **Gemini 4 Hydrogen** is set at $1.50 per million input tokens and $7.50 for output tokens. This speed and pricing profile makes it a viable engine for the new **Antigravity Orchestrator** workflow.\n\nDevelopers should re-run their standard terminal automation evals to see how the 57% score on **Terminal-Bench 4.1** translates to local repository management. The lower latency allows for tighter agent feedback loops without blowing out token budgets. You will want to test how it handles multi-file refactoring compared to older checkpoints.\n\n### Gemini Decision 1\n\nGoogle also introduced **Gemini Decision 1** alongside the **Decisions API** for structured choice routing. The model returns answer probabilities for up to 1,000 typed questions in a single request. Input pricing is fixed at $0.10 per million tokens with no output token charge since it outputs probabilities rather than generated text strings.\n\nThis architecture provides a fast, cheap way to handle complex conditional routing in application logic without generating natural language text. Instead of parsing messy JSON or markdown output from a general-purpose chat model, you get direct probability metrics for discrete paths. It fits neatly into existing backend routing layers where deterministic choice is required at scale.\n\n### GPT-6 Cyber\n\nOpenAI introduced **GPT-6 Cyber** for discovering and fixing security vulnerabilities. The model uncovered 81 unknown high-severity **Firefox** flaws and developed functional exploits for 948 **Linux kernel** vulnerabilities during testing. It maintains strict adherence to authorized boundaries in 99.93% of test runs.\n\nThis automates deep security research while maintaining unprecedented safety boundaries during active testing. Developers can integrate these auditing capabilities into CI pipelines to catch zero-day style regressions before code hits production. The high boundary adherence rate reduces the risk of autonomous tools crossing ethical lines during automated penetration testing.\n\n### Telegram Interactive Widgets\n\nTelegram is rolling out a new Widgets feature allowing bots to send interactive HTML experiences inside message bubbles. These widgets run in a secure sandbox with no direct internet access and a strict maximum size of 32 KB.\n\nDevelopers can now build lightweight mini-apps directly inside chat streams using standard web technologies. This removes the friction of opening external web views or mini-apps for simple interactions like polls, configuration toggles, or inline data displays.\n\n## Rumours, clearly labelled\n\nNot everything circulating today is backed by official documentation or an active API endpoint. The following items remain unconfirmed rumours and should be treated with caution:\n\n* **Gemini 4 Hydrogen** is allegedly rolling out on **Antigravity** as an integrated default environment.\n* **Fable 5.2** reportedly enables rapid 3D browser game generation from simple text prompts.\n\n| Item | Status | Basis | Notes |\n| :--- | :--- | :--- | :--- |\n| **Gemini 4 Hydrogen** | Confirmed | Model card and blog | Official API pricing and benchmarks live |\n| **Gemini Decision 1** | Confirmed | Documentation and API | Input pricing active, zero output cost |\n| **GPT-6 Cyber** | Confirmed | Official announcement | Firefox and Linux kernel stats published |\n| **Telegram Widgets** | Confirmed | GitHub repository | Secure sandbox specs detailed |\n| **Fable 5.2** | Unconfirmed | Community reports | No official documentation released yet |\n\n## Odd finds and small tools\n\nBeyond the flagship drops, several smaller utilities deserve a spot in your toolkit. These projects solve niche developer problems without requiring massive infrastructure investments or complex configuration steps. Checking out lesser-known repositories often yields immediate productivity wins for local debugging and script automation.\n\n## What I would try this weekend\n\nI would spend an hour piping a local test suite through **Gemini 4 Hydrogen** to measure the latency difference against older models. Following that, I would wire up a small script using the **Decisions API** to handle conditional routing logic instead of traditional `if/else` statement chains or heavy LLM text generation. Finally, test the **Telegram** widget sandbox with a tiny 32 KB client-side script to see how smooth inline chat interactions feel in practice.\n\n## Where this leaves us\n\nWe now have cheaper tokens, specialized routing models that skip text generation entirely, and automated security tools with strict safety bounds. However, real-world reliability on custom enterprise codebases remains to be seen. Benchmarks like **Terminal-Bench 4.1** give us a baseline, but local environment variances always introduce unexpected friction. We are still figuring out the best patterns for managing probability-based routing at scale without introducing silent failure modes in production systems.\n\nWhat is your go-to strategy for validating automated security audit findings from models like **GPT-6 Cyber**?\n\n## Migration and eval checklist\n\nTransitioning production systems to leverage these latest capabilities requires a structured evaluation plan tailored to each exact identifier. When migrating legacy test suites to Gemini 4 Hydrogen, developers should first baseline repository indexing performance against the 57 percent Terminal-Bench 4.1 threshold, ensuring that local runner scripts accommodate the updated token pricing of one dollar and fifty cents per million input tokens and seven dollars and fifty cents for output.\n\nFor systems currently relying on traditional text generation for backend control flow, switching to the Decisions API powered by Gemini Decision 1 demands a careful review of probability output structures. Teams must verify that upstream consumers correctly ingest typed question arrays up to the one thousand limit without expecting standard string payloads, while accounting for the ten cents per million input token structure and zero output cost during load testing.\n\nWhen incorporating GPT-6 Cyber into automated continuous integration pipelines for vulnerability research, engineering leads need to establish strict monitoring for the ninety-nine point ninety-three percent boundary adherence metric. Because the system successfully identified eighty-one high-severity Firefox flaws and nine hundred forty-eight Linux kernel exploits during testing, verification scripts must safely isolate generated proofs of concept before any human review takes place.\n\nFinally, deploying Telegram Interactive Widgets requires validating that all bot-delivered HTML experiences strictly comply with the thirty-two kilobyte payload ceiling and run entirely within the restricted sandbox environment without external network calls. Running these localized checks guarantees that migration scripts avoid silent regressions while fully utilizing the speed and cost advantages of each newly released model configuration.\n\n---\n\n💬 Questions, corrections or a better way to run these evals? Feedback and discussion are in the channel: https://t.me/GitHub_Open_Source\n",
+      "article_title": "Gemini 4 Hydrogen, Gemini Decision 1, and GPT-6 Cyber Drop New Capabilities for Developers",
+      "brief": {
+        "discussion_question": "Are you planning to swap your routing logic to probability-based decision models like Gemini Decision 1?",
+        "headline": "New model drops from Google and OpenAI reshape coding, decision routing, and vulnerability research.",
+        "hook": "4 exact names, 4 official launches, 0 only announced, 0 unverified claims. Gemini 4 Hydrogen leads the watch — what would you actually re-run first?",
+        "models": [
+          "Gemini 4 Hydrogen",
+          "Gemini 3.8 Flash",
+          "Gemini Decision 1",
+          "GPT-6 Cyber"
+        ],
+        "stories": [
+          {
+            "basis": "the model card and blog post are up",
+            "bullets": [
+              "Google released Gemini 4 Hydrogen as a fast model for coding and agents.",
+              "It scores 57% on Terminal-Bench 4.1 compared to 18.2% for its predecessor.",
+              "API pricing is set at $1.50 per million input tokens and $7.50 for output."
+            ],
+            "status": "official_release",
+            "title": "Gemini 4 Hydrogen",
+            "why": "It drastically speeds up everyday coding tasks and fits into the new Antigravity Orchestrator workflow."
+          },
+          {
+            "basis": "the documentation and API specs are live",
+            "bullets": [
+              "Google introduced Gemini Decision 1 and Decisions API for structured choice routing.",
+              "The model returns answer probabilities for up to 1,000 typed questions in a single request.",
+              "Input pricing is $0.10 per million tokens with no output token charge."
+            ],
+            "status": "official_release",
+            "title": "Gemini Decision 1",
+            "why": "It provides a fast, cheap way to handle complex conditional routing in application logic without generating text."
+          },
+          {
+            "basis": "the official announcement details the benchmarks",
+            "bullets": [
+              "OpenAI introduced GPT-6 Cyber for discovering and fixing security vulnerabilities.",
+              "It uncovered 81 unknown high-severity Firefox flaws and developed exploits for 948 Linux kernel vulnerabilities.",
+              "It maintains strict adherence to authorized boundaries in 99.93% of tests."
+            ],
+            "status": "official_release",
+            "title": "GPT-6 Cyber",
+            "why": "It automates deep security research while maintaining unprecedented safety boundaries during testing."
+          },
+          {
+            "basis": "the feature repository is on GitHub",
+            "bullets": [
+              "Telegram is rolling out a new Widgets feature allowing bots to send interactive HTML experiences inside message bubbles.",
+              "Widgets run in a secure sandbox with no direct internet access and a maximum size of 32 KB."
+            ],
+            "status": "official_release",
+            "title": "Telegram Interactive Widgets",
+            "why": "Developers can now build lightweight mini-apps directly inside chat streams using standard web tech."
+          }
+        ],
+        "summary": "Google released Gemini 4 Hydrogen and Gemini Decision 1, OpenAI introduced GPT-6 Cyber, and Telegram added HTML widgets for bots.",
+        "unconfirmed_claims": [
+          "Gemini 4 Hydrogen is rolling out on Antigravity",
+          "Fable 5.2 enables rapid 3D browser game generation"
+        ],
+        "why_devs": "These releases give developers cheaper agent loops, specialized decision models, and automated security tools."
+      },
+      "headline": "New model drops from Google and OpenAI reshape coding, decision routing, and vulnerability research.",
+      "image_url": "https://i.ibb.co/bgyVJ6gs/ai-brief-2f9b711c6f25.png",
+      "models": [
+        "Gemini 4 Hydrogen",
+        "Gemini 3.8 Flash",
+        "Gemini Decision 1",
+        "GPT-6 Cyber"
+      ],
+      "narrative_hook": "Four model launches showed up in engineering channels this week, but the thing I can't stop thinking about is a decision model returning pure probabilities instead of prose.",
+      "official_url": "",
+      "post_text": "🛰️ <b>AI Brief</b> · <i>no ads, no hype</i>\n\n<b>Gemini 4 Hydrogen — Google released Gemini 4 Hydrogen as a fast model for coding and agents</b>\n\n🧬 <b>In this brief:</b> Gemini 4 Hydrogen · Gemini 3.8 Flash · Gemini Decision 1 · GPT-6 Cyber\n\n<b>1/ Gemini 4 Hydrogen</b>\nGoogle released Gemini 4 Hydrogen as a fast model for coding and agents.\nIt scores 57% on Terminal-Bench 4.1 compared to 18.2% for its predecessor.\nAPI pricing is set at $1.50 per million input tokens and $7.50 for output.\nIt drastically speeds up everyday coding tasks and fits into the new Antigravity Orchestrator workflow.\n<i>the model card and blog post are up</i>\n\n<b>2/ Gemini Decision 1</b>\nGoogle introduced Gemini Decision 1 and Decisions API for structured choice routing.\nThe model returns answer probabilities for up to 1,000 typed questions in a single request.\nInput pricing is $0.10 per million tokens with no output token charge.\nIt provides a fast, cheap way to handle complex conditional routing in application logic without generating text.\n<i>the documentation and API specs are live</i>\n\n<b>3/ GPT-6 Cyber</b>\nOpenAI introduced GPT-6 Cyber for discovering and fixing security vulnerabilities.\nIt uncovered 81 unknown high-severity Firefox flaws and developed exploits for 948 Linux kernel vulnerabilities.\nIt maintains strict adherence to authorized boundaries in 99.93% of tests.\nIt automates deep security research while maintaining unprecedented safety boundaries during testing.\n<i>the official announcement details the benchmarks</i>\n\n<b>4/ Telegram Interactive Widgets</b>\nTelegram is rolling out a new Widgets feature allowing bots to send interactive HTML experiences inside message bubbles.\nWidgets run in a secure sandbox with no direct internet access and a maximum size of 32 KB.\nDevelopers can now build lightweight mini-apps directly inside chat streams using standard web tech.\n<i>the feature repository is on GitHub</i>\n\n<b>◻️ Rumours we're keeping an eye on</b>\n\n◻️ <i>Gemini 4 Hydrogen is rolling out on Antigravity</i>\n◻️ <i>Fable 5.2 enables rapid 3D browser game generation</i>\n\n<i>Are you planning to swap your routing logic to probability-based decision models like Gemini Decision 1?</i>\n\n📣 <a href=\"https://t.me/GitHub_Open_Source\"><b>@GitHub_Open_Source</b></a>\n\n========================================\n#AINews #OpenSource",
+      "published_at": "2026-11-12T20:32:35.205731Z",
+      "statuses": [
+        "official_release",
+        "official_release",
+        "official_release",
+        "official_release"
+      ],
+      "stories": 4,
+      "telegram_message_id": 3591,
+      "topic_key": "model-releases-and-tools",
+      "video_id": "tg-20261112-0c9368efb7",
       "video_url": "https://t.me/GitHub_Open_Source"
     }
   ],
@@ -7023,11 +7138,11 @@
   "rumour_memory": {
     "anthropic based distributing duration limit rate resets subscription": "2026-11-10",
     "anthropic benchmark claims guide model routing": "2026-11-11",
-    "anthropic claude code collaborative mode multiplayer projects working": "2026-11-08",
+    "antigravity gemini hydrogen rolling": "2026-11-12",
     "apis decision gemini google model spotted": "2026-11-11",
     "aws bedrock claude fable mythos page pricing spotted": "2026-11-09",
-    "claude fable physics problems solved theoretical": "2026-11-11",
-    "codex hinted limits reset tibo tweets upcoming": "2026-11-08"
+    "browser enables fable game generation rapid": "2026-11-12",
+    "claude fable physics problems solved theoretical": "2026-11-11"
   },
   "schedule_health": {
     "2026-11-11": {
