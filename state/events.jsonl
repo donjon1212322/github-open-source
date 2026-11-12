@@ -297,3 +297,5 @@
 {"command": "news", "error": "HttpError: Gemini generateContent failed: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.", "ts": "2026-11-12T20:01:21.493979Z", "type": "command_failed"}
 {"channel": "GitHub_Open_Source", "posts": 12, "ts": "2026-11-12T20:23:52.653331Z", "type": "metrics_collected", "updated": 12}
 {"minutes_late": 102.8, "schedule": "47 */3 * * *", "ts": "2026-11-12T20:29:46.102647Z", "type": "late_schedule_ignored"}
+{"attempts": 2, "detail": "HTTP 204", "slot": "news", "ts": "2026-11-12T20:30:51.856370Z", "type": "watchdog_recovered", "verified": false}
+{"attempts": 3, "detail": "HTTP 204", "slot": "poll-close", "ts": "2026-11-12T20:30:53.736184Z", "type": "watchdog_recovered", "verified": false}
