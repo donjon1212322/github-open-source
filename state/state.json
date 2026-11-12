@@ -175,6 +175,11 @@
       "telegram_message_id": 3571,
       "week": "2026-W45"
     },
+    "facebook-handoff": {
+      "finished_at": "2026-11-12T18:31:12.796971Z",
+      "queued": 1,
+      "reason": "queued"
+    },
     "news": {
       "finished_at": "2026-11-11T19:19:43.331437Z",
       "reason": "published",
@@ -942,6 +947,11 @@
           "published_at": "2026-11-12T18:17:57.719565Z",
           "status": "published",
           "url": "https://bsky.app/profile/githubopensource.bsky.social/post/3n253ef4zpt2u"
+        },
+        "facebook_sheet": {
+          "at": "2026-11-12T18:31:13.625178Z",
+          "status": "queued",
+          "via": "make.com"
         }
       },
       "description": "misterdownloadmanager: The ultimate open-source, clean-room download manager written from scratch in pure Rust for Windows, Mac, and Linux",
