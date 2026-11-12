@@ -269,3 +269,5 @@
 {"minutes_late": 106.2, "schedule": "47 */3 * * *", "ts": "2026-11-12T02:33:09.587680Z", "type": "late_schedule_ignored"}
 {"attempts": 1, "detail": "HTTP 204", "slot": "collect", "ts": "2026-11-12T03:30:53.780904Z", "type": "watchdog_recovered", "verified": false}
 {"attempts": 1, "detail": "HTTP 204", "slot": "publish:us_evening", "ts": "2026-11-12T03:30:55.151845Z", "type": "watchdog_recovered", "verified": false}
+{"preview_host": "imgbb", "repo": "louis-cfm/coucou", "ts": "2026-11-12T03:31:32.749383Z", "type": "published_as_text"}
+{"repo": "louis-cfm/coucou", "score": 88.735, "telegram_message_id": 3588, "telegraph_url": "https://telegra.ph/Managing-AI-Coding-Agents-with-Coucou-on-macOS-11-12", "ts": "2026-11-12T03:31:32.749656Z", "type": "project_published"}

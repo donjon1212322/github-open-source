@@ -119,16 +119,16 @@
   "dead_letters": [],
   "gemini_daily": {
     "day": "2026-11-11",
-    "units": 27
+    "units": 33
   },
   "gemini_window": [
     [
-      1794417532.4822228,
-      3916
+      1794454275.8319685,
+      3985
     ],
     [
-      1794417542.6222036,
-      1409
+      1794454287.128425,
+      1375
     ]
   ],
   "last_runs": {
@@ -201,6 +201,11 @@
       "finished_at": "2026-11-03T12:00:53.732414Z",
       "repo": "kajisho5/ffmpeg-skill",
       "telegram_message_id": 3550
+    },
+    "publish:us_evening": {
+      "finished_at": "2026-11-12T03:31:32.749702Z",
+      "repo": "louis-cfm/coucou",
+      "telegram_message_id": 3588
     },
     "publish:us_peak": {
       "finished_at": "2026-11-11T17:19:17.006267Z",
@@ -3089,6 +3094,131 @@
       "visual_host": "imgbb",
       "visual_kind": "readme"
     },
+    "louis-cfm/coucou": {
+      "articles": {},
+      "card_style": "",
+      "category": "DevTools",
+      "contributors_count": 65,
+      "created_at": "2026-09-27T21:54:12Z",
+      "crossposts": {
+        "bluesky": {
+          "attempts": 0,
+          "due_at": "2026-11-12T18:00:00+00:00",
+          "status": "pending"
+        }
+      },
+      "description": "A tiny friend in your Mac's notch and on your iPhone that keeps an eye on your AI coding agents: Claude Code, Codex, Cursor, Gemini CLI, Antigravity and more. Approve from the notch or your Lock Screen.",
+      "description_fp": "7aab66ad36406a31",
+      "forks": 1174,
+      "full_name": "Louis-CFM/coucou",
+      "generated": {
+        "article_markdown": "## What it is\n\nCoucou is a macOS utility that acts as a visual hub for your AI coding agents. Instead of keeping a terminal window open to monitor what Claude Code, Cursor, or Gemini CLI are doing, Coucou places a companion (Mochi) in your menu bar or notch. It monitors your active agent sessions and surfaces critical information—like permission requests or file modifications—directly in your system UI.\n\n## Why it matters\n\nWhen you run agents that have write access to your filesystem, the feedback loop is usually buried in a terminal buffer. You often have to manually check if an agent is waiting for approval or what files it just modified. Coucou removes this friction by turning those terminal events into interactive notifications. It allows you to approve or deny actions and see file diffs (+N/-M) without ever leaving your IDE or browser.\n\n## Key features\n\n*   **Agent Integration:** Supports Claude Code, Cursor, Codex, Gemini CLI, Antigravity, and others.\n*   **Live Diffs:** See exactly what an agent is editing in real-time with file name and change counts in the ticker.\n*   **Interactive Approvals:** Handle `Allow`, `Deny`, or `Always` requests directly from the notch.\n*   **System Pills:** Beyond agents, it includes pills for system tasks like dictation, music playback control, and crypto portfolio tracking.\n*   **Customizable UI:** The \"Mochi\" character can be moved to your desktop or customized to react to agent status updates.\n\n## Quick start\n\nTo get started with the source code, clone the repository:\n\n```bash\ngit clone https://github.com/Louis-CFM/coucou\n```\n\n## Who should try it\n\nThis tool is for developers who spend a significant portion of their day working with CLI-based AI agents. If you find yourself constantly checking terminal logs to see if an agent is stuck or waiting for input, Coucou will likely improve your workflow. If you prefer a strictly terminal-only experience, this might be overkill.\n\n## Verdict\n\nCoucou is a well-executed UI layer for terminal-heavy workflows. It doesn't change how your agents work, but it changes how you interact with them. It is a solid choice for anyone looking to reduce context switching while using AI coding assistants.",
+        "article_title": "Managing AI Coding Agents with Coucou on macOS",
+        "card_hook": "AI agent status in your Mac notch",
+        "card_subline": "Approve agent actions, track diffs, and manage your workflow without leaving your current window",
+        "category": "DevTools",
+        "discussion_question": "Do you prefer your AI agent feedback in the terminal or as a system-level overlay?",
+        "hook": "Stop switching windows to approve Claude Code or Cursor actions; Coucou brings agent status to your Mac notch.",
+        "key_features": [
+          "Approve agent requests (Allow/Deny) directly from the notch",
+          "Track live file diffs (+N/-M counts) from agents in real-time",
+          "Integrate with Claude Code, Cursor, Codex, Gemini CLI, and others",
+          "Manage system tasks like dictation and music playback via notch pills",
+          "Display agent status through a customizable character overlay"
+        ],
+        "llm_used": true,
+        "quick_start": "git clone https://github.com/Louis-CFM/coucou",
+        "safety": "ok",
+        "safety_reason": "This is a UI/UX utility for managing AI agent sessions and system tasks; it does not perform malicious actions.",
+        "scene": "You are deep in a coding flow, and Claude Code is running in a background terminal, silently churning through file edits and asking for permissions you cannot see.",
+        "social_text": "Stop alt-tabbing to check your AI agent. Coucou puts Claude Code, Cursor, and Gemini status directly in your macOS notch so you can approve actions and track diffs without leaving your editor.",
+        "summary": "Coucou acts as a persistent overlay in the macOS notch, hooking into various AI coding agents like Claude Code, Cursor, and Gemini CLI. It intercepts agent permission requests and file modification events, surfacing them as interactive pills that let you approve, deny, or review changes without context-switching to your terminal.",
+        "surfaces": {
+          "Facebook_body": "If you spend your day working with AI coding assistants, you probably know the exhaustion of constantly switching between your code editor and your terminal just to click allow or deny on routine permission requests. Every interruption pulls you out of your creative flow and wastes valuable time.\n\nThis open-source tool places a tiny interactive status bar right into your Mac notch. Whenever your coding assistant needs permission to modify a file or run a command, a pill appears at the top of your screen. You can review the changes and approve or deny them with a single click, without ever leaving your current window.\n\nBuilt specifically for developers who rely heavily on modern terminal assistants, this utility bridges the gap between background processes and your daily view. It supports major coding tools out of the box and even lets you manage basic system tasks like music playback. If your workflow involves heavy multitasking with autonomous assistants, this small addition will save you significant mental fatigue every single day.",
+          "Facebook_headline": "Manage AI coding tasks right from your Mac notch",
+          "Facebook_lead": "Stop constantly switching windows to see what your AI coding assistant is doing in the background. Approve requests and view file changes instantly from your Mac notch.",
+          "bluesky_headline": "Approve AI coding tasks from your Mac notch",
+          "bluesky_lead": "Stop switching windows when coding agents ask for permission to modify files.",
+          "devto_body": "## What it is\n\nCoucou is an open-source utility written in Swift that acts as a persistent overlay in the macOS notch. It integrates with popular coding assistants like Claude Code, Cursor, and Gemini CLI to surface real-time status updates and permission requests directly in your menu bar area.\n\n## How it works\n\nThe application monitors background events and file modifications from your active coding tools. Instead of forcing you to check terminal windows manually, it intercepts requests and renders them as interactive pills. You can inspect file diff metrics and handle permissions immediately.\n\n## Key features\n\n- Approve or deny background agent requests directly from the macOS notch\n- Track live file diff counts for incoming modifications\n- Support for multiple coding assistants including Claude Code and Cursor\n- Control supplementary system tasks like music and dictation\n- Customizable character overlay for status visualization\n\n## Getting started\n\nClone the repository from GitHub and build the project locally using Xcode on macOS:\n\n```bash\ngit clone https://github.com/Louis-CFM/coucou.git\ncd coucou\n```\n\nOpen the project workspace and build it for your local machine.\n\n## When not to use it\n\nIf you do not use terminal-based coding assistants or if you are not running macOS, this tool will not provide any utility for your workflow.",
+          "seo_description": "Approve AI coding agent requests and view file changes directly from your Mac notch without switching windows. Built for developers.",
+          "seo_query": "mac notch ai coding assistant manager",
+          "seo_title": "Mac notch AI assistant manager - Coucou",
+          "telegraph_angle": "Explain how managing background coding assistants directly inside the macOS notch reduces context-switching fatigue for developers."
+        },
+        "tension": "You have to constantly Alt-Tab or check your terminal logs to catch permission prompts or verify what the agent just changed, breaking your concentration.",
+        "turn": "Coucou pulls these agent interactions out of the terminal and into your macOS notch, giving you a live ticker of file changes and clickable approval buttons.",
+        "verdict": "It is a polished UI layer for terminal-heavy workflows; if you live in Claude Code or Cursor, it saves significant mental overhead.",
+        "who_for": "Developers using AI coding agents who are tired of constant terminal context switching.",
+        "why_now": "As AI agents become more autonomous, it is increasingly difficult to track what they are editing or requesting in the background without breaking focus."
+      },
+      "homepage": "https://louis-cfm.github.io/coucou/",
+      "id": 1391438314,
+      "image_url": "https://i.ibb.co/wZ1XwWrF/louis-cfm-coucou-readme-preview-c9ad16be502b.jpg",
+      "is_dual_use": false,
+      "is_hidden_gem": false,
+      "language": "Swift",
+      "license": {
+        "key": "mit",
+        "name": "MIT License",
+        "node_id": "MDc6TGljZW5zZTEz",
+        "spdx_id": "MIT",
+        "url": "https://api.github.com/licenses/mit"
+      },
+      "media_urls": [
+        "https://raw.githubusercontent.com/Louis-CFM/coucou/main/docs/media/demo.gif",
+        "https://raw.githubusercontent.com/Louis-CFM/coucou/main/docs/media/hub-dictation.png",
+        "https://raw.githubusercontent.com/Louis-CFM/coucou/main/docs/media/hub-statistics.png",
+        "https://raw.githubusercontent.com/Louis-CFM/coucou/main/docs/media/hub-styles.png",
+        "https://raw.githubusercontent.com/Louis-CFM/coucou/main/docs/media/hub-settings.png",
+        "https://raw.githubusercontent.com/Louis-CFM/coucou/main/docs/media/iphone-live-activity.jpg",
+        "https://raw.githubusercontent.com/Louis-CFM/coucou/main/docs/media/iphone-approval.jpg",
+        "https://raw.githubusercontent.com/Louis-CFM/coucou/main/docs/media/iphone-session.jpg"
+      ],
+      "name": "coucou",
+      "open_issues": 458,
+      "published_at": "2026-11-12T03:31:32.749505Z",
+      "pushed_at": "2026-11-11T23:58:33Z",
+      "readme_fp": "b7ae855febec9b9d",
+      "repo_id": 1391438314,
+      "revisit_of": "",
+      "revisit_reason": "",
+      "score": 88.735,
+      "slot": "us_evening",
+      "sources": [
+        "github_search"
+      ],
+      "stars": 7136,
+      "telegram_chat_id": "@GitHub_Open_Source",
+      "telegram_link": "https://t.me/GitHub_Open_Source/3588",
+      "telegram_message_id": 3588,
+      "telegraph_url": "https://telegra.ph/Managing-AI-Coding-Agents-with-Coucou-on-macOS-11-12",
+      "topics": [
+        "ai-agents",
+        "anthropic",
+        "antigravity",
+        "claude",
+        "claude-code",
+        "codex",
+        "cursor",
+        "dynamic-island",
+        "gemini-cli",
+        "ios",
+        "iphon",
+        "linux",
+        "macos",
+        "macos-app",
+        "menubar-app",
+        "notch",
+        "open-source",
+        "swift",
+        "swiftui",
+        "windows"
+      ],
+      "updated_at": "2026-11-12T02:38:18Z",
+      "url": "https://github.com/Louis-CFM/coucou",
+      "visual_host": "imgbb",
+      "visual_kind": "readme"
+    },
     "ly05010419/macnativegames": {
       "articles": {},
       "card_style": "editorial_daily",
@@ -4878,82 +5008,6 @@
     }
   },
   "queue": [
-    {
-      "archived": false,
-      "contributors_count": 65,
-      "created_at": "2026-09-27T21:54:12Z",
-      "default_branch": "main",
-      "description": "A tiny friend in your Mac's notch and on your iPhone that keeps an eye on your AI coding agents: Claude Code, Codex, Cursor, Gemini CLI, Antigravity and more. Approve from the notch or your Lock Screen.",
-      "disabled": false,
-      "fork": false,
-      "forks": 1172,
-      "forks_count": 1172,
-      "full_name": "Louis-CFM/coucou",
-      "has_readme": true,
-      "homepage": "https://louis-cfm.github.io/coucou/",
-      "id": 1391438314,
-      "is_dual_use": false,
-      "is_hidden_gem": false,
-      "language": "Swift",
-      "license": {
-        "key": "mit",
-        "name": "MIT License",
-        "node_id": "MDc6TGljZW5zZTEz",
-        "spdx_id": "MIT",
-        "url": "https://api.github.com/licenses/mit"
-      },
-      "media_urls": [
-        "https://raw.githubusercontent.com/Louis-CFM/coucou/main/docs/media/demo.gif",
-        "https://raw.githubusercontent.com/Louis-CFM/coucou/main/docs/media/hub-dictation.png",
-        "https://raw.githubusercontent.com/Louis-CFM/coucou/main/docs/media/hub-statistics.png",
-        "https://raw.githubusercontent.com/Louis-CFM/coucou/main/docs/media/hub-styles.png",
-        "https://raw.githubusercontent.com/Louis-CFM/coucou/main/docs/media/hub-settings.png",
-        "https://raw.githubusercontent.com/Louis-CFM/coucou/main/docs/media/iphone-live-activity.jpg",
-        "https://raw.githubusercontent.com/Louis-CFM/coucou/main/docs/media/iphone-approval.jpg",
-        "https://raw.githubusercontent.com/Louis-CFM/coucou/main/docs/media/iphone-session.jpg"
-      ],
-      "name": "coucou",
-      "non_software_reason": "",
-      "open_issues": 461,
-      "open_issues_count": 461,
-      "owner_repo_count": 1,
-      "pushed_at": "2026-11-06T13:51:13Z",
-      "readme": "",
-      "readme_excerpt": "<div align=\"center\">\n\n<img src=\"NotchBuddy/Assets.xcassets/AppIcon.appiconset/icon_256x256.png\" width=\"96\" alt=\"Coucou icon\">\n\n# Coucou\n\n**A tiny friend that lives in your Mac's notch — or at the top of your screen on Windows and Linux — and keeps an eye on your AI coding agent sessions. And now on your phone too: iPhone and Android.**\n\nApprove permissions, watch your agents work, drop a file, chat with Claude — all without leaving what you're doing. Walk away from your Mac and Mochi follows you to your iPhone: Lock Screen, Dynamic Island, widgets, Siri.\n\n**New in 0.4: Coucou is a real Mac app.** Hold a key anywhere, speak, let go: your words are pasted where you type, like Wispr Flow — free, open source, and offline with Parakeet. Record your calls without a bot in the meeting and get the transcript, the summary and the to-dos.\n\n[![Version](https://img.shields.io/github/v/release/Louis-CFM/coucou?filter=v*&label=version&color=0A84FF)](https://github.com/Louis-CFM/coucou/releases)\n![macOS 15+](https://img.shields.io/badge/macOS-15%2B-black?logo=apple)\n![iOS 18+](https://img.shields.io/badge/iOS-18%2B-black?logo=apple)\n![Android 11+](https://img.shields.io/badge/Android-11%2B-3DDC84",
-      "readme_len": 55699,
-      "repo_id": 1391438314,
-      "score": 88.735,
-      "source_name": "github_search",
-      "sources": [
-        "github_search"
-      ],
-      "stargazers_count": 7117,
-      "stars": 7117,
-      "topics": [
-        "ai-agents",
-        "anthropic",
-        "antigravity",
-        "claude",
-        "claude-code",
-        "codex",
-        "cursor",
-        "dynamic-island",
-        "gemini-cli",
-        "ios",
-        "iphon",
-        "linux",
-        "macos",
-        "macos-app",
-        "menubar-app",
-        "notch",
-        "open-source",
-        "swift",
-        "swiftui",
-        "windows"
-      ],
-      "updated_at": "2026-11-11T03:07:20Z",
-      "url": "https://github.com/Louis-CFM/coucou"
-    },
     {
       "archived": false,
       "contributors_count": 5,
@@ -9435,8 +9489,8 @@
     "louis-cfm/coucou": {
       "first_seen_at": "2026-11-07T05:32:32.589561Z",
       "full_name": "Louis-CFM/coucou",
-      "last_decision": "queued",
-      "last_seen_at": "2026-11-11T04:25:29.575389Z",
+      "last_decision": "published",
+      "last_seen_at": "2026-11-12T03:31:32.749695Z",
       "repo_id": 1391438314,
       "sources": [
         "github_search"
