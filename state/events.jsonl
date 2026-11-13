@@ -345,3 +345,4 @@
 {"devto_id": 5031795, "ts": "2026-11-13T19:53:51.962193Z", "type": "news_article_published", "url": "https://dev.to/githubopensource/deepseek-api-expansions-local-284b-moe-runs-and-new-developer-tooling-49j7", "words": 1084}
 {"minutes_late": 78.7, "schedule": "47 */3 * * *", "ts": "2026-11-13T20:05:44.083528Z", "type": "late_schedule_ignored"}
 {"channel": "GitHub_Open_Source", "posts": 12, "ts": "2026-11-13T20:23:58.646484Z", "type": "metrics_collected", "updated": 12}
+{"minutes_late": 422.6, "schedule": "33 13 * * *", "ts": "2026-11-13T20:35:38.551964Z", "type": "late_schedule_ignored"}
