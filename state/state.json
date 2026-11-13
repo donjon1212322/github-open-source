@@ -144,16 +144,16 @@
   "dead_letters": [],
   "gemini_daily": {
     "day": "2026-11-12",
-    "units": 33
+    "units": 39
   },
   "gemini_window": [
     [
-      1794507227.8072414,
-      3468
+      1794532429.1293476,
+      3908
     ],
     [
-      1794507239.5607407,
-      1410
+      1794532432.5713558,
+      1398
     ]
   ],
   "last_runs": {
@@ -248,9 +248,9 @@
       "telegram_message_id": 3550
     },
     "publish:us_evening": {
-      "finished_at": "2026-11-12T03:31:32.749702Z",
-      "repo": "louis-cfm/coucou",
-      "telegram_message_id": 3588
+      "finished_at": "2026-11-13T01:13:57.616176Z",
+      "repo": "storytold/vectorcraft",
+      "telegram_message_id": 3592
     },
     "publish:us_midday": {
       "finished_at": "2026-11-12T18:14:14.821078Z",
@@ -4779,6 +4779,117 @@
       "visual_host": "imgbb",
       "visual_kind": "readme"
     },
+    "storytold/vectorcraft": {
+      "articles": {},
+      "card_style": "",
+      "category": "DevTools",
+      "contributors_count": 255,
+      "created_at": "2026-09-30T13:43:03Z",
+      "crossposts": {
+        "bluesky": {
+          "attempts": 0,
+          "due_at": "2026-11-13T18:00:00+00:00",
+          "status": "pending"
+        }
+      },
+      "description": "VectorCraft: An open-source vector art tool written from scratch in pure Rust",
+      "description_fp": "e5e1452f2f678047",
+      "forks": 5621,
+      "full_name": "storytold/vectorcraft",
+      "generated": {
+        "article_markdown": "## What it is\n\nVectorCraft is a modern, open-source vector art application built entirely from scratch in pure Rust. It delivers a full vector illustration workflow that operates natively on macOS, Windows, Linux, and FreeBSD, as well as in the browser through WebAssembly.\n\n## Why it matters\n\nPerformance is often a bottleneck in vector graphics software when dealing with thousands of paths or complex boolean operations. VectorCraft addresses this by moving rendering off the main UI thread using multithreaded SIMD processing, allowing heavy illustrations to render efficiently while keeping the interface fluid.\n\n## Key features\n\n- Multithreaded SIMD rendering engine keeping interfaces responsive during complex tasks.\n- Exact curve booleans designed to prevent standard failure states on intricate paths.\n- Built-in Model Context Protocol (MCP) server enabling AI agents to programmatically draw, edit, and export.\n- Native support for .vectorcraft, SVG, and PDF file formats.\n\n## Quick start\n\nTo build and run VectorCraft locally from the source repository, execute the following commands:\n\n```sh\ngit clone https://github.com/storytold/vectorcraft\ncd vectorcraft\ncargo run --release -p vectorc\n```\n\n## Who should try it\n\nDevelopers and designers who prefer open-source tooling, need cross-platform native performance, or want to experiment with agent-driven graphic generation through MCP integration.\n\n## Verdict\n\nVectorCraft provides a compelling open-source alternative for vector illustration, combining memory safety, native speeds, and modern developer integrations.",
+        "article_title": "VectorCraft: Open-Source Vector Illustration Tool Built in Rust",
+        "card_hook": "Vector illustration in pure Rust",
+        "card_subline": "A fast, open-source vector illustration workflow with native apps and an agent-native MCP server",
+        "category": "DevTools",
+        "discussion_question": "Which vector format do you rely on most for your web workflows?",
+        "hook": "VectorCraft is a modern, open-source vector art application built in pure Rust that runs natively across desktops and the browser.",
+        "key_features": [
+          "Run multithreaded SIMD rendering off the UI thread to keep the interface responsive at 120 fps",
+          "Execute exact curve booleans without failing on complex intersections",
+          "Drive every menu item, tool gesture, and panel over an MCP server and JSON control channel",
+          "Import and export first-class SVG, PDF, and native .vectorcraft formats",
+          "Utilize structural sharing for unlimited undo capacity"
+        ],
+        "llm_used": true,
+        "quick_start": "git clone https://github.com/storytold/vectorcraft\ncd vectorcraft\ncargo run --release -p vectorc",
+        "safety": "ok",
+        "safety_reason": "Legitimate open-source vector graphics application.",
+        "scene": "You load a dense vector illustration into your web-based editor and watch the frame rate drop to a crawl while trying to execute basic pathfinders.",
+        "social_text": "VectorCraft is an open-source vector illustration tool built in pure Rust with native desktop apps, web support, and an MCP server for agents.",
+        "summary": "VectorCraft is built from scratch in pure Rust, utilizing a multithreaded SIMD rendering pipeline off the UI thread to handle complex vector shapes smoothly. It provides a native document model using JSON and SVG structures, offering exact curve booleans and structural sharing for undo states. The application supports a unified codebase spanning multiple desktop operating systems and WebAssembly.",
+        "surfaces": {
+          "Facebook_body": "Design complex vector illustrations smoothly without experiencing lag or slow interfaces. This open-source tool runs natively on desktop computers and directly inside web browsers, giving you a fast workspace for all your creative projects.\n\nThe application uses a high-performance rendering engine that processes graphics separately from the user interface, ensuring your workspace stays smooth even when handling intricate shapes and heavy workloads. You get reliable curve editing, unlimited undo steps, and the ability to work seamlessly across different operating systems without relying on proprietary software.\n\nIt is built for designers, developers, and creators who want a fast, transparent, and open tool for vector illustration. Whether you are sketching new ideas or managing detailed design systems, this application provides a modern workspace that puts performance first.",
+          "Facebook_headline": "Create vector art without lag",
+          "Facebook_lead": "Design complex vector shapes smoothly on your computer or in the browser with an open-source tool that keeps your interface fast and responsive.",
+          "bluesky_headline": "Design vector graphics smoothly at 120 fps",
+          "bluesky_lead": "A high-performance vector editor built in pure Rust that runs natively on desktops and in the browser.",
+          "devto_body": "## What it is\nVectorCraft is a modern, open-source vector art application written from scratch in pure Rust. It delivers native performance across major desktop operating systems and the browser via WebAssembly, providing a high-performance workspace for developers, designers, and AI agents.\n\n## How it works\nAt its core, the application utilizes a multithreaded SIMD rendering pipeline running off the UI thread. This architecture keeps the interface responsive at 120 fps. It uses structural sharing for unlimited undo capacity and handles exact curve booleans without failing on complex intersections. It also supports driving every menu item and tool gesture over a control channel.\n\n## Key features\n- Multithreaded SIMD rendering off the UI thread\n- Exact curve booleans on complex intersections\n- Unified codebase spanning desktop and WebAssembly\n- Unlimited undo capacity via structural sharing\n- Import and export for SVG, PDF, and native formats\n\n## Getting started\nClone the repository from GitHub and ensure you have the Rust toolchain installed. Build the project using Cargo for your target desktop environment or compile to WebAssembly for browser deployment.\n\n## When not to use it\nIf you require enterprise-level integration with proprietary cloud design suites or extensive third-party plugin ecosystems that are exclusive to commercial platforms, VectorCraft may not meet all your workflow needs yet.",
+          "seo_description": "VectorCraft is a high-performance, open-source vector illustration tool built in Rust for designers, developers, and web browsers.",
+          "seo_query": "open source vector art application",
+          "seo_title": "Open-source vector art application - VectorCraft",
+          "telegraph_angle": "Explain the architectural benefits of using Rust and WebAssembly for building high-performance vector graphics tools."
+        },
+        "tension": "Traditional tools either lock you into proprietary ecosystems or struggle to render thousands of shapes smoothly without blocking the interface thread.",
+        "turn": "VectorCraft shifts heavy vector rendering to a multithreaded SIMD engine written in Rust, while exposing an MCP server for programmatic editing, though complex third-party plugin ecosystems are still catching up.",
+        "verdict": "An exceptional choice for developers and designers seeking an open, high-performance vector graphics suite with built-in agent capabilities.",
+        "who_for": "Developers, designers, and AI agents looking for a fast, open-source vector illustration tool.",
+        "why_now": "The maturity of Rust graphics stacks and WebAssembly now makes it practical to build high-performance, cross-platform vector design tools that double as agent-native surfaces via MCP servers."
+      },
+      "homepage": "https://getartcraft.com/apps/vectorcraft",
+      "id": 1398097510,
+      "image_url": "https://i.ibb.co/gL3xvqWM/storytold-vectorcraft-readme-preview-8b1de57345e8.jpg",
+      "is_dual_use": false,
+      "is_hidden_gem": false,
+      "language": "Rust",
+      "license": {
+        "key": "apache-2.0",
+        "name": "Apache License 2.0",
+        "node_id": "MDc6TGljZW5zZTI=",
+        "spdx_id": "Apache-2.0",
+        "url": "https://api.github.com/licenses/apache-2.0"
+      },
+      "media_urls": [
+        "https://raw.githubusercontent.com/storytold/vectorcraft/main/docs/images/shot-1-neon.png",
+        "https://raw.githubusercontent.com/storytold/vectorcraft/main/docs/images/shot-2-ribbons.png",
+        "https://raw.githubusercontent.com/storytold/vectorcraft/main/docs/images/shot-4-bezier.png",
+        "https://raw.githubusercontent.com/storytold/vectorcraft/main/docs/images/shot-6-revolve.png",
+        "https://raw.githubusercontent.com/storytold/vectorcraft/main/docs/images/shot-7-dimensions.png",
+        "https://raw.githubusercontent.com/storytold/vectorcraft/main/docs/images/shot-5-perspective.png",
+        "https://raw.githubusercontent.com/storytold/vectorcraft/main/docs/images/shot-3-sheet.png",
+        "https://raw.githubusercontent.com/storytold/vectorcraft/main/docs/images/art-neon-drive.png"
+      ],
+      "name": "vectorcraft",
+      "open_issues": 1147,
+      "published_at": "2026-11-13T01:13:57.615931Z",
+      "pushed_at": "2026-11-13T00:49:09Z",
+      "readme_fp": "ca41f87dd7e9740a",
+      "repo_id": 1398097510,
+      "revisit_of": "",
+      "revisit_reason": "",
+      "score": 93.5,
+      "slot": "us_evening",
+      "sources": [
+        "github_search"
+      ],
+      "stars": 11673,
+      "telegram_chat_id": "@GitHub_Open_Source",
+      "telegram_link": "https://t.me/GitHub_Open_Source/3592",
+      "telegram_message_id": 3592,
+      "telegraph_url": "https://telegra.ph/VectorCraft-Open-Source-Vector-Illustration-Tool-Built-in-Rust-11-13",
+      "topics": [
+        "art",
+        "rust",
+        "rust-lang",
+        "svg",
+        "svg-editor",
+        "vector-graphics"
+      ],
+      "updated_at": "2026-11-13T00:21:09Z",
+      "url": "https://github.com/storytold/vectorcraft",
+      "visual_host": "imgbb",
+      "visual_kind": "readme"
+    },
     "tabularisdb/tabularis": {
       "articles": {},
       "card_style": "",
@@ -5501,68 +5612,6 @@
     }
   },
   "queue": [
-    {
-      "archived": false,
-      "contributors_count": 255,
-      "created_at": "2026-09-30T13:43:03Z",
-      "default_branch": "main",
-      "description": "VectorCraft: An open-source vector art tool written from scratch in pure Rust",
-      "disabled": false,
-      "fork": false,
-      "forks": 5621,
-      "forks_count": 5621,
-      "full_name": "storytold/vectorcraft",
-      "has_readme": true,
-      "homepage": "https://getartcraft.com/apps/vectorcraft",
-      "id": 1398097510,
-      "is_dual_use": false,
-      "is_hidden_gem": false,
-      "language": "Rust",
-      "license": {
-        "key": "apache-2.0",
-        "name": "Apache License 2.0",
-        "node_id": "MDc6TGljZW5zZTI=",
-        "spdx_id": "Apache-2.0",
-        "url": "https://api.github.com/licenses/apache-2.0"
-      },
-      "media_urls": [
-        "https://raw.githubusercontent.com/storytold/vectorcraft/main/docs/images/shot-1-neon.png",
-        "https://raw.githubusercontent.com/storytold/vectorcraft/main/docs/images/shot-2-ribbons.png",
-        "https://raw.githubusercontent.com/storytold/vectorcraft/main/docs/images/shot-4-bezier.png",
-        "https://raw.githubusercontent.com/storytold/vectorcraft/main/docs/images/shot-6-revolve.png",
-        "https://raw.githubusercontent.com/storytold/vectorcraft/main/docs/images/shot-7-dimensions.png",
-        "https://raw.githubusercontent.com/storytold/vectorcraft/main/docs/images/shot-5-perspective.png",
-        "https://raw.githubusercontent.com/storytold/vectorcraft/main/docs/images/shot-3-sheet.png",
-        "https://raw.githubusercontent.com/storytold/vectorcraft/main/docs/images/art-neon-drive.png"
-      ],
-      "name": "vectorcraft",
-      "non_software_reason": "",
-      "open_issues": 1143,
-      "open_issues_count": 1143,
-      "owner_repo_count": 2,
-      "pushed_at": "2026-11-13T00:10:09Z",
-      "readme": "",
-      "readme_excerpt": "<p align=\"center\">\n  <a href=\"https://getartcraft.com/\">\n    <picture>\n      <source media=\"(prefers-color-scheme: dark)\" srcset=\"docs/brand/artcraft-logo-white.svg\">\n      <img alt=\"ArtCraft\" src=\"docs/brand/artcraft-logo.svg\" width=\"200\">\n    </picture>\n  </a>\n</p>\n\n\n<p align=\"center\">\n  <img src=\"assets/app-icon/hicolor/256x256/apps/ai.storyteller.vectorcraft.png\" width=\"128\" height=\"128\" alt=\"VectorCraft icon: an engraved dragon on a red tile\">\n</p>\n\n<h1 align=\"center\">VectorCraft</h1>\n\n<p align=\"center\">\n  <b>Vector illustration; an open-source, modern vector art application, built in pure Rust.</b>\n</p>\n\n<p align=\"center\">\n  A fast, open-source vector illustration workflow. It runs natively on\n  macOS, Windows, Linux and FreeBSD, and in the browser via WebAssembly. Built by the ArtCraft team.\n</p>\n\n<p align=\"center\">\n  <img alt=\"Status: in active development\" src=\"https://img.shields.io/badge/status-in%20active%20development-e8573f?style=flat-square\">\n  <img alt=\"Written in pure Rust\" src=\"https://img.shields.io/badge/pure-Rust-b83a24?style=flat-square&logo=rust&logoColor=white\">\n  <img alt=\"Runs on macOS, Windows, Linux, FreeBSD and the web\" src=\"https://img.shields.io/badge",
-      "readme_len": 28519,
-      "repo_id": 1398097510,
-      "score": 93.5,
-      "source_name": "github_search",
-      "sources": [
-        "github_search"
-      ],
-      "stargazers_count": 11673,
-      "stars": 11673,
-      "topics": [
-        "art",
-        "rust",
-        "rust-lang",
-        "svg",
-        "svg-editor",
-        "vector-graphics"
-      ],
-      "updated_at": "2026-11-13T00:21:09Z",
-      "url": "https://github.com/storytold/vectorcraft"
-    },
     {
       "archived": false,
       "contributors_count": 13,
@@ -12426,8 +12475,8 @@
     "storytold/vectorcraft": {
       "first_seen_at": "2026-11-04T12:14:31.144518Z",
       "full_name": "storytold/vectorcraft",
-      "last_decision": "queued",
-      "last_seen_at": "2026-11-13T00:25:41.046802Z",
+      "last_decision": "published",
+      "last_seen_at": "2026-11-13T01:13:57.616167Z",
       "repo_id": 1398097510,
       "sources": [
         "github_search"
