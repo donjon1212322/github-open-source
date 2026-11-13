@@ -1495,7 +1495,8 @@
         "bluesky": {
           "attempts": 0,
           "due_at": "2026-11-13T18:00:00+00:00",
-          "status": "pending"
+          "held_reason": "not_best_of_day",
+          "status": "held"
         }
       },
       "description": "Device-native foundation models: 145B on a laptop, 35B on a phone. Latent MoE, SSD-streamed weights, a router that predicts loads a step ahead. Mac, iPhone, Android, Windows.",
@@ -4753,7 +4754,8 @@
         "bluesky": {
           "attempts": 0,
           "due_at": "2026-11-13T18:44:09.817953+00:00",
-          "status": "pending"
+          "held_reason": "not_best_of_day",
+          "status": "held"
         }
       },
       "description": "A fast, ad-free home screen for Google TV, LG webOS and Samsung Tizen. One button to undo.",
@@ -5013,7 +5015,10 @@
         "bluesky": {
           "attempts": 0,
           "due_at": "2026-11-13T18:00:00+00:00",
-          "status": "pending"
+          "error": "",
+          "published_at": "2026-11-13T18:17:50.427125Z",
+          "status": "published",
+          "url": "https://bsky.app/profile/githubopensource.bsky.social/post/3n27lt3y7q42k"
         }
       },
       "description": "VectorCraft: An open-source vector art tool written from scratch in pure Rust",
