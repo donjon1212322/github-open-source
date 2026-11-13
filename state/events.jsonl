@@ -333,3 +333,5 @@
 {"deleted": 0, "ts": "2026-11-13T15:48:01.911250Z", "type": "moderation_completed", "updates": 0}
 {"preview_host": "imgbb", "repo": "edge0-ai/edge0", "ts": "2026-11-13T16:24:07.942359Z", "type": "published_as_text"}
 {"repo": "edge0-ai/edge0", "score": 89.117, "telegram_message_id": 3593, "telegraph_url": "https://telegra.ph/How-to-Run-145B-Parameter-Models-Locally-with-Edge0-11-13", "ts": "2026-11-13T16:24:07.942742Z", "type": "project_published"}
+{"preview_host": "imgbb", "repo": "simbasjungles/free-my-tv", "ts": "2026-11-13T18:14:09.817863Z", "type": "published_as_text"}
+{"repo": "simbasjungles/free-my-tv", "score": 88.794, "telegram_message_id": 3594, "telegraph_url": "https://telegra.ph/How-to-replace-your-TV-home-screen-with-Free-My-TV-11-13", "ts": "2026-11-13T18:14:09.818134Z", "type": "project_published"}

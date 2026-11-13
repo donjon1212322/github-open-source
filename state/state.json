@@ -144,16 +144,16 @@
   "dead_letters": [],
   "gemini_daily": {
     "day": "2026-11-13",
-    "units": 6
+    "units": 12
   },
   "gemini_window": [
     [
-      1794587029.2183797,
-      3916
+      1794593631.360081,
+      3922
     ],
     [
-      1794587042.8418736,
-      1427
+      1794593644.500698,
+      1410
     ]
   ],
   "last_runs": {
@@ -253,9 +253,9 @@
       "telegram_message_id": 3592
     },
     "publish:us_midday": {
-      "finished_at": "2026-11-12T18:14:14.821078Z",
-      "repo": "whitetowerai/ohmygame",
-      "telegram_message_id": 3590
+      "finished_at": "2026-11-13T18:14:09.818187Z",
+      "repo": "simbasjungles/free-my-tv",
+      "telegram_message_id": 3594
     },
     "publish:us_morning": {
       "finished_at": "2026-11-13T16:24:07.942798Z",
@@ -4743,6 +4743,116 @@
       "visual_host": "imgbb",
       "visual_kind": "readme"
     },
+    "simbasjungles/free-my-tv": {
+      "articles": {},
+      "card_style": "",
+      "category": "DevTools",
+      "contributors_count": 124,
+      "created_at": "2026-10-19T19:29:01Z",
+      "crossposts": {
+        "bluesky": {
+          "attempts": 0,
+          "due_at": "2026-11-13T18:44:09.817953+00:00",
+          "status": "pending"
+        }
+      },
+      "description": "A fast, ad-free home screen for Google TV, LG webOS and Samsung Tizen. One button to undo.",
+      "description_fp": "5615589feb4104d2",
+      "forks": 1113,
+      "full_name": "simbasjungles/free-my-tv",
+      "generated": {
+        "article_markdown": "## What it is\\n\\nFree My TV is an open-source launcher designed to replace the default, ad-heavy home screens found on modern smart TVs. Instead of loading sponsored rows, autoplaying trailers, and bloated recommendation engines, it provides a clean, glass-shelf interface for your apps. It operates by hooking into the existing Android TV or Tizen/webOS input management, effectively acting as a lightweight shell that runs at a consistent 60 fps. The project is built to be minimal, consuming roughly 96 MB of memory compared to the 242 MB often used by stock launchers.\\n\\n## Why it matters\\n\\nSmart TV interfaces have shifted from being simple app launchers to becoming aggressive advertising platforms. This bloat doesn't just annoy users; it actively degrades performance on hardware that is often underpowered to begin with. Free My TV matters because it restores the TV to its primary purpose: a display for your content. By stripping away the telemetry-heavy, ad-driven UI, it makes the navigation feel snappy and responsive again, without requiring you to root the device or risk bricking your hardware.\\n\\n## Key features\\n\\n- Reduces home screen memory usage from 242 MB to 96 MB for smoother navigation.\\n- Maintains 60 fps performance by stripping out sponsored rows and autoplaying banners.\\n- Integrates local weather, crypto prices, and live TV inputs directly into the home screen drawer.\\n- Supports automatic theme switching based on local sunrise and sunset times.\\n- Provides a one-click undo button to restore the original manufacturer home screen at any time.\\n\\n## Quick start\\n\\nTo install Free My TV, you will need to enable developer mode and USB debugging on your TV. Once connected via ADB, run the following command:\\n\\n```bash\\nadb connect 192.168.1.50:5555\\nadb install -r FreeMyTV.apk\\n```\\n\\nAfter installation, open the app on your TV to set it as your default home screen. You can configure your TMDB key and local settings directly through the app's internal menu.\\n\\n## Who should try it\\n\\nThis project is for power users and developers who are comfortable using ADB and want to reclaim their TV's performance. If you are tired of your TV lagging when you try to open an app, or if you simply want a home screen that doesn't try to sell you content, this is the right tool for you. It is not for users who want a plug-and-play experience without ever touching a command line.\\n\\n## Verdict\\n\\nFree My TV is a clean, performant upgrade for anyone who views their TV as a display rather than a billboard. It is honest about what it does—it doesn't promise to magically upgrade your hardware, but it does remove the software overhead that makes modern TVs feel sluggish. It is a solid, well-engineered solution for a very specific, very common annoyance.",
+        "article_title": "How to replace your TV home screen with Free My TV",
+        "card_hook": "A faster, ad-free home screen for your TV",
+        "card_subline": "Replace bloated manufacturer interfaces with a lightweight, customizable launcher that respects your hardware",
+        "category": "DevTools",
+        "discussion_question": "If you could strip one feature from your smart TV's OS, would it be the ads, the tracking, or the bloatware?",
+        "hook": "Replace your TV's ad-filled home screen with a 96 MB, 60 fps launcher that puts your apps front and center.",
+        "key_features": [
+          "Reduces home screen memory usage from 242 MB to 96 MB for smoother navigation.",
+          "Maintains 60 fps performance by stripping out sponsored rows and autoplaying banners.",
+          "Integrates local weather, crypto prices, and live TV inputs directly into the home screen drawer.",
+          "Supports automatic theme switching based on local sunrise and sunset times.",
+          "Provides a one-click undo button to restore the original manufacturer home screen at any time."
+        ],
+        "llm_used": true,
+        "quick_start": "adb connect 192.168.1.50:5555 && adb install -r FreeMyTV.apk",
+        "safety": "ok",
+        "safety_reason": "This is a legitimate open-source launcher for TV operating systems that does not require root access or malicious modifications.",
+        "scene": "You sit down to watch a movie, but first you navigate through three rows of recommended content you didn't ask for, a banner ad for a show you've already seen, and a sluggish UI that stutters when you scroll.",
+        "social_text": "Stop fighting your TV's home screen. Free My TV is a lightweight, ad-free launcher that cuts memory usage by 60 percent and keeps your apps front and center. It works on Google TV, LG, and Samsung devices without requiring root.",
+        "summary": "Free My TV replaces the default, ad-heavy launcher on Android TV, Google TV, LG webOS, and Samsung Tizen devices with a lightweight, open-source alternative. It hooks into the system's existing app library and input management, running at 60 fps while consuming significantly less memory than stock interfaces. The launcher is designed to be set up directly on the TV, using a TMDB key for metadata and following local sunset times for theme adjustments.",
+        "surfaces": {
+          "Facebook_body": "Modern smart TVs often feel more like billboards than displays, bombarding you with sponsored content and slowing down your navigation. A new open-source launcher lets you replace your factory home screen with a clean, fast alternative that cuts memory usage down significantly.\n\nBy stripping out autoplaying banners and heavy background processes, this tool runs smoothly at sixty frames per second. It brings your own apps front and center, while seamlessly integrating local weather and live inputs directly into your home screen. You can even set it to change themes automatically based on sunrise and sunset.\n\nIf you want to try it out, you can restore your original manufacturer interface at any time with a single click. It is designed specifically for power users and developers who are tired of ad-cluttered television interfaces and want complete control over their living room display.",
+          "Facebook_headline": "Stop seeing ads on your smart TV home screen",
+          "Facebook_lead": "Get rid of sluggish factory menus and sponsored banners. Speed up your TV interface while using less memory.",
+          "bluesky_headline": "Remove ads and speed up your smart TV home screen",
+          "bluesky_lead": "Replace cluttered factory menus with a lightweight, 60 frames per second launcher built for power users.",
+          "devto_body": "## What it is\n\nFree My TV is an open-source launcher written in Java that replaces default, ad-heavy home screens on Android TV, Google TV, LG webOS, and Samsung Tizen devices. It provides a lightweight, performant interface that prioritizes your installed apps over sponsored content.\n\n## How it works\n\nThe launcher hooks directly into the system's existing app library and input management. By discarding heavy telemetry and autoplaying video banners, it reduces memory consumption from 242 MB down to 96 MB, maintaining a steady 60 fps rendering loop. It retrieves metadata using a standard TMDB key and adjusts themes based on local sunset times.\n\n## Key features\n\n- Reduces home screen memory usage to 96 MB for smoother navigation.\n- Maintains 60 fps performance by removing sponsored rows.\n- Integrates weather, crypto prices, and live TV inputs into the main drawer.\n- Supports automatic theme switching based on local sunrise and sunset.\n- Includes a one-click undo button to restore the original manufacturer home screen.\n\n## Getting started\n\nTo install Free My TV, you will need to clone the repository from GitHub and perform a standard ADB setup on your television device. Ensure you have your TMDB key ready for metadata retrieval.\n\n## When not to use it\n\nSkip this tool if you rely heavily on the built-in recommendation rows provided by your TV manufacturer or if you are uncomfortable setting up applications via ADB.",
+          "seo_description": "Replace your smart TV ad-heavy home screen with a fast, lightweight open-source launcher. Built for developers and power users tired of sluggish menus.",
+          "seo_query": "open source smart tv launcher ad free",
+          "seo_title": "Open-source smart TV launcher - Remove ads and speed up TV",
+          "telegraph_angle": "Explain the problem of smart TV advertising bloat and who benefits from switching to an open-source launcher, focusing on performance trade-offs."
+        },
+        "tension": "Your TV's stock launcher is essentially a billboard that consumes over 200 MB of RAM just to show you things you aren't interested in, often slowing down the actual app switching process.",
+        "turn": "Free My TV strips away the sponsored noise, giving you a glass shelf of your actual apps and a clean interface that runs at a consistent 60 fps. It does not root your device or uninstall your system apps; it simply sits on top, and you can revert to the factory launcher with a single button press.",
+        "verdict": "It is a clean, performant upgrade for anyone who views their TV as a display rather than a billboard, though it requires a bit of ADB setup.",
+        "who_for": "Developers and power users tired of ad-cluttered, sluggish TV interfaces.",
+        "why_now": "Modern smart TVs have become increasingly aggressive with sponsored content, making lightweight, user-controlled launchers a practical necessity for performance."
+      },
+      "homepage": "https://freemytv.io",
+      "id": 1426080579,
+      "image_url": "https://i.ibb.co/bMzkCnDK/simbasjungles-free-my-tv-readme-preview-70a7e2a6b544.jpg",
+      "is_dual_use": false,
+      "is_hidden_gem": false,
+      "language": "Java",
+      "license": {
+        "key": "mit",
+        "name": "MIT License",
+        "node_id": "MDc6TGljZW5zZTEz",
+        "spdx_id": "MIT",
+        "url": "https://api.github.com/licenses/mit"
+      },
+      "media_urls": [
+        "https://raw.githubusercontent.com/simbasjungles/free-my-tv/main/.github/preview.webp",
+        "https://raw.githubusercontent.com/simbasjungles/free-my-tv/main/docs/assets/icon-512.png"
+      ],
+      "name": "free-my-tv",
+      "open_issues": 94,
+      "published_at": "2026-11-13T18:14:09.817969Z",
+      "pushed_at": "2026-11-13T02:31:41Z",
+      "readme_fp": "0b5001a65c4c5008",
+      "repo_id": 1426080579,
+      "revisit_of": "",
+      "revisit_reason": "",
+      "score": 88.794,
+      "slot": "us_midday",
+      "sources": [
+        "github_search"
+      ],
+      "stars": 6349,
+      "telegram_chat_id": "@GitHub_Open_Source",
+      "telegram_link": "https://t.me/GitHub_Open_Source/3594",
+      "telegram_message_id": 3594,
+      "telegraph_url": "https://telegra.ph/How-to-replace-your-TV-home-screen-with-Free-My-TV-11-13",
+      "topics": [
+        "android-tv",
+        "claude-code",
+        "google-tv",
+        "home-screen",
+        "launcher",
+        "no-ads",
+        "open-source",
+        "samsung-tizen",
+        "tizen",
+        "tmdb",
+        "webos"
+      ],
+      "updated_at": "2026-11-13T17:55:05Z",
+      "url": "https://github.com/simbasjungles/free-my-tv",
+      "visual_host": "imgbb",
+      "visual_kind": "readme"
+    },
     "storytold/lightcraft": {
       "articles": {},
       "card_style": "",
@@ -5797,67 +5907,6 @@
       ],
       "updated_at": "2026-11-13T00:17:47Z",
       "url": "https://github.com/expo/exact"
-    },
-    {
-      "archived": false,
-      "contributors_count": 117,
-      "created_at": "2026-10-19T19:29:01Z",
-      "default_branch": "main",
-      "description": "A fast, ad-free home screen for Google TV, LG webOS and Samsung Tizen. One button to undo.",
-      "disabled": false,
-      "fork": false,
-      "forks": 1108,
-      "forks_count": 1108,
-      "full_name": "simbasjungles/free-my-tv",
-      "has_readme": true,
-      "homepage": "https://freemytv.io",
-      "id": 1426080579,
-      "is_dual_use": false,
-      "is_hidden_gem": false,
-      "language": "Java",
-      "license": {
-        "key": "mit",
-        "name": "MIT License",
-        "node_id": "MDc6TGljZW5zZTEz",
-        "spdx_id": "MIT",
-        "url": "https://api.github.com/licenses/mit"
-      },
-      "media_urls": [
-        "https://raw.githubusercontent.com/simbasjungles/free-my-tv/main/.github/preview.webp",
-        "https://raw.githubusercontent.com/simbasjungles/free-my-tv/main/docs/assets/icon-512.png"
-      ],
-      "name": "free-my-tv",
-      "non_software_reason": "",
-      "open_issues": 114,
-      "open_issues_count": 114,
-      "owner_repo_count": 1,
-      "pushed_at": "2026-11-11T04:38:41Z",
-      "readme": "",
-      "readme_excerpt": "<div align=\"center\">\n\n<img src=\"docs/assets/icon-512.png\" width=\"96\" alt=\"\">\n\n# Free My TV\n\n**A fast, ad-free home screen for Google TV, LG and Samsung TVs.**\n\nTrending picks from your own apps, the weather at a glance, and a look that follows the sunset.<br>\nOpen source. Built with Claude Code. One button to undo.\n\n[**freemytv.io**](https://freemytv.io) · [Install](#install) · [LG TVs](#lg-tvs-webos) · [Samsung TVs](#samsung-tvs-tizen) · [Any TV](#any-tv) · [Make it yours](#make-it-yours)\n\n<img src=\".github/preview.webp\" width=\"880\" alt=\"The Free My TV home screen: a glass shelf of apps, trending picks, and a drawer with the weather and crypto prices\">\n\n</div>\n\n## What you get\n\n- **No ads.** No sponsored rows, banners or autoplaying promos. Not one.\n- **Your apps, front and center.** The streaming apps you actually use, on a glass shelf. Pick them and their order right on the TV, or (on Google TV and Android TV) let the one you opened last come first.\n- **Trending, not sponsored.** Three fresh picks every hour (up to six, in Home Settings) from what's trending this week and the latest releases, only from apps you already have, and from the services you choose. The focused one open",
-      "readme_len": 52424,
-      "repo_id": 1426080579,
-      "score": 88.794,
-      "source_name": "github_search",
-      "sources": [
-        "github_search"
-      ],
-      "stargazers_count": 6313,
-      "stars": 6313,
-      "topics": [
-        "android-tv",
-        "claude-code",
-        "google-tv",
-        "home-screen",
-        "launcher",
-        "no-ads",
-        "open-source",
-        "samsung-tizen",
-        "tizen",
-        "tmdb",
-        "webos"
-      ],
-      "updated_at": "2026-11-13T00:05:00Z",
-      "url": "https://github.com/simbasjungles/free-my-tv"
     },
     {
       "archived": false,
@@ -12338,8 +12387,8 @@
     "simbasjungles/free-my-tv": {
       "first_seen_at": "2026-11-04T12:14:31.127052Z",
       "full_name": "simbasjungles/free-my-tv",
-      "last_decision": "queued",
-      "last_seen_at": "2026-11-13T00:25:41.047808Z",
+      "last_decision": "published",
+      "last_seen_at": "2026-11-13T18:14:09.818179Z",
       "repo_id": 1426080579,
       "sources": [
         "github_search"
