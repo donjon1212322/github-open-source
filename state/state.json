@@ -7243,8 +7243,8 @@
       "skipped_brief": ""
     },
     "2026-11-13": {
-      "last_schedule": "23 0 * * *",
-      "late_ignored": 6,
+      "last_schedule": "13 1 * * *",
+      "late_ignored": 7,
       "notified": true,
       "skipped_brief": ""
     }
