@@ -238,7 +238,7 @@
     },
     "metrics": {
       "checked": 12,
-      "finished_at": "2026-11-12T20:23:48.469046Z",
+      "finished_at": "2026-11-13T20:23:52.637486Z",
       "reason": "measured",
       "updated": 12
     },
@@ -1314,15 +1314,20 @@
       ],
       "updated_at": "2026-11-12T16:22:40Z",
       "url": "https://github.com/anefzaoui/misterdownloadmanager",
-      "value_score": 31.53,
-      "views": 31,
-      "views_age_hours": 4.0,
-      "views_at_24h": 81,
+      "value_score": 38.76,
+      "views": 80,
+      "views_age_hours": 28.0,
+      "views_at_24h": 75,
       "views_history": [
         {
           "at": "2026-11-12T20:23:49.200465Z",
           "reactions": 0,
           "views": 31
+        },
+        {
+          "at": "2026-11-13T20:23:55.167866Z",
+          "reactions": 0,
+          "views": 80
         }
       ],
       "visual_host": "imgbb",
@@ -1606,10 +1611,10 @@
       ],
       "updated_at": "2026-11-10T12:40:35Z",
       "url": "https://github.com/Donchitos/Claude-Code-Game-Studios",
-      "value_score": 42.31,
-      "views": 122,
-      "views_age_hours": 55.7,
-      "views_at_24h": 85,
+      "value_score": 41.68,
+      "views": 133,
+      "views_age_hours": 79.7,
+      "views_at_24h": 84,
       "views_history": [
         {
           "at": "2026-11-10T20:23:51.567285Z",
@@ -1625,6 +1630,11 @@
           "at": "2026-11-12T20:23:50.929963Z",
           "reactions": 0,
           "views": 122
+        },
+        {
+          "at": "2026-11-13T20:23:57.691898Z",
+          "reactions": 0,
+          "views": 133
         }
       ],
       "visual_host": "imgbb",
@@ -1715,6 +1725,7 @@
       "open_issues": 35,
       "published_at": "2026-11-13T16:24:07.942507Z",
       "pushed_at": "2026-11-13T13:01:19Z",
+      "reactions": 0,
       "readme_fp": "4447b6e5d8e654f5",
       "repo_id": 1361439328,
       "revisit_of": "",
@@ -1736,6 +1747,17 @@
       ],
       "updated_at": "2026-11-13T16:23:46Z",
       "url": "https://github.com/Edge0-AI/Edge0",
+      "value_score": 48.28,
+      "views": 36,
+      "views_age_hours": 4.0,
+      "views_at_24h": 94,
+      "views_history": [
+        {
+          "at": "2026-11-13T20:23:53.680961Z",
+          "reactions": 0,
+          "views": 36
+        }
+      ],
       "visual_host": "imgbb",
       "visual_kind": "readme"
     },
@@ -2523,10 +2545,10 @@
       ],
       "updated_at": "2026-11-10T00:43:22Z",
       "url": "https://github.com/JuneYaooo/rea-video",
-      "value_score": 28.33,
-      "views": 86,
-      "views_age_hours": 67.7,
-      "views_at_24h": 57,
+      "value_score": 28.41,
+      "views": 96,
+      "views_age_hours": 91.7,
+      "views_at_24h": 58,
       "views_history": [
         {
           "at": "2026-11-10T02:46:53.771622Z",
@@ -2547,6 +2569,11 @@
           "at": "2026-11-12T20:23:51.621612Z",
           "reactions": 0,
           "views": 86
+        },
+        {
+          "at": "2026-11-13T20:23:58.645590Z",
+          "reactions": 0,
+          "views": 96
         }
       ],
       "visual_host": "imgbb",
@@ -2664,15 +2691,20 @@
       ],
       "updated_at": "2026-11-11T12:42:13Z",
       "url": "https://github.com/kaankiziltug/logo-design-skill",
-      "value_score": 40.26,
-      "views": 94,
-      "views_age_hours": 31.7,
-      "views_at_24h": 84,
+      "value_score": 39.3,
+      "views": 111,
+      "views_age_hours": 55.7,
+      "views_at_24h": 77,
       "views_history": [
         {
           "at": "2026-11-12T20:23:50.245429Z",
           "reactions": 0,
           "views": 94
+        },
+        {
+          "at": "2026-11-13T20:23:56.665633Z",
+          "reactions": 0,
+          "views": 111
         }
       ],
       "visual_host": "imgbb",
@@ -3782,15 +3814,20 @@
       ],
       "updated_at": "2026-11-12T02:38:18Z",
       "url": "https://github.com/Louis-CFM/coucou",
-      "value_score": 37.22,
-      "views": 66,
-      "views_age_hours": 16.9,
-      "views_at_24h": 83,
+      "value_score": 39.36,
+      "views": 97,
+      "views_age_hours": 40.9,
+      "views_at_24h": 76,
       "views_history": [
         {
           "at": "2026-11-12T20:23:49.537689Z",
           "reactions": 0,
           "views": 66
+        },
+        {
+          "at": "2026-11-13T20:23:55.660934Z",
+          "reactions": 0,
+          "views": 97
         }
       ],
       "visual_host": "imgbb",
@@ -4561,15 +4598,20 @@
       ],
       "updated_at": "2026-11-11T17:12:20Z",
       "url": "https://github.com/patch-gg/pixelfx",
-      "value_score": 37.46,
-      "views": 82,
-      "views_age_hours": 27.1,
-      "views_at_24h": 78,
+      "value_score": 35.79,
+      "views": 98,
+      "views_age_hours": 51.1,
+      "views_at_24h": 70,
       "views_history": [
         {
           "at": "2026-11-12T20:23:49.892460Z",
           "reactions": 0,
           "views": 82
+        },
+        {
+          "at": "2026-11-13T20:23:56.152636Z",
+          "reactions": 0,
+          "views": 98
         }
       ],
       "visual_host": "imgbb",
@@ -4968,6 +5010,7 @@
       "open_issues": 94,
       "published_at": "2026-11-13T18:14:09.817969Z",
       "pushed_at": "2026-11-13T02:31:41Z",
+      "reactions": 0,
       "readme_fp": "0b5001a65c4c5008",
       "repo_id": 1426080579,
       "revisit_of": "",
@@ -4997,6 +5040,17 @@
       ],
       "updated_at": "2026-11-13T17:55:05Z",
       "url": "https://github.com/simbasjungles/free-my-tv",
+      "value_score": 55.46,
+      "views": 29,
+      "views_age_hours": 2.2,
+      "views_at_24h": 108,
+      "views_history": [
+        {
+          "at": "2026-11-13T20:23:53.206177Z",
+          "reactions": 0,
+          "views": 29
+        }
+      ],
       "visual_host": "imgbb",
       "visual_kind": "readme"
     },
@@ -5243,6 +5297,7 @@
       "open_issues": 1147,
       "published_at": "2026-11-13T01:13:57.615931Z",
       "pushed_at": "2026-11-13T00:49:09Z",
+      "reactions": 0,
       "readme_fp": "ca41f87dd7e9740a",
       "repo_id": 1398097510,
       "revisit_of": "",
@@ -5267,6 +5322,17 @@
       ],
       "updated_at": "2026-11-13T00:21:09Z",
       "url": "https://github.com/storytold/vectorcraft",
+      "value_score": 55.71,
+      "views": 93,
+      "views_age_hours": 19.2,
+      "views_at_24h": 108,
+      "views_history": [
+        {
+          "at": "2026-11-13T20:23:54.194108Z",
+          "reactions": 0,
+          "views": 93
+        }
+      ],
       "visual_host": "imgbb",
       "visual_kind": "readme"
     },
@@ -5390,10 +5456,10 @@
       ],
       "updated_at": "2026-11-10T07:09:57Z",
       "url": "https://github.com/TabularisDB/tabularis",
-      "value_score": 34.54,
-      "views": 102,
-      "views_age_hours": 61.2,
-      "views_at_24h": 69,
+      "value_score": 33.69,
+      "views": 111,
+      "views_age_hours": 85.2,
+      "views_at_24h": 68,
       "views_history": [
         {
           "at": "2026-11-10T20:23:52.006772Z",
@@ -5409,6 +5475,11 @@
           "at": "2026-11-12T20:23:51.272916Z",
           "reactions": 0,
           "views": 102
+        },
+        {
+          "at": "2026-11-13T20:23:58.167273Z",
+          "reactions": 0,
+          "views": 111
         }
       ],
       "visual_host": "imgbb",
@@ -5838,15 +5909,20 @@
       ],
       "updated_at": "2026-11-12T18:08:30Z",
       "url": "https://github.com/WhiteTowerAI/ohmygame",
-      "value_score": 26.51,
-      "views": 23,
-      "views_age_hours": 2.2,
-      "views_at_24h": 85,
+      "value_score": 39.36,
+      "views": 79,
+      "views_age_hours": 26.2,
+      "views_at_24h": 76,
       "views_history": [
         {
           "at": "2026-11-12T20:23:48.860915Z",
           "reactions": 0,
           "views": 23
+        },
+        {
+          "at": "2026-11-13T20:23:54.695676Z",
+          "reactions": 0,
+          "views": 79
         }
       ],
       "visual_host": "imgbb",
@@ -5976,15 +6052,20 @@
       ],
       "updated_at": "2026-11-11T05:20:16Z",
       "url": "https://github.com/wquguru/cicada",
-      "value_score": 38.66,
-      "views": 97,
-      "views_age_hours": 37.2,
-      "views_at_24h": 80,
+      "value_score": 37.25,
+      "views": 110,
+      "views_age_hours": 61.2,
+      "views_at_24h": 75,
       "views_history": [
         {
           "at": "2026-11-12T20:23:50.590028Z",
           "reactions": 0,
           "views": 97
+        },
+        {
+          "at": "2026-11-13T20:23:57.166430Z",
+          "reactions": 0,
+          "views": 110
         }
       ],
       "visual_host": "imgbb",

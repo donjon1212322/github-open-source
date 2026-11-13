@@ -344,3 +344,4 @@
 {"Gemini_video_input": false, "models": 8, "official_url": "", "stories": 5, "topic": "ai-dev-digest", "ts": "2026-11-13T19:19:08.796888Z", "type": "ai_brief_published", "video_id": "tg-20261113-7ea036f0f8"}
 {"devto_id": 5031795, "ts": "2026-11-13T19:53:51.962193Z", "type": "news_article_published", "url": "https://dev.to/githubopensource/deepseek-api-expansions-local-284b-moe-runs-and-new-developer-tooling-49j7", "words": 1084}
 {"minutes_late": 78.7, "schedule": "47 */3 * * *", "ts": "2026-11-13T20:05:44.083528Z", "type": "late_schedule_ignored"}
+{"channel": "GitHub_Open_Source", "posts": 12, "ts": "2026-11-13T20:23:58.646484Z", "type": "metrics_collected", "updated": 12}
