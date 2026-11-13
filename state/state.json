@@ -248,13 +248,13 @@
       "telegram_message_id": 3595
     },
     "news-article": {
-      "devto_id": 5025588,
-      "finished_at": "2026-11-12T21:01:14.566273Z",
+      "devto_id": 5031795,
+      "finished_at": "2026-11-13T19:53:51.962143Z",
       "published": true,
-      "title": "Gemini 4 Hydrogen, Gemini Decision 1, and GPT-6 Cyber Drop New Capabilities for Developers",
-      "topic_key": "model-releases-and-tools",
-      "url": "https://dev.to/githubopensource/gemini-4-hydrogen-gemini-decision-1-and-gpt-6-cyber-drop-new-capabilities-for-developers-2d15",
-      "words": 1221
+      "title": "DeepSeek API Expansions, Local 284B MoE Runs, and New Developer Tooling",
+      "topic_key": "ai-dev-digest",
+      "url": "https://dev.to/githubopensource/deepseek-api-expansions-local-284b-moe-runs-and-new-developer-tooling-49j7",
+      "words": 1084
     },
     "publish:europe_midday": {
       "finished_at": "2026-11-11T12:43:59.103591Z",
@@ -1112,6 +1112,7 @@
         ],
         "why_devs": "These updates bring massive models to local hardware, expand API capabilities for production apps, and refine agent workflows."
       },
+      "devto_cover_url": "https://i.ibb.co/VYfZSLVz/project-devto-cover-a065a7e53e17.png",
       "headline": "DeepSeek expands API, llama-modchip runs 284B locally, and security updates for Claude Code",
       "image_url": "https://i.ibb.co/S7G9D98L/ai-brief-6484dc976c79.png",
       "models": [
