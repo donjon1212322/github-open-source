@@ -143,17 +143,17 @@
   },
   "dead_letters": [],
   "gemini_daily": {
-    "day": "2026-11-12",
-    "units": 39
+    "day": "2026-11-13",
+    "units": 6
   },
   "gemini_window": [
     [
-      1794532429.1293476,
-      3908
+      1794587029.2183797,
+      3916
     ],
     [
-      1794532432.5713558,
-      1398
+      1794587042.8418736,
+      1427
     ]
   ],
   "last_runs": {
@@ -258,9 +258,9 @@
       "telegram_message_id": 3590
     },
     "publish:us_morning": {
-      "finished_at": "2026-11-12T16:24:59.872354Z",
-      "repo": "anefzaoui/misterdownloadmanager",
-      "telegram_message_id": 3589
+      "finished_at": "2026-11-13T16:24:07.942798Z",
+      "repo": "edge0-ai/edge0",
+      "telegram_message_id": 3593
     },
     "publish:us_peak": {
       "finished_at": "2026-11-11T17:19:17.006267Z",
@@ -1484,6 +1484,114 @@
       ],
       "visual_host": "imgbb",
       "visual_kind": "card"
+    },
+    "edge0-ai/edge0": {
+      "articles": {},
+      "card_style": "",
+      "category": "DevTools",
+      "contributors_count": 18,
+      "created_at": "2026-09-08T13:41:47Z",
+      "crossposts": {
+        "bluesky": {
+          "attempts": 0,
+          "due_at": "2026-11-13T18:00:00+00:00",
+          "status": "pending"
+        }
+      },
+      "description": "Device-native foundation models: 145B on a laptop, 35B on a phone. Latent MoE, SSD-streamed weights, a router that predicts loads a step ahead. Mac, iPhone, Android, Windows.",
+      "description_fp": "2996e47d7dc7e1b6",
+      "forks": 1654,
+      "full_name": "Edge0-AI/Edge0",
+      "generated": {
+        "article_markdown": "## What it is\n\nEdge0 is an inference framework designed to solve the memory wall for local LLMs. Instead of trying to cram an entire model into VRAM—which is usually impossible for anything over 70B parameters on consumer hardware—Edge0 uses a latent Mixture-of-Experts (MoE) architecture. It streams weights from your SSD on demand, using a router that predicts which experts are needed for the next step of inference. This allows you to run massive models, like the 145B parameter variants, on a single NVIDIA GPU.\n\n## Why it matters\n\nFor a long time, local inference was a trade-off between parameter count and hardware cost. If you wanted the reasoning capabilities of a 100B+ model, you were effectively forced to the cloud. Edge0 changes the math by treating your storage as an extension of your memory. By predicting the computational load ahead of time, the framework keeps the GPU busy with only the necessary experts, effectively decoupling the model size from your physical VRAM capacity.\n\n## Key features\n\n- **Massive Scale:** Runs 145B parameter models on a single 24GB NVIDIA GPU using latent MoE.\n- **Weight Streaming:** Streams model weights from SSD to bypass VRAM limitations during inference.\n- **Predictive Routing:** Predicts computational load steps ahead to optimize sparse expert activation.\n- **Unified Interface:** Provides a unified C++ API and CLI for serving and chat applications.\n- **Optimized Formats:** Supports Q3_K and NVFP4 quantization formats for optimized local performance.\n\n## Quick start\n\nTo start a local server for your model, use the `edge0-infer` CLI:\n\n```bash\nedge0-infer serve --model path/to/model\n```\n\n## Who should try it\n\nThis is for developers who are building local agent workloads and are hitting the ceiling of what their hardware can handle. If you have an NVIDIA GPU (CUDA 13) on Linux or Windows and need the reasoning power of a 145B model without the latency of an API call, this is the tool to use. If you are working on Apple Silicon or mobile, note that these platforms currently rely on the legacy engine, so you won't get the same performance benefits as the 145B/120B series.\n\n## Verdict\n\nEdge0 is a pragmatic solution to the VRAM bottleneck. It is a solid choice if you have an NVIDIA GPU and need massive model reasoning locally. However, skip it if you are strictly on Apple Silicon or mobile, as those platforms rely on the older, less feature-rich engine.",
+        "article_title": "How to Run 145B Parameter Models Locally with Edge0",
+        "card_hook": "Run 145B models on consumer GPUs",
+        "card_subline": "A streaming inference framework that uses latent MoE to fit massive models on single NVIDIA cards",
+        "category": "DevTools",
+        "discussion_question": "If you could run one 145B model locally, what is the first task you would offload from your cloud API?",
+        "hook": "Run a 145B parameter model on a single consumer GPU with Edge0's latent MoE inference framework.",
+        "key_features": [
+          "Runs 145B parameter models on a single 24GB NVIDIA GPU using latent MoE.",
+          "Streams model weights from SSD to bypass VRAM limitations during inference.",
+          "Predicts computational load steps ahead to optimize sparse expert activation.",
+          "Provides a unified C++ API and CLI for serving and chat applications.",
+          "Supports Q3_K and NVFP4 quantization formats for optimized local performance."
+        ],
+        "llm_used": true,
+        "quick_start": "edge0-infer serve --model path/to/model",
+        "safety": "ok",
+        "safety_reason": "This is an inference framework for running open-source AI models locally.",
+        "scene": "You are trying to run a high-parameter model for a local agent, but your VRAM is maxed out before you even load the weights.",
+        "social_text": "Run 145B parameter models on a single consumer GPU. Edge0 uses latent MoE and predictive weight streaming to fit massive models into limited VRAM.",
+        "summary": "Edge0 uses a latent Mixture-of-Experts (MoE) approach to stream model weights from storage, allowing massive parameter counts to run on consumer hardware. It replaces traditional monolithic loading by using a router that predicts load steps ahead, effectively decoupling model size from VRAM capacity. The framework provides a unified C++ API and CLI for serving and chatting across different model tiers.",
+        "surfaces": {
+          "Facebook_body": "Running massive artificial intelligence models usually requires expensive server hardware that is out of reach for most individuals. However, a new approach allows you to run high-capacity reasoning models locally on a single consumer graphics card.\n\nInstead of loading an entire massive model into memory all at once, this tool streams model weights directly from your storage as needed. A smart router predicts the necessary computational steps ahead of time, ensuring smooth performance even when dealing with models containing over one hundred billion parameters.\n\nThis is ideal for developers and tech enthusiasts who want to build and test advanced local agent workloads without relying on cloud services. By decoupling model size from memory capacity, it bridges the gap between cloud-only performance and local hardware limits. It supports common setup options for NVIDIA graphics cards, making advanced local reasoning much more accessible.",
+          "Facebook_headline": "Run massive AI models on your personal computer",
+          "Facebook_lead": "Discover how to run giant language models locally on a single consumer graphics card without needing a server cluster.",
+          "bluesky_headline": "Run huge AI models on one consumer graphics card",
+          "bluesky_lead": "Stream massive model weights from your storage to bypass memory limits.",
+          "devto_body": "## What it is\n\nEdge0 is an open-source C++ framework designed to run massive language models—such as 145B parameter architectures—on a single consumer GPU by streaming weights from storage.\n\n## How it works\n\nTraditional inference loads the entire model into VRAM. Edge0 uses a latent Mixture-of-Experts approach combined with a predictive router. The router anticipates compute steps ahead of time, streaming only the required expert weights from SSD to bypass traditional hardware memory bottlenecks.\n\n## Key features\n\n- Run 145B parameter models on a single 24GB NVIDIA GPU\n- SSD weight streaming for VRAM bypass\n- Predictive routing for optimized expert activation\n- Unified C++ API and command line interface\n- Support for Q3_K and NVFP4 quantization\n\n## Getting started\n\nClone the repository from GitHub and ensure you have a compatible NVIDIA GPU. Build the project using the C++ toolchain and configure your model paths.\n\n```bash\ngit clone https://github.com/Edge0-AI/Edge0.git\ncd Edge0\n# Follow repository build instructions\n```\n\n## When not to use it\n\nSkip this framework if you are working primarily on Apple Silicon or mobile platforms, as those targets rely on an older and less comprehensive engine version.",
+          "seo_description": "Learn how to run massive 145B parameter AI models on a single consumer GPU using latent MoE and SSD weight streaming. Ideal for local developers.",
+          "seo_query": "run 145b model on consumer gpu",
+          "seo_title": "Run 145B AI Models Locally - Edge0 C++ Framework",
+          "telegraph_angle": "Explain the architectural mechanics of latent mixture-of-experts weight streaming and the trade-offs of local hardware constraints."
+        },
+        "tension": "You are forced to either settle for smaller, less capable models or rent expensive cloud GPU instances, which adds latency and privacy concerns to your development loop.",
+        "turn": "Edge0 changes this by using latent MoE and predictive routing to stream weights, letting you run 145B models on a single card; however, it is currently optimized for NVIDIA GPUs on Linux/Windows, leaving mobile/Apple Silicon users on the older, legacy engine.",
+        "verdict": "A solid choice if you have an NVIDIA GPU and need massive model reasoning locally; skip it if you are strictly on Apple Silicon or mobile, as those platforms rely on the older, less feature-rich engine.",
+        "who_for": "Developers building local agent workloads who need high-parameter model reasoning without a server cluster.",
+        "why_now": "The recent release of 145B/120B latent-MoE models makes it possible to run high-reasoning capabilities on a single consumer card, closing the gap between cloud-only and local inference."
+      },
+      "homepage": "https://edge0.ai/",
+      "id": 1361439328,
+      "image_url": "https://i.ibb.co/j9zstfzt/edge0-ai-edge0-readme-preview-f3ae79da28f5.jpg",
+      "is_dual_use": false,
+      "is_hidden_gem": false,
+      "language": "C++",
+      "license": {
+        "key": "apache-2.0",
+        "name": "Apache License 2.0",
+        "node_id": "MDc6TGljZW5zZTI=",
+        "spdx_id": "Apache-2.0",
+        "url": "https://api.github.com/licenses/apache-2.0"
+      },
+      "media_urls": [
+        "https://raw.githubusercontent.com/Edge0-AI/Edge0/main/assets/edge0-release/hero.png",
+        "https://raw.githubusercontent.com/Edge0-AI/Edge0/main/assets/edge0-release/news/news-2026-11-13.svg",
+        "https://raw.githubusercontent.com/Edge0-AI/Edge0/main/assets/edge0-release/news/news-2026-11-04.svg",
+        "https://raw.githubusercontent.com/Edge0-AI/Edge0/main/assets/edge0-release/news/news-2026-09-30.svg",
+        "https://raw.githubusercontent.com/Edge0-AI/Edge0/main/assets/edge0-release/news/news-2026-09-16.svg",
+        "https://raw.githubusercontent.com/Edge0-AI/Edge0/main/assets/edge0-release/news/news-2026-09-08.svg",
+        "https://raw.githubusercontent.com/Edge0-AI/Edge0/main/assets/edge0-release/model-overview-145B-q3k.svg",
+        "https://raw.githubusercontent.com/Edge0-AI/Edge0/main/assets/edge0-release/quality-overview.svg"
+      ],
+      "name": "Edge0",
+      "open_issues": 35,
+      "published_at": "2026-11-13T16:24:07.942507Z",
+      "pushed_at": "2026-11-13T13:01:19Z",
+      "readme_fp": "4447b6e5d8e654f5",
+      "repo_id": 1361439328,
+      "revisit_of": "",
+      "revisit_reason": "",
+      "score": 89.117,
+      "slot": "us_morning",
+      "sources": [
+        "github_search"
+      ],
+      "stars": 10847,
+      "telegram_chat_id": "@GitHub_Open_Source",
+      "telegram_link": "https://t.me/GitHub_Open_Source/3593",
+      "telegram_message_id": 3593,
+      "telegraph_url": "https://telegra.ph/How-to-Run-145B-Parameter-Models-Locally-with-Edge0-11-13",
+      "topics": [
+        "edge-ai",
+        "foundation-model",
+        "on-device-ai"
+      ],
+      "updated_at": "2026-11-13T16:23:46Z",
+      "url": "https://github.com/Edge0-AI/Edge0",
+      "visual_host": "imgbb",
+      "visual_kind": "readme"
     },
     "horizon-rust/horizon": {
       "articles": {
@@ -5692,65 +5800,6 @@
     },
     {
       "archived": false,
-      "contributors_count": 17,
-      "created_at": "2026-09-08T13:41:47Z",
-      "default_branch": "main",
-      "description": "Device-native foundation models: 145B on a laptop, 35B on a phone. Latent MoE, SSD-streamed weights, a router that predicts loads a step ahead. Mac, iPhone, Android, Windows.",
-      "disabled": false,
-      "fork": false,
-      "forks": 1555,
-      "forks_count": 1555,
-      "full_name": "Edge0-AI/Edge0",
-      "has_readme": true,
-      "homepage": "https://edge0.ai/",
-      "id": 1361439328,
-      "is_dual_use": false,
-      "is_hidden_gem": false,
-      "language": "C++",
-      "license": {
-        "key": "apache-2.0",
-        "name": "Apache License 2.0",
-        "node_id": "MDc6TGljZW5zZTI=",
-        "spdx_id": "Apache-2.0",
-        "url": "https://api.github.com/licenses/apache-2.0"
-      },
-      "media_urls": [
-        "https://raw.githubusercontent.com/Edge0-AI/Edge0/main/assets/edge0-release/hero.png",
-        "https://raw.githubusercontent.com/Edge0-AI/Edge0/main/assets/edge0-release/news/news-2026-11-13.svg",
-        "https://raw.githubusercontent.com/Edge0-AI/Edge0/main/assets/edge0-release/news/news-2026-11-04.svg",
-        "https://raw.githubusercontent.com/Edge0-AI/Edge0/main/assets/edge0-release/news/news-2026-09-30.svg",
-        "https://raw.githubusercontent.com/Edge0-AI/Edge0/main/assets/edge0-release/news/news-2026-09-16.svg",
-        "https://raw.githubusercontent.com/Edge0-AI/Edge0/main/assets/edge0-release/news/news-2026-09-08.svg",
-        "https://raw.githubusercontent.com/Edge0-AI/Edge0/main/assets/edge0-release/model-overview-145B-q3k.svg",
-        "https://raw.githubusercontent.com/Edge0-AI/Edge0/main/assets/edge0-release/quality-overview.svg"
-      ],
-      "name": "Edge0",
-      "non_software_reason": "",
-      "open_issues": 35,
-      "open_issues_count": 35,
-      "owner_repo_count": 1,
-      "pushed_at": "2026-11-12T15:29:26Z",
-      "readme": "",
-      "readme_excerpt": "<p align=\"center\"><img src=\"assets/edge0-release/hero.png\" alt=\"Edge0\" width=\"100%\"></p>\n\n<h1 align=\"center\">Edge0</h1>\n\n<p align=\"center\">An open-source streaming MoE inference framework</p>\n\n<br>\n\n<p align=\"center\">Think big. Run here.<br>Sparse. By design.</p>\n\n<br>\n\n<p align=\"center\">macOS · iOS · Android · Linux · Windows<br>One program for every Edge0 model</p>\n\n<p align=\"center\"><sub>Project</sub><br>\n<img src=\"assets/edge0-release/badge-group-divider.svg\" alt=\"\" width=\"540\" height=\"16\"><br>\n<a href=\"https://arxiv.org/abs/2609.18063\"><img src=\"assets/edge0-release/badges/arxiv-badge.svg\" alt=\"arXiv / 2609.18063\" height=\"18\"></a> <a href=\"https://github.com/Edge0-AI/Edge0\"><img src=\"assets/edge0-release/badges/github-badge.svg\" alt=\"GitHub / Edge0-AI/Edge0\" height=\"18\"></a> <a href=\"https://edge0.ai/discord\"><img src=\"assets/edge0-release/badges/discord-badge.svg\" alt=\"Discord / Join us\" height=\"18\"></a> <a href=\"LICENSE\"><img src=\"assets/edge0-release/badges/license-badge.svg\" alt=\"License / Apache 2.0\" height=\"18\"></a> <a href=\"https://github.com/Edge0-AI/Edge0/releases\"><img src=\"assets/edge0-release/badges/windows-releases-badge.svg\" alt=\"Windows / Download\" height=\"18\"><",
-      "readme_len": 24508,
-      "repo_id": 1361439328,
-      "score": 89.117,
-      "source_name": "github_search",
-      "sources": [
-        "github_search"
-      ],
-      "stargazers_count": 10252,
-      "stars": 10252,
-      "topics": [
-        "edge-ai",
-        "foundation-model",
-        "on-device-ai"
-      ],
-      "updated_at": "2026-11-13T00:22:15Z",
-      "url": "https://github.com/Edge0-AI/Edge0"
-    },
-    {
-      "archived": false,
       "contributors_count": 117,
       "created_at": "2026-10-19T19:29:01Z",
       "default_branch": "main",
@@ -8714,8 +8763,8 @@
     "edge0-ai/edge0": {
       "first_seen_at": "2026-11-06T06:53:27.348733Z",
       "full_name": "Edge0-AI/Edge0",
-      "last_decision": "queued",
-      "last_seen_at": "2026-11-13T00:25:41.047621Z",
+      "last_decision": "published",
+      "last_seen_at": "2026-11-13T16:24:07.942789Z",
       "repo_id": 1361439328,
       "sources": [
         "github_search"

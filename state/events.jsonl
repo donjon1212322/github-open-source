@@ -331,3 +331,5 @@
 {"deleted": 0, "ts": "2026-11-13T12:47:53.093158Z", "type": "moderation_completed", "updates": 0}
 {"platform": "devto", "repo": "storytold/vectorcraft", "ts": "2026-11-13T13:33:49.399389Z", "type": "article_published", "url": "https://dev.to/githubopensource/open-source-vector-art-application-vectorcraft-287m"}
 {"deleted": 0, "ts": "2026-11-13T15:48:01.911250Z", "type": "moderation_completed", "updates": 0}
+{"preview_host": "imgbb", "repo": "edge0-ai/edge0", "ts": "2026-11-13T16:24:07.942359Z", "type": "published_as_text"}
+{"repo": "edge0-ai/edge0", "score": 89.117, "telegram_message_id": 3593, "telegraph_url": "https://telegra.ph/How-to-Run-145B-Parameter-Models-Locally-with-Edge0-11-13", "ts": "2026-11-13T16:24:07.942742Z", "type": "project_published"}
