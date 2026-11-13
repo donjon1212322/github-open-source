@@ -337,3 +337,4 @@
 {"repo": "simbasjungles/free-my-tv", "score": 88.794, "telegram_message_id": 3594, "telegraph_url": "https://telegra.ph/How-to-replace-your-TV-home-screen-with-Free-My-TV-11-13", "ts": "2026-11-13T18:14:09.818134Z", "type": "project_published"}
 {"platform": "bluesky", "repo": "storytold/vectorcraft", "ts": "2026-11-13T18:17:50.427145Z", "type": "crosspost_published", "url": "https://bsky.app/profile/githubopensource.bsky.social/post/3n27lt3y7q42k"}
 {"attempts": 1, "detail": "HTTP 204", "slot": "facebook-handoff", "ts": "2026-11-13T18:30:51.685019Z", "type": "watchdog_recovered", "verified": false}
+{"range": "facebook!A12:E12", "rows": 1, "ts": "2026-11-13T18:31:21.668474Z", "type": "facebook_handoff_queued"}

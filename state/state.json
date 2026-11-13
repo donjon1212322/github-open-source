@@ -203,7 +203,7 @@
       "week": "2026-W45"
     },
     "facebook-handoff": {
-      "finished_at": "2026-11-12T18:31:12.796971Z",
+      "finished_at": "2026-11-13T18:31:19.519658Z",
       "queued": 1,
       "reason": "queued"
     },
@@ -5027,6 +5027,11 @@
           "published_at": "2026-11-13T18:17:50.427125Z",
           "status": "published",
           "url": "https://bsky.app/profile/githubopensource.bsky.social/post/3n27lt3y7q42k"
+        },
+        "facebook_sheet": {
+          "at": "2026-11-13T18:31:21.668453Z",
+          "status": "queued",
+          "via": "make.com"
         }
       },
       "description": "VectorCraft: An open-source vector art tool written from scratch in pure Rust",
