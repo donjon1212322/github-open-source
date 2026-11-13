@@ -65,6 +65,9 @@ selection away from good projects. Mitigation, already implemented: clamp to
 can read it.
 
 **Sprint prioritizer:** the poll quietly failing to close (a missed cron →
-no tally → no signal for the week). Mitigation: the poll auto-closes at 96 h
-via `open_period`, so a missed run degrades to "tally arrives late", not
-"tally never exists".
+no tally → no signal for the week). Mitigation, corrected 13.11 after the
+12.11 incident: the poll now lives 120 h so the explicit Thursday 18:53Z
+`stopPoll` happens BEFORE Telegram auto-closes it (96 h expired 44 minutes
+too early). The watchdog recovers a missed close, and an already-closed poll
+is recorded as an honest no-op instead of a failed workflow. Auto-close alone
+is NOT a source of tally data — the Bot API only returns votes from stopPoll.

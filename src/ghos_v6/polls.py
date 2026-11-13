@@ -2,7 +2,10 @@
 
 The Bot API caps a poll at 10 days and cannot create one retroactively, so
 the weekly poll must be sent on schedule and closed explicitly — otherwise
-``voter_count`` stays unknown and the week leaves no signal behind.
+``voter_count`` stays unknown and the week leaves no signal behind. The
+lifetime is deliberately LONGER than Sunday→Thursday: on 12.11 a 96 h
+``open_period`` expired 44 minutes before the 18:53Z close cron, Telegram
+auto-closed the poll and ``stopPoll`` answered "poll can't be stopped".
 """
 from __future__ import annotations
 
@@ -11,7 +14,7 @@ from typing import Any
 from .telegram import TelegramClient
 
 MAX_POLL_DAYS = 10
-DEFAULT_WEEK_POLL_HOURS = 96  # Sunday → Thursday; closed before the digest
+DEFAULT_WEEK_POLL_HOURS = 120  # Sunday → Friday; Thursday 18:53Z close wins
 
 
 def is_channel(chat_id: int | str) -> bool:

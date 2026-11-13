@@ -307,6 +307,23 @@ MUTATIONS: list[tuple[str, str, str, str]] = [
      "    stand_font, stand_lines, stand_lh = _card_hook_layout(draw, standfirst, allowed)",
      "    stand_font, stand_lines = _fit_block(draw, standfirst, \"sans\", 30, AI_BRIEF_WIDTH, 2, bold=False, minimum=24); stand_lh = int(_font_size(stand_font) * 1.32)",
      "the card cuts the hook off mid-sentence again"),
+    # Owner 13.11: seven failure emails on 12.11 all came from recoverable
+    # conditions. These mutations must be killed by the new regressions.
+    ("src/ghos_v6/polls.py", "DEFAULT_WEEK_POLL_HOURS = 120",
+     "DEFAULT_WEEK_POLL_HOURS = 96",
+     "weekly poll auto-closes before Thursday's stopPoll again"),
+    ("src/ghos_v6/pipeline.py", 'BRIEF_GEMINI_SKIP = "brief_gemini_unavailable"',
+     'BRIEF_GEMINI_SKIP = "published"',
+     "a temporary Gemini outage is marked terminal and the brief is lost"),
+    ("src/ghos_v6/pipeline.py", "if not is_transient_error(exc):",
+     "if True:",
+     "temporary Gemini outage becomes a failed workflow and an email again"),
+    ("src/ghos_v6/pipeline.py",
+     'return {"ok": True, "closed": False, "reason": POLL_ALREADY_CLOSED}',
+     'return {"ok": False, "closed": False, "reason": "stop_poll_failed"}',
+     "an already-closed poll fails the workflow and emails the owner again"),
+    (".github/workflows/pipeline.yml", "needs.run.outputs.state_changed == 'true'",
+     "true", "commit-state downloads a missing artifact again"),
 ]
 
 COPY_ITEMS = (

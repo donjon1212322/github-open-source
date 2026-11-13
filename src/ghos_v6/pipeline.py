@@ -19,7 +19,7 @@ from .devto_cover import build_devto_cover
 from .content_adapters import build_crosspost_text, image_alt_text, public_telegram_link
 from .formatter import format_project_post
 from .gate import GateConfig, evaluate
-from .Gemini import GeminiClient, generate_project_content
+from .Gemini import GeminiClient, generate_project_content, is_transient_error
 from .rate_limit import GeminiBudget, GeminiDailyCap
 from .rumours import (
     filter_recent_rumours, is_rumour_relevant, prune_rumour_memory,
@@ -58,10 +58,52 @@ from .sources import GitHubApi, collect_candidates, enrich_candidate, enrich_can
 from .state import StateStore, iso_now, iso_week_key
 from .polls_design import (audience_ranking_model, build_week_poll,
                            merge_models, record_poll_result)
+
 from .telegram import TelegramClient, is_fatal_error
 from .telegraph import TelegraphClient
 
 logger = logging.getLogger(__name__)
+
+
+# Owner 13.11 ("очень много ошибок, пришли на почту"): seven failed Actions
+# runs on 12.11 were recoverable conditions, not broken publishing. Five
+# ``poll-close`` runs died because Telegram's ``stopPoll`` answers "poll can't
+# be stopped" once the ``open_period`` has already auto-closed the poll; two
+# ``news`` runs died because a Gemini 503 escaped to cli.main. Every one of
+# them returned exit 1, alerted the owner and made GitHub email a failure,
+# while the watchdog recovered the brief 90 minutes later. These reasons are
+# honest "skipped, retry" results: ok=True (no failed workflow / no email) but
+# NO last_runs marker, so watchdog._has_run() stays false and the slot is
+# recovered on a later tick. A real bug still raises.
+BRIEF_GEMINI_SKIP = "brief_gemini_unavailable"
+ARTICLE_GEMINI_SKIP = "article_gemini_unavailable"
+POLL_ALREADY_CLOSED = "poll_already_closed"
+
+
+def _transient_gemini_skip(store: StateStore, exc: BaseException, *,
+                           event: str, reason: str) -> dict[str, Any] | None:
+    """Turn a temporary model outage into a quiet, retryable no-op.
+
+    Only transient 429/503-style errors are swallowed; a schema bug, a bad
+    API key or a local exception still propagates to cli.main and alerts.
+    """
+    if not is_transient_error(exc):
+        return None
+    detail = sanitize(str(exc))[:300]
+    store.event(event, reason=reason, error=detail)
+    store.save()
+    logger.warning("Gemini temporarily unavailable (%s): %s", reason, detail)
+    return {"ok": True, "published": False, "reason": reason, "error": detail}
+
+
+def _poll_already_closed(reason: str) -> bool:
+    """Telegram's wording when ``open_period`` expired before stopPoll()."""
+    text = reason.lower()
+    return any(marker in text for marker in (
+        "poll can't be stopped", "poll cannot be stopped",
+        "poll already closed", "poll has already been closed",
+        "poll is already closed",
+    ))
 
 
 def _parse_iso(value: Any) -> datetime | None:
@@ -1355,9 +1397,16 @@ def news_command(
 
     if use_telegram:
         primary = material["primary"]
-        brief = synthesize_brief_telegram(
-            entry, primary, client, rumours=material["rumours"]
-        )
+        try:
+            brief = synthesize_brief_telegram(
+                entry, primary, client, rumours=material["rumours"]
+            )
+        except Exception as exc:  # noqa: BLE001
+            skip = _transient_gemini_skip(store, exc, event="news_skipped",
+                                          reason=BRIEF_GEMINI_SKIP)
+            if skip is None:
+                raise
+            return skip
         video_input = False
     else:
         primary = {}
@@ -1366,12 +1415,19 @@ def news_command(
             if primary:
                 break
         try:
-            brief = synthesize_brief(entry, primary, client, use_video=True)
-            video_input = True
+            try:
+                brief = synthesize_brief(entry, primary, client, use_video=True)
+                video_input = True
+            except Exception as exc:  # noqa: BLE001
+                logger.warning("Gemini YouTube input failed; retrying text-only: %s", type(exc).__name__)
+                brief = synthesize_brief(entry, primary, client, use_video=False)
+                video_input = False
         except Exception as exc:  # noqa: BLE001
-            logger.warning("Gemini YouTube input failed; retrying text-only: %s", type(exc).__name__)
-            brief = synthesize_brief(entry, primary, client, use_video=False)
-            video_input = False
+            skip = _transient_gemini_skip(store, exc, event="news_skipped",
+                                          reason=BRIEF_GEMINI_SKIP)
+            if skip is None:
+                raise
+            return skip
     # Owner 11.11: zero corporate / IPO / S-1 / policy stories in the brief.
     # A refresh edits an already published post and is left untouched.
     if not refresh:
@@ -1980,7 +2036,19 @@ def close_poll_command(config: Config, store: StateStore) -> dict[str, Any]:
             poll_chat_id = config.telegram_chat_id
         tally = polls.close_poll(telegram, poll_chat_id, int(poll["message_id"]))
     except Exception as exc:  # noqa: BLE001
-        logger.warning("stopPoll failed: %s", sanitize(str(exc))[:200])
+        reason = sanitize(str(exc))[:200]
+        logger.warning("stopPoll failed: %s", reason)
+        if _poll_already_closed(reason):
+            # Telegram auto-closed the poll before our cron arrived. Retrying
+            # can NEVER produce a tally, and ok=False made five watchdog ticks
+            # plus the late Thursday cron fail and email the owner on 12.11.
+            # Finish the weekly slot honestly: no invented votes, no duplicate
+            # alert, no retries. The longer 120 h lifetime prevents a repeat.
+            store.event("poll_close_skipped", reason=POLL_ALREADY_CLOSED, error=reason)
+            mark_weekly(store, "poll-close", reason=POLL_ALREADY_CLOSED)
+            store.data["active_poll"] = {}
+            store.save()
+            return {"ok": True, "closed": False, "reason": POLL_ALREADY_CLOSED}
         return {"ok": False, "closed": False, "reason": "stop_poll_failed"}
     keys = list(poll.get("option_keys") or [])
     entries = []
@@ -2388,6 +2456,10 @@ def news_article_command(config: Config, store: StateStore) -> dict[str, Any]:
             store.event("news_article_regenerated", words=len(markdown.split()))
             store.save()
         except Exception as exc:  # noqa: BLE001
+            skip = _transient_gemini_skip(store, exc, event="news_article_skipped",
+                                          reason=ARTICLE_GEMINI_SKIP)
+            if skip is not None:
+                return skip
             reason = sanitize(str(exc))[:300]
             store.event("news_article_skipped", reason="generation_failed", error=reason)
             store.save()
@@ -2421,6 +2493,10 @@ def news_article_command(config: Config, store: StateStore) -> dict[str, Any]:
         reason = sanitize(str(exc))[:300]
         store.event("news_article_skipped", reason="publish_failed", error=reason)
         store.save()
+        if is_transient_error(exc):
+            logger.warning("dev.to temporarily unavailable; article postponed: %s", reason)
+            return {"ok": True, "published": False,
+                    "reason": ARTICLE_GEMINI_SKIP, "error": reason}
         return {"ok": False, "published": False, "reason": "publish_failed", "error": reason}
 
     url = str(result.get("url") or "")

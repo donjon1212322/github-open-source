@@ -142,7 +142,7 @@ run a cycle", not "validated by a cycle".
 
 | When (UTC) | What | Where |
 |---|---|---|
-| Sun 16:10 | Digest of the week's top 5, poll opens (96 h) | `digest` |
+| Sun 16:10 | Digest of the week's top 5, poll opens (120 h) | `digest` |
 | Daily 19:50 | Views snapshot for 12 recent posts | `metrics` |
 | Thu 18:10 | Poll closes, tally stored, then `learn` | `poll-close` + `learn` |
 | Sun 16:40 | Owner report | `report` |
