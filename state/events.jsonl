@@ -321,3 +321,4 @@
 {"preview_host": "imgbb", "repo": "storytold/vectorcraft", "ts": "2026-11-13T01:13:57.615768Z", "type": "published_as_text"}
 {"repo": "storytold/vectorcraft", "score": 93.5, "telegram_message_id": 3592, "telegraph_url": "https://telegra.ph/VectorCraft-Open-Source-Vector-Illustration-Tool-Built-in-Rust-11-13", "ts": "2026-11-13T01:13:57.616115Z", "type": "project_published"}
 {"minutes_late": 83.2, "schedule": "47 */3 * * *", "ts": "2026-11-13T02:10:14.843132Z", "type": "late_schedule_ignored"}
+{"deleted": 0, "ts": "2026-11-13T03:47:50.254507Z", "type": "moderation_completed", "updates": 0}
