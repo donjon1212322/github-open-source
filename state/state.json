@@ -7192,6 +7192,12 @@
       "late_ignored": 12,
       "notified": true,
       "skipped_brief": ""
+    },
+    "2026-11-13": {
+      "last_schedule": "18 19 * * *",
+      "late_ignored": 1,
+      "notified": true,
+      "skipped_brief": ""
     }
   },
   "seen_repos": {
