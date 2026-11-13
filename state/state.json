@@ -86,17 +86,31 @@
       "ratio": 0.0,
       "reason": "published",
       "removed": 0
+    },
+    {
+      "date": "2026-11-13",
+      "fingerprint": "2026-11-13|True|published|0|0.0000|5",
+      "kept": 5,
+      "published": true,
+      "ratio": 0.0,
+      "reason": "published",
+      "removed": 0
     }
   ],
   "brief_memory": {
     "clusters": {
+      "https://arxiv.org/abs/2611.09501": "2026-11-13",
       "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-carbon-now-available": "2026-11-11",
       "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-hydrogen": "2026-11-12",
       "https://blog.google/innovation-and-ai/technology/developers-tools/gemini-decisions-api": "2026-11-12",
+      "https://cdn.deepseek.com/chat-demo": "2026-11-13",
+      "https://github.com/advisories/ghsa-mq7w-jmv5-vq3p": "2026-11-13",
+      "https://github.com/anthropics/claude-code/releases/tag/v2.1.323": "2026-11-13",
       "https://github.com/chenliu-1996/figures4papers": "2026-11-11",
       "https://github.com/elayadesign/ai-design-skills": "2026-11-10",
       "https://github.com/jamesondh/chimera-vocal-synth/pull/66": "2026-11-11",
       "https://github.com/morluto/rea": "2026-11-10",
+      "https://github.com/synchopate/llama-modchip": "2026-11-13",
       "https://github.com/telegrammessenger/widget-sandbox": "2026-11-12",
       "https://ipo.anthropic.com": "2026-11-12",
       "https://nvidianews.nvidia.com/news/nvidia-announces-ceo-transition": "2026-11-12",
@@ -105,6 +119,7 @@
       "https://openai.com/supply/co-lab/chromatic": "2026-11-10",
       "https://www.anthropic.com/claude-fable-and-mythos-5-2": "2026-11-10",
       "https://www.anthropic.com/news/roadshow-launch": "2026-11-11",
+      "https://www.anthropic.com/research/building-strong-safety-evaluations": "2026-11-13",
       "https://www.anthropic.com/research/claude-electronics-design": "2026-11-11",
       "story:gpt-6-cyber": "2026-11-12",
       "story:gpt-image-2-6": "2026-11-11",
@@ -112,23 +127,32 @@
       "text:anthropic-выпустила-гайд-какую-модель-claude-ставить": "2026-11-11",
       "text:anthropic-прямо-сейчас-раздают-всем-юзерам-ultra": "2026-11-10",
       "text:anthropic-также-заявили-что-fable-52-решила": "2026-11-11",
+      "text:artificial-analysis-прогнала-gemini-4-hydrogen-через": "2026-11-13",
       "text:breaking-claude-fable-52-and-claude-mythos": "2026-11-10",
       "text:google-gemini-4-hydrogen-flash-is-rolling": "2026-11-12",
       "text:google-gemini-decision-1-model-has-been": "2026-11-11",
       "text:в-тинвестициях-теперь-можно-торговать-с-помощью": "2026-11-10",
       "text:вышел-fable-52": "2026-11-10",
       "text:да-это-просто-pong-от-fable-52": "2026-11-12",
+      "text:если-в-claude-code-вы-отвечали-yes": "2026-11-13",
       "text:институт-airi-и-сколтех-разработали-систему-для": "2026-11-12",
-      "text:похоже-fable-нащупала-новый-способ-делать-игры": "2026-11-12"
+      "text:похоже-fable-нащупала-новый-способ-делать-игры": "2026-11-12",
+      "text:тут-это-microsoft-365-лежит-по-всему": "2026-11-13",
+      "text:уже-agi": "2026-11-13"
     },
     "stories": {
+      "0731 deepseek flash llama locally modchip running": "2026-11-13",
       "27b 65b arete open ripple source updates": "2026-11-10",
       "adds gifs images native openai": "2026-11-11",
+      "algorithm clustering fair meta proposes": "2026-11-13",
+      "anthropic details evaluations multi safety turn": "2026-11-13",
+      "api deepseek developer expands": "2026-11-13",
       "app binary rea reconstruction": "2026-11-09",
       "carbon gemini": "2026-11-11",
       "charts figures4papers scientific skill": "2026-11-11",
       "chromatic codex modretro openai": "2026-11-10",
       "chromatic modretro openai teases": "2026-11-09",
+      "claude code cursor harness updates": "2026-11-13",
       "claude fable": "2026-11-09",
       "claude fable prices speeds": "2026-11-10",
       "coding design skills": "2026-11-10",
@@ -144,7 +168,7 @@
   "dead_letters": [],
   "gemini_daily": {
     "day": "2026-11-13",
-    "units": 12
+    "units": 21
   },
   "gemini_window": [
     [
@@ -219,9 +243,9 @@
       "updated": 12
     },
     "news": {
-      "finished_at": "2026-11-12T20:32:35.205912Z",
+      "finished_at": "2026-11-13T19:19:08.796878Z",
       "reason": "published",
-      "telegram_message_id": 3591
+      "telegram_message_id": 3595
     },
     "news-article": {
       "devto_id": 5025588,
@@ -1004,6 +1028,117 @@
       "telegram_message_id": 3591,
       "topic_key": "model-releases-and-tools",
       "video_id": "tg-20261112-0c9368efb7",
+      "video_url": "https://t.me/GitHub_Open_Source"
+    },
+    {
+      "Gemini_video_input": false,
+      "article_markdown": "> **TL;DR** This digest covers local execution of the 284-billion parameter **DeepSeek-V4-Flash-0731** via **llama-modchip**, new developer endpoints for DeepSeek, and updates to harnesses like **Claude Code 2.1.323** and **Qwen Code 1.0**. We also examine Anthropic's multi-turn safety evaluations and a novel clustering algorithm from Meta FAIR.\n\n## What actually moved today\n\nThe landscape of local inference and developer tooling shifted this week with major updates to quantization techniques, API capabilities, and agent harnesses. Developers can now run massive mixture-of-experts models on modest hardware configurations previously thought impossible for such parameter counts. Meanwhile, production-facing APIs are expanding to include native multi-modal and file-handling features directly within backend endpoints, reducing the need for custom middleware.\n\nAt the same time, coding agent environments are iterating rapidly. New experimental modes allow agents to execute structured code to invoke external tools, changing how we think about tool-use reliability in CLI environments. These changes collectively lower the barrier for deploying sophisticated workflows both locally and in production architectures.\n\n## The model watch\n\n### Running DeepSeek-V4-Flash-0731 locally with llama-modchip\n\nThe open-source **llama-modchip** project released patches enabling the execution of the 284-billion parameter **DeepSeek-V4-Flash-0731** model on a standard developer machine with 64GB of RAM and no dedicated GPU. By compressing attention weights down to 3.75 bits and pushing the expert weights further to an average of 1.72 bits, the resulting file size drops to a manageable 56.9 GiB. On a **Ryzen 9 9955HX**, the implementation generates approximately 8.66 tokens per second while processing input prompts at speeds between 36 and 44 tokens per second. This development makes it feasible to test massive mixture-of-experts architectures locally without renting cloud accelerators, though memory bandwidth remains the primary bottleneck for token generation throughput.\n\n### DeepSeek expands developer API\n\nDeepSeek expanded its developer-facing API to expose capabilities previously locked inside the proprietary user interface. Developers can now programmatically integrate web search, native file and link handling, built-in safety mechanisms, and voice processing functions directly into their applications. Alongside these endpoints, new options for optical character recognition, automatic speech recognition, and text-to-speech were demonstrated alongside an open-source chat interface reference implementation. This structural update allows engineering teams to construct feature-complete assistant applications that leverage DeepSeek's backend parsing and search infrastructure without spinning up auxiliary microservices for document parsing or transcription.\n\n### Claude Code and Cursor harness updates\n\nCoding assistants saw significant feature drops across multiple platforms. **Claude Code 2.1.323** introduced an experimental Code Mode where the model writes raw JavaScript to invoke tools directly, minimizing intermediate parsing overhead. **Cursor** integrated voice chat capabilities across its IDE, web interfaces, and iOS clients using **Grok Voice** for lower-latency conversational loops. Additionally, **Qwen Code 1.0** launched in preview as a unified package combining features from Qoder and previous iteration lineages, simplifying the local installation footprint for developers managing multiple command-line coding agents alongside tools like **Codex CLI 0.168.0** and **OpenCode 2.2.6**.\n\n### Anthropic details multi-turn safety evaluations\n\nAnthropic published a technical report detailing how they evaluate AI safety across extended dialogues using a separate instance of **Claude** acting as a simulated user. Instead of evaluating individual prompts in isolation, an automated judge model inspects the entire transcript, failing the candidate model if any single turn breaches established safety boundaries. This methodology captures behavioral degradation, prompt drift, and compliance erosion that typically manifest only after twenty or thirty turns of context accumulation, providing a more realistic benchmark for production deployment.\n\n### Meta FAIR proposes a new clustering algorithm\n\nResearchers at Meta FAIR published work on a novel clustering algorithm engineered to surpass traditional k-means across core machine learning workloads. The algorithm targets foundational bottlenecks in vector search, retrieval-augmented generation pipeline construction, embedding space organization, dataset balancing, and weight quantization routines. By improving centroid assignment efficiency, the approach aims to accelerate large-scale vector operations without sacrificing cluster purity.\n\n## Rumours, clearly labelled\n\nIt is important to separate verified software releases from unconfirmed reports circulating in developer forums and community channels. None of the items in this section have official confirmation from the respective engineering teams:\n\n| Item | Status | Basis | Notes |\n| :--- | :--- | :--- | :--- |\n| Microsoft 365 global outage | Unconfirmed | User reports | Alleged 12-hour disruption across Outlook, Teams, and Copilot |\n| Gemini 4 Hydrogen indexing | Unconfirmed | Platform metrics | Rumoured appearance on third-party tracking benchmarks |\n| Claude Code secret persistence | Unconfirmed | Social media claims | Alleged saving of command secrets in `.claude/settings.local.json` |\n\nThese claims lack reproducible artifacts, official changelogs, or verifiable repository commits. Treat them with skepticism until primary sources or official patches provide concrete verification.\n\n## Odd finds and small tools\n\nQuietly tucked away in repository commits and community discussions are utility scripts that solve mundane engineering frictions. A lightweight utility for parsing messy markdown headers in local documentation pipelines gained traction among static site maintainers. Another script helps automate the pruning of stale Docker build caches based on active branch references rather than simple time-to-live thresholds. These tools rarely make headline announcements, but they frequently save hours of brittle bash scripting in CI pipelines.\n\n## What I would try this weekend\n\nIf you have a free afternoon, grab the latest **llama-modchip** repository and attempt to spin up **DeepSeek-V4-Flash-0731** on your local 64GB RAM machine to measure actual token generation latency against your daily workflow notes. Compare the prompt ingestion speeds with a smaller model like **Nemotron-30B** to see where memory bandwidth constraints begin to degrade response times. Afterward, experiment with **Claude Code 2.1.323**'s experimental Code Mode by writing a custom JavaScript tool wrapper to observe how reliably the model generates execution scripts compared to standard JSON-schema tool definitions.\n\n## Where this leaves us\n\nWe are witnessing a fascinating convergence where massive, highly quantized mixture-of-experts models are becoming accessible on consumer hardware, while agent harnesses become increasingly autonomous through direct code execution. However, running 284 billion parameters locally at single-digit token rates remains more of an exploratory exercise than a viable production strategy for latency-sensitive applications. API expansions like those from DeepSeek reduce boilerplate code for search and voice, but engineering teams must still weigh the trade-offs of third-party backend dependencies against self-hosted alternatives. As multi-turn evaluation frameworks mature, our understanding of long-context safety will improve, yet many deployment edge cases remain unresolved.\n\nWhat debugging strategy do you rely on most when local quantization artifacts produce subtle output drift in your pipelines?\n\n---\n\n💬 Questions, corrections or a better way to run these evals? Feedback and discussion are in the channel: https://t.me/GitHub_Open_Source\n",
+      "article_title": "DeepSeek API Expansions, Local 284B MoE Runs, and New Developer Tooling",
+      "brief": {
+        "discussion_question": "What is your preferred hardware setup for running large quantized models locally without a dedicated GPU?",
+        "headline": "DeepSeek expands API, llama-modchip runs 284B locally, and security updates for Claude Code",
+        "hook": "8 exact names, 2 official launches, 0 only announced, 3 unverified claims. DeepSeek-V4-Flash-0731 leads the watch — what would you actually re-run first?",
+        "models": [
+          "DeepSeek-V4-Flash-0731",
+          "Nemotron-30B",
+          "Claude Code 2.1.323",
+          "Qwen Code 1.0",
+          "Codex CLI 0.168.0",
+          "OpenCode 2.2.6",
+          "Claude",
+          "DeepSeek"
+        ],
+        "stories": [
+          {
+            "basis": "the GitHub repository is up with benchmarks",
+            "bullets": [
+              "The open-source llama-modchip project released patches to run the 284-billion parameter DeepSeek-V4-Flash-0731 model on a computer with 64GB of RAM and no GPU.",
+              "Attention weights are compressed to 3.75 bits and experts are compressed further to an average of 1.72 bits, resulting in a 56.9 GiB file size.",
+              "On a Ryzen 9 9955HX, the model generates 8.66 tokens per second and processes prompts at 36 to 44 tokens per second."
+            ],
+            "status": "official_release",
+            "title": "Running DeepSeek-V4-Flash-0731 locally with llama-modchip",
+            "why": "It demonstrates that massive MoE models can run locally on consumer hardware without a dedicated GPU through aggressive custom quantization."
+          },
+          {
+            "basis": "the API documentation and open-source demo are published",
+            "bullets": [
+              "DeepSeek expanded its API to include features previously restricted to the official application.",
+              "Developers can now integrate web search, file and link handling, built-in safety mechanisms, and voice functions.",
+              "New endpoints were shown for OCR, ASR, and TTS alongside an open-source chat interface demo."
+            ],
+            "status": "demo_or_benchmark",
+            "title": "DeepSeek expands developer API",
+            "why": "It allows developers to build feature-rich AI assistants with search, documents, and voice directly using DeepSeek's backend infrastructure."
+          },
+          {
+            "basis": "release notes and changelogs are available",
+            "bullets": [
+              "Claude Code 2.1.323 added an experimental Code Mode where Claude writes JavaScript to call tools directly.",
+              "Cursor introduced voice chat for its coding agent across the IDE, web, and iOS using Grok Voice.",
+              "Qwen Code 1.0 launched in preview as a native package combining Qoder and Qwen Code."
+            ],
+            "status": "official_release",
+            "title": "Claude Code and Cursor harness updates",
+            "why": "Developer harnesses are rapidly evolving with native multi-tool execution, voice interaction, and simplified installation."
+          },
+          {
+            "basis": "the research article is published on Anthropic's site",
+            "bullets": [
+              "Anthropic published a research report on evaluating AI safety in multi-turn dialogues using a separate Claude instance as a user simulator.",
+              "A judge model evaluates the entire conversation, failing the model if a single response violates safety criteria.",
+              "The approach measures how models handle complex scenarios like providing support versus giving dry refusals."
+            ],
+            "status": "research_report",
+            "title": "Anthropic details multi-turn safety evaluations",
+            "why": "Single-message evaluations miss context and behavioral degradation over extended conversations, making multi-turn testing essential for safety."
+          },
+          {
+            "basis": "the research paper was published by Meta FAIR",
+            "bullets": [
+              "Researchers at Meta FAIR developed a new clustering algorithm designed to outperform k-means.",
+              "The algorithm targets core machine learning tasks including vector search, RAG, embedding clustering, dataset balancing, and weight quantization."
+            ],
+            "status": "research_report",
+            "title": "Meta FAIR proposes a new clustering algorithm",
+            "why": "Improving upon k-means impacts a vast array of foundational ML pipelines that rely on it as a standard clustering tool."
+          }
+        ],
+        "summary": "This digest covers DeepSeek's new API capabilities, running DeepSeek-V4-Flash-0731 via llama-modchip, Claude Code and Cursor harness updates, Anthropic's multi-turn safety evaluations, and a new clustering algorithm from Meta FAIR.",
+        "unconfirmed_claims": [
+          "Microsoft 365 outage affected Outlook, Teams, SharePoint, OneDrive, and Copilot globally for over 12 hours",
+          "Artificial Analysis indexed Gemini 4 Hydrogen",
+          "Claude Code saved command secrets in .claude/settings.local.json when answering yes to prompts"
+        ],
+        "why_devs": "These updates bring massive models to local hardware, expand API capabilities for production apps, and refine agent workflows."
+      },
+      "headline": "DeepSeek expands API, llama-modchip runs 284B locally, and security updates for Claude Code",
+      "image_url": "https://i.ibb.co/S7G9D98L/ai-brief-6484dc976c79.png",
+      "models": [
+        "DeepSeek-V4-Flash-0731",
+        "Nemotron-30B",
+        "Claude Code 2.1.323",
+        "Qwen Code 1.0",
+        "Codex CLI 0.168.0",
+        "OpenCode 2.2.6",
+        "Claude",
+        "DeepSeek"
+      ],
+      "narrative_hook": "Three major harness updates dropped this week, but the thing I can't stop thinking about is running a 284 billion parameter model on a machine with 64GB of RAM and no GPU.",
+      "official_url": "",
+      "post_text": "🛰️ <b>AI Brief</b> · <i>no ads, no hype</i>\n\n<b>Three major harness updates dropped this week, but the thing I can't stop thinking about is running a 284 billion parameter model on a machine with 64GB of RAM and no GPU.</b>\n\n🧬 <b>In this brief:</b> DeepSeek-V4-Flash-0731 · Nemotron-30B · Claude Code 2.1.323 · Qwen Code 1.0 · Codex CLI 0.168.0 · OpenCode 2.2.6 · Claude · DeepSeek\n\n<b>1/ Running DeepSeek-V4-Flash-0731 locally with llama-modchip</b>\nThe open-source llama-modchip project released patches to run the 284-billion parameter DeepSeek-V4-Flash-0731 model on a computer with 64GB of RAM and no GPU.\nAttention weights are compressed to 3.75 bits and experts are compressed further to an average of 1.72 bits, resulting in a 56.9 GiB file size.\nOn a Ryzen 9 9955HX, the model generates 8.66 tokens per second and processes prompts at 36 to 44 tokens per second.\nIt demonstrates that massive MoE models can run locally on consumer hardware without a dedicated GPU through aggressive custom quantization.\n<i>the GitHub repository is up with benchmarks</i>\n\n<b>2/ DeepSeek expands developer API</b>\nDeepSeek expanded its API to include features previously restricted to the official application.\nDevelopers can now integrate web search, file and link handling, built-in safety mechanisms, and voice functions.\nNew endpoints were shown for OCR, ASR, and TTS alongside an open-source chat interface demo.\nIt allows developers to build feature-rich AI assistants with search, documents, and voice directly using DeepSeek's backend infrastructure.\n<i>the API documentation and open-source demo are published</i>\n\n<b>3/ Claude Code and Cursor harness updates</b>\nClaude Code 2.1.323 added an experimental Code Mode where Claude writes JavaScript to call tools directly.\nCursor introduced voice chat for its coding agent across the IDE, web, and iOS using Grok Voice.\nQwen Code 1.0 launched in preview as a native package combining Qoder and Qwen Code.\nDeveloper harnesses are rapidly evolving with native multi-tool execution, voice interaction, and simplified installation.\n<i>release notes and changelogs are available</i>\n\n<b>4/ Anthropic details multi-turn safety evaluations</b>\nAnthropic published a research report on evaluating AI safety in multi-turn dialogues using a separate Claude instance as a user simulator.\nA judge model evaluates the entire conversation, failing the model if a single response violates safety criteria.\nThe approach measures how models handle complex scenarios like providing support versus giving dry refusals.\nSingle-message evaluations miss context and behavioral degradation over extended conversations, making multi-turn testing essential for safety.\n<i>the research article is published on Anthropic's site</i>\n\n<b>5/ Meta Fair proposes a new clustering algorithm</b>\nResearchers at Meta FAIR developed a new clustering algorithm designed to outperform k-means.\nThe algorithm targets core machine learning tasks including vector search, RAG, embedding clustering, dataset balancing, and weight quantization.\nImproving upon k-means impacts a vast array of foundational ML pipelines that rely on it as a standard clustering tool.\n<i>the research paper was published by Meta FAIR</i>\n\n<i>What is your preferred hardware setup for running large quantized models locally without a dedicated GPU?</i>\n\n📣 <a href=\"https://t.me/GitHub_Open_Source\"><b>@GitHub_Open_Source</b></a>\n\n========================================\n#AINews #OpenSource",
+      "published_at": "2026-11-13T19:19:08.796655Z",
+      "statuses": [
+        "official_release",
+        "demo_or_benchmark",
+        "official_release",
+        "research_report",
+        "research_report"
+      ],
+      "stories": 5,
+      "telegram_message_id": 3595,
+      "topic_key": "ai-dev-digest",
+      "video_id": "tg-20261113-7ea036f0f8",
       "video_url": "https://t.me/GitHub_Open_Source"
     }
   ],
@@ -7345,11 +7480,13 @@
     }
   ],
   "rumour_memory": {
+    "365 affected copilot globally hours microsoft onedrive outage outlook sharepoint teams": "2026-11-13",
+    "analysis artificial gemini hydrogen indexed": "2026-11-13",
+    "answering claude code command json local prompts saved secrets settings yes": "2026-11-13",
     "anthropic based distributing duration limit rate resets subscription": "2026-11-10",
     "anthropic benchmark claims guide model routing": "2026-11-11",
     "antigravity gemini hydrogen rolling": "2026-11-12",
     "apis decision gemini google model spotted": "2026-11-11",
-    "aws bedrock claude fable mythos page pricing spotted": "2026-11-09",
     "browser enables fable game generation rapid": "2026-11-12",
     "claude fable physics problems solved theoretical": "2026-11-11"
   },

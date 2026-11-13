@@ -340,3 +340,5 @@
 {"range": "facebook!A12:E12", "rows": 1, "ts": "2026-11-13T18:31:21.668474Z", "type": "facebook_handoff_queued"}
 {"deleted": 0, "ts": "2026-11-13T18:47:54.221192Z", "type": "moderation_completed", "updates": 0}
 {"slot": "facebook-handoff", "ts": "2026-11-13T19:00:47.700941Z", "type": "watchdog_verified"}
+{"title": "DeepSeek API Expansions, Local 284B MoE Runs, and New Developer Tooling", "ts": "2026-11-13T19:19:07.284044Z", "type": "news_article_generated", "words": 1084}
+{"Gemini_video_input": false, "models": 8, "official_url": "", "stories": 5, "topic": "ai-dev-digest", "ts": "2026-11-13T19:19:08.796888Z", "type": "ai_brief_published", "video_id": "tg-20261113-7ea036f0f8"}
