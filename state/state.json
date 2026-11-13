@@ -158,11 +158,11 @@
   ],
   "last_runs": {
     "article": {
-      "finished_at": "2026-11-12T13:33:54.570913Z",
+      "finished_at": "2026-11-13T13:33:49.399508Z",
       "published": true,
       "reason": "published",
-      "repo": "louis-cfm/coucou",
-      "url": "https://dev.to/githubopensource/mac-notch-ai-assistant-manager-coucou-1mhg"
+      "repo": "storytold/vectorcraft",
+      "url": "https://dev.to/githubopensource/open-source-vector-art-application-vectorcraft-287m"
     },
     "collect": {
       "discovered": 442,
@@ -4780,7 +4780,13 @@
       "visual_kind": "readme"
     },
     "storytold/vectorcraft": {
-      "articles": {},
+      "articles": {
+        "devto": {
+          "id": 5030176,
+          "published_at": "2026-11-13T13:33:49.399369Z",
+          "url": "https://dev.to/githubopensource/open-source-vector-art-application-vectorcraft-287m"
+        }
+      },
       "card_style": "",
       "category": "DevTools",
       "contributors_count": 255,
@@ -4794,6 +4800,7 @@
       },
       "description": "VectorCraft: An open-source vector art tool written from scratch in pure Rust",
       "description_fp": "e5e1452f2f678047",
+      "devto_cover_url": "https://i.ibb.co/21jrnVQt/storytold-vectorcraft-devto-cover-40fc0e832efc.png",
       "forks": 5621,
       "full_name": "storytold/vectorcraft",
       "generated": {

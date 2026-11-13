@@ -329,3 +329,4 @@
 {"deleted": 0, "ts": "2026-11-13T09:47:51.635902Z", "type": "moderation_completed", "updates": 0}
 {"minutes_late": 110.5, "schedule": "47 */3 * * *", "ts": "2026-11-13T11:37:29.698209Z", "type": "late_schedule_ignored"}
 {"deleted": 0, "ts": "2026-11-13T12:47:53.093158Z", "type": "moderation_completed", "updates": 0}
+{"platform": "devto", "repo": "storytold/vectorcraft", "ts": "2026-11-13T13:33:49.399389Z", "type": "article_published", "url": "https://dev.to/githubopensource/open-source-vector-art-application-vectorcraft-287m"}
