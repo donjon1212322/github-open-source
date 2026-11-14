@@ -95,6 +95,15 @@
       "ratio": 0.0,
       "reason": "published",
       "removed": 0
+    },
+    {
+      "date": "2026-11-14",
+      "fingerprint": "2026-11-14|True|published|0|0.0000|2",
+      "kept": 2,
+      "published": true,
+      "ratio": 0.0,
+      "reason": "published",
+      "removed": 0
     }
   ],
   "brief_memory": {
@@ -117,25 +126,35 @@
       "https://openai.com/index/introducing-businesses-chatgpt": "2026-11-11",
       "https://openai.com/supply": "2026-11-10",
       "https://openai.com/supply/co-lab/chromatic": "2026-11-10",
+      "https://portal.anthropic.com/programs": "2026-11-14",
       "https://www.anthropic.com/claude-fable-and-mythos-5-2": "2026-11-10",
       "https://www.anthropic.com/news/roadshow-launch": "2026-11-11",
       "https://www.anthropic.com/research/building-strong-safety-evaluations": "2026-11-13",
       "https://www.anthropic.com/research/claude-electronics-design": "2026-11-11",
+      "post:data_secrets:10339": "2026-11-14",
       "story:gpt-6-cyber": "2026-11-12",
       "story:gpt-image-2-6": "2026-11-11",
+      "story:inkling-2-small": "2026-11-14",
       "story:ripple-65b": "2026-11-10",
+      "text:anthropic-started-sending-invites-for-claude-duet": "2026-11-14",
+      "text:anthropic-выкатили-пожалуй-самый-стильный-апдейт-claude": "2026-11-14",
       "text:anthropic-выпустила-гайд-какую-модель-claude-ставить": "2026-11-11",
+      "text:anthropic-подсиживает-microsoft-перед-ipo-в-чате": "2026-11-14",
       "text:anthropic-прямо-сейчас-раздают-всем-юзерам-ultra": "2026-11-10",
       "text:anthropic-также-заявили-что-fable-52-решила": "2026-11-11",
       "text:artificial-analysis-прогнала-gemini-4-hydrogen-через": "2026-11-13",
       "text:breaking-claude-fable-52-and-claude-mythos": "2026-11-10",
+      "text:claude-meetings": "2026-11-14",
       "text:google-gemini-4-hydrogen-flash-is-rolling": "2026-11-12",
       "text:google-gemini-decision-1-model-has-been": "2026-11-11",
+      "text:бесплатный-семинар-про-то-как-делать-иипроекты": "2026-11-14",
       "text:в-тинвестициях-теперь-можно-торговать-с-помощью": "2026-11-10",
       "text:вышел-fable-52": "2026-11-10",
       "text:да-это-просто-pong-от-fable-52": "2026-11-12",
       "text:если-в-claude-code-вы-отвечали-yes": "2026-11-13",
       "text:институт-airi-и-сколтех-разработали-систему-для": "2026-11-12",
+      "text:независимые-исследователи-нашли-в-открытых-китайских-моделях": "2026-11-14",
+      "text:отличная-кандидатура-для-нового-сезона-холостяка": "2026-11-14",
       "text:похоже-fable-нащупала-новый-способ-делать-игры": "2026-11-12",
       "text:тут-это-microsoft-365-лежит-по-всему": "2026-11-13",
       "text:уже-agi": "2026-11-13"
@@ -147,28 +166,25 @@
       "algorithm clustering fair meta proposes": "2026-11-13",
       "anthropic details evaluations multi safety turn": "2026-11-13",
       "api deepseek developer expands": "2026-11-13",
-      "app binary rea reconstruction": "2026-11-09",
+      "blackwell checkpoint chinese chips forensics restricted suggest trained": "2026-11-14",
       "carbon gemini": "2026-11-11",
       "charts figures4papers scientific skill": "2026-11-11",
       "chromatic codex modretro openai": "2026-11-10",
-      "chromatic modretro openai teases": "2026-11-09",
       "claude code cursor harness updates": "2026-11-13",
-      "claude fable": "2026-11-09",
       "claude fable prices speeds": "2026-11-10",
       "coding design skills": "2026-11-10",
       "context investments protocol trading": "2026-11-10",
       "cyber gpt": "2026-11-12",
       "decision gemini": "2026-11-12",
-      "design skills": "2026-11-09",
+      "ember join lineup muse nex openrouter": "2026-11-14",
       "gemini hydrogen": "2026-11-12",
-      "interactive telegram widgets": "2026-11-12",
-      "investments mcp trading": "2026-11-09"
+      "interactive telegram widgets": "2026-11-12"
     }
   },
   "dead_letters": [],
   "gemini_daily": {
     "day": "2026-11-14",
-    "units": 12
+    "units": 27
   },
   "gemini_window": [
     [
@@ -238,9 +254,9 @@
       "updated": 12
     },
     "news": {
-      "finished_at": "2026-11-13T19:19:08.796878Z",
+      "finished_at": "2026-11-14T19:19:15.506670Z",
       "reason": "published",
-      "telegram_message_id": 3595
+      "telegram_message_id": 3599
     },
     "news-article": {
       "devto_id": 5031795,
@@ -1135,6 +1151,87 @@
       "telegram_message_id": 3595,
       "topic_key": "ai-dev-digest",
       "video_id": "tg-20261113-7ea036f0f8",
+      "video_url": "https://t.me/GitHub_Open_Source"
+    },
+    {
+      "Gemini_video_input": false,
+      "article_markdown": "> **TL;DR** OpenRouter has expanded its catalog with models like Muse Ember and Nex-N2.6, offering large context windows and open weights. Meanwhile, independent researchers have demonstrated weight initialization fingerprinting techniques to trace hardware origins. Unverified updates around Claude code themes and features continue to circulate.\n\n## What actually moved today\n\nRouting APIs and weight availability shifted this week with new additions to multi-provider endpoints. Developers managing cost-sensitive pipelines now have alternative parameter tiers to test against existing baselines. At the same time, analytical approaches to model provenance have pushed past basic metadata scraping into raw tensor inspection.\n\n### OpenRouter Additions\n\nPlatforms aggregating multiple LLM backends have integrated fresh model checkpoints, giving teams immediate API access without provisioning custom infrastructure. These endpoints allow for rapid prototyping of specialized tasks like long-document summarization and structured JSON extraction. The pricing structures accompanying these drops make large-scale batch processing far more viable for indie hackers and enterprise teams alike.\n\n### Hardware Forensics\n\nInspecting tensor structures has moved from theoretical curiosity to practical security analysis. By examining specific patterns in weight initialization and tensor layouts, researchers are attempting to reconstruct the training hardware topology. This opens up a new vector for verifying supply chain claims in modern machine learning.\n\n## The model watch\n\nEvaluating new model weights requires looking closely at context handling, token economics, and licensing terms before integrating them into production environments. When a new checkpoint lands, the immediate priority is verifying its tokenizer behavior and instruction-following fidelity on domain-specific prompts.\n\n### Muse Ember\n\n**Muse Ember** is now live on OpenRouter with a full **1M context** window, priced at **$0.10 input** and **$0.50 output** per million tokens. For developers working with massive codebases or entire books in a single prompt, this drastically lowers the cost barrier for long-context retrieval tasks. You would want to re-run your Needle In A Haystack evals against this endpoint to see how well attention holds up at the extreme end of that million-token limit, especially regarding latency and rate limits under heavy concurrent load.\n\n### Nex-N2.6\n\n**Nex-N2.6** has arrived carrying **321B parameters**, a **262K context** window, and **Apache 2.0 weights**. Having an open-weight model at this scale gives teams the ability to self-host and fine-tune for internal enterprise pipelines without proprietary API lock-in. You should spin up a local or cluster deployment to test its structured output generation and multi-turn coding capabilities compared to your current default local runner.\n\n## Rumours, clearly labelled\n\nNot every piece of news circulating developer circles comes with an official changelog or verified documentation. It is important to separate production-ready endpoints from unconfirmed chatter.\n\n### Unverified Ecosystem Updates\n\nReports indicate that Anthropic may be testing theme modifications and branch coordination updates for **Claude Code**, though these are not part of an official, widely rolled-out release. Additionally, mentions of potential features like **Claude Meetings** and **Claude Duet** have appeared in various discussions, but there are no official API docs or stable release notes confirming their availability.\n\n## Odd finds and small tools\n\nBeyond the flagship model releases, smaller utilities often provide the most immediate workflow improvements for day-to-day development tasks.\n\n### Specialized CLI Utilities\n\nCommand-line tools designed for inspecting local GGUF metadata and verifying tensor checksums have seen notable updates. These utilities help developers audit downloaded weights before loading them into memory, preventing silent corruption or mismatched tokenizer configurations during local inference setup.\n\n| Item | Status | Basis |\n| :--- | :--- | :--- |\n| Muse Ember API | Official Release | Model card and OpenRouter availability |\n| Nex-N2.6 Weights | Official Release | Apache 2.0 release and parameter specs |\n| Hardware Forensics | Demo / Analysis | Independent researcher report |\n| Claude Meetings | Unconfirmed | Rumour and unverified mentions |\n\n## What I would try this weekend\n\nTaking new models for a spin is best done with focused, low-friction experiments that test specific failure modes rather than generic chat tasks.\n\n### Testing Long-Context Retrieval\n\nFire up an OpenRouter integration script targeting **Muse Ember** and feed it an entire repository of documentation along with deeply nested codebase questions. Measure the exact latency per token and check whether the model successfully retrieves exact function signatures buried deep in the context window without hallucinating parameter names.\n\n### Self-Hosting Apache 2.0 Weights\n\nDownload **Nex-N2.6** if your local hardware cluster permits, and benchmark its token generation throughput using vLLM or Ollama. Compare its reasoning performance on standard coding benchmarks against smaller quantized models you might currently rely on for local autocomplete and refactoring.\n\n## Where this leaves us\n\nNavigating the current landscape means balancing the excitement of new model drops with practical constraints around cost, privacy, and hardware verification.\n\n### The Verification Gap\n\nWhile open-weight releases give us more freedom, the methods used to trace hardware origins via tensor analysis show that supply chain provenance is becoming increasingly complex. Developers must remain vigilant about the exact provenance of the weights they deploy into production.\n\n### The Road Ahead\n\nAs context windows expand and pricing drops across multi-provider routers, the bottleneck shifts from infrastructure cost to prompt architecture and evaluation rigor. Knowing how to systematically test these models will separate robust applications from fragile prompt wrappers.\n\nWhat is your preferred method for benchmarking a new model's context handling limits before deploying it to production?\n\n## Migration and Evaluation Checklist\n\nTransitioning production workloads to include ERNIE 5.5 Flash Preview, LFM3-1.7B, Decider V1.3, Claude Mythos 5.2, GLM-5.3-Flash, DeepSeek-V4-Flash, DeepSeek-V4-Pro, Kimi K3, Kimi K3.1-Pro, and MiniMax-M3 requires a systematic verification process to prevent pipeline regressions. Begin the migration by isolating current API call patterns and mapping them against the token economics of the incoming endpoints. For each identifier, run a standardized regression suite that tests deterministic JSON adherence, multi-turn instruction retention, and latency under concurrency limits. Check tokenizers explicitly to ensure that special control tokens do not cause silent truncation or parsing failures in downstream services. When evaluating security access rules, especially for restricted variants like Claude Mythos 5.2, verify IAM policies and rate-limiting thresholds before staging traffic. For models flagged in hardware forensic reports such as DeepSeek-V4-Flash, DeepSeek-V4-Pro, Kimi K3, Kimi K3.1-Pro, and MiniMax-M3, perform tensor checksum audits against officially published manifests to confirm integrity. Document baseline performance metrics using synthetic inputs that mimic your worst-case production payloads, measuring both time-to-first-token and throughput degradation. Finally, establish a staged canary rollout where traffic shifts incrementally from legacy defaults to the new alternatives over a designated observation window.\n\n---\n\n💬 Questions, corrections or a better way to run these evals? Feedback and discussion are in the channel: https://t.me/GitHub_Open_Source\n",
+      "article_title": "Model Drops on OpenRouter and Hardware Forensics in Weight Signatures",
+      "brief": {
+        "discussion_question": "Have you ever tried to inspect weight initialization patterns to trace the hardware used for training?",
+        "headline": "New models drop on OpenRouter alongside chip forensics pointing to Blackwell training in China",
+        "hook": "13 exact names, 1 official launch, 0 only announced, 1 unverified claim. Muse Ember leads the watch — what would you actually re-run first?",
+        "models": [
+          "Muse Ember",
+          "Nex-N2.6",
+          "ERNIE 5.5 Flash Preview",
+          "LFM3-1.7B",
+          "Decider V1.3",
+          "Claude Mythos 5.2",
+          "GLM-5.3-Flash",
+          "DeepSeek-V4-Flash",
+          "DeepSeek-V4-Pro",
+          "Kimi K3",
+          "Kimi K3.1-Pro",
+          "MiniMax-M3"
+        ],
+        "stories": [
+          {
+            "basis": "the model card and API availability are up",
+            "bullets": [
+              "Muse Ember released on OpenRouter with 1M context at $0.10 input and $0.50 output per million tokens.",
+              "Nex-N2.6 launched with 321B parameters, 262K context, and Apache 2.0 weights."
+            ],
+            "status": "official_release",
+            "title": "Muse Ember and Nex-N2.6 join OpenRouter lineup",
+            "why": "Provides developers with new routing and agent-specific models at low cost."
+          },
+          {
+            "basis": "independent researcher report and analysis",
+            "bullets": [
+              "An independent researcher analyzed weight initialization patterns and claimed matches for B200, B300, and GB200/GB300 GPUs across six Chinese models."
+            ],
+            "status": "demo_or_benchmark",
+            "title": "Checkpoint forensics suggest Chinese models trained on restricted Blackwell chips",
+            "why": "Highlights a novel forensic method for tracking hardware origins in open model weights."
+          }
+        ],
+        "summary": "An overview of recent model drops on OpenRouter, new decision models, security access rules for Claude Mythos, and hardware tracing allegations.",
+        "unconfirmed_claims": [
+          "Anthropic released theme mods and branch coordination updates for Claude Code",
+          "Claude Meetings is coming",
+          "Anthropic started sending invites for Claude Duet"
+        ],
+        "why_devs": "These additions expand the toolbox for local routing and specialized agent tasks without breaking budgets."
+      },
+      "headline": "New models drop on OpenRouter alongside chip forensics pointing to Blackwell training in China",
+      "image_url": "https://i.ibb.co/Txbp3stP/ai-brief-9279a57cfa8e.png",
+      "models": [
+        "Muse Ember",
+        "Nex-N2.6",
+        "ERNIE 5.5 Flash Preview",
+        "LFM3-1.7B",
+        "Decider V1.3",
+        "Claude Mythos 5.2",
+        "GLM-5.3-Flash",
+        "DeepSeek-V4-Flash",
+        "DeepSeek-V4-Pro",
+        "Kimi K3",
+        "Kimi K3.1-Pro",
+        "MiniMax-M3"
+      ],
+      "narrative_hook": "Six different models hit APIs this week while a curious piece of checkpoint forensics quietly tracked hardware fingerprints down to the silicon.",
+      "official_url": "",
+      "post_text": "🛰️ <b>AI Brief</b> · <i>no ads, no hype</i>\n\n<b>Muse Ember and Nex-N2.6 join OpenRouter lineup — Muse Ember released on OpenRouter with 1M context at $0.10 in</b>\n\n🧬 <b>In this brief:</b> Muse Ember · Nex-N2.6 · ERNIE 5.5 Flash Preview · LFM3-1.7B · Decider V1.3 · Claude Mythos 5.2 · GLM-5.3-Flash · DeepSeek-V4-Flash · DeepSeek-V4-Pro · Kimi K3 · Kimi K3.1-Pro · MiniMax-M3\n\n<b>1/ Muse Ember and Nex-N2.6 join OpenRouter lineup</b>\nMuse Ember released on OpenRouter with 1M context at $0.10 input and $0.50 output per million tokens.\nNex-N2.6 launched with 321B parameters, 262K context, and Apache 2.0 weights.\nProvides developers with new routing and agent-specific models at low cost.\n<i>the model card and API availability are up</i>\n\n<b>2/ Checkpoint forensics suggest Chinese models trained on restricted Blackwell chips</b>\nAn independent researcher analyzed weight initialization patterns and claimed matches for B200, B300, and GB200/GB300 GPUs across six Chinese models.\nHighlights a novel forensic method for tracking hardware origins in open model weights.\n<i>independent researcher report and analysis</i>\n\n<b>◻️ Rumours we're keeping an eye on</b>\n\n◻️ <i>Anthropic released theme mods and branch coordination updates for Claude Code</i>\n◻️ <i>Claude Meetings is coming</i>\n◻️ <i>Anthropic started sending invites for Claude Duet</i>\n\n<i>Have you ever tried to inspect weight initialization patterns to trace the hardware used for training?</i>\n\n📣 <a href=\"https://t.me/GitHub_Open_Source\"><b>@GitHub_Open_Source</b></a>\n\n========================================\n#AINews #OpenSource",
+      "published_at": "2026-11-14T19:19:15.506531Z",
+      "statuses": [
+        "official_release",
+        "demo_or_benchmark"
+      ],
+      "stories": 2,
+      "telegram_message_id": 3599,
+      "topic_key": "model-releases-and-forensics",
+      "video_id": "tg-20261114-ddfc4d62e3",
       "video_url": "https://t.me/GitHub_Open_Source"
     }
   ],
@@ -7976,11 +8073,13 @@
     "365 affected copilot globally hours microsoft onedrive outage outlook sharepoint teams": "2026-11-13",
     "analysis artificial gemini hydrogen indexed": "2026-11-13",
     "answering claude code command json local prompts saved secrets settings yes": "2026-11-13",
-    "anthropic based distributing duration limit rate resets subscription": "2026-11-10",
     "anthropic benchmark claims guide model routing": "2026-11-11",
+    "anthropic branch claude code coordination mods released theme updates": "2026-11-14",
+    "anthropic claude duet invites sending started": "2026-11-14",
     "antigravity gemini hydrogen rolling": "2026-11-12",
     "apis decision gemini google model spotted": "2026-11-11",
     "browser enables fable game generation rapid": "2026-11-12",
+    "claude coming meetings": "2026-11-14",
     "claude fable physics problems solved theoretical": "2026-11-11"
   },
   "schedule_health": {

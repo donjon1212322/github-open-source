@@ -379,3 +379,5 @@
 {"deleted": 0, "ts": "2026-11-14T18:47:45.839391Z", "type": "moderation_completed", "updates": 2}
 {"minutes_late": 315.5, "schedule": "33 13 * * *", "ts": "2026-11-14T18:48:27.233010Z", "type": "late_schedule_ignored"}
 {"slot": "facebook-handoff", "ts": "2026-11-14T19:00:51.584254Z", "type": "watchdog_verified"}
+{"title": "Model Drops on OpenRouter and Hardware Forensics in Weight Signatures", "ts": "2026-11-14T19:19:10.917717Z", "type": "news_article_generated", "words": 1092}
+{"Gemini_video_input": false, "models": 13, "official_url": "", "stories": 2, "topic": "model-releases-and-forensics", "ts": "2026-11-14T19:19:15.506676Z", "type": "ai_brief_published", "video_id": "tg-20261114-ddfc4d62e3"}
