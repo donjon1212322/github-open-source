@@ -223,8 +223,21 @@ def test_skip_reasons_are_retryable_and_silent():
 
 # --- workflow: no bogus artifact error ------------------------------------
 
-def test_commit_state_only_runs_when_an_artifact_was_uploaded():
+def test_commit_state_checks_the_artifact_not_a_fragile_job_output():
+    """14.11: a failed `run` job may expose no `needs.run.outputs`.
+
+    The state writer must ALWAYS start, then ask the Artifacts API whether
+    an upload really happened. Only then may it download and commit. Both
+    guarded steps must keep the condition (count == 2), and the lookup needs
+    `actions: read` permission.
+    """
     text = (REPO / ".github" / "workflows" / "pipeline.yml").read_text(encoding="utf-8")
-    assert "state_changed: ${{ steps.state_change.outputs.changed }}" in text
-    assert "needs.run.outputs.state_changed == 'true'" in text
-    assert "if: ${{ always() && needs.run.outputs.state_changed == 'true' }}" in text
+    assert "needs.run.outputs.state_changed" not in text
+    assert "if: always()\n    runs-on: ubuntu-latest" in text
+    guard = "if: ${{ always() && steps.state_artifact.outputs.found == 'true' }}"
+    assert text.count(guard) == 2
+    assert "id: state_artifact" in text
+    assert "actions: read" in text
+    assert "GITHUB_RUN_ID" in text
+    assert "/artifacts?per_page=100" in text
+    assert "found = True" in text, "API failure must fall back to a download"

@@ -322,8 +322,20 @@ MUTATIONS: list[tuple[str, str, str, str]] = [
      'return {"ok": True, "closed": False, "reason": POLL_ALREADY_CLOSED}',
      'return {"ok": False, "closed": False, "reason": "stop_poll_failed"}',
      "an already-closed poll fails the workflow and emails the owner again"),
-    (".github/workflows/pipeline.yml", "needs.run.outputs.state_changed == 'true'",
-     "true", "commit-state downloads a missing artifact again"),
+    (".github/workflows/pipeline.yml",
+     "if: ${{ always() && steps.state_artifact.outputs.found == 'true' }}",
+     "if: ${{ always() && steps.state_artifact.outputs.found == 'false' }}",
+     "commit-state skips the state artifact when one exists"),
+    (".github/workflows/pipeline.yml", "      actions: read\n      contents: write",
+     "      contents: write",
+     "artifact existence lookup loses its actions:read permission"),
+    (".github/workflows/pipeline.yml",
+     "    if: always()\n    runs-on: ubuntu-latest",
+     "    if: success()\n    runs-on: ubuntu-latest",
+     "commit-state is skipped after a failed run and loses its state"),
+    (".github/workflows/pipeline.yml", "          found = True\n",
+     "          found = False\n",
+     "an Artifacts API outage silently drops a changed state"),
 ]
 
 COPY_ITEMS = (

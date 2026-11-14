@@ -10,7 +10,7 @@ from __future__ import annotations
 from datetime import datetime, timedelta, timezone
 from types import SimpleNamespace
 
-from ghos_v6 import pipeline
+from ghos_v6 import brief_memory, pipeline
 from ghos_v6.brief_memory import (
     _similar,
     duplicate_story_ratio,
@@ -133,6 +133,12 @@ def test_news_command_refuses_a_duplicate_digest(monkeypatch, tmp_path):
             return DAY2
 
     monkeypatch.setattr(pipeline, "datetime", FixedDateTime)
+    # 14.11: news_command calls duplicate_story_ratio()/filter_repeated_stories()
+    # WITHOUT an explicit `now`; brief_memory.datetime therefore used the real
+    # clock. Once the real date passed the 4-day memory window this fixture
+    # stopped seeing duplicates and fell through to the mocked TelegramClient.
+    # Freeze BOTH clocks: the test must never depend on the day it is run.
+    monkeypatch.setattr(brief_memory, "datetime", FixedDateTime)
     monkeypatch.setattr(pipeline, "build_digest_material", lambda **kw: {
         "entry": {"video_id": "tg-test", "description": "material"},
         "primary": {"text": "material"},

@@ -86,11 +86,6 @@ jobs:
     timeout-minutes: 30
     permissions:
       contents: read
-    outputs:
-      # 13.11: commit-state must not try to download an artifact that was
-      # never uploaded. Every no-change run used to log a scary
-      # "Artifact not found" error annotation even when the job succeeded.
-      state_changed: ${{ steps.state_change.outputs.changed }}
     env:
       APP_ENV: ${{ vars.APP_ENV }}
       PUBLISH_TARGET: ${{ vars.PUBLISH_TARGET }}
@@ -212,22 +207,72 @@ jobs:
   # commit goes to the orphan `state` branch; main is never touched.
   commit-state:
     needs: run
-    if: ${{ always() && needs.run.outputs.state_changed == 'true' }}
+    # 14.11: always run, then look up the artifact itself. A failed `run`
+    # job may expose no `needs.run.outputs`; relying on that output could
+    # skip committing a state that was successfully uploaded before failure.
+    if: always()
     runs-on: ubuntu-latest
     permissions:
+      actions: read
       contents: write
     steps:
       - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
         with:
           fetch-depth: 1
           persist-credentials: false
+      - name: Check for a state artifact
+        id: state_artifact
+        if: always()
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          python - <<'PY'
+          import json, os, urllib.request
+
+          repo = os.environ["GITHUB_REPOSITORY"]
+          run_id = os.environ["GITHUB_RUN_ID"]
+          token = os.environ["GH_TOKEN"]
+          url = (
+              f"https://api.github.com/repos/{repo}/actions/runs/{run_id}"
+              "/artifacts?per_page=100"
+          )
+          request = urllib.request.Request(
+              url,
+              headers={
+                  "Authorization": f"Bearer {token}",
+                  "Accept": "application/vnd.github+json",
+                  "User-Agent": "ghos-v6-state-artifact-check",
+              },
+          )
+          # If the lookup itself fails, try the download instead of silently
+          # losing a changed state. A missing artifact then only produces a
+          # warning-level annotation on a run that already had a problem.
+          found = True
+          try:
+              with urllib.request.urlopen(request, timeout=20) as response:
+                  data = json.load(response)
+              found = any(
+                  item.get("name") == "state" and not item.get("expired", False)
+                  for item in data.get("artifacts") or []
+              )
+          except Exception as exc:
+              print(
+                  "artifact lookup unavailable "
+                  f"({type(exc).__name__}); checking by download"
+              )
+          with open(os.environ["GITHUB_OUTPUT"], "a", encoding="utf-8") as out:
+              out.write(f"found={'true' if found else 'false'}\n")
+          PY
       - name: Download state artifact
+        if: ${{ always() && steps.state_artifact.outputs.found == 'true' }}
         continue-on-error: true
         uses: actions/download-artifact@018cc2cf5baa6db3ef3c5f8a56943fffe632ef53 # v6
         with:
           name: state
           path: state-new
       - name: Commit state to the state branch
+        if: ${{ always() && steps.state_artifact.outputs.found == 'true' }}
         shell: bash
         env:
           GH_TOKEN: ${{ github.token }}
