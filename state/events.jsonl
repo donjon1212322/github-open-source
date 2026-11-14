@@ -370,3 +370,5 @@
 {"deleted": 0, "ts": "2026-11-14T15:47:45.946067Z", "type": "moderation_completed", "updates": 0}
 {"preview_host": "imgbb", "repo": "expo/exact", "ts": "2026-11-14T16:24:05.235765Z", "type": "published_as_text"}
 {"repo": "expo/exact", "score": 90.019, "telegram_message_id": 3597, "telegraph_url": "https://telegra.ph/Building-Cross-Platform-Native-Apps-with-Expo-Exact-11-14", "ts": "2026-11-14T16:24:05.730245Z", "type": "project_published"}
+{"preview_host": "imgbb", "repo": "nyblnet/bento", "ts": "2026-11-14T18:14:00.372093Z", "type": "published_as_text"}
+{"repo": "nyblnet/bento", "score": 88.387, "telegram_message_id": 3598, "telegraph_url": "https://telegra.ph/Bento-A-Local-First-Presentation-Suite-Inside-a-Single-HTML-File-11-14", "ts": "2026-11-14T18:14:00.628447Z", "type": "project_published"}

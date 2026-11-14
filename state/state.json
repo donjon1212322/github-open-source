@@ -168,16 +168,16 @@
   "dead_letters": [],
   "gemini_daily": {
     "day": "2026-11-14",
-    "units": 6
+    "units": 12
   },
   "gemini_window": [
     [
-      1794673432.131244,
-      3935
+      1794680031.0914643,
+      3673
     ],
     [
-      1794673439.7978976,
-      1404
+      1794680035.348575,
+      1420
     ]
   ],
   "last_runs": {
@@ -272,9 +272,9 @@
       "telegram_message_id": 3596
     },
     "publish:us_midday": {
-      "finished_at": "2026-11-13T18:14:09.818187Z",
-      "repo": "simbasjungles/free-my-tv",
-      "telegram_message_id": 3594
+      "finished_at": "2026-11-14T18:14:00.628569Z",
+      "repo": "nyblnet/bento",
+      "telegram_message_id": 3598
     },
     "publish:us_morning": {
       "finished_at": "2026-11-14T16:24:05.730414Z",
@@ -4530,6 +4530,121 @@
       "visual_host": "imgbb",
       "visual_kind": "readme"
     },
+    "nyblnet/bento": {
+      "articles": {},
+      "card_style": "editorial_daily",
+      "category": "DevTools",
+      "contributors_count": 22,
+      "created_at": "2026-07-17T16:55:09Z",
+      "crossposts": {
+        "bluesky": {
+          "attempts": 0,
+          "due_at": "2026-11-14T18:44:00.628120+00:00",
+          "status": "pending"
+        }
+      },
+      "description": "Bento, the office suite that fits in a file",
+      "description_fp": "1f4c6e6b4d73fb81",
+      "forks": 392,
+      "full_name": "nyblnet/bento",
+      "generated": {
+        "article_markdown": "## What it is\n\nBento is a local-first presentation suite packaged entirely into a single standalone HTML file. Rather than relying on cloud storage or proprietary binary formats, a Bento deck carries its own viewer, presenter, and editor directly inside the document. Opening the file in any modern browser launches the complete application, and saving modifications rewrites the file in place.\n\n## Why it matters\n\nModern office documents are frequently locked behind cloud accounts and server dependencies. Bento takes the opposite approach by keeping your decks entirely on your machine as portable, readable files. Because the document structure sits in a plain JSON block near the top of the file, local AI models and scripts can inspect and modify presentations directly.\n\n## Key features\n\n- Self-contained ~560 KB HTML file holding the complete editor, viewer, and assets.\n- Plain JSON document model allowing direct inspection and manipulation by scripts or AI agents.\n- Client-side end-to-end encryption and custom CRDT handling multi-user synchronization.\n- Built-in dependency-free charting engine for live tooltips and morphing data visualizations.\n- ECDSA-signed self-updates that preserve your previous file as a built-in rollback.\n\n## Quick start\n\nTo build the single-file application from source, use the following commands:\n\n```bash\ncd slides\nnpm install\nnpm run dev\nnpm run build:single\n```\n\n## Who should try it\n\nDevelopers, minimalists, and technical presenters who prefer local-first tools, version-controllable documents, and freedom from SaaS office suites will find Bento a refreshing alternative.\n\n## Verdict\n\nBento successfully strips away unnecessary cloud infrastructure to deliver a fast, portable presentation tool. While mobile editing is limited, its view-source honesty and developer-friendly architecture make it an impressive technical achievement.",
+        "article_title": "Bento: A Local-First Presentation Suite Inside a Single HTML File",
+        "card_hook": "An office suite inside a single file",
+        "card_subline": "Edit, present, and collaborate on presentations using a standalone HTML file that needs no installer or cloud",
+        "category": "DevTools",
+        "discussion_question": "Would you replace your current slide software with a single local HTML file?",
+        "hook": "An entire office presentation suite packs into a single 560 KB self-contained HTML file.",
+        "key_features": [
+          "Run the entire app and view your deck from a single ~560 KB HTML file with no installer or server required",
+          "Store presentation content as a readable plain JSON block at the top of the file for easy agent editing",
+          "Sync edits across users via end-to-end encrypted WebSocket relays passing only opaque ciphertext",
+          "Animate transitions between slides smoothly using shared element IDs and custom morph logic",
+          "Render bar, line, pie, and scatter charts natively during live presentations without external libraries",
+          "Update the standalone application safely through ECDSA-signed releases verified entirely in-browser"
+        ],
+        "llm_used": true,
+        "quick_start": "cd slides && npm install && npm run dev",
+        "safety": "ok",
+        "safety_reason": "Bento is a legitimate open-source presentation tool and local-first office suite.",
+        "scene": "You open a proprietary slide deck on a flight, watch a web-based presentation tool fail to load without an active corporate login, and wonder why a collection of text and rectangles requires a cloud infrastructure.",
+        "social_text": "An entire office presentation suite packed into a single 560 KB self-contained HTML file that edits itself.",
+        "summary": "Bento packages its entire viewer, presenter, and editor into a standalone ~560 KB HTML file that rewrites itself when saved via the File System Access API. Your presentation data sits directly in a plain JSON block near the top of the file, allowing outside tools or local AI agents to read and write the document in place without plugins or APIs. It relies on an in-house dependency-free charting engine, custom animation logic, and a client-side CRDT for secure peer synchronization.",
+        "surfaces": {
+          "Facebook_body": "You can now keep an entire office presentation suite inside a single file that weighs just over half a megabyte, running smoothly right in your web browser without requiring any cloud storage, external servers, or complicated software installation.\n\nThe secret behind this setup is a clever design where your presentation content sits directly inside the file as plain data. This means outside scripts, local tools, or even automated helpers can read and update your slides instantly without needing special plugins or internet connections.\n\nEverything you need to view, present, and edit your slides is bundled together, complete with built-in charts and smooth animations. It is built specifically for technical users and developers who want complete ownership over their documents and hate dealing with bulky cloud applications.",
+          "Facebook_headline": "Make your presentations fit in a single tiny file",
+          "Facebook_lead": "Build and run complete slide decks without cloud storage or heavy software. Your presentation data lives right inside a readable file that updates itself.",
+          "bluesky_headline": "Pack an entire presentation deck into a 560 KB file",
+          "bluesky_lead": "A self-contained viewer, editor, and presenter that runs locally without cloud bloat or installers.",
+          "devto_body": "## What it is\n\nBento is a TypeScript-based presentation tool that packages an entire viewer, presenter, and editor into a standalone ~560 KB HTML file. It requires no installers, servers, or external dependencies to run.\n\n## How it works\n\nThe app relies on the File System Access API to rewrite itself when saved. Presentation data is stored as a plain JSON block near the top of the file, allowing local scripts and AI agents to read and write the document in place. It also includes an in-house charting engine, custom animation logic, and client-side CRDTs for peer synchronization over encrypted WebSockets.\n\n## Key features\n\n- Entire app and deck fit in a single ~560 KB HTML file\n- Readable JSON block enables easy programmatic editing\n- Native rendering for bar, line, pie, and scatter charts\n- Client-side CRDT synchronization for peer collaboration\n\n## Getting started\n\nClone the repository from GitHub and open the main HTML file in any modern browser to start building local-first presentations.\n\n## When not to use it\n\nAvoid this tool if you need heavy mobile editing capabilities, as touch-based slide manipulation remains awkward.",
+          "seo_description": "Run an entire presentation suite from a single 560 KB HTML file with local data ownership. Built for developers who want to avoid cloud bloat.",
+          "seo_query": "local first presentation tool single file",
+          "seo_title": "Local-first presentation tool in a single file - Bento",
+          "telegraph_angle": "Explain the architectural shift of packaging a full office suite into a single self-modifying HTML file and its implications for local-first data ownership."
+        },
+        "tension": "Renting your own documents means trusting a third-party server to stay online, keeping software updated across breaking changes, and accepting binary formats that resist version control.",
+        "turn": "Bento packs the entire document, fonts, assets, and editor into a single HTML file that saves itself locally, though true enterprise identity and multi-user undo remain limited.",
+        "verdict": "An exceptionally clever local-first presentation tool for developers who hate cloud bloat, though heavy mobile editing remains awkward.",
+        "who_for": "Developers and technical users who want complete ownership of their presentation files without cloud lock-in.",
+        "why_now": "The maturity of the File System Access API and local web runtimes makes fully client-side, self-modifying documents practical without extensions."
+      },
+      "homepage": "https://bento.page",
+      "id": 1304207622,
+      "image_url": "https://i.ibb.co/21DTgP9s/nyblnet-bento-preview-373020e98cd1.jpg",
+      "is_dual_use": false,
+      "is_hidden_gem": false,
+      "language": "TypeScript",
+      "license": {
+        "key": "mit",
+        "name": "MIT License",
+        "node_id": "MDc6TGljZW5zZTEz",
+        "spdx_id": "MIT",
+        "url": "https://api.github.com/licenses/mit"
+      },
+      "media_urls": [
+        "https://raw.githubusercontent.com/nyblnet/bento/main/docs/assets/bento-logo.svg"
+      ],
+      "name": "bento",
+      "open_issues": 19,
+      "published_at": "2026-11-14T18:14:00.628146Z",
+      "pushed_at": "2026-11-14T12:02:31Z",
+      "readme_fp": "42e2ea36de981769",
+      "repo_id": 1304207622,
+      "revisit_of": "",
+      "revisit_reason": "",
+      "score": 88.387,
+      "slot": "us_midday",
+      "sources": [
+        "github_search"
+      ],
+      "stars": 5666,
+      "telegram_chat_id": "@GitHub_Open_Source",
+      "telegram_link": "https://t.me/GitHub_Open_Source/3598",
+      "telegram_message_id": 3598,
+      "telegraph_url": "https://telegra.ph/Bento-A-Local-First-Presentation-Suite-Inside-a-Single-HTML-File-11-14",
+      "topics": [
+        "mit-license",
+        "office",
+        "office-365",
+        "office-suite",
+        "office-tools",
+        "office365",
+        "open-source",
+        "powerpoint",
+        "self-hosted",
+        "single-page-app",
+        "slides",
+        "slideshare",
+        "slideshow",
+        "slideshow-gallery",
+        "slideshow-maker",
+        "slideshows"
+      ],
+      "updated_at": "2026-11-14T14:40:14Z",
+      "url": "https://github.com/nyblnet/bento",
+      "visual_host": "imgbb",
+      "visual_kind": "card"
+    },
     "oldcircle/geo-sleuth": {
       "articles": {
         "devto": {
@@ -6500,71 +6615,6 @@
       ],
       "updated_at": "2026-11-13T23:19:09Z",
       "url": "https://github.com/xevrion/hatchzip"
-    },
-    {
-      "archived": false,
-      "contributors_count": 22,
-      "created_at": "2026-07-17T16:55:09Z",
-      "default_branch": "main",
-      "description": "Bento, the office suite that fits in a file",
-      "disabled": false,
-      "fork": false,
-      "forks": 392,
-      "forks_count": 392,
-      "full_name": "nyblnet/bento",
-      "has_readme": true,
-      "homepage": "https://bento.page",
-      "id": 1304207622,
-      "is_dual_use": false,
-      "is_hidden_gem": false,
-      "language": "TypeScript",
-      "license": {
-        "key": "mit",
-        "name": "MIT License",
-        "node_id": "MDc6TGljZW5zZTEz",
-        "spdx_id": "MIT",
-        "url": "https://api.github.com/licenses/mit"
-      },
-      "media_urls": [
-        "https://raw.githubusercontent.com/nyblnet/bento/main/docs/assets/bento-logo.svg"
-      ],
-      "name": "bento",
-      "non_software_reason": "",
-      "open_issues": 26,
-      "open_issues_count": 26,
-      "owner_repo_count": 1,
-      "pushed_at": "2026-11-14T00:23:45Z",
-      "readme": "",
-      "readme_excerpt": "<p align=\"center\">\n  <a href=\"https://bento.page\" title=\"bento.page — try it in your browser\">\n    <img src=\"docs/assets/bento-logo.svg\" alt=\"Bento\" width=\"96\" height=\"96\">\n  </a>\n</p>\n\n# [Bento — the office suite that fits in a file](https://bento.page/)\n\n**This PowerPoint alternative is a single HTML file.** A Bento deck carries\nits own viewer, presenter, and editor inside the document — open it in any\nbrowser, edit it, present it, send it. The person you send it to needs\nnothing: the file *is* the software.\n\n**Try it in 10 seconds:** open [bento.page/slides](https://bento.page/slides)\n— that's the entire app, running on a starter deck that doubles as the\nfeature tour. Or grab a designed template from the\n[gallery](https://bento.page/) and make it yours.\n\n**Download the app:** grab the single `Bento_Slides.bento.html` from the\n[GitHub Releases](https://github.com/nyblnet/bento/releases) page or straight\nfrom [bento.page](https://bento.page/releases/slides/Bento_Slides.bento.html)\n(~560 KB, no account, no installer). Open it in any modern browser and it *is*\nthe editor. Save, and it rewrites itself with your deck inside.\n\n## Why this exists\n\nOffice documents used to be things you ",
-      "readme_len": 8939,
-      "repo_id": 1304207622,
-      "score": 88.387,
-      "source_name": "github_search",
-      "sources": [
-        "github_search"
-      ],
-      "stargazers_count": 5664,
-      "stars": 5664,
-      "topics": [
-        "mit-license",
-        "office",
-        "office-365",
-        "office-suite",
-        "office-tools",
-        "office365",
-        "open-source",
-        "powerpoint",
-        "self-hosted",
-        "single-page-app",
-        "slides",
-        "slideshare",
-        "slideshow",
-        "slideshow-gallery",
-        "slideshow-maker",
-        "slideshows"
-      ],
-      "updated_at": "2026-11-14T00:17:23Z",
-      "url": "https://github.com/nyblnet/bento"
     },
     {
       "archived": false,
@@ -12260,8 +12310,8 @@
     "nyblnet/bento": {
       "first_seen_at": "2026-11-14T00:25:22.288631Z",
       "full_name": "nyblnet/bento",
-      "last_decision": "queued",
-      "last_seen_at": "2026-11-14T00:25:22.288637Z",
+      "last_decision": "published",
+      "last_seen_at": "2026-11-14T18:14:00.628557Z",
       "repo_id": 1304207622,
       "sources": [
         "github_search"
