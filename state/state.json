@@ -7878,8 +7878,8 @@
       "skipped_brief": ""
     },
     "2026-11-14": {
-      "last_schedule": "47 */3 * * *",
-      "late_ignored": 4,
+      "last_schedule": "17 0,18,19,20,21,22,23 * * *",
+      "late_ignored": 5,
       "notified": true,
       "skipped_brief": ""
     }
