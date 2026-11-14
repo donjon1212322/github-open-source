@@ -259,13 +259,13 @@
       "telegram_message_id": 3599
     },
     "news-article": {
-      "devto_id": 5031795,
-      "finished_at": "2026-11-13T19:53:51.962143Z",
+      "devto_id": 5037485,
+      "finished_at": "2026-11-14T19:53:47.374594Z",
       "published": true,
-      "title": "DeepSeek API Expansions, Local 284B MoE Runs, and New Developer Tooling",
-      "topic_key": "ai-dev-digest",
-      "url": "https://dev.to/githubopensource/deepseek-api-expansions-local-284b-moe-runs-and-new-developer-tooling-49j7",
-      "words": 1084
+      "title": "Model Drops on OpenRouter and Hardware Forensics in Weight Signatures",
+      "topic_key": "model-releases-and-forensics",
+      "url": "https://dev.to/githubopensource/model-drops-on-openrouter-and-hardware-forensics-in-weight-signatures-25o4",
+      "words": 1092
     },
     "publish:europe_midday": {
       "finished_at": "2026-11-11T12:43:59.103591Z",
@@ -1204,6 +1204,7 @@
         ],
         "why_devs": "These additions expand the toolbox for local routing and specialized agent tasks without breaking budgets."
       },
+      "devto_cover_url": "https://i.ibb.co/5WwbZW7G/project-devto-cover-8786b248ff87.png",
       "headline": "New models drop on OpenRouter alongside chip forensics pointing to Blackwell training in China",
       "image_url": "https://i.ibb.co/Txbp3stP/ai-brief-9279a57cfa8e.png",
       "models": [
