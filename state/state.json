@@ -168,16 +168,16 @@
   "dead_letters": [],
   "gemini_daily": {
     "day": "2026-11-13",
-    "units": 21
+    "units": 27
   },
   "gemini_window": [
     [
-      1794593631.360081,
-      3922
+      1794618829.8020148,
+      3946
     ],
     [
-      1794593644.500698,
-      1410
+      1794618833.4893854,
+      1422
     ]
   ],
   "last_runs": {
@@ -267,9 +267,9 @@
       "telegram_message_id": 3550
     },
     "publish:us_evening": {
-      "finished_at": "2026-11-13T01:13:57.616176Z",
-      "repo": "storytold/vectorcraft",
-      "telegram_message_id": 3592
+      "finished_at": "2026-11-14T01:13:59.488848Z",
+      "repo": "jev-chat/jev-chat-jarvis",
+      "telegram_message_id": 3596
     },
     "publish:us_midday": {
       "finished_at": "2026-11-13T18:14:09.818187Z",
@@ -2066,6 +2066,117 @@
       ],
       "visual_host": "imgbb",
       "visual_kind": "readme"
+    },
+    "jev-chat/jev-chat-jarvis": {
+      "articles": {},
+      "card_style": "editorial_daily",
+      "category": "AI",
+      "contributors_count": 17,
+      "created_at": "2026-09-21T11:12:53Z",
+      "crossposts": {
+        "bluesky": {
+          "attempts": 0,
+          "due_at": "2026-11-14T18:00:00+00:00",
+          "status": "pending"
+        }
+      },
+      "description": "The chat decision assistant: before you reply, Jev reads the chat, judges intent and risk, and drafts replies you fill in with one tap. You press send. Android · Windows · macOS · iOS | 聊天辅助决策工具：先看懂对方再回复，发不发由你。",
+      "description_fp": "1d8bb8ce028b374b",
+      "forks": 1335,
+      "full_name": "jev-chat/jev-chat-jarvis",
+      "generated": {
+        "article_markdown": "## What it is\n\njev-chat is an open-source chat decision assistant designed to read conversations, judge intent and risk, and draft context-aware replies. Available across Android, Windows, macOS, and iOS, the project aims to help users navigate complex or high-volume messaging without automating away human final control. Rather than blindly generating text, it prioritizes a judgment phase to understand what the other person actually means before suggesting how to respond.\n\n## Why it matters\n\nWhen a message lands, the difficult part is rarely typing the response; it is accurately gauging the tone, subtext, and potential friction of the interaction. Traditional AI integrations jump straight into drafting text, often missing nuance or escalating awkward situations. jev-chat separates judgment from drafting, ensuring that every suggested reply is checked against an explicit assessment of the conversation's risk and intent.\n\n## Key features\n\n- Evaluate message intent and risk levels before drafting any responses.\n- Rank and check generated replies against initial conversation judgments.\n- Integrate across Android, Windows, macOS, and iOS with native overlays.\n- Send all API requests directly to your own configured model provider.\n- Operate via accessibility services or local desktop OCR without server logging.\n\n## Quick start\n\nTo get started with the source code, clone the repository:\n\n```bash\ngit clone https://github.com/jev-chat/jev-chat-jarvis.git\n```\n\n## Who should try it\n\nThis project fits developers and power users who handle extensive cross-platform messaging and want to experiment with client-side AI assistants. Because it relies on your own API keys and local device capabilities, it appeals to developers who prioritize data privacy and want to avoid third-party server logging.\n\n## Verdict\n\njev-chat provides a thoughtful approach to chat assistance by putting judgment before generation. However, users should carefully consider platform terms of service when running accessibility overlays or custom keyboards on third-party messaging apps.",
+        "article_title": "jev-chat: Multi-Platform Chat Decision Assistant and Intent Analyzer",
+        "card_hook": "Judge chat intent before replying",
+        "card_subline": "An open-source multi-platform chat decision assistant that analyzes context and drafts responses",
+        "category": "AI",
+        "discussion_question": "Which chat app would you want this assistant running on first?",
+        "hook": "Read chats, judge intent, and draft replies using your own API keys across Android, Windows, macOS, and iOS.",
+        "key_features": [
+          "Evaluate message intent and risk levels before drafting any responses",
+          "Rank and check generated replies against initial conversation judgments",
+          "Integrate across Android, Windows, macOS, and iOS with native overlays",
+          "Send all API requests directly to your own configured model provider",
+          "Operate via accessibility services or local desktop OCR without server logging"
+        ],
+        "llm_used": true,
+        "quick_start": "git clone https://github.com/jev-chat/jev-chat-jarvis.git",
+        "safety": "ok",
+        "safety_reason": "Legitimate open-source chat assistant and productivity utility.",
+        "scene": "A notification flashes on your phone, and you stare at an ambiguous message, trying to figure out if the sender is joking, testing you, or genuinely upset.",
+        "social_text": "Read chats, judge intent, and draft replies with your own API keys across multiple platforms using jev-chat.",
+        "summary": "jev-chat sits on top of your messaging apps by leveraging accessibility services on Android, on-device OCR on desktop, and custom keyboards on iOS to intercept and read chat windows. Instead of generating immediate responses, it runs a judgment model to evaluate the sender's intent and conversation risk. It then populates ranked reply options directly into your text input box, leaving the final send action entirely in your hands.",
+        "surfaces": {
+          "Facebook_body": "Managing hundreds of messages a day across multiple devices can quickly become overwhelming. This open-source tool acts as a personal chat assistant that sits on top of your existing messaging apps, helping you stay on top of heavy conversations without losing control.\n\nInstead of blindly generating automated responses, it reads incoming messages, evaluates the sender's intent, and assesses conversation risks. It then populates ranked reply options directly into your text input box, leaving the final decision and the send action entirely in your hands.\n\nUnder the hood, the system uses accessibility services on mobile and on-device text recognition on desktop to intercept and read chat windows. All requests are sent directly to your own configured model providers, ensuring your data goes where you want it to go without external server logging.\n\nIt is built for power users and developers who manage high-volume messaging across devices and want an open-source assistant that runs on personal hardware. If you worry about platform terms of service violations, you may want to skip it, but for heavy chat users looking for a smarter way to draft replies, it offers a powerful cross-platform solution.",
+          "Facebook_headline": "Smart drafting assistant for all your chat apps",
+          "Facebook_lead": "Manage heavy messaging loads across your devices by letting an assistant read incoming chats, judge intent, and draft smart replies that you send with one tap.",
+          "bluesky_headline": "Draft better chat replies with privacy-first AI",
+          "bluesky_lead": "Read incoming messages, judge intent, and draft ranked responses across Android, Windows, macOS, and iOS.",
+          "devto_body": "## What it is\n\nJev Chat Jarvis is an open-source chat decision assistant written in Kotlin. It integrates across Android, Windows, macOS, and iOS to read incoming messages, judge intent, and draft ranked reply options directly into your text input box while keeping you in full control of the final send action.\n\n## How it works\n\nThe project sits on top of your messaging apps using platform-specific mechanisms. On Android, it leverages accessibility services; on desktop, it uses on-device optical character recognition; and on iOS, it relies on custom keyboards. Rather than sending immediate automated replies, it routes data through lightweight local or configured models to evaluate sender intent and conversation risk before populating ranked options.\n\n## Key features\n\n- Evaluate message intent and risk levels before drafting responses\n- Rank and check generated replies against initial conversation judgments\n- Native overlays and integrations across Android, Windows, macOS, and iOS\n- Direct API requests to your own configured model provider\n- Operation via accessibility services or local desktop OCR without server logging\n\n## Getting started\n\nTo run and build the project locally, clone the repository from GitHub and open it in your preferred Kotlin-compatible development environment like Android Studio or IntelliJ IDEA. Ensure you have your own API keys configured for your desired model provider before building for your target platform.\n\n## When not to use it\n\nSkip this project if you are concerned about platform terms of service violations related to accessibility services, screen reading, or UI automation on mobile and desktop operating systems.",
+          "seo_description": "An open-source chat decision assistant that reads incoming messages, judges intent, and drafts ranked replies across Android, Windows, macOS, and iOS.",
+          "seo_query": "open source chat assistant cross platform reply drafter",
+          "seo_title": "Open-source chat assistant - cross-platform reply drafter",
+          "telegraph_angle": "Explain the problem of messaging overload across devices and how local intent analysis helps manage high-volume chats with privacy trade-offs."
+        },
+        "tension": "Most AI tools immediately suggest generic replies without understanding the underlying social context, forcing you to manually guess intent and risk every single time.",
+        "turn": "jev-chat evaluates the conversation for intent and risk first, drafting ranked responses that you can fill in with a single tap.",
+        "verdict": "Great for power users managing high-volume messaging across devices, but skip it if you worry about platform terms of service violations.",
+        "who_for": "Developers and power users seeking an open-source assistant to manage heavy chat loads across multiple devices.",
+        "why_now": "The availability of lightweight local models and accessible device APIs finally makes real-time chat intent analysis practical on personal hardware."
+      },
+      "homepage": "https://chatjevs.com",
+      "id": 1379574728,
+      "image_url": "https://i.ibb.co/33kKW64/jev-chat-jev-chat-jarvis-preview-d03ad5daeb2d.jpg",
+      "is_dual_use": false,
+      "is_hidden_gem": false,
+      "language": "Kotlin",
+      "license": {
+        "key": "mit",
+        "name": "MIT License",
+        "node_id": "MDc6TGljZW5zZTEz",
+        "spdx_id": "MIT",
+        "url": "https://api.github.com/licenses/mit"
+      },
+      "media_urls": [
+        "https://raw.githubusercontent.com/jev-chat/jev-chat-jarvis/main/../global/docs/images/states/02-decide.png",
+        "https://raw.githubusercontent.com/jev-chat/jev-chat-jarvis/main/../global/docs/images/states/04-results.png",
+        "https://raw.githubusercontent.com/jev-chat/jev-chat-jarvis/main/assets/images/overlay.png",
+        "https://raw.githubusercontent.com/jev-chat/jev-chat-jarvis/main/assets/images/mp-qr.png",
+        "https://raw.githubusercontent.com/jev-chat/jev-chat-jarvis/main/assets/images/logo.png"
+      ],
+      "name": "jev-chat-jarvis",
+      "open_issues": 33,
+      "published_at": "2026-11-14T01:13:59.488499Z",
+      "pushed_at": "2026-11-05T17:34:41Z",
+      "readme_fp": "abefb5cf6589cf90",
+      "repo_id": 1379574728,
+      "revisit_of": "",
+      "revisit_reason": "",
+      "score": 90.021,
+      "slot": "us_evening",
+      "sources": [
+        "github_search"
+      ],
+      "stars": 8373,
+      "telegram_chat_id": "@GitHub_Open_Source",
+      "telegram_link": "https://t.me/GitHub_Open_Source/3596",
+      "telegram_message_id": 3596,
+      "telegraph_url": "https://telegra.ph/jev-chat-Multi-Platform-Chat-Decision-Assistant-and-Intent-Analyzer-11-14",
+      "topics": [
+        "accessibility-service",
+        "ai-assistant",
+        "android",
+        "chat-assistant",
+        "chat-copilot",
+        "llm",
+        "ocr",
+        "qq",
+        "whatsapp"
+      ],
+      "updated_at": "2026-11-14T00:17:45Z",
+      "url": "https://github.com/jev-chat/jev-chat-jarvis",
+      "visual_host": "imgbb",
+      "visual_kind": "card"
     },
     "jhaizhou-ops/d2r-mobile": {
       "articles": {},
@@ -6059,68 +6170,6 @@
     }
   },
   "queue": [
-    {
-      "archived": false,
-      "contributors_count": 17,
-      "created_at": "2026-09-21T11:12:53Z",
-      "default_branch": "main",
-      "description": "The chat decision assistant: before you reply, Jev reads the chat, judges intent and risk, and drafts replies you fill in with one tap. You press send. Android · Windows · macOS · iOS | 聊天辅助决策工具：先看懂对方再回复，发不发由你。",
-      "disabled": false,
-      "fork": false,
-      "forks": 1335,
-      "forks_count": 1335,
-      "full_name": "jev-chat/jev-chat-jarvis",
-      "has_readme": true,
-      "homepage": "https://chatjevs.com",
-      "id": 1379574728,
-      "is_dual_use": false,
-      "is_hidden_gem": false,
-      "language": "Kotlin",
-      "license": {
-        "key": "mit",
-        "name": "MIT License",
-        "node_id": "MDc6TGljZW5zZTEz",
-        "spdx_id": "MIT",
-        "url": "https://api.github.com/licenses/mit"
-      },
-      "media_urls": [
-        "https://raw.githubusercontent.com/jev-chat/jev-chat-jarvis/main/../global/docs/images/states/02-decide.png",
-        "https://raw.githubusercontent.com/jev-chat/jev-chat-jarvis/main/../global/docs/images/states/04-results.png",
-        "https://raw.githubusercontent.com/jev-chat/jev-chat-jarvis/main/assets/images/overlay.png",
-        "https://raw.githubusercontent.com/jev-chat/jev-chat-jarvis/main/assets/images/mp-qr.png",
-        "https://raw.githubusercontent.com/jev-chat/jev-chat-jarvis/main/assets/images/logo.png"
-      ],
-      "name": "jev-chat-jarvis",
-      "non_software_reason": "",
-      "open_issues": 33,
-      "open_issues_count": 33,
-      "owner_repo_count": 1,
-      "pushed_at": "2026-11-05T17:34:41Z",
-      "readme": "",
-      "readme_excerpt": "<div align=\"center\">\n\n<img src=\"assets/images/logo.png\" width=\"120\" alt=\"jev-chat\" />\n\n# jev-chat\n\n### The chat decision assistant\n\n**Read them first, then reply. Before you answer, Jev works out what the other person really means, how risky the moment is and how to respond, then drafts replies you can fill in with one tap. Whether to send is always up to you.**\n\n[![Stars](https://img.shields.io/github/stars/jev-chat/jev-chat-jarvis?style=flat-square&logo=github&label=Stars)](https://github.com/jev-chat/jev-chat-jarvis/stargazers)\n[![Platform](https://img.shields.io/badge/platform-Android%20%7C%20Windows%20%7C%20macOS%20%7C%20iOS-lightgrey?style=flat-square)](#download--installation)\n[![License](https://img.shields.io/github/license/jev-chat/jev-chat-jarvis?style=flat-square)](../LICENSE)\n\n### 🌐 Official website: **[chatjevs.com](https://chatjevs.com)**\n\nEnglish | [简体中文](README.zh-CN.md) | [Tiếng Việt](README.vi.md) | [Releases](https://github.com/jev-chat/jev-chat-jarvis/releases)\n\n**[Download](#download--installation) · [Products](#products) · [How It Works](#how-it-works) · [Privacy](#privacy-and-risk) · [Community](#community-and-feedback)**\n\n</div>\n\n## ❤️Sponsors\n\n> [Intereste",
-      "readme_len": 10473,
-      "repo_id": 1379574728,
-      "score": 90.021,
-      "source_name": "github_search",
-      "sources": [
-        "github_search"
-      ],
-      "stargazers_count": 8373,
-      "stars": 8373,
-      "topics": [
-        "accessibility-service",
-        "ai-assistant",
-        "android",
-        "chat-assistant",
-        "chat-copilot",
-        "llm",
-        "ocr",
-        "qq",
-        "whatsapp"
-      ],
-      "updated_at": "2026-11-14T00:17:45Z",
-      "url": "https://github.com/jev-chat/jev-chat-jarvis"
-    },
     {
       "archived": false,
       "contributors_count": 13,
@@ -10692,8 +10741,8 @@
     "jev-chat/jev-chat-jarvis": {
       "first_seen_at": "2026-11-06T06:53:27.347119Z",
       "full_name": "jev-chat/jev-chat-jarvis",
-      "last_decision": "queued",
-      "last_seen_at": "2026-11-14T00:25:22.287753Z",
+      "last_decision": "published",
+      "last_seen_at": "2026-11-14T01:13:59.488835Z",
       "repo_id": 1379574728,
       "sources": [
         "github_search"
