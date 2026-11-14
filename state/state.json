@@ -298,7 +298,15 @@
         "notified": false
       }
     },
-    "watchdog_dispatches": {}
+    "watchdog_dispatches": {
+      "2026-11-14:facebook-handoff": {
+        "at": "2026-11-14T18:30:48.554472Z",
+        "attempts": 1,
+        "detail": "HTTP 204",
+        "dispatched": true,
+        "verified": false
+      }
+    }
   },
   "news_topics": [
     {
