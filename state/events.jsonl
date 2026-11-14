@@ -372,3 +372,4 @@
 {"repo": "expo/exact", "score": 90.019, "telegram_message_id": 3597, "telegraph_url": "https://telegra.ph/Building-Cross-Platform-Native-Apps-with-Expo-Exact-11-14", "ts": "2026-11-14T16:24:05.730245Z", "type": "project_published"}
 {"preview_host": "imgbb", "repo": "nyblnet/bento", "ts": "2026-11-14T18:14:00.372093Z", "type": "published_as_text"}
 {"repo": "nyblnet/bento", "score": 88.387, "telegram_message_id": 3598, "telegraph_url": "https://telegra.ph/Bento-A-Local-First-Presentation-Suite-Inside-a-Single-HTML-File-11-14", "ts": "2026-11-14T18:14:00.628447Z", "type": "project_published"}
+{"platform": "bluesky", "repo": "jev-chat/jev-chat-jarvis", "ts": "2026-11-14T18:17:51.171888Z", "type": "crosspost_published", "url": "https://bsky.app/profile/githubopensource.bsky.social/post/3n2c4c27ruq2c"}

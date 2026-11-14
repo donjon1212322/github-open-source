@@ -1757,7 +1757,8 @@
         "bluesky": {
           "attempts": 0,
           "due_at": "2026-11-14T18:00:00+00:00",
-          "status": "pending"
+          "held_reason": "not_best_of_day",
+          "status": "held"
         }
       },
       "description": "Write an app once. It runs natively on the web, macOS, iOS, and Linux, and an AI agent can build it, run it, see it, and test it on every one of them.",
@@ -2203,7 +2204,10 @@
         "bluesky": {
           "attempts": 0,
           "due_at": "2026-11-14T18:00:00+00:00",
-          "status": "pending"
+          "error": "",
+          "published_at": "2026-11-14T18:17:51.171864Z",
+          "status": "published",
+          "url": "https://bsky.app/profile/githubopensource.bsky.social/post/3n2c4c27ruq2c"
         }
       },
       "description": "The chat decision assistant: before you reply, Jev reads the chat, judges intent and risk, and drafts replies you fill in with one tap. You press send. Android · Windows · macOS · iOS | 聊天辅助决策工具：先看懂对方再回复，发不发由你。",
@@ -4540,7 +4544,8 @@
         "bluesky": {
           "attempts": 0,
           "due_at": "2026-11-14T18:44:00.628120+00:00",
-          "status": "pending"
+          "held_reason": "not_best_of_day",
+          "status": "held"
         }
       },
       "description": "Bento, the office suite that fits in a file",
