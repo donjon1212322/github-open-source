@@ -15,6 +15,10 @@ on:
         description: Try Gemini analysis of the latest WorldofAI YouTube URL
         type: boolean
         default: false
+      unpin_discussion:
+        description: Clear automatically pinned channel posts in the linked discussion group
+        type: boolean
+        default: false
 
 permissions:
   contents: read
@@ -70,9 +74,11 @@ jobs:
           HELLO: ${{ inputs.hello }}
           CONFIGURE_BOT: ${{ inputs.configure_bot }}
           NEWS_SPIKE: ${{ inputs.news_spike }}
+          UNPIN_DISCUSSION: ${{ inputs.unpin_discussion }}
         run: |
           args=()
           if [ "$HELLO" = "true" ]; then args+=(--hello); fi
           if [ "$CONFIGURE_BOT" = "true" ]; then args+=(--configure-bot); fi
           if [ "$NEWS_SPIKE" = "true" ]; then args+=(--news-spike); fi
+          if [ "$UNPIN_DISCUSSION" = "true" ]; then args+=(--unpin-discussion); fi
           ghos-v6 doctor "${args[@]}"

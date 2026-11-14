@@ -336,6 +336,20 @@ MUTATIONS: list[tuple[str, str, str, str]] = [
     (".github/workflows/pipeline.yml", "          found = True\n",
      "          found = False\n",
      "an Artifacts API outage silently drops a changed state"),
+    # Owner 14.11: linked discussion group stays, but auto-pins must go.
+    ("src/ghos_v6/pipeline.py",
+     "unpin_linked_discussion(config, telegram, channel_chat_id=chat_id)",
+     "_ = None", "auto-unpin after a channel post silently removed"),
+    ("src/ghos_v6/pipeline.py", '"unpinAllChatMessages"',
+     '"getChat"', "auto-unpin calls the wrong Bot API method"),
+    ("src/ghos_v6/doctor.py", "if unpin_discussion:",
+     "if False:", "Doctor cannot clear existing discussion pins"),
+    ("src/ghos_v6/cli.py", 'doctor.add_argument("--unpin-discussion"',
+     'doctor.add_argument("--unpin-discussion-disabled"',
+     "CLI loses the discussion unpin flag"),
+    (".github/workflows/doctor.yml", "      unpin_discussion:\n",
+     "      unpin_discussion_disabled:\n",
+     "Doctor unpin workflow input removed"),
 ]
 
 COPY_ITEMS = (

@@ -50,6 +50,7 @@ def _parser() -> argparse.ArgumentParser:
     doctor.add_argument("--hello", action="store_true", help="Send a hello to the resolved test channel")
     doctor.add_argument("--configure-bot", action="store_true", help="Set bot commands/descriptions")
     doctor.add_argument("--news-spike", action="store_true", help="Try Gemini YouTube URL input on the latest WorldofAI video")
+    doctor.add_argument("--unpin-discussion", action="store_true", help="Unpin auto-pinned channel posts in the linked discussion group")
 
     collect = sub.add_parser("collect", help="Collect, enrich, gate and queue candidates")
     collect.add_argument("--pages", action="append", default=[], help="Extra search page(s) to sweep")
@@ -374,6 +375,7 @@ def main(argv: list[str] | None = None) -> int:
                 configure_bot=args.configure_bot,
                 hello=args.hello,
                 news_spike=args.news_spike,
+                unpin_discussion=args.unpin_discussion,
             )
             print(json.dumps(result, ensure_ascii=False, indent=2, sort_keys=True))
             return 0 if result.get("ok") else 1

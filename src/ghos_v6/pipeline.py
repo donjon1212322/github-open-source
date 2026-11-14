@@ -205,6 +205,39 @@ def alert_owner(config: Config, title: str, details: str = "") -> None:
         logger.exception("Owner alert failed")
 
 
+def unpin_linked_discussion(
+    config: Config,
+    telegram: TelegramClient | None = None,
+    *,
+    channel_chat_id: Any = None,
+) -> dict[str, Any]:
+    """Owner 14.11: keep the linked discussion group, but have NO pinned posts.
+
+    Telegram itself forwards every channel post into the linked discussion
+    supergroup and pins it there. The Bot API has no switch for that behaviour;
+    ``unpinAllChatMessages`` is the only lever. This clears ALL pins in the
+    group, including manual ones - exactly what the owner asked for. Call it
+    after every NEW channel post, never after an edit. A missing right or a
+    Telegram hiccup is logged, never allowed to fail the publication.
+    """
+    token = str(getattr(config, "telegram_bot_token", "") or "")
+    if not token:
+        return {"ok": True, "unpinned": False, "reason": "no_bot_token"}
+    client = telegram or TelegramClient(token)
+    chat_id = channel_chat_id if channel_chat_id is not None else config.telegram_chat_id
+    try:
+        channel = client.get_chat(chat_id)
+        linked = channel.get("linked_chat_id")
+        if not linked:
+            return {"ok": True, "unpinned": False, "reason": "no_linked_group"}
+        client.api("unpinAllChatMessages", {"chat_id": linked})
+        return {"ok": True, "unpinned": True, "linked_chat_id": linked}
+    except Exception as exc:  # noqa: BLE001 - a pin must never break publishing
+        logger.warning("Discussion unpin skipped: %s", sanitize(str(exc))[:200])
+        return {"ok": False, "unpinned": False,
+                "reason": "unpin_failed", "error": type(exc).__name__}
+
+
 def collect_command(
     config: Config,
     store: StateStore,
@@ -724,6 +757,7 @@ def publish_slot(config: Config, store: StateStore, slot: str = "manual") -> dic
             logger.warning("Publish failed for %s; candidate removed: %s", key, error)
             continue
         store.event("published_as_text", repo=key, preview_host=visual_host or "none")
+        unpin_linked_discussion(config, telegram, channel_chat_id=chat_id)
         message_id = int(sent.get("message_id") or 0)
         due = _crosspost_due()
         record = _public_record_candidate(candidate)
@@ -1563,6 +1597,7 @@ def news_command(
     else:
         sent = telegram.send_text(chat_id, text, preview_url=preview_url)
         message_id = sent.get("message_id")
+        unpin_linked_discussion(config, telegram, channel_chat_id=chat_id)
 
     record = {
         "video_id": entry.get("video_id"),
@@ -1746,6 +1781,7 @@ def digest_command(config: Config, store: StateStore) -> dict[str, Any]:
     # (owner only), never in the public channel post.
     text = digest_text(records, poll_line=poll_line)
     sent = telegram.send_text(chat_id, text, preview_url=image_url)
+    unpin_linked_discussion(config, telegram, channel_chat_id=chat_id)
     poll = None
     try:
         poll = polls.send_week_poll(
@@ -1774,6 +1810,8 @@ def digest_command(config: Config, store: StateStore) -> dict[str, Any]:
         }
     except Exception as exc:  # noqa: BLE001
         logger.warning("Digest poll failed: %s", sanitize(str(exc))[:200])
+    if poll:
+        unpin_linked_discussion(config, telegram, channel_chat_id=chat_id)
     store.event(
         "digest_published",
         telegram_message_id=sent.get("message_id"),
@@ -1846,6 +1884,7 @@ def poll_replace_command(config: Config, store: StateStore) -> dict[str, Any]:
     new_id = int((new_poll or {}).get("message_id") or 0)
     if not new_id:
         return {"ok": False, "reason": "send_failed"}
+    unpin_linked_discussion(config, telegram, channel_chat_id=chat_id)
 
     # 4. Fix the digest post: only the poll line changes, the star card stays.
     last_runs = store.data.setdefault("last_runs", {})

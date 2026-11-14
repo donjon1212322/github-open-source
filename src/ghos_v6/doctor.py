@@ -1,4 +1,9 @@
-"""Non-destructive integration checks for setup and CI smoke runs."""
+"""Integration checks for setup and CI smoke runs.
+
+Non-destructive by default. ``--unpin-discussion`` is the ONE explicit
+live change: it clears the channel's auto-pinned posts in the linked
+discussion group (owner 14.11).
+"""
 from __future__ import annotations
 
 import tempfile
@@ -20,12 +25,54 @@ def _safe_error(exc: BaseException) -> str:
     return sanitize(f"{type(exc).__name__}: {exc}")[:500]
 
 
+def _discussion_unpin_check(
+    telegram: TelegramClient, me: dict[str, Any], linked: int | str | None
+) -> dict[str, Any]:
+    """Report bot pin rights, clear existing pins, then verify the list is empty."""
+    if not linked:
+        return {"ok": False, "reason": "no_linked_group"}
+    try:
+        before = telegram.get_chat(linked)
+        member = dict(telegram.api(
+            "getChatMember", {"chat_id": linked, "user_id": me.get("id")}
+        ) or {})
+        status = str(member.get("status") or "")
+        can_pin = bool(member.get("can_pin_messages"))
+        if status == "creator":
+            can_pin = True  # the owner implicitly holds every admin right
+        pinned_before = (before.get("pinned_message") or {}).get("message_id")
+        if not can_pin:
+            return {
+                "ok": False, "reason": "missing_pin_rights",
+                "linked_chat_id": linked, "bot_status": status,
+                "can_pin_messages": can_pin, "group_title": before.get("title"),
+                "group_type": before.get("type"),
+            }
+        telegram.api("unpinAllChatMessages", {"chat_id": linked})
+        after = telegram.get_chat(linked)
+        pinned_after = (after.get("pinned_message") or {}).get("message_id")
+        return {
+            "ok": pinned_after is None,
+            "linked_chat_id": linked,
+            "group_title": before.get("title"),
+            "group_type": before.get("type"),
+            "bot_status": status,
+            "can_pin_messages": can_pin,
+            "pinned_before": pinned_before,
+            "pinned_after": pinned_after,
+            "unpinned": pinned_before is not None and pinned_after is None,
+        }
+    except BaseException as exc:  # noqa: BLE001 - diagnostic only
+        return {"ok": False, "error": _safe_error(exc), "linked_chat_id": linked}
+
+
 def run_doctor(
     config: Config,
     *,
     configure_bot: bool = False,
     hello: bool = False,
     news_spike: bool = False,
+    unpin_discussion: bool = False,
 ) -> dict[str, Any]:
     report: dict[str, Any] = {"ok": True, "target_locked_test": not config.is_main_target, "checks": {}}
     checks: dict[str, Any] = report["checks"]
@@ -55,6 +102,7 @@ def run_doctor(
         checks["telegram_discovery"] = telegram.discover_ids()
         # Option A (2026-11-04): native comments require a linked
         # discussion group. The Bot API cannot link one, so report it.
+        linked = None
         try:
             main_chat = telegram.get_chat(config.telegram_chat_id)
             linked = main_chat.get("linked_chat_id")
@@ -75,6 +123,11 @@ def run_doctor(
             checks["telegram_discussion"] = discussion
         except BaseException as exc:  # noqa: BLE001 - diagnostic only
             checks["telegram_discussion"] = {"ok": False, "error": _safe_error(exc)}
+        if unpin_discussion:
+            unpin = _discussion_unpin_check(telegram, me, linked)
+            checks["discussion_unpin"] = unpin
+            if not unpin.get("ok"):
+                report["ok"] = False
         if configure_bot:
             checks["telegram_bot_profile"] = telegram.configure_bot_profile()
         if config.telegram_test_channel_id is not None:
