@@ -182,11 +182,11 @@
   ],
   "last_runs": {
     "article": {
-      "finished_at": "2026-11-13T13:33:49.399508Z",
+      "finished_at": "2026-11-14T13:33:47.752177Z",
       "published": true,
       "reason": "published",
-      "repo": "storytold/vectorcraft",
-      "url": "https://dev.to/githubopensource/open-source-vector-art-application-vectorcraft-287m"
+      "repo": "jev-chat/jev-chat-jarvis",
+      "url": "https://dev.to/githubopensource/open-source-chat-assistant-cross-platform-reply-drafter-1bkj"
     },
     "collect": {
       "discovered": 467,
@@ -2068,7 +2068,13 @@
       "visual_kind": "readme"
     },
     "jev-chat/jev-chat-jarvis": {
-      "articles": {},
+      "articles": {
+        "devto": {
+          "id": 5036041,
+          "published_at": "2026-11-14T13:33:47.752030Z",
+          "url": "https://dev.to/githubopensource/open-source-chat-assistant-cross-platform-reply-drafter-1bkj"
+        }
+      },
       "card_style": "editorial_daily",
       "category": "AI",
       "contributors_count": 17,
@@ -2082,6 +2088,7 @@
       },
       "description": "The chat decision assistant: before you reply, Jev reads the chat, judges intent and risk, and drafts replies you fill in with one tap. You press send. Android · Windows · macOS · iOS | 聊天辅助决策工具：先看懂对方再回复，发不发由你。",
       "description_fp": "1d8bb8ce028b374b",
+      "devto_cover_url": "https://i.ibb.co/FbYrf5h6/jev-chat-jev-chat-jarvis-devto-cover-994faf76ec9c.png",
       "forks": 1335,
       "full_name": "jev-chat/jev-chat-jarvis",
       "generated": {
