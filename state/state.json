@@ -222,7 +222,7 @@
       "week": "2026-W45"
     },
     "facebook-handoff": {
-      "finished_at": "2026-11-13T18:31:19.519658Z",
+      "finished_at": "2026-11-14T18:31:19.711480Z",
       "queued": 1,
       "reason": "queued"
     },
@@ -2216,6 +2216,11 @@
           "published_at": "2026-11-14T18:17:51.171864Z",
           "status": "published",
           "url": "https://bsky.app/profile/githubopensource.bsky.social/post/3n2c4c27ruq2c"
+        },
+        "facebook_sheet": {
+          "at": "2026-11-14T18:31:21.013238Z",
+          "status": "queued",
+          "via": "make.com"
         }
       },
       "description": "The chat decision assistant: before you reply, Jev reads the chat, judges intent and risk, and drafts replies you fill in with one tap. You press send. Android · Windows · macOS · iOS | 聊天辅助决策工具：先看懂对方再回复，发不发由你。",
