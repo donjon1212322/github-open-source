@@ -377,3 +377,4 @@
 {"range": "facebook!A13:E13", "rows": 1, "ts": "2026-11-14T18:31:21.013266Z", "type": "facebook_handoff_queued"}
 {"minutes_late": 165.0, "schedule": "47 */3 * * *", "ts": "2026-11-14T18:32:00.643220Z", "type": "late_schedule_ignored"}
 {"deleted": 0, "ts": "2026-11-14T18:47:45.839391Z", "type": "moderation_completed", "updates": 2}
+{"minutes_late": 315.5, "schedule": "33 13 * * *", "ts": "2026-11-14T18:48:27.233010Z", "type": "late_schedule_ignored"}
