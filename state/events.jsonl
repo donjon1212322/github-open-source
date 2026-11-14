@@ -368,3 +368,5 @@
 {"deleted": 0, "ts": "2026-11-14T12:47:49.038235Z", "type": "moderation_completed", "updates": 7}
 {"platform": "devto", "repo": "jev-chat/jev-chat-jarvis", "ts": "2026-11-14T13:33:47.752052Z", "type": "article_published", "url": "https://dev.to/githubopensource/open-source-chat-assistant-cross-platform-reply-drafter-1bkj"}
 {"deleted": 0, "ts": "2026-11-14T15:47:45.946067Z", "type": "moderation_completed", "updates": 0}
+{"preview_host": "imgbb", "repo": "expo/exact", "ts": "2026-11-14T16:24:05.235765Z", "type": "published_as_text"}
+{"repo": "expo/exact", "score": 90.019, "telegram_message_id": 3597, "telegraph_url": "https://telegra.ph/Building-Cross-Platform-Native-Apps-with-Expo-Exact-11-14", "ts": "2026-11-14T16:24:05.730245Z", "type": "project_published"}

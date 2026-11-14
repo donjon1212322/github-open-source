@@ -167,17 +167,17 @@
   },
   "dead_letters": [],
   "gemini_daily": {
-    "day": "2026-11-13",
-    "units": 27
+    "day": "2026-11-14",
+    "units": 6
   },
   "gemini_window": [
     [
-      1794618829.8020148,
-      3946
+      1794673432.131244,
+      3935
     ],
     [
-      1794618833.4893854,
-      1422
+      1794673439.7978976,
+      1404
     ]
   ],
   "last_runs": {
@@ -277,9 +277,9 @@
       "telegram_message_id": 3594
     },
     "publish:us_morning": {
-      "finished_at": "2026-11-13T16:24:07.942798Z",
-      "repo": "edge0-ai/edge0",
-      "telegram_message_id": 3593
+      "finished_at": "2026-11-14T16:24:05.730414Z",
+      "repo": "expo/exact",
+      "telegram_message_id": 3597
     },
     "publish:us_peak": {
       "finished_at": "2026-11-11T17:19:17.006267Z",
@@ -1744,6 +1744,126 @@
           "views": 36
         }
       ],
+      "visual_host": "imgbb",
+      "visual_kind": "readme"
+    },
+    "expo/exact": {
+      "articles": {},
+      "card_style": "",
+      "category": "DevTools",
+      "contributors_count": 15,
+      "created_at": "2026-11-02T01:29:01Z",
+      "crossposts": {
+        "bluesky": {
+          "attempts": 0,
+          "due_at": "2026-11-14T18:00:00+00:00",
+          "status": "pending"
+        }
+      },
+      "description": "Write an app once. It runs natively on the web, macOS, iOS, and Linux, and an AI agent can build it, run it, see it, and test it on every one of them.",
+      "description_fp": "c6aa6a9d0fa863ec",
+      "forks": 100,
+      "full_name": "expo/exact",
+      "generated": {
+        "article_markdown": "## What it is\n\nExact is a cross-platform application runtime that separates your interface definition from your data logic. Instead of building a webview-based app or managing separate native codebases, you describe your UI in a declarative language called Contract. This contract is compiled into a plan that executes on a lightweight runtime. On the web, this is a 20 KB module that drives the DOM; on macOS, iOS, and Linux, it is a Rust-based runner that uses native controls or a GPU painter to render your app.\n\n## Why it matters\n\nMost cross-platform tools rely on JavaScript bridges or heavy webviews, which often lead to performance bottlenecks and inconsistent behavior across platforms. Exact bypasses these by using a Rust-based layout kernel that computes UI boxes using CSS rules. Because the runtime is designed to be driven by AI agents, you can write tests that run identically on the web, macOS, and iOS without needing to manage separate test evaluators or handle flaky timing issues.\n\n## Key features\n\n- **Native Rendering:** Uses AppKit, UIKit, or a GPU painter instead of webviews.\n- **Agent-First API:** Includes ten standardized operations (like `tap`, `type`, and `screenshot`) to drive testing across all hosts.\n- **Performance:** Designed for sub-100ms cold starts by avoiding heavy JavaScript execution before the first pixel.\n- **Declarative UI:** Uses a small, typed language that fits within an AI context window, making it easier for agents to generate and maintain code.\n\n## Quick start\n\nTo get started, ensure you have Rust, Bun, and Xcode installed, then run the following commands:\n\n```sh\nbun scripts/exact.mjs setup\nbun scripts/exact.mjs new my-app\n```\n\n## Who should try it\n\nExact is for developers who are comfortable with early-stage, pre-1.0 tooling and want to avoid the overhead of traditional cross-platform frameworks. If you are building an app that needs to feel native on Apple platforms while maintaining a web presence, and you want to leverage AI agents for your testing pipeline, this is worth exploring.\n\n## Verdict\n\nExact is an ambitious project that trades the flexibility of standard webviews for strict, native-first performance. It is not for those who need API stability or a mature ecosystem today, but it offers a compelling vision for how we might build and test apps in an AI-assisted future.",
+        "article_title": "Building Cross-Platform Native Apps with Expo Exact",
+        "card_hook": "Native apps for every platform",
+        "card_subline": "Write your UI as a declarative contract and your logic in TypeScript or Rust",
+        "category": "DevTools",
+        "discussion_question": "Would you trade the flexibility of a full webview for a stricter, declarative contract that guarantees native performance?",
+        "hook": "Build native apps for web, macOS, iOS, and Linux from one codebase, with built-in support for AI agent testing.",
+        "key_features": [
+          "Compiles interface definitions into a compact plan for native execution on macOS, iOS, and Linux.",
+          "Uses a Rust-based layout kernel to compute UI boxes with CSS rules without a browser engine.",
+          "Provides a standardized agent API for automated testing across all platforms.",
+          "Achieves cold start times under 100ms by avoiding heavy JavaScript bundles before the first pixel.",
+          "Maps unstyled components to native system controls to maintain platform-specific look and feel."
+        ],
+        "llm_used": true,
+        "quick_start": "bun scripts/exact.mjs setup && bun scripts/exact.mjs new my-app",
+        "safety": "ok",
+        "safety_reason": "The project is a legitimate cross-platform application development framework.",
+        "scene": "You spend the morning tweaking a flexbox layout in Chrome, only to find the same component breaks on iOS because UIKit handles padding differently.",
+        "social_text": "Stop shipping webviews. Exact lets you write one declarative contract that runs natively on web, iOS, macOS, and Linux, with built-in support for AI-driven testing.",
+        "summary": "Exact compiles a declarative interface definition into a compact plan that executes on a 20 KB web runtime or a Rust-based native runner. It avoids webviews and JavaScript bridges entirely, instead using native controls on Apple platforms and a custom GPU painter on Linux. Business logic is written in TypeScript or Rust, ensuring consistent behavior across all targets.",
+        "surfaces": {
+          "Facebook_body": "Building apps for multiple devices usually means writing separate code for each platform or dealing with heavy, sluggish frameworks. A new open-source tool lets developers write their interface once and run it natively across web, desktop, and mobile devices without relying on slow browser engines or heavy scripts.\n\nUnder the hood, it compiles interface definitions into a compact execution plan. On Apple devices, it uses native system controls, while Linux uses a custom graphics processor painter. Business logic can be written in either TypeScript or Rust, ensuring consistent behavior everywhere while maintaining quick startup times under 100 milliseconds.\n\nThis project is built for developers who want native performance and smaller app sizes without the headache of maintaining multiple user interface codebases. It is especially useful for teams looking to integrate automated testing with AI coding agents.",
+          "Facebook_headline": "Build apps for all devices from a single project",
+          "Facebook_lead": "Create fast native apps for web, desktop, and mobile without maintaining separate codebases for each platform.",
+          "bluesky_headline": "Build native apps for four platforms from one place",
+          "bluesky_lead": "A lightweight Rust runtime avoids webviews for fast cross-platform app performance.",
+          "devto_body": "## What it is\n\nExact is a Rust-based open-source toolkit designed to compile declarative interface definitions into compact execution plans. It targets the web, macOS, iOS, and Linux from a single codebase, entirely bypassing browser engines and JavaScript bridges to deliver true native performance.\n\n## How it works\n\nThe framework uses a custom layout kernel written in Rust to compute user interface boxes using CSS rules without needing a browser engine. For execution, it maps unstyled components directly to native system controls on Apple platforms and employs a dedicated graphics processor painter on Linux. Developers can write their business logic in TypeScript or Rust.\n\n## Key features\n\n- Compiles interfaces for native execution on macOS, iOS, and Linux\n- Rust-based layout kernel computes UI boxes without a browser\n- Standardized agent testing interface across all platforms\n- Cold start times under 100ms by avoiding heavy script bundles\n- Maps components to native system controls for a natural look and feel\n\n## Getting started\n\nClone the repository from GitHub and ensure you have the Rust toolchain installed. Follow the setup instructions in the README to build your first multi-platform target.\n\n## When not to use it\n\nThe project is currently experimental. If your team relies on mature, battle-tested production frameworks with extensive third-party plugin ecosystems, you may want to wait until the project matures further.",
+          "seo_description": "Learn how Exact compiles declarative interfaces into native apps for web, macOS, iOS, and Linux without webviews. Built for cross-platform developers.",
+          "seo_query": "build cross platform native apps with rust",
+          "seo_title": "Build Cross-Platform Apps with Rust - Exact",
+          "telegraph_angle": "Explain the architecture of bypassing webviews for cross-platform native performance and the implications for developer workflows."
+        },
+        "tension": "You end up maintaining three separate UI implementations to achieve native parity, wasting hours on platform-specific CSS hacks and bridge debugging.",
+        "turn": "Exact replaces the bridge with a shared layout kernel and a declarative contract, letting you define the UI once while the runtime handles native rendering. It does not magically fix every platform quirk, but it forces you to define your interface in a way that is testable by agents.",
+        "verdict": "A promising, albeit experimental, approach for teams tired of webview-based cross-platform bloat.",
+        "who_for": "Developers building cross-platform apps who want native performance without maintaining separate UI codebases.",
+        "why_now": "The rise of autonomous coding agents makes it practical to automate cross-platform testing, provided the runtime is designed for machine-driven operation."
+      },
+      "hn_points": 137,
+      "homepage": "",
+      "id": 1442385098,
+      "image_url": "https://i.ibb.co/81xHqLp/expo-exact-readme-preview-803b4e4f71e9.jpg",
+      "is_dual_use": false,
+      "is_hidden_gem": false,
+      "language": "Rust",
+      "license": {
+        "key": "mit",
+        "name": "MIT License",
+        "node_id": "MDc6TGljZW5zZTEz",
+        "spdx_id": "MIT",
+        "url": "https://api.github.com/licenses/mit"
+      },
+      "media_urls": [
+        "https://raw.githubusercontent.com/expo/exact/main/docs/screenshots/softwear-web.webp",
+        "https://raw.githubusercontent.com/expo/exact/main/docs/screenshots/softwear-ios.webp",
+        "https://raw.githubusercontent.com/expo/exact/main/docs/screenshots/softwear-macos.webp",
+        "https://raw.githubusercontent.com/expo/exact/main/docs/screenshots/todo-web.webp",
+        "https://raw.githubusercontent.com/expo/exact/main/docs/screenshots/todo-macos.webp",
+        "https://raw.githubusercontent.com/expo/exact/main/docs/screenshots/todo-ios.webp",
+        "https://raw.githubusercontent.com/expo/exact/main/docs/screenshots/caltrain-web.webp",
+        "https://raw.githubusercontent.com/expo/exact/main/docs/screenshots/weatherlight.webp"
+      ],
+      "name": "exact",
+      "open_issues": 134,
+      "published_at": "2026-11-14T16:24:05.730014Z",
+      "pushed_at": "2026-11-14T16:21:37Z",
+      "readme_fp": "75a125612006364f",
+      "repo_id": 1442385098,
+      "revisit_of": "",
+      "revisit_reason": "",
+      "score": 90.019,
+      "slot": "us_morning",
+      "sources": [
+        "github_search",
+        "hacker_news"
+      ],
+      "stars": 4139,
+      "telegram_chat_id": "@GitHub_Open_Source",
+      "telegram_link": "https://t.me/GitHub_Open_Source/3597",
+      "telegram_message_id": 3597,
+      "telegraph_url": "https://telegra.ph/Building-Cross-Platform-Native-Apps-with-Expo-Exact-11-14",
+      "topics": [
+        "ai-agents",
+        "appkit",
+        "coding-agents",
+        "cross-platform",
+        "css",
+        "ios",
+        "linux",
+        "macos",
+        "native-apps",
+        "rust",
+        "swift",
+        "uikit",
+        "web"
+      ],
+      "updated_at": "2026-11-14T16:22:35Z",
+      "url": "https://github.com/expo/exact",
       "visual_host": "imgbb",
       "visual_kind": "readme"
     },
@@ -6179,77 +6299,6 @@
   "queue": [
     {
       "archived": false,
-      "contributors_count": 13,
-      "created_at": "2026-11-02T01:29:01Z",
-      "default_branch": "main",
-      "description": "Write an app once. It runs natively on the web, macOS, iOS, and Linux, and an AI agent can build it, run it, see it, and test it on every one of them.",
-      "disabled": false,
-      "fork": false,
-      "forks": 97,
-      "forks_count": 97,
-      "full_name": "expo/exact",
-      "has_readme": true,
-      "hn_points": 137,
-      "homepage": "",
-      "id": 1442385098,
-      "is_dual_use": false,
-      "is_hidden_gem": false,
-      "language": "Rust",
-      "license": {
-        "key": "mit",
-        "name": "MIT License",
-        "node_id": "MDc6TGljZW5zZTEz",
-        "spdx_id": "MIT",
-        "url": "https://api.github.com/licenses/mit"
-      },
-      "media_urls": [
-        "https://raw.githubusercontent.com/expo/exact/main/docs/screenshots/softwear-web.webp",
-        "https://raw.githubusercontent.com/expo/exact/main/docs/screenshots/softwear-ios.webp",
-        "https://raw.githubusercontent.com/expo/exact/main/docs/screenshots/softwear-macos.webp",
-        "https://raw.githubusercontent.com/expo/exact/main/docs/screenshots/todo-web.webp",
-        "https://raw.githubusercontent.com/expo/exact/main/docs/screenshots/todo-macos.webp",
-        "https://raw.githubusercontent.com/expo/exact/main/docs/screenshots/todo-ios.webp",
-        "https://raw.githubusercontent.com/expo/exact/main/docs/screenshots/caltrain-web.webp",
-        "https://raw.githubusercontent.com/expo/exact/main/docs/screenshots/weatherlight.webp"
-      ],
-      "name": "exact",
-      "non_software_reason": "",
-      "open_issues": 121,
-      "open_issues_count": 121,
-      "owner_repo_count": 1,
-      "pushed_at": "2026-11-14T00:14:14Z",
-      "readme": "",
-      "readme_excerpt": "# Exact\n\n**Write an app once. It runs natively on the web, macOS, iOS, and Linux, and an AI\nagent can build it, run it, see it, and test it on every one of them.**\n\n**Building an app?** With the tools installed ([Quick start, step 1](#1-install-the-tools)),\nrun `bun scripts/exact.mjs setup` once, make the app with `bun scripts/exact.mjs new <path>`,\nand read [`docs/start-here.md`](docs/start-here.md) (for a website,\n[`docs/start-here-site.md`](docs/start-here-site.md)): that guide is the only required\nreading. The rest of this page describes Exact for people deciding whether to use it\nor working on it.\n\n> [!TIP]\n> **Try it with a coding agent.** On a Mac with Xcode, Rust, Bun, and Chrome installed,\n> give Claude Code this prompt:\n>\n> ```text\n> Clone https://github.com/expo/exact and follow its README to make a new Exact\n> app with `exact new`. Run `bun scripts/exact.mjs setup` once first. Make a todo\n> list where I can add items, check them off, delete them,\n> and see how many are left. Put the view in Contract and keep the list in `app.ts`.\n> Write an `app.test.contract`, pass it on web, macOS, and the iOS Simulator with\n> `scripts/agent.mjs`, then open the app for me on all three",
-      "readme_len": 49746,
-      "repo_id": 1442385098,
-      "score": 90.019,
-      "source_name": "github_search",
-      "sources": [
-        "github_search",
-        "hacker_news"
-      ],
-      "stargazers_count": 3999,
-      "stars": 3999,
-      "topics": [
-        "ai-agents",
-        "appkit",
-        "coding-agents",
-        "cross-platform",
-        "css",
-        "ios",
-        "linux",
-        "macos",
-        "native-apps",
-        "rust",
-        "swift",
-        "uikit",
-        "web"
-      ],
-      "updated_at": "2026-11-14T00:22:59Z",
-      "url": "https://github.com/expo/exact"
-    },
-    {
-      "archived": false,
       "contributors_count": 51,
       "created_at": "2026-11-08T05:49:46Z",
       "default_branch": "main",
@@ -9703,8 +9752,8 @@
     "expo/exact": {
       "first_seen_at": "2026-11-11T04:25:29.576314Z",
       "full_name": "expo/exact",
-      "last_decision": "queued",
-      "last_seen_at": "2026-11-14T00:25:22.289028Z",
+      "last_decision": "published",
+      "last_seen_at": "2026-11-14T16:24:05.730403Z",
       "repo_id": 1442385098,
       "sources": [
         "github_search",
