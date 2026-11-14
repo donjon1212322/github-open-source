@@ -382,3 +382,4 @@
 {"title": "Model Drops on OpenRouter and Hardware Forensics in Weight Signatures", "ts": "2026-11-14T19:19:10.917717Z", "type": "news_article_generated", "words": 1092}
 {"Gemini_video_input": false, "models": 13, "official_url": "", "stories": 2, "topic": "model-releases-and-forensics", "ts": "2026-11-14T19:19:15.506676Z", "type": "ai_brief_published", "video_id": "tg-20261114-ddfc4d62e3"}
 {"devto_id": 5037485, "ts": "2026-11-14T19:53:47.374619Z", "type": "news_article_published", "url": "https://dev.to/githubopensource/model-drops-on-openrouter-and-hardware-forensics-in-weight-signatures-25o4", "words": 1092}
+{"channel": "GitHub_Open_Source", "posts": 12, "ts": "2026-11-14T20:23:57.845104Z", "type": "metrics_collected", "updated": 12}

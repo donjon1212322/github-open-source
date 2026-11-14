@@ -249,7 +249,7 @@
     },
     "metrics": {
       "checked": 12,
-      "finished_at": "2026-11-13T20:23:52.637486Z",
+      "finished_at": "2026-11-14T20:23:51.906890Z",
       "reason": "measured",
       "updated": 12
     },
@@ -1407,10 +1407,10 @@
       ],
       "updated_at": "2026-11-12T16:22:40Z",
       "url": "https://github.com/anefzaoui/misterdownloadmanager",
-      "value_score": 38.76,
-      "views": 80,
-      "views_age_hours": 28.0,
-      "views_at_24h": 75,
+      "value_score": 34.74,
+      "views": 97,
+      "views_age_hours": 52.0,
+      "views_at_24h": 69,
       "views_history": [
         {
           "at": "2026-11-12T20:23:49.200465Z",
@@ -1421,6 +1421,11 @@
           "at": "2026-11-13T20:23:55.167866Z",
           "reactions": 0,
           "views": 80
+        },
+        {
+          "at": "2026-11-14T20:23:55.887323Z",
+          "reactions": 0,
+          "views": 97
         }
       ],
       "visual_host": "imgbb",
@@ -1840,15 +1845,20 @@
       ],
       "updated_at": "2026-11-13T16:23:46Z",
       "url": "https://github.com/Edge0-AI/Edge0",
-      "value_score": 48.28,
-      "views": 36,
-      "views_age_hours": 4.0,
-      "views_at_24h": 94,
+      "value_score": 35.48,
+      "views": 74,
+      "views_age_hours": 28.0,
+      "views_at_24h": 70,
       "views_history": [
         {
           "at": "2026-11-13T20:23:53.680961Z",
           "reactions": 0,
           "views": 36
+        },
+        {
+          "at": "2026-11-14T20:23:54.416881Z",
+          "reactions": 0,
+          "views": 74
         }
       ],
       "visual_host": "imgbb",
@@ -1940,6 +1950,7 @@
       "open_issues": 134,
       "published_at": "2026-11-14T16:24:05.730014Z",
       "pushed_at": "2026-11-14T16:21:37Z",
+      "reactions": 0,
       "readme_fp": "75a125612006364f",
       "repo_id": 1442385098,
       "revisit_of": "",
@@ -1972,6 +1983,17 @@
       ],
       "updated_at": "2026-11-14T16:22:35Z",
       "url": "https://github.com/expo/exact",
+      "value_score": 39.62,
+      "views": 30,
+      "views_age_hours": 4.0,
+      "views_at_24h": 78,
+      "views_history": [
+        {
+          "at": "2026-11-14T20:23:52.984414Z",
+          "reactions": 0,
+          "views": 30
+        }
+      ],
       "visual_host": "imgbb",
       "visual_kind": "readme"
     },
@@ -2391,6 +2413,7 @@
       "open_issues": 33,
       "published_at": "2026-11-14T01:13:59.488499Z",
       "pushed_at": "2026-11-05T17:34:41Z",
+      "reactions": 0,
       "readme_fp": "abefb5cf6589cf90",
       "repo_id": 1379574728,
       "revisit_of": "",
@@ -2418,6 +2441,17 @@
       ],
       "updated_at": "2026-11-14T00:17:45Z",
       "url": "https://github.com/jev-chat/jev-chat-jarvis",
+      "value_score": 42.1,
+      "views": 71,
+      "views_age_hours": 19.2,
+      "views_at_24h": 82,
+      "views_history": [
+        {
+          "at": "2026-11-14T20:23:53.466265Z",
+          "reactions": 0,
+          "views": 71
+        }
+      ],
       "visual_host": "imgbb",
       "visual_kind": "card"
     },
@@ -3031,10 +3065,10 @@
       ],
       "updated_at": "2026-11-11T12:42:13Z",
       "url": "https://github.com/kaankiziltug/logo-design-skill",
-      "value_score": 39.3,
-      "views": 111,
-      "views_age_hours": 55.7,
-      "views_at_24h": 77,
+      "value_score": 35.99,
+      "views": 120,
+      "views_age_hours": 79.7,
+      "views_at_24h": 76,
       "views_history": [
         {
           "at": "2026-11-12T20:23:50.245429Z",
@@ -3045,6 +3079,11 @@
           "at": "2026-11-13T20:23:56.665633Z",
           "reactions": 0,
           "views": 111
+        },
+        {
+          "at": "2026-11-14T20:23:57.361071Z",
+          "reactions": 0,
+          "views": 120
         }
       ],
       "visual_host": "imgbb",
@@ -4154,10 +4193,10 @@
       ],
       "updated_at": "2026-11-12T02:38:18Z",
       "url": "https://github.com/Louis-CFM/coucou",
-      "value_score": 39.36,
-      "views": 97,
-      "views_age_hours": 40.9,
-      "views_at_24h": 76,
+      "value_score": 35.43,
+      "views": 110,
+      "views_age_hours": 64.9,
+      "views_at_24h": 74,
       "views_history": [
         {
           "at": "2026-11-12T20:23:49.537689Z",
@@ -4168,6 +4207,11 @@
           "at": "2026-11-13T20:23:55.660934Z",
           "reactions": 0,
           "views": 97
+        },
+        {
+          "at": "2026-11-14T20:23:56.362428Z",
+          "reactions": 0,
+          "views": 110
         }
       ],
       "visual_host": "imgbb",
@@ -4725,6 +4769,7 @@
       "open_issues": 19,
       "published_at": "2026-11-14T18:14:00.628146Z",
       "pushed_at": "2026-11-14T12:02:31Z",
+      "reactions": 0,
       "readme_fp": "42e2ea36de981769",
       "repo_id": 1304207622,
       "revisit_of": "",
@@ -4759,6 +4804,17 @@
       ],
       "updated_at": "2026-11-14T14:40:14Z",
       "url": "https://github.com/nyblnet/bento",
+      "value_score": 41.62,
+      "views": 22,
+      "views_age_hours": 2.2,
+      "views_at_24h": 82,
+      "views_history": [
+        {
+          "at": "2026-11-14T20:23:52.478674Z",
+          "reactions": 0,
+          "views": 22
+        }
+      ],
       "visual_host": "imgbb",
       "visual_kind": "card"
     },
@@ -5054,10 +5110,10 @@
       ],
       "updated_at": "2026-11-11T17:12:20Z",
       "url": "https://github.com/patch-gg/pixelfx",
-      "value_score": 35.79,
-      "views": 98,
-      "views_age_hours": 51.1,
-      "views_at_24h": 70,
+      "value_score": 33.62,
+      "views": 110,
+      "views_age_hours": 75.1,
+      "views_at_24h": 71,
       "views_history": [
         {
           "at": "2026-11-12T20:23:49.892460Z",
@@ -5068,6 +5124,11 @@
           "at": "2026-11-13T20:23:56.152636Z",
           "reactions": 0,
           "views": 98
+        },
+        {
+          "at": "2026-11-14T20:23:56.847449Z",
+          "reactions": 0,
+          "views": 110
         }
       ],
       "visual_host": "imgbb",
@@ -5496,15 +5557,20 @@
       ],
       "updated_at": "2026-11-13T17:55:05Z",
       "url": "https://github.com/simbasjungles/free-my-tv",
-      "value_score": 55.46,
-      "views": 29,
-      "views_age_hours": 2.2,
-      "views_at_24h": 108,
+      "value_score": 36.49,
+      "views": 74,
+      "views_age_hours": 26.2,
+      "views_at_24h": 71,
       "views_history": [
         {
           "at": "2026-11-13T20:23:53.206177Z",
           "reactions": 0,
           "views": 29
+        },
+        {
+          "at": "2026-11-14T20:23:53.937605Z",
+          "reactions": 0,
+          "views": 74
         }
       ],
       "visual_host": "imgbb",
@@ -5778,15 +5844,20 @@
       ],
       "updated_at": "2026-11-13T00:21:09Z",
       "url": "https://github.com/storytold/vectorcraft",
-      "value_score": 55.71,
-      "views": 93,
-      "views_age_hours": 19.2,
-      "views_at_24h": 108,
+      "value_score": 45.59,
+      "views": 118,
+      "views_age_hours": 43.2,
+      "views_at_24h": 90,
       "views_history": [
         {
           "at": "2026-11-13T20:23:54.194108Z",
           "reactions": 0,
           "views": 93
+        },
+        {
+          "at": "2026-11-14T20:23:54.904620Z",
+          "reactions": 0,
+          "views": 118
         }
       ],
       "visual_host": "imgbb",
@@ -6365,10 +6436,10 @@
       ],
       "updated_at": "2026-11-12T18:08:30Z",
       "url": "https://github.com/WhiteTowerAI/ohmygame",
-      "value_score": 39.36,
-      "views": 79,
-      "views_age_hours": 26.2,
-      "views_at_24h": 76,
+      "value_score": 35.39,
+      "views": 98,
+      "views_age_hours": 50.2,
+      "views_at_24h": 70,
       "views_history": [
         {
           "at": "2026-11-12T20:23:48.860915Z",
@@ -6379,6 +6450,11 @@
           "at": "2026-11-13T20:23:54.695676Z",
           "reactions": 0,
           "views": 79
+        },
+        {
+          "at": "2026-11-14T20:23:55.380259Z",
+          "reactions": 0,
+          "views": 98
         }
       ],
       "visual_host": "imgbb",
@@ -6508,10 +6584,10 @@
       ],
       "updated_at": "2026-11-11T05:20:16Z",
       "url": "https://github.com/wquguru/cicada",
-      "value_score": 37.25,
-      "views": 110,
-      "views_age_hours": 61.2,
-      "views_at_24h": 75,
+      "value_score": 36.39,
+      "views": 124,
+      "views_age_hours": 85.2,
+      "views_at_24h": 76,
       "views_history": [
         {
           "at": "2026-11-12T20:23:50.590028Z",
@@ -6522,6 +6598,11 @@
           "at": "2026-11-13T20:23:57.166430Z",
           "reactions": 0,
           "views": 110
+        },
+        {
+          "at": "2026-11-14T20:23:57.844173Z",
+          "reactions": 0,
+          "views": 124
         }
       ],
       "visual_host": "imgbb",
