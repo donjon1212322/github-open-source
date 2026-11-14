@@ -385,3 +385,4 @@
 {"channel": "GitHub_Open_Source", "posts": 12, "ts": "2026-11-14T20:23:57.845104Z", "type": "metrics_collected", "updated": 12}
 {"minutes_late": 265.7, "schedule": "23 16 * * *", "ts": "2026-11-14T20:48:44.106236Z", "type": "late_schedule_ignored"}
 {"deleted": 0, "ts": "2026-11-14T21:47:49.907582Z", "type": "moderation_completed", "updates": 1}
+{"minutes_late": 252.5, "schedule": "13 18 * * *", "ts": "2026-11-14T22:25:31.772017Z", "type": "late_schedule_ignored"}
