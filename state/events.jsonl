@@ -390,3 +390,4 @@
 {"minutes_late": 59.1, "schedule": "47 */3 * * *", "ts": "2026-11-14T22:46:07.096776Z", "type": "late_schedule_ignored"}
 {"minutes_late": 221.9, "schedule": "18 19 * * *", "ts": "2026-11-14T22:59:51.076446Z", "type": "late_schedule_ignored"}
 {"minutes_late": 213.7, "schedule": "53 19 * * *", "ts": "2026-11-14T23:26:39.766366Z", "type": "late_schedule_ignored"}
+{"minutes_late": 215.6, "schedule": "23 20 * * *", "ts": "2026-11-14T23:58:34.991069Z", "type": "late_schedule_ignored"}
