@@ -351,3 +351,4 @@
 {"minutes_late": 322.1, "schedule": "13 18 * * *", "ts": "2026-11-13T23:35:08.280472Z", "type": "late_schedule_ignored"}
 {"minutes_late": 321.3, "schedule": "23 18 * * *", "ts": "2026-11-13T23:44:19.496290Z", "type": "late_schedule_ignored"}
 {"minutes_late": 303.6, "schedule": "18 19 * * *", "ts": "2026-11-14T00:21:36.844366Z", "type": "late_schedule_ignored"}
+{"discovered": 467, "enriched": 120, "passed_gate": 83, "queued": 28, "rejections": {"blocklist:jailbreak": 2, "curation_repo": 2, "description_not_english": 6, "narrow:topic:awesome-list": 2, "no_community": 5, "no_license": 19, "no_readme": 1, "not_software:topic:awesome": 2, "not_software:topic:book": 1, "not_software:topic:music": 1, "readme_not_english": 10, "stale>180d": 1, "stars<100": 9}, "ts": "2026-11-14T00:25:22.343354Z", "type": "collect_completed"}
