@@ -375,3 +375,4 @@
 {"platform": "bluesky", "repo": "jev-chat/jev-chat-jarvis", "ts": "2026-11-14T18:17:51.171888Z", "type": "crosspost_published", "url": "https://bsky.app/profile/githubopensource.bsky.social/post/3n2c4c27ruq2c"}
 {"attempts": 1, "detail": "HTTP 204", "slot": "facebook-handoff", "ts": "2026-11-14T18:30:49.788605Z", "type": "watchdog_recovered", "verified": false}
 {"range": "facebook!A13:E13", "rows": 1, "ts": "2026-11-14T18:31:21.013266Z", "type": "facebook_handoff_queued"}
+{"minutes_late": 165.0, "schedule": "47 */3 * * *", "ts": "2026-11-14T18:32:00.643220Z", "type": "late_schedule_ignored"}
