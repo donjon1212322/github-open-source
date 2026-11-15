@@ -429,3 +429,4 @@
 {"minutes_late": 29.6, "schedule": "17 0,18,19,20,21,22,23 * * *", "ts": "2026-11-15T22:46:34.281283Z", "type": "late_schedule_ignored"}
 {"minutes_late": 276.2, "schedule": "13 18 * * *", "ts": "2026-11-15T22:49:14.609958Z", "type": "late_schedule_ignored"}
 {"minutes_late": 277.7, "schedule": "23 18 * * *", "ts": "2026-11-15T23:00:40.135537Z", "type": "late_schedule_ignored"}
+{"minutes_late": 84.8, "schedule": "47 */3 * * *", "ts": "2026-11-15T23:11:47.651004Z", "type": "late_schedule_ignored"}
