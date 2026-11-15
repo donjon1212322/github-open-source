@@ -409,3 +409,4 @@
 {"preview_host": "imgbb", "repo": "s1dashu/quiet-md", "ts": "2026-11-15T16:24:00.185096Z", "type": "published_as_text"}
 {"repo": "s1dashu/quiet-md", "score": 90.154, "telegram_message_id": 3603, "telegraph_url": "https://telegra.ph/Quietmd-A-Fast-Native-Local-Notes-App-Built-in-Rust-and-GPUI-11-15", "ts": "2026-11-15T16:24:00.470979Z", "type": "project_published"}
 {"minutes_late": 51.1, "schedule": "47 */3 * * *", "ts": "2026-11-15T16:38:06.123998Z", "type": "late_schedule_ignored"}
+{"projects_7d": 21, "sent": true, "ts": "2026-11-15T16:43:46.660030Z", "type": "weekly_report"}

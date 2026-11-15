@@ -293,10 +293,10 @@
       "telegram_message_id": 3586
     },
     "report": {
-      "finished_at": "2026-11-08T16:43:49.336567Z",
-      "projects_7d": 16,
+      "finished_at": "2026-11-15T16:43:46.660158Z",
+      "projects_7d": 21,
       "sent": true,
-      "week": "2026-W45"
+      "week": "2026-W46"
     },
     "telegram_update_offset": 165231094,
     "watchdog_caps": {
