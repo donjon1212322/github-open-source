@@ -184,16 +184,16 @@
   "dead_letters": [],
   "gemini_daily": {
     "day": "2026-11-14",
-    "units": 27
+    "units": 33
   },
   "gemini_window": [
     [
-      1794680031.0914643,
-      3673
+      1794705230.6262827,
+      3526
     ],
     [
-      1794680035.348575,
-      1420
+      1794705234.295458,
+      1342
     ]
   ],
   "last_runs": {
@@ -282,9 +282,9 @@
       "telegram_message_id": 3550
     },
     "publish:us_evening": {
-      "finished_at": "2026-11-14T01:13:59.488848Z",
-      "repo": "jev-chat/jev-chat-jarvis",
-      "telegram_message_id": 3596
+      "finished_at": "2026-11-15T01:13:59.945485Z",
+      "repo": "frigadehq/yogurt",
+      "telegram_message_id": 3600
     },
     "publish:us_midday": {
       "finished_at": "2026-11-14T18:14:00.628569Z",
@@ -1984,6 +1984,127 @@
           "views": 30
         }
       ],
+      "visual_host": "imgbb",
+      "visual_kind": "readme"
+    },
+    "frigadehq/yogurt": {
+      "articles": {},
+      "card_style": "",
+      "category": "AI",
+      "contributors_count": 5,
+      "created_at": "2026-11-10T20:01:01Z",
+      "crossposts": {
+        "bluesky": {
+          "attempts": 0,
+          "due_at": "2026-11-15T18:00:00+00:00",
+          "status": "pending"
+        }
+      },
+      "description": "Private AI meeting notes that stay on your computer. A free, open-source alternative to Granola for Mac, Windows and Linux.",
+      "description_fp": "8ad48c257bab5421",
+      "forks": 81,
+      "full_name": "FrigadeHQ/yogurt",
+      "generated": {
+        "article_markdown": "## What it is\n\nYogurt is an open-source, local-first meeting assistant designed to record and summarise your calls without routing data through third-party cloud services. Built as an alternative to tools like Granola, it captures your microphone and system audio directly, ensuring that your raw audio, transcripts, and notes remain on your machine.\n\n## Why it matters\n\nMost meeting assistants rely on sending sensitive audio streams to external servers, creating privacy and compliance hurdles for engineering teams. Yogurt shifts the entire pipeline to your local hardware. By leveraging local transcription and open-weight models, it gives you searchable transcripts and action items without compromising data privacy.\n\n## Key features\n\n- Captures system audio and microphone feeds directly without adding a bot participant to your calls.\n- Transcribes speech locally using whisper.cpp and Apple SpeechAnalyzer on supported hardware.\n- Summarises conversations offline using local open-weight models via llama.cpp.\n- Integrates with local assistant apps through an optional Model Context Protocol server.\n\n## Quick start\n\n```bash\ngit clone https://github.com/FrigadeHQ/yogurt.git\n```\n\n## Who should try it\n\nDevelopers, remote workers, and privacy advocates who want automated meeting transcripts and summaries but cannot send proprietary discussions to external cloud platforms.\n\n## Verdict\n\nYogurt delivers a practical local-first alternative for meeting notes. While some platform-specific integrations like calendar syncing and speaker detection are currently limited to macOS, its core offline capabilities make it a strong addition to a privacy-focused developer setup.",
+        "article_title": "Yogurt: Open-Source Local AI Meeting Notes and Transcripts",
+        "card_hook": "Private AI meeting notes on your machine",
+        "card_subline": "A free open-source alternative to Granola that keeps your transcripts and summaries local",
+        "category": "AI",
+        "discussion_question": "Which local model size do you usually run for everyday summarisation tasks?",
+        "hook": "Record private AI meeting notes entirely on your machine without sending audio to the cloud.",
+        "key_features": [
+          "Record audio and microphone feeds without injecting a bot into meetings",
+          "Transcribe offline using whisper.cpp and Apple SpeechAnalyzer",
+          "Run summaries via local open-weight models powered by llama.cpp",
+          "Expose meeting data locally through an optional MCP server",
+          "Support multi-language transcription covering 99 languages"
+        ],
+        "llm_used": true,
+        "quick_start": "git clone https://github.com/FrigadeHQ/yogurt.git",
+        "safety": "ok",
+        "safety_reason": "Legitimate open-source local productivity and transcription tool.",
+        "scene": "You finish a sensitive architectural sync and realise the meeting recording is sitting on a third-party cloud server.",
+        "social_text": "Record private AI meeting notes entirely on your computer with this open-source local alternative to Granola.",
+        "summary": "Yogurt records call audio and microphone input locally, running transcription via whisper.cpp and Apple SpeechAnalyzer, while generating summaries through llama.cpp. It avoids injecting third-party bots into your meetings by capturing system audio directly. Users can also expose notes locally via an optional Model Context Protocol server.",
+        "surfaces": {
+          "Facebook_body": "Stop sending your meeting audio to cloud services and keep your conversations entirely on your own computer. This free tool records your calls and microphone input directly from your system, turning spoken words into written text and generating clear summaries without relying on third-party servers. Because it captures audio locally, you no longer have to worry about awkward automated bots joining your calls or corporate data leaking to external companies. It works smoothly on standard hardware using open technology to handle the heavy lifting behind the scenes. This is designed for anyone who wants automated meeting notes without sacrificing privacy, whether you work with sensitive information or simply prefer to keep your personal data under your own control.",
+          "Facebook_headline": "Get private AI meeting notes on your computer",
+          "Facebook_lead": "Record and summarize your calls locally without sending any audio to the cloud or inviting bots to your meetings.",
+          "bluesky_headline": "Record private AI meeting notes entirely on your device",
+          "bluesky_lead": "Keep your conversations off the cloud with local transcription and summaries.",
+          "devto_body": "## What it is\n\nYogurt is a free, open-source desktop application that records, transcribes, and summarizes meetings entirely on your local machine. Built with TypeScript, it serves as a local-first alternative to cloud-dependent meeting assistants.\n\n## How it works\n\nInstead of injecting a third-party bot into your video calls, the application captures system audio and microphone input directly at the operating system level. It routes the recorded audio through local engines like whisper.cpp and Apple SpeechAnalyzer for transcription, and processes the text through llama.cpp to generate structured summaries using open-weight models.\n\n## Key features\n\n- Direct system audio capture without meeting bots\n- Offline transcription supporting 99 languages\n- Local summary generation using open-weight models\n- Optional local model context protocol server integration\n- Cross-platform support for Mac, Windows, and Linux\n\n## Getting started\n\nClone the repository from GitHub and ensure you have the necessary runtime dependencies installed for local execution. Follow the setup instructions in the readme to configure your preferred local models.\n\n## When not to use it\n\nSkip this tool if your computer lacks the hardware resources required to run local transcription and open-weight language models efficiently, or if you rely strictly on cloud-hosted enterprise suites.",
+          "seo_description": "Record and summarize meeting audio locally on your computer without cloud APIs. A free open-source alternative for privacy-conscious users.",
+          "seo_query": "open source local ai meeting notes",
+          "seo_title": "Open-Source Local AI Meeting Assistant - Yogurt",
+          "telegraph_angle": "Explore the shift toward local-first AI tools and how running transcription and summaries on personal hardware protects sensitive workplace conversations."
+        },
+        "tension": "Cloud notetakers force you to pipe proprietary conversation data through external APIs, risking compliance and privacy.",
+        "turn": "Yogurt processes your calls entirely offline using local AI models, though advanced calendar and speaker features remain limited to macOS.",
+        "verdict": "An essential tool for anyone who wants automated meeting notes without leaking company data to cloud APIs.",
+        "who_for": "Developers and privacy-conscious users looking for a local-first meeting assistant.",
+        "why_now": "Local execution of whisper and open-weight LLMs has matured enough to run smoothly on standard developer hardware without cloud roundtrips."
+      },
+      "hn_points": 303,
+      "homepage": "https://yogurt.so",
+      "id": 1453132706,
+      "image_url": "https://i.ibb.co/rCBfBCk/frigadehq-yogurt-readme-preview-d7f15866cff1.jpg",
+      "is_dual_use": false,
+      "is_hidden_gem": false,
+      "language": "TypeScript",
+      "license": {
+        "key": "mit",
+        "name": "MIT License",
+        "node_id": "MDc6TGljZW5zZTEz",
+        "spdx_id": "MIT",
+        "url": "https://api.github.com/licenses/mit"
+      },
+      "media_urls": [
+        "https://raw.githubusercontent.com/FrigadeHQ/yogurt/main/docs/assets/yogurt-screenshot.webp",
+        "https://raw.githubusercontent.com/FrigadeHQ/yogurt/main/docs/assets/readme-header.svg"
+      ],
+      "name": "yogurt",
+      "open_issues": 16,
+      "published_at": "2026-11-15T01:13:59.945121Z",
+      "pushed_at": "2026-11-14T23:06:35Z",
+      "readme_fp": "595164580306f8f7",
+      "repo_id": 1453132706,
+      "revisit_of": "",
+      "revisit_reason": "",
+      "score": 91.774,
+      "slot": "us_evening",
+      "sources": [
+        "hacker_news",
+        "telegram:github_repos"
+      ],
+      "stars": 1493,
+      "telegram_chat_id": "@GitHub_Open_Source",
+      "telegram_link": "https://t.me/GitHub_Open_Source/3600",
+      "telegram_message_id": 3600,
+      "telegraph_url": "https://telegra.ph/Yogurt-Open-Source-Local-AI-Meeting-Notes-and-Transcripts-11-15",
+      "topics": [
+        "ai-meeting-assistant",
+        "ai-notetaker",
+        "electron",
+        "granola-alternative",
+        "linux",
+        "llama-cpp",
+        "local-ai",
+        "local-first",
+        "macos",
+        "mcp",
+        "meeting-minutes",
+        "meeting-notes",
+        "offline-first",
+        "open-source",
+        "privacy",
+        "speech-to-text",
+        "transcription",
+        "whisper",
+        "whisper-cpp",
+        "windows"
+      ],
+      "updated_at": "2026-11-15T01:13:32Z",
+      "url": "https://github.com/FrigadeHQ/yogurt",
       "visual_host": "imgbb",
       "visual_kind": "readme"
     },
@@ -6602,78 +6723,6 @@
   "queue": [
     {
       "archived": false,
-      "contributors_count": 5,
-      "created_at": "2026-11-10T20:01:01Z",
-      "default_branch": "main",
-      "description": "Private AI meeting notes that stay on your computer. A free, open-source alternative to Granola for Mac, Windows and Linux.",
-      "disabled": false,
-      "fork": false,
-      "forks": 81,
-      "forks_count": 81,
-      "full_name": "FrigadeHQ/yogurt",
-      "has_readme": true,
-      "hn_points": 303,
-      "homepage": "https://yogurt.so",
-      "id": 1453132706,
-      "is_dual_use": false,
-      "is_hidden_gem": false,
-      "language": "TypeScript",
-      "license": {
-        "key": "mit",
-        "name": "MIT License",
-        "node_id": "MDc6TGljZW5zZTEz",
-        "spdx_id": "MIT",
-        "url": "https://api.github.com/licenses/mit"
-      },
-      "media_urls": [
-        "https://raw.githubusercontent.com/FrigadeHQ/yogurt/main/docs/assets/yogurt-screenshot.webp",
-        "https://raw.githubusercontent.com/FrigadeHQ/yogurt/main/docs/assets/readme-header.svg"
-      ],
-      "name": "yogurt",
-      "non_software_reason": "",
-      "open_issues": 16,
-      "open_issues_count": 16,
-      "owner_repo_count": 1,
-      "pushed_at": "2026-11-14T23:06:35Z",
-      "readme": "",
-      "readme_excerpt": "<p align=\"center\">\n  <a href=\"https://yogurt.so?utm_source=github&utm_medium=readme&utm_campaign=yogurt\">\n    <img src=\"docs/assets/readme-header.svg\" width=\"212\" height=\"86\" alt=\"Yogurt. Take note.\">\n  </a>\n</p>\n\n<p align=\"center\">\n  Private AI meeting notes. A free, open-source alternative to Granola.\n</p>\n\n<p align=\"center\">\n  Download for <a href=\"https://github.com/FrigadeHQ/yogurt/releases/latest/download/Yogurt-mac-arm64.dmg\">Mac</a> · <a href=\"https://github.com/FrigadeHQ/yogurt/releases/latest/download/Yogurt-windows-x64.exe\">Windows</a> · <a href=\"https://github.com/FrigadeHQ/yogurt/releases/latest/download/Yogurt-linux-x86_64.AppImage\">Linux</a>\n</p>\n\n<p align=\"center\">\n  <img src=\"docs/assets/yogurt-screenshot.webp\" width=\"1074\" alt=\"Yogurt showing the Summary of a launch planning meeting: the plan, next steps by person, and your own reminders\">\n</p>\n\n<p align=\"center\">\n  Yogurt records your calls without adding a bot to the meeting.\n</p>\n<p></p>\n<p align=\"center\">\n  <sub>macOS 14.4+ (Apple Silicon) · Windows 10 2004+ (x64) · Ubuntu 22.04+ or similar (x64 AppImage) · 8 GB memory</sub><br><br>\n  <a href=\"https://yogurt.so?utm_source=github&utm_medium=readme&utm_campaign=",
-      "readme_len": 8176,
-      "repo_id": 1453132706,
-      "score": 91.774,
-      "source_name": "hacker_news",
-      "sources": [
-        "hacker_news",
-        "telegram:github_repos"
-      ],
-      "stargazers_count": 1487,
-      "stars": 1487,
-      "topics": [
-        "ai-meeting-assistant",
-        "ai-notetaker",
-        "electron",
-        "granola-alternative",
-        "linux",
-        "llama-cpp",
-        "local-ai",
-        "local-first",
-        "macos",
-        "mcp",
-        "meeting-minutes",
-        "meeting-notes",
-        "offline-first",
-        "open-source",
-        "privacy",
-        "speech-to-text",
-        "transcription",
-        "whisper",
-        "whisper-cpp",
-        "windows"
-      ],
-      "updated_at": "2026-11-15T00:18:35Z",
-      "url": "https://github.com/FrigadeHQ/yogurt"
-    },
-    {
-      "archived": false,
       "contributors_count": 17,
       "created_at": "2026-11-01T14:22:53Z",
       "default_branch": "main",
@@ -10463,8 +10512,8 @@
     "frigadehq/yogurt": {
       "first_seen_at": "2026-11-15T00:27:15.378745Z",
       "full_name": "FrigadeHQ/yogurt",
-      "last_decision": "queued",
-      "last_seen_at": "2026-11-15T00:27:15.378749Z",
+      "last_decision": "published",
+      "last_seen_at": "2026-11-15T01:13:59.945472Z",
       "repo_id": 1453132706,
       "sources": [
         "hacker_news",
