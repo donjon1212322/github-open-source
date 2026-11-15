@@ -392,3 +392,4 @@
 {"minutes_late": 213.7, "schedule": "53 19 * * *", "ts": "2026-11-14T23:26:39.766366Z", "type": "late_schedule_ignored"}
 {"minutes_late": 215.6, "schedule": "23 20 * * *", "ts": "2026-11-14T23:58:34.991069Z", "type": "late_schedule_ignored"}
 {"discovered": 468, "enriched": 120, "passed_gate": 78, "queued": 28, "rejections": {"blocklist:jailbreak": 2, "description_not_english": 6, "narrow:library:boilerplate": 1, "narrow:topic:dataset": 1, "narrow:topic:plugin": 1, "no_community": 6, "no_license": 25, "not_software:topic:dataset": 1, "not_software:topic:music": 1, "readme_not_english": 7, "stale>180d": 1, "stars<100": 8}, "ts": "2026-11-15T00:27:15.397618Z", "type": "collect_completed"}
+{"deleted": 0, "ts": "2026-11-15T00:47:45.451718Z", "type": "moderation_completed", "updates": 0}
