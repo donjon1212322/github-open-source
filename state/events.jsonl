@@ -406,3 +406,5 @@
 {"platform": "devto", "repo": "frigadehq/yogurt", "ts": "2026-11-15T13:33:48.820928Z", "type": "article_published", "url": "https://dev.to/githubopensource/open-source-local-ai-meeting-assistant-yogurt-492l"}
 {"deleted": 0, "ts": "2026-11-15T15:47:59.866827Z", "type": "moderation_completed", "updates": 0}
 {"gemini_fallback": true, "poll_message_id": 3602, "poll_type": "job", "repos": ["anefzaoui/misterdownloadmanager", "wquguru/cicada", "debpalash/VoiceStudio", "storytold/vectorcraft", "storytold/lightcraft"], "telegram_message_id": 3601, "ts": "2026-11-15T16:13:53.536940Z", "type": "digest_published"}
+{"preview_host": "imgbb", "repo": "s1dashu/quiet-md", "ts": "2026-11-15T16:24:00.185096Z", "type": "published_as_text"}
+{"repo": "s1dashu/quiet-md", "score": 90.154, "telegram_message_id": 3603, "telegraph_url": "https://telegra.ph/Quietmd-A-Fast-Native-Local-Notes-App-Built-in-Rust-and-GPUI-11-15", "ts": "2026-11-15T16:24:00.470979Z", "type": "project_published"}

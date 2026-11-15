@@ -177,16 +177,16 @@
   "dead_letters": [],
   "gemini_daily": {
     "day": "2026-11-15",
-    "units": 3
+    "units": 9
   },
   "gemini_window": [
     [
-      1794705230.6262827,
-      3526
+      1794759830.025333,
+      3892
     ],
     [
-      1794705234.295458,
-      1342
+      1794759833.900138,
+      1398
     ]
   ],
   "last_runs": {
@@ -283,9 +283,9 @@
       "telegram_message_id": 3598
     },
     "publish:us_morning": {
-      "finished_at": "2026-11-14T16:24:05.730414Z",
-      "repo": "expo/exact",
-      "telegram_message_id": 3597
+      "finished_at": "2026-11-15T16:24:00.471107Z",
+      "repo": "s1dashu/quiet-md",
+      "telegram_message_id": 3603
     },
     "publish:us_peak": {
       "finished_at": "2026-11-11T17:19:17.006267Z",
@@ -5557,6 +5557,108 @@
       "visual_host": "imgbb",
       "visual_kind": "readme"
     },
+    "s1dashu/quiet-md": {
+      "articles": {},
+      "card_style": "",
+      "category": "DevTools",
+      "contributors_count": 17,
+      "created_at": "2026-11-01T14:22:53Z",
+      "crossposts": {
+        "bluesky": {
+          "attempts": 0,
+          "due_at": "2026-11-15T18:00:00+00:00",
+          "status": "pending"
+        }
+      },
+      "description": "Blazing-fast native notes app and rich-text editor for macOS, Windows, and Linux. Built with Rust + GPUI. Local-first and beautifully designed.",
+      "description_fp": "b3b3a7ef0ed7d1b7",
+      "forks": 164,
+      "full_name": "s1dashu/quiet-md",
+      "generated": {
+        "article_markdown": "## What it is\n\nQuiet.md is a native, local-first notes application and rich-text editor designed for macOS, Windows, and Linux. Built from the ground up using Rust and GPUI, it bypasses traditional web frameworks entirely. Instead of relying on a bundled browser runtime, the entire user interface is rendered directly on your graphics hardware.\n\n## Why it matters\n\nMost modern desktop note applications rely on Electron, bringing along heavy memory footprints and noticeable input latency when handling large documents. Quiet.md takes a radically different path. By leveraging GPUI, it achieves frame processing times under 6 milliseconds even when editing million-character documents, offering the kind of raw responsiveness expected from native system tools.\n\n## Key features\n\n- GPU-accelerated rendering via GPUI for smooth scrolling and minimal input lag.\n- Local-first architecture storing notes as standard files in real directory structures.\n- Built-in version history drawer keeping local snapshots with visual diffs and restores.\n- Flexible import and export tools supporting Markdown folders and Feishu DocxXML formats.\n- Four distinct built-in themes alongside custom CSS styling support.\n\n## Quick start\n\nFor Linux users utilizing the experimental AppImage build, make the binary executable and launch it directly from your terminal:\n\n```bash\nchmod +x quiet-md-x86_64.AppImage\n./quiet-md-x86_64.AppImage\n```\n\n## Who should try it\n\nThis application fits developers, technical writers, and power users who manage large local documentation sets and prefer keeping their data entirely on their local machine without cloud lock-in.\n\n## Verdict\n\nQuiet.md delivers impressive rendering performance and a clean local-first experience. While it remains in beta, it is already a compelling alternative for anyone looking to escape heavy web-based note tools.",
+        "article_title": "Quiet.md: A Fast Native Local Notes App Built in Rust and GPUI",
+        "card_hook": "Blazing-fast local notes in Rust",
+        "card_subline": "A native, local-first notes app using GPUI and the Feishu DocxXML format",
+        "category": "DevTools",
+        "discussion_question": "Which markdown editor are you currently using, and what is its biggest pain point?",
+        "hook": "Edit million-character documents without lag using a GPU-rendered native notes app built on Rust and GPUI.",
+        "key_features": [
+          "Drawn completely on the GPU via GPUI, staying under 6 ms per frame during typing in million-character documents",
+          "Stores notes locally as real files and folders without requiring an account or cloud connection",
+          "Maintains an in-app version history drawer with snapshots, tinted diffs, and one-click restores",
+          "Imports existing Markdown folders from tools like Obsidian alongside Feishu DocxXML documents",
+          "Offers four built-in visual themes including Craft, Notion, Obsidian, and Feishu with dark variants"
+        ],
+        "llm_used": true,
+        "quick_start": "chmod +x quiet-md-*.AppImage && ./quiet-md-*.AppImage",
+        "safety": "ok",
+        "safety_reason": "Legitimate local notes application built with open-source tools.",
+        "scene": "You open a bloated note-taking application, watch it spin up a headless browser process just to display a text file, and wait seconds for search to index your workspace.",
+        "social_text": "Tired of bloated note apps? Quiet.md is a native Rust and GPUI notes editor that keeps files locally and renders smoothly on the GPU.",
+        "summary": "Quiet.md is a native desktop application built entirely on Rust and GPUI to bypass heavy web-tech bloat. It stores every note as a standard local file on your disk, organizing your sidebar into real directories while supporting the Feishu DocxXML format for structured documents.",
+        "surfaces": {
+          "Facebook_body": "If you are tired of bloated note-taking applications that drag down your system performance, there is a better way to keep your thoughts organized. A new desktop application focuses entirely on speed, allowing you to edit massive documents containing over a million characters without any noticeable lag or stutter.\n\nThe secret behind this performance is a modern rendering engine that draws directly on your graphics card rather than relying on heavy web browser technology. Every note you write is saved directly to your computer as a standard file, organized in real folders that you completely control.\n\nYou do not need to create an account, connect to the cloud, or worry about your data leaving your machine. It includes built-in version history so you can easily restore previous drafts, and it lets you import existing folders from other popular writing tools.\n\nThis application is designed specifically for writers, developers, and anyone who values privacy and speed. It is ideal for people who want a reliable, distraction-free writing environment that opens instantly and stays out of your way.",
+          "Facebook_headline": "A lightning-fast notes app for your computer",
+          "Facebook_lead": "Stop dealing with sluggish note-taking apps that slow down your computer. This fast, local-first app lets you edit massive documents instantly while keeping all your files safely on your hard drive.",
+          "bluesky_headline": "Edit million-character notes without lag",
+          "bluesky_lead": "A native desktop app built for speed, keeping your files locally with zero cloud footprint.",
+          "devto_body": "## What it is\n\nQuiet.md is a native desktop application written in Rust and built on the GPUI rendering framework. It provides a local-first rich-text editing experience designed to handle massive documents without the performance penalties associated with Electron-based editors.\n\n## How it works\n\nThe application bypasses traditional web-tech bloat by rendering directly on the GPU using GPUI. This keeps frame render times under 6 milliseconds during intensive typing sessions. All data is persisted locally as standard files and directories on your disk, eliminating the need for cloud synchronization or mandatory user accounts.\n\n## Key features\n\n- GPU-accelerated rendering maintaining sub-6ms frame times in million-character files\n- Local-first storage using real files and folders with zero cloud dependency\n- Built-in version history drawer with snapshots, tinted diffs, and one-click restores\n- Support for importing Markdown folders and Feishu DocxXML documents\n- Four built-in visual themes including Craft, Notion, Obsidian, and Feishu with dark variants\n\n## Getting started\n\nClone the repository from GitHub and ensure you have the Rust toolchain installed. Build the project natively for your operating system using Cargo.\n\n```bash\ngit clone https://github.com/s1dashu/quiet-md.git\ncd quiet-md\ncargo run --release\n```\n\n## When not to use it\n\nQuiet.md is currently in beta. If you require absolute stability, enterprise support, or seamless multi-device cloud synchronization out of the box, you may want to stick with more mature mainstream alternatives until the project reaches a 1.0 release.",
+          "seo_description": "Edit million-character documents instantly with Quiet.md, a fast, GPU-rendered native notes app built on Rust for local-first writers and developers.",
+          "seo_query": "fast local notes app rust",
+          "seo_title": "Fast Local Notes App - Quiet.md Open Source Alternative",
+          "telegraph_angle": "Explain the architectural shift from web-tech bloat to GPU-rendered native Rust apps and the trade-offs of using beta local-first software."
+        },
+        "tension": "Electron-based editors chew through gigabytes of RAM, introduce perceptible input lag during fast typing, and lock your notes inside proprietary cloud databases.",
+        "turn": "Quiet.md drops the browser stack entirely in favor of direct GPU rendering, keeping your notes in plain local directories that you can control with standard tools.",
+        "verdict": "An exceptionally fast local notes app for anyone tired of sluggish Electron editors, provided you are comfortable using beta software.",
+        "who_for": "Developers and writers seeking a fast, local-first notes app that leaves zero cloud footprints.",
+        "why_now": "The maturity of the GPUI rendering framework finally makes it possible to build buttery-smooth, native text editors in Rust without falling back on Electron or WebViews."
+      },
+      "homepage": "https://quiet.md",
+      "id": 1441897000,
+      "image_url": "https://i.ibb.co/RT6tTgty/s1dashu-quiet-md-readme-preview-358fbb8bb115.jpg",
+      "is_dual_use": false,
+      "is_hidden_gem": false,
+      "language": "Rust",
+      "license": {
+        "key": "mit",
+        "name": "MIT License",
+        "node_id": "MDc6TGljZW5zZTEz",
+        "spdx_id": "MIT",
+        "url": "https://api.github.com/licenses/mit"
+      },
+      "media_urls": [
+        "https://raw.githubusercontent.com/s1dashu/quiet-md/contributors-assets/docs/images/contributors.svg?v=1",
+        "https://raw.githubusercontent.com/s1dashu/quiet-md/main/docs/images/download-macos.svg",
+        "https://raw.githubusercontent.com/s1dashu/quiet-md/main/docs/images/download-windows.svg",
+        "https://raw.githubusercontent.com/s1dashu/quiet-md/main/docs/images/download-linux.svg",
+        "https://raw.githubusercontent.com/s1dashu/quiet-md/main/docs/images/home.png"
+      ],
+      "name": "quiet-md",
+      "open_issues": 64,
+      "published_at": "2026-11-15T16:24:00.470771Z",
+      "pushed_at": "2026-11-15T07:44:22Z",
+      "readme_fp": "da2910f4f24198d3",
+      "repo_id": 1441897000,
+      "revisit_of": "",
+      "revisit_reason": "",
+      "score": 90.154,
+      "slot": "us_morning",
+      "sources": [
+        "github_search",
+        "telegram:gitbless"
+      ],
+      "stars": 1884,
+      "telegram_chat_id": "@GitHub_Open_Source",
+      "telegram_link": "https://t.me/GitHub_Open_Source/3603",
+      "telegram_message_id": 3603,
+      "telegraph_url": "https://telegra.ph/Quietmd-A-Fast-Native-Local-Notes-App-Built-in-Rust-and-GPUI-11-15",
+      "topics": [],
+      "updated_at": "2026-11-15T16:07:08Z",
+      "url": "https://github.com/s1dashu/quiet-md",
+      "visual_host": "imgbb",
+      "visual_kind": "readme"
+    },
     "simbasjungles/free-my-tv": {
       "articles": {},
       "card_style": "",
@@ -6719,59 +6821,6 @@
     }
   },
   "queue": [
-    {
-      "archived": false,
-      "contributors_count": 17,
-      "created_at": "2026-11-01T14:22:53Z",
-      "default_branch": "main",
-      "description": "Blazing-fast native notes app and rich-text editor for macOS, Windows, and Linux. Built with Rust + GPUI. Local-first and beautifully designed.",
-      "disabled": false,
-      "fork": false,
-      "forks": 163,
-      "forks_count": 163,
-      "full_name": "s1dashu/quiet-md",
-      "has_readme": true,
-      "homepage": "https://quiet.md",
-      "id": 1441897000,
-      "is_dual_use": false,
-      "is_hidden_gem": false,
-      "language": "Rust",
-      "license": {
-        "key": "mit",
-        "name": "MIT License",
-        "node_id": "MDc6TGljZW5zZTEz",
-        "spdx_id": "MIT",
-        "url": "https://api.github.com/licenses/mit"
-      },
-      "media_urls": [
-        "https://raw.githubusercontent.com/s1dashu/quiet-md/contributors-assets/docs/images/contributors.svg?v=1",
-        "https://raw.githubusercontent.com/s1dashu/quiet-md/main/docs/images/download-macos.svg",
-        "https://raw.githubusercontent.com/s1dashu/quiet-md/main/docs/images/download-windows.svg",
-        "https://raw.githubusercontent.com/s1dashu/quiet-md/main/docs/images/download-linux.svg",
-        "https://raw.githubusercontent.com/s1dashu/quiet-md/main/docs/images/home.png"
-      ],
-      "name": "quiet-md",
-      "non_software_reason": "",
-      "open_issues": 63,
-      "open_issues_count": 63,
-      "owner_repo_count": 2,
-      "pushed_at": "2026-11-14T20:38:21Z",
-      "readme": "",
-      "readme_excerpt": "<h1 align=\"center\">Quiet.md</h1>\n\n<p align=\"center\">\n  <b>A fast, quiet, local notes app.</b><br>\n  Drawn natively with Rust + GPUI. Your notes stay on your computer, stored in the Feishu (Lark) DocxXML format.\n</p>\n\n<p align=\"center\">\n  English · <a href=\"README.zh-CN.md\">简体中文</a> · <a href=\"README.ja.md\">日本語</a> · <a href=\"README.ko.md\">한국어</a> · <a href=\"README.es.md\">Español</a> · <a href=\"README.fr.md\">Français</a>\n</p>\n\n<p align=\"center\">\n  <a href=\"https://github.com/s1dashu/quiet-md/releases/latest\"><img src=\"https://img.shields.io/github/v/release/s1dashu/quiet-md?label=release&color=2f6feb\" alt=\"Latest release\"></a>\n  <a href=\"https://github.com/s1dashu/quiet-md/actions/workflows/ci.yml\"><img src=\"https://img.shields.io/github/actions/workflow/status/s1dashu/quiet-md/ci.yml?branch=main&label=CI\" alt=\"CI status\"></a>\n  <img src=\"https://img.shields.io/badge/platform-macOS%20%7C%20Windows%20%7C%20Linux-lightgrey\" alt=\"macOS, Windows and Linux\">\n  <img src=\"https://img.shields.io/badge/built%20with-Rust%20%2B%20GPUI-dea584?logo=rust\" alt=\"Built with Rust and GPUI\">\n  <a href=\"LICENSE\"><img src=\"https://img.shields.io/github/license/s1dashu/quiet-md?color=green\" alt=\"MIT lice",
-      "readme_len": 12310,
-      "repo_id": 1441897000,
-      "score": 90.154,
-      "source_name": "github_search",
-      "sources": [
-        "github_search",
-        "telegram:gitbless"
-      ],
-      "stargazers_count": 1859,
-      "stars": 1859,
-      "topics": [],
-      "updated_at": "2026-11-15T00:20:25Z",
-      "url": "https://github.com/s1dashu/quiet-md"
-    },
     {
       "archived": false,
       "contributors_count": 30,
@@ -13798,8 +13847,8 @@
     "s1dashu/quiet-md": {
       "first_seen_at": "2026-11-06T12:20:43.194450Z",
       "full_name": "s1dashu/quiet-md",
-      "last_decision": "queued",
-      "last_seen_at": "2026-11-15T00:27:15.337840Z",
+      "last_decision": "published",
+      "last_seen_at": "2026-11-15T16:24:00.471095Z",
       "repo_id": 1441897000,
       "sources": [
         "github_search",
