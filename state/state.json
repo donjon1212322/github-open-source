@@ -198,11 +198,11 @@
   ],
   "last_runs": {
     "article": {
-      "finished_at": "2026-11-14T13:33:47.752177Z",
+      "finished_at": "2026-11-15T13:33:48.821047Z",
       "published": true,
       "reason": "published",
-      "repo": "jev-chat/jev-chat-jarvis",
-      "url": "https://dev.to/githubopensource/open-source-chat-assistant-cross-platform-reply-drafter-1bkj"
+      "repo": "frigadehq/yogurt",
+      "url": "https://dev.to/githubopensource/open-source-local-ai-meeting-assistant-yogurt-492l"
     },
     "collect": {
       "discovered": 468,
@@ -1988,7 +1988,13 @@
       "visual_kind": "readme"
     },
     "frigadehq/yogurt": {
-      "articles": {},
+      "articles": {
+        "devto": {
+          "id": 5041732,
+          "published_at": "2026-11-15T13:33:48.820907Z",
+          "url": "https://dev.to/githubopensource/open-source-local-ai-meeting-assistant-yogurt-492l"
+        }
+      },
       "card_style": "",
       "category": "AI",
       "contributors_count": 5,
@@ -2002,6 +2008,7 @@
       },
       "description": "Private AI meeting notes that stay on your computer. A free, open-source alternative to Granola for Mac, Windows and Linux.",
       "description_fp": "8ad48c257bab5421",
+      "devto_cover_url": "https://i.ibb.co/0yJDkTv1/frigadehq-yogurt-devto-cover-bea392fac3f9.png",
       "forks": 81,
       "full_name": "FrigadeHQ/yogurt",
       "generated": {

@@ -403,3 +403,4 @@
 {"minutes_late": 396.2, "schedule": "13 1 * * *", "ts": "2026-11-15T07:49:14.599238Z", "type": "late_schedule_ignored"}
 {"deleted": 0, "ts": "2026-11-15T09:47:53.635932Z", "type": "moderation_completed", "updates": 0}
 {"deleted": 0, "ts": "2026-11-15T12:47:54.400063Z", "type": "moderation_completed", "updates": 0}
+{"platform": "devto", "repo": "frigadehq/yogurt", "ts": "2026-11-15T13:33:48.820928Z", "type": "article_published", "url": "https://dev.to/githubopensource/open-source-local-ai-meeting-assistant-yogurt-492l"}
