@@ -410,3 +410,5 @@
 {"repo": "s1dashu/quiet-md", "score": 90.154, "telegram_message_id": 3603, "telegraph_url": "https://telegra.ph/Quietmd-A-Fast-Native-Local-Notes-App-Built-in-Rust-and-GPUI-11-15", "ts": "2026-11-15T16:24:00.470979Z", "type": "project_published"}
 {"minutes_late": 51.1, "schedule": "47 */3 * * *", "ts": "2026-11-15T16:38:06.123998Z", "type": "late_schedule_ignored"}
 {"projects_7d": 21, "sent": true, "ts": "2026-11-15T16:43:46.660030Z", "type": "weekly_report"}
+{"preview_host": "imgbb", "repo": "huamidev/gestaltx", "ts": "2026-11-15T18:14:01.554239Z", "type": "published_as_text"}
+{"repo": "huamidev/gestaltx", "score": 89.41, "telegram_message_id": 3604, "telegraph_url": "https://telegra.ph/GestaltX-A-MobileGestalt-Editor-for-iOS-27-11-15", "ts": "2026-11-15T18:14:01.918272Z", "type": "project_published"}

@@ -177,16 +177,16 @@
   "dead_letters": [],
   "gemini_daily": {
     "day": "2026-11-15",
-    "units": 9
+    "units": 15
   },
   "gemini_window": [
     [
-      1794759830.025333,
-      3892
+      1794766429.3997223,
+      3734
     ],
     [
-      1794759833.900138,
-      1398
+      1794766433.1659381,
+      1414
     ]
   ],
   "last_runs": {
@@ -278,9 +278,9 @@
       "telegram_message_id": 3600
     },
     "publish:us_midday": {
-      "finished_at": "2026-11-14T18:14:00.628569Z",
-      "repo": "nyblnet/bento",
-      "telegram_message_id": 3598
+      "finished_at": "2026-11-15T18:14:01.918405Z",
+      "repo": "huamidev/gestaltx",
+      "telegram_message_id": 3604
     },
     "publish:us_morning": {
       "finished_at": "2026-11-15T16:24:00.471107Z",
@@ -2259,6 +2259,105 @@
           "views": 129
         }
       ],
+      "visual_host": "imgbb",
+      "visual_kind": "readme"
+    },
+    "huamidev/gestaltx": {
+      "articles": {},
+      "card_style": "",
+      "category": "Security",
+      "contributors_count": 15,
+      "created_at": "2026-11-09T05:15:48Z",
+      "crossposts": {
+        "bluesky": {
+          "attempts": 0,
+          "due_at": "2026-11-15T18:44:01.918022+00:00",
+          "status": "pending"
+        }
+      },
+      "description": "An MobileGestalt editor for iOS 27.x, featuring region-code tweaks, device presets, backups.",
+      "description_fp": "8293e20c2f978361",
+      "forks": 2661,
+      "full_name": "huamidev/GestaltX",
+      "generated": {
+        "article_markdown": "## What it is\n\nGestaltX is a MobileGestalt editor designed specifically for iOS and iPadOS 27.x. Developed in Swift, it provides an interface for inspecting and modifying system configuration flags, region codes, and internal device settings without requiring raw hex editing.\n\n## Why it matters\n\nModifying system-level property lists on modern iOS versions often leads to broken device states, lost biometric features, or unbootable configurations. GestaltX addresses this by enforcing structured workflows, including automatic backups before every write and verified recovery paths for hardware identities.\n\n## Key features\n\n- Manage CacheExtra fields with full read, search, add, edit, and remove support.\n- Configure display parameters such as Dynamic Island layouts, Always-On Display, and HDR photo rendering.\n- Apply independent region-code options and feature flags for experimental capabilities.\n- Perform automatic initial backups and generate pre-write recovery points.\n- Import local plists securely via share extensions with device-bound proof verification.\n\n## Quick start\n\nDownload the compiled IPA from the GitHub Releases page. Sign the app and its embedded share extension using at least one common App Group, then install it via SideStore or AltStore.\n\n## Who should try it\n\nThis tool is built for security researchers and developers who need to evaluate capability flags and region behaviors on iOS 27.x test hardware.\n\n## Verdict\n\nGestaltX streamlines MobileGestalt modifications with necessary safety rails like automatic backups, but it remains an advanced research utility requiring careful handling on supported hardware.",
+        "article_title": "GestaltX: A MobileGestalt Editor for iOS 27",
+        "card_hook": "Edit MobileGestalt on iOS 27",
+        "card_subline": "A native MobileGestalt editor featuring region-code tweaks, device presets, and secure backups for iOS 27.x devices",
+        "category": "Security",
+        "discussion_question": "Which capability flag do you find yourself tweaking most often on test devices?",
+        "hook": "Tweak region codes, display flags, and system settings on iOS 27 with GestaltX.",
+        "key_features": [
+          "Manage CacheExtra fields with read, search, add, edit, and remove capabilities",
+          "Configure display parameters including Dynamic Island layout, Always-On Display, and HDR photo settings",
+          "Apply independent region-code options and Apple Intelligence capability flags",
+          "Perform automatic initial backups and generate pre-write backups with original-value records",
+          "Import local plists securely via a share extension with device-bound proof verification",
+          "Trigger manual NeoSpring resprings to apply system changes"
+        ],
+        "llm_used": true,
+        "quick_start": "Download the IPA from the GitHub Releases page and sign it with a common App Group using SideStore or AltStore.",
+        "safety": "dual_use",
+        "safety_reason": "GestaltX is a MobileGestalt editor for iOS used for feature flag and region code research, which modifies system configuration files and can be used for security research or bypassing device restrictions.",
+        "scene": "You open a property list on your iOS 27 device to test a feature flag, only to watch the system reject raw modifications or break core services like Face ID.",
+        "social_text": "Edit MobileGestalt configurations, region codes, and device presets on iOS 27.x with built-in backup and recovery.",
+        "summary": "GestaltX interfaces with system-level configuration files to let users modify internal property values and capability flags directly on iOS 27.x. It relies on shared App Groups and localized parsing to handle plists, applying staged changes through verified writes while automatically preserving backup recovery paths. By working through structured presets and local file imports, it replaces manual hex editing and risky raw file manipulation with an organized interface.",
+        "surfaces": {
+          "Facebook_body": "Customizing deep system settings on an iPhone usually requires complicated manual file editing that can easily break things. A new tool called GestaltX simplifies this process by providing a safe, organized interface for modifying internal configuration values on iOS 27. Instead of risking your device by manually changing raw system files, you can use this utility to manage display parameters like the Dynamic Island layout, Always-On Display, and region-specific settings.\n\nThe tool works by interfacing with system configuration files through a structured menu, replacing the need for risky hex editing. It includes built-in safety features, such as automatic backups of your original settings, so you can always revert changes if something goes wrong. It also supports importing settings files securely. This utility is designed specifically for developers and security researchers who need to test how different system flags affect device behavior. If you are working with iOS 27 and need a reliable way to modify capability flags or region codes, this provides a stable alternative to legacy editors that no longer function with newer system boundaries.",
+          "Facebook_headline": "Easily customize your iPhone system settings",
+          "Facebook_lead": "Tired of manual file editing to change hidden iPhone settings? This new tool helps you adjust region codes and display features safely.",
+          "bluesky_headline": "Change hidden iOS system settings safely",
+          "bluesky_lead": "GestaltX lets you modify region codes and display flags on iOS 27 without risky manual file editing.",
+          "devto_body": "## What it is\n\nGestaltX is a Swift-based utility designed for iOS 27.x that provides a structured interface for modifying MobileGestalt configuration files. It moves away from the legacy \"hex editing\" approach, offering a safer, GUI-driven method to read, search, and edit system capability flags and display parameters.\n\n## How it works\n\nGestaltX interfaces with system-level configuration files by leveraging shared App Groups and localized parsing. It handles property lists (plists) by applying staged changes through verified writes. Crucially, it enforces a safety-first workflow: before any write operation is committed, the tool automatically generates a backup of the original values, ensuring a recovery path exists if a configuration change causes system instability.\n\n## Key features\n\n- **CacheExtra Management:** Full CRUD (Create, Read, Update, Delete) capabilities for CacheExtra fields.\n- **Display Configuration:** Toggle and modify parameters like Dynamic Island layouts, Always-On Display, and HDR photo settings.\n- **Region & Capability Flags:** Independent control over region codes and Apple Intelligence capability flags.\n- **Safety Backups:** Automatic pre-write backups with original-value records.\n- **Secure Imports:** Import local plists via a share extension with device-bound verification.\n\n## Getting started\n\nGestaltX is written in Swift and targets iOS 27.x. To use it, you will need to build the project from the [official repository](https://github.com/huamidev/GestaltX). Ensure you have a secondary test device available, as modifying system-level configuration files carries inherent risks of boot-looping or system instability.\n\n1. Clone the repository: `git clone https://github.com/huamidev/GestaltX`\n2. Open the project in Xcode.\n3. Sign the application with your developer certificate.\n4. Deploy to your test device.\n\n## When not to use it\n\nDo not use GestaltX on your primary daily-driver device. This tool is intended for research and development environments where the ability to reflash the device is readily available. It is not a consumer-facing customization app and should be treated as a low-level system utility.",
+          "seo_description": "Use GestaltX to safely edit MobileGestalt configuration files on iOS 27. A structured tool for developers to manage region codes and display flags.",
+          "seo_query": "how to edit MobileGestalt on iOS 27",
+          "seo_title": "Modify iOS 27 System Settings - GestaltX Utility",
+          "telegraph_angle": "Explain the shift from manual hex editing to structured configuration management in iOS 27, highlighting the safety trade-offs for researchers."
+        },
+        "tension": "Manual adjustments risk permanent misconfiguration or broken biometric hooks, forcing a full device restore when a single capability flag goes wrong.",
+        "turn": "GestaltX introduces staged before-and-after reviews and automated backups before every write, though hardware-level behaviors still depend heavily on specific device models and OS versions.",
+        "verdict": "An essential utility for researchers needing structured MobileGestalt edits on iOS 27, provided you have a secondary test device you can afford to reflash.",
+        "who_for": "iOS developers and security researchers working with iOS 27.x configuration flags.",
+        "why_now": "With iOS 27.x introducing strict system-group boundaries, existing legacy MobileGestalt editors fail, requiring an updated toolchain built on modern query methods."
+      },
+      "homepage": "",
+      "id": 1450963843,
+      "image_url": "https://i.ibb.co/tpnzzpkW/huamidev-gestaltx-readme-preview-3af19896269e.jpg",
+      "is_dual_use": true,
+      "is_hidden_gem": false,
+      "language": "Swift",
+      "license": {
+        "key": "gpl-3.0",
+        "name": "GNU General Public License v3.0",
+        "node_id": "MDc6TGljZW5zZTk=",
+        "spdx_id": "GPL-3.0",
+        "url": "https://api.github.com/licenses/gpl-3.0"
+      },
+      "media_urls": [
+        "https://raw.githubusercontent.com/huamidev/GestaltX/main/GestaltX/Assets.xcassets/AppIcon.appiconset/AppIcon.png"
+      ],
+      "name": "GestaltX",
+      "open_issues": 82,
+      "published_at": "2026-11-15T18:14:01.918044Z",
+      "pushed_at": "2026-11-14T09:27:55Z",
+      "readme_fp": "d83e8b493983babe",
+      "repo_id": 1450963843,
+      "revisit_of": "",
+      "revisit_reason": "",
+      "score": 89.41,
+      "slot": "us_midday",
+      "sources": [
+        "github_search",
+        "telegram:github_repos"
+      ],
+      "stars": 7722,
+      "telegram_chat_id": "@GitHub_Open_Source",
+      "telegram_link": "https://t.me/GitHub_Open_Source/3604",
+      "telegram_message_id": 3604,
+      "telegraph_url": "https://telegra.ph/GestaltX-A-MobileGestalt-Editor-for-iOS-27-11-15",
+      "topics": [],
+      "updated_at": "2026-11-15T18:10:32Z",
+      "url": "https://github.com/huamidev/GestaltX",
       "visual_host": "imgbb",
       "visual_kind": "readme"
     },
@@ -6882,55 +6981,6 @@
     },
     {
       "archived": false,
-      "contributors_count": 15,
-      "created_at": "2026-11-09T05:15:48Z",
-      "default_branch": "main",
-      "description": "An MobileGestalt editor for iOS 27.x, featuring region-code tweaks, device presets, backups.",
-      "disabled": false,
-      "fork": false,
-      "forks": 2638,
-      "forks_count": 2638,
-      "full_name": "huamidev/GestaltX",
-      "has_readme": true,
-      "homepage": "",
-      "id": 1450963843,
-      "is_dual_use": false,
-      "is_hidden_gem": false,
-      "language": "Swift",
-      "license": {
-        "key": "gpl-3.0",
-        "name": "GNU General Public License v3.0",
-        "node_id": "MDc6TGljZW5zZTk=",
-        "spdx_id": "GPL-3.0",
-        "url": "https://api.github.com/licenses/gpl-3.0"
-      },
-      "media_urls": [
-        "https://raw.githubusercontent.com/huamidev/GestaltX/main/GestaltX/Assets.xcassets/AppIcon.appiconset/AppIcon.png"
-      ],
-      "name": "GestaltX",
-      "non_software_reason": "",
-      "open_issues": 75,
-      "open_issues_count": 75,
-      "owner_repo_count": 1,
-      "pushed_at": "2026-11-14T09:27:55Z",
-      "readme": "",
-      "readme_excerpt": "<p align=\"center\">\n  <img src=\"GestaltX/Assets.xcassets/AppIcon.appiconset/AppIcon.png\" alt=\"GestaltX\" width=\"112\" height=\"112\">\n</p>\n\n<h1 align=\"center\">GestaltX</h1>\n\n[![Version](https://img.shields.io/badge/version-1.0.6-blue)](https://github.com/huamidev/GestaltX)\n[![Platform](https://img.shields.io/badge/iOS-27.x-black?logo=apple)](#compatibility)\n[![SwiftUI](https://img.shields.io/badge/Swift-SwiftUI-orange?logo=swift)](https://github.com/huamidev/GestaltX)\n[![License](https://img.shields.io/badge/license-GPLv3-blue)](LICENSE)\n\n[English](README.md) · [简体中文](README_ZH-CN.md) · [日本語](README_JA.md) · [한국어](README_KO.md)\n\nA MobileGestalt editor for iPhone and iPad. Developed by [huamidev](https://github.com/huamidev).\n\n## Features\n\n| Category | Presets and tools |\n| --- | --- |\n| Display | Dynamic Island capability and layout, Always-On Display, AOD Vibrancy, high-luminance AOD, AOD flipbook, HDR photo display, wallpaper parallax, Liquid Glass low-power rendering, experimental PWM and DisplayPort flags |\n| Device | Model name, boot/shutdown chime, charge limit, tap to wake, Camera Control settings, Action Button settings, Collision SOS, Audio Mix, Spatial FaceTime audio |\n| iPad ",
-      "readme_len": 9651,
-      "repo_id": 1450963843,
-      "score": 89.41,
-      "source_name": "github_search",
-      "sources": [
-        "github_search",
-        "telegram:github_repos"
-      ],
-      "stargazers_count": 7563,
-      "stars": 7563,
-      "topics": [],
-      "updated_at": "2026-11-15T00:17:05Z",
-      "url": "https://github.com/huamidev/GestaltX"
-    },
-    {
-      "archived": false,
       "contributors_count": 7,
       "created_at": "2026-11-03T08:23:03Z",
       "default_branch": "main",
@@ -11038,8 +11088,8 @@
     "huamidev/gestaltx": {
       "first_seen_at": "2026-11-10T04:25:29.986269Z",
       "full_name": "huamidev/GestaltX",
-      "last_decision": "queued",
-      "last_seen_at": "2026-11-15T00:27:15.337043Z",
+      "last_decision": "published",
+      "last_seen_at": "2026-11-15T18:14:01.918390Z",
       "repo_id": 1450963843,
       "sources": [
         "github_search",
