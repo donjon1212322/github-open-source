@@ -421,3 +421,4 @@
 {"Gemini_video_input": false, "models": 7, "official_url": "", "stories": 4, "topic": "claude-fable-and-code-updates", "ts": "2026-11-15T19:19:16.731926Z", "type": "ai_brief_published", "video_id": "tg-20261115-f53de22c08"}
 {"minutes_late": 352.8, "schedule": "33 13 * * *", "ts": "2026-11-15T19:25:47.399561Z", "type": "late_schedule_ignored"}
 {"devto_id": 5043304, "ts": "2026-11-15T19:53:53.252432Z", "type": "news_article_published", "url": "https://dev.to/githubopensource/claude-fable-52-code-execution-updates-and-local-agent-workflows-10o3", "words": 1129}
+{"channel": "GitHub_Open_Source", "posts": 12, "ts": "2026-11-15T20:23:53.865402Z", "type": "metrics_collected", "updated": 12}
