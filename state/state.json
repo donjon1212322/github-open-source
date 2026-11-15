@@ -97,6 +97,15 @@
       "ratio": 0.0,
       "reason": "published",
       "removed": 0
+    },
+    {
+      "date": "2026-11-15",
+      "fingerprint": "2026-11-15|True|published|0|0.0000|4",
+      "kept": 4,
+      "published": true,
+      "ratio": 0.0,
+      "reason": "published",
+      "removed": 0
     }
   ],
   "brief_memory": {
@@ -108,19 +117,19 @@
       "https://cdn.deepseek.com/chat-demo": "2026-11-13",
       "https://github.com/advisories/ghsa-mq7w-jmv5-vq3p": "2026-11-13",
       "https://github.com/anthropics/claude-code/releases/tag/v2.1.323": "2026-11-13",
+      "https://github.com/anthropics/claude-code/releases/tag/v2.1.325": "2026-11-15",
       "https://github.com/chenliu-1996/figures4papers": "2026-11-11",
-      "https://github.com/elayadesign/ai-design-skills": "2026-11-10",
       "https://github.com/jamesondh/chimera-vocal-synth/pull/66": "2026-11-11",
-      "https://github.com/morluto/rea": "2026-11-10",
+      "https://github.com/justxor/local-ai-agent-course-ru": "2026-11-15",
       "https://github.com/synchopate/llama-modchip": "2026-11-13",
       "https://github.com/telegrammessenger/widget-sandbox": "2026-11-12",
       "https://ipo.anthropic.com": "2026-11-12",
       "https://nvidianews.nvidia.com/news/nvidia-announces-ceo-transition": "2026-11-12",
+      "https://openai.com/daybreak/red-team": "2026-11-15",
       "https://openai.com/index/introducing-businesses-chatgpt": "2026-11-11",
-      "https://openai.com/supply": "2026-11-10",
-      "https://openai.com/supply/co-lab/chromatic": "2026-11-10",
       "https://portal.anthropic.com/programs": "2026-11-14",
-      "https://www.anthropic.com/claude-fable-and-mythos-5-2": "2026-11-10",
+      "https://www.anthropic.com/claude-fable-and-mythos-5-2": "2026-11-15",
+      "https://www.anthropic.com/engineering/code-execution-with-mcp": "2026-11-15",
       "https://www.anthropic.com/news/roadshow-launch": "2026-11-11",
       "https://www.anthropic.com/research/building-strong-safety-evaluations": "2026-11-13",
       "https://www.anthropic.com/research/claude-electronics-design": "2026-11-11",
@@ -128,33 +137,33 @@
       "story:gpt-6-cyber": "2026-11-12",
       "story:gpt-image-2-6": "2026-11-11",
       "story:inkling-2-small": "2026-11-14",
-      "story:ripple-65b": "2026-11-10",
+      "text:anthropic-claude-code-on-desktop-now-supports": "2026-11-15",
       "text:anthropic-started-sending-invites-for-claude-duet": "2026-11-14",
       "text:anthropic-выкатили-пожалуй-самый-стильный-апдейт-claude": "2026-11-14",
       "text:anthropic-выпустила-гайд-какую-модель-claude-ставить": "2026-11-11",
       "text:anthropic-подсиживает-microsoft-перед-ipo-в-чате": "2026-11-14",
-      "text:anthropic-прямо-сейчас-раздают-всем-юзерам-ultra": "2026-11-10",
       "text:anthropic-также-заявили-что-fable-52-решила": "2026-11-11",
       "text:artificial-analysis-прогнала-gemini-4-hydrogen-через": "2026-11-13",
-      "text:breaking-claude-fable-52-and-claude-mythos": "2026-11-10",
       "text:claude-meetings": "2026-11-14",
       "text:google-gemini-4-hydrogen-flash-is-rolling": "2026-11-12",
       "text:google-gemini-decision-1-model-has-been": "2026-11-11",
+      "text:sesame-voice-agent-is-ending-its-preview": "2026-11-15",
+      "text:spacexsi-grok-bot-now-has-7-more": "2026-11-15",
       "text:бесплатный-семинар-про-то-как-делать-иипроекты": "2026-11-14",
-      "text:в-тинвестициях-теперь-можно-торговать-с-помощью": "2026-11-10",
-      "text:вышел-fable-52": "2026-11-10",
       "text:да-это-просто-pong-от-fable-52": "2026-11-12",
       "text:если-в-claude-code-вы-отвечали-yes": "2026-11-13",
       "text:институт-airi-и-сколтех-разработали-систему-для": "2026-11-12",
       "text:независимые-исследователи-нашли-в-открытых-китайских-моделях": "2026-11-14",
       "text:отличная-кандидатура-для-нового-сезона-холостяка": "2026-11-14",
+      "text:папа-римский-заявил-что-он-против-того": "2026-11-15",
       "text:похоже-fable-нащупала-новый-способ-делать-игры": "2026-11-12",
+      "text:ресторан-dennys-где-хуанг-в-юности-мыл": "2026-11-15",
       "text:тут-это-microsoft-365-лежит-по-всему": "2026-11-13",
       "text:уже-agi": "2026-11-13"
     },
     "stories": {
       "0731 deepseek flash llama locally modchip running": "2026-11-13",
-      "27b 65b arete open ripple source updates": "2026-11-10",
+      "325 claude code managed": "2026-11-15",
       "adds gifs images native openai": "2026-11-11",
       "algorithm clustering fair meta proposes": "2026-11-13",
       "anthropic details evaluations multi safety turn": "2026-11-13",
@@ -162,11 +171,10 @@
       "blackwell checkpoint chinese chips forensics restricted suggest trained": "2026-11-14",
       "carbon gemini": "2026-11-11",
       "charts figures4papers scientific skill": "2026-11-11",
-      "chromatic codex modretro openai": "2026-11-10",
       "claude code cursor harness updates": "2026-11-13",
-      "claude fable prices speeds": "2026-11-10",
-      "coding design skills": "2026-11-10",
-      "context investments protocol trading": "2026-11-10",
+      "claude code experimental mode": "2026-11-15",
+      "claude fable": "2026-11-15",
+      "course local ollama": "2026-11-15",
       "cyber gpt": "2026-11-12",
       "decision gemini": "2026-11-12",
       "ember join lineup muse nex openrouter": "2026-11-14",
@@ -177,7 +185,7 @@
   "dead_letters": [],
   "gemini_daily": {
     "day": "2026-11-15",
-    "units": 15
+    "units": 30
   },
   "gemini_window": [
     [
@@ -244,9 +252,9 @@
       "updated": 12
     },
     "news": {
-      "finished_at": "2026-11-14T19:19:15.506670Z",
+      "finished_at": "2026-11-15T19:19:16.731919Z",
       "reason": "published",
-      "telegram_message_id": 3599
+      "telegram_message_id": 3605
     },
     "news-article": {
       "devto_id": 5037485,
@@ -1223,6 +1231,102 @@
       "telegram_message_id": 3599,
       "topic_key": "model-releases-and-forensics",
       "video_id": "tg-20261114-ddfc4d62e3",
+      "video_url": "https://t.me/GitHub_Open_Source"
+    },
+    {
+      "Gemini_video_input": false,
+      "article_markdown": "> **TL;DR** Anthropic released Claude Fable 5.2 alongside a 20 percent API price cut and a 30 percent speed boost, while introducing an experimental Code Mode that lets models script their own tool calls. Meanwhile, a new open-source guide enables fully local agent workflows using Ollama and Python without touching paid APIs.\n\n## What actually moved today\n\nInfrastructure economics and token efficiency shifted significantly over the past forty-eight hours, directly impacting how we budget for multi-agent loops and heavy codebase indexing. When API costs drop alongside measurable speed increases, it changes the calculus for running automated background tasks and continuous integration checks. Instead of rationing context windows, we can now afford deeper reasoning steps and more aggressive retrieval strategies without blowing past monthly budgets. At the same time, the release of practical guides for local execution frameworks reminds us that cloud-dependent workflows are becoming a choice rather than a strict technical necessity.\n\nBuilding resilient agentic systems has historically meant wrestling with brittle tool-calling loops and expensive multi-turn token consumption. Recent updates aim squarely at this friction by shifting some of the procedural overhead directly onto the model through script generation, or by lowering the financial barrier to entry for local hardware setups. For backend engineers and infrastructure builders, these changes mean fewer workarounds are needed to keep token counts manageable during extended debugging sessions. Let us break down the specific releases that make these workflow shifts possible today.\n\n## The model watch\n\n### Claude Fable 5.2 and pricing updates\n\nAnthropic officially released Claude Fable 5.2, delivering a measured thirty percent increase in response speed compared to its predecessor, Fable 5.1. Alongside the latency improvements, API pricing has been reduced by twenty percent, making high-volume inference substantially more viable for production applications. Benchmark evaluations accompanying the launch note that the model can coordinate up to one thousand concurrent AI agents and formally verify complex mathematical proofs like Fermat's Last Theorem in roughly thirty hours of compute time. For developers, this means you should re-run your latency-sensitive agent benchmarks and cost projections, especially if your architecture relies on frequent model calls during state transitions.\n\n### Claude Code experimental Code Mode and managed agents\n\nVersion 2.1.323 of Claude Code introduced an experimental Code Mode that fundamentally changes how the assistant handles file searches and tool commands. Instead of executing a dozen separate, sequential tool calls that bloat the context window, the model writes a concise JavaScript script to handle the file search and command execution in one go. Building on this, version 2.1.325 adjusted sandbox Bash defaults and launched a closed beta for self-hosted Managed Agents, while Opus 5.5 quietly rolled out as the default model across Pro, Max, Ultra, and Team tiers. Enterprise developers should re-run their security compliance checks on sandbox environments and evaluate how script-writing models alter token consumption during deep codebase refactoring.\n\n## Rumours, clearly labelled\n\n| Claim | Status | Basis | Notes |\n| --- | --- | --- | --- |\n| Claude Code desktop custom themes via user descriptions | Unconfirmed | Community chatter | Mentioned in unofficial feature wishlists and forums without release notes. |\n| Sesame voice agent ending preview for Plus and Pro plans | Unconfirmed | Leaked support docs | No official pricing tier announcement has been published by the provider yet. |\n| Grok Bot usage metrics showing 7 percent growth on paid plans | Unconfirmed | Unverified platform stats | Sourced from unconfirmed analytics screenshots circulating online. |\n\n## Odd finds and small tools\n\nAmid the major model announcements, a comprehensive open-source GitHub repository for building local AI agents using Python and Ollama quietly dropped. This toolkit provides a ready-to-run baseline for developers who want to experiment with tool calling, local Markdown search, and citation tracking entirely offline. Because it runs on local hardware via Ollama using models like Qwen and Gemma, you can test complex agentic logic without risking unexpected API bills or exposing sensitive local codebases to third-party endpoints. It is a fantastic weekend project baseline for anyone looking to understand the mechanics of agent memory loops without enterprise tooling overhead.\n\n## What I would try this weekend\n\nI would spin up the local agent repository using Ollama and configure a small Python script to index a local directory of Markdown notes. Hooking up Gemma or Qwen to handle local file searches gives you an immediate sandbox to test how well smaller, open weights handle multi-step tool execution without burning through paid API credits. After testing the local setup, I would take an existing legacy script and run it through Claude Code version 2.1.323 to observe how the new experimental Code Mode handles file searching compared to traditional multi-turn tool loops. Tracking the difference in token consumption across these two approaches will give you a clear, quantitative baseline for how script-generation capabilities impact your daily coding workflow.\n\n## Where this leaves us\n\nWe are reaching a pragmatic middle ground where faster inference, lower pricing, and smarter execution loops are starting to alleviate the most frustrating bottlenecks in agentic development. Cheaper APIs and native script-writing models make multi-step coding assistants vastly more economical, while robust local alternatives ensure that offline development remains entirely viable. However, questions remain regarding how well self-hosted Managed Agents will scale under heavy enterprise loads, and whether experimental Code Mode can maintain strict security boundaries when writing arbitrary JavaScript scripts on the fly. The tools are undeniably sharper, but keeping a close eye on execution safety and token efficiency remains essential as we build out more autonomous architectures.\n\nWhen you are building multi-agent workflows, do you prefer writing explicit programmatic routing logic yourself, or do you let the model orchestrate the sequence dynamically?\n\n## Migration and evaluation checklist for exact identifiers\n\nWhen planning upgrades across your infrastructure stack, verifying the exact identifiers for each component is vital to prevent breaking changes. Begin your migration audit by cataloging the exact release strings for Claude Fable 5.2 and its predecessor Fable 5.1 to ensure pricing and latency thresholds align with your current financial models. Next, document the specific version boundaries for Claude Code, focusing on version 2.1.323 and version 2.1.325 to confirm how script execution and sandbox defaults behave in your target environments. Ensure your evaluation matrix tracks Mythos 5.2 alongside Opus 5.5 to map out tier defaults accurately across your engineering organization. For teams experimenting with offline execution paths, verify that your local runtime configurations correctly point to the intended open weights like Qwen and Gemma without misaligning dependencies. Establishing a rigorous verification checklist for these precise names prevents silent configuration drifts during automated deployments and safeguards your production pipelines against unexpected compatibility failures.\n\n---\n\n💬 Questions, corrections or a better way to run these evals? Feedback and discussion are in the channel: https://t.me/GitHub_Open_Source\n",
+      "article_title": "Claude Fable 5.2, Code Execution Updates, and Local Agent Workflows",
+      "brief": {
+        "discussion_question": "Are you trusting models to write their own execution scripts in production yet, or sticking to strict step-by-step tool loops?",
+        "headline": "Claude Fable 5.2 lands with a 20 percent API price cut and 30 percent faster speeds",
+        "hook": "7 exact names, 4 official launches, 0 only announced, 0 unverified claims. Claude Fable 5.2 leads the watch — what would you actually re-run first?",
+        "models": [
+          "Claude Fable 5.2",
+          "Mythos 5.2",
+          "Fable 5.1",
+          "Claude Code",
+          "Opus 5.5",
+          "Qwen",
+          "Gemma"
+        ],
+        "stories": [
+          {
+            "basis": "the official announcement and model details are live",
+            "bullets": [
+              "Anthropic released Claude Fable 5.2 with 30 percent faster responses than Fable 5.1.",
+              "API pricing was reduced by 20 percent.",
+              "The model can coordinate 1000 AI agents and formalize Fermat's Last Theorem in 30 hours."
+            ],
+            "status": "official_release",
+            "title": "Claude Fable 5.2 Release",
+            "why": "Faster inference and cheaper APIs directly lower the cost of building complex multi-agent systems."
+          },
+          {
+            "basis": "the official engineering blog post and release notes",
+            "bullets": [
+              "Anthropic introduced an experimental Code Mode in Claude Code version 2.1.323 and newer.",
+              "The model writes a small JavaScript script to handle file searches and tool commands, reducing multi-step turns."
+            ],
+            "status": "official_release",
+            "title": "Claude Code Experimental Code Mode",
+            "why": "It drastically reduces token consumption and context bloat during heavy code operations."
+          },
+          {
+            "basis": "the GitHub release notes",
+            "bullets": [
+              "Version 2.1.325 changed sandbox Bash defaults and added desktop themes.",
+              "A closed beta for self-hosted Managed Agents was launched.",
+              "Opus 5.5 became the default model on Pro, Max, Ultra, and Team tiers."
+            ],
+            "status": "official_release",
+            "title": "Claude Code v2.1.325 and Managed Agents",
+            "why": "Self-hosted managed agents give enterprise developers tighter control over their infrastructure and credentials."
+          },
+          {
+            "basis": "the open source GitHub repository",
+            "bullets": [
+              "A comprehensive guide and repository for building a local AI agent using Python and Ollama was released.",
+              "The agent supports tool calling, local Markdown search, and citation tracking without paid APIs."
+            ],
+            "status": "official_release",
+            "title": "Local AI Agent Course with Ollama",
+            "why": "It provides a ready-to-run baseline for developers wanting fully offline agentic workflows."
+          }
+        ],
+        "summary": "Anthropic dominates this week with Claude Fable 5.2, code execution updates, and local agent guides, alongside emerging voice agent pricing.",
+        "unconfirmed_claims": [
+          "Claude Code on desktop supports custom themes via user descriptions",
+          "Sesame voice agent is ending its preview and launching Plus and Pro paid plans",
+          "Grok Bot has 7 percent more usage on paid plans and 15 percent on scheduled runs"
+        ],
+        "why_devs": "Lower API costs, native script execution in the terminal, and new local agent setups mean you can build faster with fewer tokens wasted."
+      },
+      "headline": "Claude Fable 5.2 lands with a 20 percent API price cut and 30 percent faster speeds",
+      "image_url": "https://i.ibb.co/XrQg3FPn/ai-brief-12a6a7e988d0.png",
+      "models": [
+        "Claude Fable 5.2",
+        "Mythos 5.2",
+        "Fable 5.1",
+        "Claude Code",
+        "Opus 5.5",
+        "Qwen",
+        "Gemma"
+      ],
+      "narrative_hook": "Four model drops hit the feeds this week, but the thing I can't stop thinking about is an experimental terminal mode that turns 13 model steps into just 2.",
+      "official_url": "",
+      "post_text": "🛰️ <b>AI Brief</b> · <i>no ads, no hype</i>\n\n<b>Four model drops hit the feeds this week, but the thing I can't stop thinking about is an experimental terminal mode that turns 13 model steps into just 2.</b>\n\n🧬 <b>In this brief:</b> Claude Fable 5.2 · Mythos 5.2 · Fable 5.1 · Claude Code · Opus 5.5 · Qwen · Gemma\n\n<b>1/ Claude Fable 5.2 Release</b>\nAnthropic released Claude Fable 5.2 with 30 percent faster responses than Fable 5.1.\nAPI pricing was reduced by 20 percent.\nThe model can coordinate 1000 AI agents and formalize Fermat's Last Theorem in 30 hours.\nFaster inference and cheaper APIs directly lower the cost of building complex multi-agent systems.\n<i>the official announcement and model details are live</i>\n\n<b>2/ Claude Code Experimental Code Mode</b>\nAnthropic introduced an experimental Code Mode in Claude Code version 2.1.323 and newer.\nThe model writes a small JavaScript script to handle file searches and tool commands, reducing multi-step turns.\nIt drastically reduces token consumption and context bloat during heavy code operations.\n<i>the official engineering blog post and release notes</i>\n\n<b>3/ Claude Code v2.1.325 and Managed Agents</b>\nVersion 2.1.325 changed sandbox Bash defaults and added desktop themes.\nA closed beta for self-hosted Managed Agents was launched.\nOpus 5.5 became the default model on Pro, Max, Ultra, and Team tiers.\nSelf-hosted managed agents give enterprise developers tighter control over their infrastructure and credentials.\n<i>the GitHub release notes</i>\n\n<b>4/ Local AI Agent Course with Ollama</b>\nA comprehensive guide and repository for building a local AI agent using Python and Ollama was released.\nThe agent supports tool calling, local Markdown search, and citation tracking without paid APIs.\nIt provides a ready-to-run baseline for developers wanting fully offline agentic workflows.\n<i>the open source GitHub repository</i>\n\n<b>◻️ Rumours we're keeping an eye on</b>\n\n◻️ <i>Claude Code on desktop supports custom themes via user descriptions</i>\n◻️ <i>Sesame voice agent is ending its preview and launching Plus and Pro paid plans</i>\n◻️ <i>Grok Bot has 7 percent more usage on paid plans and 15 percent on scheduled runs</i>\n\n<i>Are you trusting models to write their own execution scripts in production yet, or sticking to strict step-by-step tool loops?</i>\n\n📣 <a href=\"https://t.me/GitHub_Open_Source\"><b>@GitHub_Open_Source</b></a>\n\n========================================\n#AINews #OpenSource",
+      "published_at": "2026-11-15T19:19:16.731750Z",
+      "statuses": [
+        "official_release",
+        "official_release",
+        "official_release",
+        "official_release"
+      ],
+      "stories": 4,
+      "telegram_message_id": 3605,
+      "topic_key": "claude-fable-and-code-updates",
+      "video_id": "tg-20261115-f53de22c08",
       "video_url": "https://t.me/GitHub_Open_Source"
     }
   ],
@@ -8457,16 +8561,16 @@
   ],
   "rumour_memory": {
     "365 affected copilot globally hours microsoft onedrive outage outlook sharepoint teams": "2026-11-13",
+    "agent ending launching paid plans plus preview pro sesame voice": "2026-11-15",
     "analysis artificial gemini hydrogen indexed": "2026-11-13",
     "answering claude code command json local prompts saved secrets settings yes": "2026-11-13",
-    "anthropic benchmark claims guide model routing": "2026-11-11",
     "anthropic branch claude code coordination mods released theme updates": "2026-11-14",
     "anthropic claude duet invites sending started": "2026-11-14",
     "antigravity gemini hydrogen rolling": "2026-11-12",
-    "apis decision gemini google model spotted": "2026-11-11",
+    "bot grok paid percent plans runs scheduled usage": "2026-11-15",
     "browser enables fable game generation rapid": "2026-11-12",
-    "claude coming meetings": "2026-11-14",
-    "claude fable physics problems solved theoretical": "2026-11-11"
+    "claude code custom descriptions desktop supports themes user": "2026-11-15",
+    "claude coming meetings": "2026-11-14"
   },
   "schedule_health": {
     "2026-11-11": {
