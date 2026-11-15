@@ -1994,7 +1994,10 @@
         "bluesky": {
           "attempts": 0,
           "due_at": "2026-11-15T18:00:00+00:00",
-          "status": "pending"
+          "error": "",
+          "published_at": "2026-11-15T18:17:46.505895Z",
+          "status": "published",
+          "url": "https://bsky.app/profile/githubopensource.bsky.social/post/3n2emqt4xkm2x"
         }
       },
       "description": "Private AI meeting notes that stay on your computer. A free, open-source alternative to Granola for Mac, Windows and Linux.",
@@ -2272,7 +2275,8 @@
         "bluesky": {
           "attempts": 0,
           "due_at": "2026-11-15T18:44:01.918022+00:00",
-          "status": "pending"
+          "held_reason": "not_best_of_day",
+          "status": "held"
         }
       },
       "description": "An MobileGestalt editor for iOS 27.x, featuring region-code tweaks, device presets, backups.",
@@ -5666,7 +5670,8 @@
         "bluesky": {
           "attempts": 0,
           "due_at": "2026-11-15T18:00:00+00:00",
-          "status": "pending"
+          "held_reason": "not_best_of_day",
+          "status": "held"
         }
       },
       "description": "Blazing-fast native notes app and rich-text editor for macOS, Windows, and Linux. Built with Rust + GPUI. Local-first and beautifully designed.",
