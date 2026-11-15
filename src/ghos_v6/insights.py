@@ -14,7 +14,8 @@ domain. The owner rejected that trade — a reader should see ``github.com``.
 from __future__ import annotations
 
 import re
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
+from statistics import median
 from typing import Any
 
 import requests
@@ -23,7 +24,11 @@ from .http import sanitize
 
 EMBED_URL = "https://t.me/{channel}/{message_id}"
 _VIEWS_RE = re.compile(r'tgme_widget_message_views">([^<]+)</span>')
-_REACT_RE = re.compile(r'tgme_reaction">\s*([^<]*)</span>')
+# 15.11: the real embed widget wraps the emoji in <i><b>..</b></i> and puts
+# the count AFTER it. The old pattern assumed plain text and recorded 0 for
+# every post that actually had a reaction.
+_REACT_RE = re.compile(r'<span class="tgme_reaction"[^>]*>(.*?)</span>', re.S)
+_REACT_COUNT_RE = re.compile(r"(\d[\d.,]*\s*(?:[KkMm]|тыс\.?|млн\.?)?)\s*$")
 
 # Weight of each signal in the composite value score. Views are the only
 # signal that exists for every post, so they carry the baseline; votes and
@@ -74,10 +79,13 @@ def fetch_post_stats(channel: str, message_id: int, *, timeout: int = 20) -> dic
     if response.status_code != 200:
         return {"ok": False, "error": f"http {response.status_code}"}
     views = _VIEWS_RE.search(response.text)
-    reactions = _REACT_RE.findall(response.text)
     total_reactions = 0
-    for raw in reactions:
-        total_reactions += parse_views(raw.split()[-1]) if raw.strip() else 0
+    for chip in _REACT_RE.findall(response.text):
+        # Strip the emoji markup; the trailing number is the reaction count.
+        tail = re.sub(r"<[^>]+>", " ", chip).strip()
+        match = _REACT_COUNT_RE.search(tail)
+        # A visible chip with no number still means at least one reaction.
+        total_reactions += parse_views(match.group(1)) if match else 1
     return {
         "ok": bool(views),
         "views": parse_views(views.group(1)) if views else 0,
@@ -156,3 +164,106 @@ def median_views(samples: list[dict[str, Any]]) -> float:
     if len(values) % 2:
         return values[middle]
     return (values[middle - 1] + values[middle]) / 2
+
+
+def _utc_day(value: Any) -> str:
+    """Publishing day of a post, or '' when the timestamp is unusable."""
+    try:
+        published = datetime.fromisoformat(str(value).replace("Z", "+00:00"))
+    except (TypeError, ValueError):
+        return ""
+    if published.tzinfo is None:
+        published = published.replace(tzinfo=timezone.utc)
+    return published.astimezone(timezone.utc).date().isoformat()
+
+
+def daily_view_metric(
+    records: list[dict[str, Any]],
+    *,
+    now: datetime | None = None,
+    days: int = 7,
+) -> dict[str, Any]:
+    """Owner 15.11: the ONE fixed success metric.
+
+    ``views@24h per post`` (median) answers "is a single post doing well";
+    ``sum per day`` (median of daily totals) answers "is the channel doing
+    well". Both use the age-normalised ``views_at_24h`` already stored by
+    ``metrics_command`` - never the raw counter, which makes every fresh post
+    look like a failure. Unmeasured posts are excluded, not counted as zero.
+    AI Briefs live in ``news_topics`` and are intentionally out of scope.
+
+    The previous window of the same length is the control. A change inside
+    +/-5% is reported as "about the same": with ~20 posts a week that is
+    noise, not a trend. This is a measuring instrument, not a growth lever.
+    """
+    moment = now or datetime.now(timezone.utc)
+    if moment.tzinfo is None:
+        moment = moment.replace(tzinfo=timezone.utc)
+    current_start = moment - timedelta(days=days)
+    previous_start = moment - timedelta(days=2 * days)
+
+    def summarise(window: list[dict[str, Any]]) -> dict[str, Any]:
+        per_post: list[float] = []
+        by_day: dict[str, float] = {}
+        for record in window:
+            value = record.get("views_at_24h")
+            if value is None:
+                continue
+            try:
+                value = float(value)
+            except (TypeError, ValueError):
+                continue
+            per_post.append(value)
+            day = _utc_day(record.get("published_at"))
+            if day:
+                by_day[day] = by_day.get(day, 0.0) + value
+        return {
+            "posts": len(per_post),
+            "days": len(by_day),
+            "per_post": round(median(per_post), 1) if per_post else None,
+            "daily_sum": round(median(by_day.values()), 1) if by_day else None,
+        }
+
+    current: list[dict[str, Any]] = []
+    previous: list[dict[str, Any]] = []
+    for record in records:
+        try:
+            published = datetime.fromisoformat(
+                str(record.get("published_at")).replace("Z", "+00:00")
+            )
+        except (TypeError, ValueError):
+            continue
+        if published.tzinfo is None:
+            published = published.replace(tzinfo=timezone.utc)
+        if current_start <= published <= moment:
+            current.append(record)
+        elif previous_start <= published < current_start:
+            previous.append(record)
+
+    now_stats = summarise(current)
+    old_stats = summarise(previous)
+
+    def change(current_value: Any, previous_value: Any) -> float | None:
+        if current_value is None or not previous_value:
+            return None
+        return round((current_value - previous_value) / previous_value * 100, 1)
+
+    per_post_change = change(now_stats["per_post"], old_stats["per_post"])
+    sum_change = change(now_stats["daily_sum"], old_stats["daily_sum"])
+    if per_post_change is None or sum_change is None:
+        verdict = "not enough history"
+    elif per_post_change > 5 and sum_change > 5:
+        verdict = "higher"
+    elif per_post_change < -5 and sum_change < -5:
+        verdict = "lower"
+    elif per_post_change * sum_change < 0:
+        verdict = "mixed"
+    else:
+        verdict = "about the same"
+    return {
+        **{f"previous_{key}": value for key, value in old_stats.items()},
+        **now_stats,
+        "per_post_change": per_post_change,
+        "daily_sum_change": sum_change,
+        "verdict": verdict,
+    }

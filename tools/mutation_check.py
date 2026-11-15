@@ -350,6 +350,25 @@ MUTATIONS: list[tuple[str, str, str, str]] = [
     (".github/workflows/doctor.yml", "      unpin_discussion:\n",
      "      unpin_discussion_disabled:\n",
      "Doctor unpin workflow input removed"),
+    # Owner 15.11: one honest metric, real reactions, item 3 NOT implemented.
+    ("src/ghos_v6/insights.py",
+     '<span class="tgme_reaction"[^>]*>(.*?)</span>',
+     '<span class="tgme_reaction_disabled"[^>]*>(.*?)</span>',
+     "reaction chips are zeroed again"),
+    ("src/ghos_v6/insights.py",
+     "total_reactions += parse_views(match.group(1)) if match else 1",
+     "total_reactions += 0", "reaction counts are discarded"),
+    ("src/ghos_v6/insights.py", 'value = record.get("views_at_24h")',
+     'value = record.get("views")',
+     "the fixed metric silently falls back to raw views"),
+    ("src/ghos_v6/pipeline.py",
+     'lines += ["", "<b>Audience metric (last 7 days)</b>",',
+     'lines += ["", "<b>Health</b>",',
+     "the owner report loses the one fixed success metric"),
+    ("src/ghos_v6/polls_design.py", "MIN_SIGNAL_VOTES = 8",
+     "MIN_SIGNAL_VOTES = 1", "poll signal threshold is lowered without approval"),
+    ("docs/OWNER_RULES.md", "просмотры за сутки на пост",
+     "просмотры за неделю на пост", "the fixed per-post metric is redefined"),
 ]
 
 COPY_ITEMS = (

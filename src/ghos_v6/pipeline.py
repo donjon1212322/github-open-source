@@ -2316,6 +2316,29 @@ def report_command(config: Config, store: StateStore) -> dict[str, Any]:
                      f"mean duplicate ratio {avg:.2f}")
     else:
         lines.append("AI Brief de-dup: no brief has passed the new filter yet")
+    # Owner 15.11: one fixed, age-normalised success metric. Private report
+    # only - never a public post, never a raw view counter.
+    metric = insights.daily_view_metric(store.published_records())
+    if metric["per_post"] is not None and metric["daily_sum"] is not None:
+        lines += ["", "<b>Audience metric (last 7 days)</b>",
+                  f"Views@24h per post: <b>{metric['per_post']:.0f}</b>; "
+                  f"sum per day: <b>{metric['daily_sum']:.0f}</b> "
+                  f"({metric['days']} days, {metric['posts']} posts)"]
+        if (metric["previous_per_post"] is not None
+                and metric["previous_daily_sum"] is not None
+                and metric["per_post_change"] is not None
+                and metric["daily_sum_change"] is not None):
+            lines.append(
+                f"Previous 7 days: {metric['previous_per_post']:.0f} / "
+                f"{metric['previous_daily_sum']:.0f} → "
+                f"<b>{html.escape(metric['verdict'])}</b> "
+                f"({metric['per_post_change']:+.0f}% per post, "
+                f"{metric['daily_sum_change']:+.0f}% per day)"
+            )
+        else:
+            lines.append("Previous 7 days: not enough history to compare")
+    else:
+        lines += ["", "Audience metric: no measured posts yet"]
     history = store.data.get("poll_history") or []
     last_poll = history[-1] if history and isinstance(history[-1], dict) else {}
     votes = sum(int(o.get("votes") or 0) for o in (last_poll.get("options") or [])
