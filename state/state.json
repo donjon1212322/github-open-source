@@ -257,13 +257,13 @@
       "telegram_message_id": 3605
     },
     "news-article": {
-      "devto_id": 5037485,
-      "finished_at": "2026-11-14T19:53:47.374594Z",
+      "devto_id": 5043304,
+      "finished_at": "2026-11-15T19:53:53.252409Z",
       "published": true,
-      "title": "Model Drops on OpenRouter and Hardware Forensics in Weight Signatures",
-      "topic_key": "model-releases-and-forensics",
-      "url": "https://dev.to/githubopensource/model-drops-on-openrouter-and-hardware-forensics-in-weight-signatures-25o4",
-      "words": 1092
+      "title": "Claude Fable 5.2, Code Execution Updates, and Local Agent Workflows",
+      "topic_key": "claude-fable-and-code-updates",
+      "url": "https://dev.to/githubopensource/claude-fable-52-code-execution-updates-and-local-agent-workflows-10o3",
+      "words": 1129
     },
     "publish:europe_midday": {
       "finished_at": "2026-11-11T12:43:59.103591Z",
@@ -1302,6 +1302,7 @@
         ],
         "why_devs": "Lower API costs, native script execution in the terminal, and new local agent setups mean you can build faster with fewer tokens wasted."
       },
+      "devto_cover_url": "https://i.ibb.co/zh4YNWYQ/project-devto-cover-2baae9bde60c.png",
       "headline": "Claude Fable 5.2 lands with a 20 percent API price cut and 30 percent faster speeds",
       "image_url": "https://i.ibb.co/XrQg3FPn/ai-brief-12a6a7e988d0.png",
       "models": [
