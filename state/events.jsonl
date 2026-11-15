@@ -414,3 +414,4 @@
 {"repo": "huamidev/gestaltx", "score": 89.41, "telegram_message_id": 3604, "telegraph_url": "https://telegra.ph/GestaltX-A-MobileGestalt-Editor-for-iOS-27-11-15", "ts": "2026-11-15T18:14:01.918272Z", "type": "project_published"}
 {"platform": "bluesky", "repo": "frigadehq/yogurt", "ts": "2026-11-15T18:17:46.505918Z", "type": "crosspost_published", "url": "https://bsky.app/profile/githubopensource.bsky.social/post/3n2emqt4xkm2x"}
 {"attempts": 1, "detail": "HTTP 204", "slot": "facebook-handoff", "ts": "2026-11-15T18:30:52.197295Z", "type": "watchdog_recovered", "verified": false}
+{"range": "facebook!A14:E14", "rows": 1, "ts": "2026-11-15T18:31:13.969409Z", "type": "facebook_handoff_queued"}

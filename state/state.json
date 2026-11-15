@@ -228,7 +228,7 @@
       "week": "2026-W46"
     },
     "facebook-handoff": {
-      "finished_at": "2026-11-14T18:31:19.711480Z",
+      "finished_at": "2026-11-15T18:31:12.789528Z",
       "queued": 1,
       "reason": "queued"
     },
@@ -2006,6 +2006,11 @@
           "published_at": "2026-11-15T18:17:46.505895Z",
           "status": "published",
           "url": "https://bsky.app/profile/githubopensource.bsky.social/post/3n2emqt4xkm2x"
+        },
+        "facebook_sheet": {
+          "at": "2026-11-15T18:31:13.969383Z",
+          "status": "queued",
+          "via": "make.com"
         }
       },
       "description": "Private AI meeting notes that stay on your computer. A free, open-source alternative to Granola for Mac, Windows and Linux.",
