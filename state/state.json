@@ -240,7 +240,7 @@
       "week": "2026-W46"
     },
     "facebook-handoff": {
-      "finished_at": "2026-11-15T18:31:12.789528Z",
+      "finished_at": "2026-11-16T18:31:21.289102Z",
       "queued": 1,
       "reason": "queued"
     },
@@ -2278,6 +2278,11 @@
           "published_at": "2026-11-16T18:17:49.862755Z",
           "status": "published",
           "url": "https://bsky.app/profile/githubopensource.bsky.social/post/3n2h57tnie622"
+        },
+        "facebook_sheet": {
+          "at": "2026-11-16T18:31:23.014263Z",
+          "status": "queued",
+          "via": "make.com"
         }
       },
       "description": "One self-hosted app for your shows, movies and music.",
