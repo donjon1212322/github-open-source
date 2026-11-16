@@ -184,17 +184,13 @@
   },
   "dead_letters": [],
   "gemini_daily": {
-    "day": "2026-11-15",
-    "units": 36
+    "day": "2026-11-16",
+    "units": 9
   },
   "gemini_window": [
     [
-      1794791630.7438223,
-      3911
-    ],
-    [
-      1794791634.7338195,
-      1380
+      1794846316.1822987,
+      1332
     ]
   ],
   "last_runs": {
@@ -295,9 +291,9 @@
       "telegram_message_id": 3604
     },
     "publish:us_morning": {
-      "finished_at": "2026-11-15T16:24:00.471107Z",
-      "repo": "s1dashu/quiet-md",
-      "telegram_message_id": 3603
+      "finished_at": "2026-11-16T16:25:23.266790Z",
+      "repo": "livliv-dev/player",
+      "telegram_message_id": 3607
     },
     "publish:us_peak": {
       "finished_at": "2026-11-11T17:19:17.006267Z",
@@ -4236,6 +4232,114 @@
       "visual_host": "imgbb",
       "visual_kind": "readme"
     },
+    "livliv-dev/player": {
+      "articles": {},
+      "card_style": "",
+      "category": "DevTools",
+      "contributors_count": 5,
+      "created_at": "2026-11-04T03:28:33Z",
+      "crossposts": {
+        "bluesky": {
+          "attempts": 0,
+          "due_at": "2026-11-16T18:00:00+00:00",
+          "status": "pending"
+        }
+      },
+      "description": "A lightweight 2.5D character player for the web, with lip sync and webcam face tracking.",
+      "description_fp": "18dcbc5d9bf5920d",
+      "forks": 161,
+      "full_name": "livliv-dev/player",
+      "generated": {
+        "article_markdown": "## What it is\\n\\nLivLiv Player is a lightweight, dependency-free 2.5D character renderer designed for the web. It provides a unified API to load and animate characters, supporting multiple formats including VRM, PNGTuber, and the project's own .livliv format. At its core, the library is built on WebGL2, which allows it to maintain a small footprint of approximately 30KB gzipped while handling complex animations like swaying, crouching, and head-turning.\\n\\n## Why it matters\\n\\nCharacter integration on the web often requires heavy, proprietary SDKs that can significantly bloat your bundle size. LivLiv Player solves this by providing a modular approach: the core renderer is minimal, and features like face tracking (via MediaPipe) are imported only when needed. This makes it a practical choice for stream overlays or interactive web apps where performance and load times are critical.\\n\\n## Key features\\n\\n- Supports VRM, PNGTuber, and custom LivLiv character formats via a single API.\\n- Includes built-in lip sync and webcam-based face tracking using MediaPipe.\\n- Ships as a ~30KB gzipped core library with zero external dependencies.\\n- Handles full-body character physics like swaying and crouching natively.\\n- Provides 25 pre-made characters ready for immediate integration.\\n\\n## Quick start\\n\\nInstall the package via npm:\\n\\n```sh\\nnpm install @livliv-dev/player\\n```\\n\\nThen, initialize the player in your JavaScript:\\n\\n```js\\nimport { Player } from '@livliv-dev/player'\\n\\nconst player = new Player(document.querySelector('canvas'))\\nawait player.load('characters/k01/')\\nplayer.setExpression('smile')\\n```\\n\\n## Who should try it\\n\\nThis tool is ideal for frontend developers who need to integrate avatars into web-based projects without the overhead of massive game engines or complex proprietary SDKs. It is particularly well-suited for stream overlays, interactive web widgets, or applications where you need to display a character that reacts to user input or audio.\\n\\n## Verdict\\n\\nLivLiv Player is a pragmatic, lightweight solution for web-based character animation. It avoids the bloat of larger frameworks while offering enough flexibility to handle common formats like VRM and PNGTuber. While you are responsible for sourcing or creating your own character assets, the API is straightforward enough that it should not be a barrier to entry for most web developers.",
+        "article_title": "How to build interactive web characters with LivLiv Player",
+        "card_hook": "Interactive web characters in 30KB",
+        "card_subline": "A lightweight player for VRM, PNGTuber, and custom models with built-in lip sync and face tracking",
+        "category": "DevTools",
+        "discussion_question": "Are you building for VRM compatibility or just need a simple PNGTuber setup?",
+        "hook": "Render interactive 2.5D characters on the web with lip-sync and face tracking in a 30KB package.",
+        "key_features": [
+          "Supports VRM, PNGTuber, and custom LivLiv character formats via a single API.",
+          "Includes built-in lip sync and webcam-based face tracking using MediaPipe.",
+          "Ships as a ~30KB gzipped core library with zero external dependencies.",
+          "Handles full-body character physics like swaying and crouching natively.",
+          "Provides 25 pre-made characters ready for immediate integration."
+        ],
+        "llm_used": true,
+        "quick_start": "npm install @livliv-dev/player",
+        "safety": "ok",
+        "safety_reason": "The project is a legitimate web-based character rendering library for frontend development.",
+        "scene": "You are building a stream overlay or a web app and need a character that reacts to the user's voice or webcam movement.",
+        "social_text": "Add interactive characters to your web apps without the bloat. This player handles VRM, PNGTuber, and custom models with built-in face tracking and lip sync in a 30KB package.",
+        "summary": "LivLiv Player uses a WebGL2-based renderer to handle character playback directly in the browser. By abstracting the API, it allows you to load different formats like VRM or simple PNGTuber assets through a unified interface, while offloading heavy tasks like face tracking to MediaPipe.",
+        "surfaces": {
+          "Facebook_body": "Adding animated characters to websites usually requires bulky software and complex setups. A new open-source tool lets developers add interactive 2.5D avatars to web pages with smooth animations, lip-sync, and real-time face tracking using just a webcam.\n\nAt only 30 kilobytes in size, the library uses standard browser graphics technology to run smoothly without dragging down page performance. It unifies different character file types into a single interface, handling physics like swaying and crouching natively while coming with 25 ready-to-use characters.\n\nThis is designed for frontend developers and creators building stream overlays, virtual streamers, or interactive web experiences who want to add life to their sites without heavy plugins.",
+          "Facebook_headline": "Bring interactive characters to your website",
+          "Facebook_lead": "Add expressive animated avatars to web pages with built-in lip-sync and webcam face tracking, all in a tiny package.",
+          "bluesky_headline": "Add animated avatars to websites in 30 kilobytes",
+          "bluesky_lead": "Render interactive 2.5D characters with real-time lip-sync and face tracking directly in the browser.",
+          "devto_body": "## What it is\n\nLivLiv Player is a lightweight TypeScript library for rendering interactive 2.5D characters on the web. Weighing just ~30KB gzipped with zero external dependencies, it brings real-time character playback, lip-sync, and webcam-based face tracking directly to modern browsers using WebGL2.\n\n## How it works\n\nThe library abstracts underlying rendering complexities into a unified interface. It uses standard browser graphics capabilities to handle animations and physics like swaying or crouching natively. For heavy tasks such as webcam face tracking, it offloads processing to MediaPipe while maintaining a streamlined core.\n\n## Key features\n\n- Unified format support for VRM, PNGTuber, and custom assets through a single API\n- Built-in lip-sync and webcam-based face tracking via MediaPipe\n- Extremely lightweight at ~30KB gzipped with zero dependencies\n- Native handling of full-body character physics\n- Includes 25 pre-made characters for immediate integration\n\n## Getting started\n\nClone the repository from GitHub (livliv-dev/player) and install it into your TypeScript frontend project. Ensure your target environment supports WebGL2 and you have appropriate character assets ready to load.\n\n## When not to use it\n\nAvoid this if your project requires heavy 3D rendering beyond 2.5D avatars, or if you are not prepared to source and manage your own character assets and fallback states for older browsers.",
+          "seo_description": "Add interactive 2.5D characters with lip-sync and face tracking to your web projects using a lightweight 30KB open-source TypeScript library.",
+          "seo_query": "open source web character player",
+          "seo_title": "Open-source 2.5D web character player - LivLiv Player",
+          "telegraph_angle": "Explain how browser graphics have evolved to make real-time lightweight character animation possible without heavy external software."
+        },
+        "tension": "You are currently stuck choosing between heavy, proprietary SDKs that bloat your bundle size or writing custom WebGL boilerplate just to get a character to blink and talk.",
+        "turn": "This player unifies the playback of diverse formats like VRM and PNGTuber under one API, letting you drop a character into your page without managing complex dependencies.",
+        "verdict": "A solid, lightweight choice for adding character interactivity to web projects, though you will need to handle your own assets.",
+        "who_for": "Frontend developers building stream overlays or interactive web interfaces.",
+        "why_now": "Browser-based WebGL2 performance has matured enough to handle real-time character animation without heavy external SDKs."
+      },
+      "homepage": "https://livliv-dev.github.io/player/",
+      "id": 1445112696,
+      "image_url": "https://i.ibb.co/yckwkLfm/livliv-dev-player-readme-preview-ede55909d67c.jpg",
+      "is_dual_use": false,
+      "is_hidden_gem": false,
+      "language": "TypeScript",
+      "license": {
+        "key": "apache-2.0",
+        "name": "Apache License 2.0",
+        "node_id": "MDc6TGljZW5zZTI=",
+        "spdx_id": "Apache-2.0",
+        "url": "https://api.github.com/licenses/apache-2.0"
+      },
+      "media_urls": [
+        "https://raw.githubusercontent.com/livliv-dev/player/main/media/demo.gif",
+        "https://raw.githubusercontent.com/livliv-dev/player/main/media/livliv-player-wordmark-2000.png"
+      ],
+      "name": "player",
+      "open_issues": 3,
+      "published_at": "2026-11-16T16:25:23.266340Z",
+      "pushed_at": "2026-11-16T13:54:22Z",
+      "readme_fp": "8d8538a4e19797ea",
+      "repo_id": 1445112696,
+      "revisit_of": "",
+      "revisit_reason": "",
+      "score": 90.288,
+      "slot": "us_morning",
+      "sources": [
+        "github_search",
+        "telegram:gitbless"
+      ],
+      "stars": 1569,
+      "telegram_chat_id": "@GitHub_Open_Source",
+      "telegram_link": "https://t.me/GitHub_Open_Source/3607",
+      "telegram_message_id": 3607,
+      "telegraph_url": "https://telegra.ph/How-to-build-interactive-web-characters-with-LivLiv-Player-11-16",
+      "topics": [
+        "avatar",
+        "character",
+        "face-tracking",
+        "lip-sync",
+        "pngtuber",
+        "vrm",
+        "vtuber",
+        "webgl2"
+      ],
+      "updated_at": "2026-11-16T15:49:20Z",
+      "url": "https://github.com/livliv-dev/player",
+      "visual_host": "imgbb",
+      "visual_kind": "readme"
+    },
     "lnkiai/m3e-canvas": {
       "articles": {},
       "card_style": "",
@@ -7242,128 +7346,6 @@
     }
   },
   "queue": [
-    {
-      "archived": false,
-      "contributors_count": 215,
-      "created_at": "2026-09-30T13:41:20Z",
-      "default_branch": "main",
-      "description": "FilmCraft: An open-source, nonlinear video editor written from scratch in pure Rust",
-      "disabled": false,
-      "fork": false,
-      "forks": 7453,
-      "forks_count": 7453,
-      "full_name": "storytold/filmcraft",
-      "has_readme": true,
-      "homepage": "https://getartcraft.com/apps/filmcraft",
-      "id": 1398091865,
-      "is_dual_use": false,
-      "is_hidden_gem": false,
-      "language": "Rust",
-      "license": {
-        "key": "apache-2.0",
-        "name": "Apache License 2.0",
-        "node_id": "MDc6TGljZW5zZTI=",
-        "spdx_id": "Apache-2.0",
-        "url": "https://api.github.com/licenses/apache-2.0"
-      },
-      "media_urls": [
-        "https://raw.githubusercontent.com/storytold/filmcraft/main/docs/images/filmcraft-hero.png",
-        "https://raw.githubusercontent.com/storytold/filmcraft/main/docs/images/filmcraft-assembly.png",
-        "https://raw.githubusercontent.com/storytold/filmcraft/main/docs/images/filmcraft-timeline.png",
-        "https://raw.githubusercontent.com/storytold/filmcraft/main/docs/images/filmcraft-color.png",
-        "https://raw.githubusercontent.com/storytold/filmcraft/main/docs/images/filmcraft-color-panel.png",
-        "https://raw.githubusercontent.com/storytold/filmcraft/main/docs/images/filmcraft-scopes.png",
-        "https://raw.githubusercontent.com/storytold/filmcraft/main/docs/images/filmcraft-effects.png",
-        "https://raw.githubusercontent.com/storytold/filmcraft/main/docs/images/filmcraft-keyframes.png"
-      ],
-      "name": "filmcraft",
-      "non_software_reason": "",
-      "open_issues": 2266,
-      "open_issues_count": 2266,
-      "owner_repo_count": 5,
-      "pushed_at": "2026-11-16T00:23:20Z",
-      "readme": "",
-      "readme_excerpt": "<p align=\"center\">\n  <a href=\"https://getartcraft.com/\">\n    <picture>\n      <source media=\"(prefers-color-scheme: dark)\" srcset=\"docs/brand/artcraft-logo-white.svg\">\n      <img alt=\"ArtCraft\" src=\"docs/brand/artcraft-logo.svg\" width=\"200\">\n    </picture>\n  </a>\n</p>\n\n\n<p align=\"center\">\n  <img src=\"assets/app-icon/hicolor/256x256/apps/ai.storyteller.filmcraft.png\" width=\"128\" height=\"128\" alt=\"FilmCraft icon: an engraved owl on a purple tile\">\n</p>\n\n<h1 align=\"center\">FilmCraft</h1>\n\n<p align=\"center\">\n  <b>Video editing, color and sound; an open-source, professional non-linear video editor, built in pure Rust.</b>\n</p>\n\n<p align=\"center\">\n  An open-source, modern non-linear video editing workflow: native on macOS, Windows and Linux, and in the browser via WebAssembly.<br>\n  By the ArtCraft team.\n</p>\n\n<p align=\"center\">\n  <a href=\"#license-and-credits\"><img alt=\"License: MIT OR Apache-2.0\" src=\"https://img.shields.io/badge/license-MIT%20%7C%20Apache--2.0-8b5cf6?style=flat-square\"></a>\n  <img alt=\"Written in pure Rust\" src=\"https://img.shields.io/badge/pure-Rust-6a3fd6?style=flat-square&logo=rust&logoColor=white\">\n  <img alt=\"Runs on macOS, Windows and Linux\" src=\"https://img.shie",
-      "readme_len": 39745,
-      "repo_id": 1398091865,
-      "score": 91.5,
-      "source_name": "github_search",
-      "sources": [
-        "github_search"
-      ],
-      "stargazers_count": 18356,
-      "stars": 18356,
-      "topics": [
-        "art",
-        "rust",
-        "video",
-        "video-editing",
-        "video-editor",
-        "video-processing"
-      ],
-      "updated_at": "2026-11-16T00:22:45Z",
-      "url": "https://github.com/storytold/filmcraft"
-    },
-    {
-      "archived": false,
-      "contributors_count": 5,
-      "created_at": "2026-11-04T03:28:33Z",
-      "default_branch": "main",
-      "description": "A lightweight 2.5D character player for the web, with lip sync and webcam face tracking.",
-      "disabled": false,
-      "fork": false,
-      "forks": 161,
-      "forks_count": 161,
-      "full_name": "livliv-dev/player",
-      "has_readme": true,
-      "homepage": "https://livliv-dev.github.io/player/",
-      "id": 1445112696,
-      "is_dual_use": false,
-      "is_hidden_gem": false,
-      "language": "TypeScript",
-      "license": {
-        "key": "apache-2.0",
-        "name": "Apache License 2.0",
-        "node_id": "MDc6TGljZW5zZTI=",
-        "spdx_id": "Apache-2.0",
-        "url": "https://api.github.com/licenses/apache-2.0"
-      },
-      "media_urls": [
-        "https://raw.githubusercontent.com/livliv-dev/player/main/media/demo.gif",
-        "https://raw.githubusercontent.com/livliv-dev/player/main/media/livliv-player-wordmark-2000.png",
-        "https://raw.githubusercontent.com/livliv-dev/player/main/media/full-body.webp"
-      ],
-      "name": "player",
-      "non_software_reason": "",
-      "open_issues": 3,
-      "open_issues_count": 3,
-      "owner_repo_count": 1,
-      "pushed_at": "2026-11-15T07:11:01Z",
-      "readme": "",
-      "readme_excerpt": "<p align=\"center\">\n  <picture>\n    <source media=\"(prefers-color-scheme: dark)\" srcset=\"media/livliv-player-wordmark-white.svg\">\n    <img alt=\"LivLiv Player\" src=\"media/livliv-player-wordmark-2000.png\" width=\"360\">\n  </picture>\n</p>\n\n<p align=\"center\">\n  A lightweight 2.5D character player for the web, with lip sync and webcam face tracking. A few lines of code put a character in a page, a stream overlay or an app.<br>\n  Comes with 25 featured characters in different styles, ready to use.\n</p>\n\n<p align=\"center\"><b>English</b> · <a href=\"README.zh-CN.md\">中文</a> · <a href=\"README.ja.md\">日本語</a> · <a href=\"README.vi.md\">Tiếng Việt</a></p>\n\n<p align=\"center\"><img src=\"media/demo.gif\" alt=\"Featured characters breathing, blinking, turning their heads and talking\" width=\"720\"></p>\n\n- WebGL2, no dependencies, about 30 KB gzipped for the core\n- Lip sync (microphone, audio, video) and webcam face tracking (MediaPipe), both in the browser, imported only when you need them\n- Plays LivLiv, VRM and PNGTuber characters through the same API\n- Full-body characters stand on the ground: they sway, crouch and dip with their feet in place, in the shot you pick\n- 25 featured characters in [`characters/",
-      "readme_len": 9814,
-      "repo_id": 1445112696,
-      "score": 90.288,
-      "source_name": "github_search",
-      "sources": [
-        "github_search",
-        "telegram:gitbless"
-      ],
-      "stargazers_count": 1561,
-      "stars": 1561,
-      "topics": [
-        "avatar",
-        "character",
-        "face-tracking",
-        "lip-sync",
-        "pngtuber",
-        "vrm",
-        "vtuber",
-        "webgl2"
-      ],
-      "updated_at": "2026-11-15T22:14:55Z",
-      "url": "https://github.com/livliv-dev/player"
-    },
     {
       "archived": false,
       "contributors_count": 159,
@@ -12882,8 +12864,8 @@
     "livliv-dev/player": {
       "first_seen_at": "2026-11-06T12:20:43.176800Z",
       "full_name": "livliv-dev/player",
-      "last_decision": "queued",
-      "last_seen_at": "2026-11-16T00:25:34.687929Z",
+      "last_decision": "published",
+      "last_seen_at": "2026-11-16T16:25:23.266776Z",
       "repo_id": 1445112696,
       "sources": [
         "github_search",
@@ -15197,8 +15179,8 @@
     "storytold/filmcraft": {
       "first_seen_at": "2026-11-04T12:14:31.143969Z",
       "full_name": "storytold/filmcraft",
-      "last_decision": "queued",
-      "last_seen_at": "2026-11-16T00:25:34.688511Z",
+      "last_decision": "duplicate:same_description_or_readme",
+      "last_seen_at": "2026-11-16T16:23:51.928537Z",
       "repo_id": 1398091865,
       "sources": [
         "github_search"

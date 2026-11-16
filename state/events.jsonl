@@ -447,3 +447,6 @@
 {"deleted": 0, "ts": "2026-11-16T12:47:55.953916Z", "type": "moderation_completed", "updates": 0}
 {"platform": "devto", "repo": "holyarrs/holyarrs", "ts": "2026-11-16T13:33:53.323794Z", "type": "article_published", "url": "https://dev.to/githubopensource/consolidate-media-management-apps-holyarrs-alternative-2knb"}
 {"deleted": 0, "ts": "2026-11-16T15:47:51.946976Z", "type": "moderation_completed", "updates": 1}
+{"reason": "same_description_or_readme", "repo": "storytold/filmcraft", "ts": "2026-11-16T16:23:51.928558Z", "type": "publish_candidate_duplicate"}
+{"preview_host": "imgbb", "repo": "livliv-dev/player", "ts": "2026-11-16T16:25:22.903610Z", "type": "published_as_text"}
+{"repo": "livliv-dev/player", "score": 90.288, "telegram_message_id": 3607, "telegraph_url": "https://telegra.ph/How-to-build-interactive-web-characters-with-LivLiv-Player-11-16", "ts": "2026-11-16T16:25:23.266645Z", "type": "project_published"}
