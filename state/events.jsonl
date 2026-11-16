@@ -440,3 +440,4 @@
 {"minutes_late": 146.3, "schedule": "17 0,18,19,20,21,22,23 * * *", "ts": "2026-11-16T02:43:15.256934Z", "type": "late_schedule_ignored"}
 {"deleted": 0, "ts": "2026-11-16T03:47:50.632031Z", "type": "moderation_completed", "updates": 1}
 {"deleted": 0, "ts": "2026-11-16T06:47:49.780362Z", "type": "moderation_completed", "updates": 0}
+{"minutes_late": 392.2, "schedule": "23 0 * * *", "ts": "2026-11-16T06:55:12.031783Z", "type": "late_schedule_ignored"}
