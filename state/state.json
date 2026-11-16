@@ -271,13 +271,13 @@
       "telegram_message_id": 3609
     },
     "news-article": {
-      "devto_id": 5043304,
-      "finished_at": "2026-11-15T19:53:53.252409Z",
+      "devto_id": 5050300,
+      "finished_at": "2026-11-16T19:53:50.239727Z",
       "published": true,
-      "title": "Claude Fable 5.2, Code Execution Updates, and Local Agent Workflows",
-      "topic_key": "claude-fable-and-code-updates",
-      "url": "https://dev.to/githubopensource/claude-fable-52-code-execution-updates-and-local-agent-workflows-10o3",
-      "words": 1129
+      "title": "Qwen4-Max Lands in API, llama.cpp Hits 1.0.0, and 80B Models Run on Mobile Devices",
+      "topic_key": "ai-models-and-inference-tools",
+      "url": "https://dev.to/githubopensource/qwen4-max-lands-in-api-llamacpp-hits-100-and-80b-models-run-on-mobile-devices-2khm",
+      "words": 1197
     },
     "publish:europe_midday": {
       "finished_at": "2026-11-11T12:43:59.103591Z",
@@ -1418,6 +1418,7 @@
         ],
         "why_devs": "These updates give you cheaper agent endpoints, stable local inference APIs, and tools to run massive models directly on mobile hardware."
       },
+      "devto_cover_url": "https://i.ibb.co/TMCksgYC/project-devto-cover-d1f5715e63ce.png",
       "headline": "Qwen4-Max lands in API, llama.cpp hits 1.0.0, and 80B models run on mobile devices.",
       "image_url": "https://i.ibb.co/zhh0Xqx4/ai-brief-22955cf6995b.png",
       "models": [
