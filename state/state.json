@@ -106,71 +106,79 @@
       "ratio": 0.0,
       "reason": "published",
       "removed": 0
+    },
+    {
+      "date": "2026-11-16",
+      "fingerprint": "2026-11-16|True|published|0|0.0000|4",
+      "kept": 4,
+      "published": true,
+      "ratio": 0.0,
+      "reason": "published",
+      "removed": 0
     }
   ],
   "brief_memory": {
     "clusters": {
       "https://arxiv.org/abs/2611.09501": "2026-11-13",
-      "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-carbon-now-available": "2026-11-11",
       "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-hydrogen": "2026-11-12",
       "https://blog.google/innovation-and-ai/technology/developers-tools/gemini-decisions-api": "2026-11-12",
       "https://cdn.deepseek.com/chat-demo": "2026-11-13",
       "https://github.com/advisories/ghsa-mq7w-jmv5-vq3p": "2026-11-13",
       "https://github.com/anthropics/claude-code/releases/tag/v2.1.323": "2026-11-13",
       "https://github.com/anthropics/claude-code/releases/tag/v2.1.325": "2026-11-15",
-      "https://github.com/chenliu-1996/figures4papers": "2026-11-11",
-      "https://github.com/jamesondh/chimera-vocal-synth/pull/66": "2026-11-11",
+      "https://github.com/benjitaylor/skills": "2026-11-16",
+      "https://github.com/deepseek-ai/chat-demo": "2026-11-16",
+      "https://github.com/ggml-org/llama.cpp/releases/tag/v1.0.0": "2026-11-16",
       "https://github.com/justxor/local-ai-agent-course-ru": "2026-11-15",
       "https://github.com/synchopate/llama-modchip": "2026-11-13",
       "https://github.com/telegrammessenger/widget-sandbox": "2026-11-12",
       "https://ipo.anthropic.com": "2026-11-12",
       "https://nvidianews.nvidia.com/news/nvidia-announces-ceo-transition": "2026-11-12",
       "https://openai.com/daybreak/red-team": "2026-11-15",
-      "https://openai.com/index/introducing-businesses-chatgpt": "2026-11-11",
       "https://portal.anthropic.com/programs": "2026-11-14",
+      "https://qwen.ai/blog": "2026-11-16",
       "https://www.anthropic.com/claude-fable-and-mythos-5-2": "2026-11-15",
       "https://www.anthropic.com/engineering/code-execution-with-mcp": "2026-11-15",
-      "https://www.anthropic.com/news/roadshow-launch": "2026-11-11",
       "https://www.anthropic.com/research/building-strong-safety-evaluations": "2026-11-13",
-      "https://www.anthropic.com/research/claude-electronics-design": "2026-11-11",
       "post:data_secrets:10339": "2026-11-14",
       "story:gpt-6-cyber": "2026-11-12",
-      "story:gpt-image-2-6": "2026-11-11",
       "story:inkling-2-small": "2026-11-14",
+      "story:metr-rnd": "2026-11-16",
       "text:anthropic-claude-code-on-desktop-now-supports": "2026-11-15",
       "text:anthropic-started-sending-invites-for-claude-duet": "2026-11-14",
       "text:anthropic-выкатили-пожалуй-самый-стильный-апдейт-claude": "2026-11-14",
-      "text:anthropic-выпустила-гайд-какую-модель-claude-ставить": "2026-11-11",
+      "text:anthropic-выпустили-для-claude-довольно-милое-обновление": "2026-11-16",
       "text:anthropic-подсиживает-microsoft-перед-ipo-в-чате": "2026-11-14",
-      "text:anthropic-также-заявили-что-fable-52-решила": "2026-11-11",
       "text:artificial-analysis-прогнала-gemini-4-hydrogen-через": "2026-11-13",
       "text:claude-meetings": "2026-11-14",
+      "text:google-an-upcoming-comic-artifact-configuration-page": "2026-11-16",
       "text:google-gemini-4-hydrogen-flash-is-rolling": "2026-11-12",
-      "text:google-gemini-decision-1-model-has-been": "2026-11-11",
       "text:sesame-voice-agent-is-ending-its-preview": "2026-11-15",
       "text:spacexsi-grok-bot-now-has-7-more": "2026-11-15",
       "text:бесплатный-семинар-про-то-как-делать-иипроекты": "2026-11-14",
       "text:да-это-просто-pong-от-fable-52": "2026-11-12",
       "text:если-в-claude-code-вы-отвечали-yes": "2026-11-13",
       "text:институт-airi-и-сколтех-разработали-систему-для": "2026-11-12",
+      "text:наконецто-сьебастьян-рашка-подготовил-подробный-материал-позиционные": "2026-11-16",
       "text:независимые-исследователи-нашли-в-открытых-китайских-моделях": "2026-11-14",
       "text:отличная-кандидатура-для-нового-сезона-холостяка": "2026-11-14",
       "text:папа-римский-заявил-что-он-против-того": "2026-11-15",
       "text:похоже-fable-нащупала-новый-способ-делать-игры": "2026-11-12",
       "text:ресторан-dennys-где-хуанг-в-юности-мыл": "2026-11-15",
+      "text:российские-исследователи-предложили-новые-методы-решения-проблемы": "2026-11-16",
+      "text:тибо-пишет-что-команда-codex-похоже-починила": "2026-11-16",
       "text:тут-это-microsoft-365-лежит-по-всему": "2026-11-13",
       "text:уже-agi": "2026-11-13"
     },
     "stories": {
       "0731 deepseek flash llama locally modchip running": "2026-11-13",
       "325 claude code managed": "2026-11-15",
-      "adds gifs images native openai": "2026-11-11",
+      "additions api deepseek tooling": "2026-11-16",
       "algorithm clustering fair meta proposes": "2026-11-13",
       "anthropic details evaluations multi safety turn": "2026-11-13",
       "api deepseek developer expands": "2026-11-13",
+      "api max qwen4": "2026-11-16",
       "blackwell checkpoint chinese chips forensics restricted suggest trained": "2026-11-14",
-      "carbon gemini": "2026-11-11",
-      "charts figures4papers scientific skill": "2026-11-11",
       "claude code cursor harness updates": "2026-11-13",
       "claude code experimental mode": "2026-11-15",
       "claude fable": "2026-11-15",
@@ -179,13 +187,15 @@
       "decision gemini": "2026-11-12",
       "ember join lineup muse nex openrouter": "2026-11-14",
       "gemini hydrogen": "2026-11-12",
-      "interactive telegram widgets": "2026-11-12"
+      "generator interactive stageshow": "2026-11-16",
+      "interactive telegram widgets": "2026-11-12",
+      "mobile moe runner smolmaxxing": "2026-11-16"
     }
   },
   "dead_letters": [],
   "gemini_daily": {
     "day": "2026-11-16",
-    "units": 15
+    "units": 27
   },
   "gemini_window": [
     [
@@ -256,9 +266,9 @@
       "updated": 12
     },
     "news": {
-      "finished_at": "2026-11-15T19:19:16.731919Z",
+      "finished_at": "2026-11-16T19:19:28.491372Z",
       "reason": "published",
-      "telegram_message_id": 3605
+      "telegram_message_id": 3609
     },
     "news-article": {
       "devto_id": 5043304,
@@ -1332,6 +1342,112 @@
       "telegram_message_id": 3605,
       "topic_key": "claude-fable-and-code-updates",
       "video_id": "tg-20261115-f53de22c08",
+      "video_url": "https://t.me/GitHub_Open_Source"
+    },
+    {
+      "Gemini_video_input": false,
+      "article_markdown": "> **TL;DR** Alibaba launched **Qwen4-Max** into public API availability with a 1 million token context window, **llama.cpp** reached version 1.0.0 with major breaking API changes, and an open-source tool called **smolmaxxing** enabled running massive 80-billion parameter Mixture of Experts models locally on mobile hardware.\n\nAlibaba has moved **Qwen4-Max** out of preview into the standard API with token-based pricing, shifting the landscape for high-context agent execution. Alongside this massive enterprise release, local inference has matured significantly as **llama.cpp** finalizes its 1.0.0 milestone. At the same time, specialized offloading techniques are pushing the boundaries of what consumer hardware can handle without crashing.\n\n## What actually moved today\n\nThe infrastructure landscape shifted this week with concrete releases rather than speculative previews. We saw major framework stabilization alongside production-grade endpoint updates that change how developers budget and deploy applications. Local execution runners also received foundational updates that streamline memory management across heterogeneous hardware profiles.\n\n### Official API Deployments and Production Tooling\nAlibaba officially rolled out **Qwen4-Max** into full production API availability. Developers can now programmatically access the model using a standard token-based pricing model. This release gives production pipelines direct access to a massive reasoning backbone without relying on restricted preview tiers or third-party wrappers. DeepSeek also expanded its native developer ecosystem by introducing built-in tools for web search, document parsing, and speech synthesis directly inside the API.\n\n### Local Inference and Edge Computations\nThe local inference ecosystem hit a major milestone as **llama.cpp** officially reached version 1.0.0. This release establishes a stable baseline for embedding GGML-compatible models into native applications, though it introduces several breaking C API changes for maintainers. Concurrently, open-source developers have leveraged these primitives to push large models onto unexpected hardware targets. Running quantized architectures on mobile devices is no longer a theoretical exercise.\n\n## The model watch\n\n### Qwen4-Max API Integration\n**Qwen4-Max** brings a 2.4 trillion parameter Mixture of Experts architecture featuring 71 billion active tokens per pass. The endpoint comes with a native 1 million token context window, priced at $1.50 per million input tokens and $4.50 per million output tokens. For developers building deep-context analysis pipelines, this pricing structure makes multi-document reasoning economically viable, though verbose generations will still trigger noticeable cost spikes.\n\n### DeepSeek API Tooling Additions\nDeepSeek updated its endpoint ecosystem by exposing native tools for web search with citations, reasoning-step search, PDF parsing, and link reading via explicit tools like **deepseek_web_search** and **deepseek_read_url**. Alongside these backend tools, they released an open-source MIT-licensed static web client that connects directly to the API from the browser. This allows developers to spin up custom RAG interfaces instantly without standing up a heavy intermediary Node.js or Python backend.\n\n### smolmaxxing Mobile MoE Runner\nAn open-source project called **smolmaxxing** successfully executed an 80-billion parameter model on a 2002 OnePlus Nord CE 2 phone using a specialized **llama.cpp** patch for MoE offloading. By quantizing experts to 2 bits and implementing intelligent layer routing, the setup achieved between 2.6 and 3.1 tokens per second while consuming roughly 5 GB of peak memory. It demonstrates that mobile edge devices can participate in local agent workloads if memory streaming is handled efficiently.\n\n### Stageshow Interactive UI Generator\nStageshow emerged as an open-source skill designed to help AI coding agents generate realistic React product UI demos. It supports complex layouts including dashboards, mobile interfaces, and animated product showcases with programmatic cursor movements. This gives coding assistants the ability to render functional frontend mockups directly from natural language prompts.\n\n| Item | Status | Evidence Basis | Category |\n| :--- | :--- | :--- | :--- |\n| **Qwen4-Max API** | Confirmed | Official model card and pricing docs | Model Release |\n| **DeepSeek API Tooling** | Confirmed | GitHub repository and API changelog | Developer Tooling |\n| **smolmaxxing Runner** | Confirmed | Open weights and repository code | Local Inference |\n| **Codex Capacity Fixes** | Unconfirmed | Community reports and forum chatter | Rumour |\n\n## Rumours, clearly labelled\n\nThere is unverified chatter circulating regarding infrastructure reliability and upcoming interface updates. The Codex team is reportedly working on internal fixes to mitigate frequent capacity errors during peak hours, though no official incident report has been published. Additionally, early design leaks suggest an upcoming Comic artifact configuration page update inside Gemini Notebook, but neither Google nor independent testers have verified its rollout schedule.\n\n## Odd finds and small tools\n\nBeyond the flagship endpoints and heavy local runners, a few lightweight utilities dropped this week that deserve a spot in your toolkit. A new command-line utility for parsing messy markdown tables into strict JSON schemas has gained traction among prompt engineers who rely on structured outputs. Another handy find is a zero-dependency local audio transcription helper that caches model weights locally without forcing a heavy Python environment setup.\n\n## What I would try this weekend\n\nIf you have a few hours to spare this weekend, grab the latest **llama.cpp 1.0.0** release and update your local integration headers to handle the breaking API changes. Once your compilation pipeline is clean, pull down a smaller Mixture of Experts model and experiment with aggressive layer offloading on an older secondary machine. Alternatively, wire up the new DeepSeek web search tools into a simple local agent script to test how well native RAG functions without an external orchestration framework.\n\n## Where this leaves us\n\nWe are reaching a pragmatic equilibrium where high-end capability is increasingly accessible via both managed endpoints and local hardware optimizations. **Qwen4-Max** provides a cost-effective path for massive context tasks, while tools like **smolmaxxing** prove that edge computing is evolving past tiny parameter counts. However, running massive models on constrained hardware still suffers from severe latency bottlenecks, and verbose agent outputs can quietly drain your API credits if token budgets are left unmonitored.\n\nWhat is your preferred method for managing local model memory limits when experimenting with experimental hardware?\n\n## Migration and Evaluation Checklist for Exact Identifiers\n\nTransitioning production pipelines to incorporate the latest ecosystem components requires a systematic verification process to maintain system stability. When adopting the newly introduced endpoints and local runtimes, engineering teams must evaluate specific integration boundaries. First, audit your current token accounting systems to ensure compatibility with the updated pricing tiers for **Qwen4-Max**, **DeepSeek V4.1 Flash**, **GLM-5.3**, **Kimi K3.1 Pro**, **GPT-6.1 Sol**, **Claude Opus 5.5**, **Claude Fable 5.2**, and **Gemini 4 Hydrogen**. Verify that your middleware correctly handles large context windows without timing out during heavy payloads.\n\nNext, examine your local compilation toolchains against the breaking changes introduced in **llama.cpp** and **ggml**. Ensure that memory allocation flags match the hardware constraints of your target deployment environments, particularly if you are experimenting with extreme quantization parameters for models such as **Kimi-K3.1-Pro** and **deepseek-flash**. Conduct thorough benchmark tests to measure tokens per second and peak memory consumption under load before promoting edge configurations to production.\n\nFinally, validate your retrieval-augmented generation pipelines when integrating native web search and document parsing functions. Check that fallback mechanisms are in place for any experimental tooling layers, and monitor API error rates closely during initial deployment phases to catch unexpected regressions early.\n\n---\n\n💬 Questions, corrections or a better way to run these evals? Feedback and discussion are in the channel: https://t.me/GitHub_Open_Source\n",
+      "article_title": "Qwen4-Max Lands in API, llama.cpp Hits 1.0.0, and 80B Models Run on Mobile Devices",
+      "brief": {
+        "discussion_question": "What is the largest model you have successfully managed to run locally on your phone or edge device?",
+        "headline": "Qwen4-Max lands in API, llama.cpp hits 1.0.0, and 80B models run on mobile devices.",
+        "hook": "15 exact names, 3 official launches, 1 only announced, 1 unverified claim. Qwen4-Max leads the watch — what would you actually re-run first?",
+        "models": [
+          "Qwen4-Max",
+          "DeepSeek V4.1 Flash",
+          "GLM-5.3",
+          "Kimi K3.1 Pro",
+          "GPT-6.1 Sol",
+          "Claude Opus 5.5",
+          "Claude Fable 5.2",
+          "Gemini 4 Hydrogen",
+          "llama.cpp",
+          "ggml",
+          "Kimi-K3.1-Pro",
+          "deepseek-flash"
+        ],
+        "stories": [
+          {
+            "basis": "the model card and official blog are up",
+            "bullets": [
+              "Alibaba moved Qwen4-Max out of preview into the standard API with token-based pricing.",
+              "Pricing is set at $1.50 per million input tokens and $4.50 per million output tokens.",
+              "The model features a 2.4 trillion parameter MoE architecture with 71 billion active tokens and a 1 million context window."
+            ],
+            "status": "official_release",
+            "title": "Qwen4-Max API Release",
+            "why": "It brings top-tier agentic performance to the API, though verbose outputs drive up average task execution costs."
+          },
+          {
+            "basis": "the GitHub repository and API changelog are up",
+            "bullets": [
+              "DeepSeek opened web search with citations, reasoning-step search, PDF and office document parsing, link reading, and speech recognition/synthesis in the API.",
+              "Search and link reading are integrated via specific tools like deepseek_web_search and deepseek_read_url.",
+              "Released an open-source MIT-licensed static web client that connects directly to the API from the browser."
+            ],
+            "status": "official_release",
+            "title": "DeepSeek API Tooling Additions",
+            "why": "Developers can now build native RAG and web-browsing agents directly on top of DeepSeek endpoints without external orchestration frameworks."
+          },
+          {
+            "basis": "the GitHub repository and open weights are up",
+            "bullets": [
+              "An open-source project named smolmaxxing successfully ran an 80-billion parameter model on a 2022 OnePlus Nord CE 2 phone.",
+              "Achieved 2.6 to 3.1 tokens per second using roughly 5 GB of peak memory via a specialized llama.cpp patch for MoE offloading.",
+              "Experts are quantized to 2 bits, with intelligent routing keeping active experts in memory while streaming others from flash storage."
+            ],
+            "status": "official_release",
+            "title": "smolmaxxing Mobile MoE Runner",
+            "why": "It radically lowers the hardware bar for running massive Mixture of Experts models locally on consumer mobile hardware."
+          },
+          {
+            "basis": "the GitHub repository is up",
+            "bullets": [
+              "Reported Stageshow, an open-source skill that helps AI coding agents generate realistic React product UI demos.",
+              "Supports dashboards, browser windows, mobile interfaces, and animated product showcases with cursor movements and transitions."
+            ],
+            "status": "demo_or_benchmark",
+            "title": "Stageshow Interactive UI Generator",
+            "why": "It lets developers quickly spin up high-fidelity SaaS landing page visuals and feature walkthroughs directly from a coding agent."
+          }
+        ],
+        "summary": "This week covers Qwen4-Max API pricing, llama.cpp 1.0.0 breaking API changes, DeepSeek web search tools, running Qwen3-Next-80B on mobile via smolmaxxing, UI mods for Claude, and two new Mixture of Experts recommendation systems.",
+        "unconfirmed_claims": [
+          "Codex team potentially fixing model at capacity errors",
+          "Upcoming Comic artifact configuration page update in Gemini Notebook"
+        ],
+        "why_devs": "These updates give you cheaper agent endpoints, stable local inference APIs, and tools to run massive models directly on mobile hardware."
+      },
+      "headline": "Qwen4-Max lands in API, llama.cpp hits 1.0.0, and 80B models run on mobile devices.",
+      "image_url": "https://i.ibb.co/zhh0Xqx4/ai-brief-22955cf6995b.png",
+      "models": [
+        "Qwen4-Max",
+        "DeepSeek V4.1 Flash",
+        "GLM-5.3",
+        "Kimi K3.1 Pro",
+        "GPT-6.1 Sol",
+        "Claude Opus 5.5",
+        "Claude Fable 5.2",
+        "Gemini 4 Hydrogen",
+        "llama.cpp",
+        "ggml",
+        "Kimi-K3.1-Pro",
+        "deepseek-flash"
+      ],
+      "narrative_hook": "Three major model updates dropped on the same Tuesday, but the thing I can't stop thinking about is an 80-billion parameter model running locally on a 2022 phone.",
+      "official_url": "",
+      "post_text": "🛰️ <b>AI Brief</b> · <i>no ads, no hype</i>\n\n<b>Three major model updates dropped on the same Tuesday, but the thing I can't stop thinking about is an 80-billion parameter model running locally on a 2022 phone.</b>\n\n🧬 <b>In this brief:</b> Qwen4-Max · DeepSeek V4.1 Flash · GLM-5.3 · Kimi K3.1 Pro · GPT-6.1 Sol · Claude Opus 5.5 · Claude Fable 5.2 · Gemini 4 Hydrogen · llama.cpp · ggml · Kimi-K3.1-Pro · deepseek-flash\n\n<b>1/ Qwen4-Max API Release</b>\nAlibaba moved Qwen4-Max out of preview into the standard API with token-based pricing.\nPricing is set at $1.50 per million input tokens and $4.50 per million output tokens.\nThe model features a 2.4 trillion parameter MoE architecture with 71 billion active tokens and a 1 million context window.\nIt brings top-tier agentic performance to the API, though verbose outputs drive up average task execution costs.\n<i>the model card and official blog are up</i>\n\n<b>2/ DeepSeek API Tooling Additions</b>\nDeepSeek opened web search with citations, reasoning-step search, PDF and office document parsing, link reading, and speech recognition/synthesis in the API.\nSearch and link reading are integrated via specific tools like deepseek_web_search and deepseek_read_url.\nReleased an open-source MIT-licensed static web client that connects directly to the API from the browser.\nDevelopers can now build native RAG and web-browsing agents directly on top of DeepSeek endpoints without external orchestration frameworks.\n<i>the GitHub repository and API changelog are up</i>\n\n<b>3/ smolmaxxing Mobile MoE Runner</b>\nAn open-source project named smolmaxxing successfully ran an 80-billion parameter model on a 2022 OnePlus Nord CE 2 phone.\nAchieved 2.6 to 3.1 tokens per second using roughly 5 GB of peak memory via a specialized llama.cpp patch for MoE offloading.\nExperts are quantized to 2 bits, with intelligent routing keeping active experts in memory while streaming others from flash storage.\nIt radically lowers the hardware bar for running massive Mixture of Experts models locally on consumer mobile hardware.\n<i>the GitHub repository and open weights are up</i>\n\n<b>4/ Stageshow Interactive UI Generator</b>\nReported Stageshow, an open-source skill that helps AI coding agents generate realistic React product UI demos.\nSupports dashboards, browser windows, mobile interfaces, and animated product showcases with cursor movements and transitions.\nIt lets developers quickly spin up high-fidelity SaaS landing page visuals and feature walkthroughs directly from a coding agent.\n<i>the GitHub repository is up</i>\n\n<b>◻️ Rumours we're keeping an eye on</b>\n\n◻️ <i>Codex team potentially fixing model at capacity errors</i>\n◻️ <i>Upcoming Comic artifact configuration page update in Gemini Notebook</i>\n\n<i>What is the largest model you have successfully managed to run locally on your phone or edge device?</i>\n\n📣 <a href=\"https://t.me/GitHub_Open_Source\"><b>@GitHub_Open_Source</b></a>\n\n========================================\n#AINews #OpenSource",
+      "published_at": "2026-11-16T19:19:28.491148Z",
+      "statuses": [
+        "official_release",
+        "official_release",
+        "official_release",
+        "demo_or_benchmark"
+      ],
+      "stories": 4,
+      "telegram_message_id": 3609,
+      "topic_key": "ai-models-and-inference-tools",
+      "video_id": "tg-20261116-a2e01547e2",
       "video_url": "https://t.me/GitHub_Open_Source"
     }
   ],
@@ -8915,9 +9031,9 @@
     "answering claude code command json local prompts saved secrets settings yes": "2026-11-13",
     "anthropic branch claude code coordination mods released theme updates": "2026-11-14",
     "anthropic claude duet invites sending started": "2026-11-14",
-    "antigravity gemini hydrogen rolling": "2026-11-12",
+    "artifact comic configuration gemini notebook page upcoming update": "2026-11-16",
     "bot grok paid percent plans runs scheduled usage": "2026-11-15",
-    "browser enables fable game generation rapid": "2026-11-12",
+    "capacity codex errors fixing model potentially team": "2026-11-16",
     "claude code custom descriptions desktop supports themes user": "2026-11-15",
     "claude coming meetings": "2026-11-14"
   },

@@ -459,3 +459,6 @@
 {"range": "facebook!A15:E15", "rows": 1, "ts": "2026-11-16T18:31:23.014287Z", "type": "facebook_handoff_queued"}
 {"slot": "facebook-handoff", "ts": "2026-11-16T18:42:19.708868Z", "type": "watchdog_verified"}
 {"deleted": 0, "ts": "2026-11-16T18:47:52.133181Z", "type": "moderation_completed", "updates": 3}
+{"count": 1, "ts": "2026-11-16T19:19:03.666583Z", "type": "corporate_stories_dropped"}
+{"title": "Qwen4-Max Lands in API, llama.cpp Hits 1.0.0, and 80B Models Run on Mobile Devices", "ts": "2026-11-16T19:19:26.659075Z", "type": "news_article_generated", "words": 1197}
+{"Gemini_video_input": false, "models": 15, "official_url": "", "stories": 4, "topic": "ai-models-and-inference-tools", "ts": "2026-11-16T19:19:28.491383Z", "type": "ai_brief_published", "video_id": "tg-20261116-a2e01547e2"}
