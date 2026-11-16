@@ -2266,7 +2266,10 @@
         "bluesky": {
           "attempts": 0,
           "due_at": "2026-11-16T18:00:00+00:00",
-          "status": "pending"
+          "error": "",
+          "published_at": "2026-11-16T18:17:49.862755Z",
+          "status": "published",
+          "url": "https://bsky.app/profile/githubopensource.bsky.social/post/3n2h57tnie622"
         }
       },
       "description": "One self-hosted app for your shows, movies and music.",
@@ -4246,7 +4249,8 @@
         "bluesky": {
           "attempts": 0,
           "due_at": "2026-11-16T18:00:00+00:00",
-          "status": "pending"
+          "held_reason": "not_best_of_day",
+          "status": "held"
         }
       },
       "description": "A lightweight 2.5D character player for the web, with lip sync and webcam face tracking.",
@@ -7358,7 +7362,8 @@
         "bluesky": {
           "attempts": 0,
           "due_at": "2026-11-16T18:44:06.443758+00:00",
-          "status": "pending"
+          "held_reason": "not_best_of_day",
+          "status": "held"
         }
       },
       "description": "HatchZip is a free, open-source archive extractor for Windows, macOS and Linux that extracts ZIP, 7z, RAR, tar and split archives in place, so it needs free space for the extracted files only. Desktop app and CLI.",

@@ -454,3 +454,4 @@
 {"reasons": ["readme_not_english"], "repo": "pengchujin/aerial-tv", "stage": "pre_llm", "ts": "2026-11-16T18:13:48.822574Z", "type": "publish_candidate_rejected"}
 {"preview_host": "imgbb", "repo": "xevrion/hatchzip", "ts": "2026-11-16T18:14:06.063196Z", "type": "published_as_text"}
 {"repo": "xevrion/hatchzip", "score": 88.425, "telegram_message_id": 3608, "telegraph_url": "https://telegra.ph/How-to-Extract-Large-Archives-on-Full-Disks-with-HatchZip-11-16", "ts": "2026-11-16T18:14:06.443954Z", "type": "project_published"}
+{"platform": "bluesky", "repo": "holyarrs/holyarrs", "ts": "2026-11-16T18:17:49.862777Z", "type": "crosspost_published", "url": "https://bsky.app/profile/githubopensource.bsky.social/post/3n2h57tnie622"}
