@@ -261,7 +261,7 @@
     },
     "metrics": {
       "checked": 12,
-      "finished_at": "2026-11-15T20:23:48.549843Z",
+      "finished_at": "2026-11-16T20:23:51.759727Z",
       "reason": "measured",
       "updated": 12
     },
@@ -2066,10 +2066,10 @@
       ],
       "updated_at": "2026-11-13T16:23:46Z",
       "url": "https://github.com/Edge0-AI/Edge0",
-      "value_score": 31.09,
-      "views": 89,
-      "views_age_hours": 52.0,
-      "views_at_24h": 63,
+      "value_score": 31.05,
+      "views": 101,
+      "views_age_hours": 76.0,
+      "views_at_24h": 65,
       "views_history": [
         {
           "at": "2026-11-13T20:23:53.680961Z",
@@ -2085,6 +2085,11 @@
           "at": "2026-11-15T20:23:52.093810Z",
           "reactions": 0,
           "views": 89
+        },
+        {
+          "at": "2026-11-16T20:23:55.209626Z",
+          "reactions": 0,
+          "views": 101
         }
       ],
       "visual_host": "imgbb",
@@ -2209,10 +2214,10 @@
       ],
       "updated_at": "2026-11-14T16:22:35Z",
       "url": "https://github.com/expo/exact",
-      "value_score": 31.02,
-      "views": 67,
-      "views_age_hours": 28.0,
-      "views_at_24h": 63,
+      "value_score": 30.59,
+      "views": 88,
+      "views_age_hours": 52.0,
+      "views_at_24h": 62,
       "views_history": [
         {
           "at": "2026-11-14T20:23:52.984414Z",
@@ -2223,6 +2228,11 @@
           "at": "2026-11-15T20:23:50.768737Z",
           "reactions": 0,
           "views": 67
+        },
+        {
+          "at": "2026-11-16T20:23:54.287857Z",
+          "reactions": 0,
+          "views": 88
         }
       ],
       "visual_host": "imgbb",
@@ -2362,15 +2372,20 @@
       ],
       "updated_at": "2026-11-15T01:13:32Z",
       "url": "https://github.com/FrigadeHQ/yogurt",
-      "value_score": 42.36,
-      "views": 74,
-      "views_age_hours": 19.2,
-      "views_at_24h": 86,
+      "value_score": 36.0,
+      "views": 96,
+      "views_age_hours": 43.2,
+      "views_at_24h": 73,
       "views_history": [
         {
           "at": "2026-11-15T20:23:49.889987Z",
           "reactions": 0,
           "views": 74
+        },
+        {
+          "at": "2026-11-16T20:23:53.664686Z",
+          "reactions": 0,
+          "views": 96
         }
       ],
       "visual_host": "imgbb",
@@ -2477,6 +2492,7 @@
       "open_issues": 105,
       "published_at": "2026-11-16T01:14:00.699548Z",
       "pushed_at": "2026-11-15T20:18:24Z",
+      "reactions": 0,
       "readme_fp": "d610a05031410358",
       "repo_id": 1452008226,
       "revisit_of": "",
@@ -2503,6 +2519,17 @@
       ],
       "updated_at": "2026-11-16T00:59:45Z",
       "url": "https://github.com/HolyArrs/HolyArrs",
+      "value_score": 51.84,
+      "views": 91,
+      "views_age_hours": 19.2,
+      "views_at_24h": 106,
+      "views_history": [
+        {
+          "at": "2026-11-16T20:23:52.720990Z",
+          "reactions": 0,
+          "views": 91
+        }
+      ],
       "visual_host": "imgbb",
       "visual_kind": "readme"
     },
@@ -2760,15 +2787,20 @@
       "topics": [],
       "updated_at": "2026-11-15T18:10:32Z",
       "url": "https://github.com/huamidev/GestaltX",
-      "value_score": 37.65,
-      "views": 21,
-      "views_age_hours": 2.2,
-      "views_at_24h": 78,
+      "value_score": 35.53,
+      "views": 75,
+      "views_age_hours": 26.2,
+      "views_at_24h": 72,
       "views_history": [
         {
           "at": "2026-11-15T20:23:49.005129Z",
           "reactions": 0,
           "views": 21
+        },
+        {
+          "at": "2026-11-16T20:23:53.039996Z",
+          "reactions": 0,
+          "views": 75
         }
       ],
       "visual_host": "imgbb",
@@ -3062,10 +3094,10 @@
       ],
       "updated_at": "2026-11-14T00:17:45Z",
       "url": "https://github.com/jev-chat/jev-chat-jarvis",
-      "value_score": 33.54,
-      "views": 89,
-      "views_age_hours": 43.2,
-      "views_at_24h": 68,
+      "value_score": 33.81,
+      "views": 106,
+      "views_age_hours": 67.2,
+      "views_at_24h": 70,
       "views_history": [
         {
           "at": "2026-11-14T20:23:53.466265Z",
@@ -3076,6 +3108,11 @@
           "at": "2026-11-15T20:23:51.211299Z",
           "reactions": 0,
           "views": 89
+        },
+        {
+          "at": "2026-11-16T20:23:54.591280Z",
+          "reactions": 0,
+          "views": 106
         }
       ],
       "visual_host": "imgbb",
@@ -4449,6 +4486,7 @@
       "open_issues": 3,
       "published_at": "2026-11-16T16:25:23.266340Z",
       "pushed_at": "2026-11-16T13:54:22Z",
+      "reactions": 0,
       "readme_fp": "8d8538a4e19797ea",
       "repo_id": 1445112696,
       "revisit_of": "",
@@ -4476,6 +4514,17 @@
       ],
       "updated_at": "2026-11-16T15:49:20Z",
       "url": "https://github.com/livliv-dev/player",
+      "value_score": 51.97,
+      "views": 41,
+      "views_age_hours": 4.0,
+      "views_at_24h": 107,
+      "views_history": [
+        {
+          "at": "2026-11-16T20:23:52.421303Z",
+          "reactions": 0,
+          "views": 41
+        }
+      ],
       "visual_host": "imgbb",
       "visual_kind": "readme"
     },
@@ -5544,10 +5593,10 @@
       ],
       "updated_at": "2026-11-14T14:40:14Z",
       "url": "https://github.com/nyblnet/bento",
-      "value_score": 36.66,
-      "views": 77,
-      "views_age_hours": 26.2,
-      "views_at_24h": 74,
+      "value_score": 34.35,
+      "views": 98,
+      "views_age_hours": 50.2,
+      "views_at_24h": 70,
       "views_history": [
         {
           "at": "2026-11-14T20:23:52.478674Z",
@@ -5558,6 +5607,11 @@
           "at": "2026-11-15T20:23:50.332675Z",
           "reactions": 0,
           "views": 77
+        },
+        {
+          "at": "2026-11-16T20:23:53.982206Z",
+          "reactions": 0,
+          "views": 98
         }
       ],
       "visual_host": "imgbb",
@@ -6294,15 +6348,20 @@
       "topics": [],
       "updated_at": "2026-11-15T16:07:08Z",
       "url": "https://github.com/s1dashu/quiet-md",
-      "value_score": 35.02,
-      "views": 28,
-      "views_age_hours": 4.0,
-      "views_at_24h": 73,
+      "value_score": 27.64,
+      "views": 60,
+      "views_age_hours": 28.0,
+      "views_at_24h": 56,
       "views_history": [
         {
           "at": "2026-11-15T20:23:49.451429Z",
           "reactions": 0,
           "views": 28
+        },
+        {
+          "at": "2026-11-16T20:23:53.357808Z",
+          "reactions": 0,
+          "views": 60
         }
       ],
       "visual_host": "imgbb",
@@ -6417,10 +6476,10 @@
       ],
       "updated_at": "2026-11-13T17:55:05Z",
       "url": "https://github.com/simbasjungles/free-my-tv",
-      "value_score": 30.29,
-      "views": 86,
-      "views_age_hours": 50.2,
-      "views_at_24h": 61,
+      "value_score": 30.97,
+      "views": 100,
+      "views_age_hours": 74.2,
+      "views_at_24h": 64,
       "views_history": [
         {
           "at": "2026-11-13T20:23:53.206177Z",
@@ -6436,6 +6495,11 @@
           "at": "2026-11-15T20:23:51.650545Z",
           "reactions": 0,
           "views": 86
+        },
+        {
+          "at": "2026-11-16T20:23:54.899185Z",
+          "reactions": 0,
+          "views": 100
         }
       ],
       "visual_host": "imgbb",
@@ -6709,10 +6773,10 @@
       ],
       "updated_at": "2026-11-13T00:21:09Z",
       "url": "https://github.com/storytold/vectorcraft",
-      "value_score": 44.48,
-      "views": 130,
-      "views_age_hours": 67.2,
-      "views_at_24h": 86,
+      "value_score": 42.8,
+      "views": 141,
+      "views_age_hours": 91.2,
+      "views_at_24h": 85,
       "views_history": [
         {
           "at": "2026-11-13T20:23:54.194108Z",
@@ -6728,6 +6792,11 @@
           "at": "2026-11-15T20:23:52.535278Z",
           "reactions": 1,
           "views": 130
+        },
+        {
+          "at": "2026-11-16T20:23:55.529916Z",
+          "reactions": 1,
+          "views": 141
         }
       ],
       "visual_host": "imgbb",
@@ -7561,6 +7630,7 @@
       "open_issues": 13,
       "published_at": "2026-11-16T18:14:06.443780Z",
       "pushed_at": "2026-11-16T11:42:12Z",
+      "reactions": 0,
       "readme_fp": "455f6c495199a410",
       "repo_id": 1428714039,
       "revisit_of": "",
@@ -7599,6 +7669,17 @@
       ],
       "updated_at": "2026-11-16T16:07:48Z",
       "url": "https://github.com/xevrion/hatchzip",
+      "value_score": 46.84,
+      "views": 26,
+      "views_age_hours": 2.2,
+      "views_at_24h": 97,
+      "views_history": [
+        {
+          "at": "2026-11-16T20:23:52.101794Z",
+          "reactions": 0,
+          "views": 26
+        }
+      ],
       "visual_host": "imgbb",
       "visual_kind": "readme"
     }
