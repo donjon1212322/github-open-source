@@ -185,16 +185,16 @@
   "dead_letters": [],
   "gemini_daily": {
     "day": "2026-11-15",
-    "units": 30
+    "units": 36
   },
   "gemini_window": [
     [
-      1794766429.3997223,
-      3734
+      1794791630.7438223,
+      3911
     ],
     [
-      1794766433.1659381,
-      1414
+      1794791634.7338195,
+      1380
     ]
   ],
   "last_runs": {
@@ -285,9 +285,9 @@
       "telegram_message_id": 3550
     },
     "publish:us_evening": {
-      "finished_at": "2026-11-15T01:13:59.945485Z",
-      "repo": "frigadehq/yogurt",
-      "telegram_message_id": 3600
+      "finished_at": "2026-11-16T01:14:00.699966Z",
+      "repo": "holyarrs/holyarrs",
+      "telegram_message_id": 3606
     },
     "publish:us_midday": {
       "finished_at": "2026-11-15T18:14:01.918405Z",
@@ -2247,6 +2247,121 @@
           "views": 74
         }
       ],
+      "visual_host": "imgbb",
+      "visual_kind": "readme"
+    },
+    "holyarrs/holyarrs": {
+      "articles": {},
+      "card_style": "",
+      "category": "DevTools",
+      "contributors_count": 1,
+      "created_at": "2026-11-09T23:53:25Z",
+      "crossposts": {
+        "bluesky": {
+          "attempts": 0,
+          "due_at": "2026-11-16T18:00:00+00:00",
+          "status": "pending"
+        }
+      },
+      "description": "One self-hosted app for your shows, movies and music.",
+      "description_fp": "c6fb6a5510dc7213",
+      "forks": 65,
+      "full_name": "HolyArrs/HolyArrs",
+      "generated": {
+        "article_markdown": "## What it is\n\nHolyArrs is a self-hosted application designed to combine multiple media management tools into a single package. Written in Go, it unifies the functionality typically handled by separate utilities for downloading, tracking, and organizing movies, television shows, and music libraries.\n\n## Why it matters\n\nMaintaining a traditional self-hosted media workflow often involves running a cluster of distinct services. Each component demands its own port, login credentials, and configuration overhead. HolyArrs addresses this fragmentation by centralizing the entire workflow into a single interface, significantly reducing resource utilization and maintenance overhead.\n\n## Key features\n\n- Run in an approximately 16.1 MB download package utilizing minimal idle RAM.\n- Browse media via an interface featuring inline trailer playback on hover.\n- Import existing setups directly from Sonarr, Radarr, Lidarr, Prowlarr, and Bazarr.\n- Configure custom pick rules based on file size, quality, and preferred language.\n- Receive release alerts across Discord, Telegram, ntfy, Gotify, Pushover, or webhooks.\n\n## Quick start\n\nSave this as `docker-compose.yml` in a new folder on a local disk:\n\n```yaml\nname: holyarrs\nservices:\n  holyarrs:\n    image: holyarrs/holyarrs:latest\n    container_name: holyarrs\n    environment:\n      - PUID=1000\n      - PGID=1000\n      - TZ=America/New_York\n    volumes:\n      - /your/local/path:/config\n      - /path/to/movies:/movies #optional\n      - /path/to/tv:/tv #optional\n      - /path/to/music:/music #optional\n      - /path/to/downloads:/downloads #optional\n    ports:\n      - 6262:6262\n    restart: unless-stopped\n```\n\n```sh\ndocker compose up -d\n```\n\n## Who should try it\n\nThis project fits homelab administrators and self-hosters who are tired of managing a sprawling matrix of containers and want to simplify their infrastructure.\n\n## Verdict\n\nAn efficient alternative for homelabs looking to drop container bloat, provided you are willing to migrate away from mature separate apps.",
+        "article_title": "HolyArrs: One Self-Hosted App for Shows, Movies and Music",
+        "card_hook": "Consolidate your self-hosted media apps",
+        "card_subline": "Combine Sonarr, Radarr, Lidarr and more into one single app",
+        "category": "DevTools",
+        "discussion_question": "Which of the six legacy media apps would you drop first?",
+        "hook": "Replace six separate media management containers with HolyArrs, a single 16.1 MB binary for shows, movies, and music.",
+        "key_features": [
+          "Run in an approximately 16.1 MB download package utilizing roughly 95 MiB of idle RAM",
+          "Browse media via an interface featuring inline trailer playback on hover",
+          "Import existing setups directly from Sonarr, Radarr, Lidarr, Prowlarr, and Bazarr",
+          "Configure custom pick rules based on file size, quality, and preferred language",
+          "Receive release alerts across Discord, Telegram, ntfy, Gotify, Pushover, or webhooks",
+          "Expose APIs compatible with legacy ecosystem tools like Seerr and Unpackerr"
+        ],
+        "llm_used": true,
+        "quick_start": "docker compose up -d",
+        "safety": "ok",
+        "safety_reason": "Legitimate self-hosted media management tool.",
+        "scene": "You stare at six open browser tabs for Sonarr, Radarr, Lidarr, Bazarr, Prowlarr, and Overseerr just to figure out why a single episode failed to download.",
+        "social_text": "Replace six separate media management containers with HolyArrs, a single 16.1 MB app for your shows, movies, and music.",
+        "summary": "HolyArrs operates as a unified self-hosted backend that integrates downloading, indexing, subtitle management, and requests into a single Go-based application. By consolidating functionality traditionally spread across multiple discrete tools, it communicates directly with download clients and media servers to manage the lifecycle of media files. The system exposes a single port and web interface to replace scattered dashboard tabs.",
+        "surfaces": {
+          "Facebook_body": "Managing a personal collection of shows, movies, and music often means running half a dozen separate programs at once. Each tool requires its own setup, update cycle, and browser tab, consuming extra system memory and complicating your daily routine.\n\nThis project solves that clutter by combining all those scattered functions into a single, highly efficient program. Instead of managing a complex web of separate services, you get one clean interface and a single network port to handle everything from finding files to downloading and organizing them.\n\nBuilt for home server administrators and media enthusiasts, it lets you import your existing setups easily while slashing your idle memory usage down to around 95 megabytes. It is an ideal fit if you want to simplify your hardware setup without losing advanced features like custom pick rules and instant chat alerts.",
+          "Facebook_headline": "Combine all your media tools into one simple app",
+          "Facebook_lead": "Stop juggling multiple browser tabs for your shows, movies, and music. Run a single lightweight program that handles downloading, subtitles, and requests in one place.",
+          "bluesky_headline": "Manage all your shows and movies in one tiny app",
+          "bluesky_lead": "Replace six separate media tools with a single 16 MB program that uses just 95 megabytes of idle memory.",
+          "devto_body": "## What it is\n\nHolyArrs is a unified, self-hosted Go application that consolidates the functionality of traditional media management stacks into a single binary. Written in Go and licensed under open source terms, it replaces multiple discrete containers for shows, movies, and music with one 16.1 MB executable.\n\n## How it works\n\nThe application operates by exposing a single port and web interface, eliminating scattered dashboard tabs. It communicates directly with download clients and media servers to manage the complete lifecycle of media files, handling indexing, downloading, subtitle management, and requests internally.\n\n## Key features\n\n- Extremely lightweight footprint: approximately 16.1 MB package size utilizing roughly 95 MiB of idle RAM.\n- Browse media via an interface featuring inline trailer playback on hover.\n- Import existing setups directly from Sonarr, Radarr, Lidarr, Prowlarr, and Bazarr.\n- Configure custom pick rules based on file size, quality, and preferred language.\n- Receive release alerts across Discord, Telegram, ntfy, Gotify, Pushover, or webhooks.\n\n## Getting started\n\nTo run HolyArrs, clone the repository from GitHub and compile the Go binary or deploy the provided container image. Point the application to your existing media directories, configure your download clients, and use the built-in migration tools to pull in rules from your previous setup.\n\n## When not to use it\n\nAvoid this tool if you rely heavily on specialized plugins unique to mature separate applications, or if you are not prepared to migrate your existing configuration databases away from the traditional multi-container stack.",
+          "seo_description": "Replace six separate media containers with HolyArrs, a single 16MB binary for shows, movies, and music designed for homelab administrators.",
+          "seo_query": "self hosted media management single app",
+          "seo_title": "Consolidate Media Management Apps - HolyArrs Alternative",
+          "telegraph_angle": "Explain the architectural shift from multi-container media stacks to a single-binary approach, including migration trade-offs."
+        },
+        "tension": "Managing a standard media server requires juggling six separate logins, six ports, six update cycles, and fragmented API keys that constantly break.",
+        "turn": "HolyArrs combines all six workloads into a single 16.1 MB binary, though you still need to bring your own media server and download clients.",
+        "verdict": "An efficient alternative for homelabs looking to drop container bloat, provided you are willing to migrate away from mature separate apps.",
+        "who_for": "Self-hosters and homelab administrators managing personal media libraries.",
+        "why_now": "The proliferation of separate micro-services for media pipelines has made lightweight consolidation practical in a single binary."
+      },
+      "hn_points": 169,
+      "homepage": "https://holyarrs.com",
+      "id": 1452008226,
+      "image_url": "https://i.ibb.co/5gD6K7cc/holyarrs-holyarrs-readme-preview-7ee153bf0fa8.jpg",
+      "is_dual_use": false,
+      "is_hidden_gem": false,
+      "language": "Go",
+      "license": {
+        "key": "agpl-3.0",
+        "name": "GNU Affero General Public License v3.0",
+        "node_id": "MDc6TGljZW5zZTE=",
+        "spdx_id": "AGPL-3.0",
+        "url": "https://api.github.com/licenses/agpl-3.0"
+      },
+      "media_urls": [
+        "https://raw.githubusercontent.com/HolyArrs/.github/main/profile/banner-dark.gif",
+        "https://raw.githubusercontent.com/HolyArrs/.github/main/profile/hero-light.webp",
+        "https://raw.githubusercontent.com/HolyArrs/.github/main/profile/btn-site-light.png",
+        "https://raw.githubusercontent.com/HolyArrs/.github/main/profile/btn-roadmap-light.png",
+        "https://raw.githubusercontent.com/HolyArrs/.github/main/profile/btn-news-light.png",
+        "https://raw.githubusercontent.com/HolyArrs/.github/main/profile/tiles-light.png",
+        "https://raw.githubusercontent.com/HolyArrs/.github/main/profile/clip-home-light.webp",
+        "https://raw.githubusercontent.com/HolyArrs/.github/main/profile/clip-explore-light.webp"
+      ],
+      "name": "HolyArrs",
+      "open_issues": 105,
+      "published_at": "2026-11-16T01:14:00.699548Z",
+      "pushed_at": "2026-11-15T20:18:24Z",
+      "readme_fp": "d610a05031410358",
+      "repo_id": 1452008226,
+      "revisit_of": "",
+      "revisit_reason": "",
+      "score": 92.138,
+      "slot": "us_evening",
+      "sources": [
+        "github_search",
+        "hacker_news",
+        "telegram:github_repos"
+      ],
+      "stars": 1264,
+      "telegram_chat_id": "@GitHub_Open_Source",
+      "telegram_link": "https://t.me/GitHub_Open_Source/3606",
+      "telegram_message_id": 3606,
+      "telegraph_url": "https://telegra.ph/HolyArrs-One-Self-Hosted-App-for-Shows-Movies-and-Music-11-16",
+      "topics": [
+        "docker",
+        "homelab",
+        "jellyfin",
+        "media-server",
+        "plex",
+        "self-hosted"
+      ],
+      "updated_at": "2026-11-16T00:59:45Z",
+      "url": "https://github.com/HolyArrs/HolyArrs",
       "visual_host": "imgbb",
       "visual_kind": "readme"
     },
@@ -7122,71 +7237,6 @@
   "queue": [
     {
       "archived": false,
-      "contributors_count": 1,
-      "created_at": "2026-11-09T23:53:25Z",
-      "default_branch": "main",
-      "description": "One self-hosted app for your shows, movies and music.",
-      "disabled": false,
-      "fork": false,
-      "forks": 65,
-      "forks_count": 65,
-      "full_name": "HolyArrs/HolyArrs",
-      "has_readme": true,
-      "hn_points": 169,
-      "homepage": "https://holyarrs.com",
-      "id": 1452008226,
-      "is_dual_use": false,
-      "is_hidden_gem": false,
-      "language": "Go",
-      "license": {
-        "key": "agpl-3.0",
-        "name": "GNU Affero General Public License v3.0",
-        "node_id": "MDc6TGljZW5zZTE=",
-        "spdx_id": "AGPL-3.0",
-        "url": "https://api.github.com/licenses/agpl-3.0"
-      },
-      "media_urls": [
-        "https://raw.githubusercontent.com/HolyArrs/.github/main/profile/banner-dark.gif",
-        "https://raw.githubusercontent.com/HolyArrs/.github/main/profile/hero-light.webp",
-        "https://raw.githubusercontent.com/HolyArrs/.github/main/profile/btn-site-light.png",
-        "https://raw.githubusercontent.com/HolyArrs/.github/main/profile/btn-roadmap-light.png",
-        "https://raw.githubusercontent.com/HolyArrs/.github/main/profile/btn-news-light.png",
-        "https://raw.githubusercontent.com/HolyArrs/.github/main/profile/tiles-light.png",
-        "https://raw.githubusercontent.com/HolyArrs/.github/main/profile/clip-home-light.webp",
-        "https://raw.githubusercontent.com/HolyArrs/.github/main/profile/clip-explore-light.webp"
-      ],
-      "name": "HolyArrs",
-      "non_software_reason": "",
-      "open_issues": 105,
-      "open_issues_count": 105,
-      "owner_repo_count": 1,
-      "pushed_at": "2026-11-15T20:18:24Z",
-      "readme": "",
-      "readme_excerpt": "<p align=\"center\"><b>English</b> · <a href=\".github/readme/README.es.md\">Español</a> · <a href=\".github/readme/README.fr.md\">Français</a> · <a href=\".github/readme/README.it.md\">Italiano</a> · <a href=\".github/readme/README.zh-CN.md\">简体中文</a> · <a href=\".github/readme/README.ko.md\">한국어</a> · <a href=\".github/readme/README.ja.md\">日本語</a> · <a href=\".github/readme/README.hi.md\">हिन्दी</a> · <a href=\".github/readme/README.ar.md\">العربية</a> · <a href=\".github/readme/README.ru.md\">Русский</a> · <a href=\".github/readme/LANGUAGES.md\">More languages</a></p>\n\n<p align=\"center\">\n  <picture>\n    <source media=\"(prefers-color-scheme: light)\" srcset=\"https://raw.githubusercontent.com/HolyArrs/.github/main/profile/banner-light.gif\">\n    <img src=\"https://raw.githubusercontent.com/HolyArrs/.github/main/profile/banner-dark.gif\" alt=\"HolyArrs: one self-hosted app for shows, movies, music and downloads\" width=\"100%\">\n  </picture>\n</p>\n\n<p align=\"center\"><a href=\"https://holyarrs.com\"><picture><source media=\"(prefers-color-scheme: dark)\" srcset=\"https://raw.githubusercontent.com/HolyArrs/.github/main/profile/btn-site-dark.png\"><img src=\"https://raw.githubusercontent.com/HolyArrs/.github/main/profile",
-      "readme_len": 23971,
-      "repo_id": 1452008226,
-      "score": 92.138,
-      "source_name": "github_search",
-      "sources": [
-        "github_search",
-        "hacker_news",
-        "telegram:github_repos"
-      ],
-      "stargazers_count": 1261,
-      "stars": 1261,
-      "topics": [
-        "docker",
-        "homelab",
-        "jellyfin",
-        "media-server",
-        "plex",
-        "self-hosted"
-      ],
-      "updated_at": "2026-11-16T00:22:55Z",
-      "url": "https://github.com/HolyArrs/HolyArrs"
-    },
-    {
-      "archived": false,
       "contributors_count": 215,
       "created_at": "2026-09-30T13:41:20Z",
       "default_branch": "main",
@@ -11635,8 +11685,8 @@
     "holyarrs/holyarrs": {
       "first_seen_at": "2026-11-16T00:25:34.687538Z",
       "full_name": "HolyArrs/HolyArrs",
-      "last_decision": "queued",
-      "last_seen_at": "2026-11-16T00:25:34.687540Z",
+      "last_decision": "published",
+      "last_seen_at": "2026-11-16T01:14:00.699952Z",
       "repo_id": 1452008226,
       "sources": [
         "github_search",
