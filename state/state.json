@@ -185,12 +185,16 @@
   "dead_letters": [],
   "gemini_daily": {
     "day": "2026-11-16",
-    "units": 9
+    "units": 15
   },
   "gemini_window": [
     [
-      1794846316.1822987,
-      1332
+      1794852829.5436192,
+      3982
+    ],
+    [
+      1794852840.6723707,
+      1399
     ]
   ],
   "last_runs": {
@@ -286,9 +290,9 @@
       "telegram_message_id": 3606
     },
     "publish:us_midday": {
-      "finished_at": "2026-11-15T18:14:01.918405Z",
-      "repo": "huamidev/gestaltx",
-      "telegram_message_id": 3604
+      "finished_at": "2026-11-16T18:14:06.444078Z",
+      "repo": "xevrion/hatchzip",
+      "telegram_message_id": 3608
     },
     "publish:us_morning": {
       "finished_at": "2026-11-16T16:25:23.266790Z",
@@ -7343,6 +7347,124 @@
       ],
       "visual_host": "imgbb",
       "visual_kind": "readme"
+    },
+    "xevrion/hatchzip": {
+      "articles": {},
+      "card_style": "",
+      "category": "DevTools",
+      "contributors_count": 10,
+      "created_at": "2026-10-21T17:29:28Z",
+      "crossposts": {
+        "bluesky": {
+          "attempts": 0,
+          "due_at": "2026-11-16T18:44:06.443758+00:00",
+          "status": "pending"
+        }
+      },
+      "description": "HatchZip is a free, open-source archive extractor for Windows, macOS and Linux that extracts ZIP, 7z, RAR, tar and split archives in place, so it needs free space for the extracted files only. Desktop app and CLI.",
+      "description_fp": "4e14019afa1e0045",
+      "forks": 101,
+      "full_name": "xevrion/hatchzip",
+      "generated": {
+        "article_markdown": "## What it is\nHatchZip is an archive extractor designed for a specific, annoying problem: running out of disk space while trying to unpack a file that is almost as large as your remaining free space. Traditional extractors like `unzip` or 7-Zip require enough space to hold both the source archive and the uncompressed output simultaneously. HatchZip flips this by processing the archive from the end and truncating the source file as it goes, effectively reusing the space the archive occupied for the files being extracted.\n\n## Why it matters\nIf you work with large datasets, game assets, or virtual machine images, you have likely hit the \"disk full\" error mid-extraction. Usually, this forces you to clear space, move files to external drives, or delete other projects. HatchZip solves this by managing the disk footprint dynamically. It checks if the extraction will fit before starting and maintains a safety margin, ensuring you don't end up with a corrupted, half-extracted mess if you run out of space.\n\n## Key features\n- **In-place extraction:** Supports ZIP, 7z, RAR, and tar, shrinking the source archive as files are extracted.\n- **Crash-safe:** If the process is interrupted, it can resume where it left off without data loss.\n- **Pre-flight checks:** Calculates whether the extraction will fit before modifying any files.\n- **Filesystem optimization:** Leverages hole punching on supported filesystems (ext4, XFS, btrfs) to reclaim space more efficiently.\n- **Dual interface:** Provides both a GUI with OS context menu integration and a command-line interface for automation.\n\n## Quick start\nFor Linux and macOS, you can install the CLI tool directly:\n\n```sh\ncurl -fsSL https://raw.githubusercontent.com/xevrion/hatchzip/main/install.sh | sh\n```\n\nFor Windows, you can download the installer or portable executable from the project's release page. Once installed, it integrates into your file explorer context menu for right-click extractions.\n\n## Who should try it\nThis tool is for anyone who frequently deals with large archives on constrained storage. If you are a developer managing large datasets or a gamer dealing with massive compressed assets, this will save you from constant disk management headaches. If you have massive amounts of free storage and rarely deal with archives near your disk capacity, the standard tools you already have are likely sufficient.\n\n## Verdict\nHatchZip is a specialized tool that does one thing very well. It is not trying to replace your entire archive management suite, but it is the right choice when you are up against your disk's limits. It is reliable, safe, and solves a genuine pain point in daily development workflows.",
+        "article_title": "How to Extract Large Archives on Full Disks with HatchZip",
+        "card_hook": "Extract archives on full disks",
+        "card_subline": "Shrink archives as you extract them so you don't need double the disk space",
+        "category": "DevTools",
+        "discussion_question": "Have you ever had to delete a project just to make room to unzip a file?",
+        "hook": "Extract archives in-place to save disk space, shrinking the source file as you go.",
+        "key_features": [
+          "In-place extraction for ZIP, 7z, RAR, and tar archives",
+          "Crash-safe design that allows resuming interrupted extractions",
+          "Pre-extraction space checks to ensure the operation will fit",
+          "Supports file system hole punching on ext4, XFS, and btrfs for additional space savings",
+          "Includes both a GUI with context menu integration and a CLI tool"
+        ],
+        "llm_used": true,
+        "quick_start": "curl -fsSL https://raw.githubusercontent.com/xevrion/hatchzip/main/install.sh | sh",
+        "safety": "ok",
+        "safety_reason": "HatchZip is a standard archive extraction utility.",
+        "scene": "You're staring at a 180 GB game archive, and your SSD only has 200 GB free. You know that standard tools like unzip or 7-Zip will fail because they need to hold the archive and the extracted files simultaneously.",
+        "social_text": "Stop deleting files to make room for extractions. HatchZip extracts archives in-place by shrinking the source file as it goes, letting you unpack large datasets on nearly full disks.",
+        "summary": "HatchZip extracts archives by processing them from the end and truncating the source file as data is successfully written. It sits on top of standard archive formats like ZIP, 7z, and RAR, effectively reusing the space occupied by the source archive during the extraction process. This prevents the \"not enough disk space\" error common when unpacking large files on nearly full drives.",
+        "surfaces": {
+          "Facebook_body": "Unpacking large compressed files usually requires double the storage space, forcing you to delete items just to extract an archive. A new utility solves this by unpacking files directly in-place, shrinking the original archive as the new data is successfully written to your drive.\n\nTraditional tools need room for both the compressed source and the full extracted contents at the same time. This utility processes archives from the end and safely truncating the source file as it goes. It also punches filesystem holes on supported drives to maximize free space.\n\nIt includes both a visual desktop app with right-click menu integration and a command-line interface. It handles standard formats including ZIP, 7z, and RAR.\n\nThis utility is built for developers, power users, and anyone working with massive datasets or game assets on constrained storage drives. If your computer has terabytes of free space, you may not need it, but it is an essential fallback when storage is tight.",
+          "Facebook_headline": "Never run out of disk space when unpacking large files",
+          "Facebook_lead": "Unpacking massive files usually requires double the storage space. A new free tool extracts archives directly in-place, shrinking the original file as it goes so you never hit storage limits.",
+          "bluesky_headline": "Extract large archives without needing double disk space",
+          "bluesky_lead": "HatchZip unpacks files in-place by shrinking the source archive as it writes the extracted data.",
+          "devto_body": "## What it is\n\nHatchZip is a free, open-source archive extractor written in Rust that unpacks compressed files in-place. By processing archives from the end and truncating the source file as data is successfully written, it eliminates the traditional double-space requirement for extraction.\n\n## How it works\n\nStandard extractors read a compressed file and write a brand-new uncompressed copy, requiring free space equal to the archive plus the extracted contents. HatchZip manages this differently by reading and writing chunks while shrinking the source file simultaneously. It also supports filesystem hole punching on ext4, XFS, and btrfs for extra efficiency, and includes a crash-safe design that permits resuming interrupted operations.\n\n## Key features\n\n- In-place extraction for ZIP, 7z, RAR, and tar archives\n- Crash-safe design with resume capability\n- Pre-extraction space checks\n- Filesystem hole punching on Linux filesystems\n- Desktop GUI with context menu integration and CLI tool\n\n## Getting started\n\nClone the repository from GitHub and build it using Cargo:\n\n```bash\ngit clone https://github.com/xevrion/hatchzip\ncd hatchzip\ncargo build --release\n```\n\n## When not to use it\n\nSkip this utility if your machine has abundant storage space and you never encounter disk capacity warnings during file extraction.",
+          "seo_description": "Learn how to unpack large ZIP, 7z, and RAR archives without needing double the disk space using HatchZip, a free open-source in-place extractor.",
+          "seo_query": "how to extract zip file without extra space",
+          "seo_title": "Extract archives without extra disk space - HatchZip",
+          "telegraph_angle": "Explain the storage crisis caused by large assets on modern SSDs and how in-place extraction solves the double-space problem."
+        },
+        "tension": "You're forced to either delete other projects to clear space or move the archive to an external drive, wasting time and risking file corruption during the transfer.",
+        "turn": "HatchZip changes the game by processing the archive from the end and cutting off the source file as it goes, effectively reclaiming space in real-time. It doesn't magically make files smaller, but it removes the requirement that you have 2x the file size in free space.",
+        "verdict": "An essential utility for anyone working with large archives on limited storage; skip it if you have terabytes of free space and don't care about disk management.",
+        "who_for": "Developers and power users dealing with large datasets or game assets on constrained storage.",
+        "why_now": "Modern storage is often SSD-based and expensive, and large game assets or datasets frequently exceed the \"double space\" requirement of traditional extractors."
+      },
+      "homepage": "https://hatchzip.dev",
+      "id": 1428714039,
+      "image_url": "https://i.ibb.co/LM85wBx/xevrion-hatchzip-readme-preview-78f99fbbaddb.jpg",
+      "is_dual_use": false,
+      "is_hidden_gem": false,
+      "language": "Rust",
+      "license": {
+        "key": "apache-2.0",
+        "name": "Apache License 2.0",
+        "node_id": "MDc6TGljZW5zZTI=",
+        "spdx_id": "Apache-2.0",
+        "url": "https://api.github.com/licenses/apache-2.0"
+      },
+      "media_urls": [
+        "https://raw.githubusercontent.com/xevrion/hatchzip/main/docs/media/hatchzip.gif"
+      ],
+      "name": "hatchzip",
+      "open_issues": 13,
+      "published_at": "2026-11-16T18:14:06.443780Z",
+      "pushed_at": "2026-11-16T11:42:12Z",
+      "readme_fp": "455f6c495199a410",
+      "repo_id": 1428714039,
+      "revisit_of": "",
+      "revisit_reason": "",
+      "score": 88.425,
+      "slot": "us_midday",
+      "sources": [
+        "github_search"
+      ],
+      "stars": 2941,
+      "telegram_chat_id": "@GitHub_Open_Source",
+      "telegram_link": "https://t.me/GitHub_Open_Source/3608",
+      "telegram_message_id": 3608,
+      "telegraph_url": "https://telegra.ph/How-to-Extract-Large-Archives-on-Full-Disks-with-HatchZip-11-16",
+      "topics": [
+        "7z",
+        "7zip",
+        "archive",
+        "archive-extractor",
+        "cli",
+        "crash-safe",
+        "disk-space",
+        "extract",
+        "extractor",
+        "gui",
+        "in-place",
+        "linux",
+        "macos",
+        "rar",
+        "rust",
+        "tar",
+        "unrar",
+        "unzip",
+        "windows",
+        "zip"
+      ],
+      "updated_at": "2026-11-16T16:07:48Z",
+      "url": "https://github.com/xevrion/hatchzip",
+      "visual_host": "imgbb",
+      "visual_kind": "readme"
     }
   },
   "queue": [
@@ -7407,194 +7529,6 @@
       ],
       "updated_at": "2026-11-16T00:22:07Z",
       "url": "https://github.com/yetone/magpie"
-    },
-    {
-      "archived": false,
-      "contributors_count": 376,
-      "created_at": "2026-09-30T13:39:37Z",
-      "default_branch": "main",
-      "description": "PdfCraft: An open-source PDF reader and editor written from scratch in pure Rust",
-      "disabled": false,
-      "fork": false,
-      "forks": 7589,
-      "forks_count": 7589,
-      "full_name": "storytold/pdfcraft",
-      "has_readme": true,
-      "homepage": "https://getartcraft.com/apps/printcraft",
-      "id": 1398086162,
-      "is_dual_use": false,
-      "is_hidden_gem": false,
-      "language": "Rust",
-      "license": {
-        "key": "apache-2.0",
-        "name": "Apache License 2.0",
-        "node_id": "MDc6TGljZW5zZTI=",
-        "spdx_id": "Apache-2.0",
-        "url": "https://api.github.com/licenses/apache-2.0"
-      },
-      "media_urls": [
-        "https://raw.githubusercontent.com/storytold/pdfcraft/main/docs/images/pdfcraft-viewer.png",
-        "https://raw.githubusercontent.com/storytold/pdfcraft/main/docs/images/pdfcraft-scripts.png",
-        "https://raw.githubusercontent.com/storytold/pdfcraft/main/docs/images/pdfcraft-twoup.png",
-        "https://raw.githubusercontent.com/storytold/pdfcraft/main/docs/images/pdfcraft-dark.png",
-        "https://raw.githubusercontent.com/storytold/pdfcraft/main/docs/images/pdfcraft-find.png",
-        "https://raw.githubusercontent.com/storytold/pdfcraft/main/docs/images/pdfcraft-bookmarks.png",
-        "https://raw.githubusercontent.com/storytold/pdfcraft/main/docs/images/pdfcraft-organize.png",
-        "https://raw.githubusercontent.com/storytold/pdfcraft/main/docs/images/pdfcraft-split.png"
-      ],
-      "name": "pdfcraft",
-      "non_software_reason": "",
-      "open_issues": 3190,
-      "open_issues_count": 3190,
-      "owner_repo_count": 5,
-      "pushed_at": "2026-11-15T21:55:35Z",
-      "readme": "",
-      "readme_excerpt": "<p align=\"center\">\n  <a href=\"https://getartcraft.com/\">\n    <picture>\n      <source media=\"(prefers-color-scheme: dark)\" srcset=\"docs/brand/artcraft-logo-white.svg\">\n      <img alt=\"ArtCraft\" src=\"docs/brand/artcraft-logo.svg\" width=\"200\">\n    </picture>\n  </a>\n</p>\n\n\n<p align=\"center\">\n  <img src=\"assets/app-icon/hicolor/256x256/apps/ai.storyteller.pdfcraft.png\" width=\"128\" height=\"128\" alt=\"PdfCraft icon: an engraved lion on a red tile\">\n</p>\n\n<h1 align=\"center\">PdfCraft</h1>\n\n<p align=\"center\">\n  <b>The PDF workbench; an open-source, modern PDF reader and editor, built in pure Rust.</b><br>\n  Read, organize, combine, split and secure PDFs in a fast, native app, written in Rust from the ground up.<br>\n  macOS · Windows · Linux · FreeBSD · the web\n</p>\n\n<p align=\"center\">\n  <img alt=\"License: MIT OR Apache-2.0\" src=\"https://img.shields.io/badge/license-MIT%20OR%20Apache--2.0-b70228?style=flat-square\">\n  <img alt=\"Written in Rust\" src=\"https://img.shields.io/badge/written%20in-Rust-8a011e?style=flat-square\">\n  <img alt=\"Platforms: macOS, Windows, Linux, FreeBSD, web\" src=\"https://img.shields.io/badge/runs%20on-macOS%20%C2%B7%20Windows%20%C2%B7%20Linux%20%C2%B7%20FreeBSD%20%C2%B7%2",
-      "readme_len": 44013,
-      "repo_id": 1398086162,
-      "score": 88.5,
-      "source_name": "github_search",
-      "sources": [
-        "github_search"
-      ],
-      "stargazers_count": 20814,
-      "stars": 20814,
-      "topics": [
-        "document-processing",
-        "documents",
-        "pdf",
-        "pdf-generation",
-        "pdf-processing",
-        "pdf-tools",
-        "pdf-viewer",
-        "rust"
-      ],
-      "updated_at": "2026-11-16T00:23:00Z",
-      "url": "https://github.com/storytold/pdfcraft"
-    },
-    {
-      "archived": false,
-      "contributors_count": 62,
-      "created_at": "2026-10-20T09:13:06Z",
-      "default_branch": "main",
-      "description": "给国产电视的一块干净桌面：参照 tvOS 设计的开源 Android TV 桌面，没有广告，开机自动接管。A tvOS-style launcher for Xiaomi, TCL and other China-market TVs.",
-      "disabled": false,
-      "fork": false,
-      "forks": 1037,
-      "forks_count": 1037,
-      "full_name": "pengchujin/aerial-tv",
-      "has_readme": true,
-      "homepage": "https://aerial.qust.me",
-      "id": 1426780056,
-      "is_dual_use": false,
-      "is_hidden_gem": false,
-      "language": "Kotlin",
-      "license": {
-        "key": "mit",
-        "name": "MIT License",
-        "node_id": "MDc6TGljZW5zZTEz",
-        "spdx_id": "MIT",
-        "url": "https://api.github.com/licenses/mit"
-      },
-      "media_urls": [
-        "https://raw.githubusercontent.com/pengchujin/aerial-tv/main/site/img/screensaver-aerial.jpg",
-        "https://raw.githubusercontent.com/pengchujin/aerial-tv/main/site/img/home.jpg",
-        "https://raw.githubusercontent.com/pengchujin/aerial-tv/main/site/img/stock-xiaomi.jpg",
-        "https://raw.githubusercontent.com/pengchujin/aerial-tv/main/site/img/focus.jpg",
-        "https://raw.githubusercontent.com/pengchujin/aerial-tv/main/site/img/grid.jpg",
-        "https://raw.githubusercontent.com/pengchujin/aerial-tv/main/site/img/folder.jpg",
-        "https://raw.githubusercontent.com/pengchujin/aerial-tv/main/site/img/control-center.jpg",
-        "https://raw.githubusercontent.com/pengchujin/aerial-tv/main/site/img/columns.jpg"
-      ],
-      "name": "aerial-tv",
-      "non_software_reason": "",
-      "open_issues": 391,
-      "open_issues_count": 391,
-      "owner_repo_count": 1,
-      "pushed_at": "2026-11-15T04:29:15Z",
-      "readme": "",
-      "readme_excerpt": "<div align=\"center\">\n\n<img src=\"docs/brand/icon.png\" width=\"96\" alt=\"Aerial 图标\">\n\n# Aerial\n\n**给国产电视的一块干净桌面。**\n\n参照 Apple TV 做的 Android TV 桌面：没有广告，没有推荐流，只有你的 App、壁纸和航拍屏保。<br>\n适合小米、TCL、创维、索尼等国产电视，也能装在盒子和投影仪上。开机自动进入，待机也不会被清理。\n\n**中文** · [English](README.en.md)\n\n<a href=\"https://aerial.qust.me\"><img alt=\"官网\" src=\"https://img.shields.io/badge/%E5%AE%98%E7%BD%91-1f6feb?style=for-the-badge&logo=safari&logoColor=white\"></a>\n<a href=\"https://github.com/pengchujin/aerial-tv/releases/latest\"><img alt=\"下载 APK\" src=\"https://img.shields.io/badge/%E4%B8%8B%E8%BD%BD%20APK-34a853?style=for-the-badge&logo=android&logoColor=white\"></a>\n<a href=\"#安装\"><img alt=\"安装\" src=\"https://img.shields.io/badge/%E5%AE%89%E8%A3%85-d97757?style=for-the-badge&logo=gnubash&logoColor=white\"></a>\n\n<a href=\"https://github.com/pengchujin/aerial-tv/releases/latest\"><img alt=\"版本\" src=\"https://img.shields.io/github/v/release/pengchujin/aerial-tv?style=flat-square&label=%E7%89%88%E6%9C%AC&color=2997ff\"></a>\n<a href=\"LICENSE\"><img alt=\"许可证 MIT\" src=\"https://img.shields.io/badge/%E8%AE%B8%E5%8F%AF%E8%AF%81-MIT-555555?style=flat-square\"></a>\n<img alt=\"Android TV 5.0+\" src=\"https://img.shields.io/badge/Android%20TV-5.0%2B-3ddc84?sty",
-      "readme_len": 25373,
-      "repo_id": 1426780056,
-      "score": 88.5,
-      "source_name": "github_search",
-      "sources": [
-        "github_search"
-      ],
-      "stargazers_count": 12018,
-      "stars": 12018,
-      "topics": [],
-      "updated_at": "2026-11-16T00:23:31Z",
-      "url": "https://github.com/pengchujin/aerial-tv"
-    },
-    {
-      "archived": false,
-      "contributors_count": 10,
-      "created_at": "2026-10-21T17:29:28Z",
-      "default_branch": "main",
-      "description": "HatchZip is a free, open-source archive extractor for Windows, macOS and Linux that extracts ZIP, 7z, RAR, tar and split archives in place, so it needs free space for the extracted files only. Desktop app and CLI.",
-      "disabled": false,
-      "fork": false,
-      "forks": 101,
-      "forks_count": 101,
-      "full_name": "xevrion/hatchzip",
-      "has_readme": true,
-      "homepage": "https://hatchzip.dev",
-      "id": 1428714039,
-      "is_dual_use": false,
-      "is_hidden_gem": false,
-      "language": "Rust",
-      "license": {
-        "key": "apache-2.0",
-        "name": "Apache License 2.0",
-        "node_id": "MDc6TGljZW5zZTI=",
-        "spdx_id": "Apache-2.0",
-        "url": "https://api.github.com/licenses/apache-2.0"
-      },
-      "media_urls": [
-        "https://raw.githubusercontent.com/xevrion/hatchzip/main/docs/media/hatchzip.gif"
-      ],
-      "name": "hatchzip",
-      "non_software_reason": "",
-      "open_issues": 14,
-      "open_issues_count": 14,
-      "owner_repo_count": 1,
-      "pushed_at": "2026-11-13T17:51:26Z",
-      "readme": "",
-      "readme_excerpt": "<h1 align=\"center\">HatchZip</h1>\n\n<p align=\"center\">\n  Extract huge archives in place. The archive shrinks as your files hatch,<br>\n  so you only need free space for the output, not for the output <em>and</em> the archive.\n</p>\n\n<h4 align=\"center\">\n  <a href=\"https://hatchzip.dev\">hatchzip.dev</a> |\n  <a href=\"#installation\">Installation</a> |\n  <a href=\"#usage\">Usage</a> |\n  <a href=\"#is-hatchzip-safe\">Safety</a> |\n  <a href=\"docs/how-it-works.md\">How it works</a> |\n  <a href=\"CONTRIBUTING.md\">Contributing</a>\n</h4>\n\n<p align=\"center\">\n  <a href=\"https://github.com/xevrion/hatchzip/actions/workflows/ci.yml\"><img src=\"https://github.com/xevrion/hatchzip/actions/workflows/ci.yml/badge.svg\" alt=\"CI\" /></a>\n  <a href=\"https://scorecard.dev/viewer/?uri=github.com/xevrion/hatchzip\"><img src=\"https://api.scorecard.dev/projects/github.com/xevrion/hatchzip/badge\" alt=\"OpenSSF Scorecard\" /></a>\n  <a href=\"#license\"><img src=\"https://img.shields.io/badge/license-MIT%20OR%20Apache--2.0-blue.svg\" alt=\"MIT or Apache-2.0 licensed\" /></a>\n  <img src=\"https://img.shields.io/badge/platform-linux%20%7C%20windows%20%7C%20macos-blue.svg\" alt=\"Linux, Windows and macOS\" />\n</p>\n\n<p align=\"center\">\n  <im",
-      "readme_len": 32625,
-      "repo_id": 1428714039,
-      "score": 88.425,
-      "source_name": "github_search",
-      "sources": [
-        "github_search"
-      ],
-      "stargazers_count": 2925,
-      "stars": 2925,
-      "topics": [
-        "7z",
-        "7zip",
-        "archive",
-        "archive-extractor",
-        "cli",
-        "crash-safe",
-        "disk-space",
-        "extract",
-        "extractor",
-        "gui",
-        "in-place",
-        "linux",
-        "macos",
-        "rar",
-        "rust",
-        "tar",
-        "unrar",
-        "unzip",
-        "windows",
-        "zip"
-      ],
-      "updated_at": "2026-11-16T00:08:46Z",
-      "url": "https://github.com/xevrion/hatchzip"
     },
     {
       "archived": false,
@@ -14078,8 +14012,8 @@
     "pengchujin/aerial-tv": {
       "first_seen_at": "2026-11-04T12:14:31.127582Z",
       "full_name": "pengchujin/aerial-tv",
-      "last_decision": "queued",
-      "last_seen_at": "2026-11-16T00:25:34.690474Z",
+      "last_decision": "rejected:readme_not_english",
+      "last_seen_at": "2026-11-16T18:13:48.822557Z",
       "repo_id": 1426780056,
       "sources": [
         "github_search"
@@ -15209,8 +15143,8 @@
     "storytold/pdfcraft": {
       "first_seen_at": "2026-11-08T04:25:24.764268Z",
       "full_name": "storytold/pdfcraft",
-      "last_decision": "queued",
-      "last_seen_at": "2026-11-16T00:25:34.690279Z",
+      "last_decision": "duplicate:same_description_or_readme",
+      "last_seen_at": "2026-11-16T18:13:48.180656Z",
       "repo_id": 1398086162,
       "sources": [
         "github_search"
@@ -16075,8 +16009,8 @@
     "xevrion/hatchzip": {
       "first_seen_at": "2026-11-05T12:27:48.446342Z",
       "full_name": "xevrion/hatchzip",
-      "last_decision": "queued",
-      "last_seen_at": "2026-11-16T00:25:34.690703Z",
+      "last_decision": "published",
+      "last_seen_at": "2026-11-16T18:14:06.444069Z",
       "repo_id": 1428714039,
       "sources": [
         "github_search"

@@ -450,3 +450,7 @@
 {"reason": "same_description_or_readme", "repo": "storytold/filmcraft", "ts": "2026-11-16T16:23:51.928558Z", "type": "publish_candidate_duplicate"}
 {"preview_host": "imgbb", "repo": "livliv-dev/player", "ts": "2026-11-16T16:25:22.903610Z", "type": "published_as_text"}
 {"repo": "livliv-dev/player", "score": 90.288, "telegram_message_id": 3607, "telegraph_url": "https://telegra.ph/How-to-build-interactive-web-characters-with-LivLiv-Player-11-16", "ts": "2026-11-16T16:25:23.266645Z", "type": "project_published"}
+{"reason": "same_description_or_readme", "repo": "storytold/pdfcraft", "ts": "2026-11-16T18:13:48.180674Z", "type": "publish_candidate_duplicate"}
+{"reasons": ["readme_not_english"], "repo": "pengchujin/aerial-tv", "stage": "pre_llm", "ts": "2026-11-16T18:13:48.822574Z", "type": "publish_candidate_rejected"}
+{"preview_host": "imgbb", "repo": "xevrion/hatchzip", "ts": "2026-11-16T18:14:06.063196Z", "type": "published_as_text"}
+{"repo": "xevrion/hatchzip", "score": 88.425, "telegram_message_id": 3608, "telegraph_url": "https://telegra.ph/How-to-Extract-Large-Archives-on-Full-Disks-with-HatchZip-11-16", "ts": "2026-11-16T18:14:06.443954Z", "type": "project_published"}
