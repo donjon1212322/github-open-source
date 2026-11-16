@@ -199,11 +199,11 @@
   ],
   "last_runs": {
     "article": {
-      "finished_at": "2026-11-15T13:33:48.821047Z",
+      "finished_at": "2026-11-16T13:33:53.323928Z",
       "published": true,
       "reason": "published",
-      "repo": "frigadehq/yogurt",
-      "url": "https://dev.to/githubopensource/open-source-local-ai-meeting-assistant-yogurt-492l"
+      "repo": "holyarrs/holyarrs",
+      "url": "https://dev.to/githubopensource/consolidate-media-management-apps-holyarrs-alternative-2knb"
     },
     "collect": {
       "discovered": 405,
@@ -2251,7 +2251,13 @@
       "visual_kind": "readme"
     },
     "holyarrs/holyarrs": {
-      "articles": {},
+      "articles": {
+        "devto": {
+          "id": 5048312,
+          "published_at": "2026-11-16T13:33:53.323771Z",
+          "url": "https://dev.to/githubopensource/consolidate-media-management-apps-holyarrs-alternative-2knb"
+        }
+      },
       "card_style": "",
       "category": "DevTools",
       "contributors_count": 1,
@@ -2265,6 +2271,7 @@
       },
       "description": "One self-hosted app for your shows, movies and music.",
       "description_fp": "c6fb6a5510dc7213",
+      "devto_cover_url": "https://i.ibb.co/VpkzW8Qk/holyarrs-holyarrs-devto-cover-71788bcf1b21.png",
       "forks": 65,
       "full_name": "HolyArrs/HolyArrs",
       "generated": {

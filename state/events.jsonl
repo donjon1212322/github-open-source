@@ -445,3 +445,4 @@
 {"minutes_late": 403.6, "schedule": "13 1 * * *", "ts": "2026-11-16T07:56:34.367615Z", "type": "late_schedule_ignored"}
 {"deleted": 0, "ts": "2026-11-16T09:47:47.570212Z", "type": "moderation_completed", "updates": 0}
 {"deleted": 0, "ts": "2026-11-16T12:47:55.953916Z", "type": "moderation_completed", "updates": 0}
+{"platform": "devto", "repo": "holyarrs/holyarrs", "ts": "2026-11-16T13:33:53.323794Z", "type": "article_published", "url": "https://dev.to/githubopensource/consolidate-media-management-apps-holyarrs-alternative-2knb"}
