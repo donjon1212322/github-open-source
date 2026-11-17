@@ -195,16 +195,20 @@
   "dead_letters": [],
   "gemini_daily": {
     "day": "2026-11-17",
-    "units": 6
+    "units": 15
   },
   "gemini_window": [
     [
-      1794932630.0432463,
-      3953
+      1794939231.7516084,
+      3898
     ],
     [
-      1794932640.3798978,
-      1419
+      1794939238.4083362,
+      1443
+    ],
+    [
+      1794939253.333469,
+      194
     ]
   ],
   "last_runs": {
@@ -303,9 +307,9 @@
       "telegram_message_id": 3610
     },
     "publish:us_midday": {
-      "finished_at": "2026-11-16T18:14:06.444078Z",
-      "repo": "xevrion/hatchzip",
-      "telegram_message_id": 3608
+      "finished_at": "2026-11-17T18:14:18.049080Z",
+      "repo": "shanselman/gputaskman",
+      "telegram_message_id": 3612
     },
     "publish:us_morning": {
       "finished_at": "2026-11-17T16:24:14.507774Z",
@@ -6474,6 +6478,107 @@
       "visual_host": "imgbb",
       "visual_kind": "readme"
     },
+    "shanselman/gputaskman": {
+      "articles": {},
+      "card_style": "",
+      "category": "DevTools",
+      "contributors_count": 22,
+      "created_at": "2026-11-03T00:49:34Z",
+      "crossposts": {
+        "bluesky": {
+          "attempts": 0,
+          "due_at": "2026-11-17T18:44:18.048639+00:00",
+          "status": "pending"
+        }
+      },
+      "description": "A GPU task manager for Windows, Linux, and WSL: per-process VRAM, GPU activity, and LLM model/KV-cache insights for NVIDIA, AMD, and Intel GPUs (plus Huawei Ascend on Linux).",
+      "description_fp": "c5c068bf01a5e043",
+      "forks": 172,
+      "full_name": "shanselman/gputaskman",
+      "generated": {
+        "article_markdown": "## What it is\n\ngputaskman is a terminal-based utility designed to provide deep visibility into GPU resource utilization. Unlike standard system monitors that only report aggregate VRAM usage, it breaks down activity by process, identifying specific LLM models, KV-cache buffers, and compute tasks. It supports a wide range of hardware, including NVIDIA, AMD, Intel, and Huawei Ascend GPUs across Windows, Linux, and WSL environments.\n\n## Why it matters\n\nWhen working with local AI models, the gap between 'reported usage' and 'actual allocation' is often massive. Standard tools often fail to distinguish between static model weights, dynamic KV-cache, and background system processes. This leads to frustrating OOM errors that are difficult to diagnose. gputaskman bridges this gap by providing a granular view of what is actually occupying your GPU memory, allowing developers to optimize their inference pipelines and training jobs with actual data rather than guesswork.\n\n## Key features\n\n* **Cross-Platform Telemetry:** Unified monitoring for NVIDIA (NVML), AMD (ADL/SMI), Intel (WDDM), and Huawei Ascend (NPU-SMI) hardware.\n* **LLM Insight:** Specifically designed to surface model weights and KV-cache usage, making it easier to see how much memory your current prompt context is consuming.\n* **Container Awareness:** Automatically pairs containerized GPU processes with host-level metrics, solving the common issue where Docker hides process-specific GPU activity.\n* **Zero-Config Setup:** Can be installed via `uv` or `pipx`, or run as a portable binary on Windows and Linux without requiring complex driver toolkits.\n* **Scriptable Output:** Includes a `--json` flag, enabling you to pipe GPU metrics into other monitoring or logging systems.\n\n## Quick start\n\nThe easiest way to get started is using `uv` to install the package directly into an isolated environment:\n\n```powershell\nuv tool install gputaskman\ngputaskman\n```\n\nIf you prefer not to install Python, you can download the portable Windows or Linux binaries directly from the project's GitHub releases page.\n\n## Who should try it\n\nThis tool is built for developers, researchers, and hobbyists running local LLMs, Stable Diffusion, or other GPU-intensive AI tasks. If you find yourself frequently checking `nvidia-smi` and still not understanding why your script failed, this is for you. It is less useful for pure graphics developers or those working exclusively with cloud-managed services where you lack the necessary driver-level access.\n\n## Verdict\n\ngputaskman is a highly practical utility that solves a very specific pain point in the local AI development stack. It is transparent about its experimental nature and limitations, but the visibility it provides is unmatched by generic system monitors. It is a must-have for your local dev toolkit.",
+        "article_title": "gputaskman: A GPU Task Manager for LLM and AI Workloads",
+        "card_hook": "See what is actually filling your VRAM",
+        "card_subline": "A terminal-based task manager for NVIDIA, AMD, Intel, and Huawei GPUs that tracks models and KV-cache usage",
+        "category": "DevTools",
+        "discussion_question": "Do you prefer debugging VRAM issues via CLI tools or integrated IDE monitors?",
+        "hook": "Monitor per-process GPU memory and LLM activity on Windows, Linux, and WSL with a single terminal command.",
+        "key_features": [
+          "Displays per-process VRAM, GPU engine activity, and memory usage for NVIDIA, AMD, Intel, and Huawei Ascend GPUs.",
+          "Provides breakdown of LLM model weights and KV-cache usage for active inference or training processes.",
+          "Supports native Linux, WSL, and Windows with portable binaries or simple Python-based installation.",
+          "Matches containerized GPU processes to host-level NVML metrics for Docker and Kubernetes environments.",
+          "Includes a JSON output mode for programmatic monitoring and integration into automated workflows."
+        ],
+        "llm_used": true,
+        "quick_start": "uv tool install gputaskman && gputaskman",
+        "safety": "ok",
+        "safety_reason": "The project is a legitimate system monitoring tool for GPU resources and does not contain malicious functionality.",
+        "scene": "You are staring at a terminal where your LLM inference script just crashed with an out-of-memory error, but your system monitor claims you still have 4GB of VRAM free.",
+        "social_text": "Stop guessing why your VRAM is full. gputaskman provides per-process visibility into model weights and KV-cache usage across Windows, Linux, and WSL.",
+        "summary": "gputaskman acts as a specialized task manager for GPU-bound workloads, mapping raw VRAM usage to specific processes and LLM runtimes. It interfaces with native telemetry providers like NVML, WDDM, and NPU-SMI to break down memory consumption beyond simple device-wide totals. By correlating process maps and command-line arguments, it identifies active models and cache buffers that standard system monitors often obscure.",
+        "surfaces": {
+          "Facebook_body": "When your computer slows down during heavy tasks like video editing or running local artificial intelligence models, it is often because your graphics card has run out of memory. Standard task managers usually just show you the total usage, leaving you to guess which specific program is causing the bottleneck. This tool changes that by giving you a clear, detailed list of exactly which programs are using your video memory and how much they are taking up.\n\nIt works by connecting directly to your graphics hardware to track activity process by process. Instead of seeing a vague percentage, you get a breakdown that identifies active models, cache buffers, and background noise. This is particularly helpful for researchers and creators who need to debug memory bloat without digging through complex system logs.\n\nWhether you are on Windows, Linux, or using a subsystem, this utility provides a straightforward way to reclaim your resources. It turns the mystery of a full graphics card into a manageable list of tasks, helping you identify and close the programs that are actually causing your slowdowns.",
+          "Facebook_headline": "Stop guessing why your computer is running slow",
+          "Facebook_lead": "If you use your computer for heavy graphics or AI work, this tool shows you exactly which programs are using your video memory so you can fix slowdowns.",
+          "bluesky_headline": "See what is filling your computer memory",
+          "bluesky_lead": "Stop guessing why your VRAM is full with a simple tool that maps memory usage to specific processes.",
+          "devto_body": "## What it is\n\ngputaskman is a specialized command-line utility designed to provide granular visibility into GPU memory usage. While standard system monitors offer a high-level overview of GPU utilization, they often fail to distinguish between specific processes, model weights, or cache buffers. This tool bridges that gap, acting as a dedicated task manager for GPU-bound workloads on Windows, Linux, and WSL.\n\n## How it works\n\nThe tool interfaces directly with native telemetry providers—including NVML, WDDM, and NPU-SMI—to extract telemetry data. It maps raw VRAM usage to specific process IDs and command-line arguments. By correlating these process maps, it can isolate memory consumption for NVIDIA, AMD, Intel, and Huawei Ascend GPUs, providing a clear view of where your VRAM is actually going.\n\n## Key features\n\n- **Per-process breakdown:** View VRAM usage, GPU engine activity, and memory consumption for individual processes.\n- **AI/LLM insights:** Specifically identifies model weights and KV-cache usage for active inference or training jobs.\n- **Cross-platform support:** Native support for Linux, Windows, and WSL environments.\n- **Container awareness:** Matches containerized GPU processes to host-level metrics for Docker and Kubernetes.\n- **Programmatic output:** Includes a JSON mode for integration into automated monitoring scripts.\n\n## Getting started\n\nSince this is a Python-based utility, you can install it via pip or use the provided portable binaries.\n\n```bash\npip install gputaskman\n```\n\nOnce installed, running the command in your terminal will immediately populate the process list with active GPU consumers.\n\n## When not to use it\n\nIf you are looking for a graphical user interface (GUI) to manage background desktop applications, this is not the right tool. It is strictly a CLI-based diagnostic utility intended for developers, researchers, and power users who need to debug VRAM bloat in technical workflows. It is not designed for casual system maintenance or general-purpose desktop performance tuning.",
+          "seo_description": "A specialized task manager for Windows and Linux that identifies exactly which processes are consuming your GPU memory, including AI model weights.",
+          "seo_query": "how to check which process is using gpu memory",
+          "seo_title": "GPU Memory Monitor - Track Per-Process VRAM Usage",
+          "telegraph_angle": "Explain the specific problem of VRAM opacity in local AI workflows and why generic task managers fail to provide the necessary diagnostic data."
+        },
+        "tension": "You have no idea which process is hoarding that memory or if your model weights are even resident on the GPU, forcing you to kill random background apps and hope for the best.",
+        "turn": "This tool exposes the specific process and memory buffer responsible for the allocation, though it cannot force-reclaim memory or dump textures from locked drivers.",
+        "verdict": "Essential for anyone running local AI workloads; it turns 'VRAM full' from a mystery into a debuggable process list.",
+        "who_for": "Developers and researchers running local LLMs, training jobs, or graphics workloads who need to debug VRAM bloat.",
+        "why_now": "As local LLM inference becomes standard, generic task managers fail to distinguish between model weights, KV-cache, and background desktop noise."
+      },
+      "homepage": "",
+      "id": 1443650212,
+      "image_url": "https://i.ibb.co/7Npv1mB2/shanselman-gputaskman-readme-preview-062bbe9262b4.jpg",
+      "is_dual_use": false,
+      "is_hidden_gem": false,
+      "language": "Python",
+      "license": {
+        "key": "mit",
+        "name": "MIT License",
+        "node_id": "MDc6TGljZW5zZTEz",
+        "spdx_id": "MIT",
+        "url": "https://api.github.com/licenses/mit"
+      },
+      "media_urls": [
+        "https://raw.githubusercontent.com/shanselman/gputaskman/main/docs/screenshots/overview.png",
+        "https://raw.githubusercontent.com/shanselman/gputaskman/main/docs/screenshots/compositor.png",
+        "https://raw.githubusercontent.com/shanselman/gputaskman/main/docs/screenshots/system-memory.png",
+        "https://raw.githubusercontent.com/shanselman/gputaskman/main/docs/screenshots/help.png"
+      ],
+      "name": "gputaskman",
+      "open_issues": 13,
+      "published_at": "2026-11-17T18:14:18.048665Z",
+      "pushed_at": "2026-11-16T04:41:51Z",
+      "readme_fp": "624bbea79c3b6816",
+      "repo_id": 1443650212,
+      "revisit_of": "",
+      "revisit_reason": "",
+      "score": 88.485,
+      "slot": "us_midday",
+      "sources": [
+        "github_search",
+        "telegram:gitbless"
+      ],
+      "stars": 3472,
+      "telegram_chat_id": "@GitHub_Open_Source",
+      "telegram_link": "https://t.me/GitHub_Open_Source/3612",
+      "telegram_message_id": 3612,
+      "telegraph_url": "https://telegra.ph/gputaskman-A-GPU-Task-Manager-for-LLM-and-AI-Workloads-11-17",
+      "topics": [],
+      "updated_at": "2026-11-17T17:57:06Z",
+      "url": "https://github.com/shanselman/gputaskman",
+      "visual_host": "imgbb",
+      "visual_kind": "readme"
+    },
     "simbasjungles/free-my-tv": {
       "articles": {},
       "card_style": "",
@@ -7907,113 +8012,6 @@
     }
   },
   "queue": [
-    {
-      "archived": false,
-      "contributors_count": 64,
-      "created_at": "2026-10-20T09:13:06Z",
-      "default_branch": "main",
-      "description": "给国产电视的一块干净桌面：参照 tvOS 设计的开源 Android TV 桌面，没有广告，开机自动接管。A tvOS-style launcher for Xiaomi, TCL and other China-market TVs.",
-      "disabled": false,
-      "fork": false,
-      "forks": 1058,
-      "forks_count": 1058,
-      "full_name": "pengchujin/aerial-tv",
-      "has_readme": true,
-      "homepage": "https://aerial.qust.me",
-      "id": 1426780056,
-      "is_dual_use": false,
-      "is_hidden_gem": false,
-      "language": "Kotlin",
-      "license": {
-        "key": "mit",
-        "name": "MIT License",
-        "node_id": "MDc6TGljZW5zZTEz",
-        "spdx_id": "MIT",
-        "url": "https://api.github.com/licenses/mit"
-      },
-      "media_urls": [
-        "https://raw.githubusercontent.com/pengchujin/aerial-tv/main/site/img/screensaver-aerial.jpg",
-        "https://raw.githubusercontent.com/pengchujin/aerial-tv/main/site/img/home.jpg",
-        "https://raw.githubusercontent.com/pengchujin/aerial-tv/main/site/img/stock-xiaomi.jpg",
-        "https://raw.githubusercontent.com/pengchujin/aerial-tv/main/site/img/focus.jpg",
-        "https://raw.githubusercontent.com/pengchujin/aerial-tv/main/site/img/grid.jpg",
-        "https://raw.githubusercontent.com/pengchujin/aerial-tv/main/site/img/folder.jpg",
-        "https://raw.githubusercontent.com/pengchujin/aerial-tv/main/site/img/control-center.jpg",
-        "https://raw.githubusercontent.com/pengchujin/aerial-tv/main/site/img/columns.jpg"
-      ],
-      "name": "aerial-tv",
-      "non_software_reason": "",
-      "open_issues": 399,
-      "open_issues_count": 399,
-      "owner_repo_count": 1,
-      "pushed_at": "2026-11-16T05:53:57Z",
-      "readme": "",
-      "readme_excerpt": "<div align=\"center\">\n\n<img src=\"docs/brand/icon.png\" width=\"96\" alt=\"Aerial 图标\">\n\n# Aerial\n\n**给国产电视的一块干净桌面。**\n\n参照 Apple TV 做的 Android TV 桌面：没有广告，没有推荐流，只有你的 App、壁纸和航拍屏保。<br>\n适合小米、TCL、创维、索尼等国产电视，也能装在盒子和投影仪上。开机自动进入，待机也不会被清理。\n\n**中文** · [English](README.en.md)\n\n<a href=\"https://aerial.qust.me\"><img alt=\"官网\" src=\"https://img.shields.io/badge/%E5%AE%98%E7%BD%91-1f6feb?style=for-the-badge&logo=safari&logoColor=white\"></a>\n<a href=\"https://github.com/pengchujin/aerial-tv/releases/latest\"><img alt=\"下载 APK\" src=\"https://img.shields.io/badge/%E4%B8%8B%E8%BD%BD%20APK-34a853?style=for-the-badge&logo=android&logoColor=white\"></a>\n<a href=\"#安装\"><img alt=\"安装\" src=\"https://img.shields.io/badge/%E5%AE%89%E8%A3%85-d97757?style=for-the-badge&logo=gnubash&logoColor=white\"></a>\n\n<a href=\"https://github.com/pengchujin/aerial-tv/releases/latest\"><img alt=\"版本\" src=\"https://img.shields.io/github/v/release/pengchujin/aerial-tv?style=flat-square&label=%E7%89%88%E6%9C%AC&color=2997ff\"></a>\n<a href=\"LICENSE\"><img alt=\"许可证 MIT\" src=\"https://img.shields.io/badge/%E8%AE%B8%E5%8F%AF%E8%AF%81-MIT-555555?style=flat-square\"></a>\n<img alt=\"Android TV 5.0+\" src=\"https://img.shields.io/badge/Android%20TV-5.0%2B-3ddc84?sty",
-      "readme_len": 25373,
-      "repo_id": 1426780056,
-      "score": 88.5,
-      "source_name": "github_search",
-      "sources": [
-        "github_search"
-      ],
-      "stargazers_count": 12190,
-      "stars": 12190,
-      "topics": [],
-      "updated_at": "2026-11-17T00:18:56Z",
-      "url": "https://github.com/pengchujin/aerial-tv"
-    },
-    {
-      "archived": false,
-      "contributors_count": 22,
-      "created_at": "2026-11-03T00:49:34Z",
-      "default_branch": "main",
-      "description": "A GPU task manager for Windows, Linux, and WSL: per-process VRAM, GPU activity, and LLM model/KV-cache insights for NVIDIA, AMD, and Intel GPUs (plus Huawei Ascend on Linux).",
-      "disabled": false,
-      "fork": false,
-      "forks": 170,
-      "forks_count": 170,
-      "full_name": "shanselman/gputaskman",
-      "has_readme": true,
-      "homepage": "",
-      "id": 1443650212,
-      "is_dual_use": false,
-      "is_hidden_gem": false,
-      "language": "Python",
-      "license": {
-        "key": "mit",
-        "name": "MIT License",
-        "node_id": "MDc6TGljZW5zZTEz",
-        "spdx_id": "MIT",
-        "url": "https://api.github.com/licenses/mit"
-      },
-      "media_urls": [
-        "https://raw.githubusercontent.com/shanselman/gputaskman/main/docs/screenshots/overview.png",
-        "https://raw.githubusercontent.com/shanselman/gputaskman/main/docs/screenshots/compositor.png",
-        "https://raw.githubusercontent.com/shanselman/gputaskman/main/docs/screenshots/system-memory.png",
-        "https://raw.githubusercontent.com/shanselman/gputaskman/main/docs/screenshots/help.png"
-      ],
-      "name": "gputaskman",
-      "non_software_reason": "",
-      "open_issues": 13,
-      "open_issues_count": 13,
-      "owner_repo_count": 1,
-      "pushed_at": "2026-11-16T04:41:51Z",
-      "readme": "",
-      "readme_excerpt": "# gputaskman\n\n**An `htop` for what's inside your GPU, not just how full it is.**\n\nWindows with NVIDIA/AMD telemetry and Intel WDDM activity, plus Linux and WSL support (NVIDIA\neverywhere, AMD and Intel on native Linux; see\n[Linux and WSL](#linux-and-wsl)) and macOS on Apple Silicon (see [macOS](#macos-apple-silicon)). A terminal UI\nthat connects per-process GPU memory and engine activity with loaded runtimes, model files, and\nLLM buffer breakdowns.\n\nTask Manager says \"15 GB used.\" This tries to answer: *by what? Model weights? KV cache?\nYour browser? The desktop compositor? And why is so much GPU memory in system RAM?*\n\n**Scope: local GPU workloads, not cloud services.** Decision models, vision, speech, LLM inference,\ntraining/fine-tuning (including Unsloth), graphics, and video all belong here. Visibility varies:\nprocess memory and engine activity are measured; identifying individual models and their work\nrequires supporting evidence. A PyTorch/CUDA DLL alone cannot identify a model or prove training,\nand a mapped file does not prove that model is resident on the GPU or being exercised.\nCPU-only, NPU-only, and cloud workloads are out of scope.\n\n![Live GPU overview with an LLM's we",
-      "readme_len": 80000,
-      "repo_id": 1443650212,
-      "score": 88.485,
-      "source_name": "github_search",
-      "sources": [
-        "github_search",
-        "telegram:gitbless"
-      ],
-      "stargazers_count": 3420,
-      "stars": 3420,
-      "topics": [],
-      "updated_at": "2026-11-16T22:37:26Z",
-      "url": "https://github.com/shanselman/gputaskman"
-    },
     {
       "archived": false,
       "contributors_count": 10,
@@ -14724,8 +14722,8 @@
     "pengchujin/aerial-tv": {
       "first_seen_at": "2026-11-04T12:14:31.127582Z",
       "full_name": "pengchujin/aerial-tv",
-      "last_decision": "queued",
-      "last_seen_at": "2026-11-17T00:25:47.773756Z",
+      "last_decision": "rejected:readme_not_english",
+      "last_seen_at": "2026-11-17T18:13:50.999267Z",
       "repo_id": 1426780056,
       "sources": [
         "github_search"
@@ -15510,8 +15508,8 @@
     "shanselman/gputaskman": {
       "first_seen_at": "2026-11-07T05:32:32.610276Z",
       "full_name": "shanselman/gputaskman",
-      "last_decision": "queued",
-      "last_seen_at": "2026-11-17T00:25:47.774105Z",
+      "last_decision": "published",
+      "last_seen_at": "2026-11-17T18:14:18.049063Z",
       "repo_id": 1443650212,
       "sources": [
         "github_search",
