@@ -209,11 +209,11 @@
   ],
   "last_runs": {
     "article": {
-      "finished_at": "2026-11-16T13:33:53.323928Z",
+      "finished_at": "2026-11-17T13:33:51.410284Z",
       "published": true,
       "reason": "published",
-      "repo": "holyarrs/holyarrs",
-      "url": "https://dev.to/githubopensource/consolidate-media-management-apps-holyarrs-alternative-2knb"
+      "repo": "tangency-labs/solidcraft",
+      "url": "https://dev.to/githubopensource/open-source-parametric-3d-cad-in-rust-solidcraft-4o2e"
     },
     "collect": {
       "discovered": 469,
@@ -6946,7 +6946,13 @@
       "visual_kind": "readme"
     },
     "tangency-labs/solidcraft": {
-      "articles": {},
+      "articles": {
+        "devto": {
+          "id": 5057574,
+          "published_at": "2026-11-17T13:33:51.410128Z",
+          "url": "https://dev.to/githubopensource/open-source-parametric-3d-cad-in-rust-solidcraft-4o2e"
+        }
+      },
       "card_style": "editorial_daily",
       "category": "DevTools",
       "contributors_count": 401,
@@ -6960,6 +6966,7 @@
       },
       "description": "SolidCraft: an open-source parametric 3D CAD application built in pure Rust. Desktop, web, and automation through MCP.",
       "description_fp": "6597e99c0782c601",
+      "devto_cover_url": "https://i.ibb.co/27y2TsZp/tangency-labs-solidcraft-devto-cover-0c9ad78a060d.png",
       "forks": 2299,
       "full_name": "tangency-labs/solidcraft",
       "generated": {
