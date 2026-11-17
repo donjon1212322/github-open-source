@@ -472,3 +472,4 @@
 {"deleted": 0, "ts": "2026-11-17T00:48:02.926781Z", "type": "moderation_completed", "updates": 1}
 {"preview_host": "imgbb", "repo": "tangency-labs/solidcraft", "ts": "2026-11-17T01:14:16.958212Z", "type": "published_as_text"}
 {"repo": "tangency-labs/solidcraft", "score": 90.5, "telegram_message_id": 3610, "telegraph_url": "https://telegra.ph/SolidCraft-Open-Source-Parametric-3D-CAD-in-Pure-Rust-11-17", "ts": "2026-11-17T01:14:17.222296Z", "type": "project_published"}
+{"minutes_late": 94.5, "schedule": "17 0,18,19,20,21,22,23 * * *", "ts": "2026-11-17T01:51:27.840746Z", "type": "late_schedule_ignored"}
