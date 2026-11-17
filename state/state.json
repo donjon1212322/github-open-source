@@ -195,16 +195,16 @@
   "dead_letters": [],
   "gemini_daily": {
     "day": "2026-11-16",
-    "units": 27
+    "units": 33
   },
   "gemini_window": [
     [
-      1794852829.5436192,
-      3982
+      1794878032.3053553,
+      3922
     ],
     [
-      1794852840.6723707,
-      1399
+      1794878043.4960241,
+      1401
     ]
   ],
   "last_runs": {
@@ -298,9 +298,9 @@
       "telegram_message_id": 3550
     },
     "publish:us_evening": {
-      "finished_at": "2026-11-16T01:14:00.699966Z",
-      "repo": "holyarrs/holyarrs",
-      "telegram_message_id": 3606
+      "finished_at": "2026-11-17T01:14:17.222390Z",
+      "repo": "tangency-labs/solidcraft",
+      "telegram_message_id": 3610
     },
     "publish:us_midday": {
       "finished_at": "2026-11-16T18:14:06.444078Z",
@@ -6945,6 +6945,114 @@
       "visual_host": "imgbb",
       "visual_kind": "readme"
     },
+    "tangency-labs/solidcraft": {
+      "articles": {},
+      "card_style": "editorial_daily",
+      "category": "DevTools",
+      "contributors_count": 401,
+      "created_at": "2026-10-07T18:57:48Z",
+      "crossposts": {
+        "bluesky": {
+          "attempts": 0,
+          "due_at": "2026-11-17T18:00:00+00:00",
+          "status": "pending"
+        }
+      },
+      "description": "SolidCraft: an open-source parametric 3D CAD application built in pure Rust. Desktop, web, and automation through MCP.",
+      "description_fp": "6597e99c0782c601",
+      "forks": 2299,
+      "full_name": "tangency-labs/solidcraft",
+      "generated": {
+        "article_markdown": "## What it is\n\nSolidCraft is an open-source parametric 3D CAD application built entirely in Rust. It provides a complete environment for sketching, constraining, and building solid models with an editable feature timeline. Operating across desktop platforms, web browsers, and headless command-line interfaces, the project shares a single core engine for all form factors.\n\n## Why it matters\n\nTraditional CAD tooling is often bound to heavy desktop applications with closed ecosystems and limited automation options. SolidCraft approaches modeling through a unified command protocol that exposes every action to scripts, plugins, and AI agents alike, lowering the barrier to automated mechanical design.\n\n## Key features\n\n- Solve 2D sketches and constraints with a custom parameter-driven engine\n- Build solids using extrude, revolve, sweep, loft, fillet, and pattern features\n- Run the exact same command set via desktop app, browser app, headless CLI, or MCP server\n- Export designs to STEP, IGES, 3MF, STL, OBJ, glTF, and URDF formats\n- Inspect and execute WebAssembly plugin components with strict capability sandboxing\n\n## Quick start\n\n```sh\ncargo run --release -p solidcraft -- --sample\n```\n\n## Who should try it\n\nMechanical engineers, developers, and roboticists looking for an extensible, open-source CAD tool with robust automation and multi-platform support.\n\n## Verdict\n\nAn ambitious and performant parametric CAD stack that brings modern software engineering workflows to 3D modeling.",
+        "article_title": "SolidCraft: Open-Source Parametric 3D CAD in Pure Rust",
+        "card_hook": "Parametric 3D CAD in pure Rust",
+        "card_subline": "Sketch, constrain, and build solids with a parametric timeline on desktop, web, or via MCP",
+        "category": "DevTools",
+        "discussion_question": "Which interface would you use more: the browser app, desktop client, or AI agent MCP server?",
+        "hook": "Design parametric 3D solids in pure Rust with desktop, browser, and AI agent support.",
+        "key_features": [
+          "Solve 2D sketches and constraints with a custom parameter-driven engine",
+          "Build solids using extrude, revolve, sweep, loft, fillet, and pattern features",
+          "Run the exact same command set via desktop app, browser app, headless CLI, or MCP server",
+          "Export designs to STEP, IGES, 3MF, STL, OBJ, glTF, and URDF formats",
+          "Inspect and execute WebAssembly plugin components with strict capability sandboxing"
+        ],
+        "llm_used": true,
+        "quick_start": "cargo run --release -p solidcraft -- --sample",
+        "safety": "ok",
+        "safety_reason": "Legitimate open-source 3D CAD application.",
+        "scene": "You try to automate a routine mechanical part modification, but find yourself locked inside heavy desktop CAD suites that lack headless APIs or AI integration.",
+        "social_text": "Design parametric 3D solids in pure Rust with desktop, browser, and AI agent automation support.",
+        "summary": "SolidCraft executes parametric 3D modeling operations by combining a custom constraint solver with a unified command architecture. The system processes sketches, features, and assemblies into STEP, IGES, and mesh formats through identical code paths whether invoked via the desktop interface, web runtime, CLI, or MCP server. Users can extend functionality safely by loading isolated WebAssembly components that declare explicit capabilities.",
+        "surfaces": {
+          "Facebook_body": "Building mechanical parts and 3D objects usually requires heavy desktop software with steep learning curves and expensive licenses. If you prefer writing instructions rather than clicking through complex menus, a new open-source tool lets you design 3D solids using pure code.\n\nThis system combines a calculation engine with a unified set of commands, allowing you to create sketches, extrude shapes, and assemble parts. Because the underlying code runs identically across different environments, you can use the desktop application, open it directly in a web browser, run it from a command line, or even connect it to an artificial intelligence assistant to generate designs automatically.\n\nWhen your design is complete, you can export your work into standard formats for manufacturing or 3D printing, and extend the software safely using isolated plugins.\n\nIt is built for mechanical engineers, software developers, and hobbyists who want programmatic control over their 3D modeling workflow without being locked into proprietary desktop applications.",
+          "Facebook_headline": "Design 3D objects using code and your browser",
+          "Facebook_lead": "Create mechanical parts and 3D models using pure code. Run it on your desktop, in a web browser, or let an AI agent build the design for you.",
+          "bluesky_headline": "Design 3D models with code",
+          "bluesky_lead": "A parametric 3D computer-aided design tool built in Rust that runs on your desktop, in your browser, or via AI agents.",
+          "devto_body": "## What it is\n\nSolidCraft is an open-source parametric 3D CAD application written in pure Rust with 16,678 stars on GitHub. It combines a custom constraint solver with a unified command architecture, allowing developers and engineers to design 3D solids programmatically across desktop, browser, and headless environments.\n\n## How it works\n\nThe project executes operations through identical code paths whether invoked via a native desktop interface, a web runtime, a CLI, or an MCP server. Sketches and features are processed into standard formats using a unified command set. It also supports isolated WebAssembly components that declare explicit capabilities for safe extensibility.\n\n## Key features\n\n- Solve 2D sketches and constraints with a custom parameter-driven engine\n- Build solids using extrude, revolve, sweep, loft, fillet, and pattern features\n- Run the exact same command set via desktop app, browser app, headless CLI, or MCP server\n- Export designs to STEP, IGES, 3MF, STL, OBJ, glTF, and URDF formats\n- Inspect and execute WebAssembly plugin components with strict capability sandboxing\n\n## Getting started\n\nTo clone and build SolidCraft locally, ensure you have the Rust toolchain installed.\n\n```bash\ngit clone https://github.com/tangency-labs/solidcraft.git\ncd solidcraft\ncargo build --release\n```\n\n## When not to use it\n\nWhile impressive for an open-source CAD alternative, it is still early for complex production assemblies and heavy enterprise mechanical engineering workflows.",
+          "seo_description": "Design parametric 3D solids in pure Rust with desktop, browser, and AI agent support. An open-source CAD alternative for engineers and developers.",
+          "seo_query": "open source parametric 3d cad rust",
+          "seo_title": "Open-Source Parametric 3D CAD in Rust - SolidCraft",
+          "telegraph_angle": "Explain how programmatic 3D CAD in Rust bridges the gap between traditional engineering software and modern AI workflows, along with its current limitations."
+        },
+        "tension": "Modifying designs programmatically forces you to write brittle geometry scripts from scratch or rely on closed cloud platforms that break offline workflows.",
+        "turn": "SolidCraft provides an open-source parametric CAD core in pure Rust that runs natively on desktop, inside the browser, or headlessly via MCP for AI agents.",
+        "verdict": "An impressive open-source CAD alternative for developers and engineers, though still early for complex production assemblies.",
+        "who_for": "Mechanical engineers, developers, and AI agents needing programmatic or cross-platform 3D CAD.",
+        "why_now": "The combination of WebAssembly components and the Model Context Protocol makes it practical for AI agents and browser environments to drive native-speed parametric CAD."
+      },
+      "homepage": "https://solidcraft.io",
+      "id": 1409246014,
+      "image_url": "https://i.ibb.co/k6DCLWtC/tangency-labs-solidcraft-preview-b4e928271196.jpg",
+      "is_dual_use": false,
+      "is_hidden_gem": false,
+      "language": "Rust",
+      "license": {
+        "key": "apache-2.0",
+        "name": "Apache License 2.0",
+        "node_id": "MDc6TGljZW5zZTI=",
+        "spdx_id": "Apache-2.0",
+        "url": "https://api.github.com/licenses/apache-2.0"
+      },
+      "media_urls": [
+        "https://raw.githubusercontent.com/tangency-labs/solidcraft/main/docs/screenshots/demo.gif",
+        "https://raw.githubusercontent.com/tangency-labs/solidcraft/main/assets/icons/app/linux/exports/hicolor/256x256/apps/io.tangencylabs.solidcraft.png"
+      ],
+      "name": "solidcraft",
+      "open_issues": 7319,
+      "published_at": "2026-11-17T01:14:17.222109Z",
+      "pushed_at": "2026-11-17T01:08:32Z",
+      "readme_fp": "07c9286921494403",
+      "repo_id": 1409246014,
+      "revisit_of": "",
+      "revisit_reason": "",
+      "score": 90.5,
+      "slot": "us_evening",
+      "sources": [
+        "github_search"
+      ],
+      "stars": 16678,
+      "telegram_chat_id": "@GitHub_Open_Source",
+      "telegram_link": "https://t.me/GitHub_Open_Source/3610",
+      "telegram_message_id": 3610,
+      "telegraph_url": "https://telegra.ph/SolidCraft-Open-Source-Parametric-3D-CAD-in-Pure-Rust-11-17",
+      "topics": [
+        "3d-modeling",
+        "brep",
+        "cad",
+        "egui",
+        "mcp",
+        "parametric-cad",
+        "rust",
+        "step",
+        "wasm"
+      ],
+      "updated_at": "2026-11-17T00:54:45Z",
+      "url": "https://github.com/tangency-labs/solidcraft",
+      "visual_host": "imgbb",
+      "visual_kind": "card"
+    },
     "wangzan101/mika": {
       "articles": {},
       "card_style": "editorial_daily",
@@ -7679,65 +7787,6 @@
     }
   },
   "queue": [
-    {
-      "archived": false,
-      "contributors_count": 401,
-      "created_at": "2026-10-07T18:57:48Z",
-      "default_branch": "main",
-      "description": "SolidCraft: an open-source parametric 3D CAD application built in pure Rust. Desktop, web, and automation through MCP.",
-      "disabled": false,
-      "fork": false,
-      "forks": 2299,
-      "forks_count": 2299,
-      "full_name": "tangency-labs/solidcraft",
-      "has_readme": true,
-      "homepage": "https://solidcraft.io",
-      "id": 1409246014,
-      "is_dual_use": false,
-      "is_hidden_gem": false,
-      "language": "Rust",
-      "license": {
-        "key": "apache-2.0",
-        "name": "Apache License 2.0",
-        "node_id": "MDc6TGljZW5zZTI=",
-        "spdx_id": "Apache-2.0",
-        "url": "https://api.github.com/licenses/apache-2.0"
-      },
-      "media_urls": [
-        "https://raw.githubusercontent.com/tangency-labs/solidcraft/main/docs/screenshots/demo.gif",
-        "https://raw.githubusercontent.com/tangency-labs/solidcraft/main/assets/icons/app/linux/exports/hicolor/256x256/apps/io.tangencylabs.solidcraft.png"
-      ],
-      "name": "solidcraft",
-      "non_software_reason": "",
-      "open_issues": 7301,
-      "open_issues_count": 7301,
-      "owner_repo_count": 1,
-      "pushed_at": "2026-11-17T00:23:34Z",
-      "readme": "",
-      "readme_excerpt": "<p align=\"center\">\n  <img src=\"assets/icons/app/linux/exports/hicolor/256x256/apps/io.tangencylabs.solidcraft.png\" width=\"96\" height=\"96\" alt=\"SolidCraft\" />\n</p>\n\n<h1 align=\"center\">SolidCraft</h1>\n\n<p align=\"center\">\n  <strong>An open-source parametric 3D CAD application built in pure Rust.</strong><br />\n  Sketch, constrain, and build solids with a parametric feature timeline. Change a dimension\n  and watch your model rebuild. Run it on your desktop, in your browser, or let AI agents\n  model through the built-in MCP server.\n</p>\n\n<div align=\"center\">\n\n[![Download for Windows][badge-windows]][windows-msi]\n[![Download for macOS][badge-macos]][macos-dmg]\n[![Download for Linux][badge-linux]][linux-appimage]\n[![Get it from the Snap Store][badge-snap]][snap-store]\n[![Try it in your browser][badge-web]][web-app]\n\n</div>\n\n<p align=\"center\">\n  <a href=\"https://solidcraft.io\">Website</a> ·\n  <a href=\"https://solidcraft.io/download\">Download</a> ·\n  <a href=\"https://solidcraft.io/app\">Try it in the browser</a> ·\n  <a href=\"https://docs.solidcraft.io/\">Documentation</a> ·\n  <a href=\"https://www.blacksmith.sh\"><img src=\"https://img.shields.io/badge/CI-Blacksmith-000000?logo=githubactions&log",
-      "readme_len": 19695,
-      "repo_id": 1409246014,
-      "score": 90.5,
-      "source_name": "github_search",
-      "sources": [
-        "github_search"
-      ],
-      "stargazers_count": 16672,
-      "stars": 16672,
-      "topics": [
-        "3d-modeling",
-        "brep",
-        "cad",
-        "egui",
-        "mcp",
-        "parametric-cad",
-        "rust",
-        "step",
-        "wasm"
-      ],
-      "updated_at": "2026-11-17T00:17:54Z",
-      "url": "https://github.com/tangency-labs/solidcraft"
-    },
     {
       "archived": false,
       "contributors_count": 63,
@@ -15983,8 +16032,8 @@
     "tangency-labs/solidcraft": {
       "first_seen_at": "2026-11-04T12:14:31.123350Z",
       "full_name": "tangency-labs/solidcraft",
-      "last_decision": "queued",
-      "last_seen_at": "2026-11-17T00:25:47.772515Z",
+      "last_decision": "published",
+      "last_seen_at": "2026-11-17T01:14:17.222381Z",
       "repo_id": 1409246014,
       "sources": [
         "github_search"
