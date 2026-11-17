@@ -495,3 +495,4 @@
 {"repo": "shanselman/gputaskman", "score": 88.485, "telegram_message_id": 3612, "telegraph_url": "https://telegra.ph/gputaskman-A-GPU-Task-Manager-for-LLM-and-AI-Workloads-11-17", "ts": "2026-11-17T18:14:18.048948Z", "type": "project_published"}
 {"platform": "bluesky", "repo": "tangency-labs/solidcraft", "ts": "2026-11-17T18:17:53.262702Z", "type": "crosspost_published", "url": "https://bsky.app/profile/githubopensource.bsky.social/post/3n2jnoudhic2a"}
 {"attempts": 1, "detail": "HTTP 204", "slot": "facebook-handoff", "ts": "2026-11-17T18:30:57.892299Z", "type": "watchdog_recovered", "verified": false}
+{"range": "facebook!A16:E16", "rows": 1, "ts": "2026-11-17T18:31:31.828626Z", "type": "facebook_handoff_queued"}
