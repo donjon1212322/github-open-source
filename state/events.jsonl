@@ -493,3 +493,4 @@
 {"reasons": ["readme_not_english"], "repo": "pengchujin/aerial-tv", "stage": "pre_llm", "ts": "2026-11-17T18:13:50.999287Z", "type": "publish_candidate_rejected"}
 {"preview_host": "imgbb", "repo": "shanselman/gputaskman", "ts": "2026-11-17T18:14:17.766309Z", "type": "published_as_text"}
 {"repo": "shanselman/gputaskman", "score": 88.485, "telegram_message_id": 3612, "telegraph_url": "https://telegra.ph/gputaskman-A-GPU-Task-Manager-for-LLM-and-AI-Workloads-11-17", "ts": "2026-11-17T18:14:18.048948Z", "type": "project_published"}
+{"platform": "bluesky", "repo": "tangency-labs/solidcraft", "ts": "2026-11-17T18:17:53.262702Z", "type": "crosspost_published", "url": "https://bsky.app/profile/githubopensource.bsky.social/post/3n2jnoudhic2a"}

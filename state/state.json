@@ -3293,7 +3293,8 @@
         "bluesky": {
           "attempts": 0,
           "due_at": "2026-11-17T18:00:00+00:00",
-          "status": "pending"
+          "held_reason": "not_best_of_day",
+          "status": "held"
         }
       },
       "description": "Run your own Switch games natively on iPhone, iPad and Mac: game code rewritten to ARM64, graphics direct to Metal, one app for the whole library. Bring your own games and keys. 把你自己的 Switch 游戏原生带到 iPhone / iPad / Mac。",
@@ -6488,7 +6489,8 @@
         "bluesky": {
           "attempts": 0,
           "due_at": "2026-11-17T18:44:18.048639+00:00",
-          "status": "pending"
+          "held_reason": "not_best_of_day",
+          "status": "held"
         }
       },
       "description": "A GPU task manager for Windows, Linux, and WSL: per-process VRAM, GPU activity, and LLM model/KV-cache insights for NVIDIA, AMD, and Intel GPUs (plus Huawei Ascend on Linux).",
@@ -7179,7 +7181,10 @@
         "bluesky": {
           "attempts": 0,
           "due_at": "2026-11-17T18:00:00+00:00",
-          "status": "pending"
+          "error": "",
+          "published_at": "2026-11-17T18:17:53.262679Z",
+          "status": "published",
+          "url": "https://bsky.app/profile/githubopensource.bsky.social/post/3n2jnoudhic2a"
         }
       },
       "description": "SolidCraft: an open-source parametric 3D CAD application built in pure Rust. Desktop, web, and automation through MCP.",
