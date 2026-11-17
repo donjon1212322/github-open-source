@@ -194,17 +194,17 @@
   },
   "dead_letters": [],
   "gemini_daily": {
-    "day": "2026-11-16",
-    "units": 33
+    "day": "2026-11-17",
+    "units": 6
   },
   "gemini_window": [
     [
-      1794878032.3053553,
-      3922
+      1794932630.0432463,
+      3953
     ],
     [
-      1794878043.4960241,
-      1401
+      1794932640.3798978,
+      1419
     ]
   ],
   "last_runs": {
@@ -308,9 +308,9 @@
       "telegram_message_id": 3608
     },
     "publish:us_morning": {
-      "finished_at": "2026-11-16T16:25:23.266790Z",
-      "repo": "livliv-dev/player",
-      "telegram_message_id": 3607
+      "finished_at": "2026-11-17T16:24:14.507774Z",
+      "repo": "jhaizhou-ops/s2arm",
+      "telegram_message_id": 3611
     },
     "publish:us_peak": {
       "finished_at": "2026-11-11T17:19:17.006267Z",
@@ -3276,6 +3276,119 @@
           "views": 108
         }
       ],
+      "visual_host": "imgbb",
+      "visual_kind": "readme"
+    },
+    "jhaizhou-ops/s2arm": {
+      "articles": {},
+      "card_style": "",
+      "category": "DevTools",
+      "contributors_count": 68,
+      "created_at": "2026-11-08T05:49:46Z",
+      "crossposts": {
+        "bluesky": {
+          "attempts": 0,
+          "due_at": "2026-11-17T18:00:00+00:00",
+          "status": "pending"
+        }
+      },
+      "description": "Run your own Switch games natively on iPhone, iPad and Mac: game code rewritten to ARM64, graphics direct to Metal, one app for the whole library. Bring your own games and keys. 把你自己的 Switch 游戏原生带到 iPhone / iPad / Mac。",
+      "description_fp": "1ddbf08254fb0523",
+      "forks": 596,
+      "full_name": "jhaizhou-ops/S2Arm",
+      "generated": {
+        "article_markdown": "## What it is\\n\\nS2Arm is a tool designed to bring Switch games to Apple Silicon devices by recompiling them into native ARM64 binaries. Unlike traditional emulators that interpret code in real-time, S2Arm performs static recompilation at build time. This means the game's code is transformed to run directly on the processor, while graphics calls are routed straight to Metal. The result is an app that behaves like a native iOS or macOS application, offering significantly better thermal performance and battery life than emulated alternatives.\\n\\n## Why it matters\\n\\nFor years, mobile gaming on non-native platforms has been defined by the trade-offs of emulation: heat, stutter, and battery drain. By moving the heavy lifting of instruction translation to the build phase, S2Arm sidesteps these issues. It allows users to maintain a single, clean library on their device without the need for multiple app installations or complex configurations. The inclusion of a command-line interface, s2armctl, even allows for AI-assisted management, making the build process more accessible for those comfortable with automation.\\n\\n## Key features\\n\\n* **Native Execution:** Recompiles Switch game code to native ARM64 binaries for direct execution on Apple Silicon.\\n* **Metal Integration:** Translates graphics calls directly to Metal, avoiding the overhead of traditional emulation.\\n* **Unified Library:** Consolidates your entire game library into a single iOS/macOS app to save signing slots.\\n* **AI-Ready CLI:** Includes a CLI tool, s2armctl, that allows AI assistants to manage builds and diagnose errors.\\n* **Community Support:** Supports downstream community ports for specific titles via a unified registry.\\n\\n## Quick start\\n\\nTo begin managing your builds via the command line, use the s2armctl utility provided in the launcher package:\\n\\n```bash\\n/Applications/S2Arm.app/Contents/Resources/s2armctl start\\n```\\n\\n## Who should try it\\n\\nThis tool is for developers and power users who are comfortable handling their own game files and keys. If you have a collection of Switch games and want to experience them on your iPhone or Mac with native performance, S2Arm is the most efficient path. However, it requires a basic understanding of the build process and the ability to manage your own Apple ID for signing.\\n\\n## Verdict\\n\\nS2Arm is a remarkable technical achievement that effectively bridges the gap between console software and Apple Silicon. It is not a \"one-click\" solution for casual users, but for those who value performance and efficiency, it is currently the best way to run your library natively. Just ensure you have your own keys and files ready before you start.",
+        "article_title": "How to Run Switch Games Natively on iPhone and Mac with S2Arm",
+        "card_hook": "Native Switch games on Apple Silicon",
+        "card_subline": "Recompile your game library to native ARM64 for iPhone, iPad, and Mac",
+        "category": "DevTools",
+        "discussion_question": "If you could port one console game to run natively on your phone, which one would it be?",
+        "hook": "Run your Switch games natively on iPhone and Mac by recompiling them to ARM64 instead of emulating.",
+        "key_features": [
+          "Recompiles Switch game code to native ARM64 binaries for direct execution on Apple Silicon.",
+          "Translates graphics calls directly to Metal, avoiding the overhead of traditional emulation.",
+          "Consolidates your entire game library into a single iOS/macOS app to save signing slots.",
+          "Includes a CLI tool, s2armctl, that allows AI assistants to manage builds and diagnose errors.",
+          "Supports downstream community ports for specific titles via a unified registry."
+        ],
+        "llm_used": true,
+        "quick_start": "/Applications/S2Arm.app/Contents/Resources/s2armctl start",
+        "safety": "ok",
+        "safety_reason": "It is a legitimate tool for static recompilation of software for personal use.",
+        "scene": "You are sitting on a train with your iPhone, wanting to play a game from your Switch library, but you know that running an emulator would kill your battery in an hour.",
+        "social_text": "Stop emulating and start running. S2Arm recompiles your Switch games to native ARM64 for iPhone, iPad, and Mac. Direct Metal graphics, native performance, and a unified library.",
+        "summary": "S2Arm performs static recompilation of Switch game code, converting it into native ARM64 binaries that run directly on Apple Silicon. By mapping graphics calls to Metal and bypassing CPU emulation entirely, it achieves performance and efficiency levels typical of native apps. Users manage their library through a unified app interface, with launchers available for both macOS and Windows.",
+        "surfaces": {
+          "Facebook_body": "If you have ever tried running console games on a computer or phone, you know that the experience can often be sluggish or drain your battery quickly. This happens because your device has to work extra hard to pretend it is a different piece of hardware. A new project called S2Arm takes a different approach by actually rewriting the game code so it speaks the same language as your Apple device. Instead of mimicking a console, it converts the game into a format that your iPhone or Mac understands naturally. This results in much smoother gameplay and better battery life because your device is running the game just like it would a standard app. This tool is designed for enthusiasts who already own their game files and want to play them on their own hardware. It handles the heavy lifting of converting graphics and code, allowing you to manage your entire library in one place. It is a significant step forward for anyone who wants to get the most out of their Apple hardware without the performance penalties of traditional simulation software.",
+          "Facebook_headline": "Play your console games natively on Apple devices",
+          "Facebook_lead": "Instead of using software to mimic a game console, this new tool rewrites game files to run directly on your iPhone or Mac, making them faster and more efficient.",
+          "bluesky_headline": "Run Switch games natively on your iPhone and Mac",
+          "bluesky_lead": "S2Arm recompiles game code to run directly on Apple Silicon, skipping slow emulation for better speed.",
+          "devto_body": "## What it is\nS2Arm is a static recompilation tool that transforms Nintendo Switch binaries into native ARM64 executables for Apple Silicon. Unlike traditional emulators that interpret instructions at runtime, S2Arm processes the game code beforehand, mapping graphics calls directly to Apple's Metal framework. This approach bypasses the overhead of CPU emulation, allowing games to run with performance characteristics closer to native applications.\n\n## How it works\nThe core of S2Arm is a static recompiler that parses Switch binaries and translates their instruction sets into native ARM64 code. By handling the translation offline, the resulting binary can be executed directly by the macOS or iOS kernel. Graphics rendering is handled by a translation layer that maps Switch-specific graphics commands to Metal, ensuring that the GPU interacts with the game engine efficiently.\n\n## Key features\n- **Native Execution:** Converts code to ARM64, removing the need for real-time instruction interpretation.\n- **Metal Integration:** Direct translation of graphics calls for hardware-accelerated rendering.\n- **Unified Library:** Consolidates game assets into a single app, simplifying management on iOS/macOS.\n- **CLI Tooling:** Includes `s2armctl` for build management, debugging, and integration with automated workflows.\n- **Community Registry:** Supports downstream ports for specific titles via a centralized registry.\n\n## Getting started\nS2Arm requires a development environment capable of building C# projects. You will need to clone the repository and ensure you have the necessary Apple SDKs installed.\n\n1. Clone the repo: `git clone https://github.com/jhaizhou-ops/S2Arm`\n2. Build the project using the provided scripts.\n3. Use `s2armctl` to process your game files and keys.\n\nNote: You must provide your own legally obtained game files and decryption keys. The tool does not include copyrighted assets.\n\n## When not to use it\nS2Arm is not a 'plug-and-play' emulator. It requires technical knowledge to manage keys, handle game files, and troubleshoot build issues. If you are looking for a simple, one-click solution without manual configuration, this tool may not be suitable for your needs. Additionally, compatibility is not universal; check the community registry to see if your specific titles are supported before beginning the recompilation process.",
+          "seo_description": "Learn how to use S2Arm to recompile Switch games for native execution on iPhone and Mac, bypassing traditional emulation for better performance.",
+          "seo_query": "how to run switch games natively on mac",
+          "seo_title": "Run Switch Games on Apple Silicon - Native Recompilation",
+          "telegraph_angle": "Explain the technical shift from real-time emulation to static recompilation and why this is the future of performance on Apple Silicon."
+        },
+        "tension": "Most mobile gaming solutions rely on heavy emulation layers that constantly translate instructions, leading to thermal throttling, stuttering, and rapid battery drain.",
+        "turn": "S2Arm changes the approach by performing static recompilation, converting the game code into native ARM64 binaries that run directly on Apple Silicon.",
+        "verdict": "It is a technical feat for those who want native performance, but be prepared to handle your own keys and game files.",
+        "who_for": "Developers and enthusiasts who want to play their owned Switch game library on Apple hardware.",
+        "why_now": "Recent advancements in static recompilation and Apple Silicon's performance make native execution of console games on mobile devices practical."
+      },
+      "homepage": "https://s2arm.com",
+      "id": 1450012790,
+      "image_url": "https://i.ibb.co/9d8qdNs/jhaizhou-ops-s2arm-readme-preview-4774cd9bc858.jpg",
+      "is_dual_use": false,
+      "is_hidden_gem": false,
+      "language": "C#",
+      "license": {
+        "key": "apache-2.0",
+        "name": "Apache License 2.0",
+        "node_id": "MDc6TGljZW5zZTI=",
+        "spdx_id": "Apache-2.0",
+        "url": "https://api.github.com/licenses/apache-2.0"
+      },
+      "media_urls": [
+        "https://raw.githubusercontent.com/jhaizhou-ops/S2Arm/main/docs/images/s2arm-wordmark.png",
+        "https://raw.githubusercontent.com/jhaizhou-ops/S2Arm/main/docs/images/launcher-welcome-en.png",
+        "https://raw.githubusercontent.com/jhaizhou-ops/S2Arm/main/docs/images/launcher-oneclick-en.png",
+        "https://raw.githubusercontent.com/jhaizhou-ops/S2Arm/main/docs/images/launcher-export-en.png",
+        "https://raw.githubusercontent.com/jhaizhou-ops/S2Arm/main/docs/images/launcher-success-en.png",
+        "https://raw.githubusercontent.com/jhaizhou-ops/S2Arm/main/docs/images/launcher-library-en.png"
+      ],
+      "name": "S2Arm",
+      "open_issues": 577,
+      "published_at": "2026-11-17T16:24:14.507424Z",
+      "pushed_at": "2026-11-17T16:22:06Z",
+      "readme_fp": "ab32b3aca81f1584",
+      "repo_id": 1450012790,
+      "revisit_of": "",
+      "revisit_reason": "",
+      "score": 90.284,
+      "slot": "us_morning",
+      "sources": [
+        "github_search"
+      ],
+      "stars": 3464,
+      "telegram_chat_id": "@GitHub_Open_Source",
+      "telegram_link": "https://t.me/GitHub_Open_Source/3611",
+      "telegram_message_id": 3611,
+      "telegraph_url": "https://telegra.ph/How-to-Run-Switch-Games-Natively-on-iPhone-and-Mac-with-S2Arm-11-17",
+      "topics": [
+        "apple-silicon",
+        "arm64",
+        "game-porting",
+        "ios",
+        "ipados",
+        "macos",
+        "metal",
+        "s2arm",
+        "static-recompilation",
+        "switch"
+      ],
+      "updated_at": "2026-11-17T16:23:35Z",
+      "url": "https://github.com/jhaizhou-ops/S2Arm",
       "visual_host": "imgbb",
       "visual_kind": "readme"
     },
@@ -7794,70 +7907,6 @@
     }
   },
   "queue": [
-    {
-      "archived": false,
-      "contributors_count": 63,
-      "created_at": "2026-11-08T05:49:46Z",
-      "default_branch": "main",
-      "description": "Run your own Switch games natively on iPhone, iPad and Mac: game code rewritten to ARM64, graphics direct to Metal, one app for the whole library. Bring your own games and keys. 把你自己的 Switch 游戏原生带到 iPhone / iPad / Mac。",
-      "disabled": false,
-      "fork": false,
-      "forks": 575,
-      "forks_count": 575,
-      "full_name": "jhaizhou-ops/S2Arm",
-      "has_readme": true,
-      "homepage": "https://s2arm.com",
-      "id": 1450012790,
-      "is_dual_use": false,
-      "is_hidden_gem": false,
-      "language": "C#",
-      "license": {
-        "key": "apache-2.0",
-        "name": "Apache License 2.0",
-        "node_id": "MDc6TGljZW5zZTI=",
-        "spdx_id": "Apache-2.0",
-        "url": "https://api.github.com/licenses/apache-2.0"
-      },
-      "media_urls": [
-        "https://raw.githubusercontent.com/jhaizhou-ops/S2Arm/main/docs/images/s2arm-wordmark.png",
-        "https://raw.githubusercontent.com/jhaizhou-ops/S2Arm/main/docs/images/launcher-welcome-en.png",
-        "https://raw.githubusercontent.com/jhaizhou-ops/S2Arm/main/docs/images/launcher-oneclick-en.png",
-        "https://raw.githubusercontent.com/jhaizhou-ops/S2Arm/main/docs/images/launcher-export-en.png",
-        "https://raw.githubusercontent.com/jhaizhou-ops/S2Arm/main/docs/images/launcher-success-en.png",
-        "https://raw.githubusercontent.com/jhaizhou-ops/S2Arm/main/docs/images/launcher-library-en.png"
-      ],
-      "name": "S2Arm",
-      "non_software_reason": "",
-      "open_issues": 528,
-      "open_issues_count": 528,
-      "owner_repo_count": 1,
-      "pushed_at": "2026-11-17T00:23:37Z",
-      "readme": "",
-      "readme_excerpt": "<p align=\"center\"><a href=\"https://s2arm.com\"><img src=\"docs/images/s2arm-wordmark.png\" width=\"420\" alt=\"S2Arm\"></a><br><a href=\"https://s2arm.com\">s2arm.com</a></p>\n\n> [!NOTE]\n> **Good news: [s2arm.com](https://s2arm.com) is now the official S2Arm website.** S2Arm is free and open source and never accepts donations; get S2Arm only from [s2arm.com](https://s2arm.com) or this GitHub repository.\n\n**Your own Switch games, running natively on iPhone, iPad and Mac.** Game code is rewritten to native ARM64 and runs directly on the device's processor, with graphics going straight to Metal. Your whole library lives in one app, and a few clicks in the Mac or Windows launcher take a game from import to play.\n\nPlatforms: iPhone / iPad (iOS / iPadOS 18 and later) · Mac (Apple silicon, macOS 15 and later) · Build on Mac or Windows · Android / HarmonyOS coming soon · License: Apache-2.0 · **Bring your own games**\n\n[简体中文](README.zh-CN.md) · [Download the launcher](https://jhaizhou-ops.github.io/S2Arm/) · [All releases](https://github.com/jhaizhou-ops/S2Arm/releases) · [Evidence](docs/validation/EVIDENCE.md)\n\n<p align=\"center\"><img src=\"docs/images/launcher-welcome-en.png\" width=\"760\" alt=\"S2Arm l",
-      "readme_len": 17319,
-      "repo_id": 1450012790,
-      "score": 90.284,
-      "source_name": "github_search",
-      "sources": [
-        "github_search"
-      ],
-      "stargazers_count": 3364,
-      "stars": 3364,
-      "topics": [
-        "apple-silicon",
-        "arm64",
-        "game-porting",
-        "ios",
-        "ipados",
-        "macos",
-        "metal",
-        "s2arm",
-        "static-recompilation",
-        "switch"
-      ],
-      "updated_at": "2026-11-16T23:59:06Z",
-      "url": "https://github.com/jhaizhou-ops/S2Arm"
-    },
     {
       "archived": false,
       "contributors_count": 64,
@@ -12743,8 +12792,8 @@
     "jhaizhou-ops/s2arm": {
       "first_seen_at": "2026-11-09T13:11:10.847417Z",
       "full_name": "jhaizhou-ops/S2Arm",
-      "last_decision": "queued",
-      "last_seen_at": "2026-11-17T00:25:47.773350Z",
+      "last_decision": "published",
+      "last_seen_at": "2026-11-17T16:24:14.507765Z",
       "repo_id": 1450012790,
       "sources": [
         "github_search"
