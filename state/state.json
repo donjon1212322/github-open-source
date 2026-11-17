@@ -287,13 +287,13 @@
       "telegram_message_id": 3613
     },
     "news-article": {
-      "devto_id": 5050300,
-      "finished_at": "2026-11-16T19:53:50.239727Z",
+      "devto_id": 5059758,
+      "finished_at": "2026-11-17T19:53:50.602066Z",
       "published": true,
-      "title": "Qwen4-Max Lands in API, llama.cpp Hits 1.0.0, and 80B Models Run on Mobile Devices",
-      "topic_key": "ai-models-and-inference-tools",
-      "url": "https://dev.to/githubopensource/qwen4-max-lands-in-api-llamacpp-hits-100-and-80b-models-run-on-mobile-devices-2khm",
-      "words": 1197
+      "title": "GPT-6.2 Astra, Sol, and Codex CLI 0.169.0 Lead the Model Watch",
+      "topic_key": "ai-models-and-tools",
+      "url": "https://dev.to/githubopensource/gpt-62-astra-sol-and-codex-cli-01690-lead-the-model-watch-45in",
+      "words": 1095
     },
     "publish:europe_midday": {
       "finished_at": "2026-11-11T12:43:59.103591Z",
@@ -1526,6 +1526,7 @@
         ],
         "why_devs": "Keeping up with rapid CLI updates and new agent interfaces prevents broken builds and security gaps."
       },
+      "devto_cover_url": "https://i.ibb.co/wZJ2wKss/project-devto-cover-4ed8068b6c04.png",
       "headline": "GPT-6.2 Astra · Sol · Codex CLI 0.169.0 lead the model watch",
       "image_url": "https://i.ibb.co/Z6LTH1yb/ai-brief-36b7bd242fae.png",
       "models": [
