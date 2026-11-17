@@ -498,3 +498,5 @@
 {"range": "facebook!A16:E16", "rows": 1, "ts": "2026-11-17T18:31:31.828626Z", "type": "facebook_handoff_queued"}
 {"deleted": 0, "ts": "2026-11-17T18:47:47.266134Z", "type": "moderation_completed", "updates": 2}
 {"slot": "facebook-handoff", "ts": "2026-11-17T19:00:56.360824Z", "type": "watchdog_verified"}
+{"title": "GPT-6.2 Astra, Sol, and Codex CLI 0.169.0 Lead the Model Watch", "ts": "2026-11-17T19:19:19.804681Z", "type": "news_article_generated", "words": 1095}
+{"Gemini_video_input": false, "models": 4, "official_url": "", "stories": 4, "topic": "ai-models-and-tools", "ts": "2026-11-17T19:19:21.592164Z", "type": "ai_brief_published", "video_id": "tg-20261117-874dce7380"}

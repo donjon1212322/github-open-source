@@ -115,33 +115,44 @@
       "ratio": 0.0,
       "reason": "published",
       "removed": 0
+    },
+    {
+      "date": "2026-11-17",
+      "fingerprint": "2026-11-17|True|published|0|0.0000|4",
+      "kept": 4,
+      "published": true,
+      "ratio": 0.0,
+      "reason": "published",
+      "removed": 0
     }
   ],
   "brief_memory": {
     "clusters": {
       "https://arxiv.org/abs/2611.09501": "2026-11-13",
-      "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-hydrogen": "2026-11-12",
-      "https://blog.google/innovation-and-ai/technology/developers-tools/gemini-decisions-api": "2026-11-12",
+      "https://blog.google/innovation-and-ai/infrastructure-and-cloud/google-cloud/gtig-ai-threat-tracker-q4-2026": "2026-11-17",
       "https://cdn.deepseek.com/chat-demo": "2026-11-13",
       "https://github.com/advisories/ghsa-mq7w-jmv5-vq3p": "2026-11-13",
+      "https://github.com/anomalyco/browse": "2026-11-17",
       "https://github.com/anthropics/claude-code/releases/tag/v2.1.323": "2026-11-13",
       "https://github.com/anthropics/claude-code/releases/tag/v2.1.325": "2026-11-15",
       "https://github.com/benjitaylor/skills": "2026-11-16",
       "https://github.com/deepseek-ai/chat-demo": "2026-11-16",
+      "https://github.com/edwardxlai/easyread": "2026-11-17",
       "https://github.com/ggml-org/llama.cpp/releases/tag/v1.0.0": "2026-11-16",
       "https://github.com/justxor/local-ai-agent-course-ru": "2026-11-15",
+      "https://github.com/openai/codex/pull/60041": "2026-11-17",
       "https://github.com/synchopate/llama-modchip": "2026-11-13",
-      "https://github.com/telegrammessenger/widget-sandbox": "2026-11-12",
-      "https://ipo.anthropic.com": "2026-11-12",
-      "https://nvidianews.nvidia.com/news/nvidia-announces-ceo-transition": "2026-11-12",
+      "https://nvidianews.nvidia.com/news/nvidia-board-of-directors-establishes-national-security-and-export-control-oversight-committee": "2026-11-17",
       "https://openai.com/daybreak/red-team": "2026-11-15",
+      "https://openai.com/index/introducing-gpt-6-2-astra-sol": "2026-11-17",
+      "https://openai.com/index/strengthening-nato-allied-cyber-defences-ai": "2026-11-17",
       "https://portal.anthropic.com/programs": "2026-11-14",
       "https://qwen.ai/blog": "2026-11-16",
       "https://www.anthropic.com/claude-fable-and-mythos-5-2": "2026-11-15",
       "https://www.anthropic.com/engineering/code-execution-with-mcp": "2026-11-15",
       "https://www.anthropic.com/research/building-strong-safety-evaluations": "2026-11-13",
       "post:data_secrets:10339": "2026-11-14",
-      "story:gpt-6-cyber": "2026-11-12",
+      "story:gpt-6-cyber": "2026-11-17",
       "story:inkling-2-small": "2026-11-14",
       "story:metr-rnd": "2026-11-16",
       "text:anthropic-claude-code-on-desktop-now-supports": "2026-11-15",
@@ -151,19 +162,17 @@
       "text:anthropic-подсиживает-microsoft-перед-ipo-в-чате": "2026-11-14",
       "text:artificial-analysis-прогнала-gemini-4-hydrogen-через": "2026-11-13",
       "text:claude-meetings": "2026-11-14",
+      "text:gemini-4-argon-чаще-всех-моделей-объясняет": "2026-11-17",
       "text:google-an-upcoming-comic-artifact-configuration-page": "2026-11-16",
-      "text:google-gemini-4-hydrogen-flash-is-rolling": "2026-11-12",
       "text:sesame-voice-agent-is-ending-its-preview": "2026-11-15",
       "text:spacexsi-grok-bot-now-has-7-more": "2026-11-15",
       "text:бесплатный-семинар-про-то-как-делать-иипроекты": "2026-11-14",
-      "text:да-это-просто-pong-от-fable-52": "2026-11-12",
+      "text:главное-про-новые-gpt62-astra-и-sol": "2026-11-17",
       "text:если-в-claude-code-вы-отвечали-yes": "2026-11-13",
-      "text:институт-airi-и-сколтех-разработали-систему-для": "2026-11-12",
       "text:наконецто-сьебастьян-рашка-подготовил-подробный-материал-позиционные": "2026-11-16",
       "text:независимые-исследователи-нашли-в-открытых-китайских-моделях": "2026-11-14",
       "text:отличная-кандидатура-для-нового-сезона-холостяка": "2026-11-14",
       "text:папа-римский-заявил-что-он-против-того": "2026-11-15",
-      "text:похоже-fable-нащупала-новый-способ-делать-игры": "2026-11-12",
       "text:ресторан-dennys-где-хуанг-в-юности-мыл": "2026-11-15",
       "text:российские-исследователи-предложили-новые-методы-решения-проблемы": "2026-11-16",
       "text:тибо-пишет-что-команда-codex-похоже-починила": "2026-11-16",
@@ -172,30 +181,30 @@
     },
     "stories": {
       "0731 deepseek flash llama locally modchip running": "2026-11-13",
+      "169 changes cli codex trust": "2026-11-17",
       "325 claude code managed": "2026-11-15",
       "additions api deepseek tooling": "2026-11-16",
       "algorithm clustering fair meta proposes": "2026-11-13",
       "anthropic details evaluations multi safety turn": "2026-11-13",
       "api deepseek developer expands": "2026-11-13",
       "api max qwen4": "2026-11-16",
+      "astra gpt launch sol": "2026-11-17",
       "blackwell checkpoint chinese chips forensics restricted suggest trained": "2026-11-14",
+      "browse mcp server": "2026-11-17",
       "claude code cursor harness updates": "2026-11-13",
       "claude code experimental mode": "2026-11-15",
       "claude fable": "2026-11-15",
       "course local ollama": "2026-11-15",
-      "cyber gpt": "2026-11-12",
-      "decision gemini": "2026-11-12",
+      "easyread pdf translation": "2026-11-17",
       "ember join lineup muse nex openrouter": "2026-11-14",
-      "gemini hydrogen": "2026-11-12",
       "generator interactive stageshow": "2026-11-16",
-      "interactive telegram widgets": "2026-11-12",
       "mobile moe runner smolmaxxing": "2026-11-16"
     }
   },
   "dead_letters": [],
   "gemini_daily": {
     "day": "2026-11-17",
-    "units": 15
+    "units": 30
   },
   "gemini_window": [
     [
@@ -273,9 +282,9 @@
       "updated": 12
     },
     "news": {
-      "finished_at": "2026-11-16T19:19:28.491372Z",
+      "finished_at": "2026-11-17T19:19:21.592156Z",
       "reason": "published",
-      "telegram_message_id": 3609
+      "telegram_message_id": 3613
     },
     "news-article": {
       "devto_id": 5050300,
@@ -1456,6 +1465,89 @@
       "telegram_message_id": 3609,
       "topic_key": "ai-models-and-inference-tools",
       "video_id": "tg-20261116-a2e01547e2",
+      "video_url": "https://t.me/GitHub_Open_Source"
+    },
+    {
+      "Gemini_video_input": false,
+      "article_markdown": "> **TL;DR** OpenAI introduced **GPT-6.2 Astra** and **Sol** for heavy workloads, while **Codex CLI 0.169.0** introduced stricter workspace trust boundaries. Meanwhile, open-source utilities like **Browse 0.1** and **EasyRead** are changing how we handle local agent browsing and documentation workflows.\n\n## What actually moved today\n\nThe landscape of developer tooling and model deployments shifted with concrete, official updates that affect our local environments and CI pipelines. We saw major model drops paired with critical security refinements in command-line interfaces. Understanding these mechanics helps us avoid unexpected breaking changes in our day-to-day workflows.\n\n### Model Deployments and CLI Hardening\nOpenAI formally published the model cards for **GPT-6.2 Astra** and **Sol**, bringing targeted improvements to reasoning and data extraction tasks. At the same time, **Codex CLI 0.169.0** rolled out with a major breaking change regarding automatic project configuration loading. Developers updating their global packages will notice that implicit execution of repository-level tools is now blocked by default.\n\n### Open Source Automation and Utilities\nBeyond proprietary checkpoints, the open-source ecosystem delivered practical agent primitives. The release of **Browse 0.1** bridges the gap between Model Context Protocol servers and standard web browsers. Similarly, **EasyRead** emerged as a dedicated local tool for parsing and translating dense technical documentation without sending sensitive payloads to third-party endpoints.\n\n## The model watch\n\nEvaluating new model iterations requires looking closely at their stated benchmarks and structural changes. When a flagship architecture updates, our standard evaluation harnesses usually need prompt adjustments to capture the new baseline behavior accurately.\n\n### GPT-6.2 Astra and Sol\nThe rollout of **GPT-6.2 Astra** and **Sol** gives us new options for high-throughput data processing and multi-step coding tasks. **GPT-6.2 Astra** targets complex reasoning pipelines where previous generations hit context or logic ceilings. **Sol** complements this by focusing on rapid execution for smaller, highly structured payloads. If you maintain an automated refactoring pipeline, re-running your standard test suite against these endpoints will reveal whether their token efficiency translates to your specific prompt structures.\n\n### Codex CLI 0.169.0\n**Codex CLI 0.169.0** changes how developers interact with local repositories by disabling automatic project configuration and Model Context Protocol server loading. Previously, pulling a repository and invoking the CLI would implicitly trust local configuration files. Now, explicit trust flags are mandatory, preventing malicious repositories from executing arbitrary tools through hidden workspace settings. If your continuous integration scripts or local shortcut aliases rely on implicit loading, you will need to update your invocation patterns to pass the required security flags explicitly.\n\n## Rumours, clearly labelled\n\nIt is important to separate verified releases from unconfirmed community chatter and leaks. The following items lack official documentation and should not be relied upon for production architecture decisions.\n\n| Claim | Status | Basis |\n| :--- | :--- | :--- |\n| Astra price dropped by 20% and cached tokens by 60% | Unconfirmed | Community chatter and unverified pricing screenshots |\n| Gemini 4 Argon scored 100 on Artificial Analysis metaphoricity rating | Unconfirmed | Social media claims without official benchmark publication |\n\nThese unverified points highlight the constant stream of speculation surrounding modern AI releases. Until providers update their official pricing pages and benchmark leaderboards, treat these figures as placeholders rather than facts.\n\n## Odd finds and small tools\n\nSometimes the most valuable additions to a developer's toolkit are small, focused utilities rather than massive foundational models. Two recent open-source projects stand out for solving specific daily friction points.\n\n### Browse 0.1 MCP Server\n**Browse 0.1**, released by the OpenCode team, combines a Model Context Protocol server with a companion browser extension. This architecture allows local coding agents to interact directly with authenticated browser sessions while keeping human developers in the loop for sensitive authorization flows. It bypasses the fragility of headless scraping scripts by leveraging a real browser instance under strict protocol control.\n\n### EasyRead PDF Translator\n**EasyRead** launched as an open-source solution designed for developers and researchers who frequently read scientific papers and dense specifications. It provides a local interface for side-by-side translation and integrated note-taking. By running locally, it ensures that proprietary technical documents and internal whitepapers do not leave your local machine during the translation and summarization process.\n\n## What I would try this weekend\n\nTo get hands-on with these updates without risking production stability, I recommend setting aside a couple of hours for a localized experimentation sandbox.\n\nFirst, clone a test repository and upgrade to **Codex CLI 0.169.0**. Intentionally trigger the new trust boundary checks to see how your local aliases and script wrappers handle the explicit flag requirements. Second, spin up **Browse 0.1** in an isolated environment to test how its Model Context Protocol server interacts with your local agent setup during routine web navigation tasks. These small experiments will keep your local tooling secure and modern without disrupting your main development workflow.\n\n## Where this leaves us\n\nWe are navigating an ecosystem where security boundaries and model capabilities evolve in parallel. The introduction of **GPT-6.2 Astra** and **Sol** expands our technical options, but tools like **Codex CLI 0.169.0** remind us that operational security must scale alongside model intelligence. While unconfirmed rumours will continue to circulate, sticking to verified release notes and official repositories remains our best defense against integration friction. The exact limits of the new reasoning models under high concurrency are still unknown, and real-world benchmarking will take time to mature.\n\nHow do you structure your automated test suites to catch breaking changes when CLI security defaults shift?\n\n## Migration and Evaluation Checklist\n\nAdopting these recent releases safely demands a systematic checklist for both command-line interfaces and model endpoints. Start your migration by auditing every local shortcut and continuous integration pipeline that invokes development tools. Because package upgrades now block implicit configuration loading, you must append the required trust flags to all automated scripts before pushing updates to shared team repositories. Verify that your environment variables supply the correct credentials without falling back on unverified workspace settings. For model evaluations, establish a standardized prompt set targeting your most frequent reasoning and translation tasks. Run baseline accuracy checks comparing older checkpoints against the newly introduced identifiers to measure token efficiency gains directly. Document any variance in response latency under heavy load to ensure your production infrastructure handles the updated throughput characteristics smoothly. Finally, review your local agent permissions whenever you integrate browser automation utilities, ensuring that human authorization steps remain strictly enforced for sensitive interactions. Maintaining this structured verification protocol prevents unexpected regressions and preserves system integrity across all development environments.\n\n---\n\n💬 Questions, corrections or a better way to run these evals? Feedback and discussion are in the channel: https://t.me/GitHub_Open_Source\n",
+      "article_title": "GPT-6.2 Astra, Sol, and Codex CLI 0.169.0 Lead the Model Watch",
+      "brief": {
+        "discussion_question": "How do you handle workspace trust boundaries when running autonomous coding agents locally?",
+        "headline": "GPT-6.2 Astra · Sol · Codex CLI 0.169.0 lead the model watch",
+        "hook": "4 exact names, 4 official launches, 0 only announced, 0 unverified claims. GPT-6.2 Astra leads the watch — what would you actually re-run first?",
+        "models": [
+          "GPT-6.2 Astra",
+          "Sol",
+          "Codex CLI 0.169.0",
+          "Gemini 4 Argon"
+        ],
+        "stories": [
+          {
+            "basis": "the model card is up",
+            "bullets": [
+              "OpenAI announced the release of GPT-6.2 Astra and Sol."
+            ],
+            "status": "official_release",
+            "title": "GPT-6.2 Astra and Sol Launch",
+            "why": "These models bring new capabilities across coding, research, and data processing."
+          },
+          {
+            "basis": "the GitHub repository is public",
+            "bullets": [
+              "The OpenCode team released Browse 0.1, combining an MCP server and browser extension."
+            ],
+            "status": "official_release",
+            "title": "Browse 0.1 MCP Server",
+            "why": "It lets agents interact directly with normal browser sessions while keeping human control over sensitive flows."
+          },
+          {
+            "basis": "the release notes are on GitHub",
+            "bullets": [
+              "Codex CLI 0.169.0 stopped loading project configs and MCP servers automatically unless explicit trust is granted."
+            ],
+            "status": "official_release",
+            "title": "Codex CLI 0.169.0 Trust Changes",
+            "why": "CI setups and local workspaces relying on implicit repo settings now require explicit flags."
+          },
+          {
+            "basis": "the source code is open",
+            "bullets": [
+              "EasyRead launched as an open-source tool for local PDF translation and AI interaction."
+            ],
+            "status": "official_release",
+            "title": "EasyRead PDF Translation Tool",
+            "why": "It streamlines reading scientific papers with side-by-side translation and integrated note-taking."
+          }
+        ],
+        "summary": "This week features official model releases from OpenAI, security updates in Codex CLI, new browser automation MCP servers, and open-source PDF translation tools.",
+        "unconfirmed_claims": [
+          "Astra price dropped by 20% and cached tokens by 60%",
+          "Gemini 4 Argon scored 100 on Artificial Analysis metaphoricity rating"
+        ],
+        "why_devs": "Keeping up with rapid CLI updates and new agent interfaces prevents broken builds and security gaps."
+      },
+      "headline": "GPT-6.2 Astra · Sol · Codex CLI 0.169.0 lead the model watch",
+      "image_url": "https://i.ibb.co/Z6LTH1yb/ai-brief-36b7bd242fae.png",
+      "models": [
+        "GPT-6.2 Astra",
+        "Sol",
+        "Codex CLI 0.169.0",
+        "Gemini 4 Argon"
+      ],
+      "narrative_hook": "Three model releases showed up in four channels this week. The thing I can't stop thinking about is 21 alpha patches dropping for a single CLI tool in a month.",
+      "official_url": "",
+      "post_text": "🛰️ <b>AI Brief</b> · <i>no ads, no hype</i>\n\n<b>Three model releases showed up in four channels this week. The thing I can't stop thinking about is 21 alpha patches dropping for a single CLI tool in a month.</b>\n\n🧬 <b>In this brief:</b> GPT-6.2 Astra · Sol · Codex CLI 0.169.0 · Gemini 4 Argon\n\n<b>1/ GPT-6.2 Astra and Sol Launch</b>\nOpenAI announced the release of GPT-6.2 Astra and Sol.\nThese models bring new capabilities across coding, research, and data processing.\n<i>the model card is up</i>\n\n<b>2/ Browse 0.1 MCP Server</b>\nThe OpenCode team released Browse 0.1, combining an MCP server and browser extension.\nIt lets agents interact directly with normal browser sessions while keeping human control over sensitive flows.\n<i>the GitHub repository is public</i>\n\n<b>3/ Codex CLI 0.169.0 Trust Changes</b>\nCodex CLI 0.169.0 stopped loading project configs and MCP servers automatically unless explicit trust is granted.\nCI setups and local workspaces relying on implicit repo settings now require explicit flags.\n<i>the release notes are on GitHub</i>\n\n<b>4/ EasyRead PDF Translation Tool</b>\nEasyRead launched as an open-source tool for local PDF translation and AI interaction.\nIt streamlines reading scientific papers with side-by-side translation and integrated note-taking.\n<i>the source code is open</i>\n\n<b>◻️ Rumours we're keeping an eye on</b>\n\n◻️ <i>Astra price dropped by 20% and cached tokens by 60%</i>\n◻️ <i>Gemini 4 Argon scored 100 on Artificial Analysis metaphoricity rating</i>\n\n<i>How do you handle workspace trust boundaries when running autonomous coding agents locally?</i>\n\n📣 <a href=\"https://t.me/GitHub_Open_Source\"><b>@GitHub_Open_Source</b></a>\n\n========================================\n#AINews #OpenSource",
+      "published_at": "2026-11-17T19:19:21.591972Z",
+      "statuses": [
+        "official_release",
+        "official_release",
+        "official_release",
+        "official_release"
+      ],
+      "stories": 4,
+      "telegram_message_id": 3613,
+      "topic_key": "ai-models-and-tools",
+      "video_id": "tg-20261117-874dce7380",
       "video_url": "https://t.me/GitHub_Open_Source"
     }
   ],
@@ -9490,13 +9582,12 @@
     }
   ],
   "rumour_memory": {
-    "365 affected copilot globally hours microsoft onedrive outage outlook sharepoint teams": "2026-11-13",
+    "100 analysis argon artificial gemini metaphoricity rating scored": "2026-11-17",
     "agent ending launching paid plans plus preview pro sesame voice": "2026-11-15",
-    "analysis artificial gemini hydrogen indexed": "2026-11-13",
-    "answering claude code command json local prompts saved secrets settings yes": "2026-11-13",
     "anthropic branch claude code coordination mods released theme updates": "2026-11-14",
     "anthropic claude duet invites sending started": "2026-11-14",
     "artifact comic configuration gemini notebook page upcoming update": "2026-11-16",
+    "astra cached dropped price tokens": "2026-11-17",
     "bot grok paid percent plans runs scheduled usage": "2026-11-15",
     "capacity codex errors fixing model potentially team": "2026-11-16",
     "claude code custom descriptions desktop supports themes user": "2026-11-15",
