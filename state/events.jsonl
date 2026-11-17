@@ -502,3 +502,4 @@
 {"Gemini_video_input": false, "models": 4, "official_url": "", "stories": 4, "topic": "ai-models-and-tools", "ts": "2026-11-17T19:19:21.592164Z", "type": "ai_brief_published", "video_id": "tg-20261117-874dce7380"}
 {"devto_id": 5059758, "ts": "2026-11-17T19:53:50.602087Z", "type": "news_article_published", "url": "https://dev.to/githubopensource/gpt-62-astra-sol-and-codex-cli-01690-lead-the-model-watch-45in", "words": 1095}
 {"channel": "GitHub_Open_Source", "posts": 12, "ts": "2026-11-17T20:24:01.225716Z", "type": "metrics_collected", "updated": 12}
+{"deleted": 0, "ts": "2026-11-17T21:47:46.096470Z", "type": "moderation_completed", "updates": 1}
