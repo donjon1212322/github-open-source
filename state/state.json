@@ -218,11 +218,11 @@
   ],
   "last_runs": {
     "article": {
-      "finished_at": "2026-11-17T13:33:51.410284Z",
+      "finished_at": "2026-11-18T13:33:50.975371Z",
       "published": true,
       "reason": "published",
-      "repo": "tangency-labs/solidcraft",
-      "url": "https://dev.to/githubopensource/open-source-parametric-3d-cad-in-rust-solidcraft-4o2e"
+      "repo": "ersinkoc/phonebox",
+      "url": "https://dev.to/githubopensource/turn-old-android-phone-into-pc-monitor-open-source-desk-panel-ojj"
     },
     "collect": {
       "discovered": 385,
@@ -2178,7 +2178,13 @@
       "visual_kind": "readme"
     },
     "ersinkoc/phonebox": {
-      "articles": {},
+      "articles": {
+        "devto": {
+          "id": 5065271,
+          "published_at": "2026-11-18T13:33:50.975226Z",
+          "url": "https://dev.to/githubopensource/turn-old-android-phone-into-pc-monitor-open-source-desk-panel-ojj"
+        }
+      },
       "card_style": "",
       "category": "DevTools",
       "contributors_count": 19,
@@ -2192,6 +2198,7 @@
       },
       "description": "Turn an old Android phone into a customizable desk panel and touch control deck for Windows, Linux and macOS. 115 widgets for system stats, AI coding, media and automation. USB or paired Wi-Fi. No cloud required.",
       "description_fp": "fa3e2cc36def69ac",
+      "devto_cover_url": "https://i.ibb.co/rK2C4scJ/ersinkoc-phonebox-devto-cover-fdd8e7a528c4.png",
       "forks": 376,
       "full_name": "ersinkoc/phonebox",
       "generated": {
