@@ -538,3 +538,4 @@
 {"Gemini_video_input": false, "models": 8, "official_url": "", "stories": 5, "topic": "ai-coding-agents-and-infrastructure", "ts": "2026-11-18T19:19:59.674849Z", "type": "ai_brief_published", "video_id": "tg-20261118-ffa300ae20"}
 {"devto_id": 5068030, "ts": "2026-11-18T19:53:51.613159Z", "type": "news_article_published", "url": "https://dev.to/githubopensource/vllm-0340-mistral-vibe-desktop-and-early-critiques-of-gpt-62-astra-kh1", "words": 1112}
 {"channel": "GitHub_Open_Source", "posts": 12, "ts": "2026-11-18T20:24:01.272503Z", "type": "metrics_collected", "updated": 12}
+{"minutes_late": 128.9, "schedule": "47 */3 * * *", "ts": "2026-11-18T20:55:52.746912Z", "type": "late_schedule_ignored"}
