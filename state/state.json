@@ -204,20 +204,16 @@
   "dead_letters": [],
   "gemini_daily": {
     "day": "2026-11-17",
-    "units": 30
+    "units": 36
   },
   "gemini_window": [
     [
-      1794939231.7516084,
-      3898
+      1794964437.357866,
+      3974
     ],
     [
-      1794939238.4083362,
-      1443
-    ],
-    [
-      1794939253.333469,
-      194
+      1794964440.9491615,
+      1392
     ]
   ],
   "last_runs": {
@@ -306,9 +302,9 @@
       "telegram_message_id": 3550
     },
     "publish:us_evening": {
-      "finished_at": "2026-11-17T01:14:17.222390Z",
-      "repo": "tangency-labs/solidcraft",
-      "telegram_message_id": 3610
+      "finished_at": "2026-11-18T01:14:06.693693Z",
+      "repo": "ersinkoc/phonebox",
+      "telegram_message_id": 3614
     },
     "publish:us_midday": {
       "finished_at": "2026-11-17T18:14:18.049080Z",
@@ -2178,6 +2174,126 @@
           "views": 101
         }
       ],
+      "visual_host": "imgbb",
+      "visual_kind": "readme"
+    },
+    "ersinkoc/phonebox": {
+      "articles": {},
+      "card_style": "",
+      "category": "DevTools",
+      "contributors_count": 19,
+      "created_at": "2026-11-07T16:45:16Z",
+      "crossposts": {
+        "bluesky": {
+          "attempts": 0,
+          "due_at": "2026-11-18T18:00:00+00:00",
+          "status": "pending"
+        }
+      },
+      "description": "Turn an old Android phone into a customizable desk panel and touch control deck for Windows, Linux and macOS. 115 widgets for system stats, AI coding, media and automation. USB or paired Wi-Fi. No cloud required.",
+      "description_fp": "fa3e2cc36def69ac",
+      "forks": 376,
+      "full_name": "ersinkoc/phonebox",
+      "generated": {
+        "article_markdown": "## What it is\n\nPhoneBox is a local desktop agent and Android application that transforms an idle phone into a physical desk panel. It pairs via USB or Wi-Fi to render custom layouts, system monitors, and control shortcuts without relying on external cloud services.\n\n## Why it matters\n\nDesktop real estate is a constant bottleneck for developers juggling resource-heavy tooling, terminals, and AI coding assistants. By moving monitoring tools and quick controls to an external mobile device, you free up primary screen space while keeping critical metrics visible at a glance.\n\n## Key features\n\n- Monitor CPU, GPU, RAM, disks, and network stats with custom charts\n- Track Claude and Codex AI quotas, burn rates, and session permissions\n- Control application audio, media playback, and shortcuts via touch\n- Trigger webhooks and integrate with Home Assistant rules\n- Use Smart Stack widgets to fit up to 12 items in a single slot\n\n## Quick start\n\nFor Windows 10/11 x64, paste the following command into a normal PowerShell window:\n\n```powershell\nirm https://raw.githubusercontent.com/ersinkoc/phonebox/main/setup.ps1 | iex\n```\n\n## Who should try it\n\nDevelopers who want a dedicated hardware monitor and control pad without purchasing expensive commercial stream decks, and who happen to have a spare Android 5+ device lying around.\n\n## Verdict\n\nPhoneBox delivers a polished, self-hosted alternative to proprietary macro pads. While it requires initial setup via USB debugging or local network pairing, the resulting flexibility makes it a worthwhile addition to any developer desk.",
+        "article_title": "PhoneBox: Turn an Old Android Phone into a PC Stats and AI Control Panel",
+        "card_hook": "Turn an old phone into a PC control deck",
+        "card_subline": "Monitor system stats, view AI quotas, and manage media without cloud dependencies",
+        "category": "DevTools",
+        "discussion_question": "Do you prefer dedicated desk hardware or software overlays for monitoring system stats?",
+        "hook": "Turn an old Android phone into a customizable desk panel for your PC with over 100 system and AI widgets.",
+        "key_features": [
+          "Monitor CPU, GPU, RAM, disks, and network stats with custom charts",
+          "Track Claude and Codex AI quotas, burn rates, and session permissions",
+          "Control application audio, media playback, and shortcuts via touch",
+          "Trigger webhooks and integrate with Home Assistant rules",
+          "Use Smart Stack widgets to fit up to 12 items in a single slot"
+        ],
+        "llm_used": true,
+        "quick_start": "irm https://raw.githubusercontent.com/ersinkoc/phonebox/main/setup.ps1 | iex",
+        "safety": "ok",
+        "safety_reason": "Legitimate developer utility for system monitoring and hardware control.",
+        "scene": "You are deep in a debugging session, switching constantly between your code editor, terminal, and browser to check system stats and AI token usage.",
+        "social_text": "Turn an old Android phone into a local desk panel and control deck for Windows, Linux, and macOS.",
+        "summary": "PhoneBox pairs an Android app with a desktop agent running locally on your machine, communicating over USB or Wi-Fi. You configure layouts through a browser-based visual editor that serves templates and interactive elements directly to the mobile screen. The system integrates closely with local hardware counters, media sessions, and development tools to display real-time telemetry.",
+        "surfaces": {
+          "Facebook_body": "Give your old Android phone a second life as a custom desk panel to monitor your computer stats, control music, and trigger shortcuts without any cloud service. By pairing a simple mobile app with a local desktop program over USB or Wi-Fi, you can turn a forgotten device into a helpful hardware monitor and control deck right on your desk.\n\nThe system lets you design custom screen layouts using a simple browser-based editor. You can keep an eye on computer performance like processor load and memory usage, track your artificial intelligence coding quotas, manage media playback, or trigger home automation rules with a quick tap on the screen.\n\nThis project is built for developers, hobbyists, and power users who have a spare Android device lying around and want a hands-on way to track system resources and shortcuts locally.",
+          "Facebook_headline": "Turn an old phone into a custom computer panel",
+          "Facebook_lead": "Give your old Android phone a second life as a custom desk panel to monitor your computer stats, control music, and trigger shortcuts without any cloud service.",
+          "bluesky_headline": "Turn an old phone into a custom PC monitor",
+          "bluesky_lead": "Display system stats, media controls, and AI usage quotas on a spare Android device.",
+          "devto_body": "## What it is\n\nPhoneBox is an open-source project written in C# that turns an old Android phone into a customizable desk panel and touch control deck for Windows, Linux, and macOS. It pairs an Android app with a local desktop agent, communicating securely over USB or Wi-Fi without relying on any cloud services.\n\n## How it works\n\nThe desktop agent runs locally on your machine and communicates with the mobile device via USB debugging or local Wi-Fi pairing. You configure layouts through a browser-based visual editor that serves templates and interactive elements directly to the mobile screen. The system integrates closely with local hardware counters, media sessions, and development tools to display real-time telemetry.\n\n## Key features\n\n- Monitor CPU, GPU, RAM, disks, and network stats with custom charts\n- Track Claude and Codex AI quotas, burn rates, and session permissions\n- Control application audio, media playback, and shortcuts via touch\n- Trigger webhooks and integrate with Home Assistant rules\n- Use Smart Stack widgets to fit up to 12 items in a single slot\n\n## Getting started\n\nClone the repository from GitHub, ensure you have the C# development environment set up, and build the desktop agent. Install the accompanying Android app on your spare device, configure the local connection over USB or Wi-Fi, and open the browser-based editor to start building your custom layouts.\n\n## When not to use it\n\nSkip this project if you prefer zero-configuration plug-and-play accessories or if you are not comfortable setting up local USB debugging or Wi-Fi pairing between your devices.",
+          "seo_description": "Learn how to repurpose an old Android phone into a custom touch control deck and hardware monitor for your desktop computer without using the cloud.",
+          "seo_query": "turn old android phone into pc monitor",
+          "seo_title": "Turn Old Android Phone Into PC Monitor - Open-Source Desk Panel",
+          "telegraph_angle": "Explore how repurposing old hardware reduces electronic waste while providing practical local telemetry and control."
+        },
+        "tension": "Your primary monitor is choked with ancillary dashboard windows, stealing precious pixel space from your code.",
+        "turn": "PhoneBox offloads those monitoring and control tasks entirely to an idle Android device sitting on your desk.",
+        "verdict": "An exceptionally practical way to repurpose old hardware, provided you do not mind configuring local USB debugging or Wi-Fi pairing.",
+        "who_for": "Developers and power users with a spare Android device looking for a local macro pad and hardware monitor.",
+        "why_now": "Local AI coding assistants and complex local environments have made quick monitoring of token quotas and background processes essential."
+      },
+      "homepage": "https://ersinkoc.github.io/phonebox/",
+      "id": 1449548089,
+      "image_url": "https://i.ibb.co/zVj9qhH8/ersinkoc-phonebox-readme-preview-5e6331021adf.jpg",
+      "is_dual_use": false,
+      "is_hidden_gem": false,
+      "language": "C#",
+      "license": {
+        "key": "mit",
+        "name": "MIT License",
+        "node_id": "MDc6TGljZW5zZTEz",
+        "spdx_id": "MIT",
+        "url": "https://api.github.com/licenses/mit"
+      },
+      "media_urls": [
+        "https://raw.githubusercontent.com/ersinkoc/phonebox/main/docs/tour-0.6.gif",
+        "https://raw.githubusercontent.com/ersinkoc/phonebox/main/docs/screenshots/home.png",
+        "https://raw.githubusercontent.com/ersinkoc/phonebox/main/docs/screenshots/work.png",
+        "https://raw.githubusercontent.com/ersinkoc/phonebox/main/docs/screenshots/system.png",
+        "https://raw.githubusercontent.com/ersinkoc/phonebox/main/docs/screenshots/settings-editor.png",
+        "https://raw.githubusercontent.com/ersinkoc/phonebox/main/docs/hero-0.6.png",
+        "https://raw.githubusercontent.com/ersinkoc/phonebox/main/agent/PhoneBox.Agent/phonebox.ico"
+      ],
+      "name": "phonebox",
+      "open_issues": 20,
+      "published_at": "2026-11-18T01:14:06.693244Z",
+      "pushed_at": "2026-11-17T20:28:34Z",
+      "readme_fp": "e704c37e20167cdb",
+      "repo_id": 1449548089,
+      "revisit_of": "",
+      "revisit_reason": "",
+      "score": 92.094,
+      "slot": "us_evening",
+      "sources": [
+        "github_search"
+      ],
+      "stars": 2657,
+      "telegram_chat_id": "@GitHub_Open_Source",
+      "telegram_link": "https://t.me/GitHub_Open_Source/3614",
+      "telegram_message_id": 3614,
+      "telegraph_url": "https://telegra.ph/PhoneBox-Turn-an-Old-Android-Phone-into-a-PC-Stats-and-AI-Control-Panel-11-18",
+      "topics": [
+        "android",
+        "claude-code",
+        "codex",
+        "dashboard",
+        "desk-panel",
+        "dotnet",
+        "linux",
+        "macos",
+        "old-phone",
+        "smart-stack",
+        "stream-deck",
+        "system-monitor",
+        "tailscale",
+        "webhooks",
+        "widgets",
+        "windows"
+      ],
+      "updated_at": "2026-11-18T01:10:45Z",
+      "url": "https://github.com/ersinkoc/phonebox",
       "visual_host": "imgbb",
       "visual_kind": "readme"
     },
@@ -8193,77 +8309,6 @@
   "queue": [
     {
       "archived": false,
-      "contributors_count": 19,
-      "created_at": "2026-11-07T16:45:16Z",
-      "default_branch": "main",
-      "description": "Turn an old Android phone into a customizable desk panel and touch control deck for Windows, Linux and macOS. 115 widgets for system stats, AI coding, media and automation. USB or paired Wi-Fi. No cloud required.",
-      "disabled": false,
-      "fork": false,
-      "forks": 373,
-      "forks_count": 373,
-      "full_name": "ersinkoc/phonebox",
-      "has_readme": true,
-      "homepage": "https://ersinkoc.github.io/phonebox/",
-      "id": 1449548089,
-      "is_dual_use": false,
-      "is_hidden_gem": false,
-      "language": "C#",
-      "license": {
-        "key": "mit",
-        "name": "MIT License",
-        "node_id": "MDc6TGljZW5zZTEz",
-        "spdx_id": "MIT",
-        "url": "https://api.github.com/licenses/mit"
-      },
-      "media_urls": [
-        "https://raw.githubusercontent.com/ersinkoc/phonebox/main/docs/tour-0.6.gif",
-        "https://raw.githubusercontent.com/ersinkoc/phonebox/main/docs/screenshots/home.png",
-        "https://raw.githubusercontent.com/ersinkoc/phonebox/main/docs/screenshots/work.png",
-        "https://raw.githubusercontent.com/ersinkoc/phonebox/main/docs/screenshots/system.png",
-        "https://raw.githubusercontent.com/ersinkoc/phonebox/main/docs/screenshots/settings-editor.png",
-        "https://raw.githubusercontent.com/ersinkoc/phonebox/main/docs/hero-0.6.png",
-        "https://raw.githubusercontent.com/ersinkoc/phonebox/main/agent/PhoneBox.Agent/phonebox.ico"
-      ],
-      "name": "phonebox",
-      "non_software_reason": "",
-      "open_issues": 18,
-      "open_issues_count": 18,
-      "owner_repo_count": 1,
-      "pushed_at": "2026-11-17T20:28:34Z",
-      "readme": "",
-      "readme_excerpt": "<p align=\"center\"><img src=\"agent/PhoneBox.Agent/phonebox.ico\" width=\"72\" alt=\"PhoneBox icon\"></p>\n\n<h1 align=\"center\">PhoneBox</h1>\n\n<p align=\"center\">\n  <b>English</b> ·\n  <a href=\"docs/README.tr.md\">Türkçe</a> ·\n  <a href=\"docs/README.de.md\">Deutsch</a> ·\n  <a href=\"docs/README.fr.md\">Français</a> ·\n  <a href=\"docs/README.es.md\">Español</a> ·\n  <a href=\"docs/README.it.md\">Italiano</a> ·\n  <a href=\"docs/README.pt.md\">Português</a> ·\n  <a href=\"docs/README.nl.md\">Nederlands</a> ·\n  <a href=\"docs/README.pl.md\">Polski</a> ·\n  <a href=\"docs/README.ru.md\">Русский</a> ·\n  <a href=\"docs/README.vi.md\">Tiếng Việt</a> ·\n  <a href=\"docs/README.zh.md\">中文 (简体)</a>\n</p>\n\n<p align=\"center\"><b>Turn an old Android phone into a desk panel for your computer.</b><br>\nPC stats, AI coding sessions, music and touch controls over USB or Wi-Fi.<br>\nWindows, Linux and macOS. No root, PhoneBox account or cloud service required.</p>\n\n<p align=\"center\">\n  <a href=\"https://ersinkoc.github.io/phonebox/\"><b>Try the live demo</b></a> ·\n  <a href=\"https://github.com/ersinkoc/phonebox/releases/latest\"><b>Download</b></a> ·\n  <a href=\"#quick-start\"><b>Quick start</b></a>\n</p>\n\n<p align=\"center\">\n  <a href=\"https://",
-      "readme_len": 13975,
-      "repo_id": 1449548089,
-      "score": 92.094,
-      "source_name": "github_search",
-      "sources": [
-        "github_search"
-      ],
-      "stargazers_count": 2639,
-      "stars": 2639,
-      "topics": [
-        "android",
-        "claude-code",
-        "codex",
-        "dashboard",
-        "desk-panel",
-        "dotnet",
-        "linux",
-        "macos",
-        "old-phone",
-        "smart-stack",
-        "stream-deck",
-        "system-monitor",
-        "tailscale",
-        "webhooks",
-        "widgets",
-        "windows"
-      ],
-      "updated_at": "2026-11-18T00:21:36Z",
-      "url": "https://github.com/ersinkoc/phonebox"
-    },
-    {
-      "archived": false,
       "contributors_count": 35,
       "created_at": "2026-10-04T09:29:07Z",
       "default_branch": "main",
@@ -11923,8 +11968,8 @@
     "ersinkoc/phonebox": {
       "first_seen_at": "2026-11-14T00:25:22.297621Z",
       "full_name": "ersinkoc/phonebox",
-      "last_decision": "queued",
-      "last_seen_at": "2026-11-18T00:25:53.062894Z",
+      "last_decision": "published",
+      "last_seen_at": "2026-11-18T01:14:06.693681Z",
       "repo_id": 1449548089,
       "sources": [
         "github_search"

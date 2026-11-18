@@ -510,3 +510,5 @@
 {"minutes_late": 39.6, "schedule": "17 0,18,19,20,21,22,23 * * *", "ts": "2026-11-18T00:56:36.732835Z", "type": "late_schedule_ignored"}
 {"minutes_late": 405.1, "schedule": "13 18 * * *", "ts": "2026-11-18T00:58:04.612365Z", "type": "late_schedule_ignored"}
 {"minutes_late": 401.1, "schedule": "23 18 * * *", "ts": "2026-11-18T01:04:05.283290Z", "type": "late_schedule_ignored"}
+{"preview_host": "imgbb", "repo": "ersinkoc/phonebox", "ts": "2026-11-18T01:14:06.347132Z", "type": "published_as_text"}
+{"repo": "ersinkoc/phonebox", "score": 92.094, "telegram_message_id": 3614, "telegraph_url": "https://telegra.ph/PhoneBox-Turn-an-Old-Android-Phone-into-a-PC-Stats-and-AI-Control-Panel-11-18", "ts": "2026-11-18T01:14:06.693569Z", "type": "project_published"}
