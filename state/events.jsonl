@@ -531,3 +531,4 @@
 {"repo": "heyputer/everything", "score": 87.909, "telegram_message_id": 3616, "telegraph_url": "https://telegra.ph/HeyPutereverything-Open-Source-Alternatives-to-Proprietary-Software-11-18", "ts": "2026-11-18T18:14:23.941523Z", "type": "project_published"}
 {"platform": "bluesky", "repo": "ersinkoc/phonebox", "ts": "2026-11-18T18:17:49.386309Z", "type": "crosspost_published", "url": "https://bsky.app/profile/githubopensource.bsky.social/post/3n2m65obzsf22"}
 {"attempts": 1, "detail": "HTTP 204", "slot": "facebook-handoff", "ts": "2026-11-18T18:30:55.643370Z", "type": "watchdog_recovered", "verified": false}
+{"range": "facebook!A17:E17", "rows": 1, "ts": "2026-11-18T18:31:19.271200Z", "type": "facebook_handoff_queued"}
