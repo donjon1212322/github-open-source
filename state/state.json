@@ -277,7 +277,7 @@
     },
     "metrics": {
       "checked": 12,
-      "finished_at": "2026-11-17T20:23:57.825465Z",
+      "finished_at": "2026-11-18T20:23:57.868120Z",
       "reason": "measured",
       "updated": 12
     },
@@ -2401,6 +2401,7 @@
       "open_issues": 20,
       "published_at": "2026-11-18T01:14:06.693244Z",
       "pushed_at": "2026-11-17T20:28:34Z",
+      "reactions": 0,
       "readme_fp": "e704c37e20167cdb",
       "repo_id": 1449548089,
       "revisit_of": "",
@@ -2435,6 +2436,17 @@
       ],
       "updated_at": "2026-11-18T01:10:45Z",
       "url": "https://github.com/ersinkoc/phonebox",
+      "value_score": 45.25,
+      "views": 81,
+      "views_age_hours": 19.2,
+      "views_at_24h": 94,
+      "views_history": [
+        {
+          "at": "2026-11-18T20:23:58.720687Z",
+          "reactions": 0,
+          "views": 81
+        }
+      ],
       "visual_host": "imgbb",
       "visual_kind": "readme"
     },
@@ -2720,10 +2732,10 @@
       ],
       "updated_at": "2026-11-15T01:13:32Z",
       "url": "https://github.com/FrigadeHQ/yogurt",
-      "value_score": 35.4,
-      "views": 111,
-      "views_age_hours": 67.2,
-      "views_at_24h": 74,
+      "value_score": 35.02,
+      "views": 121,
+      "views_age_hours": 91.2,
+      "views_at_24h": 73,
       "views_history": [
         {
           "at": "2026-11-15T20:23:49.889987Z",
@@ -2739,6 +2751,11 @@
           "at": "2026-11-17T20:24:00.378266Z",
           "reactions": 0,
           "views": 111
+        },
+        {
+          "at": "2026-11-18T20:24:01.271671Z",
+          "reactions": 0,
+          "views": 121
         }
       ],
       "visual_host": "imgbb",
@@ -2829,6 +2846,7 @@
       "open_issues": 68,
       "published_at": "2026-11-18T18:14:23.941238Z",
       "pushed_at": "2026-11-18T18:07:58Z",
+      "reactions": 0,
       "readme_fp": "80843e631313b274",
       "repo_id": 1417456983,
       "revisit_of": "",
@@ -2854,6 +2872,17 @@
       ],
       "updated_at": "2026-11-18T17:27:45Z",
       "url": "https://github.com/HeyPuter/everything",
+      "value_score": 32.46,
+      "views": 18,
+      "views_age_hours": 2.2,
+      "views_at_24h": 67,
+      "views_history": [
+        {
+          "at": "2026-11-18T20:23:58.152464Z",
+          "reactions": 0,
+          "views": 18
+        }
+      ],
       "visual_host": "imgbb",
       "visual_kind": "readme"
     },
@@ -2985,10 +3014,10 @@
       ],
       "updated_at": "2026-11-16T00:59:45Z",
       "url": "https://github.com/HolyArrs/HolyArrs",
-      "value_score": 43.59,
-      "views": 112,
-      "views_age_hours": 43.2,
-      "views_at_24h": 86,
+      "value_score": 40.59,
+      "views": 121,
+      "views_age_hours": 67.2,
+      "views_at_24h": 80,
       "views_history": [
         {
           "at": "2026-11-16T20:23:52.720990Z",
@@ -2999,6 +3028,11 @@
           "at": "2026-11-17T20:23:59.539985Z",
           "reactions": 1,
           "views": 112
+        },
+        {
+          "at": "2026-11-18T20:24:00.415154Z",
+          "reactions": 1,
+          "views": 121
         }
       ],
       "visual_host": "imgbb",
@@ -3258,10 +3292,10 @@
       "topics": [],
       "updated_at": "2026-11-15T18:10:32Z",
       "url": "https://github.com/huamidev/GestaltX",
-      "value_score": 29.85,
-      "views": 86,
-      "views_age_hours": 50.2,
-      "views_at_24h": 61,
+      "value_score": 29.73,
+      "views": 96,
+      "views_age_hours": 74.2,
+      "views_at_24h": 62,
       "views_history": [
         {
           "at": "2026-11-15T20:23:49.005129Z",
@@ -3277,6 +3311,11 @@
           "at": "2026-11-17T20:23:59.817226Z",
           "reactions": 0,
           "views": 86
+        },
+        {
+          "at": "2026-11-18T20:24:00.696600Z",
+          "reactions": 0,
+          "views": 96
         }
       ],
       "visual_host": "imgbb",
@@ -3878,15 +3917,20 @@
       ],
       "updated_at": "2026-11-17T16:23:35Z",
       "url": "https://github.com/jhaizhou-ops/S2Arm",
-      "value_score": 44.64,
-      "views": 35,
-      "views_age_hours": 4.0,
-      "views_at_24h": 91,
+      "value_score": 38.41,
+      "views": 85,
+      "views_age_hours": 28.0,
+      "views_at_24h": 80,
       "views_history": [
         {
           "at": "2026-11-17T20:23:58.387391Z",
           "reactions": 0,
           "views": 35
+        },
+        {
+          "at": "2026-11-18T20:23:59.280859Z",
+          "reactions": 0,
+          "views": 85
         }
       ],
       "visual_host": "imgbb",
@@ -5121,10 +5165,10 @@
       ],
       "updated_at": "2026-11-16T15:49:20Z",
       "url": "https://github.com/livliv-dev/player",
-      "value_score": 39.36,
-      "views": 85,
-      "views_age_hours": 28.0,
-      "views_at_24h": 80,
+      "value_score": 34.78,
+      "views": 102,
+      "views_age_hours": 52.0,
+      "views_at_24h": 72,
       "views_history": [
         {
           "at": "2026-11-16T20:23:52.421303Z",
@@ -5135,6 +5179,11 @@
           "at": "2026-11-17T20:23:59.252799Z",
           "reactions": 0,
           "views": 85
+        },
+        {
+          "at": "2026-11-18T20:24:00.127743Z",
+          "reactions": 0,
+          "views": 102
         }
       ],
       "visual_host": "imgbb",
@@ -6502,6 +6551,7 @@
       "open_issues": 21,
       "published_at": "2026-11-18T16:24:10.188772Z",
       "pushed_at": "2026-11-18T10:07:32Z",
+      "reactions": 0,
       "readme_fp": "9581231f497e3b58",
       "repo_id": 1404197626,
       "revisit_of": "",
@@ -6528,6 +6578,17 @@
       ],
       "updated_at": "2026-11-18T16:04:21Z",
       "url": "https://github.com/openfilm/openfilm",
+      "value_score": 47.53,
+      "views": 38,
+      "views_age_hours": 4.0,
+      "views_at_24h": 99,
+      "views_history": [
+        {
+          "at": "2026-11-18T20:23:58.437169Z",
+          "reactions": 0,
+          "views": 38
+        }
+      ],
       "visual_host": "imgbb",
       "visual_kind": "readme"
     },
@@ -7076,10 +7137,10 @@
       "topics": [],
       "updated_at": "2026-11-15T16:07:08Z",
       "url": "https://github.com/s1dashu/quiet-md",
-      "value_score": 24.78,
-      "views": 72,
-      "views_age_hours": 52.0,
-      "views_at_24h": 51,
+      "value_score": 25.51,
+      "views": 83,
+      "views_age_hours": 76.0,
+      "views_at_24h": 53,
       "views_history": [
         {
           "at": "2026-11-15T20:23:49.451429Z",
@@ -7095,6 +7156,11 @@
           "at": "2026-11-17T20:24:00.094781Z",
           "reactions": 0,
           "views": 72
+        },
+        {
+          "at": "2026-11-18T20:24:00.977813Z",
+          "reactions": 0,
+          "views": 83
         }
       ],
       "visual_host": "imgbb",
@@ -7200,15 +7266,20 @@
       "topics": [],
       "updated_at": "2026-11-17T17:57:06Z",
       "url": "https://github.com/shanselman/gputaskman",
-      "value_score": 36.4,
-      "views": 20,
-      "views_age_hours": 2.2,
-      "views_at_24h": 74,
+      "value_score": 35.32,
+      "views": 76,
+      "views_age_hours": 26.2,
+      "views_at_24h": 73,
       "views_history": [
         {
           "at": "2026-11-17T20:23:58.106475Z",
           "reactions": 0,
           "views": 20
+        },
+        {
+          "at": "2026-11-18T20:23:59.002383Z",
+          "reactions": 0,
+          "views": 76
         }
       ],
       "visual_host": "imgbb",
@@ -7919,15 +7990,20 @@
       ],
       "updated_at": "2026-11-17T00:54:45Z",
       "url": "https://github.com/tangency-labs/solidcraft",
-      "value_score": 44.66,
-      "views": 78,
-      "views_age_hours": 19.2,
-      "views_at_24h": 91,
+      "value_score": 37.89,
+      "views": 103,
+      "views_age_hours": 43.2,
+      "views_at_24h": 79,
       "views_history": [
         {
           "at": "2026-11-17T20:23:58.679245Z",
           "reactions": 0,
           "views": 78
+        },
+        {
+          "at": "2026-11-18T20:23:59.559300Z",
+          "reactions": 0,
+          "views": 103
         }
       ],
       "visual_host": "imgbb",
@@ -8651,10 +8727,10 @@
       ],
       "updated_at": "2026-11-16T16:07:48Z",
       "url": "https://github.com/xevrion/hatchzip",
-      "value_score": 37.14,
-      "views": 78,
-      "views_age_hours": 26.2,
-      "views_at_24h": 75,
+      "value_score": 32.66,
+      "views": 95,
+      "views_age_hours": 50.2,
+      "views_at_24h": 68,
       "views_history": [
         {
           "at": "2026-11-16T20:23:52.101794Z",
@@ -8665,6 +8741,11 @@
           "at": "2026-11-17T20:23:58.965954Z",
           "reactions": 0,
           "views": 78
+        },
+        {
+          "at": "2026-11-18T20:23:59.842110Z",
+          "reactions": 0,
+          "views": 95
         }
       ],
       "visual_host": "imgbb",
