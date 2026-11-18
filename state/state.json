@@ -203,17 +203,17 @@
   },
   "dead_letters": [],
   "gemini_daily": {
-    "day": "2026-11-17",
-    "units": 36
+    "day": "2026-11-18",
+    "units": 6
   },
   "gemini_window": [
     [
-      1794964437.357866,
-      3974
+      1795019027.62525,
+      3365
     ],
     [
-      1794964440.9491615,
-      1392
+      1795019039.1027052,
+      1368
     ]
   ],
   "last_runs": {
@@ -312,9 +312,9 @@
       "telegram_message_id": 3612
     },
     "publish:us_morning": {
-      "finished_at": "2026-11-17T16:24:14.507774Z",
-      "repo": "jhaizhou-ops/s2arm",
-      "telegram_message_id": 3611
+      "finished_at": "2026-11-18T16:24:10.189101Z",
+      "repo": "openfilm/openfilm",
+      "telegram_message_id": 3615
     },
     "publish:us_peak": {
       "finished_at": "2026-11-11T17:19:17.006267Z",
@@ -6173,6 +6173,116 @@
       "visual_host": "imgbb",
       "visual_kind": "readme"
     },
+    "openfilm/openfilm": {
+      "articles": {},
+      "card_style": "",
+      "category": "DevTools",
+      "contributors_count": 35,
+      "created_at": "2026-10-04T09:29:07Z",
+      "crossposts": {
+        "bluesky": {
+          "attempts": 0,
+          "due_at": "2026-11-18T18:00:00+00:00",
+          "status": "pending"
+        }
+      },
+      "description": "The open source AI video agent: turns any coding agent into a video agent, with editors to change anything it makes.",
+      "description_fp": "79987b8932ad1138",
+      "forks": 811,
+      "full_name": "openfilm/openfilm",
+      "generated": {
+        "article_markdown": "## What it is\n\nOpenFilm is a framework that turns standard coding agents into video editors. Instead of treating video as a black-box binary file, it treats a project as a folder containing a film.html file. This file uses web technologies—CSS, JS, and HTML—to define tracks, clips, and timing. Because the project is essentially a web page, you can inspect and modify it using standard developer tools.\n\n## Why it matters\n\nMost AI video tools are opaque; you prompt them, they render a file, and if you want a change, you have to re-prompt and hope for the best. OpenFilm changes this dynamic by introducing an overrides system. When an agent generates a scene, your manual edits (like moving a text element or changing a color) are stored as overrides. This means the agent can continue to build on the project without wiping out your specific tweaks.\n\n## Key features\n\n- Treats video projects as web pages using film.html for layout and timing.\n- Supports manual overrides for text, color, and position that persist through AI regeneration.\n- Integrates with existing coding agents like Claude Code or Codex for automated asset assembly.\n- Provides four distinct editors: Screening, Edit, Canvas, and Color.\n- Exports timelines compatible with professional tools like DaVinci Resolve and Premiere Pro.\n\n## Quick start\n\nTo add the OpenFilm skill to your existing coding agent (requires Node 22.2+ and ffmpeg), run the following command:\n\n```bash\nnpx skills add openfilm/openfilm\n```\n\n## Who should try it\n\nThis is for developers who are already comfortable with coding agents and want to bring that same workflow to video production. If you are tired of fighting AI generators that don't allow for precise, granular control, this provides a way to maintain that control without sacrificing the speed of AI generation.\n\n## Verdict\n\nA solid choice for devs who want to treat video like code. It is highly effective if you are comfortable working with web-based project structures. If you prefer traditional non-linear editors (NLEs) and want to avoid the overhead of managing code-based projects, you might find this approach adds unnecessary complexity.",
+        "article_title": "How to build a video agent with OpenFilm",
+        "card_hook": "Turn coding agents into video editors",
+        "card_subline": "Use AI to generate video projects that you can edit manually using standard web technologies",
+        "category": "DevTools",
+        "discussion_question": "Would you prefer to edit video via code overrides or a traditional timeline interface?",
+        "hook": "Turn any coding agent into a video editor that lets you tweak every frame via CSS and HTML overrides.",
+        "key_features": [
+          "Treats video projects as web pages using film.html for layout and timing.",
+          "Supports manual overrides for text, color, and position that persist through AI regeneration.",
+          "Integrates with existing coding agents like Claude Code or Codex for automated asset assembly.",
+          "Provides four distinct editors: Screening, Edit, Canvas, and Color.",
+          "Exports timelines compatible with professional tools like DaVinci Resolve and Premiere Pro."
+        ],
+        "llm_used": true,
+        "quick_start": "npx skills add openfilm/openfilm",
+        "safety": "ok",
+        "safety_reason": "The project is a legitimate development tool for video editing and AI agent integration.",
+        "scene": "You ask an AI to generate a 30-second promo video, but the text is slightly off-center and the color grade feels too cold. You try to fix it, but the agent just overwrites your changes the next time you prompt it.",
+        "social_text": "Turn your coding agent into a video editor. OpenFilm lets you generate video projects as web files, allowing you to manually tweak frames with CSS and JS while keeping your edits intact.",
+        "summary": "OpenFilm treats a video project as a folder containing a film.html file. It uses web technologies like CSS and JS to define shots, allowing AI agents to generate content while you apply manual overrides that persist even when the agent regenerates the underlying code.",
+        "surfaces": {
+          "Facebook_body": "Turn automated assistants into video editors that let you design shots using familiar web tools. Instead of wrestling with traditional video timelines, you build projects using standard web pages where layout and timing are defined clearly. This approach lets automated helpers generate the heavy lifting while you apply precise manual fixes for text, colors, and positioning.\n\nThe best part is how these manual fixes handle updates. When the underlying assistant regenerates parts of the project, your custom overrides stay intact instead of getting wiped out. You get four different editing views to handle everything from screening to color correction, and you can export your finished timelines to professional editing software when needed.\n\nThis is built for developers and technical creators who want to automate video production without losing fine-grained control over the final look. It bridges the gap between text-based automation and visual media, giving you the speed of automated generation alongside the precision of hand-crafted design.",
+          "Facebook_headline": "Edit videos using web code and AI assistants",
+          "Facebook_lead": "Turn automated assistants into custom video editors. Design shots with familiar web tools while keeping your manual layout fixes safe.",
+          "bluesky_headline": "Turn text agents into video editors",
+          "bluesky_lead": "Control every frame using web code while keeping manual tweaks safe from AI regeneration.",
+          "devto_body": "## What it is\n\nOpenFilm is a TypeScript-based open-source project that bridges the gap between text-based automation and visual media production. It treats video projects as standard folders containing a web page layout, allowing automated coding assistants to assemble assets while you maintain precise control over the output.\n\n## How it works\n\nThe core concept revolves around treating a video project as a folder containing a film.html file. Layouts, timing, and shots are defined using standard web technologies like HTML, CSS, and JavaScript. This structure allows coding assistants to generate content, while you apply manual overrides for text, color, and position that persist even when the underlying code is regenerated.\n\n## Key features\n\n- Treats video projects as web pages using film.html for layout and timing.\n- Supports manual overrides for text, color, and position that survive AI regeneration.\n- Integrates with existing assistants like Claude Code for automated asset assembly.\n- Provides four distinct editors: Screening, Edit, Canvas, and Color.\n- Exports timelines compatible with professional editing tools like DaVinci Resolve and Premiere Pro.\n\n## Getting started\n\nTo use OpenFilm, clone the repository from GitHub and ensure you have your preferred coding assistant configured. Follow the setup instructions in the repository to initialize your first web-based video project and start building timelines with code.\n\n## When not to use it\n\nSkip this tool if you prefer traditional timeline-based video editors without the overhead of web-based project structures and code-driven workflows.",
+          "seo_description": "Turn coding assistants into video editors using web technologies. Ideal for developers wanting automated video production with manual control.",
+          "seo_query": "open source ai video editor",
+          "seo_title": "Open Source AI Video Editor - OpenFilm",
+          "telegraph_angle": "Explain the architectural shift of treating video projects as web folders and the trade-offs of code-driven editing versus traditional software."
+        },
+        "tension": "You end up fighting the AI for control, manually re-editing every time the agent updates the project, or settling for a good enough output that requires tedious post-processing in a separate tool.",
+        "turn": "OpenFilm separates the agent's generated code from your manual tweaks using an overrides system, so your edits stick even when the agent updates the underlying structure.",
+        "verdict": "A solid choice for devs who want to treat video like code; skip it if you prefer traditional NLEs without the overhead of web-based project structures.",
+        "who_for": "Developers who want to automate video production while retaining granular control over the output.",
+        "why_now": "As coding agents become more capable at generating logic, this project bridges the gap between text-based code and visual media production."
+      },
+      "homepage": "https://openfilm.dev",
+      "id": 1404197626,
+      "image_url": "https://i.ibb.co/BHjRytjk/openfilm-openfilm-readme-preview-dbf3f24b03d3.jpg",
+      "is_dual_use": false,
+      "is_hidden_gem": false,
+      "language": "TypeScript",
+      "license": {
+        "key": "mit",
+        "name": "MIT License",
+        "node_id": "MDc6TGljZW5zZTEz",
+        "spdx_id": "MIT",
+        "url": "https://api.github.com/licenses/mit"
+      },
+      "media_urls": [
+        "https://raw.githubusercontent.com/openfilm/openfilm/main/docs/openfilm.webp",
+        "https://raw.githubusercontent.com/openfilm/openfilm/main/docs/buttons/website.svg",
+        "https://raw.githubusercontent.com/openfilm/openfilm/main/docs/buttons/youtube.svg",
+        "https://raw.githubusercontent.com/openfilm/openfilm/main/docs/logo-light.svg#gh-light-mode-only",
+        "https://raw.githubusercontent.com/openfilm/openfilm/main/docs/logo-dark.svg#gh-dark-mode-only"
+      ],
+      "name": "openfilm",
+      "open_issues": 21,
+      "published_at": "2026-11-18T16:24:10.188772Z",
+      "pushed_at": "2026-11-18T10:07:32Z",
+      "readme_fp": "9581231f497e3b58",
+      "repo_id": 1404197626,
+      "revisit_of": "",
+      "revisit_reason": "",
+      "score": 90.688,
+      "slot": "us_morning",
+      "sources": [
+        "github_search"
+      ],
+      "stars": 8272,
+      "telegram_chat_id": "@GitHub_Open_Source",
+      "telegram_link": "https://t.me/GitHub_Open_Source/3615",
+      "telegram_message_id": 3615,
+      "telegraph_url": "https://telegra.ph/How-to-build-a-video-agent-with-OpenFilm-11-18",
+      "topics": [
+        "ai-video",
+        "claude-code",
+        "codex",
+        "coding-agents",
+        "html",
+        "motion-graphics",
+        "video-agent",
+        "video-editor"
+      ],
+      "updated_at": "2026-11-18T16:04:21Z",
+      "url": "https://github.com/openfilm/openfilm",
+      "visual_host": "imgbb",
+      "visual_kind": "readme"
+    },
     "patch-gg/pixelfx": {
       "articles": {},
       "card_style": "editorial_daily",
@@ -8314,65 +8424,6 @@
     }
   },
   "queue": [
-    {
-      "archived": false,
-      "contributors_count": 35,
-      "created_at": "2026-10-04T09:29:07Z",
-      "default_branch": "main",
-      "description": "The open source AI video agent: turns any coding agent into a video agent, with an editor to change anything it makes.",
-      "disabled": false,
-      "fork": false,
-      "forks": 793,
-      "forks_count": 793,
-      "full_name": "openfilm/openfilm",
-      "has_readme": true,
-      "homepage": "https://openfilm.dev",
-      "id": 1404197626,
-      "is_dual_use": false,
-      "is_hidden_gem": false,
-      "language": "TypeScript",
-      "license": {
-        "key": "mit",
-        "name": "MIT License",
-        "node_id": "MDc6TGljZW5zZTEz",
-        "spdx_id": "MIT",
-        "url": "https://api.github.com/licenses/mit"
-      },
-      "media_urls": [
-        "https://raw.githubusercontent.com/openfilm/openfilm/main/docs/openfilm.webp",
-        "https://raw.githubusercontent.com/openfilm/openfilm/main/docs/logo-light.svg#gh-light-mode-only",
-        "https://raw.githubusercontent.com/openfilm/openfilm/main/docs/logo-dark.svg#gh-dark-mode-only"
-      ],
-      "name": "openfilm",
-      "non_software_reason": "",
-      "open_issues": 21,
-      "open_issues_count": 21,
-      "owner_repo_count": 1,
-      "pushed_at": "2026-11-18T00:15:38Z",
-      "readme": "",
-      "readme_excerpt": "<p align=\"center\">\n  <a href=\"https://openfilm.dev\">\n    <img src=\"docs/logo-light.svg#gh-light-mode-only\" alt=\"OpenFilm\" height=\"48\">\n    <img src=\"docs/logo-dark.svg#gh-dark-mode-only\" alt=\"OpenFilm\" height=\"48\">\n  </a>\n</p>\n<p align=\"center\">The open source AI video agent.</p>\n<p align=\"center\">\n  <a href=\"https://www.npmjs.com/package/openfilm\"><img alt=\"npm\" src=\"https://img.shields.io/npm/v/openfilm?style=flat-square\" /></a>\n  <a href=\"https://github.com/openfilm/openfilm/actions/workflows/ci.yml\"><img alt=\"Build status\" src=\"https://img.shields.io/github/actions/workflow/status/openfilm/openfilm/ci.yml?style=flat-square&branch=main&label=build\" /></a>\n  <a href=\"LICENSE\"><img alt=\"License\" src=\"https://img.shields.io/github/license/openfilm/openfilm?style=flat-square\" /></a>\n</p>\n\n<p align=\"center\">\n  <a href=\"README.md\">English</a> |\n  <a href=\"README.zh-CN.md\">简体中文</a> |\n  <a href=\"README.zh-TW.md\">繁體中文</a> |\n  <a href=\"README.ko.md\">한국어</a> |\n  <a href=\"README.de.md\">Deutsch</a> |\n  <a href=\"README.es.md\">Español</a> |\n  <a href=\"README.fr.md\">Français</a> |\n  <a href=\"README.it.md\">Italiano</a> |\n  <a href=\"README.da.md\">Dansk</a> |\n  <a href=\"README.ja.md\">日本語</a> |\n  <",
-      "readme_len": 10467,
-      "repo_id": 1404197626,
-      "score": 90.688,
-      "source_name": "github_search",
-      "sources": [
-        "github_search"
-      ],
-      "stargazers_count": 8100,
-      "stars": 8100,
-      "topics": [
-        "ai-video",
-        "claude-code",
-        "codex",
-        "coding-agents",
-        "html",
-        "motion-graphics",
-        "video-agent",
-        "video-editor"
-      ],
-      "updated_at": "2026-11-18T00:22:53Z",
-      "url": "https://github.com/openfilm/openfilm"
-    },
     {
       "archived": false,
       "contributors_count": 3,
@@ -15226,8 +15277,8 @@
     "openfilm/openfilm": {
       "first_seen_at": "2026-11-15T00:27:15.336684Z",
       "full_name": "openfilm/openfilm",
-      "last_decision": "queued",
-      "last_seen_at": "2026-11-18T00:25:53.061951Z",
+      "last_decision": "published",
+      "last_seen_at": "2026-11-18T16:24:10.189092Z",
       "repo_id": 1404197626,
       "sources": [
         "github_search"

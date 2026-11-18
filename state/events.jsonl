@@ -525,3 +525,5 @@
 {"deleted": 0, "ts": "2026-11-18T12:47:53.247027Z", "type": "moderation_completed", "updates": 0}
 {"platform": "devto", "repo": "ersinkoc/phonebox", "ts": "2026-11-18T13:33:50.975248Z", "type": "article_published", "url": "https://dev.to/githubopensource/turn-old-android-phone-into-pc-monitor-open-source-desk-panel-ojj"}
 {"deleted": 0, "ts": "2026-11-18T15:48:03.306149Z", "type": "moderation_completed", "updates": 0}
+{"preview_host": "imgbb", "repo": "openfilm/openfilm", "ts": "2026-11-18T16:24:09.957235Z", "type": "published_as_text"}
+{"repo": "openfilm/openfilm", "score": 90.688, "telegram_message_id": 3615, "telegraph_url": "https://telegra.ph/How-to-build-a-video-agent-with-OpenFilm-11-18", "ts": "2026-11-18T16:24:10.188967Z", "type": "project_published"}
