@@ -533,3 +533,4 @@
 {"attempts": 1, "detail": "HTTP 204", "slot": "facebook-handoff", "ts": "2026-11-18T18:30:55.643370Z", "type": "watchdog_recovered", "verified": false}
 {"range": "facebook!A17:E17", "rows": 1, "ts": "2026-11-18T18:31:19.271200Z", "type": "facebook_handoff_queued"}
 {"deleted": 0, "ts": "2026-11-18T18:47:55.757410Z", "type": "moderation_completed", "updates": 3}
+{"slot": "facebook-handoff", "ts": "2026-11-18T19:00:57.761734Z", "type": "watchdog_verified"}
