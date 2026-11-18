@@ -204,16 +204,16 @@
   "dead_letters": [],
   "gemini_daily": {
     "day": "2026-11-18",
-    "units": 6
+    "units": 12
   },
   "gemini_window": [
     [
-      1795019027.62525,
-      3365
+      1795025631.5856805,
+      3892
     ],
     [
-      1795019039.1027052,
-      1368
+      1795025640.0958772,
+      1364
     ]
   ],
   "last_runs": {
@@ -307,9 +307,9 @@
       "telegram_message_id": 3614
     },
     "publish:us_midday": {
-      "finished_at": "2026-11-17T18:14:18.049080Z",
-      "repo": "shanselman/gputaskman",
-      "telegram_message_id": 3612
+      "finished_at": "2026-11-18T18:14:23.941662Z",
+      "repo": "heyputer/everything",
+      "telegram_message_id": 3616
     },
     "publish:us_morning": {
       "finished_at": "2026-11-18T16:24:10.189101Z",
@@ -2607,6 +2607,118 @@
           "views": 111
         }
       ],
+      "visual_host": "imgbb",
+      "visual_kind": "readme"
+    },
+    "heyputer/everything": {
+      "articles": {},
+      "card_style": "",
+      "category": "DevTools",
+      "contributors_count": 3,
+      "created_at": "2026-10-13T16:18:22Z",
+      "crossposts": {
+        "bluesky": {
+          "attempts": 0,
+          "due_at": "2026-11-18T18:44:23.941209+00:00",
+          "status": "pending"
+        }
+      },
+      "description": "We're rebuilding and open-sourcing the world’s software from scratch.",
+      "description_fp": "548cf9eacf18d9c8",
+      "forks": 941,
+      "full_name": "HeyPuter/everything",
+      "generated": {
+        "article_markdown": "## What it is\n\nThe Everything Project is a mono-repository designed to rebuild and open-source common software applications from scratch. It houses free alternatives to mainstream productivity suites, communication tools, and creative software like spreadsheets, word processors, photo editors, and chat applications.\n\n## Why it matters\n\nMany daily workflows rely heavily on proprietary SaaS tools that limit user control, privacy, and customization. By providing open-source equivalents in a single codebase, this project gives developers a baseline to study, run locally, or adapt existing web-based application patterns without vendor lock-in.\n\n## Key features\n\n- Recreates office tools including spreadsheets, documents, presentations, and PDFs\n- Provides collaboration software covering team chat, email, meetings, and calendars\n- Includes creative suites for photo editing, vector graphics, video, and audio production\n- Organizes all applications within a single structured mono-repository\n- Requires Node.js 22.12 or newer for local development and execution\n\n## Quick start\n\nTo get started with local development for any application inside the repository, use the following commands:\n\n```sh\ngit clone https://github.com/HeyPuter/everything.git\ncd everything/src/[app-name]\nnpm install\nnpm run dev\n```\n\n## Who should try it\n\nDevelopers, open-source advocates, and teams looking for self-hostable web applications or code examples for building complex browser-based productivity tools will find this repository useful.\n\n## Verdict\n\nAn ambitious collection of open-source applications that serves as a helpful reference or starting point for self-hosted software stacks, though individual tools require careful evaluation for production readiness.",
+        "article_title": "HeyPuter/everything: Open-Source Alternatives to Proprietary Software",
+        "card_hook": "Rebuilding the world's software",
+        "card_subline": "Free, open-source alternatives to proprietary office suites, creative tools, and collaboration apps",
+        "category": "DevTools",
+        "discussion_question": "Which proprietary app would you replace first with an open-source alternative?",
+        "hook": "Open-source alternatives to Excel, Slack, and Photoshop bundled into a single mono-repository.",
+        "key_features": [
+          "Recreates office tools including spreadsheets, documents, presentations, and PDFs",
+          "Provides collaboration software covering team chat, email, meetings, and calendars",
+          "Includes creative suites for photo editing, vector graphics, video, and audio production",
+          "Organizes all applications within a single structured mono-repository",
+          "Requires Node.js 22.12 or newer for local development and execution"
+        ],
+        "llm_used": true,
+        "quick_start": "git clone https://github.com/HeyPuter/everything.git\ncd everything/src/[app-name]\nnpm install\nnpm run dev",
+        "safety": "ok",
+        "safety_reason": "The repository contains legitimate open-source software alternatives to proprietary applications.",
+        "scene": "You need a lightweight open-source spreadsheet or photo editor, but your choices force you into restrictive proprietary ecosystems or fragmented repositories.",
+        "social_text": "Explore an open-source mono-repository containing free alternatives to popular office, collaboration, and creative tools.",
+        "summary": "The Everything Project provides a unified mono-repository containing open-source implementations of common proprietary software categories. Built for Node.js environments, it structures distinct applications under a shared structure ranging from office documents to multimedia studios. Developers can clone the repository to run, modify, or host individual tools locally.",
+        "surfaces": {
+          "Facebook_body": "Many of us rely on expensive monthly subscriptions for basic tasks like writing documents, managing spreadsheets, or editing photos. It is frustrating to pay for software that feels like it should be simpler and more accessible. A new project is changing that by gathering open-source versions of these essential tools into one place.\n\nInstead of hunting for separate programs, this project offers a single collection of alternatives for office work and creative projects. You get tools for spreadsheets, presentations, team communication, and even photo and video editing, all built to be self-hosted. Because everything is stored in one structured repository, it is much easier to manage and customize the tools you actually use.\n\nThis is designed for anyone who wants to own their software rather than renting it. If you are comfortable running basic programs on your computer, you can download this collection to host your own versions of these tools. It is a practical way to regain control over your digital workspace without the recurring costs of proprietary software.",
+          "Facebook_headline": "A free alternative to your paid office and creative tools",
+          "Facebook_lead": "Stop paying monthly subscriptions for basic software. This collection offers open-source replacements for spreadsheets, team chat, and photo editing tools in one place.",
+          "bluesky_headline": "Replace your paid software with this open-source suite",
+          "bluesky_lead": "Access spreadsheets, chat tools, and photo editors all from one unified collection of projects.",
+          "devto_body": "## What it is\n\nEverything is a mono-repository containing open-source implementations of common proprietary software categories. Built for Node.js environments, it aims to provide a unified codebase for essential productivity and creative tools, ranging from office suites to multimedia studios.\n\n## How it works\n\nEverything leverages a mono-repo architecture to house distinct applications under a shared structure. By using Node.js (version 22.12 or newer), developers can clone the repository to run, modify, or host individual tools locally. It effectively modularizes complex software categories into manageable, self-hostable units.\n\n## Key features\n\n- **Office Suite:** Includes implementations for spreadsheets, documents, presentations, and PDF handling.\n- **Collaboration:** Provides tools for team chat, email, meetings, and calendar management.\n- **Creative Suite:** Features applications for photo editing, vector graphics, video production, and audio editing.\n- **Unified Structure:** All applications are organized within a single, structured mono-repository, simplifying dependency management and deployment.\n\n## Getting started\n\nTo get started, ensure you have Node.js 22.12 or newer installed. Clone the repository from GitHub:\n\n```bash\ngit clone https://github.com/HeyPuter/everything\ncd everything\nnpm install\n```\n\nOnce installed, you can explore the individual packages within the repository to run specific tools locally.\n\n## When not to use it\n\nEverything is an ambitious project, but it is not a drop-in replacement for enterprise-grade software with years of feature development. If you require advanced, mission-critical features found in industry-standard software like Photoshop or Excel, you may find these implementations lacking in depth. Additionally, if you are not comfortable with self-hosting or managing Node.js environments, the setup process may be more involved than using SaaS alternatives.",
+          "seo_description": "Explore Everything, a mono-repository of open-source alternatives for spreadsheets, chat, and creative tools. Perfect for developers who want to self-host.",
+          "seo_query": "open source alternatives to proprietary software",
+          "seo_title": "Open-source alternatives to proprietary software - Everything",
+          "telegraph_angle": "Discuss the trade-offs of using a unified mono-repo approach for disparate software categories versus maintaining independent, specialized tools."
+        },
+        "tension": "Using disparate proprietary tools fragments workflows, increases costs, and strips away the ability to self-host or modify source code.",
+        "turn": "This project groups free open-source equivalents of major software categories into one repository, though individual applications vary in maturity.",
+        "verdict": "An ambitious mono-repository for developers looking to audit or self-host open-source alternatives to mainstream software.",
+        "who_for": "Developers seeking open-source web-based alternatives to proprietary daily productivity and creative software.",
+        "why_now": "Growing demand for open-source self-hostable equivalents to proprietary SaaS tools makes unified codebases practical."
+      },
+      "homepage": "",
+      "id": 1417456983,
+      "image_url": "https://i.ibb.co/JwpThnwp/heyputer-everything-readme-preview-8f5b1e3c0b84.jpg",
+      "is_dual_use": false,
+      "is_hidden_gem": false,
+      "language": "JavaScript",
+      "license": {
+        "key": "mit",
+        "name": "MIT License",
+        "node_id": "MDc6TGljZW5zZTEz",
+        "spdx_id": "MIT",
+        "url": "https://api.github.com/licenses/mit"
+      },
+      "media_urls": [
+        "https://raw.githubusercontent.com/HeyPuter/everything/main/assets/hero/variants/34-app-wall-intact.png",
+        "https://raw.githubusercontent.com/HeyPuter/everything/main/assets/everything.png",
+        "https://raw.githubusercontent.com/HeyPuter/everything/main/src/spreadsheet/icon-128.png",
+        "https://raw.githubusercontent.com/HeyPuter/everything/main/src/documents/icon-128.png",
+        "https://raw.githubusercontent.com/HeyPuter/everything/main/src/presentation/icon-128.png",
+        "https://raw.githubusercontent.com/HeyPuter/everything/main/src/whiteboard/icon-128.png",
+        "https://raw.githubusercontent.com/HeyPuter/everything/main/src/pdf/icon-128.png",
+        "https://raw.githubusercontent.com/HeyPuter/everything/main/src/notes/icon-128.png"
+      ],
+      "name": "everything",
+      "open_issues": 68,
+      "published_at": "2026-11-18T18:14:23.941238Z",
+      "pushed_at": "2026-11-18T18:07:58Z",
+      "readme_fp": "80843e631313b274",
+      "repo_id": 1417456983,
+      "revisit_of": "",
+      "revisit_reason": "",
+      "score": 87.909,
+      "slot": "us_midday",
+      "sources": [
+        "github_search"
+      ],
+      "stars": 8690,
+      "telegram_chat_id": "@GitHub_Open_Source",
+      "telegram_link": "https://t.me/GitHub_Open_Source/3616",
+      "telegram_message_id": 3616,
+      "telegraph_url": "https://telegra.ph/HeyPutereverything-Open-Source-Alternatives-to-Proprietary-Software-11-18",
+      "topics": [
+        "adobe",
+        "cad",
+        "microsoft",
+        "office",
+        "photoshop",
+        "saas",
+        "spreadsheet"
+      ],
+      "updated_at": "2026-11-18T17:27:45Z",
+      "url": "https://github.com/HeyPuter/everything",
       "visual_host": "imgbb",
       "visual_kind": "readme"
     },
@@ -8426,69 +8538,6 @@
   "queue": [
     {
       "archived": false,
-      "contributors_count": 3,
-      "created_at": "2026-10-13T16:18:22Z",
-      "default_branch": "main",
-      "description": "We're rebuilding and open-sourcing the world’s software from scratch.",
-      "disabled": false,
-      "fork": false,
-      "forks": 935,
-      "forks_count": 935,
-      "full_name": "HeyPuter/everything",
-      "has_readme": true,
-      "homepage": "",
-      "id": 1417456983,
-      "is_dual_use": false,
-      "is_hidden_gem": false,
-      "language": "JavaScript",
-      "license": {
-        "key": "mit",
-        "name": "MIT License",
-        "node_id": "MDc6TGljZW5zZTEz",
-        "spdx_id": "MIT",
-        "url": "https://api.github.com/licenses/mit"
-      },
-      "media_urls": [
-        "https://raw.githubusercontent.com/HeyPuter/everything/main/assets/hero/variants/34-app-wall-intact.png",
-        "https://raw.githubusercontent.com/HeyPuter/everything/main/assets/everything.png",
-        "https://raw.githubusercontent.com/HeyPuter/everything/main/src/spreadsheet/icon-128.png",
-        "https://raw.githubusercontent.com/HeyPuter/everything/main/src/documents/icon-128.png",
-        "https://raw.githubusercontent.com/HeyPuter/everything/main/src/presentation/icon-128.png",
-        "https://raw.githubusercontent.com/HeyPuter/everything/main/src/whiteboard/icon-128.png",
-        "https://raw.githubusercontent.com/HeyPuter/everything/main/src/pdf/icon-128.png",
-        "https://raw.githubusercontent.com/HeyPuter/everything/main/src/notes/icon-128.png"
-      ],
-      "name": "everything",
-      "non_software_reason": "",
-      "open_issues": 68,
-      "open_issues_count": 68,
-      "owner_repo_count": 1,
-      "pushed_at": "2026-11-17T20:23:06Z",
-      "readme": "",
-      "readme_excerpt": "<p align=\"center\"><img src=\"assets/everything.png\" width=\"300\" alt=\"Everything\"></p>\n\n<h3 align=\"center\">The world’s software. Rebuilt, and open-sourced.</h3>\n\n<p align=\"center\"><strong>English</strong> · <a href=\"README.zh-CN.md\">简体中文</a> · <a href=\"README.es.md\">Español</a></p>\n\n<!-- App names, descriptions, and navigation are native text. The Everything logo, app icons, and decorative hero are images. Demo and source links use project metadata where available; missing destinations point to the link-status note. -->\n\n<p align=\"center\"><img src=\"assets/hero/variants/34-app-wall-intact.png\" width=\"100%\" alt=\"Everything: a wall of app screenshots extending beyond the frame\"></p>\n\nThe Everything Project is an effort to rebuild and open-source the world’s software from scratch. From Office to Slack and Photoshop to AutoCAD, we are recreating free, open-source alternatives to all proprietary software. This is a mono-repository containing all the applications and tools developed under the project.\n\n\n[Office](#office) · [Collaboration](#collaboration) · [Creative Tools](#creative-tools) · [Engineering](#engineering) · [Productivity](#productivity) · [Finance](#finance) · [Business](#busi",
-      "readme_len": 27068,
-      "repo_id": 1417456983,
-      "score": 87.909,
-      "source_name": "github_search",
-      "sources": [
-        "github_search"
-      ],
-      "stargazers_count": 8633,
-      "stars": 8633,
-      "topics": [
-        "adobe",
-        "cad",
-        "microsoft",
-        "office",
-        "photoshop",
-        "saas",
-        "spreadsheet"
-      ],
-      "updated_at": "2026-11-17T23:46:08Z",
-      "url": "https://github.com/HeyPuter/everything"
-    },
-    {
-      "archived": false,
       "contributors_count": 5,
       "created_at": "2026-09-11T19:01:12Z",
       "default_branch": "main",
@@ -12811,8 +12860,8 @@
     "heyputer/everything": {
       "first_seen_at": "2026-11-03T11:59:59.676700Z",
       "full_name": "HeyPuter/everything",
-      "last_decision": "queued",
-      "last_seen_at": "2026-11-18T00:25:53.064512Z",
+      "last_decision": "published",
+      "last_seen_at": "2026-11-18T18:14:23.941649Z",
       "repo_id": 1417456983,
       "sources": [
         "github_search"
