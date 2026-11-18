@@ -40,6 +40,32 @@ def is_fatal_error(exc: Exception) -> bool:
     )
 
 
+def is_transient_telegram_error(exc: Exception) -> bool:
+    """True for temporary Bot API outages that a later run can retry.
+
+    Used only for read-only housekeeping such as moderation ``getUpdates``:
+    a 502/503/504 or a dropped connection must not fail the workflow and
+    email the owner. Publishing paths keep the stricter ``is_fatal_error``
+    behaviour because a lost response there may mean the post was sent.
+    """
+    code = getattr(exc, "error_code", None)
+    if code in {429, 500, 502, 503, 504}:
+        return True
+    text = str(exc).lower()
+    return any(
+        term in text
+        for term in (
+            "bad gateway",
+            "service unavailable",
+            "gateway timeout",
+            "too many requests",
+            "network failure",
+            "timeout",
+            "connection",
+        )
+    )
+
+
 class TelegramClient:
     def __init__(self, bot_token: str):
         self.bot_token = bot_token.strip()

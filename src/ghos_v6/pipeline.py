@@ -59,7 +59,7 @@ from .state import StateStore, iso_now, iso_week_key
 from .polls_design import (audience_ranking_model, build_week_poll,
                            merge_models, record_poll_result)
 
-from .telegram import TelegramClient, is_fatal_error
+from .telegram import TelegramClient, TelegramError, is_fatal_error, is_transient_telegram_error
 from .telegraph import TelegraphClient
 
 logger = logging.getLogger(__name__)
@@ -78,6 +78,7 @@ logger = logging.getLogger(__name__)
 BRIEF_GEMINI_SKIP = "brief_gemini_unavailable"
 ARTICLE_GEMINI_SKIP = "article_gemini_unavailable"
 POLL_ALREADY_CLOSED = "poll_already_closed"
+MODERATION_TELEGRAM_SKIP = "moderation_telegram_unavailable"
 
 
 def _transient_gemini_skip(store: StateStore, exc: BaseException, *,
@@ -2393,7 +2394,26 @@ def moderation_command(config: Config, store: StateStore) -> dict[str, Any]:
         payload: dict[str, Any] = {"timeout": 0, "limit": 100}
         if offset:
             payload["offset"] = offset
-        updates = list(telegram.api("getUpdates", payload) or [])
+        try:
+            updates = list(telegram.api("getUpdates", payload) or [])
+        except TelegramError as exc:
+            if not is_transient_telegram_error(exc):
+                raise
+            # Owner 18.11: Telegram answered "Bad Gateway" to getUpdates once
+            # (00:47Z run 44210707855) and the whole workflow failed with an
+            # owner email. Moderation is read-only housekeeping on a cron: a
+            # 502/503/timeout must be a quiet skip, and the next scheduled
+            # run re-reads the same update queue. A real error (bad token)
+            # still raises, alerts and stays visible.
+            detail = sanitize(str(exc))[:300]
+            logger.warning("Moderation postponed, Telegram temporarily unavailable: %s", detail)
+            store.data.setdefault("last_runs", {})["telegram_update_offset"] = max_update_id
+            store.event("moderation_skipped", reason=MODERATION_TELEGRAM_SKIP, error=detail)
+            store.save()
+            return {
+                "ok": True, "updates": seen, "deleted": deleted,
+                "reason": MODERATION_TELEGRAM_SKIP, "error": detail,
+            }
         if not updates:
             break
         seen += len(updates)

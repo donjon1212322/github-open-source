@@ -369,6 +369,16 @@ MUTATIONS: list[tuple[str, str, str, str]] = [
      "MIN_SIGNAL_VOTES = 1", "poll signal threshold is lowered without approval"),
     ("docs/OWNER_RULES.md", "просмотры за сутки на пост",
      "просмотры за неделю на пост", "the fixed per-post metric is redefined"),
+    # Owner 18.11: a Telegram 502 during moderation getUpdates must not
+    # fail the workflow; the next cron run retries the read-only sweep.
+    ("src/ghos_v6/pipeline.py",
+     "            if not is_transient_telegram_error(exc):\n                raise",
+     "            if False:\n                raise",
+     "a Telegram 502 fails the moderation workflow and emails the owner again"),
+    ("src/ghos_v6/telegram.py",
+     "    if code in {429, 500, 502, 503, 504}:\n        return True",
+     "    if False:\n        return True",
+     "transient Telegram status codes are not recognized as retryable"),
 ]
 
 COPY_ITEMS = (
