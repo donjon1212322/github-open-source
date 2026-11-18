@@ -536,3 +536,4 @@
 {"slot": "facebook-handoff", "ts": "2026-11-18T19:00:57.761734Z", "type": "watchdog_verified"}
 {"title": "vLLM 0.34.0, Mistral Vibe Desktop, and early critiques of GPT-6.2 Astra", "ts": "2026-11-18T19:19:57.184179Z", "type": "news_article_generated", "words": 1112}
 {"Gemini_video_input": false, "models": 8, "official_url": "", "stories": 5, "topic": "ai-coding-agents-and-infrastructure", "ts": "2026-11-18T19:19:59.674849Z", "type": "ai_brief_published", "video_id": "tg-20261118-ffa300ae20"}
+{"devto_id": 5068030, "ts": "2026-11-18T19:53:51.613159Z", "type": "news_article_published", "url": "https://dev.to/githubopensource/vllm-0340-mistral-vibe-desktop-and-early-critiques-of-gpt-62-astra-kh1", "words": 1112}

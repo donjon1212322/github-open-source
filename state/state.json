@@ -287,13 +287,13 @@
       "telegram_message_id": 3617
     },
     "news-article": {
-      "devto_id": 5059758,
-      "finished_at": "2026-11-17T19:53:50.602066Z",
+      "devto_id": 5068030,
+      "finished_at": "2026-11-18T19:53:51.613132Z",
       "published": true,
-      "title": "GPT-6.2 Astra, Sol, and Codex CLI 0.169.0 Lead the Model Watch",
-      "topic_key": "ai-models-and-tools",
-      "url": "https://dev.to/githubopensource/gpt-62-astra-sol-and-codex-cli-01690-lead-the-model-watch-45in",
-      "words": 1095
+      "title": "vLLM 0.34.0, Mistral Vibe Desktop, and early critiques of GPT-6.2 Astra",
+      "topic_key": "ai-coding-agents-and-infrastructure",
+      "url": "https://dev.to/githubopensource/vllm-0340-mistral-vibe-desktop-and-early-critiques-of-gpt-62-astra-kh1",
+      "words": 1112
     },
     "publish:europe_midday": {
       "finished_at": "2026-11-11T12:43:59.103591Z",
@@ -1629,6 +1629,7 @@
         ],
         "why_devs": "These updates directly impact memory configurations, agent workflows, and reverse-engineering tooling."
       },
+      "devto_cover_url": "https://i.ibb.co/m5t2bMsF/project-devto-cover-9fd64b2fc1f6.png",
       "headline": "vLLM 0.34.0, Mistral Vibe Desktop, and early critiques of GPT-6.2 Astra",
       "image_url": "https://i.ibb.co/Kz8Mm7PV/ai-brief-1ee043cf075d.png",
       "models": [
