@@ -124,16 +124,23 @@
       "ratio": 0.0,
       "reason": "published",
       "removed": 0
+    },
+    {
+      "date": "2026-11-18",
+      "fingerprint": "2026-11-18|True|published|0|0.0000|5",
+      "kept": 5,
+      "published": true,
+      "ratio": 0.0,
+      "reason": "published",
+      "removed": 0
     }
   ],
   "brief_memory": {
     "clusters": {
-      "https://arxiv.org/abs/2611.09501": "2026-11-13",
       "https://blog.google/innovation-and-ai/infrastructure-and-cloud/google-cloud/gtig-ai-threat-tracker-q4-2026": "2026-11-17",
-      "https://cdn.deepseek.com/chat-demo": "2026-11-13",
-      "https://github.com/advisories/ghsa-mq7w-jmv5-vq3p": "2026-11-13",
+      "https://docs.mistral.ai/vibe/code/desktop/overview": "2026-11-18",
+      "https://github.com/1337isnot1337/dopplergeist": "2026-11-18",
       "https://github.com/anomalyco/browse": "2026-11-17",
-      "https://github.com/anthropics/claude-code/releases/tag/v2.1.323": "2026-11-13",
       "https://github.com/anthropics/claude-code/releases/tag/v2.1.325": "2026-11-15",
       "https://github.com/benjitaylor/skills": "2026-11-16",
       "https://github.com/deepseek-ai/chat-demo": "2026-11-16",
@@ -141,7 +148,8 @@
       "https://github.com/ggml-org/llama.cpp/releases/tag/v1.0.0": "2026-11-16",
       "https://github.com/justxor/local-ai-agent-course-ru": "2026-11-15",
       "https://github.com/openai/codex/pull/60041": "2026-11-17",
-      "https://github.com/synchopate/llama-modchip": "2026-11-13",
+      "https://github.com/storytold/craft-anything": "2026-11-18",
+      "https://github.com/vllm-project/vllm/releases/tag/v0.34.0": "2026-11-18",
       "https://nvidianews.nvidia.com/news/nvidia-board-of-directors-establishes-national-security-and-export-control-oversight-committee": "2026-11-17",
       "https://openai.com/daybreak/red-team": "2026-11-15",
       "https://openai.com/index/introducing-gpt-6-2-astra-sol": "2026-11-17",
@@ -150,61 +158,62 @@
       "https://qwen.ai/blog": "2026-11-16",
       "https://www.anthropic.com/claude-fable-and-mythos-5-2": "2026-11-15",
       "https://www.anthropic.com/engineering/code-execution-with-mcp": "2026-11-15",
-      "https://www.anthropic.com/research/building-strong-safety-evaluations": "2026-11-13",
       "post:data_secrets:10339": "2026-11-14",
+      "post:data_secrets:10354": "2026-11-18",
+      "story:cursor-live-apps": "2026-11-18",
       "story:gpt-6-cyber": "2026-11-17",
       "story:inkling-2-small": "2026-11-14",
       "story:metr-rnd": "2026-11-16",
+      "text:ai-for-devs-новости-для-разработчиков-и": "2026-11-18",
       "text:anthropic-claude-code-on-desktop-now-supports": "2026-11-15",
       "text:anthropic-started-sending-invites-for-claude-duet": "2026-11-14",
       "text:anthropic-выкатили-пожалуй-самый-стильный-апдейт-claude": "2026-11-14",
       "text:anthropic-выпустили-для-claude-довольно-милое-обновление": "2026-11-16",
       "text:anthropic-подсиживает-microsoft-перед-ipo-в-чате": "2026-11-14",
-      "text:artificial-analysis-прогнала-gemini-4-hydrogen-через": "2026-11-13",
       "text:claude-meetings": "2026-11-14",
       "text:gemini-4-argon-чаще-всех-моделей-объясняет": "2026-11-17",
       "text:google-an-upcoming-comic-artifact-configuration-page": "2026-11-16",
       "text:sesame-voice-agent-is-ending-its-preview": "2026-11-15",
       "text:spacexsi-grok-bot-now-has-7-more": "2026-11-15",
       "text:бесплатный-семинар-про-то-как-делать-иипроекты": "2026-11-14",
+      "text:в-coding-agent-index-gpt62-astra-набрала": "2026-11-18",
       "text:главное-про-новые-gpt62-astra-и-sol": "2026-11-17",
-      "text:если-в-claude-code-вы-отвечали-yes": "2026-11-13",
+      "text:ладно-может-быть-с-astra-мне-просто": "2026-11-18",
       "text:наконецто-сьебастьян-рашка-подготовил-подробный-материал-позиционные": "2026-11-16",
       "text:независимые-исследователи-нашли-в-открытых-китайских-моделях": "2026-11-14",
+      "text:несколько-ранних-тестеров-резко-раскритиковали-gpt62-ведущий": "2026-11-18",
       "text:отличная-кандидатура-для-нового-сезона-холостяка": "2026-11-14",
       "text:папа-римский-заявил-что-он-против-того": "2026-11-15",
       "text:ресторан-dennys-где-хуанг-в-юности-мыл": "2026-11-15",
       "text:российские-исследователи-предложили-новые-методы-решения-проблемы": "2026-11-16",
-      "text:тибо-пишет-что-команда-codex-похоже-починила": "2026-11-16",
-      "text:тут-это-microsoft-365-лежит-по-всему": "2026-11-13",
-      "text:уже-agi": "2026-11-13"
+      "text:тибо-пишет-что-команда-codex-похоже-починила": "2026-11-16"
     },
     "stories": {
-      "0731 deepseek flash llama locally modchip running": "2026-11-13",
       "169 changes cli codex trust": "2026-11-17",
       "325 claude code managed": "2026-11-15",
       "additions api deepseek tooling": "2026-11-16",
-      "algorithm clustering fair meta proposes": "2026-11-13",
-      "anthropic details evaluations multi safety turn": "2026-11-13",
-      "api deepseek developer expands": "2026-11-13",
+      "anything craft": "2026-11-18",
       "api max qwen4": "2026-11-16",
       "astra gpt launch sol": "2026-11-17",
       "blackwell checkpoint chinese chips forensics restricted suggest trained": "2026-11-14",
       "browse mcp server": "2026-11-17",
-      "claude code cursor harness updates": "2026-11-13",
       "claude code experimental mode": "2026-11-15",
       "claude fable": "2026-11-15",
+      "cloud lab": "2026-11-18",
       "course local ollama": "2026-11-15",
+      "desktop mistral vibe": "2026-11-18",
+      "dopplergeist": "2026-11-18",
       "easyread pdf translation": "2026-11-17",
       "ember join lineup muse nex openrouter": "2026-11-14",
       "generator interactive stageshow": "2026-11-16",
+      "memory updates vllm": "2026-11-18",
       "mobile moe runner smolmaxxing": "2026-11-16"
     }
   },
   "dead_letters": [],
   "gemini_daily": {
     "day": "2026-11-18",
-    "units": 12
+    "units": 27
   },
   "gemini_window": [
     [
@@ -273,9 +282,9 @@
       "updated": 12
     },
     "news": {
-      "finished_at": "2026-11-17T19:19:21.592156Z",
+      "finished_at": "2026-11-18T19:19:59.674841Z",
       "reason": "published",
-      "telegram_message_id": 3613
+      "telegram_message_id": 3617
     },
     "news-article": {
       "devto_id": 5059758,
@@ -1540,6 +1549,113 @@
       "telegram_message_id": 3613,
       "topic_key": "ai-models-and-tools",
       "video_id": "tg-20261117-874dce7380",
+      "video_url": "https://t.me/GitHub_Open_Source"
+    },
+    {
+      "Gemini_video_input": false,
+      "article_markdown": "> **TL;DR** vLLM 0.34.0 changes default GPU memory configurations and block sizes to optimize high-load throughput, Mistral Vibe Desktop introduces a dedicated application for local repo and cloud sandbox workflows, and community testing highlights early ergonomic challenges with GPT-6.2 Astra.\n\nMemory management in self-hosted inference stacks and local agentic coding workflows shifted notably this week. Infrastructure engineers and application developers gained tangible tooling updates ranging from low-level CUDA optimizations to dedicated desktop applications.\n\n## What actually moved today\n\nPerformance optimization in serving engines often comes down to how efficiently memory is allocated for the KV-cache. With the rollout of vLLM 0.34.0, default parameters have shifted to favor maximum throughput under heavy concurrent requests. Similarly, developer tooling expanded with applications designed to bridge local git repositories and cloud execution environments.\n\nFor systems running large language models on NVIDIA and AMD hardware, understanding these memory shifts is critical for latency budgeting. At the same time, reverse-engineering workflows and local agent tooling received practical additions that bypass manual environment setup.\n\n## The model watch\n\n### vLLM 0.34.0 Memory Updates\n\nThe vLLM project shipped version 0.34.0 with significant changes to memory defaults across CUDA and ROCm backends. The update enabled extensible KV-cache by default, set **gpu_memory_utilization** to **1.0**, and increased the default block size from 16 to 64. These adjustments drastically alter how memory is portioned out on the GPU, directly targeting high-concurrency bottlenecks.\n\nFor developers, this means higher aggregate throughput under heavy load, though token latency may see minor regressions depending on the specific model architecture. Re-running your internal serving benchmarks on this version will help determine if your latency SLAs tolerate the new block size.\n\n### Mistral Vibe Desktop\n\nMistral released Vibe Desktop for macOS and Windows, packaging agentic coding capabilities into a native application with local repository integration and cloud sandbox support. The application brings automated workflows closer to the developer's everyday environment without requiring complex terminal orchestration.\n\nIn addition to the software release, a promotional three-month Pro tier coupon code, **LECHONK**, was made available for European developers. Testing this application allows teams to evaluate how tightly integrated cloud sandboxes handle git worktree isolation during multi-file refactoring tasks.\n\n## Rumours, clearly labelled\n\nCommunity discussions around unreleased or early-access systems often highlight friction points that formal documentation omits. These claims are entirely unverified and are kept strictly separate from confirmed releases.\n\n* Early testers criticized **GPT-6.2 Astra**, calling it difficult to use or prone to early stopping during extended generation tasks.\n* Unconfirmed benchmark claims suggest **GPT-6.2 Astra** scored 53 points on the Coding Agent Index, though testing methodologies have not been published.\n\n| Item | Status | Basis |\n| :--- | :--- | :--- |\n| vLLM 0.34.0 | Confirmed | GitHub release notes |\n| Mistral Vibe Desktop | Confirmed | Official documentation |\n| DOPPLERGEIST | Confirmed | GitHub repository |\n| Craft Anything | Confirmed | GitHub repository |\n| GPT-6.2 Astra performance | Unconfirmed | Community feedback |\n\n## Odd finds and small tools\n\nBeyond flagship models and serving engines, a couple of clever utilities appeared in open-source repositories this week. **DOPPLERGEIST** is a new Python tool that uses the Doppler effect and historical flight-tracking data to estimate audio recording locations, complete with a local browser interface for MP3 uploads. It is a fascinating intersection of audio forensics, signal processing, and OSINT.\n\nAnother notable release is **Craft Anything**, an open-source utility designed to inspect applications, websites, and games, leveraging AI agents to rebuild them. Featuring support for 320 tools via CLI and Model Context Protocol (MCP), it automates the tedious parts of reverse-engineering and application scaffolding.\n\n## What I would try this weekend\n\nIf you have a few spare hours this weekend, I recommend spinning up a local test cluster with vLLM 0.34.0 and profiling your memory usage under synthetic load. Compare your throughput and time-to-first-token metrics against your previous deployment to see how the new block size of 64 impacts your specific models.\n\nAlternatively, clone the **Craft Anything** repository and test its MCP capabilities on a small internal dashboard or static site. Seeing how effectively an agent can inspect and reconstruct a codebase provides a clear window into where automated reverse-engineering currently stands.\n\n## Where this leaves us\n\nInfrastructure updates like vLLM 0.34.0 prove that serving efficiency remains a moving target, requiring continuous re-evaluation of hardware limits. Desktop tools like Mistral Vibe Desktop and agentic scrapers like Craft Anything highlight a broader push toward reducing the friction of local environment setup and code inspection.\n\nAt the same time, early community friction around models like **GPT-6.2 Astra** reminds us that raw capability numbers do not always translate to smooth developer ergonomics. How has your experience been when adopting newer memory configurations in high-concurrency inference pipelines?\n\n## Migration and Evaluation Checklist\n\nMoving your production workloads to the latest infrastructure releases requires a systematic verification process to prevent unexpected failures. When upgrading serving engines and integrating new desktop environments, engineering teams must evaluate specific identifiers to ensure compatibility and performance stability. Begin your migration by auditing your current serving cluster against the parameters introduced in vLLM 0.34.0, specifically verifying that your hardware can sustain a gpu_memory_utilization target of 1.0 without triggering out-of-memory events. Next, measure your token latency variations under peak concurrent request loads, comparing the new block size of 64 against your historical baseline metrics to quantify any throughput gains or latency regressions.\n\nFor developer workstations adopting Mistral Vibe Desktop, verify that local git repository paths and cloud sandbox connections resolve correctly across your engineering team. If you are redeeming the promotional three-month Pro tier coupon code LECHONK for European developers, confirm that account provisioning completes successfully and that git worktree isolation functions as expected during multi-file refactoring tasks. When testing open-source utilities like DOPPLERGEIST, ensure your local browser interface handles MP3 uploads securely without exposing sensitive file paths or violating local data handling policies. For teams deploying Craft Anything, inspect your command-line interface and Model Context Protocol configurations to confirm that the tool correctly interfaces with your targeted applications, websites, and games across all 320 supported tools.\n\nFinally, closely monitor early community feedback regarding unverified systems such as GPT-6.2 Astra, tracking whether your internal testing mirrors reports of early stopping or ergonomics friction during extended generation tasks. Cross-reference these observations against baseline comparisons involving MiniMax-M3, Claude, GPT, GLM, DeepSeek, and Sol 6.2 to maintain an accurate assessment of current model capabilities. Documenting these migration steps ensures your deployment pipeline remains resilient and transparent as you incorporate high-throughput serving defaults and agentic desktop workflows into your daily engineering operations.\n\n---\n\n💬 Questions, corrections or a better way to run these evals? Feedback and discussion are in the channel: https://t.me/GitHub_Open_Source\n",
+      "article_title": "vLLM 0.34.0, Mistral Vibe Desktop, and early critiques of GPT-6.2 Astra",
+      "brief": {
+        "discussion_question": "Have you noticed any performance regressions or throughput changes after upgrading your vLLM deployments?",
+        "headline": "vLLM 0.34.0, Mistral Vibe Desktop, and early critiques of GPT-6.2 Astra",
+        "hook": "8 exact names, 4 official launches, 0 only announced, 1 unverified claim. MiniMax-M3 leads the watch — what would you actually re-run first?",
+        "models": [
+          "MiniMax-M3",
+          "Vibe",
+          "Claude",
+          "GPT",
+          "GLM",
+          "DeepSeek",
+          "GPT-6.2 Astra",
+          "Sol 6.2"
+        ],
+        "stories": [
+          {
+            "basis": "github release notes",
+            "bullets": [
+              "Enabled extensible KV-cache by default on CUDA and ROCm",
+              "Set gpu_memory_utilization to 1.0",
+              "Increased default block size from 16 to 64"
+            ],
+            "status": "official_release",
+            "title": "vLLM 0.34.0 Memory Updates",
+            "why": "It boosts throughput under high load, though token latency increased for some models."
+          },
+          {
+            "basis": "official documentation",
+            "bullets": [
+              "Released desktop app for macOS and Windows with local repo and cloud sandbox support",
+              "Offered a 3-month Pro tier promo using coupon code LECHONK for European developers"
+            ],
+            "status": "official_release",
+            "title": "Mistral Vibe Desktop",
+            "why": "Brings agentic coding directly into a dedicated desktop application with git worktree isolation."
+          },
+          {
+            "basis": "github repository",
+            "bullets": [
+              "Released a Python tool utilizing the Doppler effect and historical flight-tracking data to estimate audio recording locations",
+              "Added a local browser interface for MP3 uploads"
+            ],
+            "status": "official_release",
+            "title": "DOPPLERGEIST",
+            "why": "Combines audio forensics, signal processing, and OSINT into a single accessible tool."
+          },
+          {
+            "basis": "github repository",
+            "bullets": [
+              "Released an open-source tool to inspect apps, websites, and games and use AI agents to rebuild them",
+              "Added support for 320 tools via CLI and MCP"
+            ],
+            "status": "official_release",
+            "title": "Craft Anything",
+            "why": "Automates reverse-engineering and rebuilding workflows using AI coding agents."
+          },
+          {
+            "basis": "official launch announcement",
+            "bullets": [
+              "Reported a cloud agent capable of file editing, running terminal commands, and managing dependencies",
+              "Provided integration with GitHub and multi-model support"
+            ],
+            "status": "demo_or_benchmark",
+            "title": "DS Lab Cloud Agent",
+            "why": "Allows continuous cloud-based vibe coding from any device without local environment setup."
+          }
+        ],
+        "summary": "This digest covers vLLM 0.34.0 memory updates, Mistral Vibe Desktop, DOPPLERGEIST, Craft Anything, and early community feedback on GPT-6.2 Astra.",
+        "unconfirmed_claims": [
+          "Early testers criticized GPT-6.2 Astra, calling it difficult to use or prone to early stopping",
+          "GPT-6.2 Astra scored 53 points on the Coding Agent Index"
+        ],
+        "why_devs": "These updates directly impact memory configurations, agent workflows, and reverse-engineering tooling."
+      },
+      "headline": "vLLM 0.34.0, Mistral Vibe Desktop, and early critiques of GPT-6.2 Astra",
+      "image_url": "https://i.ibb.co/Kz8Mm7PV/ai-brief-1ee043cf075d.png",
+      "models": [
+        "MiniMax-M3",
+        "Vibe",
+        "Claude",
+        "GPT",
+        "GLM",
+        "DeepSeek",
+        "GPT-6.2 Astra",
+        "Sol 6.2"
+      ],
+      "narrative_hook": "Three separate coding agents dropped into local repos this week, and the thing I can't stop thinking about is a memory layout flag that quietly pushed cache sizes up to 672,000 tokens.",
+      "official_url": "",
+      "post_text": "🛰️ <b>AI Brief</b> · <i>no ads, no hype</i>\n\n<b>Three separate coding agents dropped into local repos this week, and the thing I can't stop thinking about is a memory layout flag that quietly pushed cache sizes up to 672,000 tokens.</b>\n\n🧬 <b>In this brief:</b> MiniMax-M3 · Vibe · Claude · GPT · GLM · DeepSeek · GPT-6.2 Astra · Sol 6.2\n\n<b>1/ vLLM 0.34.0 Memory Updates</b>\nEnabled extensible KV-cache by default on CUDA and ROCm\nSet gpu_memory_utilization to 1.0\nIncreased default block size from 16 to 64\nIt boosts throughput under high load, though token latency increased for some models.\n<i>github release notes</i>\n\n<b>2/ Mistral Vibe Desktop</b>\nReleased desktop app for macOS and Windows with local repo and cloud sandbox support\nOffered a 3-month Pro tier promo using coupon code LECHONK for European developers\nBrings agentic coding directly into a dedicated desktop application with git worktree isolation.\n<i>official documentation</i>\n\n<b>3/ Dopplergeist</b>\nReleased a Python tool utilizing the Doppler effect and historical flight-tracking data to estimate audio recording locations\nAdded a local browser interface for MP3 uploads\nCombines audio forensics, signal processing, and OSINT into a single accessible tool.\n<i>github repository</i>\n\n<b>4/ Craft Anything</b>\nReleased an open-source tool to inspect apps, websites, and games and use AI agents to rebuild them\nAdded support for 320 tools via CLI and MCP\nAutomates reverse-engineering and rebuilding workflows using AI coding agents.\n<i>github repository</i>\n\n<b>5/ DS Lab Cloud Agent</b>\nReported a cloud agent capable of file editing, running terminal commands, and managing dependencies\nProvided integration with GitHub and multi-model support\nAllows continuous cloud-based vibe coding from any device without local environment setup.\n<i>official launch announcement</i>\n\n<b>◻️ Rumours we're keeping an eye on</b>\n\n◻️ <i>Early testers criticized GPT-6.2 Astra, calling it difficult to use or prone to early stopping</i>\n◻️ <i>GPT-6.2 Astra scored 53 points on the Coding Agent Index</i>\n\n<i>Have you noticed any performance regressions or throughput changes after upgrading your vLLM deployments?</i>\n\n📣 <a href=\"https://t.me/GitHub_Open_Source\"><b>@GitHub_Open_Source</b></a>\n\n========================================\n#AINews #OpenSource",
+      "published_at": "2026-11-18T19:19:59.674685Z",
+      "statuses": [
+        "official_release",
+        "official_release",
+        "official_release",
+        "official_release",
+        "demo_or_benchmark"
+      ],
+      "stories": 5,
+      "telegram_message_id": 3617,
+      "topic_key": "ai-coding-agents-and-infrastructure",
+      "video_id": "tg-20261118-ffa300ae20",
       "video_url": "https://t.me/GitHub_Open_Source"
     }
   ],
@@ -10012,15 +10128,14 @@
   ],
   "rumour_memory": {
     "100 analysis argon artificial gemini metaphoricity rating scored": "2026-11-17",
+    "agent astra coding gpt index points scored": "2026-11-18",
     "agent ending launching paid plans plus preview pro sesame voice": "2026-11-15",
-    "anthropic branch claude code coordination mods released theme updates": "2026-11-14",
-    "anthropic claude duet invites sending started": "2026-11-14",
     "artifact comic configuration gemini notebook page upcoming update": "2026-11-16",
     "astra cached dropped price tokens": "2026-11-17",
+    "astra calling criticized difficult early gpt prone stopping testers use": "2026-11-18",
     "bot grok paid percent plans runs scheduled usage": "2026-11-15",
     "capacity codex errors fixing model potentially team": "2026-11-16",
-    "claude code custom descriptions desktop supports themes user": "2026-11-15",
-    "claude coming meetings": "2026-11-14"
+    "claude code custom descriptions desktop supports themes user": "2026-11-15"
   },
   "schedule_health": {
     "2026-11-11": {
