@@ -509,3 +509,4 @@
 {"command": "moderation", "error": "TelegramError: Telegram getUpdates failed: Bad Gateway", "ts": "2026-11-18T00:48:04.653370Z", "type": "command_failed"}
 {"minutes_late": 39.6, "schedule": "17 0,18,19,20,21,22,23 * * *", "ts": "2026-11-18T00:56:36.732835Z", "type": "late_schedule_ignored"}
 {"minutes_late": 405.1, "schedule": "13 18 * * *", "ts": "2026-11-18T00:58:04.612365Z", "type": "late_schedule_ignored"}
+{"minutes_late": 401.1, "schedule": "23 18 * * *", "ts": "2026-11-18T01:04:05.283290Z", "type": "late_schedule_ignored"}
