@@ -588,3 +588,4 @@
 {"slot": "news-article", "ts": "2026-11-19T20:50:24.832066Z", "type": "watchdog_verified"}
 {"minutes_late": 133.1, "schedule": "47 */3 * * *", "ts": "2026-11-19T21:00:08.597280Z", "type": "late_schedule_ignored"}
 {"minutes_late": 489.8, "schedule": "33 13 * * *", "ts": "2026-11-19T21:42:49.452347Z", "type": "late_schedule_ignored"}
+{"deleted": 0, "ts": "2026-11-19T21:47:49.284658Z", "type": "moderation_completed", "updates": 4}
