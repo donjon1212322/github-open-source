@@ -550,3 +550,4 @@
 {"repo": "microsoft/tokeneconomizer", "score": 90.937, "telegram_message_id": 3618, "telegraph_url": "https://telegra.ph/TokenEconomizer-Cut-Coding-Agent-Costs-With-Experience-Driven-Control-11-19", "ts": "2026-11-19T01:13:57.193645Z", "type": "project_published"}
 {"minutes_late": 357.0, "schedule": "18 19 * * *", "ts": "2026-11-19T01:14:57.386648Z", "type": "late_schedule_ignored"}
 {"minutes_late": 339.2, "schedule": "53 19 * * *", "ts": "2026-11-19T01:32:12.460793Z", "type": "late_schedule_ignored"}
+{"minutes_late": 332.3, "schedule": "23 20 * * *", "ts": "2026-11-19T01:55:20.278436Z", "type": "late_schedule_ignored"}
