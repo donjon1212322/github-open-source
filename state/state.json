@@ -118,6 +118,15 @@
       "ratio": 0.0,
       "reason": "published",
       "removed": 0
+    },
+    {
+      "date": "2026-11-19",
+      "fingerprint": "2026-11-19|False|brief_gemini_unavailable|0|0.0000|0",
+      "kept": 0,
+      "published": false,
+      "ratio": 0.0,
+      "reason": "brief_gemini_unavailable",
+      "removed": 0
     }
   ],
   "brief_memory": {
@@ -139,35 +148,25 @@
       "https://openai.com/daybreak/red-team": "2026-11-15",
       "https://openai.com/index/introducing-gpt-6-2-astra-sol": "2026-11-17",
       "https://openai.com/index/strengthening-nato-allied-cyber-defences-ai": "2026-11-17",
-      "https://portal.anthropic.com/programs": "2026-11-14",
       "https://qwen.ai/blog": "2026-11-16",
       "https://www.anthropic.com/claude-fable-and-mythos-5-2": "2026-11-15",
       "https://www.anthropic.com/engineering/code-execution-with-mcp": "2026-11-15",
-      "post:data_secrets:10339": "2026-11-14",
       "post:data_secrets:10354": "2026-11-18",
       "story:cursor-live-apps": "2026-11-18",
       "story:gpt-6-cyber": "2026-11-17",
-      "story:inkling-2-small": "2026-11-14",
       "story:metr-rnd": "2026-11-16",
       "text:ai-for-devs-новости-для-разработчиков-и": "2026-11-18",
       "text:anthropic-claude-code-on-desktop-now-supports": "2026-11-15",
-      "text:anthropic-started-sending-invites-for-claude-duet": "2026-11-14",
-      "text:anthropic-выкатили-пожалуй-самый-стильный-апдейт-claude": "2026-11-14",
       "text:anthropic-выпустили-для-claude-довольно-милое-обновление": "2026-11-16",
-      "text:anthropic-подсиживает-microsoft-перед-ipo-в-чате": "2026-11-14",
-      "text:claude-meetings": "2026-11-14",
       "text:gemini-4-argon-чаще-всех-моделей-объясняет": "2026-11-17",
       "text:google-an-upcoming-comic-artifact-configuration-page": "2026-11-16",
       "text:sesame-voice-agent-is-ending-its-preview": "2026-11-15",
       "text:spacexsi-grok-bot-now-has-7-more": "2026-11-15",
-      "text:бесплатный-семинар-про-то-как-делать-иипроекты": "2026-11-14",
       "text:в-coding-agent-index-gpt62-astra-набрала": "2026-11-18",
       "text:главное-про-новые-gpt62-astra-и-sol": "2026-11-17",
       "text:ладно-может-быть-с-astra-мне-просто": "2026-11-18",
       "text:наконецто-сьебастьян-рашка-подготовил-подробный-материал-позиционные": "2026-11-16",
-      "text:независимые-исследователи-нашли-в-открытых-китайских-моделях": "2026-11-14",
       "text:несколько-ранних-тестеров-резко-раскритиковали-gpt62-ведущий": "2026-11-18",
-      "text:отличная-кандидатура-для-нового-сезона-холостяка": "2026-11-14",
       "text:папа-римский-заявил-что-он-против-того": "2026-11-15",
       "text:ресторан-dennys-где-хуанг-в-юности-мыл": "2026-11-15",
       "text:российские-исследователи-предложили-новые-методы-решения-проблемы": "2026-11-16",
@@ -180,7 +179,6 @@
       "anything craft": "2026-11-18",
       "api max qwen4": "2026-11-16",
       "astra gpt launch sol": "2026-11-17",
-      "blackwell checkpoint chinese chips forensics restricted suggest trained": "2026-11-14",
       "browse mcp server": "2026-11-17",
       "claude code experimental mode": "2026-11-15",
       "claude fable": "2026-11-15",
@@ -189,7 +187,6 @@
       "desktop mistral vibe": "2026-11-18",
       "dopplergeist": "2026-11-18",
       "easyread pdf translation": "2026-11-17",
-      "ember join lineup muse nex openrouter": "2026-11-14",
       "generator interactive stageshow": "2026-11-16",
       "memory updates vllm": "2026-11-18",
       "mobile moe runner smolmaxxing": "2026-11-16"
@@ -198,7 +195,7 @@
   "dead_letters": [],
   "gemini_daily": {
     "day": "2026-11-19",
-    "units": 21
+    "units": 24
   },
   "gemini_window": [
     [

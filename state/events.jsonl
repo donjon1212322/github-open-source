@@ -576,3 +576,4 @@
 {"deleted": 0, "ts": "2026-11-19T18:47:55.231528Z", "type": "moderation_completed", "updates": 3}
 {"poll_type": "job", "profile_result": "Last week: 8 votes picked “Blazing-fast native notes app and rich-text editor for macOS, Windows, and Linux”. We are leaning into that this week.", "total_voters": 8, "ts": "2026-11-19T18:53:54.858829Z", "type": "poll_closed", "winner": "Blazing-fast native notes app and rich-text editor for macOS, Windows, and Linux"}
 {"slot": "facebook-handoff", "ts": "2026-11-19T19:01:06.219291Z", "type": "watchdog_verified"}
+{"error": "Gemini generateContent failed: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.", "reason": "brief_gemini_unavailable", "ts": "2026-11-19T19:19:03.531970Z", "type": "news_skipped"}
