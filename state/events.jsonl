@@ -578,3 +578,5 @@
 {"slot": "facebook-handoff", "ts": "2026-11-19T19:01:06.219291Z", "type": "watchdog_verified"}
 {"error": "Gemini generateContent failed: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.", "reason": "brief_gemini_unavailable", "ts": "2026-11-19T19:19:03.531970Z", "type": "news_skipped"}
 {"attempts": 1, "detail": "HTTP 204", "slot": "news", "ts": "2026-11-19T20:00:51.903827Z", "type": "watchdog_recovered", "verified": false}
+{"error": "HttpError", "ts": "2026-11-19T20:01:42.395096Z", "type": "news_article_generation_failed"}
+{"Gemini_video_input": false, "models": 8, "official_url": "", "stories": 4, "topic": "gemini-neon-releases", "ts": "2026-11-19T20:01:55.271855Z", "type": "ai_brief_published", "video_id": "tg-20261119-f4bf8ae1ac"}
