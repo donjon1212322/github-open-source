@@ -583,3 +583,5 @@
 {"channel": "GitHub_Open_Source", "posts": 12, "ts": "2026-11-19T20:23:57.823673Z", "type": "metrics_collected", "updated": 12}
 {"slot": "news", "ts": "2026-11-19T20:30:48.458722Z", "type": "watchdog_verified"}
 {"attempts": 1, "detail": "HTTP 204", "slot": "news-article", "ts": "2026-11-19T20:30:50.236281Z", "type": "watchdog_recovered", "verified": false}
+{"ts": "2026-11-19T20:31:37.830297Z", "type": "news_article_regenerated", "words": 1205}
+{"devto_id": 5076688, "ts": "2026-11-19T20:31:38.231356Z", "type": "news_article_published", "url": "https://dev.to/githubopensource/optimizing-token-costs-and-mid-tier-reasoning-with-gemini-4-neon-fld", "words": 1205}
