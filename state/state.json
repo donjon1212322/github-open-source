@@ -213,12 +213,16 @@
   "dead_letters": [],
   "gemini_daily": {
     "day": "2026-11-19",
-    "units": 15
+    "units": 21
   },
   "gemini_window": [
     [
-      1795105974.253326,
-      1430
+      1795112030.4062421,
+      3907
+    ],
+    [
+      1795112039.2188225,
+      1389
     ]
   ],
   "last_runs": {
@@ -312,9 +316,9 @@
       "telegram_message_id": 3618
     },
     "publish:us_midday": {
-      "finished_at": "2026-11-18T18:14:23.941662Z",
-      "repo": "heyputer/everything",
-      "telegram_message_id": 3616
+      "finished_at": "2026-11-19T18:14:14.115757Z",
+      "repo": "storytold/figcraft",
+      "telegram_message_id": 3621
     },
     "publish:us_morning": {
       "finished_at": "2026-11-19T16:33:32.088910Z",
@@ -7642,6 +7646,114 @@
       "visual_host": "imgbb",
       "visual_kind": "readme"
     },
+    "storytold/figcraft": {
+      "articles": {},
+      "card_style": "",
+      "category": "DevTools",
+      "contributors_count": 159,
+      "created_at": "2026-10-09T16:02:13Z",
+      "crossposts": {
+        "bluesky": {
+          "attempts": 0,
+          "due_at": "2026-11-19T18:44:14.115432+00:00",
+          "status": "pending"
+        }
+      },
+      "description": "FigCraft: interface design and prototyping; an open-source, clean-room reimplementation of collaborative design workflows in pure Rust",
+      "description_fp": "d674d3f4f01867c5",
+      "forks": 1911,
+      "full_name": "storytold/figcraft",
+      "generated": {
+        "article_markdown": "## What it is\n\nFigCraft is an open-source, clean-room reimplementation of collaborative design workflows built in pure Rust. It delivers a native application experience for interface design and prototyping, handling frames, auto layout, components, variants, vector networks, styles, variables, and prototypes without relying on web views or Electron.\n\n## Why it matters\n\nMost modern design tools bind your workflow to continuous cloud connectivity and heavy browser runtimes. FigCraft shifts the paradigm back to local-first development. By storing files as plain archives on your own disk and keeping memory footprints small through a persistent Rust document model, it offers instant startup times and complete offline capability.\n\n## Key features\n\n- Run native UI without Electron using a Rust engine designed for 20,000-node files\n- Store files locally as plain archives without requiring an active internet connection\n- Automate workflows through an engine that shares commands across the UI, CLI, and MCP servers\n- Inspect elements and copy generated React component code directly in Developer Mode\n- Connect onboarding flows and transitions using built-in interactive prototyping tools\n\n## Quick start\n\nTo install FigCraft from source using Cargo, run:\n\n```bash\ncargo install figcraft\n```\n\n## Who should try it\n\nThis project fits developers, designers, and engineers who want a fast, local-first prototyping environment that keeps files under version control and respects offline workflows. Anyone heavily reliant on niche cloud-only plugins might need to check compatibility first.\n\n## Verdict\n\nFigCraft provides a remarkably snappy native workflow for interface design. While it is still in early alpha, its performance and local-first architecture make it a compelling choice for technical teams.",
+        "article_title": "FigCraft: Open-Source Interface Design and Prototyping in Rust",
+        "card_hook": "Open-source interface design in Rust",
+        "card_subline": "Collaborative design workflows in a native app that opens instantly and works offline",
+        "category": "DevTools",
+        "discussion_question": "Which design tool feature do you miss most when working offline?",
+        "hook": "Design and prototype natively in pure Rust with FigCraft, opening 20,000-node files locally without Electron.",
+        "key_features": [
+          "Run native UI without Electron using a Rust engine designed for 20,000-node files",
+          "Store files locally as plain archives without requiring an active internet connection",
+          "Automate workflows through an engine that shares commands across the UI, CLI, and MCP servers",
+          "Inspect elements and copy generated React component code directly in Developer Mode",
+          "Connect onboarding flows and transitions using built-in interactive prototyping tools"
+        ],
+        "llm_used": true,
+        "quick_start": "cargo install figcraft",
+        "safety": "ok",
+        "safety_reason": "Legitimate open source interface design and prototyping tool.",
+        "scene": "You open a heavy design file, and your entire system bogs down while waiting for cloud sync and web view rendering to settle.",
+        "social_text": "Prototype user interfaces locally in a fast native Rust app with FigCraft, featuring offline file storage and an agent-ready command engine.",
+        "summary": "FigCraft is built on a persistent Rust document model where edits touch only what changed, avoiding web view overhead entirely. Files are stored locally as plain archives while supporting SVG, PNG, and PDF exports. Its command architecture exposes every menu item and tool as an executable action, allowing the exact same engine to run from the UI, CLI, or an MCP server.",
+        "surfaces": {
+          "Facebook_body": "If you are tired of sluggish design tools that slow down your computer and require a constant internet connection, there is a better way to work. You can now design and prototype directly on your local machine using a fast, native application built completely without heavy browser technology.\n\nThis tool loads massive design files containing thousands of elements instantly, keeping your workflow smooth and responsive. Because your files are stored locally as plain archives, you keep total ownership of your work without relying on cloud storage or subscription servers.\n\nIt is built for designers, developers, and hobbyists who want a high-performance workspace that runs entirely offline. Whether you are sketching out a new interface or exporting clean assets, this open-source app delivers a snappy, distraction-free environment for your daily projects.",
+          "Facebook_headline": "Design and prototype locally without slow browser apps",
+          "Facebook_lead": "Edit massive design files directly on your computer without needing an active internet connection or heavy web browser software.",
+          "bluesky_headline": "Open 20,000-node design files locally without a browser",
+          "bluesky_lead": "A native prototyping tool built in Rust that handles massive files without heavy browser overhead.",
+          "devto_body": "## What it is\n\nFigCraft is an open-source, native interface design and prototyping tool written in Rust. It serves as a high-performance alternative to web-based design environments, capable of opening files with over 20,000 nodes locally without relying on Electron.\n\n## How it works\n\nAt its core, FigCraft uses a persistent Rust document model where edits touch only what has changed, avoiding web view overhead entirely. Files are stored locally as plain archives. Its command architecture exposes every menu item and tool as an executable action, allowing the exact same engine to run from the UI, a command-line interface, or an MCP server.\n\n## Key features\n\n- Native UI without Electron designed for 20,000-node files\n- Local storage as plain archives with no internet required\n- Unified command engine supporting UI, CLI, and MCP servers\n- Developer Mode for inspecting elements and copying React code\n- Built-in interactive prototyping tools for flows and transitions\n\n## Getting started\n\nClone the repository from GitHub and ensure you have the Rust toolchain installed. Build the project using Cargo:\n\n```bash\ngit clone https://github.com/storytold/figcraft.git\ncd figcraft\ncargo build --release\n```\n\n## When not to use it\n\nFigCraft is currently in early alpha status, meaning users should expect rough edges. If you rely heavily on real-time cloud collaboration features or mature plugin ecosystems found in commercial tools, you may want to wait for a more stable release.",
+          "seo_description": "Discover FigCraft, an open-source native design and prototyping tool built in Rust to handle large files locally without browser overhead.",
+          "seo_query": "open source local design prototyping tool rust",
+          "seo_title": "Open-source native design tool - FigCraft alternative",
+          "telegraph_angle": "Explain the architectural shift away from browser-based design tools toward local-first Rust applications, detailing the trade-offs of early alpha software."
+        },
+        "tension": "Browser-based design tools consume gigabytes of memory, lock your work behind proprietary cloud subscriptions, and break completely when your connection drops.",
+        "turn": "FigCraft replaces the browser stack with a native Rust application that opens instantly, keeps files on your disk, and runs offline.",
+        "verdict": "An impressive native alternative for local design prototyping, though early alpha status means expecting rough edges.",
+        "who_for": "Developers and designers wanting a local, high-performance interface prototyping environment.",
+        "why_now": "Growing demand for local-first developer tooling makes a high-performance native design app practical without cloud dependencies."
+      },
+      "homepage": "https://getartcraft.com/apps/figcraft",
+      "id": 1412112308,
+      "image_url": "https://i.ibb.co/R4dZHQsN/storytold-figcraft-readme-preview-28d066b409a0.jpg",
+      "is_dual_use": false,
+      "is_hidden_gem": false,
+      "language": "Rust",
+      "license": {
+        "key": "apache-2.0",
+        "name": "Apache License 2.0",
+        "node_id": "MDc6TGljZW5zZTI=",
+        "spdx_id": "Apache-2.0",
+        "url": "https://api.github.com/licenses/apache-2.0"
+      },
+      "media_urls": [
+        "https://raw.githubusercontent.com/storytold/figcraft/main/docs/images/shot-1-hero.png",
+        "https://raw.githubusercontent.com/storytold/figcraft/main/docs/images/shot-2-components.png",
+        "https://raw.githubusercontent.com/storytold/figcraft/main/docs/images/shot-3-prototype.png",
+        "https://raw.githubusercontent.com/storytold/figcraft/main/docs/images/shot-4-devmode.png",
+        "https://raw.githubusercontent.com/storytold/figcraft/main/docs/images/shot-5-vector.png",
+        "https://raw.githubusercontent.com/storytold/figcraft/main/docs/images/shot-6-dashboard-light.png",
+        "https://raw.githubusercontent.com/storytold/figcraft/main/docs/images/shot-7-collab.png",
+        "https://raw.githubusercontent.com/storytold/figcraft/main/docs/images/shot-8-board.png"
+      ],
+      "name": "figcraft",
+      "open_issues": 344,
+      "published_at": "2026-11-19T18:14:14.115457Z",
+      "pushed_at": "2026-11-19T17:26:36Z",
+      "readme_fp": "ac70c256e343c90a",
+      "repo_id": 1412112308,
+      "revisit_of": "",
+      "revisit_reason": "",
+      "score": 87.261,
+      "slot": "us_midday",
+      "sources": [
+        "github_search"
+      ],
+      "stars": 5185,
+      "telegram_chat_id": "@GitHub_Open_Source",
+      "telegram_link": "https://t.me/GitHub_Open_Source/3621",
+      "telegram_message_id": 3621,
+      "telegraph_url": "https://telegra.ph/FigCraft-Open-Source-Interface-Design-and-Prototyping-in-Rust-11-19",
+      "topics": [
+        "design",
+        "rust",
+        "tools"
+      ],
+      "updated_at": "2026-11-19T18:06:56Z",
+      "url": "https://github.com/storytold/figcraft",
+      "visual_host": "imgbb",
+      "visual_kind": "readme"
+    },
     "storytold/lightcraft": {
       "articles": {},
       "card_style": "",
@@ -9038,65 +9150,6 @@
       ],
       "updated_at": "2026-11-19T00:26:15Z",
       "url": "https://github.com/elementalsouls/Claude-BugHunter"
-    },
-    {
-      "archived": false,
-      "contributors_count": 159,
-      "created_at": "2026-10-09T16:02:13Z",
-      "default_branch": "main",
-      "description": "FigCraft: interface design and prototyping; an open-source, clean-room reimplementation of collaborative design workflows in pure Rust",
-      "disabled": false,
-      "fork": false,
-      "forks": 1899,
-      "forks_count": 1899,
-      "full_name": "storytold/figcraft",
-      "has_readme": true,
-      "homepage": "https://getartcraft.com/apps/figcraft",
-      "id": 1412112308,
-      "is_dual_use": false,
-      "is_hidden_gem": false,
-      "language": "Rust",
-      "license": {
-        "key": "apache-2.0",
-        "name": "Apache License 2.0",
-        "node_id": "MDc6TGljZW5zZTI=",
-        "spdx_id": "Apache-2.0",
-        "url": "https://api.github.com/licenses/apache-2.0"
-      },
-      "media_urls": [
-        "https://raw.githubusercontent.com/storytold/figcraft/main/docs/images/shot-1-hero.png",
-        "https://raw.githubusercontent.com/storytold/figcraft/main/docs/images/shot-2-components.png",
-        "https://raw.githubusercontent.com/storytold/figcraft/main/docs/images/shot-3-prototype.png",
-        "https://raw.githubusercontent.com/storytold/figcraft/main/docs/images/shot-4-devmode.png",
-        "https://raw.githubusercontent.com/storytold/figcraft/main/docs/images/shot-5-vector.png",
-        "https://raw.githubusercontent.com/storytold/figcraft/main/docs/images/shot-6-dashboard-light.png",
-        "https://raw.githubusercontent.com/storytold/figcraft/main/docs/images/shot-7-collab.png",
-        "https://raw.githubusercontent.com/storytold/figcraft/main/docs/images/shot-8-board.png"
-      ],
-      "name": "figcraft",
-      "non_software_reason": "",
-      "open_issues": 324,
-      "open_issues_count": 324,
-      "owner_repo_count": 2,
-      "pushed_at": "2026-11-19T00:22:50Z",
-      "readme": "",
-      "readme_excerpt": "<p align=\"center\">\n  <a href=\"https://getartcraft.com/\">\n    <picture>\n      <source media=\"(prefers-color-scheme: dark)\" srcset=\"https://raw.githubusercontent.com/storytold/vectorcraft/main/docs/brand/artcraft-logo-white.png\">\n      <img alt=\"ArtCraft\" src=\"https://raw.githubusercontent.com/storytold/vectorcraft/main/docs/brand/artcraft-logo.png\" width=\"200\">\n    </picture>\n  </a>\n</p>\n\n<p align=\"center\">\n  <img src=\"assets/app-icon/hicolor/256x256/apps/ai.storyteller.figcraft.png\" width=\"128\" height=\"128\" alt=\"FigCraft icon: an engraved chameleon on a mint-green tile\">\n</p>\n\n<h1 align=\"center\">FigCraft</h1>\n\n<p align=\"center\">\n  <b>Interface design and prototyping: open source, collaborative and built in pure Rust.</b><br>\n  Frames, auto layout, components and variants, vector networks, styles, variables and prototypes,<br>\n  in a native app that opens instantly and works offline. Open source, and yours.\n</p>\n\n<p align=\"center\">\n  <img alt=\"100% Rust\" src=\"https://img.shields.io/badge/100%25-Rust-b7410e?style=flat-square&logo=rust\">\n  <img alt=\"macOS · Windows · Linux · FreeBSD · Web\" src=\"https://img.shields.io/badge/macOS%20%C2%B7%20Windows%20%C2%B7%20Linux%20%C2%B7%20FreeBSD%2",
-      "readme_len": 34313,
-      "repo_id": 1412112308,
-      "score": 87.261,
-      "source_name": "github_search",
-      "sources": [
-        "github_search"
-      ],
-      "stargazers_count": 5144,
-      "stars": 5144,
-      "topics": [
-        "design",
-        "rust",
-        "tools"
-      ],
-      "updated_at": "2026-11-19T00:21:56Z",
-      "url": "https://github.com/storytold/figcraft"
     },
     {
       "archived": false,
@@ -17498,8 +17551,8 @@
     "storytold/figcraft": {
       "first_seen_at": "2026-11-19T00:26:45.043340Z",
       "full_name": "storytold/figcraft",
-      "last_decision": "queued",
-      "last_seen_at": "2026-11-19T00:26:45.043343Z",
+      "last_decision": "published",
+      "last_seen_at": "2026-11-19T18:14:14.115748Z",
       "repo_id": 1412112308,
       "sources": [
         "github_search"
