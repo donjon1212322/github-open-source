@@ -4744,7 +4744,8 @@
         "bluesky": {
           "attempts": 0,
           "due_at": "2026-11-19T18:00:00+00:00",
-          "status": "pending"
+          "held_reason": "not_best_of_day",
+          "status": "held"
         }
       },
       "description": "Show the battery level of wireless mice, headsets, keyboards and controllers on the Windows 10/11 taskbar. Lightweight tray app, no vendor software needed. Supports Logitech, Razer, SteelSeries, Corsair, HyperX, Glorious, PS4/PS5 DualSense, Xbox and Bluetooth devices.",
@@ -5927,7 +5928,10 @@
         "bluesky": {
           "attempts": 0,
           "due_at": "2026-11-19T18:00:00+00:00",
-          "status": "pending"
+          "error": "",
+          "published_at": "2026-11-19T18:17:56.420090Z",
+          "status": "published",
+          "url": "https://bsky.app/profile/githubopensource.bsky.social/post/3n2oomsj3mg2i"
         }
       },
       "description": "Experience-Driven Black-Box Cost Control for Coding Agents",
@@ -7656,7 +7660,8 @@
         "bluesky": {
           "attempts": 0,
           "due_at": "2026-11-19T18:44:14.115432+00:00",
-          "status": "pending"
+          "held_reason": "not_best_of_day",
+          "status": "held"
         }
       },
       "description": "FigCraft: interface design and prototyping; an open-source, clean-room reimplementation of collaborative design workflows in pure Rust",

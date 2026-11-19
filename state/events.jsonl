@@ -570,3 +570,4 @@
 {"slot": "publish:us_morning", "ts": "2026-11-19T17:00:50.260547Z", "type": "watchdog_verified"}
 {"preview_host": "imgbb", "repo": "storytold/figcraft", "ts": "2026-11-19T18:14:13.745916Z", "type": "published_as_text"}
 {"repo": "storytold/figcraft", "score": 87.261, "telegram_message_id": 3621, "telegraph_url": "https://telegra.ph/FigCraft-Open-Source-Interface-Design-and-Prototyping-in-Rust-11-19", "ts": "2026-11-19T18:14:14.115633Z", "type": "project_published"}
+{"platform": "bluesky", "repo": "microsoft/tokeneconomizer", "ts": "2026-11-19T18:17:56.420112Z", "type": "crosspost_published", "url": "https://bsky.app/profile/githubopensource.bsky.social/post/3n2oomsj3mg2i"}
