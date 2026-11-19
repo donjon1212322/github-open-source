@@ -213,12 +213,12 @@
   "dead_letters": [],
   "gemini_daily": {
     "day": "2026-11-19",
-    "units": 6
+    "units": 15
   },
   "gemini_window": [
     [
-      1795105520.5399964,
-      3935
+      1795105974.253326,
+      1430
     ]
   ],
   "last_runs": {
@@ -317,9 +317,9 @@
       "telegram_message_id": 3616
     },
     "publish:us_morning": {
-      "finished_at": "2026-11-18T16:24:10.189101Z",
-      "repo": "openfilm/openfilm",
-      "telegram_message_id": 3615
+      "finished_at": "2026-11-19T16:33:32.088910Z",
+      "repo": "krisgfx9/wireless-device-battery-monitor",
+      "telegram_message_id": 3620
     },
     "publish:us_peak": {
       "finished_at": "2026-11-11T17:19:17.006267Z",
@@ -1693,9 +1693,7 @@
       "type": "legacy"
     }
   ],
-  "publish_failures": {
-    "krisgfx9/wireless-device-battery-monitor": 1
-  },
+  "publish_failures": {},
   "published": {
     "anefzaoui/misterdownloadmanager": {
       "articles": {},
@@ -4730,6 +4728,104 @@
       ],
       "visual_host": "imgbb",
       "visual_kind": "readme"
+    },
+    "krisgfx9/wireless-device-battery-monitor": {
+      "articles": {},
+      "card_style": "editorial_daily",
+      "category": "DevTools",
+      "contributors_count": 130,
+      "created_at": "2026-11-16T19:28:29Z",
+      "crossposts": {
+        "bluesky": {
+          "attempts": 0,
+          "due_at": "2026-11-19T18:00:00+00:00",
+          "status": "pending"
+        }
+      },
+      "description": "Show the battery level of wireless mice, headsets, keyboards and controllers on the Windows 10/11 taskbar. Lightweight tray app, no vendor software needed. Supports Logitech, Razer, SteelSeries, Corsair, HyperX, Glorious, PS4/PS5 DualSense, Xbox and Bluetooth devices.",
+      "description_fp": "545a533a47fc91a8",
+      "forks": 382,
+      "full_name": "krisgfx9/Wireless-Device-Battery-Monitor",
+      "generated": {
+        "article_markdown": "## What it is\n\nBatteryHub is a lightweight, open-source utility designed to solve a specific annoyance: the need for massive, proprietary software suites just to check the battery level of your wireless peripherals. Written in C++ and compiled as a Win32 application, it communicates directly with your devices via USB or Bluetooth protocols. Instead of relying on vendor-specific drivers or background services, it queries the hardware directly to extract battery percentages and charging states, rendering them as a clean, unobtrusive widget on your Windows taskbar.\n\n## Why it matters\n\nIf you use a Logitech mouse, a Razer headset, and a generic Bluetooth controller, you are often forced to install three separate, heavy software suites just to keep an eye on their charge levels. These applications frequently consume significant RAM, run persistent background services, and clutter your system tray. BatteryHub consolidates this information into a single, 350 KB binary that uses roughly 2 MB of RAM. It provides a unified view of your hardware status without the overhead of telemetry or unnecessary background processes.\n\n## Key features\n\n*   **Vendor Agnostic:** Supports a wide range of hardware, including Logitech, Razer, SteelSeries, Corsair, HyperX, and standard Bluetooth devices.\n*   **Minimal Footprint:** The application is a single, small binary that requires no background services or admin rights to function.\n*   **Multi-Monitor Support:** The widget can be configured to appear on every monitor's taskbar, ensuring you can see your battery levels even while gaming in fullscreen mode.\n*   **Local Analytics:** Includes a built-in history viewer that tracks discharge rates over the last 30 days, stored entirely locally in a TSV file.\n*   **Customizable Alerts:** Allows you to set per-device low-battery notification thresholds, so you only get alerted when it actually matters for that specific device.\n\n## Quick start\n\nTo get started, simply download the latest release from the official repository:\n\n```bash\n# Download the latest release from the GitHub repository\n# Run the BatteryHub-Setup executable\n# The widget will appear in your taskbar notification area\n```\n\n## Who should try it\n\nThis tool is perfect for developers and power users who maintain a \"minimalist\" setup and want to eliminate unnecessary background software. If you find yourself constantly alt-tabbing to check if your headset is about to die, or if you simply hate the bloat of modern peripheral software, this is a direct upgrade to your workflow.\n\n## Verdict\n\nBatteryHub is a rare example of a utility that does one thing perfectly. It respects your system resources and removes the friction of proprietary software. If you have more than one wireless peripheral, this is the cleanest way to manage them.",
+        "article_title": "Monitor Wireless Device Battery Levels on Windows Without Vendor Bloatware",
+        "card_hook": "Wireless battery levels on your taskbar",
+        "card_subline": "A lightweight, vendor-agnostic monitor for your mice, headsets, and controllers on Windows",
+        "category": "DevTools",
+        "discussion_question": "Which peripheral vendor has the worst software bloat you've had to deal with?",
+        "hook": "Stop opening G HUB or Synapse just to check your mouse battery; see levels for all your wireless gear on the taskbar.",
+        "key_features": [
+          "Supports Logitech, Razer, SteelSeries, Corsair, HyperX, and generic Bluetooth devices.",
+          "Runs as a 350 KB binary with ~2 MB RAM footprint, requiring no background services.",
+          "Displays battery status on every monitor's taskbar with configurable per-device icons.",
+          "Includes a local-only history viewer to track discharge rates over 30 days.",
+          "Allows custom device renaming and per-device low-battery alert thresholds."
+        ],
+        "llm_used": true,
+        "quick_start": "Download the latest release from the GitHub repository, run the setup, and it will appear in your system tray.",
+        "safety": "ok",
+        "safety_reason": "The project is a legitimate open-source system utility for monitoring battery levels of hardware peripherals.",
+        "scene": "You are in the middle of a deep-dive coding session, and your mouse cursor suddenly stutters or stops responding because the battery died without warning.",
+        "social_text": "Stop installing bloated vendor software just to check your mouse battery. BatteryHub puts all your wireless device levels right on the Windows taskbar in a 350KB footprint.",
+        "summary": "BatteryHub is a C++/Win32 tray application that polls wireless devices directly via USB or Bluetooth protocols. It bypasses proprietary vendor software suites by communicating with hardware drivers to extract battery percentages and charging states. It renders this data as a small widget directly on the Windows taskbar or as tray icons.",
+        "surfaces": {
+          "Facebook_body": "If you use a wireless mouse, keyboard, or headset, you are probably familiar with the heavy, slow software that comes with them. These programs often take up significant space on your computer just to show you one simple thing: how much battery life your device has left. It is frustrating to have multiple background programs running just to keep track of your gear.\n\nThere is now a much simpler way to handle this. A new lightweight tool allows you to see the battery levels for all your wireless peripherals directly on your Windows taskbar. Instead of relying on manufacturer software, it talks directly to your hardware to get the information you need.\n\nIt is designed for anyone who uses multiple wireless devices from different brands and wants to keep their computer running smoothly without unnecessary clutter. The app is tiny, uses almost no memory, and does not run background services that slow down your system. You can even set custom alerts so you know exactly when to plug in, keeping your setup clean and organized.",
+          "Facebook_headline": "Check your wireless mouse battery without extra software",
+          "Facebook_lead": "Stop installing heavy manufacturer programs just to see your battery percentage. This tiny tool puts your device levels right on your taskbar.",
+          "bluesky_headline": "See all your wireless device battery levels at a glance",
+          "bluesky_lead": "Stop opening heavy manufacturer apps just to check if your mouse or headset needs a charge.",
+          "devto_body": "## What it is\n\nWireless-Device-Battery-Monitor is a lightweight, C++ based Windows tray application designed to replace bloated manufacturer software suites. It polls wireless peripherals directly via USB or Bluetooth protocols to extract battery percentages and charging states, rendering them as a simple, unobtrusive widget on your taskbar.\n\n## How it works\n\nUnlike vendor-specific software that installs background services and telemetry, this tool communicates directly with hardware drivers. By bypassing the proprietary software layer, it achieves a minimal footprint—a 350 KB binary using approximately 2 MB of RAM. It functions as a standard Win32 tray application, polling devices at intervals to update the UI.\n\n## Key features\n\n* **Broad Compatibility:** Supports major brands including Logitech, Razer, SteelSeries, Corsair, and HyperX, alongside generic Bluetooth devices and console controllers (DualSense, Xbox).\n* **System Integration:** Displays battery status directly on the Windows taskbar with configurable icons.\n* **Resource Efficient:** No background services or heavy dependencies; it is a local-only utility.\n* **Customization:** Includes per-device renaming and configurable low-battery alert thresholds.\n* **Analytics:** Features a local-only history viewer to track discharge rates over a 30-day period.\n\n## Getting started\n\n1. Clone the repository from GitHub.\n2. Ensure you are running Windows 10 or 11.\n3. Build the solution using Visual Studio or download the latest release binary.\n4. Launch the application to automatically detect connected wireless peripherals.\n\n## When not to use it\n\nThis tool is strictly for battery monitoring. If you require advanced features like custom macro programming, RGB lighting synchronization, or firmware updates, you will still need the manufacturer's official software. This utility is intended solely to eliminate the need for those resource-heavy suites for simple status checks.",
+          "seo_description": "See battery levels for wireless mice, keyboards, and headsets on your Windows taskbar without installing heavy manufacturer software. Simple and fast.",
+          "seo_query": "how to check wireless mouse battery level on windows without software",
+          "seo_title": "Check wireless mouse battery on Windows - Lightweight Tool",
+          "telegraph_angle": "Focus on the trade-offs of ditching manufacturer bloatware for a single, lightweight utility that prioritizes system performance over advanced peripheral customization."
+        },
+        "tension": "You are forced to install bloated vendor software suites just to check a simple percentage, each consuming unnecessary RAM and background CPU cycles for a task that should be native.",
+        "turn": "This tool pulls the battery data directly from the hardware drivers, letting you uninstall the heavy vendor suites while keeping visibility over your gear's charge status.",
+        "verdict": "Essential for anyone who hates vendor bloatware; if you have more than one wireless peripheral, this is the cleanest way to manage them.",
+        "who_for": "Windows users juggling multiple wireless peripherals from different manufacturers.",
+        "why_now": "As peripheral ecosystems fragment, the need to avoid installing multiple heavy vendor suites just to monitor battery life has become a common pain point."
+      },
+      "homepage": "",
+      "id": 1460469810,
+      "image_url": "https://i.ibb.co/8LF4h6Xs/krisgfx9-Wireless-Device-Battery-Monitor-preview-6150836f4c44.jpg",
+      "is_dual_use": false,
+      "is_hidden_gem": false,
+      "language": "C++",
+      "license": {
+        "key": "gpl-3.0",
+        "name": "GNU General Public License v3.0",
+        "node_id": "MDc6TGljZW5zZTk=",
+        "spdx_id": "GPL-3.0",
+        "url": "https://api.github.com/licenses/gpl-3.0"
+      },
+      "media_urls": [
+        "https://raw.githubusercontent.com/krisgfx9/Wireless-Device-Battery-Monitor/main/docs/screenshot.png"
+      ],
+      "name": "Wireless-Device-Battery-Monitor",
+      "open_issues": 3030,
+      "published_at": "2026-11-19T16:33:32.088586Z",
+      "pushed_at": "2026-11-19T06:15:50Z",
+      "readme_fp": "",
+      "repo_id": 1460469810,
+      "revisit_of": "",
+      "revisit_reason": "",
+      "score": 89.375,
+      "slot": "us_morning",
+      "sources": [
+        "github_search",
+        "telegram:github_repos"
+      ],
+      "stars": 4474,
+      "telegram_chat_id": "@GitHub_Open_Source",
+      "telegram_link": "https://t.me/GitHub_Open_Source/3620",
+      "telegram_message_id": 3620,
+      "telegraph_url": "https://telegra.ph/Monitor-Wireless-Device-Battery-Levels-on-Windows-Without-Vendor-Bloatware-11-19",
+      "topics": [],
+      "updated_at": "2026-11-19T16:26:59Z",
+      "url": "https://github.com/krisgfx9/Wireless-Device-Battery-Monitor",
+      "visual_host": "imgbb",
+      "visual_kind": "card"
     },
     "l0ng-ai/openidea": {
       "articles": {
@@ -8941,55 +9037,6 @@
       ],
       "updated_at": "2026-11-19T00:26:15Z",
       "url": "https://github.com/elementalsouls/Claude-BugHunter"
-    },
-    {
-      "archived": false,
-      "contributors_count": 105,
-      "created_at": "2026-11-16T19:28:29Z",
-      "default_branch": "main",
-      "description": "Show the battery level of wireless mice, headsets, keyboards and controllers on the Windows 10/11 taskbar. Lightweight tray app, no vendor software needed. Supports Logitech, Razer, SteelSeries, Corsair, HyperX, Glorious, PS4/PS5 DualSense, Xbox and Bluetooth devices.",
-      "disabled": false,
-      "fork": false,
-      "forks": 349,
-      "forks_count": 349,
-      "full_name": "krisgfx9/Wireless-Device-Battery-Monitor",
-      "has_readme": true,
-      "homepage": "",
-      "id": 1460469810,
-      "is_dual_use": false,
-      "is_hidden_gem": false,
-      "language": "C++",
-      "license": {
-        "key": "gpl-3.0",
-        "name": "GNU General Public License v3.0",
-        "node_id": "MDc6TGljZW5zZTk=",
-        "spdx_id": "GPL-3.0",
-        "url": "https://api.github.com/licenses/gpl-3.0"
-      },
-      "media_urls": [
-        "https://raw.githubusercontent.com/krisgfx9/Wireless-Device-Battery-Monitor/main/docs/screenshot.png"
-      ],
-      "name": "Wireless-Device-Battery-Monitor",
-      "non_software_reason": "",
-      "open_issues": 2340,
-      "open_issues_count": 2340,
-      "owner_repo_count": 1,
-      "pushed_at": "2026-11-19T00:13:41Z",
-      "readme": "",
-      "readme_excerpt": "# BatteryHub\n\n*Formerly **Wireless Battery**. Version 1.1.0 renamed the app; an update keeps your settings, startup choice and battery history.*\n\n[![Support me on Ko-fi](https://img.shields.io/badge/Ko--fi-Support%20me-FF5E5B?logo=ko-fi&logoColor=white)](https://ko-fi.com/krisgfx)\n[![Donate with PayPal](https://img.shields.io/badge/PayPal-Donate-00457C?logo=paypal&logoColor=white)](https://www.paypal.com/paypalme/krisgfx)\n[![GitHub Sponsors](https://img.shields.io/badge/GitHub-Sponsor-EA4AAA?logo=githubsponsors&logoColor=white)](https://github.com/sponsors/krisgfx9)\n[![Join our Discord](https://img.shields.io/badge/Discord-Join%20us-5865F2?logo=discord&logoColor=white)](https://discord.gg/ZgDDUPP8ye)\n[![Star on GitHub](https://img.shields.io/github/stars/krisgfx9/Wireless-Device-Battery-Monitor?style=flat&logo=github&label=Star)](https://github.com/krisgfx9/Wireless-Device-Battery-Monitor)\n[![Share on Reddit](https://img.shields.io/badge/Reddit-Share-FF4500?logo=reddit&logoColor=white)](https://www.reddit.com/submit?url=https%3A%2F%2Fgithub.com%2Fkrisgfx9%2FWireless-Device-Battery-Monitor&title=Wireless%20Battery%3A%20battery%20levels%20of%20your%20wireless%20devices%20on%20the%20W",
-      "readme_len": 80000,
-      "repo_id": 1460469810,
-      "score": 89.375,
-      "source_name": "github_search",
-      "sources": [
-        "github_search",
-        "telegram:github_repos"
-      ],
-      "stargazers_count": 3957,
-      "stars": 3957,
-      "topics": [],
-      "updated_at": "2026-11-19T00:21:43Z",
-      "url": "https://github.com/krisgfx9/Wireless-Device-Battery-Monitor"
     },
     {
       "archived": false,
@@ -14580,8 +14627,8 @@
     "krisgfx9/wireless-device-battery-monitor": {
       "first_seen_at": "2026-11-18T00:25:53.067762Z",
       "full_name": "krisgfx9/Wireless-Device-Battery-Monitor",
-      "last_decision": "queued",
-      "last_seen_at": "2026-11-19T00:26:45.041846Z",
+      "last_decision": "published",
+      "last_seen_at": "2026-11-19T16:33:32.088899Z",
       "repo_id": 1460469810,
       "sources": [
         "github_search",

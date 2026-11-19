@@ -565,3 +565,5 @@
 {"deleted": 0, "ts": "2026-11-19T15:47:51.999987Z", "type": "moderation_completed", "updates": 0}
 {"failures": 1, "gemini_error_class": "capacity_503", "reason": "gemini_unavailable", "repo": "krisgfx9/wireless-device-battery-monitor", "slot": "us_morning", "ts": "2026-11-19T16:25:30.750570Z", "type": "publish_skipped"}
 {"attempts": 1, "detail": "HTTP 204", "slot": "publish:us_morning", "ts": "2026-11-19T16:30:50.836714Z", "type": "watchdog_recovered", "verified": false}
+{"preview_host": "imgbb", "repo": "krisgfx9/wireless-device-battery-monitor", "ts": "2026-11-19T16:33:31.839320Z", "type": "published_as_text"}
+{"repo": "krisgfx9/wireless-device-battery-monitor", "score": 89.375, "telegram_message_id": 3620, "telegraph_url": "https://telegra.ph/Monitor-Wireless-Device-Battery-Levels-on-Windows-Without-Vendor-Bloatware-11-19", "ts": "2026-11-19T16:33:32.088753Z", "type": "project_published"}
