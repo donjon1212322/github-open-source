@@ -379,6 +379,25 @@ MUTATIONS: list[tuple[str, str, str, str]] = [
      "    if code in {429, 500, 502, 503, 504}:\n        return True",
      "    if False:\n        return True",
      "transient Telegram status codes are not recognized as retryable"),
+    # Owner 19.11: post 3618 shipped a pure white preview (blank GIF intro
+    # frame). Blank images must be rejected and GIFs must contribute a real
+    # frame; preview-fix must edit the live post, never duplicate it.
+    ("src/ghos_v6/media.py",
+     "    if blank:\n        # A uniform single-colour image is an intro card or a placeholder,\n        # never a preview the channel wants to show.\n        return False, \"\"",
+     "    if False:\n        # A uniform single-colour image is an intro card or a placeholder,\n        # never a preview the channel wants to show.\n        return False, \"\"",
+     "a blank white README banner becomes the post preview again"),
+    ("src/ghos_v6/media.py",
+     "                if not _frame_is_blank(frame):",
+     "                if True:",
+     "the blank intro frame of an animated GIF is used as the preview again"),
+    ("src/ghos_v6/pipeline.py",
+     "    telegram.edit_text(chat_id, message_id, text_html, preview_url=hosted)",
+     "    _ = None",
+     "preview-fix never edits the live post, keeping the blank card"),
+    (".github/workflows/pipeline.yml",
+     'ghos-v6 preview-fix --repo "$PREVIEW_FIX_REPO"',
+     'ghos-v6 preview-fix --repo ""',
+     "the workflow cannot target a repo for preview-fix"),
 ]
 
 COPY_ITEMS = (

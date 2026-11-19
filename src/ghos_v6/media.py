@@ -9,11 +9,21 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
 
+from PIL import Image, ImageStat
+
 from .cards import render_project_card
 from .http import UnsafeUrl, download_bytes, validate_public_url
 from .images import content_type_for_format, open_safe_image
 
 logger = logging.getLogger(__name__)
+
+# Owner 19.11: post 3618 (microsoft/TokenEconomizer) shipped a completely
+# white preview. The README opens with an animated GIF whose first frames
+# are a blank intro card, and Pillow reads frame 0. A single flat colour is
+# never a meaningful preview, no matter which file it came from.
+BLANK_STDEV = 3.0
+#: How deep to look into an animation for the first frame with content.
+GIF_FRAME_SCAN_LIMIT = 60
 
 
 @dataclass
@@ -34,6 +44,39 @@ def _is_safe_public_url(url: str) -> bool:
     return True
 
 
+def _frame_is_blank(image: Image.Image) -> bool:
+    """True when the frame is one flat colour (white/black intro card)."""
+    thumb = image.convert("L")
+    thumb.thumbnail((160, 160))
+    return ImageStat.Stat(thumb).stddev[0] < BLANK_STDEV
+
+
+def _gif_to_still(data: bytes) -> bytes | None:
+    """First meaningful frame of an animated GIF, as PNG bytes.
+
+    Animations often open on a blank intro/title card (fade-ins, white
+    leads). Pillow's default frame 0 would turn that into the post's
+    preview. Returns ``None`` for non-animated files and for animations
+    whose scanned frames are all blank, so the caller keeps its normal
+    validation and fallback chain.
+    """
+    try:
+        with open_safe_image(io.BytesIO(data)) as gif:
+            frames = getattr(gif, "n_frames", 1) or 1
+            if frames <= 1:
+                return None
+            for index in range(min(frames, GIF_FRAME_SCAN_LIMIT)):
+                gif.seek(index)
+                frame = gif.convert("RGB")
+                if not _frame_is_blank(frame):
+                    buffer = io.BytesIO()
+                    frame.save(buffer, format="PNG")
+                    return buffer.getvalue()
+    except Exception:  # noqa: BLE001 - a broken animation is not a preview
+        return None
+    return None
+
+
 def _validate_image(data: bytes) -> tuple[bool, str]:
     try:
         # formats= is the security boundary: Pillow must not even try the
@@ -42,9 +85,14 @@ def _validate_image(data: bytes) -> tuple[bool, str]:
             image.seek(0)
             width, height = image.size
             fmt = (image.format or "").upper()
+            blank = _frame_is_blank(image)
     except Exception:
         return False, ""
     if width < 800 or height < 250:
+        return False, ""
+    if blank:
+        # A uniform single-colour image is an intro card or a placeholder,
+        # never a preview the channel wants to show.
         return False, ""
     content_type = content_type_for_format(fmt)
     return bool(content_type), content_type
@@ -69,6 +117,10 @@ def choose_visual(
         except Exception as exc:  # noqa: BLE001 - try next visual candidate
             logger.info("README media rejected (%s): %s", type(exc).__name__, url)
             continue
+        # An animated GIF must contribute a real frame, not its blank intro.
+        still = _gif_to_still(data)
+        if still is not None:
+            data = still
         ok, content_type = _validate_image(data)
         if ok:
             return Visual(kind="readme", url=str(url), data=data, content_type=content_type)

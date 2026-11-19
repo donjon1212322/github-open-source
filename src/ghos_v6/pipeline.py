@@ -2358,6 +2358,85 @@ def report_command(config: Config, store: StateStore) -> dict[str, Any]:
     return {"ok": True, "sent": bool(sent), "projects_7d": len(records), "text": text}
 
 
+def preview_fix_command(config: Config, store: StateStore, repo: str = "") -> dict[str, Any]:
+    """Owner 19.11: replace a blank/broken preview of a LIVE project post.
+
+    Post 3618 (microsoft/TokenEconomizer) went out with a completely white
+    card: the README opens with an animated GIF whose first frames are a
+    blank intro, and that frame became the preview. This command re-picks
+    the visual with the current quality checks (blank frames are rejected
+    now), hosts the new image and edits the existing Telegram message in
+    place. No duplicate post, no new Telegraph page, no state reset.
+    """
+    config.require("TELEGRAM_BOT_TOKEN")
+    wanted = str(repo or "").strip().lower()
+    if not re.fullmatch(r"[a-z0-9_.-]+/[a-z0-9_.-]+", wanted):
+        return {"ok": False, "reason": "bad_repo", "repo": str(repo or "")}
+    published = store.data.get("published") or {}
+    key = next((k for k in published if k.lower() == wanted), "")
+    if not key:
+        return {"ok": False, "reason": "not_published", "repo": wanted}
+    record = published[key]
+    message_id = int(record.get("telegram_message_id") or 0)
+    chat_id = record.get("telegram_chat_id") or config.telegram_chat_id
+    if not message_id or not chat_id:
+        return {"ok": False, "reason": "no_live_post", "repo": key}
+
+    generated = record.get("generated") or {}
+    visual = choose_visual(record, generated)
+    if visual.kind == "opengraph" or not visual.data:
+        return {"ok": False, "reason": "no_image_candidate", "repo": key, "kind": visual.kind}
+    hosted, hosted_by = _host_local_image(
+        config,
+        shrink_for_web_preview(visual.data),
+        filename=_safe_image_stem(record)
+        + ("-readme-preview.jpg" if visual.kind == "readme" else "-preview.jpg"),
+        content_type="image/jpeg",
+    )
+    if not hosted:
+        return {"ok": False, "reason": "host_failed", "repo": key}
+
+    # Rebuild the exact post text from the stored record; only the preview
+    # URL changes. editMessageText has no "preview only" mode.
+    format_input = dict(record)
+    format_input.update(
+        {
+            "hook": generated.get("hook"),
+            "readme_summary": generated.get("summary"),
+            "primary_use_case": generated.get("summary"),
+            "key_features": generated.get("key_features"),
+            "who_for": generated.get("who_for"),
+            "why_now": generated.get("why_now"),
+            "verdict": generated.get("verdict"),
+            "quick_start": generated.get("quick_start"),
+            "discussion_question": generated.get("discussion_question"),
+            "category": generated.get("category") or record.get("category"),
+            "is_dual_use": record.get("is_dual_use"),
+            "scene": generated.get("scene"),
+            "tension": generated.get("tension"),
+            "turn": generated.get("turn"),
+        }
+    )
+    text_html = format_project_post(format_input, telegraph_url=str(record.get("telegraph_url") or ""))
+    telegram = TelegramClient(config.telegram_bot_token)
+    telegram.edit_text(chat_id, message_id, text_html, preview_url=hosted)
+
+    old_url = str(record.get("image_url") or "")
+    record["image_url"] = hosted
+    record["visual_host"] = hosted_by
+    record["visual_kind"] = visual.kind
+    record["updated_at"] = iso_now()
+    store.event(
+        "preview_fixed", repo=key, kind=visual.kind, host=hosted_by,
+        old=old_url, url=hosted,
+    )
+    store.save()
+    return {
+        "ok": True, "repo": key, "kind": visual.kind, "host": hosted_by,
+        "old_url": old_url, "new_url": hosted,
+    }
+
+
 _SPAM_RE = re.compile(
     r"(crypto giveaway|airdrop claim|double your|investment profit|casino|betting bonus|"
     r"earn \$|work from home.*\$|telegram premium free|seed phrase)",

@@ -21,6 +21,7 @@ on:
           - brief-dedup-fix
           - digest
           - digest-card-fix
+          - preview-fix
           - poll-preview
           - poll-replace
           - report
@@ -43,6 +44,10 @@ on:
         default: false
       article_ids:
         description: Comma-separated dev.to ids for article-unseries / devto-remove
+        type: string
+        default: ""
+      preview_fix_repo:
+        description: owner/name of a published project for preview-fix (blank image replacement)
         type: string
         default: ""
   schedule:
@@ -147,12 +152,13 @@ jobs:
           FORCE_NEWS: ${{ inputs.force_news }}
           REFRESH_NEWS: ${{ inputs.refresh_news }}
           ARTICLE_IDS: ${{ inputs.article_ids }}
+          PREVIEW_FIX_REPO: ${{ inputs.preview_fix_repo }}
           EVENT_NAME: ${{ github.event_name }}
           SCHEDULE: ${{ github.event.schedule }}
         run: |
           if [[ "$EVENT_NAME" == "workflow_dispatch" ]]; then
             case "$COMMAND" in
-              collect|publish|crossposts|article|article-update|article-unseries|devto-remove|news|news-article|quality-fix|brief-dedup-fix|digest|digest-card-fix|poll-preview|poll-replace|report|moderation|facebook-handoff|metrics|learn|poll-close) ;;
+              collect|publish|crossposts|article|article-update|article-unseries|devto-remove|news|news-article|quality-fix|brief-dedup-fix|digest|digest-card-fix|preview-fix|poll-preview|poll-replace|report|moderation|facebook-handoff|metrics|learn|poll-close) ;;
               *) echo "::error::invalid command: $COMMAND"; exit 1 ;;
             esac
             if [[ "$COMMAND" == "publish" ]]; then
@@ -176,6 +182,11 @@ jobs:
               if [[ "$FORCE_NEWS" == "true" ]]; then news_flags+=(--force); fi
               if [[ "$REFRESH_NEWS" == "true" ]]; then news_flags+=(--refresh); fi
               ghos-v6 news "${news_flags[@]}"
+            elif [[ "$COMMAND" == "preview-fix" ]]; then
+              if [[ ! "$PREVIEW_FIX_REPO" =~ ^[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]{1,120}$ ]]; then
+                echo "::error::invalid repo: $PREVIEW_FIX_REPO"; exit 1
+              fi
+              ghos-v6 preview-fix --repo "$PREVIEW_FIX_REPO"
             else
               ghos-v6 "$COMMAND"
             fi

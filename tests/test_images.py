@@ -11,8 +11,15 @@ from ghos_v6.media import _validate_image
 
 
 def _encode(fmt: str, size: tuple[int, int] = (900, 300)) -> bytes:
+    # 19.11: a uniform single-colour image is a blank preview and is
+    # rejected by _validate_image now. Carry a real band so these tests
+    # keep checking the FORMAT allowlist, not the blankness guard.
+    image = Image.new("RGB", size, (10, 20, 30))
+    for y in range(size[1] // 3, 2 * size[1] // 3):
+        for x in range(size[0] // 4, 3 * size[0] // 4):
+            image.putpixel((x, y), (200, 210, 220))
     buffer = io.BytesIO()
-    Image.new("RGB", size, (10, 20, 30)).save(buffer, fmt)
+    image.save(buffer, fmt)
     return buffer.getvalue()
 
 

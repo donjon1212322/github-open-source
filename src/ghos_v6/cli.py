@@ -22,6 +22,7 @@ from .pipeline import (
     collect_command,
     digest_command,
     digest_card_fix_command,
+    preview_fix_command,
     poll_preview_command,
     poll_replace_command,
     facebook_handoff_command,
@@ -94,6 +95,10 @@ def _parser() -> argparse.ArgumentParser:
 
     sub.add_parser("digest", help="Publish Sunday Top 5 and poll")
     sub.add_parser("digest-card-fix", help="Replace the live Sunday card with stars, in place")
+    preview_fix = sub.add_parser(
+        "preview-fix", help="Re-pick a blank/broken preview of a live post and edit it in place"
+    )
+    preview_fix.add_argument("--repo", default="", help="owner/name of the published project")
     sub.add_parser("poll-preview", help="Dry run: show this week's adaptive poll without publishing")
     sub.add_parser("poll-replace", help="Replace today's published poll with the adaptive one, in place")
     sub.add_parser("report", help="Send the weekly owner report")
@@ -420,6 +425,8 @@ def main(argv: list[str] | None = None) -> int:
             result = digest_command(config, store)
         elif args.command == "digest-card-fix":
             result = digest_card_fix_command(config, store)
+        elif args.command == "preview-fix":
+            result = preview_fix_command(config, store, repo=args.repo)
         elif args.command == "poll-preview":
             result = poll_preview_command(config, store)
         elif args.command == "poll-replace":
