@@ -366,6 +366,14 @@
         "attempts": 1,
         "detail": "HTTP 204",
         "dispatched": true,
+        "verified": true,
+        "verified_at": "2026-11-19T20:30:48.458625Z"
+      },
+      "2026-11-19:news-article": {
+        "at": "2026-11-19T20:30:48.458625Z",
+        "attempts": 1,
+        "detail": "HTTP 204",
+        "dispatched": true,
         "verified": false
       },
       "2026-11-19:publish:us_morning": {

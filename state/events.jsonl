@@ -581,3 +581,5 @@
 {"error": "HttpError", "ts": "2026-11-19T20:01:42.395096Z", "type": "news_article_generation_failed"}
 {"Gemini_video_input": false, "models": 8, "official_url": "", "stories": 4, "topic": "gemini-neon-releases", "ts": "2026-11-19T20:01:55.271855Z", "type": "ai_brief_published", "video_id": "tg-20261119-f4bf8ae1ac"}
 {"channel": "GitHub_Open_Source", "posts": 12, "ts": "2026-11-19T20:23:57.823673Z", "type": "metrics_collected", "updated": 12}
+{"slot": "news", "ts": "2026-11-19T20:30:48.458722Z", "type": "watchdog_verified"}
+{"attempts": 1, "detail": "HTTP 204", "slot": "news-article", "ts": "2026-11-19T20:30:50.236281Z", "type": "watchdog_recovered", "verified": false}
