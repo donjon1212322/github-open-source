@@ -564,3 +564,4 @@
 {"platform": "devto", "repo": "microsoft/tokeneconomizer", "ts": "2026-11-19T13:34:00.440010Z", "type": "article_published", "url": "https://dev.to/githubopensource/cut-ai-coding-agent-costs-tokeneconomizer-plugin-43nb"}
 {"deleted": 0, "ts": "2026-11-19T15:47:51.999987Z", "type": "moderation_completed", "updates": 0}
 {"failures": 1, "gemini_error_class": "capacity_503", "reason": "gemini_unavailable", "repo": "krisgfx9/wireless-device-battery-monitor", "slot": "us_morning", "ts": "2026-11-19T16:25:30.750570Z", "type": "publish_skipped"}
+{"attempts": 1, "detail": "HTTP 204", "slot": "publish:us_morning", "ts": "2026-11-19T16:30:50.836714Z", "type": "watchdog_recovered", "verified": false}

@@ -338,7 +338,15 @@
         "notified": false
       }
     },
-    "watchdog_dispatches": {}
+    "watchdog_dispatches": {
+      "2026-11-19:publish:us_morning": {
+        "at": "2026-11-19T16:30:49.543138Z",
+        "attempts": 1,
+        "detail": "HTTP 204",
+        "dispatched": true,
+        "verified": false
+      }
+    }
   },
   "news_topics": [
     {
