@@ -227,11 +227,11 @@
   ],
   "last_runs": {
     "article": {
-      "finished_at": "2026-11-18T13:33:50.975371Z",
+      "finished_at": "2026-11-19T13:34:00.440132Z",
       "published": true,
       "reason": "published",
-      "repo": "ersinkoc/phonebox",
-      "url": "https://dev.to/githubopensource/turn-old-android-phone-into-pc-monitor-open-source-desk-panel-ojj"
+      "repo": "microsoft/tokeneconomizer",
+      "url": "https://dev.to/githubopensource/cut-ai-coding-agent-costs-tokeneconomizer-plugin-43nb"
     },
     "collect": {
       "discovered": 426,
@@ -5805,7 +5805,13 @@
       "visual_kind": "card"
     },
     "microsoft/tokeneconomizer": {
-      "articles": {},
+      "articles": {
+        "devto": {
+          "id": 5074375,
+          "published_at": "2026-11-19T13:34:00.439990Z",
+          "url": "https://dev.to/githubopensource/cut-ai-coding-agent-costs-tokeneconomizer-plugin-43nb"
+        }
+      },
       "card_style": "",
       "category": "AI",
       "contributors_count": 48,
@@ -5819,6 +5825,7 @@
       },
       "description": "Experience-Driven Black-Box Cost Control for Coding Agents",
       "description_fp": "2ba5415fe73393d2",
+      "devto_cover_url": "https://i.ibb.co/XZZ6Dbpb/microsoft-tokeneconomizer-devto-cover-c1e815c49763.png",
       "forks": 525,
       "full_name": "microsoft/TokenEconomizer",
       "generated": {
