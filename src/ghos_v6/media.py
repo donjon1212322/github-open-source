@@ -9,7 +9,7 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
 
-from PIL import Image, ImageStat
+from PIL import Image
 
 from .cards import render_project_card
 from .http import UnsafeUrl, download_bytes, validate_public_url
@@ -19,11 +19,18 @@ logger = logging.getLogger(__name__)
 
 # Owner 19.11: post 3618 (microsoft/TokenEconomizer) shipped a completely
 # white preview. The README opens with an animated GIF whose first frames
-# are a blank intro card, and Pillow reads frame 0. A single flat colour is
-# never a meaningful preview, no matter which file it came from.
-BLANK_STDEV = 3.0
-#: How deep to look into an animation for the first frame with content.
+# are a blank intro card, and Pillow reads frame 0. In the evening the owner
+# upgraded the rule: a README visual that is visually flat - a blank intro,
+# a white title banner, one dominant colour covering ~everything - is
+# replaced by OUR OWN branded card, never by another plain picture.
+#: Share of pixels inside the dominant 16-level grey band that makes an
+#: image "flat". Measured on the live channel: white title cards land at
+#: 0.94-0.98, real screenshots and diagrams at <= 0.89.
+FLAT_DOMINANT_FRACTION = 0.92
+#: How deep to look into an animation for a frame with real content.
 GIF_FRAME_SCAN_LIMIT = 60
+#: Grey levels per band; absorbs GIF-palette and JPEG noise around a colour.
+_FLAT_WINDOW = 16
 
 
 @dataclass
@@ -44,21 +51,47 @@ def _is_safe_public_url(url: str) -> bool:
     return True
 
 
-def _frame_is_blank(image: Image.Image) -> bool:
-    """True when the frame is one flat colour (white/black intro card)."""
-    thumb = image.convert("L")
-    thumb.thumbnail((160, 160))
-    return ImageStat.Stat(thumb).stddev[0] < BLANK_STDEV
+def _flat_fraction(image: Image.Image) -> float:
+    """Share of pixels that sit in the dominant ``_FLAT_WINDOW`` grey band.
+
+    A white title card lands at ~0.95+, a real screenshot or diagram at
+    ~0.9 or below. A sliding window (not one exact level) keeps the metric
+    stable under GIF palettes and JPEG noise.
+    """
+    grey = image.convert("L")
+    if max(grey.size) > 640:
+        grey.thumbnail((640, 640))
+    hist = grey.histogram()
+    total = sum(hist) or 1
+    running = sum(hist[:_FLAT_WINDOW])
+    best = running
+    for level in range(_FLAT_WINDOW, 256):
+        running += hist[level] - hist[level - _FLAT_WINDOW]
+        if running > best:
+            best = running
+    return best / total
+
+
+def _is_visually_flat(image: Image.Image) -> bool:
+    """True when one colour visually dominates the whole image."""
+    return _flat_fraction(image) >= FLAT_DOMINANT_FRACTION
+
+
+def _looks_flat(data: bytes) -> bool:
+    try:
+        with open_safe_image(io.BytesIO(data)) as image:
+            return _is_visually_flat(image)
+    except Exception:  # noqa: BLE001 - undecodable is never a good preview
+        return True
 
 
 def _gif_to_still(data: bytes) -> bytes | None:
-    """First meaningful frame of an animated GIF, as PNG bytes.
+    """First frame of an animated GIF that has real content, as PNG bytes.
 
-    Animations often open on a blank intro/title card (fade-ins, white
-    leads). Pillow's default frame 0 would turn that into the post's
-    preview. Returns ``None`` for non-animated files and for animations
-    whose scanned frames are all blank, so the caller keeps its normal
-    validation and fallback chain.
+    Animations often open on a blank intro or a plain white title card.
+    Returns ``None`` for non-animated files and for animations whose
+    scanned frames are all flat, so the caller keeps its normal validation
+    and fallback chain.
     """
     try:
         with open_safe_image(io.BytesIO(data)) as gif:
@@ -68,7 +101,7 @@ def _gif_to_still(data: bytes) -> bytes | None:
             for index in range(min(frames, GIF_FRAME_SCAN_LIMIT)):
                 gif.seek(index)
                 frame = gif.convert("RGB")
-                if not _frame_is_blank(frame):
+                if not _is_visually_flat(frame):
                     buffer = io.BytesIO()
                     frame.save(buffer, format="PNG")
                     return buffer.getvalue()
@@ -85,14 +118,9 @@ def _validate_image(data: bytes) -> tuple[bool, str]:
             image.seek(0)
             width, height = image.size
             fmt = (image.format or "").upper()
-            blank = _frame_is_blank(image)
     except Exception:
         return False, ""
     if width < 800 or height < 250:
-        return False, ""
-    if blank:
-        # A uniform single-colour image is an intro card or a placeholder,
-        # never a preview the channel wants to show.
         return False, ""
     content_type = content_type_for_format(fmt)
     return bool(content_type), content_type
@@ -122,8 +150,15 @@ def choose_visual(
         if still is not None:
             data = still
         ok, content_type = _validate_image(data)
-        if ok:
-            return Visual(kind="readme", url=str(url), data=data, content_type=content_type)
+        if not ok:
+            continue
+        if _looks_flat(data):
+            # Owner decision (19.11, evening): a flat README visual (blank
+            # intro, white title banner) is replaced by OUR OWN branded
+            # card - not by the next plain picture from the same README.
+            logger.info("README media is visually flat; using our card: %s", url)
+            break
+        return Visual(kind="readme", url=str(url), data=data, content_type=content_type)
     try:
         directory = work_dir or Path(tempfile.gettempdir()) / "ghos-v6-media"
         filename = _safe_filename(str(candidate.get("full_name") or candidate.get("name") or "project")) + ".png"
