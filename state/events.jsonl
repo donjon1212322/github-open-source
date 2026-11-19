@@ -556,3 +556,4 @@
 {"host": "imgbb", "kind": "card", "old": "https://i.ibb.co/jkV71Wzy/microsoft-tokeneconomizer-readme-preview-114353bb6fe0.jpg", "repo": "microsoft/tokeneconomizer", "ts": "2026-11-19T03:15:43.525327Z", "type": "preview_fixed", "url": "https://i.ibb.co/qM4nJLYy/microsoft-tokeneconomizer-preview-11090086e695.jpg"}
 {"deleted": 0, "ts": "2026-11-19T03:47:52.639550Z", "type": "moderation_completed", "updates": 3}
 {"deleted": 0, "ts": "2026-11-19T06:47:52.780853Z", "type": "moderation_completed", "updates": 0}
+{"minutes_late": 438.9, "schedule": "23 0 * * *", "ts": "2026-11-19T07:41:52.550209Z", "type": "late_schedule_ignored"}
