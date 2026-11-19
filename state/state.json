@@ -10934,7 +10934,7 @@
     },
     "2026-11-19": {
       "last_schedule": "47 */3 * * *",
-      "late_ignored": 9,
+      "late_ignored": 10,
       "notified": true,
       "skipped_brief": ""
     }
