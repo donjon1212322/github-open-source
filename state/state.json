@@ -213,16 +213,16 @@
   "dead_letters": [],
   "gemini_daily": {
     "day": "2026-11-18",
-    "units": 27
+    "units": 33
   },
   "gemini_window": [
     [
-      1795025631.5856805,
-      3892
+      1795050829.1813467,
+      3961
     ],
     [
-      1795025640.0958772,
-      1364
+      1795050832.4577916,
+      1374
     ]
   ],
   "last_runs": {
@@ -311,9 +311,9 @@
       "telegram_message_id": 3550
     },
     "publish:us_evening": {
-      "finished_at": "2026-11-18T01:14:06.693693Z",
-      "repo": "ersinkoc/phonebox",
-      "telegram_message_id": 3614
+      "finished_at": "2026-11-19T01:13:57.193780Z",
+      "repo": "microsoft/tokeneconomizer",
+      "telegram_message_id": 3618
     },
     "publish:us_midday": {
       "finished_at": "2026-11-18T18:14:23.941662Z",
@@ -5804,6 +5804,124 @@
       "visual_host": "imgbb",
       "visual_kind": "card"
     },
+    "microsoft/tokeneconomizer": {
+      "articles": {},
+      "card_style": "",
+      "category": "AI",
+      "contributors_count": 48,
+      "created_at": "2026-10-13T04:16:50Z",
+      "crossposts": {
+        "bluesky": {
+          "attempts": 0,
+          "due_at": "2026-11-19T18:00:00+00:00",
+          "status": "pending"
+        }
+      },
+      "description": "Experience-Driven Black-Box Cost Control for Coding Agents",
+      "description_fp": "2ba5415fe73393d2",
+      "forks": 525,
+      "full_name": "microsoft/TokenEconomizer",
+      "generated": {
+        "article_markdown": "## What it is\n\nTokenEconomizer is an open-source plugin designed to reduce token costs for AI coding agents without modifying the underlying model or weights. It operates as a black-box optimizer that analyzes past execution logs within a specific repository, learning what works and what wastes resources across multiple sessions.\n\n## Why it matters\n\nCoding agents repeatedly spend tokens on redundant instructions, unused tool definitions, and forgotten repository quirks. By capturing these patterns locally, TokenEconomizer eliminates unnecessary overhead and cuts mean execution costs significantly across repeated tasks.\n\n## Key features\n\n- Inject micro-skills into the session context once verified across multiple runs.\n- Prune unused tool definitions based on configurable prompt and session thresholds.\n- Detect recurring failure loops and provide constructive redirects.\n- Store all learned repository state locally on your machine.\n- Support major assistants including Claude Code, Codex, and GitHub Copilot CLI.\n\n## Quick start\n\nClone the repository to get started with supported agents:\n\n```sh\ngit clone https://github.com/microsoft/TokenEconomizer.git\n```\n\n## Who should try it\n\nDevelopers who frequently rely on AI coding assistants and want to minimize recurring API expenses without changing their core workflow.\n\n## Verdict\n\nA practical, transparent way to trim wasted tokens for heavy agent users.",
+        "article_title": "TokenEconomizer: Cut Coding Agent Costs With Experience-Driven Control",
+        "card_hook": "Cut coding agent costs",
+        "card_subline": "Experience-driven black-box cost control for coding agents in Python 3.10+",
+        "category": "AI",
+        "discussion_question": "Which coding agent do you use most frequently for daily tasks?",
+        "hook": "Cut coding agent costs by up to 30.9% across repeated repository tasks without altering the agent.",
+        "key_features": [
+          "Inject micro-skills into the session context once three separate runs confirm the pattern",
+          "Prune unused tool definitions based on prompt and session frequency thresholds",
+          "Detect recurring failure loops using a judge model and suggest alternative paths",
+          "Store all learned repository state locally in ~/.tokeneconomizer",
+          "Compute token costs accurately using standard cache pricing models"
+        ],
+        "llm_used": true,
+        "quick_start": "git clone https://github.com/microsoft/TokenEconomizer.git",
+        "safety": "ok",
+        "safety_reason": "Legitimate developer productivity tool for optimizing LLM agent costs.",
+        "scene": "You start a fresh coding agent session in your main repository, watching it re-read the exact same build steps and load dozens of unused tools.",
+        "social_text": "Reduce coding agent token consumption by up to 30 percent using local repository experience.",
+        "summary": "TokenEconomizer sits on top of existing coding agents like Claude Code, Codex, and GitHub Copilot CLI to intercept and reduce wasted tokens across repeated sessions. It tracks past runs in a local directory to inject verified repository facts, prune unused tool definitions, and redirect failing execution loops. Rather than retraining or modifying the core agent, it acts as a lightweight plugin that learns locally from historical logs.",
+        "surfaces": {
+          "Facebook_body": "Running artificial intelligence assistants to help write software can become expensive when they repeatedly process the same project details. A new open source plugin sits on top of your existing command line coding tools to intercept and reduce wasted effort during repeated sessions. It works by tracking past runs in a local folder to store verified facts about your project, removing unused tool definitions, and redirecting failing loops before they waste more resources.\n\nRather than requiring you to retrain or modify your core assistant, this lightweight tool learns locally from your historical logs. It injects useful skills once patterns are confirmed across multiple runs, cleans up unnecessary context, and computes costs accurately using standard pricing models.\n\nThis utility is built specifically for software developers who run AI coding agents repeatedly on the same large codebases and want to lower their operating overhead without altering their daily workflow.",
+          "Facebook_headline": "Save money running AI coding assistants",
+          "Facebook_lead": "Cut your AI coding agent costs by up to thirty percent across repeated tasks without needing to change the way you work or retrain anything.",
+          "bluesky_headline": "Cut your AI coding agent costs by thirty percent",
+          "bluesky_lead": "A local plugin that saves tokens on repeated repository tasks without changing your tools.",
+          "devto_body": "## What it is\n\nTokenEconomizer is a Python-based open source optimization plugin designed to sit on top of existing AI coding assistants like Claude Code, Codex, and GitHub Copilot CLI. It intercepts and reduces wasted tokens across repeated repository sessions, cutting costs by up to 30.9% without requiring any modifications to the core agent.\n\n## How it works\n\nThe plugin operates entirely locally, storing learned repository state in a designated local directory. It tracks past execution runs to inject verified repository facts, prune unused tool definitions based on frequency thresholds, and detect recurring failure loops using a judge model to suggest alternative execution paths.\n\n## Key features\n\n- Injects micro-skills into session contexts after three separate runs confirm a pattern.\n- Prunes unused tool definitions based on prompt and session frequency.\n- Detects recurring failure loops and suggests alternative paths.\n- Stores all learned repository state locally in a local directory.\n- Computes token costs accurately using standard cache pricing models.\n\n## Getting started\n\nTo install and use TokenEconomizer with your supported command line coding agents, clone the repository and follow the setup instructions in the documentation:\n\n```bash\ngit clone https://github.com/microsoft/TokenEconomizer.git\ncd TokenEconomizer\n```\n\n## When not to use it\n\nAvoid this tool if you do not use supported CLI coding environments or if your workflow relies on single-run, non-repeated tasks where historical local learning provides no caching benefit.",
+          "seo_description": "Reduce wasted tokens and lower your AI coding assistant costs by up to thirty percent with a local plugin for repeated repository tasks.",
+          "seo_query": "reduce ai coding agent token costs open source",
+          "seo_title": "Cut AI Coding Agent Costs - TokenEconomizer Plugin",
+          "telegraph_angle": "Explain the mechanics of local token optimization and the trade-offs of relying on historical session logs for cost reduction."
+        },
+        "tension": "Every routine prompt pays again for full instruction lists, unused tool schemas, and rediscovering local environment quirks.",
+        "turn": "TokenEconomizer intercepts this loop by injecting distilled repository facts and stripping unneeded tools from subsequent sessions.",
+        "verdict": "An essential optimization plugin for daily agent users, though it requires sticking to supported CLI environments.",
+        "who_for": "Developers running AI coding agents repeatedly on the same large repositories.",
+        "why_now": "As developers rely heavily on continuous agentic workflows, repeated token waste on redundant context and unused tools has become a major overhead."
+      },
+      "homepage": "",
+      "id": 1416442720,
+      "image_url": "https://i.ibb.co/s9g1SDvW/microsoft-tokeneconomizer-readme-preview-59349906f48a.jpg",
+      "is_dual_use": false,
+      "is_hidden_gem": false,
+      "language": "Python",
+      "license": {
+        "key": "mit",
+        "name": "MIT License",
+        "node_id": "MDc6TGljZW5zZTEz",
+        "spdx_id": "MIT",
+        "url": "https://api.github.com/licenses/mit"
+      },
+      "media_urls": [
+        "https://raw.githubusercontent.com/microsoft/TokenEconomizer/main/docs/assets/teaser.gif",
+        "https://raw.githubusercontent.com/microsoft/TokenEconomizer/main/docs/assets/framework_overview.png"
+      ],
+      "name": "TokenEconomizer",
+      "open_issues": 42,
+      "published_at": "2026-11-19T01:13:57.193441Z",
+      "pushed_at": "2026-11-18T05:47:00Z",
+      "readme_fp": "bdbe35dd9df80ad5",
+      "repo_id": 1416442720,
+      "revisit_of": "",
+      "revisit_reason": "",
+      "score": 90.937,
+      "slot": "us_evening",
+      "sources": [
+        "github_search"
+      ],
+      "stars": 7666,
+      "telegram_chat_id": "@GitHub_Open_Source",
+      "telegram_link": "https://t.me/GitHub_Open_Source/3618",
+      "telegram_message_id": 3618,
+      "telegraph_url": "https://telegra.ph/TokenEconomizer-Cut-Coding-Agent-Costs-With-Experience-Driven-Control-11-19",
+      "topics": [
+        "agentic-ai",
+        "agentic-coding",
+        "ai-coding",
+        "ai-coding-assistant",
+        "anthropic",
+        "artificial-intelligence",
+        "claude-code",
+        "codex",
+        "coding-agent",
+        "coding-agents",
+        "cost-optimization",
+        "cost-reduction",
+        "developer-tools",
+        "github-copilot",
+        "llm",
+        "open-source",
+        "openai",
+        "productivity",
+        "token-optimization"
+      ],
+      "updated_at": "2026-11-19T01:13:07Z",
+      "url": "https://github.com/microsoft/TokenEconomizer",
+      "visual_host": "imgbb",
+      "visual_kind": "readme"
+    },
     "milind-soni/openmausbot": {
       "articles": {},
       "card_style": "",
@@ -8744,75 +8862,6 @@
     }
   },
   "queue": [
-    {
-      "archived": false,
-      "contributors_count": 48,
-      "created_at": "2026-10-13T04:16:50Z",
-      "default_branch": "main",
-      "description": "Experience-Driven Black-Box Cost Control for Coding Agents",
-      "disabled": false,
-      "fork": false,
-      "forks": 525,
-      "forks_count": 525,
-      "full_name": "microsoft/TokenEconomizer",
-      "has_readme": true,
-      "homepage": "",
-      "id": 1416442720,
-      "is_dual_use": false,
-      "is_hidden_gem": false,
-      "language": "Python",
-      "license": {
-        "key": "mit",
-        "name": "MIT License",
-        "node_id": "MDc6TGljZW5zZTEz",
-        "spdx_id": "MIT",
-        "url": "https://api.github.com/licenses/mit"
-      },
-      "media_urls": [
-        "https://raw.githubusercontent.com/microsoft/TokenEconomizer/main/docs/assets/teaser.gif",
-        "https://raw.githubusercontent.com/microsoft/TokenEconomizer/main/docs/assets/framework_overview.png"
-      ],
-      "name": "TokenEconomizer",
-      "non_software_reason": "",
-      "open_issues": 42,
-      "open_issues_count": 42,
-      "owner_repo_count": 3,
-      "pushed_at": "2026-11-18T05:47:00Z",
-      "readme": "",
-      "readme_excerpt": "# TokenEconomizer: Experience-Driven Black-Box Cost Control for Coding Agents\n\n<p align=\"center\">\n  Aaron J. Li<sup>1</sup>,\n  Weijia Xu<sup>2</sup>,\n  Chandan Singh<sup>2</sup>,\n  Zixiao Chen<sup>3</sup>,\n  Jeevana Priya Inala<sup>2</sup>,\n  Charlotte Siska<sup>3</sup>,\n  <br>\n  Acar Tamersoy<sup>3</sup>,\n  Bin Yu<sup>1</sup>,\n  Ion Stoica<sup>1</sup>,\n  Michel Galley<sup>2</sup>,\n  Jianfeng Gao<sup>2</sup>\n</p>\n<p align=\"center\">\n  <sup>1</sup>UC Berkeley &nbsp; <sup>2</sup>Microsoft Research &nbsp; <sup>3</sup>Microsoft Security\n</p>\n\n<p align=\"center\">\n  <a href=\"https://arxiv.org/abs/2610.22732\"><img src=\"https://img.shields.io/badge/arXiv-2610.22732-b31b1b.svg\" alt=\"arXiv\"></a>\n  <a href=\"https://tokeneconomizer.github.io\"><img src=\"https://img.shields.io/badge/project-page-2f6fb0.svg\" alt=\"Project page\"></a>\n  <a href=\"https://x.com/aaron_jli/status/2114797313613053952\"><img src=\"https://img.shields.io/badge/X-post-000000.svg?logo=x&logoColor=white\" alt=\"X post\"></a>\n  <img src=\"https://img.shields.io/badge/python-3.10%2B-3776ab.svg\" alt=\"Python 3.10+\">\n  <img src=\"https://img.shields.io/badge/license-MIT-blue.svg\" alt=\"MIT license\">\n</p>\n\n<p align=\"center\">\n  <a href=\"https",
-      "readme_len": 32763,
-      "repo_id": 1416442720,
-      "score": 90.937,
-      "source_name": "github_search",
-      "sources": [
-        "github_search"
-      ],
-      "stargazers_count": 7663,
-      "stars": 7663,
-      "topics": [
-        "agentic-ai",
-        "agentic-coding",
-        "ai-coding",
-        "ai-coding-assistant",
-        "anthropic",
-        "artificial-intelligence",
-        "claude-code",
-        "codex",
-        "coding-agent",
-        "coding-agents",
-        "cost-optimization",
-        "cost-reduction",
-        "developer-tools",
-        "github-copilot",
-        "llm",
-        "open-source",
-        "openai",
-        "productivity",
-        "token-optimization"
-      ],
-      "updated_at": "2026-11-19T00:05:51Z",
-      "url": "https://github.com/microsoft/TokenEconomizer"
-    },
     {
       "archived": false,
       "contributors_count": 19,
@@ -15233,8 +15282,8 @@
     "microsoft/tokeneconomizer": {
       "first_seen_at": "2026-11-04T12:14:31.125607Z",
       "full_name": "microsoft/TokenEconomizer",
-      "last_decision": "queued",
-      "last_seen_at": "2026-11-19T00:26:45.040807Z",
+      "last_decision": "published",
+      "last_seen_at": "2026-11-19T01:13:57.193769Z",
       "repo_id": 1416442720,
       "sources": [
         "github_search"
