@@ -567,3 +567,4 @@
 {"attempts": 1, "detail": "HTTP 204", "slot": "publish:us_morning", "ts": "2026-11-19T16:30:50.836714Z", "type": "watchdog_recovered", "verified": false}
 {"preview_host": "imgbb", "repo": "krisgfx9/wireless-device-battery-monitor", "ts": "2026-11-19T16:33:31.839320Z", "type": "published_as_text"}
 {"repo": "krisgfx9/wireless-device-battery-monitor", "score": 89.375, "telegram_message_id": 3620, "telegraph_url": "https://telegra.ph/Monitor-Wireless-Device-Battery-Levels-on-Windows-Without-Vendor-Bloatware-11-19", "ts": "2026-11-19T16:33:32.088753Z", "type": "project_published"}
+{"slot": "publish:us_morning", "ts": "2026-11-19T17:00:50.260547Z", "type": "watchdog_verified"}
