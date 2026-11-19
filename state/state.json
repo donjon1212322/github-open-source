@@ -266,7 +266,7 @@
       "week": "2026-W46"
     },
     "facebook-handoff": {
-      "finished_at": "2026-11-18T18:31:18.186760Z",
+      "finished_at": "2026-11-19T18:31:14.218631Z",
       "queued": 1,
       "reason": "queued"
     },
@@ -5939,6 +5939,11 @@
           "published_at": "2026-11-19T18:17:56.420090Z",
           "status": "published",
           "url": "https://bsky.app/profile/githubopensource.bsky.social/post/3n2oomsj3mg2i"
+        },
+        "facebook_sheet": {
+          "at": "2026-11-19T18:31:15.325123Z",
+          "status": "queued",
+          "via": "make.com"
         }
       },
       "description": "Experience-Driven Black-Box Cost Control for Coding Agents",

@@ -572,3 +572,4 @@
 {"repo": "storytold/figcraft", "score": 87.261, "telegram_message_id": 3621, "telegraph_url": "https://telegra.ph/FigCraft-Open-Source-Interface-Design-and-Prototyping-in-Rust-11-19", "ts": "2026-11-19T18:14:14.115633Z", "type": "project_published"}
 {"platform": "bluesky", "repo": "microsoft/tokeneconomizer", "ts": "2026-11-19T18:17:56.420112Z", "type": "crosspost_published", "url": "https://bsky.app/profile/githubopensource.bsky.social/post/3n2oomsj3mg2i"}
 {"attempts": 1, "detail": "HTTP 204", "slot": "facebook-handoff", "ts": "2026-11-19T18:30:52.834748Z", "type": "watchdog_recovered", "verified": false}
+{"range": "facebook!A18:E18", "rows": 1, "ts": "2026-11-19T18:31:15.325150Z", "type": "facebook_handoff_queued"}
