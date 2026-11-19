@@ -5863,7 +5863,7 @@
       },
       "homepage": "",
       "id": 1416442720,
-      "image_url": "https://i.ibb.co/jkV71Wzy/microsoft-tokeneconomizer-readme-preview-114353bb6fe0.jpg",
+      "image_url": "https://i.ibb.co/qM4nJLYy/microsoft-tokeneconomizer-preview-11090086e695.jpg",
       "is_dual_use": false,
       "is_hidden_gem": false,
       "language": "Python",
@@ -5917,10 +5917,10 @@
         "productivity",
         "token-optimization"
       ],
-      "updated_at": "2026-11-19T02:28:58.248548Z",
+      "updated_at": "2026-11-19T03:15:43.525276Z",
       "url": "https://github.com/microsoft/TokenEconomizer",
       "visual_host": "imgbb",
-      "visual_kind": "readme"
+      "visual_kind": "card"
     },
     "milind-soni/openmausbot": {
       "articles": {},
