@@ -1,29 +1,18 @@
 {
-  "active_poll": {
-    "axis": "job",
-    "chat_id": "@GitHub_Open_Source",
-    "clusters": [
-      "rust",
-      "ai-video",
-      "3d",
-      "avatar"
-    ],
-    "gemini_fallback": true,
-    "message_id": 3602,
-    "opened_at": "2026-11-15T16:13:53.335389Z",
-    "option_keys": [
-      "job_rust_1",
-      "job_ai-video_2",
-      "job_3d_3",
-      "job_avatar_4"
-    ],
-    "option_map": {
-      "job_3d_3": "Sandflow-ai/sand3d",
-      "job_ai-video_2": "openfilm/openfilm",
-      "job_avatar_4": "livliv-dev/player",
-      "job_rust_1": "s1dashu/quiet-md"
+  "active_poll": {},
+  "audience_profile": {
+    "axes": {
+      "job": {
+        "job_3d_3": 0.4344,
+        "job_ai-video_2": 0.4781,
+        "job_avatar_4": 0.4344,
+        "job_rust_1": 0.4781
+      }
     },
-    "option_topics": {
+    "confidence": {
+      "job": 0.25
+    },
+    "key_topics": {
       "job_3d_3": [
         "3d",
         "blender",
@@ -50,25 +39,21 @@
       ],
       "job_rust_1": []
     },
-    "post_text": "📰 <b>The Open Source Daily — Top 5 of the Week</b>\n\n1. <b><a href=\"https://t.me/GitHub_Open_Source/3589\">misterdownloadmanager</a></b>\n   ⭐ 7 635 — Download files faster than IDM with this open-source Rust tool that works on Windows, Mac, and Linux.\n\n2. <b><a href=\"https://t.me/GitHub_Open_Source/3584\">cicada</a></b>\n   ⭐ 2 143 — Get live bilingual subtitles and structured notes on Mac, Windows, Linux, and Android without sending bots to your calls.\n\n3. <b><a href=\"https://t.me/GitHub_Open_Source/3576\">VoiceStudio</a></b>\n   ⭐ 105 327 — Run local voice cloning, transcription, and dubbing across 646 languages completely on your own hardware.\n\n4. <b><a href=\"https://t.me/GitHub_Open_Source/3592\">vectorcraft</a></b>\n   ⭐ 11 673 — VectorCraft is a modern, open-source vector art application built in pure Rust that runs natively across desktops and the browser.\n\n5. <b><a href=\"https://t.me/GitHub_Open_Source/3577\">lightcraft</a></b>\n   ⭐ 15 738 — Process RAW photo files locally in pure Rust with an open-source editor that runs natively across platforms and via WebAssembly.\n\n──────────────\n↗️ <b>Forward this Top 5</b> to a teammate who should see it.\n🗳️ Which job we cover next week — vote below, it shapes next week's picks.\n📣 <a href=\"https://t.me/GitHub_Open_Source\"><b>@GitHub_Open_Source</b></a> — daily open-source picks",
-    "question": "Which of these would save you time this week? We will cover the winning job with a real open-source tool next week.",
-    "repos": {
-      "job_3d_3": "Sandflow-ai/sand3d",
-      "job_ai-video_2": "openfilm/openfilm",
-      "job_avatar_4": "livliv-dev/player",
-      "job_rust_1": "s1dashu/quiet-md"
-    },
-    "simplified": false,
-    "type": "job"
-  },
-  "audience_profile": {
-    "axes": {},
-    "confidence": {},
-    "last_result": "",
+    "last_result": "Last week: 8 votes picked “Blazing-fast native notes app and rich-text editor for macOS, Windows, and Linux”. We are leaning into that this week.",
     "type_history": [],
-    "updated_at": "",
+    "updated_at": "2026-11-19T18:53:54.858800Z",
     "version": 1,
-    "weeks": []
+    "weeks": [
+      {
+        "axis": "job",
+        "gemini_fallback": true,
+        "low_confidence": false,
+        "type": "job",
+        "votes": 8,
+        "week": "2026-W47",
+        "winner_key": "job_rust_1"
+      }
+    ]
   },
   "brief_dedup_stats": [
     {
@@ -294,6 +279,11 @@
       "topic_key": "ai-coding-agents-and-infrastructure",
       "url": "https://dev.to/githubopensource/vllm-0340-mistral-vibe-desktop-and-early-critiques-of-gpt-62-astra-kh1",
       "words": 1112
+    },
+    "poll-close": {
+      "finished_at": "2026-11-19T18:53:54.858983Z",
+      "total_voters": 8,
+      "week": "2026-W47"
     },
     "publish:europe_midday": {
       "finished_at": "2026-11-11T12:43:59.103591Z",
@@ -1703,6 +1693,45 @@
       "replaced": true,
       "total_voters": 5,
       "type": "legacy"
+    },
+    {
+      "axis": "job",
+      "closed_at": "2026-11-19T18:53:54.858813Z",
+      "low_confidence": false,
+      "options": [
+        {
+          "key": "job_rust_1",
+          "label": "Blazing-fast native notes app and rich-text editor for macOS, Windows, and Linux",
+          "repo": "",
+          "share": 0.375,
+          "votes": 3
+        },
+        {
+          "key": "job_ai-video_2",
+          "label": "The open source AI video agent: turns any coding agent into a video agent, with an editor to change",
+          "repo": "",
+          "share": 0.375,
+          "votes": 3
+        },
+        {
+          "key": "job_3d_3",
+          "label": "3D modeling in Python, built for LLMs",
+          "repo": "",
+          "share": 0.125,
+          "votes": 1
+        },
+        {
+          "key": "job_avatar_4",
+          "label": "A lightweight 2.5D character for the web, with lip sync and webcam face tracking",
+          "repo": "",
+          "share": 0.125,
+          "votes": 1
+        }
+      ],
+      "profile_result": "Last week: 8 votes picked “Blazing-fast native notes app and rich-text editor for macOS, Windows, and Linux”. We are leaning into that this week.",
+      "question": "Which of these would save you time this week? We will cover the winning job with a real open-source tool next week.",
+      "total_voters": 8,
+      "type": "job"
     }
   ],
   "publish_failures": {},

@@ -574,3 +574,4 @@
 {"attempts": 1, "detail": "HTTP 204", "slot": "facebook-handoff", "ts": "2026-11-19T18:30:52.834748Z", "type": "watchdog_recovered", "verified": false}
 {"range": "facebook!A18:E18", "rows": 1, "ts": "2026-11-19T18:31:15.325150Z", "type": "facebook_handoff_queued"}
 {"deleted": 0, "ts": "2026-11-19T18:47:55.231528Z", "type": "moderation_completed", "updates": 3}
+{"poll_type": "job", "profile_result": "Last week: 8 votes picked “Blazing-fast native notes app and rich-text editor for macOS, Windows, and Linux”. We are leaning into that this week.", "total_voters": 8, "ts": "2026-11-19T18:53:54.858829Z", "type": "poll_closed", "winner": "Blazing-fast native notes app and rich-text editor for macOS, Windows, and Linux"}
