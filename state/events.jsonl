@@ -609,3 +609,4 @@
 {"deleted": 0, "ts": "2026-11-20T09:47:53.524434Z", "type": "moderation_completed", "updates": 0}
 {"minutes_late": 147.7, "schedule": "47 */3 * * *", "ts": "2026-11-20T12:14:40.032952Z", "type": "late_schedule_ignored"}
 {"deleted": 0, "ts": "2026-11-20T12:47:51.241682Z", "type": "moderation_completed", "updates": 1}
+{"platform": "devto", "repo": "erkamyaman/rust-anything", "ts": "2026-11-20T13:33:54.085559Z", "type": "article_published", "url": "https://dev.to/githubopensource/migrate-legacy-code-to-rust-incrementally-rust-anything-36f5"}

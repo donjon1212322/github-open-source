@@ -232,11 +232,11 @@
   ],
   "last_runs": {
     "article": {
-      "finished_at": "2026-11-19T13:34:00.440132Z",
+      "finished_at": "2026-11-20T13:33:54.085727Z",
       "published": true,
       "reason": "published",
-      "repo": "microsoft/tokeneconomizer",
-      "url": "https://dev.to/githubopensource/cut-ai-coding-agent-costs-tokeneconomizer-plugin-43nb"
+      "repo": "erkamyaman/rust-anything",
+      "url": "https://dev.to/githubopensource/migrate-legacy-code-to-rust-incrementally-rust-anything-36f5"
     },
     "collect": {
       "discovered": 387,
@@ -2439,7 +2439,13 @@
       "visual_kind": "readme"
     },
     "erkamyaman/rust-anything": {
-      "articles": {},
+      "articles": {
+        "devto": {
+          "id": 5082150,
+          "published_at": "2026-11-20T13:33:54.085534Z",
+          "url": "https://dev.to/githubopensource/migrate-legacy-code-to-rust-incrementally-rust-anything-36f5"
+        }
+      },
       "card_style": "",
       "category": "DevTools",
       "contributors_count": 14,
@@ -2453,6 +2459,7 @@
       },
       "description": "Rewrite your whole app in Rust, one piece at a time, checked against the original's recorded behavior at every step. CLIs, HTTP servers and libraries in TypeScript, Python, C, Go, Ruby and Java.",
       "description_fp": "d2d5ba84d0feca6c",
+      "devto_cover_url": "https://i.ibb.co/60LMCGxb/erkamyaman-rust-anything-devto-cover-db0b6baf0ab4.png",
       "forks": 417,
       "full_name": "erkamyaman/rust-anything",
       "generated": {
