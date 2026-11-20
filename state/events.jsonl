@@ -595,3 +595,4 @@
 {"minutes_late": 384.4, "schedule": "13 18 * * *", "ts": "2026-11-20T00:37:24.038417Z", "type": "late_schedule_ignored"}
 {"minutes_late": 381.6, "schedule": "23 18 * * *", "ts": "2026-11-20T00:44:33.666409Z", "type": "late_schedule_ignored"}
 {"deleted": 0, "ts": "2026-11-20T00:47:51.829784Z", "type": "moderation_completed", "updates": 0}
+{"median": 22.84, "samples": 50, "ts": "2026-11-20T00:57:08.445836Z", "type": "value_model_updated"}
