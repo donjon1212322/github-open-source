@@ -634,3 +634,4 @@
 {"attempts": 3, "detail": "HTTP 204", "slot": "news-article", "ts": "2026-11-20T22:01:14.221673Z", "type": "watchdog_recovered", "verified": false}
 {"minutes_late": 380.3, "schedule": "23 16 * * *", "ts": "2026-11-20T22:43:16.966370Z", "type": "late_schedule_ignored"}
 {"max_attempts": 3, "max_daily": 24, "scope": "slot", "slot": "news-article", "ts": "2026-11-20T23:00:54.440889Z", "type": "watchdog_dispatch_capped"}
+{"minutes_late": 41.3, "schedule": "17 0,18,19,20,21,22,23 * * *", "ts": "2026-11-20T23:58:15.997627Z", "type": "late_schedule_ignored"}
