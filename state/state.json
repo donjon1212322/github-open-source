@@ -272,7 +272,7 @@
       "week": "2026-W46"
     },
     "facebook-handoff": {
-      "finished_at": "2026-11-19T18:31:14.218631Z",
+      "finished_at": "2026-11-20T18:31:30.694556Z",
       "queued": 1,
       "reason": "queued"
     },
@@ -2592,6 +2592,11 @@
           "published_at": "2026-11-20T18:18:02.044038Z",
           "status": "published",
           "url": "https://bsky.app/profile/githubopensource.bsky.social/post/3n2r73vazod2s"
+        },
+        "facebook_sheet": {
+          "at": "2026-11-20T18:31:32.139038Z",
+          "status": "queued",
+          "via": "make.com"
         }
       },
       "description": "Rewrite your whole app in Rust, one piece at a time, checked against the original's recorded behavior at every step. CLIs, HTTP servers and libraries in TypeScript, Python, C, Go, Ruby and Java.",
