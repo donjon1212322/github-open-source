@@ -590,3 +590,4 @@
 {"minutes_late": 489.8, "schedule": "33 13 * * *", "ts": "2026-11-19T21:42:49.452347Z", "type": "late_schedule_ignored"}
 {"deleted": 0, "ts": "2026-11-19T21:47:49.284658Z", "type": "moderation_completed", "updates": 4}
 {"minutes_late": 404.9, "schedule": "23 16 * * *", "ts": "2026-11-19T23:07:55.739501Z", "type": "late_schedule_ignored"}
+{"discovered": 387, "enriched": 120, "passed_gate": 80, "queued": 28, "rejections": {"blocklist:jailbreak": 1, "curation_repo": 1, "description_not_english": 14, "narrow:topic:plugin": 1, "narrow:topic:plugin-marketplace": 1, "narrow:topic:prompt-library": 1, "no_community": 7, "no_license": 17, "no_push_date": 1, "no_readme": 2, "not_software:topic:images": 1, "not_software:topic:prompt-library": 1, "not_software:topic:prompts": 1, "readme_not_english": 13, "stars<100": 7}, "ts": "2026-11-20T00:25:29.437971Z", "type": "collect_completed"}
