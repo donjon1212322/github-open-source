@@ -358,8 +358,8 @@
         "verified_at": "2026-11-20T19:00:50.827042Z"
       },
       "2026-11-20:news-article": {
-        "at": "2026-11-20T21:30:55.389203Z",
-        "attempts": 2,
+        "at": "2026-11-20T22:01:12.957956Z",
+        "attempts": 3,
         "detail": "HTTP 204",
         "dispatched": true,
         "verified": false
