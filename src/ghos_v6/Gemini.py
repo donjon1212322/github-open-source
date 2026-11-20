@@ -167,9 +167,12 @@ def generate_with_backoff(call, *, attempts: int = 2, base_delay: float = 65.0,
                           sleep=time.sleep, jitter=random.uniform):
     """Run ``call`` and retry only on transient model errors.
 
-    Two attempts, >=65 s apart with jitter: a retry must land in a *different*
-    rolling TPM minute, otherwise the retry just re-hits the same exhausted
-    window. Three tight attempts at +20/+40 s caused the 05.11 incident.
+    Two attempts by default, >=65 s apart with jitter: a retry must land in
+    a *different* rolling TPM minute, otherwise the retry just re-hits the
+    same exhausted window. Three tight attempts at +20/+40 s caused the
+    05.11 incident. The slot-critical project call passes ``attempts=3``
+    (owner 20.11): a capacity spike can outlive two attempts, and the delays
+    stay linear (65 s, 130 s) so the TPM rule still holds.
     """
     last: BaseException | None = None
     for attempt in range(1, attempts + 1):
@@ -845,7 +848,15 @@ def generate_project_content(
         try:
             # Retried on 429/503 before giving up: a weak deterministic post
             # published on time is worse than the good one a minute later.
-            base = generate_with_backoff(lambda: client.generate_project(candidate))
+            # Owner 20.11: three attempts, not two. A capacity spike (both
+            # flash-lite models 503 "high demand") outlived the 2-attempt
+            # window in run 603; the watchdog recovered the slot minutes
+            # later, but a repeat failure there would have dead-lettered an
+            # innocent repo. Linear delays keep every attempt in its own
+            # rolling TPM minute (05.11 rule).
+            base = generate_with_backoff(
+                lambda: client.generate_project(candidate), attempts=3
+            )
         except Exception as exc:  # noqa: BLE001 - editorial fallback must keep slot alive
             klass = classify_error(exc)
             logger.warning("[gemini_%s] project generation failed; using fallback: %s",

@@ -400,6 +400,14 @@ MUTATIONS: list[tuple[str, str, str, str]] = [
      "    telegram.edit_text(chat_id, message_id, text_html, preview_url=hosted)",
      "    _ = None",
      "preview-fix never edits the live post, keeping the blank card"),
+    # Owner 20.11: run 603 - both flash-lite models sat in a 503 "high
+    # demand" spike longer than the 2-attempt window; the slot died and the
+    # watchdog recovery nearly dead-lettered the repo. Three attempts, each
+    # in its own TPM minute.
+    ("src/ghos_v6/Gemini.py",
+     "                lambda: client.generate_project(candidate), attempts=3",
+     "                lambda: client.generate_project(candidate), attempts=1",
+     "a two-minute Gemini spike kills the publish slot again (20.11)"),
     (".github/workflows/pipeline.yml",
      'ghos-v6 preview-fix --repo "$PREVIEW_FIX_REPO"',
      'ghos-v6 preview-fix --repo ""',
