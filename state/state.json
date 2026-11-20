@@ -11433,8 +11433,8 @@
       "skipped_brief": ""
     },
     "2026-11-20": {
-      "last_schedule": "33 13 * * *",
-      "late_ignored": 12,
+      "last_schedule": "23 16 * * *",
+      "late_ignored": 13,
       "notified": true,
       "skipped_brief": "duplicate_digest"
     }
