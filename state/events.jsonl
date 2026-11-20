@@ -628,3 +628,4 @@
 {"channel": "GitHub_Open_Source", "posts": 12, "ts": "2026-11-20T20:24:01.008040Z", "type": "metrics_collected", "updated": 11}
 {"attempts": 1, "detail": "HTTP 204", "slot": "news-article", "ts": "2026-11-20T20:30:53.756534Z", "type": "watchdog_recovered", "verified": false}
 {"minutes_late": 119.1, "schedule": "47 */3 * * *", "ts": "2026-11-20T20:46:08.138541Z", "type": "late_schedule_ignored"}
+{"minutes_late": 472.3, "schedule": "33 13 * * *", "ts": "2026-11-20T21:25:20.045330Z", "type": "late_schedule_ignored"}
