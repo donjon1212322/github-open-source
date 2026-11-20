@@ -136,6 +136,15 @@
       "ratio": 0.0,
       "reason": "published",
       "removed": 0
+    },
+    {
+      "date": "2026-11-20",
+      "fingerprint": "2026-11-20|False|duplicate_digest|2|0.6700|0",
+      "kept": 0,
+      "published": false,
+      "ratio": 0.67,
+      "reason": "duplicate_digest",
+      "removed": 2
     }
   ],
   "brief_memory": {
@@ -146,31 +155,25 @@
       "https://github.com/1337isnot1337/dopplergeist": "2026-11-18",
       "https://github.com/anomalyco/browse": "2026-11-17",
       "https://github.com/anomalyco/opencode/releases/tag/v2.3.2": "2026-11-19",
-      "https://github.com/anthropics/claude-code/releases/tag/v2.1.325": "2026-11-15",
       "https://github.com/benjitaylor/skills": "2026-11-16",
       "https://github.com/deepseek-ai/chat-demo": "2026-11-16",
       "https://github.com/donchitos/claude-code-game-studios": "2026-11-19",
       "https://github.com/edwardxlai/easyread": "2026-11-17",
       "https://github.com/ggml-org/llama.cpp/releases/tag/v1.0.0": "2026-11-16",
       "https://github.com/google-research/paper-orchestra": "2026-11-19",
-      "https://github.com/justxor/local-ai-agent-course-ru": "2026-11-15",
       "https://github.com/openai/codex/pull/60041": "2026-11-17",
       "https://github.com/storytold/craft-anything": "2026-11-18",
       "https://github.com/vllm-project/vllm/releases/tag/v0.34.0": "2026-11-18",
       "https://huggingface.co/spaces/huggingfaceswarms/pybot-msgboard": "2026-11-19",
       "https://nvidianews.nvidia.com/news/nvidia-board-of-directors-establishes-national-security-and-export-control-oversight-committee": "2026-11-17",
-      "https://openai.com/daybreak/red-team": "2026-11-15",
       "https://openai.com/index/introducing-gpt-6-2-astra-sol": "2026-11-17",
       "https://openai.com/index/strengthening-nato-allied-cyber-defences-ai": "2026-11-17",
       "https://qwen.ai/blog": "2026-11-16",
-      "https://www.anthropic.com/claude-fable-and-mythos-5-2": "2026-11-15",
-      "https://www.anthropic.com/engineering/code-execution-with-mcp": "2026-11-15",
       "post:data_secrets:10354": "2026-11-18",
       "story:cursor-live-apps": "2026-11-18",
       "story:gpt-6-cyber": "2026-11-17",
       "story:metr-rnd": "2026-11-16",
       "text:ai-for-devs-новости-для-разработчиков-и": "2026-11-18",
-      "text:anthropic-claude-code-on-desktop-now-supports": "2026-11-15",
       "text:anthropic-dario-amodei-rang-the-bell-on": "2026-11-19",
       "text:anthropic-выпустили-для-claude-довольно-милое-обновление": "2026-11-16",
       "text:anthropic-вышли-на-ipo-они-уже-объявили": "2026-11-19",
@@ -178,32 +181,24 @@
       "text:gemini-4-argon-чаще-всех-моделей-объясняет": "2026-11-17",
       "text:google-an-upcoming-comic-artifact-configuration-page": "2026-11-16",
       "text:google-gemini-4-neon-is-now-listed": "2026-11-19",
-      "text:sesame-voice-agent-is-ending-its-preview": "2026-11-15",
-      "text:spacexsi-grok-bot-now-has-7-more": "2026-11-15",
       "text:в-coding-agent-index-gpt62-astra-набрала": "2026-11-18",
       "text:главное-про-новые-gpt62-astra-и-sol": "2026-11-17",
       "text:ладно-может-быть-с-astra-мне-просто": "2026-11-18",
       "text:наконецто-сьебастьян-рашка-подготовил-подробный-материал-позиционные": "2026-11-16",
       "text:несколько-ранних-тестеров-резко-раскритиковали-gpt62-ведущий": "2026-11-18",
-      "text:папа-римский-заявил-что-он-против-того": "2026-11-15",
-      "text:ресторан-dennys-где-хуанг-в-юности-мыл": "2026-11-15",
       "text:российские-исследователи-предложили-новые-методы-решения-проблемы": "2026-11-16",
       "text:руководители-банков-заявили-конгрессу-сша-что-все": "2026-11-19",
       "text:тибо-пишет-что-команда-codex-похоже-починила": "2026-11-16"
     },
     "stories": {
       "169 changes cli codex trust": "2026-11-17",
-      "325 claude code managed": "2026-11-15",
       "additions api deepseek tooling": "2026-11-16",
       "anything craft": "2026-11-18",
       "api max qwen4": "2026-11-16",
       "astra gpt launch sol": "2026-11-17",
       "browse mcp server": "2026-11-17",
-      "claude code experimental mode": "2026-11-15",
       "claude code harness opencode updates": "2026-11-19",
-      "claude fable": "2026-11-15",
       "cloud lab": "2026-11-18",
-      "course local ollama": "2026-11-15",
       "dataset interaction pybot": "2026-11-19",
       "desktop mistral vibe": "2026-11-18",
       "dopplergeist": "2026-11-18",
@@ -218,7 +213,7 @@
   "dead_letters": [],
   "gemini_daily": {
     "day": "2026-11-20",
-    "units": 18
+    "units": 21
   },
   "gemini_window": [
     [
@@ -288,9 +283,9 @@
       "updated": 12
     },
     "news": {
-      "finished_at": "2026-11-19T20:01:55.271848Z",
-      "reason": "published",
-      "telegram_message_id": 3623
+      "finished_at": "2026-11-20T19:19:08.723352Z",
+      "published": false,
+      "reason": "duplicate_digest"
     },
     "news-article": {
       "devto_id": 5076688,
@@ -11302,10 +11297,8 @@
     "agent astra coding gpt index points scored": "2026-11-18",
     "amodei anthropic bell dario nasdaq rang": "2026-11-19",
     "anthropic going public share": "2026-11-19",
-    "artifact comic configuration gemini notebook page upcoming update": "2026-11-16",
     "astra cached dropped price tokens": "2026-11-17",
     "astra calling criticized difficult early gpt prone stopping testers use": "2026-11-18",
-    "capacity codex errors fixing model potentially team": "2026-11-16",
     "garden gcp gemini listed model neon vertex": "2026-11-19"
   },
   "schedule_health": {
@@ -11367,7 +11360,7 @@
       "last_schedule": "47 */3 * * *",
       "late_ignored": 10,
       "notified": true,
-      "skipped_brief": ""
+      "skipped_brief": "duplicate_digest"
     }
   },
   "seen_repos": {

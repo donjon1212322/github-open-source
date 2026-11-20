@@ -623,3 +623,5 @@
 {"range": "facebook!A19:E19", "rows": 1, "ts": "2026-11-20T18:31:32.139062Z", "type": "facebook_handoff_queued"}
 {"deleted": 0, "ts": "2026-11-20T18:47:52.936890Z", "type": "moderation_completed", "updates": 2}
 {"slot": "facebook-handoff", "ts": "2026-11-20T19:00:50.827114Z", "type": "watchdog_verified"}
+{"duplicate_ratio": 0.67, "removed": 2, "ts": "2026-11-20T19:19:08.705028Z", "type": "news_stories_deduplicated"}
+{"duplicate_ratio": 0.67, "reason": "duplicate_digest", "removed": 2, "ts": "2026-11-20T19:19:08.705151Z", "type": "news_skipped"}
