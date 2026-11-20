@@ -357,6 +357,13 @@
         "verified": true,
         "verified_at": "2026-11-20T19:00:50.827042Z"
       },
+      "2026-11-20:news-article": {
+        "at": "2026-11-20T20:30:52.259066Z",
+        "attempts": 1,
+        "detail": "HTTP 204",
+        "dispatched": true,
+        "verified": false
+      },
       "2026-11-20:publish:us_morning": {
         "at": "2026-11-20T16:30:58.267267Z",
         "attempts": 1,
