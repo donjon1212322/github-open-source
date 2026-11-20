@@ -599,3 +599,4 @@
 {"preview_host": "imgbb", "repo": "erkamyaman/rust-anything", "ts": "2026-11-20T01:13:59.043888Z", "type": "published_as_text"}
 {"repo": "erkamyaman/rust-anything", "score": 92.71, "telegram_message_id": 3624, "telegraph_url": "https://telegra.ph/rust-anything-Gradual-App-Migration-to-Rust-with-Behavior-Verification-11-20", "ts": "2026-11-20T01:13:59.416724Z", "type": "project_published"}
 {"minutes_late": 360.1, "schedule": "18 19 * * *", "ts": "2026-11-20T01:18:08.180565Z", "type": "late_schedule_ignored"}
+{"minutes_late": 335.2, "schedule": "53 19 * * *", "ts": "2026-11-20T01:28:12.832901Z", "type": "late_schedule_ignored"}
