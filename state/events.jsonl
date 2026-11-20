@@ -633,3 +633,4 @@
 {"deleted": 0, "ts": "2026-11-20T21:47:51.818622Z", "type": "moderation_completed", "updates": 1}
 {"attempts": 3, "detail": "HTTP 204", "slot": "news-article", "ts": "2026-11-20T22:01:14.221673Z", "type": "watchdog_recovered", "verified": false}
 {"minutes_late": 380.3, "schedule": "23 16 * * *", "ts": "2026-11-20T22:43:16.966370Z", "type": "late_schedule_ignored"}
+{"max_attempts": 3, "max_daily": 24, "scope": "slot", "slot": "news-article", "ts": "2026-11-20T23:00:54.440889Z", "type": "watchdog_dispatch_capped"}

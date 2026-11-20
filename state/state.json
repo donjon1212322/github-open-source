@@ -345,7 +345,10 @@
     "telegram_update_offset": 165231142,
     "watchdog_caps": {
       "2026-11-20": {
-        "notified": false
+        "notified": true,
+        "slots": [
+          "news-article"
+        ]
       }
     },
     "watchdog_dispatches": {
