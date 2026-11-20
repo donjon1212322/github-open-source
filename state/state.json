@@ -278,9 +278,9 @@
     },
     "metrics": {
       "checked": 12,
-      "finished_at": "2026-11-19T20:23:51.664496Z",
+      "finished_at": "2026-11-20T20:23:49.628845Z",
       "reason": "measured",
-      "updated": 12
+      "updated": 11
     },
     "news": {
       "finished_at": "2026-11-20T19:19:08.723352Z",
@@ -2531,6 +2531,7 @@
       "open_issues": 7,
       "published_at": "2026-11-20T16:32:16.769462Z",
       "pushed_at": "2026-11-20T15:53:40Z",
+      "reactions": 0,
       "readme_fp": "f34111ceb5519c96",
       "repo_id": 1229774092,
       "revisit_of": "",
@@ -2565,6 +2566,17 @@
       ],
       "updated_at": "2026-11-20T16:30:05Z",
       "url": "https://github.com/elementalsouls/Claude-BugHunter",
+      "value_score": 50.39,
+      "views": 39,
+      "views_age_hours": 3.9,
+      "views_at_24h": 103,
+      "views_history": [
+        {
+          "at": "2026-11-20T20:23:54.831693Z",
+          "reactions": 0,
+          "views": 39
+        }
+      ],
       "visual_host": "imgbb",
       "visual_kind": "card"
     },
@@ -2840,10 +2852,10 @@
       ],
       "updated_at": "2026-11-18T01:10:45Z",
       "url": "https://github.com/ersinkoc/phonebox",
-      "value_score": 33.79,
-      "views": 97,
-      "views_age_hours": 43.2,
-      "views_at_24h": 74,
+      "value_score": 33.17,
+      "views": 104,
+      "views_age_hours": 67.2,
+      "views_at_24h": 69,
       "views_history": [
         {
           "at": "2026-11-18T20:23:58.720687Z",
@@ -2854,6 +2866,11 @@
           "at": "2026-11-19T20:23:54.837184Z",
           "reactions": 0,
           "views": 97
+        },
+        {
+          "at": "2026-11-20T20:23:59.152930Z",
+          "reactions": 0,
+          "views": 104
         }
       ],
       "visual_host": "imgbb",
@@ -3281,10 +3298,10 @@
       ],
       "updated_at": "2026-11-18T17:27:45Z",
       "url": "https://github.com/HeyPuter/everything",
-      "value_score": 28.65,
-      "views": 66,
-      "views_age_hours": 26.2,
-      "views_at_24h": 64,
+      "value_score": 28.88,
+      "views": 84,
+      "views_age_hours": 50.2,
+      "views_at_24h": 60,
       "views_history": [
         {
           "at": "2026-11-18T20:23:58.152464Z",
@@ -3295,6 +3312,11 @@
           "at": "2026-11-19T20:23:53.799982Z",
           "reactions": 0,
           "views": 66
+        },
+        {
+          "at": "2026-11-20T20:23:58.266006Z",
+          "reactions": 0,
+          "views": 84
         }
       ],
       "visual_host": "imgbb",
@@ -4336,10 +4358,10 @@
       ],
       "updated_at": "2026-11-17T16:23:35Z",
       "url": "https://github.com/jhaizhou-ops/S2Arm",
-      "value_score": 31.73,
-      "views": 95,
-      "views_age_hours": 52.0,
-      "views_at_24h": 67,
+      "value_score": 32.73,
+      "views": 107,
+      "views_age_hours": 76.0,
+      "views_at_24h": 68,
       "views_history": [
         {
           "at": "2026-11-17T20:23:58.387391Z",
@@ -4355,6 +4377,11 @@
           "at": "2026-11-19T20:23:55.778774Z",
           "reactions": 0,
           "views": 95
+        },
+        {
+          "at": "2026-11-20T20:24:00.289873Z",
+          "reactions": 0,
+          "views": 107
         }
       ],
       "visual_host": "imgbb",
@@ -5255,15 +5282,20 @@
       "topics": [],
       "updated_at": "2026-11-19T16:26:59Z",
       "url": "https://github.com/krisgfx9/Wireless-Device-Battery-Monitor",
-      "value_score": 33.86,
-      "views": 37,
-      "views_age_hours": 3.8,
-      "views_at_24h": 100,
+      "value_score": 34.3,
+      "views": 75,
+      "views_age_hours": 27.8,
+      "views_at_24h": 71,
       "views_history": [
         {
           "at": "2026-11-19T20:23:52.784947Z",
           "reactions": 0,
           "views": 37
+        },
+        {
+          "at": "2026-11-20T20:23:57.329178Z",
+          "reactions": 0,
+          "views": 75
         }
       ],
       "visual_host": "imgbb",
@@ -6484,15 +6516,20 @@
       ],
       "updated_at": "2026-11-19T03:15:43.525276Z",
       "url": "https://github.com/microsoft/TokenEconomizer",
-      "value_score": 41.2,
-      "views": 85,
-      "views_age_hours": 19.2,
-      "views_at_24h": 99,
+      "value_score": 41.56,
+      "views": 113,
+      "views_age_hours": 43.2,
+      "views_at_24h": 86,
       "views_history": [
         {
           "at": "2026-11-19T20:23:53.257493Z",
           "reactions": 0,
           "views": 85
+        },
+        {
+          "at": "2026-11-20T20:23:57.821541Z",
+          "reactions": 0,
+          "views": 113
         }
       ],
       "visual_host": "imgbb",
@@ -7263,10 +7300,10 @@
       ],
       "updated_at": "2026-11-18T16:04:21Z",
       "url": "https://github.com/openfilm/openfilm",
-      "value_score": 31.71,
-      "views": 75,
-      "views_age_hours": 28.0,
-      "views_at_24h": 70,
+      "value_score": 31.02,
+      "views": 91,
+      "views_age_hours": 52.0,
+      "views_at_24h": 65,
       "views_history": [
         {
           "at": "2026-11-18T20:23:58.437169Z",
@@ -7277,6 +7314,11 @@
           "at": "2026-11-19T20:23:54.277882Z",
           "reactions": 0,
           "views": 75
+        },
+        {
+          "at": "2026-11-20T20:23:58.712705Z",
+          "reactions": 0,
+          "views": 91
         }
       ],
       "visual_host": "imgbb",
@@ -7956,10 +7998,10 @@
       "topics": [],
       "updated_at": "2026-11-17T17:57:06Z",
       "url": "https://github.com/shanselman/gputaskman",
-      "value_score": 29.3,
-      "views": 87,
-      "views_age_hours": 50.2,
-      "views_at_24h": 62,
+      "value_score": 28.49,
+      "views": 92,
+      "views_age_hours": 74.2,
+      "views_at_24h": 59,
       "views_history": [
         {
           "at": "2026-11-17T20:23:58.106475Z",
@@ -7975,6 +8017,11 @@
           "at": "2026-11-19T20:23:55.305616Z",
           "reactions": 0,
           "views": 87
+        },
+        {
+          "at": "2026-11-20T20:23:59.595307Z",
+          "reactions": 0,
+          "views": 92
         }
       ],
       "visual_host": "imgbb",
@@ -8225,15 +8272,20 @@
       ],
       "updated_at": "2026-11-19T18:06:56Z",
       "url": "https://github.com/storytold/figcraft",
-      "value_score": 23.45,
-      "views": 23,
-      "views_age_hours": 2.2,
-      "views_at_24h": 85,
+      "value_score": 31.44,
+      "views": 67,
+      "views_age_hours": 26.2,
+      "views_at_24h": 65,
       "views_history": [
         {
           "at": "2026-11-19T20:23:52.250908Z",
           "reactions": 0,
           "views": 23
+        },
+        {
+          "at": "2026-11-20T20:23:56.871654Z",
+          "reactions": 0,
+          "views": 67
         }
       ],
       "visual_host": "imgbb",
@@ -8806,10 +8858,10 @@
       ],
       "updated_at": "2026-11-17T00:54:45Z",
       "url": "https://github.com/tangency-labs/solidcraft",
-      "value_score": 35.35,
-      "views": 113,
-      "views_age_hours": 67.2,
-      "views_at_24h": 75,
+      "value_score": 35.14,
+      "views": 122,
+      "views_age_hours": 91.2,
+      "views_at_24h": 73,
       "views_history": [
         {
           "at": "2026-11-17T20:23:58.679245Z",
@@ -8825,6 +8877,11 @@
           "at": "2026-11-19T20:23:56.255688Z",
           "reactions": 0,
           "views": 113
+        },
+        {
+          "at": "2026-11-20T20:24:01.007088Z",
+          "reactions": 0,
+          "views": 122
         }
       ],
       "visual_host": "imgbb",
@@ -9662,6 +9719,7 @@
       "open_issues": 4801,
       "published_at": "2026-11-20T18:14:10.348620Z",
       "pushed_at": "2026-11-20T18:05:22Z",
+      "reactions": 0,
       "readme_fp": "5f7d844358253399",
       "repo_id": 1383809012,
       "revisit_of": "",
@@ -9686,6 +9744,17 @@
       ],
       "updated_at": "2026-11-20T18:11:46Z",
       "url": "https://github.com/yetone/magpie",
+      "value_score": 54.06,
+      "views": 30,
+      "views_age_hours": 2.2,
+      "views_at_24h": 111,
+      "views_history": [
+        {
+          "at": "2026-11-20T20:23:53.355437Z",
+          "reactions": 0,
+          "views": 30
+        }
+      ],
       "visual_host": "imgbb",
       "visual_kind": "card"
     }

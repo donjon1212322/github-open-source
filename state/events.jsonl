@@ -625,3 +625,4 @@
 {"slot": "facebook-handoff", "ts": "2026-11-20T19:00:50.827114Z", "type": "watchdog_verified"}
 {"duplicate_ratio": 0.67, "removed": 2, "ts": "2026-11-20T19:19:08.705028Z", "type": "news_stories_deduplicated"}
 {"duplicate_ratio": 0.67, "reason": "duplicate_digest", "removed": 2, "ts": "2026-11-20T19:19:08.705151Z", "type": "news_skipped"}
+{"channel": "GitHub_Open_Source", "posts": 12, "ts": "2026-11-20T20:24:01.008040Z", "type": "metrics_collected", "updated": 11}
