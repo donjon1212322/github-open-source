@@ -613,3 +613,5 @@
 {"deleted": 0, "ts": "2026-11-20T15:47:53.754304Z", "type": "moderation_completed", "updates": 0}
 {"failures": 1, "gemini_error_class": "capacity_503", "reason": "gemini_unavailable", "repo": "elementalsouls/claude-bughunter", "slot": "us_morning", "ts": "2026-11-20T16:25:02.663730Z", "type": "publish_skipped"}
 {"attempts": 1, "detail": "HTTP 204", "slot": "publish:us_morning", "ts": "2026-11-20T16:30:59.478954Z", "type": "watchdog_recovered", "verified": false}
+{"preview_host": "imgbb", "repo": "elementalsouls/claude-bughunter", "ts": "2026-11-20T16:32:16.419150Z", "type": "published_as_text"}
+{"repo": "elementalsouls/claude-bughunter", "score": 90.5, "telegram_message_id": 3625, "telegraph_url": "https://telegra.ph/Using-Claude-BugHunter-for-Automated-Bug-Bounty-and-Red-Teaming-11-20", "ts": "2026-11-20T16:32:16.769715Z", "type": "project_published"}

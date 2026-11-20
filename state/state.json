@@ -218,12 +218,16 @@
   "dead_letters": [],
   "gemini_daily": {
     "day": "2026-11-20",
-    "units": 6
+    "units": 12
   },
   "gemini_window": [
     [
-      1795191900.0556588,
+      1795192284.0273087,
       4004
+    ],
+    [
+      1795192296.9199882,
+      1437
     ]
   ],
   "last_runs": {
@@ -328,9 +332,9 @@
       "telegram_message_id": 3621
     },
     "publish:us_morning": {
-      "finished_at": "2026-11-19T16:33:32.088910Z",
-      "repo": "krisgfx9/wireless-device-battery-monitor",
-      "telegram_message_id": 3620
+      "finished_at": "2026-11-20T16:32:16.769836Z",
+      "repo": "elementalsouls/claude-bughunter",
+      "telegram_message_id": 3625
     },
     "publish:us_peak": {
       "finished_at": "2026-11-11T17:19:17.006267Z",
@@ -1837,9 +1841,7 @@
       "type": "job"
     }
   ],
-  "publish_failures": {
-    "elementalsouls/claude-bughunter": 1
-  },
+  "publish_failures": {},
   "published": {
     "anefzaoui/misterdownloadmanager": {
       "articles": {},
@@ -2443,6 +2445,123 @@
       ],
       "visual_host": "imgbb",
       "visual_kind": "readme"
+    },
+    "elementalsouls/claude-bughunter": {
+      "articles": {},
+      "card_style": "editorial_daily",
+      "category": "Security",
+      "contributors_count": 19,
+      "created_at": "2026-05-05T11:22:32Z",
+      "crossposts": {
+        "bluesky": {
+          "attempts": 0,
+          "due_at": "2026-11-20T18:00:00+00:00",
+          "status": "pending"
+        }
+      },
+      "description": "A Claude Code skill bundle for bug hunting and external red-team work - 82 skills, 15 slash commands, 681 disclosed-report patterns curated across 24 core vulnerability classes, plus enterprise identity + infrastructure attack matrices.",
+      "description_fp": "db5d7f5b70edeec4",
+      "forks": 1660,
+      "full_name": "elementalsouls/Claude-BugHunter",
+      "generated": {
+        "article_markdown": "## What it is\n\nClaude-BugHunter is a specialized skill bundle designed to transform Claude Code into an offensive security agent. Rather than acting as a general-purpose coding assistant, it provides a structured framework for bug hunting and external red-team engagements. The bundle includes 83 distinct skills and 15 slash commands, all curated from hundreds of disclosed vulnerability reports.\n\nIt works by hooking into the agent's skill system. When you describe your target or testing goal in plain English, the agent automatically loads the relevant methodology, payload patterns, and triage logic. It is designed to handle the \"external surface\"—everything from web application vulnerabilities like IDOR and SSRF to enterprise platform misconfigurations in environments like M365 or Okta.\n\n## Why it matters\n\nFor security researchers, the primary bottleneck is often the transition from recon to exploitation. You spend significant time mapping subdomains, fingerprinting stacks, and then manually searching for relevant vulnerability patterns. Claude-BugHunter removes the friction by keeping the agent focused on the engagement scope. It enforces a consistent methodology, ensuring that you don't just find a bug, but also document it in a format ready for platforms like HackerOne or Bugcrowd.\n\n## Key features\n\n- **Context-Aware Skill Loading:** Skills load automatically based on your natural language input, eliminating the need to manually invoke specific tools.\n- **Extensive Pattern Library:** Access to 681 disclosed report patterns, providing a baseline for common vulnerability classes.\n- **Enterprise Attack Matrices:** Specialized workflows for testing cloud-based identity providers and infrastructure appliances.\n- **Multi-Harness Support:** The skills are compatible with several agent harnesses, including Claude Code, OpenCode, and the OpenAI Codex CLI.\n- **Standardized Reporting:** Built-in support for VRT-aware severity scoring and professional deliverable generation.\n\n## Quick start\n\nIf you are using Claude Code, you can install the bundle directly via the marketplace command:\n\n```text\n/plugin marketplace add elementalsouls/Claude-BugHunter\n/plugin install claude-bughunter@elementalsouls\n```\n\nOnce installed, simply describe your target in the chat, and the agent will begin loading the necessary recon and hunting modules.\n\n## Who should try it\n\nThis tool is ideal for bug bounty hunters and external red-teamers who want to automate the \"grunt work\" of recon and initial triage. If you are already using agentic workflows for development, this is a natural extension for your security research. However, it is not designed for internal network exploitation, lateral movement, or C2 operations; if your engagement requires deep Active Directory attacks, you will need to look elsewhere.\n\n## Verdict\n\nClaude-BugHunter is a highly effective accelerator for the external phase of security assessments. It brings discipline and speed to reconnaissance and vulnerability hunting. It is a must-try for those looking to integrate AI into their security workflow, provided you understand its focus on external attack surfaces.",
+        "article_title": "Using Claude-BugHunter for Automated Bug Bounty and Red-Teaming",
+        "card_hook": "Claude Code for bug hunting",
+        "card_subline": "A skill bundle for automated recon, vulnerability pattern matching, and enterprise perimeter testing",
+        "category": "Security",
+        "discussion_question": "Do you prefer an agent that handles the full recon chain automatically, or one that requires manual approval for every tool execution?",
+        "hook": "Turn Claude Code into a senior red-teamer with 83 specialized skills for web app and external surface hunting.",
+        "key_features": [
+          "Integrates 681 disclosed vulnerability report patterns across 24 core security classes.",
+          "Provides automated engagement scaffolding for web app and API testing.",
+          "Includes enterprise-specific attack matrices for platforms like M365, Okta, and vCenter.",
+          "Supports multi-harness deployment including Claude Code, OpenCode, and Hermes Agent.",
+          "Features Burp Suite MCP integration for seamless traffic analysis and tool chaining.",
+          "Generates standardized reports compatible with HackerOne and Bugcrowd formats."
+        ],
+        "llm_used": true,
+        "quick_start": "/plugin marketplace add elementalsouls/Claude-BugHunter",
+        "safety": "dual_use",
+        "safety_reason": "The project is a legitimate security research and pentesting tool used for bug bounty and red-teaming, which can be dual-use.",
+        "scene": "You are staring at a fresh target scope, manually juggling subdomain enumeration, tech fingerprinting, and cross-referencing vulnerability patterns while the clock ticks on your engagement.",
+        "social_text": "Turn Claude Code into a senior red-teamer. This skill bundle adds 83 offensive security capabilities for web app hunting, recon, and enterprise perimeter testing.",
+        "summary": "Claude-BugHunter is a skill bundle that extends the Claude Code agent system to handle offensive security tasks. It functions by loading context-aware skills—such as methodology frameworks and vulnerability-specific payloads—that trigger automatically based on the target description. It acts as a wrapper for standard agent harnesses, providing structured workflows for recon, triage, and reporting without requiring manual command invocation.",
+        "surfaces": {
+          "Facebook_body": "If you are a security researcher or a bug bounty hunter, you know that the initial phase of testing—reconnaissance and triage—is often repetitive and time-consuming. Instead of manually running every check, you can now offload these tasks to an automated system that handles the heavy lifting for you.\n\nThis project acts as a specialized extension for your existing coding assistant. By loading a set of pre-built skills, it allows the assistant to understand security frameworks and vulnerability patterns. When you describe a target, the system automatically triggers the right workflows to scan for issues, saving you hours of setup time.\n\nIt comes with over 600 patterns based on real-world vulnerability reports, covering everything from web applications to enterprise identity systems. It is designed specifically for external testing, making it a powerful accelerator for those who need to find bugs quickly without writing every command from scratch. If you are looking to streamline your security workflow, this is a practical way to add an extra layer of automation to your process.",
+          "Facebook_headline": "Make your coding assistant a security expert",
+          "Facebook_lead": "Stop doing manual security checks. This tool adds 83 specialized skills to your coding assistant to help you find vulnerabilities and scan web apps automatically.",
+          "bluesky_headline": "Automate your security research and bug hunting",
+          "bluesky_lead": "Turn your coding assistant into a specialized security expert with 83 pre-built skills for web testing.",
+          "devto_body": "## What it is\n\nClaude-BugHunter is an open-source skill bundle designed to extend the capabilities of agentic coding systems like Claude Code. It transforms a general-purpose coding agent into a specialized red-teaming assistant, equipped with 83 distinct skills tailored for web application security and external surface reconnaissance.\n\n## How it works\n\nAt its core, the project functions as a wrapper for standard agent harnesses. It injects context-aware skills—methodologies, vulnerability-specific payloads, and structured workflows—into the agent's environment. When you provide a target description, the agent automatically selects and executes the relevant skill set, handling the recon, triage, and reporting phases without requiring manual command invocation.\n\n## Key features\n\n- **Extensive Pattern Library:** Integrates 681 disclosed vulnerability report patterns across 24 core security classes.\n- **Automated Scaffolding:** Provides ready-to-use engagement workflows for web app and API testing.\n- **Enterprise Matrices:** Includes specialized attack matrices for platforms like M365, Okta, and vCenter.\n- **Tool Integration:** Supports multi-harness deployment (Claude Code, OpenCode, Hermes Agent) and features Burp Suite MCP integration for seamless traffic analysis.\n\n## Getting started\n\nThis project is written in Python and is primarily intended for bug bounty hunters and red-team operators. To get started, ensure you have a compatible agent harness installed. Clone the repository and configure the skill bundle to load into your agent's environment:\n\n```bash\ngit clone https://github.com/elementalsouls/Claude-BugHunter\n# Follow the specific configuration steps in the README for your harness\n```\n\n## When not to use it\n\nWhile highly effective for external reconnaissance and web application testing, Claude-BugHunter is not a comprehensive penetration testing suite. Skip this tool if your primary requirements involve internal network exploitation, post-compromise lateral movement, or C2-style infrastructure management.",
+          "seo_description": "Claude-BugHunter is an open-source skill bundle for coding agents that automates web application security testing and vulnerability reconnaissance.",
+          "seo_query": "automate bug bounty reconnaissance with coding agents",
+          "seo_title": "Claude-BugHunter: Automated Security Research Tool",
+          "telegraph_angle": "Explain how agentic workflows are changing the efficiency of security research by automating the recon and triage phases."
+        },
+        "tension": "Manual context-switching between recon tools and vulnerability research wastes hours, often leading to missed edge cases or inconsistent documentation during the triage phase.",
+        "turn": "This bundle automates the methodology by loading relevant skills as you describe the target, though it remains strictly focused on external surfaces and won't handle internal AD lateral movement.",
+        "verdict": "A powerful accelerator for external recon and web app testing, but skip it if you need internal network exploitation or C2-style post-compromise tooling.",
+        "who_for": "Bug bounty hunters and external red-team operators.",
+        "why_now": "The rise of agentic coding tools allows security researchers to offload repetitive recon and triage tasks to LLMs using structured skill sets."
+      },
+      "homepage": "https://elementalsouls.github.io/Claude-BugHunter",
+      "id": 1229774092,
+      "image_url": "https://i.ibb.co/4wP9vNSs/elementalsouls-Claude-Bug-Hunter-preview-a194053675ad.jpg",
+      "is_dual_use": true,
+      "is_hidden_gem": false,
+      "language": "Python",
+      "license": {
+        "key": "mit",
+        "name": "MIT License",
+        "node_id": "MDc6TGljZW5zZTEz",
+        "spdx_id": "MIT",
+        "url": "https://api.github.com/licenses/mit"
+      },
+      "media_urls": [
+        "https://raw.githubusercontent.com/elementalsouls/Claude-BugHunter/main/assets/banner-v2.svg",
+        "https://raw.githubusercontent.com/elementalsouls/Claude-BugHunter/main/assets/harness-routing.svg",
+        "https://raw.githubusercontent.com/elementalsouls/Claude-BugHunter/main/assets/star-history-light.svg"
+      ],
+      "name": "Claude-BugHunter",
+      "open_issues": 7,
+      "published_at": "2026-11-20T16:32:16.769462Z",
+      "pushed_at": "2026-11-20T15:53:40Z",
+      "readme_fp": "f34111ceb5519c96",
+      "repo_id": 1229774092,
+      "revisit_of": "",
+      "revisit_reason": "",
+      "score": 90.5,
+      "slot": "us_morning",
+      "sources": [
+        "telegram:open_source_friend"
+      ],
+      "stars": 13689,
+      "telegram_chat_id": "@GitHub_Open_Source",
+      "telegram_link": "https://t.me/GitHub_Open_Source/3625",
+      "telegram_message_id": 3625,
+      "telegraph_url": "https://telegra.ph/Using-Claude-BugHunter-for-Automated-Bug-Bounty-and-Red-Teaming-11-20",
+      "topics": [
+        "ai-security",
+        "anthropic",
+        "application-security",
+        "bug-bounty",
+        "bugbounty",
+        "bugcrowd",
+        "claude",
+        "claude-code",
+        "claude-skills",
+        "ethical-hacking",
+        "hackerone",
+        "offensive-security",
+        "pentesting",
+        "red-team",
+        "security-tools",
+        "web-security"
+      ],
+      "updated_at": "2026-11-20T16:30:05Z",
+      "url": "https://github.com/elementalsouls/Claude-BugHunter",
+      "visual_host": "imgbb",
+      "visual_kind": "card"
     },
     "erkamyaman/rust-anything": {
       "articles": {
@@ -9511,73 +9630,6 @@
     },
     {
       "archived": false,
-      "contributors_count": 19,
-      "created_at": "2026-05-05T11:22:32Z",
-      "default_branch": "main",
-      "description": "A Claude Code skill bundle for bug hunting and external red-team work - 82 skills, 15 slash commands, 681 disclosed-report patterns curated across 24 core vulnerability classes, plus enterprise identity + infrastructure attack matrices.",
-      "disabled": false,
-      "fork": false,
-      "forks": 1589,
-      "forks_count": 1589,
-      "full_name": "elementalsouls/Claude-BugHunter",
-      "has_readme": true,
-      "homepage": "https://elementalsouls.github.io/Claude-BugHunter",
-      "id": 1229774092,
-      "is_dual_use": true,
-      "is_hidden_gem": false,
-      "language": "Python",
-      "license": {
-        "key": "mit",
-        "name": "MIT License",
-        "node_id": "MDc6TGljZW5zZTEz",
-        "spdx_id": "MIT",
-        "url": "https://api.github.com/licenses/mit"
-      },
-      "media_urls": [
-        "https://raw.githubusercontent.com/elementalsouls/Claude-BugHunter/main/assets/banner-v2.svg",
-        "https://raw.githubusercontent.com/elementalsouls/Claude-BugHunter/main/assets/harness-routing.svg",
-        "https://raw.githubusercontent.com/elementalsouls/Claude-BugHunter/main/assets/star-history-light.svg"
-      ],
-      "name": "Claude-BugHunter",
-      "non_software_reason": "",
-      "open_issues": 9,
-      "open_issues_count": 9,
-      "owner_repo_count": 1,
-      "pushed_at": "2026-11-19T13:21:35Z",
-      "readme": "",
-      "readme_excerpt": "![claude-bughunter banner](assets/banner-v2.svg)\n\n# claude-bughunter\n\n> A self-contained Claude skill bundle for bug hunting and external red-team work · **83 skills** · 15 slash commands · **681 disclosed-report patterns** (433 now individually cited & auditable) across 24 core vulnerability classes · enterprise identity + infrastructure attack matrices · engagement-folder scaffolding · Burp MCP integration · battle-tested across authorized red-team and bug-hunting engagements, plus public training platforms (DVWA, OWASP Juice Shop, Hacker101, testphp.vulnweb.com).\n\nBuilt by **[Sachin Sharma](https://www.linkedin.com/in/sachinsharma8080/)** — Bug Hunting & GenAI Security Research.\n\n<p align=\"center\">\n  <sub>SPONSORED BY</sub>\n  <br/>\n  <a href=\"https://www.apismart.ai/\">\n    <picture>\n      <source media=\"(prefers-color-scheme: dark)\" srcset=\"assets/sponsors/apismart-dark.png\">\n      <img alt=\"ApiSmart\" src=\"assets/sponsors/apismart-light.png\" height=\"30\">\n    </picture>\n  </a>\n  &nbsp;&nbsp;&nbsp;&nbsp;\n  <a href=\"https://threatwatch360.com\">\n    <picture>\n      <source media=\"(prefers-color-scheme: dark)\" srcset=\"assets/sponsors/tw360-dark.svg\">\n      <img alt=\"ThreatWatch360\" s",
-      "readme_len": 23047,
-      "repo_id": 1229774092,
-      "score": 90.5,
-      "source_name": "telegram:open_source_friend",
-      "sources": [
-        "telegram:open_source_friend"
-      ],
-      "stargazers_count": 12507,
-      "stars": 12507,
-      "topics": [
-        "ai-security",
-        "anthropic",
-        "application-security",
-        "bug-bounty",
-        "bugbounty",
-        "bugcrowd",
-        "claude",
-        "claude-code",
-        "claude-skills",
-        "ethical-hacking",
-        "hackerone",
-        "offensive-security",
-        "pentesting",
-        "red-team",
-        "security-tools",
-        "web-security"
-      ],
-      "updated_at": "2026-11-20T00:23:36Z",
-      "url": "https://github.com/elementalsouls/Claude-BugHunter"
-    },
-    {
-      "archived": false,
       "contributors_count": 162,
       "created_at": "2026-09-23T16:22:35Z",
       "default_branch": "main",
@@ -13334,8 +13386,8 @@
     "elementalsouls/claude-bughunter": {
       "first_seen_at": "2026-11-19T00:26:45.073793Z",
       "full_name": "elementalsouls/Claude-BugHunter",
-      "last_decision": "queued",
-      "last_seen_at": "2026-11-20T00:25:29.423551Z",
+      "last_decision": "published",
+      "last_seen_at": "2026-11-20T16:32:16.769824Z",
       "repo_id": 1229774092,
       "sources": [
         "telegram:open_source_friend"
