@@ -616,3 +616,5 @@
 {"preview_host": "imgbb", "repo": "elementalsouls/claude-bughunter", "ts": "2026-11-20T16:32:16.419150Z", "type": "published_as_text"}
 {"repo": "elementalsouls/claude-bughunter", "score": 90.5, "telegram_message_id": 3625, "telegraph_url": "https://telegra.ph/Using-Claude-BugHunter-for-Automated-Bug-Bounty-and-Red-Teaming-11-20", "ts": "2026-11-20T16:32:16.769715Z", "type": "project_published"}
 {"slot": "publish:us_morning", "ts": "2026-11-20T17:00:50.461801Z", "type": "watchdog_verified"}
+{"preview_host": "imgbb", "repo": "yetone/magpie", "ts": "2026-11-20T18:14:10.037458Z", "type": "published_as_text"}
+{"repo": "yetone/magpie", "score": 90.0, "telegram_message_id": 3626, "telegraph_url": "https://telegra.ph/magpie-Run-Any-Model-in-Any-AI-Coding-Agent-11-20", "ts": "2026-11-20T18:14:10.348778Z", "type": "project_published"}

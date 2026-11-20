@@ -218,16 +218,16 @@
   "dead_letters": [],
   "gemini_daily": {
     "day": "2026-11-20",
-    "units": 12
+    "units": 18
   },
   "gemini_window": [
     [
-      1795192284.0273087,
-      4004
+      1795198436.416553,
+      3896
     ],
     [
-      1795192296.9199882,
-      1437
+      1795198442.9138,
+      1381
     ]
   ],
   "last_runs": {
@@ -327,9 +327,9 @@
       "telegram_message_id": 3624
     },
     "publish:us_midday": {
-      "finished_at": "2026-11-19T18:14:14.115757Z",
-      "repo": "storytold/figcraft",
-      "telegram_message_id": 3621
+      "finished_at": "2026-11-20T18:14:10.348907Z",
+      "repo": "yetone/magpie",
+      "telegram_message_id": 3626
     },
     "publish:us_morning": {
       "finished_at": "2026-11-20T16:32:16.769836Z",
@@ -9564,6 +9564,117 @@
       ],
       "visual_host": "imgbb",
       "visual_kind": "readme"
+    },
+    "yetone/magpie": {
+      "articles": {},
+      "card_style": "editorial_daily",
+      "category": "DevTools",
+      "contributors_count": 162,
+      "created_at": "2026-09-23T16:22:35Z",
+      "crossposts": {
+        "bluesky": {
+          "attempts": 0,
+          "due_at": "2026-11-20T18:44:10.348595+00:00",
+          "status": "pending"
+        }
+      },
+      "description": "Every agent's model. One place. Codex on DeepSeek, Claude Code on Kimi, from the menu bar.",
+      "description_fp": "643970b170b7a474",
+      "forks": 3601,
+      "full_name": "yetone/magpie",
+      "generated": {
+        "article_markdown": "## What it is\n\nMagpie is a local gateway and menu bar application designed to unify how AI coding agents connect to large language models. Instead of forcing each assistant to maintain its own separate API keys, base URLs, and configuration formats, magpie routes traffic through a single local endpoint at 127.0.0.1:3425. It translates requests between OpenAI, Anthropic, and Gemini formats on the fly.\n\n## Why it matters\n\nDevelopers using multiple AI tools quickly accumulate fragmented configurations, disparate subscription limits, and scattered API keys. When one provider hits a rate limit or runs out of quota, work grinds to a halt. Magpie removes this friction by allowing seamless switching between providers and setting up automatic failover routing groups.\n\n## Key features\n\n- Translate requests between OpenAI Chat, OpenAI Responses, Anthropic Messages, and Gemini formats.\n- Configure automatic failover routing groups to switch providers when rate limits are hit.\n- Mask local secrets, passwords, and tokens before prompts leave your machine.\n- Save and switch complete multi-agent setups instantly using named profiles.\n- Inspect remaining quotas across all connected plans directly from the command line.\n\n## Quick start\n\nTo install the desktop application and CLI tool, run the installation script:\n\n```sh\ncurl -fsSL https://usemagpie.ai/install.sh | sh\n```\n\n## Who should try it\n\nThis tool is built for developers and engineers who actively use multiple AI coding assistants and want a centralized way to manage their models, API keys, and subscription limits without manual configuration edits.\n\n## Verdict\n\nMagpie solves a genuine fragmentation problem in modern AI-assisted development. If you rely on multiple coding agents, it saves considerable configuration overhead. If you only use a single tool with its native provider, you can safely skip it.",
+        "article_title": "magpie: Run Any Model in Any AI Coding Agent",
+        "card_hook": "Run any model in any AI coding agent",
+        "card_subline": "A local gateway that routes your agents across different providers, subscriptions, and failover accounts",
+        "category": "DevTools",
+        "discussion_question": "Which AI coding agent do you currently find yourself locked into the most?",
+        "hook": "Unify all your AI coding agents to any model and switch providers from the menu bar using magpie.",
+        "key_features": [
+          "Translate between OpenAI, Anthropic, and Gemini message formats via a local gateway",
+          "Fail over automatically to secondary accounts or routing groups when quotas run out",
+          "Mask sensitive secrets and tokens locally in prompts before sending requests to vendors",
+          "Save and restore complete agent configuration setups using named profiles",
+          "Inspect remaining usage quotas across every connected plan from the terminal"
+        ],
+        "llm_used": true,
+        "quick_start": "curl -fsSL https://usemagpie.ai/install.sh | sh",
+        "safety": "ok",
+        "safety_reason": "Legitimate developer utility for managing AI coding assistant configurations and local API routing.",
+        "scene": "You open a terminal to run an AI coding assistant, only to find it locked into a single provider's model while your other paid subscriptions sit idle in a different tool.",
+        "social_text": "Route any AI coding agent to any model, handle quota failovers, and mask local secrets with a single gateway.",
+        "summary": "Magpie runs a local gateway at a local port that abstracts different AI provider APIs and translates between OpenAI, Anthropic, and Gemini formats. It intercepts agent configuration files to rewrite model targets atomically while preserving existing formats and comments. Additionally, it processes prompts locally to mask sensitive credentials before they leave the machine.",
+        "surfaces": {
+          "Facebook_body": "Managing multiple AI assistants for coding often means wrestling with rigid settings and separate subscriptions for every tool. Juggling different accounts and rate limits becomes a frustrating chore.\n\nMagpie acts as a bridge running locally on your computer, translating messages between different providers automatically. It lets you route any AI coding agent to the model of your choice directly from your menu bar, while also masking sensitive credentials before they leave your machine.\n\nThis utility is built for developers who rely on multiple AI coding assistants and want a simpler way to manage their provider keys, switch models on the fly, and avoid running into sudden rate limits without changing their existing workflows.",
+          "Facebook_headline": "Use any AI model with your coding assistants",
+          "Facebook_lead": "Stop struggling with rigid AI settings in your coding tools. Switch between different models from your menu bar and keep your private keys safe.",
+          "bluesky_headline": "Use any AI model with your coding tools",
+          "bluesky_lead": "A menu bar gateway that lets you swap AI providers for all your coding assistants instantly.",
+          "devto_body": "## What it is\n\nMagpie is an open-source local gateway written in Go that standardizes how AI coding tools communicate with different model providers. By translating message formats on the fly, it allows developers to point any AI coding agent to any supported model backend.\n\n## How it works\n\nRunning locally on a designated port, Magpie intercepts requests from your coding tools and translates between OpenAI, Anthropic, and Gemini formats. It modifies local configuration files atomically to redirect model targets while preserving comments and existing structures. It also filters prompts locally to mask secrets before sending requests outward.\n\n## Key features\n\n- Local gateway translating between major AI message formats\n- Automatic failover to secondary routing groups upon hitting rate limits\n- Local secret masking to protect sensitive tokens in prompts\n- Named profiles for saving and restoring agent configuration setups\n- Quota inspection across connected plans directly from the terminal\n\n## Getting started\n\nClone the repository from GitHub and ensure you have Go installed on your system. Build the binary and start the local gateway service to begin routing your coding assistant requests through your menu bar.\n\n## When not to use it\n\nIf you rely exclusively on a single vendor's default client and never switch providers or hit rate limits, Magpie adds unnecessary overhead to your setup.",
+          "seo_description": "Learn how Magpie unifies multiple AI coding assistants, translates model formats locally, and helps developers manage rate limits easily.",
+          "seo_query": "how to use different ai models in coding assistants",
+          "seo_title": "Use Any AI Model in Your Coding Tools - Magpie",
+          "telegraph_angle": "Explain how abstracting multiple AI provider APIs solves the fragmentation problem for developers juggling different coding assistants."
+        },
+        "tension": "Every agent expects its own configuration file format and API keys, forcing you to juggle separate credentials and manually rewrite settings every time you want to try a different backend.",
+        "turn": "Magpie sits between your agents and providers with a single local gateway, letting you swap any model from a menu bar or CLI while handling automated quota failovers.",
+        "verdict": "An essential utility for heavy users of multiple AI coding tools, though unnecessary if you stick to a single vendor's default client.",
+        "who_for": "Developers juggling multiple AI coding assistants, provider keys, and rate-limited subscriptions.",
+        "why_now": "The proliferation of specialized AI coding agents with rigid, proprietary configuration requirements makes managing multiple subscriptions manually unsustainable."
+      },
+      "homepage": "https://usemagpie.ai",
+      "id": 1383809012,
+      "image_url": "https://i.ibb.co/ksWMf7dm/yetone-magpie-preview-a654b2f97ff5.jpg",
+      "is_dual_use": false,
+      "is_hidden_gem": false,
+      "language": "Go",
+      "license": {
+        "key": "mit",
+        "name": "MIT License",
+        "node_id": "MDc6TGljZW5zZTEz",
+        "spdx_id": "MIT",
+        "url": "https://api.github.com/licenses/mit"
+      },
+      "media_urls": [
+        "https://raw.githubusercontent.com/yetone/magpie/main/site/public/img/agents-light.png",
+        "https://raw.githubusercontent.com/yetone/magpie/main/site/public/img/architecture.svg",
+        "https://raw.githubusercontent.com/yetone/magpie/main/site/public/img/panel-light.png",
+        "https://raw.githubusercontent.com/yetone/magpie/main/site/public/img/picker-light.png",
+        "https://raw.githubusercontent.com/yetone/magpie/main/site/public/img/masking-light.png",
+        "https://raw.githubusercontent.com/yetone/magpie/main/site/public/img/add-light.png",
+        "https://raw.githubusercontent.com/yetone/magpie/main/site/public/img/routing-light.png",
+        "https://raw.githubusercontent.com/yetone/magpie/main/site/public/img/intent-trace-light.png"
+      ],
+      "name": "magpie",
+      "open_issues": 4801,
+      "published_at": "2026-11-20T18:14:10.348620Z",
+      "pushed_at": "2026-11-20T18:05:22Z",
+      "readme_fp": "5f7d844358253399",
+      "repo_id": 1383809012,
+      "revisit_of": "",
+      "revisit_reason": "",
+      "score": 90.0,
+      "slot": "us_midday",
+      "sources": [
+        "github_search"
+      ],
+      "stars": 39493,
+      "telegram_chat_id": "@GitHub_Open_Source",
+      "telegram_link": "https://t.me/GitHub_Open_Source/3626",
+      "telegram_message_id": 3626,
+      "telegraph_url": "https://telegra.ph/magpie-Run-Any-Model-in-Any-AI-Coding-Agent-11-20",
+      "topics": [
+        "claude-code",
+        "codex",
+        "deepseek",
+        "gemini-cli",
+        "llm",
+        "macos"
+      ],
+      "updated_at": "2026-11-20T18:11:46Z",
+      "url": "https://github.com/yetone/magpie",
+      "visual_host": "imgbb",
+      "visual_kind": "card"
     }
   },
   "queue": [
@@ -9628,68 +9739,6 @@
       ],
       "updated_at": "2026-11-20T00:11:44Z",
       "url": "https://github.com/storytold/filmcraft"
-    },
-    {
-      "archived": false,
-      "contributors_count": 162,
-      "created_at": "2026-09-23T16:22:35Z",
-      "default_branch": "main",
-      "description": "Every agent's model. One place. Codex on DeepSeek, Claude Code on Kimi, from the menu bar.",
-      "disabled": false,
-      "fork": false,
-      "forks": 3553,
-      "forks_count": 3553,
-      "full_name": "yetone/magpie",
-      "has_readme": true,
-      "homepage": "https://usemagpie.ai",
-      "id": 1383809012,
-      "is_dual_use": false,
-      "is_hidden_gem": false,
-      "language": "Go",
-      "license": {
-        "key": "mit",
-        "name": "MIT License",
-        "node_id": "MDc6TGljZW5zZTEz",
-        "spdx_id": "MIT",
-        "url": "https://api.github.com/licenses/mit"
-      },
-      "media_urls": [
-        "https://raw.githubusercontent.com/yetone/magpie/main/site/public/img/agents-light.png",
-        "https://raw.githubusercontent.com/yetone/magpie/main/site/public/img/architecture.svg",
-        "https://raw.githubusercontent.com/yetone/magpie/main/site/public/img/panel-light.png",
-        "https://raw.githubusercontent.com/yetone/magpie/main/site/public/img/picker-light.png",
-        "https://raw.githubusercontent.com/yetone/magpie/main/site/public/img/masking-light.png",
-        "https://raw.githubusercontent.com/yetone/magpie/main/site/public/img/add-light.png",
-        "https://raw.githubusercontent.com/yetone/magpie/main/site/public/img/routing-light.png",
-        "https://raw.githubusercontent.com/yetone/magpie/main/site/public/img/intent-trace-light.png"
-      ],
-      "name": "magpie",
-      "non_software_reason": "",
-      "open_issues": 4701,
-      "open_issues_count": 4701,
-      "owner_repo_count": 1,
-      "pushed_at": "2026-11-19T21:57:26Z",
-      "readme": "",
-      "readme_excerpt": "<div align=\"center\">\n\n<a href=\"https://usemagpie.ai\"><img src=\"site/public/img/icon-256.png\" width=\"112\" alt=\"magpie\"></a>\n\n# magpie\n\n### Every agent's model. One place.\n\n**Claude Code on Kimi. Codex on DeepSeek. Gemini CLI on GLM. OpenCode on your ChatGPT plan.**<br>\nSwitch any of them from the menu bar. One local gateway serves them all,<br>\nand when a quota runs out, it quietly moves on to your next account.\n\n[![Release](https://img.shields.io/github/v/release/yetone/magpie-releases?label=release&color=111111)](https://github.com/yetone/magpie-releases/releases/latest) [![Stars](https://img.shields.io/github/stars/yetone/magpie?style=flat&color=111111)](https://github.com/yetone/magpie/stargazers) [![Discord](https://img.shields.io/badge/Discord-join-5865F2?logo=discord&logoColor=white)](https://discord.gg/vGSnD3ZKQF) [![License](https://img.shields.io/badge/license-MIT-111111)](LICENSE)<br>\n![macOS](https://img.shields.io/badge/macOS-000000?logo=apple&logoColor=white) ![Windows](https://img.shields.io/badge/Windows-0078D4?logo=windows&logoColor=white) ![Linux](https://img.shields.io/badge/Linux-FCC624?logo=linux&logoColor=black) ![Docker](https://img.shields.io/badge/Docker-249",
-      "readme_len": 24479,
-      "repo_id": 1383809012,
-      "score": 90.0,
-      "source_name": "github_search",
-      "sources": [
-        "github_search"
-      ],
-      "stargazers_count": 39052,
-      "stars": 39052,
-      "topics": [
-        "claude-code",
-        "codex",
-        "deepseek",
-        "gemini-cli",
-        "llm",
-        "macos"
-      ],
-      "updated_at": "2026-11-20T00:22:51Z",
-      "url": "https://github.com/yetone/magpie"
     },
     {
       "archived": false,
@@ -19888,8 +19937,8 @@
     "yetone/magpie": {
       "first_seen_at": "2026-11-04T12:14:31.124900Z",
       "full_name": "yetone/magpie",
-      "last_decision": "queued",
-      "last_seen_at": "2026-11-20T00:25:29.395576Z",
+      "last_decision": "published",
+      "last_seen_at": "2026-11-20T18:14:10.348897Z",
       "repo_id": 1383809012,
       "sources": [
         "github_search"
