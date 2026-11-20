@@ -218,16 +218,16 @@
   "dead_letters": [],
   "gemini_daily": {
     "day": "2026-11-19",
-    "units": 42
+    "units": 48
   },
   "gemini_window": [
     [
-      1795112030.4062421,
-      3907
+      1795137230.1718066,
+      3998
     ],
     [
-      1795112039.2188225,
-      1389
+      1795137233.9500809,
+      1440
     ]
   ],
   "last_runs": {
@@ -322,9 +322,9 @@
       "telegram_message_id": 3550
     },
     "publish:us_evening": {
-      "finished_at": "2026-11-19T01:13:57.193780Z",
-      "repo": "microsoft/tokeneconomizer",
-      "telegram_message_id": 3618
+      "finished_at": "2026-11-20T01:13:59.416850Z",
+      "repo": "erkamyaman/rust-anything",
+      "telegram_message_id": 3624
     },
     "publish:us_midday": {
       "finished_at": "2026-11-19T18:14:14.115757Z",
@@ -2435,6 +2435,130 @@
           "views": 101
         }
       ],
+      "visual_host": "imgbb",
+      "visual_kind": "readme"
+    },
+    "erkamyaman/rust-anything": {
+      "articles": {},
+      "card_style": "",
+      "category": "DevTools",
+      "contributors_count": 14,
+      "created_at": "2026-11-16T12:10:36Z",
+      "crossposts": {
+        "bluesky": {
+          "attempts": 0,
+          "due_at": "2026-11-20T18:00:00+00:00",
+          "status": "pending"
+        }
+      },
+      "description": "Rewrite your whole app in Rust, one piece at a time, checked against the original's recorded behavior at every step. CLIs, HTTP servers and libraries in TypeScript, Python, C, Go, Ruby and Java.",
+      "description_fp": "d2d5ba84d0feca6c",
+      "forks": 417,
+      "full_name": "erkamyaman/rust-anything",
+      "generated": {
+        "article_markdown": "## What it is\n\nrust-anything is a command-line tool and agent-assisted workflow designed to help developers rewrite applications in Rust piece by piece. Instead of risking a hazardous big-bang rewrite of a Node.js, Python, Go, C, Ruby, or Java codebase, it captures the actual inputs, outputs, and edge-case behavior of your current implementation. You or your AI coding agent write the Rust port, and the framework replays the recorded execution traces to ensure the new code behaves identically.\n\n## Why it matters\n\nRewriting production software usually forces an impossible choice: maintain an unmaintainable legacy codebase or bet the business on a risky rewrite that introduces silent regressions. This project sidesteps that trap by treating the original implementation as an oracle. Because every single run is recorded and checked against the Rust rewrite, you can replace hot paths or entire servers with high confidence.\n\n## Key features\n\n- Record original application behavior on edge cases and semantic traps to establish a baseline.\n- Bridge generated Rust crates with wrappers so callers retain the original API structure.\n- Replay thousands of recorded test cases against the Rust port to verify identical outputs.\n- Profile codebases to identify hot paths and loops worth moving out of interpreted runtimes.\n- Lift fully verified components and dependencies into a standalone pure Rust application.\n\n## Quick start\n\n```sh\ncargo install rust-anything\nrust-anything setup\n```\n\n## Who should try it\n\nThis tool fits teams maintaining performance-sensitive services or libraries in higher-level languages who want the memory safety and speed of Rust without risking a full rewrite.\n\n## Verdict\n\nIt provides a remarkably disciplined path to modernizing legacy codebases, though its success ultimately depends on the quality of your recordings and the Rust code you write.",
+        "article_title": "rust-anything: Gradual App Migration to Rust with Behavior Verification",
+        "card_hook": "Rewrite any app in Rust safely",
+        "card_subline": "Record your original app behavior, port hot paths, and verify behavior with byte-identical differential testing",
+        "category": "DevTools",
+        "discussion_question": "Which hot path in your current stack would you rewrite in Rust first?",
+        "hook": "Migrate your Node.js, Python, or Go code to Rust piece by piece and verify every output matches byte for byte.",
+        "key_features": [
+          "Record original application behavior on edge cases and semantic traps to establish a baseline",
+          "Bridge generated Rust crates with wrappers so callers retain the original API structure",
+          "Replay thousands of recorded test cases against the Rust port to verify identical outputs",
+          "Profile codebases to identify hot paths and loops worth moving out of interpreted runtimes",
+          "Lift fully verified components and dependencies into a standalone pure Rust application"
+        ],
+        "llm_used": true,
+        "quick_start": "cargo install rust-anything && rust-anything setup",
+        "safety": "ok",
+        "safety_reason": "Legitimate code migration and testing utility for software development.",
+        "scene": "You watch a Node.js server crawl under load, but rewriting the entire application in Rust from scratch is too risky to justify.",
+        "social_text": "Rewrite your app in Rust piece by piece with automated differential testing against your original code.",
+        "summary": "rust-anything sits alongside your existing codebase in TypeScript, JavaScript, Python, C, Go, Ruby, or Java to facilitate a gradual migration to Rust. It operates by capturing inputs, return values, and thrown errors from the original implementation during automated test runs. Developers or coding agents then write the Rust equivalent, which is validated through rigorous differential replaying against the recorded behaviors before lifting the component into a pure Rust binary.",
+        "surfaces": {
+          "Facebook_body": "Migrating a large software project to a faster language is usually an all-or-nothing gamble that risks breaking existing functionality. A new approach lets developers rewrite applications piece by piece rather than all at once, making modernization much safer.\n\nThe tool sits alongside your existing code in languages like Python, JavaScript, or Go. During automated test runs, it records real inputs, return values, and errors from your original implementation. Developers or coding agents then write the equivalent logic in Rust. The system replays thousands of those recorded test cases against the new Rust port to verify that every single output matches the original byte for byte before you lift the component into a pure binary.\n\nThis method is designed for software engineers and teams maintaining performance-critical legacy applications who want the speed and safety of Rust without the risk of a massive rewrite.",
+          "Facebook_headline": "Migrate your old code to Rust safely",
+          "Facebook_lead": "Rewrite your software into Rust one piece at a time without breaking anything along the way, checking every result against your original tests.",
+          "bluesky_headline": "Rewrite apps in Rust piece by piece",
+          "bluesky_lead": "Record real inputs and outputs to verify your new Rust code matches the original byte for byte.",
+          "devto_body": "## What it is\n\nrust-anything is an open-source development tool designed to facilitate the gradual migration of legacy codebases written in languages like TypeScript, JavaScript, Python, C, Go, Ruby, or Java into pure Rust. Instead of a risky, all-at-once rewrite, it enables developers to port applications component by component while guaranteeing identical behavior.\n\n## How it works\n\nThe tool operates by capturing inputs, return values, and thrown errors from your original implementation during automated test runs. This creates a rigorous behavioral baseline. Developers or AI coding agents then write the Rust equivalent. Using differential replaying, thousands of recorded test cases are executed against the new Rust port to verify identical outputs before lifting the component into a standalone binary.\n\n## Key features\n\n- Record original application behavior on edge cases to establish a reliable baseline\n- Bridge generated Rust crates with wrappers so callers retain the original API structure\n- Replay thousands of recorded test cases against the Rust port to verify identical outputs\n- Profile codebases to identify hot paths and loops worth moving out of interpreted runtimes\n- Lift fully verified components and dependencies into a standalone pure Rust application\n\n## Getting started\n\nClone the repository from GitHub to begin your migration journey. Ensure you have Rust and your source language's runtime installed. Follow the documentation in the repository to start capturing test baselines for your specific project.\n\n## When not to use it\n\nDo not use this tool if you are looking for an automated code translator; you still have to write the Rust code yourself. It is also unnecessary for greenfield projects or very small scripts where a total rewrite from scratch is faster and simpler.",
+          "seo_description": "Rewrite your apps in Rust one piece at a time by capturing original inputs and outputs to verify every new component matches byte for byte.",
+          "seo_query": "migrate legacy code to rust incrementally",
+          "seo_title": "Migrate legacy code to Rust incrementally - rust-anything",
+          "telegraph_angle": "Explain the architectural philosophy behind incremental language migration and why differential testing solves the traditional rewrite bottleneck."
+        },
+        "tension": "A complete rewrite risks subtle regressions, breaks existing integrations, and leaves your team blind to edge cases until production.",
+        "turn": "rust-anything lets you capture exact inputs and outputs from the original app, write the port in Rust, and diff every single case before replacing the old code.",
+        "verdict": "An exceptionally thorough tool for methodical rewrites, though you still have to write the Rust code yourself.",
+        "who_for": "Developers migrating performance-critical legacy code or whole apps to Rust without breaking existing behavior.",
+        "why_now": "AI coding agents and improved FFI tooling make incremental, behavior-verified rewrites practical for production codebases."
+      },
+      "homepage": "https://www.npmjs.com/package/rust-anything",
+      "id": 1459971684,
+      "image_url": "https://i.ibb.co/MT7bTdS/erkamyaman-rust-anything-readme-preview-3336b12e75df.jpg",
+      "is_dual_use": false,
+      "is_hidden_gem": false,
+      "language": "Rust",
+      "license": {
+        "key": "mit",
+        "name": "MIT License",
+        "node_id": "MDc6TGljZW5zZTEz",
+        "spdx_id": "MIT",
+        "url": "https://api.github.com/licenses/mit"
+      },
+      "media_urls": [
+        "https://raw.githubusercontent.com/erkamyaman/rust-anything/main/docs/assets/prettier.gif",
+        "https://raw.githubusercontent.com/erkamyaman/rust-anything/main/docs/assets/json-server.gif",
+        "https://raw.githubusercontent.com/erkamyaman/rust-anything/main/docs/assets/effects.gif",
+        "https://raw.githubusercontent.com/erkamyaman/rust-anything/main/docs/assets/brands/coderabbit.png",
+        "https://raw.githubusercontent.com/erkamyaman/rust-anything/main/docs/assets/logo.png"
+      ],
+      "name": "rust-anything",
+      "open_issues": 1,
+      "published_at": "2026-11-20T01:13:59.416552Z",
+      "pushed_at": "2026-11-19T23:14:21Z",
+      "readme_fp": "b68bd615a45fcbdd",
+      "repo_id": 1459971684,
+      "revisit_of": "",
+      "revisit_reason": "",
+      "score": 92.71,
+      "slot": "us_evening",
+      "sources": [
+        "github_search",
+        "telegram:open_source_friend",
+        "telegram:github_repos"
+      ],
+      "stars": 5212,
+      "telegram_chat_id": "@GitHub_Open_Source",
+      "telegram_link": "https://t.me/GitHub_Open_Source/3624",
+      "telegram_message_id": 3624,
+      "telegraph_url": "https://telegra.ph/rust-anything-Gradual-App-Migration-to-Rust-with-Behavior-Verification-11-20",
+      "topics": [
+        "agent-skills",
+        "claude-code",
+        "cli",
+        "code-migration",
+        "codex",
+        "ffi",
+        "golang",
+        "java",
+        "javascript",
+        "mcp",
+        "migration",
+        "napi",
+        "performance",
+        "porting",
+        "pyo3",
+        "python",
+        "rewrite",
+        "ruby",
+        "rust",
+        "typescript"
+      ],
+      "updated_at": "2026-11-20T01:13:28Z",
+      "url": "https://github.com/erkamyaman/rust-anything",
       "visual_host": "imgbb",
       "visual_kind": "readme"
     },
@@ -9312,81 +9436,6 @@
   "queue": [
     {
       "archived": false,
-      "contributors_count": 14,
-      "created_at": "2026-11-16T12:10:36Z",
-      "default_branch": "main",
-      "description": "Rewrite your whole app in Rust, one piece at a time, checked against the original's recorded behavior at every step. CLIs, HTTP servers and libraries in TypeScript, Python, C, Go, Ruby and Java.",
-      "disabled": false,
-      "fork": false,
-      "forks": 413,
-      "forks_count": 413,
-      "full_name": "erkamyaman/rust-anything",
-      "has_readme": true,
-      "homepage": "https://www.npmjs.com/package/rust-anything",
-      "id": 1459971684,
-      "is_dual_use": false,
-      "is_hidden_gem": false,
-      "language": "Rust",
-      "license": {
-        "key": "mit",
-        "name": "MIT License",
-        "node_id": "MDc6TGljZW5zZTEz",
-        "spdx_id": "MIT",
-        "url": "https://api.github.com/licenses/mit"
-      },
-      "media_urls": [
-        "https://raw.githubusercontent.com/erkamyaman/rust-anything/main/docs/assets/prettier.gif",
-        "https://raw.githubusercontent.com/erkamyaman/rust-anything/main/docs/assets/json-server.gif",
-        "https://raw.githubusercontent.com/erkamyaman/rust-anything/main/docs/assets/effects.gif",
-        "https://raw.githubusercontent.com/erkamyaman/rust-anything/main/docs/assets/brands/coderabbit.png",
-        "https://raw.githubusercontent.com/erkamyaman/rust-anything/main/docs/assets/logo.png"
-      ],
-      "name": "rust-anything",
-      "non_software_reason": "",
-      "open_issues": 0,
-      "open_issues_count": 0,
-      "owner_repo_count": 1,
-      "pushed_at": "2026-11-19T23:14:21Z",
-      "readme": "",
-      "readme_excerpt": "<p align=\"center\">\n  <img src=\"docs/assets/logo.png\" width=\"160\" height=\"160\" alt=\"The rust-anything crab\">\n</p>\n\n<h1 align=\"center\">rust-anything</h1>\n\n<p align=\"center\"><b>Rewrite your app in Rust, and prove it still behaves the same.</b></p>\n\n<p align=\"center\">New in 2.0: <a href=\"docs/real-world.md#prettier\">Prettier, ported to Rust</a>. 19x faster · 15,837 of 17,224 recorded runs fully in Rust · every run byte-identical</p>\n\n<p align=\"center\">\n  <a href=\"https://crates.io/crates/rust-anything\"><img src=\"https://img.shields.io/crates/v/rust-anything?color=E2862A&label=crates.io\" alt=\"crates.io version\"></a>\n  <a href=\"https://www.npmjs.com/package/rust-anything\"><img src=\"https://img.shields.io/npm/v/rust-anything?color=E2862A&label=npm\" alt=\"npm version\"></a>\n  <a href=\"https://github.com/erkamyaman/rust-anything/actions/workflows/ci.yml\"><img src=\"https://img.shields.io/github/actions/workflow/status/erkamyaman/rust-anything/ci.yml?branch=main&label=tests\" alt=\"Tests\"></a>\n  <a href=\"https://github.com/erkamyaman/rust-anything\"><img src=\"https://img.shields.io/github/stars/erkamyaman/rust-anything?style=social\" alt=\"GitHub stars\"></a>\n  <a href=\"https://github.com/AIshihzong/",
-      "readme_len": 18086,
-      "repo_id": 1459971684,
-      "score": 92.71,
-      "source_name": "github_search",
-      "sources": [
-        "github_search",
-        "telegram:open_source_friend",
-        "telegram:github_repos"
-      ],
-      "stargazers_count": 5168,
-      "stars": 5168,
-      "topics": [
-        "agent-skills",
-        "claude-code",
-        "cli",
-        "code-migration",
-        "codex",
-        "ffi",
-        "golang",
-        "java",
-        "javascript",
-        "mcp",
-        "migration",
-        "napi",
-        "performance",
-        "porting",
-        "pyo3",
-        "python",
-        "rewrite",
-        "ruby",
-        "rust",
-        "typescript"
-      ],
-      "updated_at": "2026-11-20T00:23:48Z",
-      "url": "https://github.com/erkamyaman/rust-anything"
-    },
-    {
-      "archived": false,
       "contributors_count": 216,
       "created_at": "2026-09-30T13:41:20Z",
       "default_branch": "main",
@@ -13364,8 +13413,8 @@
     "erkamyaman/rust-anything": {
       "first_seen_at": "2026-11-20T00:25:29.393745Z",
       "full_name": "erkamyaman/rust-anything",
-      "last_decision": "queued",
-      "last_seen_at": "2026-11-20T00:25:29.393748Z",
+      "last_decision": "published",
+      "last_seen_at": "2026-11-20T01:13:59.416841Z",
       "repo_id": 1459971684,
       "sources": [
         "github_search",
