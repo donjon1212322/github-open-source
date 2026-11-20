@@ -612,3 +612,4 @@
 {"platform": "devto", "repo": "erkamyaman/rust-anything", "ts": "2026-11-20T13:33:54.085559Z", "type": "article_published", "url": "https://dev.to/githubopensource/migrate-legacy-code-to-rust-incrementally-rust-anything-36f5"}
 {"deleted": 0, "ts": "2026-11-20T15:47:53.754304Z", "type": "moderation_completed", "updates": 0}
 {"failures": 1, "gemini_error_class": "capacity_503", "reason": "gemini_unavailable", "repo": "elementalsouls/claude-bughunter", "slot": "us_morning", "ts": "2026-11-20T16:25:02.663730Z", "type": "publish_skipped"}
+{"attempts": 1, "detail": "HTTP 204", "slot": "publish:us_morning", "ts": "2026-11-20T16:30:59.478954Z", "type": "watchdog_recovered", "verified": false}
