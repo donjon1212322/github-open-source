@@ -212,17 +212,17 @@
   },
   "dead_letters": [],
   "gemini_daily": {
-    "day": "2026-11-20",
-    "units": 27
+    "day": "2026-11-21",
+    "units": 6
   },
   "gemini_window": [
     [
-      1795223631.9765017,
-      3906
+      1795278229.2142406,
+      3968
     ],
     [
-      1795223641.3531194,
-      1374
+      1795278239.0963104,
+      1403
     ]
   ],
   "last_runs": {
@@ -330,9 +330,9 @@
       "telegram_message_id": 3626
     },
     "publish:us_morning": {
-      "finished_at": "2026-11-20T16:32:16.769836Z",
-      "repo": "elementalsouls/claude-bughunter",
-      "telegram_message_id": 3625
+      "finished_at": "2026-11-21T16:24:04.698165Z",
+      "repo": "mdiri-ai/soduwork",
+      "telegram_message_id": 3628
     },
     "publish:us_peak": {
       "finished_at": "2026-11-11T17:19:17.006267Z",
@@ -6484,6 +6484,126 @@
       "visual_host": "imgbb",
       "visual_kind": "card"
     },
+    "mdiri-ai/soduwork": {
+      "articles": {},
+      "card_style": "editorial_daily",
+      "category": "DevTools",
+      "contributors_count": 54,
+      "created_at": "2026-10-29T02:43:14Z",
+      "crossposts": {
+        "bluesky": {
+          "attempts": 0,
+          "due_at": "2026-11-21T18:00:00+00:00",
+          "status": "pending"
+        }
+      },
+      "description": "The AI-native engine for teams and their agents. Multi-harness, multi-agent, self-hosted.",
+      "description_fp": "247cf9403a6194d9",
+      "forks": 495,
+      "full_name": "mdiri-ai/SoduWork",
+      "generated": {
+        "article_markdown": "## What it is\n\nSoduWork is a self-hosted engine designed to move AI agent interactions beyond simple chat threads. Instead of treating AI as a conversational partner, it treats AI as an execution engine. It forces a structured workflow: you submit a request with specific acceptance criteria, an agent executes the work, a second agent reviews the result, and a human must sign off before the task is considered complete.\n\n## Why it matters\n\nMost developer AI tooling today is built around the chat interface. While great for brainstorming, this model fails when you need reliable, repeatable output. You end up with 'prompt drift,' where the AI forgets constraints, or 'knowledge loss,' where a perfect prompt chain is buried in a chat history you can't easily reference later. SoduWork addresses this by turning successful agent interactions into versioned, reusable plugins that your entire team can access.\n\n## Key features\n\n- **Dual-agent verification:** The system uses one agent to execute tasks and another to review the output against your acceptance criteria.\n- **Human-in-the-loop:** Tasks remain open until a human explicitly signs off, ensuring the AI doesn't just 'hallucinate' that it finished the job.\n- **Plugin system:** Capture successful AI interactions as reusable, versioned plugins for team-wide use.\n- **Model-agnostic:** Supports switching between different model harnesses (e.g., DeepSeek, Qwen, Codex) mid-conversation.\n- **Self-hosted deployment:** Runs via Docker, keeping data and governance within your own infrastructure.\n\n## Quick start\n\nTo run from source on macOS or Linux, clone the repository and execute the start script:\n\n```bash\ngit clone https://github.com/mdiri-ai/SoduWork\ncd SoduWork\nsh start.sh --desktop\n```\n\nFor team deployments, you can use the provided Docker deployment script:\n\n```bash\npython3 ops/self-host/deploy.py up\n```\n\n## Who should try it\n\nThis is for engineering teams who are already using AI agents but are struggling with inconsistent output and lack of governance. If you are tired of copy-pasting code from chat windows and want to build a library of standardized AI workflows, this is the right tool.\n\n## Verdict\n\nSoduWork is a practical step toward agentic maturity. It is honest about the fact that AI needs oversight, not just more prompts. It requires the overhead of self-hosting and managing your own model providers, so it is likely overkill for solo developers just looking for a quick code snippet, but it is a strong contender for teams building internal AI tooling.",
+        "article_title": "How to build verifiable AI agent workflows with SoduWork",
+        "card_hook": "AI agents that actually finish the job",
+        "card_subline": "A self-hosted engine for multi-agent workflows with built-in review and team-wide plugin sharing",
+        "category": "DevTools",
+        "discussion_question": "Do you prefer agents that just execute, or do you need a mandatory review step before you see the code?",
+        "hook": "Orchestrate multi-agent workflows where 'done' requires human sign-off and automated review.",
+        "key_features": [
+          "Dual-agent verification: One agent executes tasks while another reviews output against defined acceptance criteria.",
+          "Human-in-the-loop: Tasks remain open until a human explicitly signs off on the agent's delivery.",
+          "Plugin system: Capture successful AI interactions as reusable, versioned plugins for team-wide use.",
+          "Model-agnostic: Supports switching between different model harnesses (e.g., DeepSeek, Qwen, Codex) mid-conversation.",
+          "Self-hosted deployment: Runs via Docker, keeping data and governance within your own infrastructure."
+        ],
+        "llm_used": true,
+        "quick_start": "sh start.sh --desktop",
+        "safety": "ok",
+        "safety_reason": "It is a standard agent orchestration platform for internal team use.",
+        "scene": "You are deep in a chat thread with an LLM, iterating on code generation, but you've lost track of the original requirements and the last three versions of the script are just sitting in the history.",
+        "social_text": "Stop losing your best AI prompts in chat history. SoduWork turns successful agent workflows into reusable plugins with mandatory human sign-off and automated review.",
+        "summary": "SoduWork acts as a central hub for agent orchestration, sitting between your LLM providers and your team's workflow. It enforces a strict lifecycle: you define acceptance criteria, an agent executes the task, a secondary agent reviews the output against those criteria, and a human provides final sign-off. Successful workflows can be codified into reusable plugins for the entire team.",
+        "surfaces": {
+          "Facebook_body": "Many teams struggle to keep track of what their automated digital assistants are doing. When artificial intelligence tools work without supervision, mistakes easily slip through the cracks. This self-hosted system helps you manage complex projects by adding a strict review process to every task.\n\nHere is how it works behind the scenes. When you assign a task, one automated system does the work while a second independent system checks the results against your rules. Nothing is finalized until a human team member looks it over and gives explicit approval. Successful workflows can then be saved and reused across your entire organization.\n\nThis tool is built for engineering groups and technical leads who want to move past simple chat windows and build reliable, multi-step automation. It requires setting up your own servers and connecting your preferred intelligence providers, making it ideal for teams that want complete control over their digital infrastructure.",
+          "Facebook_headline": "Manage your team's AI projects safely",
+          "Facebook_lead": "Keep your automated digital assistants on track by adding automatic checks and mandatory human sign-offs to every single project.",
+          "bluesky_headline": "Build reliable AI workflows with built-in human reviews",
+          "bluesky_lead": "An open-source hub that requires an automated check and human sign-off before your AI agents finish tasks.",
+          "devto_body": "## What it is\n\nSoduWork is an open-source, self-hosted hub designed for orchestrating multi-agent workflows. Written in JavaScript and available under its repository license, it bridges the gap between raw model providers and practical team governance by enforcing a structured lifecycle of execution, automated review, and human sign-off.\n\n## How it works\n\nThe engine sits between your model harnesses and your daily operations. When a task is initiated, a primary agent executes the workload. A secondary agent immediately reviews the output against predefined acceptance criteria. The task remains in a pending state until a human operator provides final verification.\n\n## Key features\n\n- Dual-agent verification separating execution from quality control\n- Mandatory human-in-the-loop sign-off for critical task completion\n- Model-agnostic design supporting switches between different harnesses mid-conversation\n- Reusable plugin system to codify successful workflows\n- Self-hosted deployment via Docker for infrastructure control\n\n## Getting started\n\nTo run SoduWork locally or on your infrastructure, clone the repository and deploy via Docker:\n\n```bash\ngit clone https://github.com/mdiri-ai/SoduWork.git\ncd SoduWork\ndocker compose up -d\n```\n\nConfigure your environment variables with your preferred model provider endpoints before starting the containers.\n\n## When not to use it\n\nAvoid SoduWork if you only need lightweight, chat-based interactions without complex governance, or if your team lacks the infrastructure overhead to self-host and manage external model providers.",
+          "seo_description": "Coordinate multi-agent AI tasks with automated reviews and human sign-offs using SoduWork, a self-hosted open-source orchestration hub for teams.",
+          "seo_query": "open source ai agent workflow orchestrator",
+          "seo_title": "Open-source AI agent workflow orchestrator - SoduWork",
+          "telegraph_angle": "Explain the architectural shift from chat-based AI to governed multi-agent workflows, detailing the trade-offs of self-hosting versus managed convenience."
+        },
+        "tension": "You end up copy-pasting output into your IDE, manually verifying it, and then realizing the agent forgot the edge cases you mentioned ten messages ago, forcing you to start the whole prompt chain over.",
+        "turn": "SoduWork moves the interaction out of the chat window and into a request-based system where acceptance criteria are mandatory, and the agent's work is automatically validated before it reaches you.",
+        "verdict": "A solid choice for teams tired of 'chat-only' AI, though it requires the overhead of self-hosting and setting up your own model providers.",
+        "who_for": "Engineering teams managing complex AI agent workflows.",
+        "why_now": "As teams move from simple chat-based AI to multi-step agentic workflows, the lack of standardized review and governance is becoming a bottleneck."
+      },
+      "homepage": "https://www.soduwork.ai",
+      "id": 1437869585,
+      "image_url": "https://i.ibb.co/HLv0YMjJ/mdiri-ai-Sodu-Work-preview-bd233ea5c2ab.jpg",
+      "is_dual_use": false,
+      "is_hidden_gem": false,
+      "language": "JavaScript",
+      "license": {
+        "key": "mit",
+        "name": "MIT License",
+        "node_id": "MDc6TGljZW5zZTEz",
+        "spdx_id": "MIT",
+        "url": "https://api.github.com/licenses/mit"
+      },
+      "media_urls": [
+        "https://raw.githubusercontent.com/mdiri-ai/SoduWork/main/docs/assets/product-architecture.en.png",
+        "https://raw.githubusercontent.com/mdiri-ai/SoduWork/main/docs/assets/runner-architecture.en.png",
+        "https://raw.githubusercontent.com/mdiri-ai/SoduWork/main/client/build/icons/256x256.png"
+      ],
+      "name": "SoduWork",
+      "open_issues": 294,
+      "published_at": "2026-11-21T16:24:04.697760Z",
+      "pushed_at": "2026-11-21T16:03:17Z",
+      "readme_fp": "3f310e8c12ef8a35",
+      "repo_id": 1437869585,
+      "revisit_of": "",
+      "revisit_reason": "",
+      "score": 88.153,
+      "slot": "us_morning",
+      "sources": [
+        "github_search"
+      ],
+      "stars": 6347,
+      "telegram_chat_id": "@GitHub_Open_Source",
+      "telegram_link": "https://t.me/GitHub_Open_Source/3628",
+      "telegram_message_id": 3628,
+      "telegraph_url": "https://telegra.ph/How-to-build-verifiable-AI-agent-workflows-with-SoduWork-11-21",
+      "topics": [
+        "agent-harness",
+        "agent-orchestration",
+        "agent-workflows",
+        "ai-agents",
+        "ai-workflows",
+        "anti-slop",
+        "claude-code",
+        "codex",
+        "deepseek",
+        "electron",
+        "fastapi",
+        "harness",
+        "human-in-the-loop",
+        "llm",
+        "mcp",
+        "multi-agent",
+        "opencode",
+        "plugin-system",
+        "self-hosted",
+        "team-collaboration"
+      ],
+      "updated_at": "2026-11-21T16:22:56Z",
+      "url": "https://github.com/mdiri-ai/SoduWork",
+      "visual_host": "imgbb",
+      "visual_kind": "card"
+    },
     "microsoft/tokeneconomizer": {
       "articles": {
         "devto": {
@@ -9934,132 +10054,6 @@
       ],
       "updated_at": "2026-11-21T00:23:37Z",
       "url": "https://github.com/BaaRai/ARTEX"
-    },
-    {
-      "archived": false,
-      "contributors_count": 66,
-      "created_at": "2026-10-20T09:13:06Z",
-      "default_branch": "main",
-      "description": "给国产电视的一块干净桌面：参照 tvOS 设计的开源 Android TV 桌面，没有广告，开机自动接管。A tvOS-style launcher for Xiaomi, TCL and other China-market TVs.",
-      "disabled": false,
-      "fork": false,
-      "forks": 1110,
-      "forks_count": 1110,
-      "full_name": "pengchujin/aerial-tv",
-      "has_readme": true,
-      "homepage": "https://aerial.qust.me",
-      "id": 1426780056,
-      "is_dual_use": false,
-      "is_hidden_gem": false,
-      "language": "Kotlin",
-      "license": {
-        "key": "mit",
-        "name": "MIT License",
-        "node_id": "MDc6TGljZW5zZTEz",
-        "spdx_id": "MIT",
-        "url": "https://api.github.com/licenses/mit"
-      },
-      "media_urls": [
-        "https://raw.githubusercontent.com/pengchujin/aerial-tv/main/site/img/screensaver-aerial.jpg",
-        "https://raw.githubusercontent.com/pengchujin/aerial-tv/main/site/img/home.jpg",
-        "https://raw.githubusercontent.com/pengchujin/aerial-tv/main/site/img/stock-xiaomi.jpg",
-        "https://raw.githubusercontent.com/pengchujin/aerial-tv/main/site/img/focus.jpg",
-        "https://raw.githubusercontent.com/pengchujin/aerial-tv/main/site/img/grid.jpg",
-        "https://raw.githubusercontent.com/pengchujin/aerial-tv/main/site/img/folder.jpg",
-        "https://raw.githubusercontent.com/pengchujin/aerial-tv/main/site/img/control-center.jpg",
-        "https://raw.githubusercontent.com/pengchujin/aerial-tv/main/site/img/columns.jpg"
-      ],
-      "name": "aerial-tv",
-      "non_software_reason": "",
-      "open_issues": 406,
-      "open_issues_count": 406,
-      "owner_repo_count": 1,
-      "pushed_at": "2026-11-20T13:42:24Z",
-      "readme": "",
-      "readme_excerpt": "<div align=\"center\">\n\n<img src=\"docs/brand/icon.png\" width=\"96\" alt=\"Aerial 图标\">\n\n# Aerial\n\n**给国产电视的一块干净桌面。**\n\n参照 Apple TV 做的 Android TV 桌面：没有广告，没有推荐流，只有你的 App、壁纸和航拍屏保。<br>\n适合小米、TCL、创维、索尼等国产电视，也能装在盒子和投影仪上。开机自动进入，待机也不会被清理。\n\n**中文** · [English](README.en.md)\n\n<a href=\"https://aerial.qust.me\"><img alt=\"官网\" src=\"https://img.shields.io/badge/%E5%AE%98%E7%BD%91-1f6feb?style=for-the-badge&logo=safari&logoColor=white\"></a>\n<a href=\"https://github.com/pengchujin/aerial-tv/releases/latest\"><img alt=\"下载 APK\" src=\"https://img.shields.io/badge/%E4%B8%8B%E8%BD%BD%20APK-34a853?style=for-the-badge&logo=android&logoColor=white\"></a>\n<a href=\"#安装\"><img alt=\"安装\" src=\"https://img.shields.io/badge/%E5%AE%89%E8%A3%85-d97757?style=for-the-badge&logo=gnubash&logoColor=white\"></a>\n\n<a href=\"https://github.com/pengchujin/aerial-tv/releases/latest\"><img alt=\"版本\" src=\"https://img.shields.io/github/v/release/pengchujin/aerial-tv?style=flat-square&label=%E7%89%88%E6%9C%AC&color=2997ff\"></a>\n<a href=\"LICENSE\"><img alt=\"许可证 MIT\" src=\"https://img.shields.io/badge/%E8%AE%B8%E5%8F%AF%E8%AF%81-MIT-555555?style=flat-square\"></a>\n<img alt=\"Android TV 5.0+\" src=\"https://img.shields.io/badge/Android%20TV-5.0%2B-3ddc84?sty",
-      "readme_len": 25973,
-      "repo_id": 1426780056,
-      "score": 88.5,
-      "source_name": "github_search",
-      "sources": [
-        "github_search"
-      ],
-      "stargazers_count": 12745,
-      "stars": 12745,
-      "topics": [],
-      "updated_at": "2026-11-21T00:18:11Z",
-      "url": "https://github.com/pengchujin/aerial-tv"
-    },
-    {
-      "archived": false,
-      "contributors_count": 49,
-      "created_at": "2026-10-29T02:43:14Z",
-      "default_branch": "main",
-      "description": "The AI-native engine for teams and their agents. Multi-harness, multi-agent, self-hosted.",
-      "disabled": false,
-      "fork": false,
-      "forks": 446,
-      "forks_count": 446,
-      "full_name": "mdiri-ai/SoduWork",
-      "has_readme": true,
-      "homepage": "https://www.soduwork.ai",
-      "id": 1437869585,
-      "is_dual_use": false,
-      "is_hidden_gem": false,
-      "language": "JavaScript",
-      "license": {
-        "key": "mit",
-        "name": "MIT License",
-        "node_id": "MDc6TGljZW5zZTEz",
-        "spdx_id": "MIT",
-        "url": "https://api.github.com/licenses/mit"
-      },
-      "media_urls": [
-        "https://raw.githubusercontent.com/mdiri-ai/SoduWork/main/docs/assets/product-architecture.en.png",
-        "https://raw.githubusercontent.com/mdiri-ai/SoduWork/main/docs/assets/runner-architecture.en.png",
-        "https://raw.githubusercontent.com/mdiri-ai/SoduWork/main/client/build/icons/256x256.png"
-      ],
-      "name": "SoduWork",
-      "non_software_reason": "",
-      "open_issues": 256,
-      "open_issues_count": 256,
-      "owner_repo_count": 1,
-      "pushed_at": "2026-11-20T23:50:31Z",
-      "readme": "",
-      "readme_excerpt": "**English** · [简体中文](README.zh-CN.md)\n\n> **中文文档入口：[文档目录](docs/README.zh-CN.md) · [安装与启动](docs/getting-started.md) · [开发指南](docs/development.md)**\n\n<div align=\"center\">\n\n<img src=\"client/build/icons/256x256.png\" alt=\"SoduWork\" width=\"96\" />\n\n# SoduWork\n\n## The AI-native engine for teams and their agents\n\n**A chat ends with an answer. A SoduWork request ends when the person who asked signs off.**\n\n**Multi-harness · Multi-agent · Self-hosted**\n\nWorks with Pi · OpenCode · DeepSeek Harness · Qwen Code · Kimi Code · Codex Harness · Codex\n\n```sh\ngit clone https://github.com/mdiri-ai/SoduWork\ncd SoduWork\n```\n\n| Platform | Start command |\n| --- | --- |\n| macOS / Linux | `sh start.sh --desktop` |\n| Windows PowerShell | `.\\start.cmd --desktop` |\n| Windows Command Prompt | `start.cmd --desktop` |\n\n[Website](https://soduwork.ai) | [Live demo](https://soduwork.ai) | [Documentation](docs/README.md) | [Docs website](https://dev.soduwork.ai) | [Releases](https://github.com/mdiri-ai/SoduWork/releases) | [Discord](https://discord.gg/AXYNrAYHy)\n\n[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)\n[![Release](https://img.shields.io/github/v/release/mdiri-ai/SoduWork)](https://",
-      "readme_len": 24428,
-      "repo_id": 1437869585,
-      "score": 88.153,
-      "source_name": "github_search",
-      "sources": [
-        "github_search"
-      ],
-      "stargazers_count": 5972,
-      "stars": 5972,
-      "topics": [
-        "agent-harness",
-        "agent-orchestration",
-        "agent-workflows",
-        "ai-agents",
-        "ai-workflows",
-        "anti-slop",
-        "claude-code",
-        "codex",
-        "deepseek",
-        "electron",
-        "fastapi",
-        "harness",
-        "human-in-the-loop",
-        "llm",
-        "mcp",
-        "multi-agent",
-        "opencode",
-        "plugin-system",
-        "self-hosted",
-        "team-collaboration"
-      ],
-      "updated_at": "2026-11-21T00:19:00Z",
-      "url": "https://github.com/mdiri-ai/SoduWork"
     },
     {
       "archived": false,
@@ -16476,8 +16470,8 @@
     "mdiri-ai/soduwork": {
       "first_seen_at": "2026-11-16T00:25:34.703764Z",
       "full_name": "mdiri-ai/SoduWork",
-      "last_decision": "queued",
-      "last_seen_at": "2026-11-21T00:25:24.780509Z",
+      "last_decision": "published",
+      "last_seen_at": "2026-11-21T16:24:04.698150Z",
       "repo_id": 1437869585,
       "sources": [
         "github_search"
@@ -17569,8 +17563,8 @@
     "pengchujin/aerial-tv": {
       "first_seen_at": "2026-11-04T12:14:31.127582Z",
       "full_name": "pengchujin/aerial-tv",
-      "last_decision": "queued",
-      "last_seen_at": "2026-11-21T00:25:24.780122Z",
+      "last_decision": "rejected:readme_not_english",
+      "last_seen_at": "2026-11-21T16:23:48.537005Z",
       "repo_id": 1426780056,
       "sources": [
         "github_search"

@@ -655,3 +655,6 @@
 {"deleted": 0, "ts": "2026-11-21T12:47:49.863445Z", "type": "moderation_completed", "updates": 0}
 {"platform": "devto", "repo": "libracoder/kiri", "ts": "2026-11-21T13:33:55.652191Z", "type": "article_published", "url": "https://dev.to/githubopensource/lightweight-docker-desktop-alternative-kiri-container-runtime-29an"}
 {"deleted": 0, "ts": "2026-11-21T15:47:49.767705Z", "type": "moderation_completed", "updates": 0}
+{"reasons": ["readme_not_english"], "repo": "pengchujin/aerial-tv", "stage": "pre_llm", "ts": "2026-11-21T16:23:48.537025Z", "type": "publish_candidate_rejected"}
+{"preview_host": "imgbb", "repo": "mdiri-ai/soduwork", "ts": "2026-11-21T16:24:04.450157Z", "type": "published_as_text"}
+{"repo": "mdiri-ai/soduwork", "score": 88.153, "telegram_message_id": 3628, "telegraph_url": "https://telegra.ph/How-to-build-verifiable-AI-agent-workflows-with-SoduWork-11-21", "ts": "2026-11-21T16:24:04.698039Z", "type": "project_published"}
