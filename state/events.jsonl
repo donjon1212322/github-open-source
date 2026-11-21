@@ -658,3 +658,5 @@
 {"reasons": ["readme_not_english"], "repo": "pengchujin/aerial-tv", "stage": "pre_llm", "ts": "2026-11-21T16:23:48.537025Z", "type": "publish_candidate_rejected"}
 {"preview_host": "imgbb", "repo": "mdiri-ai/soduwork", "ts": "2026-11-21T16:24:04.450157Z", "type": "published_as_text"}
 {"repo": "mdiri-ai/soduwork", "score": 88.153, "telegram_message_id": 3628, "telegraph_url": "https://telegra.ph/How-to-build-verifiable-AI-agent-workflows-with-SoduWork-11-21", "ts": "2026-11-21T16:24:04.698039Z", "type": "project_published"}
+{"preview_host": "imgbb", "repo": "verlintas/noir", "ts": "2026-11-21T18:14:11.906564Z", "type": "published_as_text"}
+{"repo": "verlintas/noir", "score": 86.058, "telegram_message_id": 3629, "telegraph_url": "https://telegra.ph/NOIR-Terminal-Based-Android-Privacy-and-Permission-Audit-Tool-11-21", "ts": "2026-11-21T18:14:12.307457Z", "type": "project_published"}

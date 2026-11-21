@@ -213,15 +213,15 @@
   "dead_letters": [],
   "gemini_daily": {
     "day": "2026-11-21",
-    "units": 6
+    "units": 12
   },
   "gemini_window": [
     [
-      1795278229.2142406,
-      3968
+      1795284827.5333316,
+      3976
     ],
     [
-      1795278239.0963104,
+      1795284838.1201081,
       1403
     ]
   ],
@@ -325,9 +325,9 @@
       "telegram_message_id": 3627
     },
     "publish:us_midday": {
-      "finished_at": "2026-11-20T18:14:10.348907Z",
-      "repo": "yetone/magpie",
-      "telegram_message_id": 3626
+      "finished_at": "2026-11-21T18:14:12.307620Z",
+      "repo": "verlintas/noir",
+      "telegram_message_id": 3629
     },
     "publish:us_morning": {
       "finished_at": "2026-11-21T16:24:04.698165Z",
@@ -9106,6 +9106,124 @@
       "visual_host": "imgbb",
       "visual_kind": "card"
     },
+    "verlintas/noir": {
+      "articles": {},
+      "card_style": "",
+      "category": "Security",
+      "contributors_count": 4,
+      "created_at": "2026-10-31T21:34:39Z",
+      "crossposts": {
+        "bluesky": {
+          "attempts": 0,
+          "due_at": "2026-11-21T18:44:12.307235+00:00",
+          "status": "pending"
+        }
+      },
+      "description": "手机隐私审计：用 adb 扫出 Android 应用的权限、上报端点与数据流向，并给出可回滚的处置。Desktop Android leak audit: permissions, endpoints, data flows, reversible fixes.",
+      "description_fp": "a0d09bdaf7dd9d88",
+      "forks": 323,
+      "full_name": "Verlintas/NOIR",
+      "generated": {
+        "article_markdown": "## What it is\n\nNOIR is a desktop audit tool designed to inspect Android devices and APK files over ADB. Instead of relying on cloud services or manual proxy setups, it parses application manifests and extracts network endpoints directly from the device, organizing findings into structured risk assessments and actionable remediation steps.\n\n## Why it matters\n\nModern smartphones run hundreds of background packages with opaque data-sharing practices. Understanding exactly which app accesses specific sensors and where those data flows terminate usually demands tedious manual analysis. NOIR bridges this gap by automating local inspection without requiring root access or modifying system partitions.\n\n## Key features\n\n- List all apps with combined network and sensitive permissions.\n- Extract APK network endpoints locally using lightweight string analysis.\n- Map permissions to concrete data types like contacts, location, and storage.\n- Parse binary AndroidManifest.xml files for unprotected exported components.\n- Run optional deep scans using jadx to inspect high-risk runtime calls.\n\n## Quick start\n\nTo start the interactive wizard and check your connected device, run:\n\n```bash\nnoir\n```\n\n## Who should try it\n\nAndroid developers, security researchers, and engineers who want a fast, local command-line interface to inspect device telemetry and permissions.\n\n## Verdict\n\nAn indispensable utility for local device auditing that brings transparency to mobile permissions. While deep analysis requires external tools like jadx, the default ADB-driven workflow is fast and effective.",
+        "article_title": "NOIR: Terminal-Based Android Privacy and Permission Audit Tool",
+        "card_hook": "Android privacy audits from the terminal",
+        "card_subline": "Scan installed apps for hidden telemetry, data flows, and risky endpoints",
+        "category": "Security",
+        "discussion_question": "Which app surprised you the most during your first permission audit?",
+        "hook": "Audit Android app permissions and network endpoints over ADB without rooting your phone.",
+        "key_features": [
+          "List all apps with combined network and sensitive permissions",
+          "Extract APK network endpoints locally using lightweight string analysis",
+          "Map permissions to concrete data types like contacts, location, and storage",
+          "Parse binary AndroidManifest.xml files for unprotected exported components",
+          "Run optional deep scans using jadx to inspect high-risk runtime calls"
+        ],
+        "llm_used": true,
+        "quick_start": "noir",
+        "safety": "ok",
+        "safety_reason": "The project is a legitimate security audit and privacy tool for analyzing one's own Android devices and APKs.",
+        "scene": "You plug your phone into your laptop, suspecting an app is leaking location data in the background, but standard settings offer zero visibility into actual network endpoints.",
+        "social_text": "Audit Android app permissions, data flows, and hidden endpoints directly from your terminal over ADB.",
+        "summary": "NOIR connects via ADB to parse installed Android package manifests and DEX headers, extracting network URLs using lightweight string analysis instead of pulling full APK binaries. It cross-references permissions against known vendor domains and SDK telemetry signatures to compute risk scores, translating low-level system caps into human-readable data flow maps. Users can run guided wizards, generate structured reports across multiple formats, or invoke targeted decompilation for deeper inspection.",
+        "surfaces": {
+          "Facebook_body": "It is often difficult to know exactly what your phone is doing in the background. Many applications request access to your contacts, location, or storage, but tracking where that information actually goes is a challenge. This tool helps you take control by scanning your phone from your computer to reveal the hidden connections your apps are making.\n\nInstead of guessing which apps are trustworthy, you can see a clear map of your phone's data flow. The tool connects to your device to analyze the permissions and network endpoints of your installed apps. It translates complex system information into a simple report, showing you which apps are accessing sensitive data and where they are communicating.\n\nThis is a practical utility for anyone who wants to understand their device's privacy footprint better. It does not require special modifications to your phone, making it a straightforward way to audit your digital privacy. By identifying which apps are reaching out to external servers, you can make informed decisions about what stays on your device and what gets removed.",
+          "Facebook_headline": "Check which apps are tracking your phone data",
+          "Facebook_lead": "Find out which apps on your phone have access to your private information and where they are sending it, all from your computer.",
+          "bluesky_headline": "See exactly where your Android apps send data",
+          "bluesky_lead": "Audit app permissions and network connections directly from your computer without needing root access.",
+          "devto_body": "## What it is\nNOIR is an open-source Kotlin-based command-line tool designed for Android security auditing. It allows developers and privacy researchers to inspect installed Android applications, extract network endpoints, and analyze permissions without needing root access or manual APK extraction.\n\n## How it works\nNOIR utilizes the Android Debug Bridge (ADB) to interface with the device. Instead of downloading and decompiling full APK binaries—which is resource-intensive—it parses installed package manifests and DEX headers directly. It performs lightweight string analysis to identify network URLs and cross-references them against known SDK telemetry signatures to generate risk assessments.\n\n## Key features\n- **Permission Mapping:** Connects app permissions to specific data types like location, contacts, and storage.\n- **Endpoint Extraction:** Identifies network URLs embedded within the app structure.\n- **Manifest Analysis:** Parses binary AndroidManifest.xml files to find unprotected exported components.\n- **Deep Inspection:** Supports optional integration with jadx for targeted decompilation when deeper runtime analysis is required.\n\n## Getting started\nEnsure you have ADB installed and your device connected with USB debugging enabled. Clone the repository and build the project using Gradle:\n\n```bash\ngit clone https://github.com/Verlintas/NOIR\ncd NOIR\n./gradlew build\n```\n\nRun the tool to begin scanning your device's installed packages.\n\n## When not to use it\nNOIR is a diagnostic tool for security professionals and developers. It is not designed for casual users looking for a one-click privacy \"fix\" or a firewall solution. It provides data for analysis, not automated blocking or remediation.",
+          "seo_description": "Use this open-source tool to audit Android app permissions, network endpoints, and data flows directly from your computer without rooting your device.",
+          "seo_query": "how to audit android app permissions and network connections",
+          "seo_title": "Audit Android App Permissions - Open Source Tool",
+          "telegraph_angle": "Explain the growing necessity for local, transparent device auditing in an era of opaque telemetry and how this tool bridges the gap between complex system logs and actionable privacy insights."
+        },
+        "tension": "Manually inspecting app behavior requires setting up proxies, intercepting certificates, or pulling multi-gigabyte binaries just to find where telemetry goes.",
+        "turn": "NOIR automates the entire pipeline over ADB into a single terminal interface, though deep decompilation still requires external tooling like jadx.",
+        "verdict": "An essential terminal tool for auditing local device telemetry, best suited for developers and security researchers rather than casual users.",
+        "who_for": "Android developers and privacy-conscious engineers auditing device telemetry.",
+        "why_now": "Growing regulatory focus and opaque telemetry practices make local, transparent device auditing practical without relying on proprietary cloud services."
+      },
+      "homepage": "https://verlintas.dev/noir/",
+      "id": 1441272552,
+      "image_url": "https://i.ibb.co/Sw4WyMBT/verlintas-noir-readme-preview-0e86d966ae1b.jpg",
+      "is_dual_use": false,
+      "is_hidden_gem": false,
+      "language": "Kotlin",
+      "license": {
+        "key": "mit",
+        "name": "MIT License",
+        "node_id": "MDc6TGljZW5zZTEz",
+        "spdx_id": "MIT",
+        "url": "https://api.github.com/licenses/mit"
+      },
+      "media_urls": [
+        "https://raw.githubusercontent.com/Verlintas/NOIR/main/docs/screenshot.png"
+      ],
+      "name": "NOIR",
+      "open_issues": 1,
+      "published_at": "2026-11-21T18:14:12.307262Z",
+      "pushed_at": "2026-11-21T18:05:50Z",
+      "readme_fp": "",
+      "repo_id": 1441272552,
+      "revisit_of": "",
+      "revisit_reason": "",
+      "score": 86.058,
+      "slot": "us_midday",
+      "sources": [
+        "github_search"
+      ],
+      "stars": 3673,
+      "telegram_chat_id": "@GitHub_Open_Source",
+      "telegram_link": "https://t.me/GitHub_Open_Source/3629",
+      "telegram_message_id": 3629,
+      "telegraph_url": "https://telegra.ph/NOIR-Terminal-Based-Android-Privacy-and-Permission-Audit-Tool-11-21",
+      "topics": [
+        "adb",
+        "android",
+        "android-privacy",
+        "android-security",
+        "android-tools",
+        "apk-analysis",
+        "bloatware",
+        "cli",
+        "cross-platform",
+        "debloat",
+        "jadx",
+        "kotlin",
+        "kotlin-multiplatform",
+        "privacy",
+        "privacy-tools",
+        "security-audit",
+        "static-analysis",
+        "telemetry",
+        "terminal-ui",
+        "tui"
+      ],
+      "updated_at": "2026-11-21T15:01:12Z",
+      "url": "https://github.com/Verlintas/NOIR",
+      "visual_host": "imgbb",
+      "visual_kind": "readme"
+    },
     "wangzan101/mika": {
       "articles": {},
       "card_style": "editorial_daily",
@@ -10054,75 +10172,6 @@
       ],
       "updated_at": "2026-11-21T00:23:37Z",
       "url": "https://github.com/BaaRai/ARTEX"
-    },
-    {
-      "archived": false,
-      "contributors_count": 4,
-      "created_at": "2026-10-31T21:34:39Z",
-      "default_branch": "main",
-      "description": "手机隐私审计：用 adb 扫出 Android 应用的权限、上报端点与数据流向，并给出可回滚的处置。Desktop Android leak audit: permissions, endpoints, data flows, reversible fixes.",
-      "disabled": false,
-      "fork": false,
-      "forks": 323,
-      "forks_count": 323,
-      "full_name": "Verlintas/NOIR",
-      "has_readme": true,
-      "homepage": "https://verlintas.dev/noir/",
-      "id": 1441272552,
-      "is_dual_use": false,
-      "is_hidden_gem": false,
-      "language": "Kotlin",
-      "license": {
-        "key": "mit",
-        "name": "MIT License",
-        "node_id": "MDc6TGljZW5zZTEz",
-        "spdx_id": "MIT",
-        "url": "https://api.github.com/licenses/mit"
-      },
-      "media_urls": [
-        "https://raw.githubusercontent.com/Verlintas/NOIR/main/docs/screenshot.png"
-      ],
-      "name": "NOIR",
-      "non_software_reason": "",
-      "open_issues": 1,
-      "open_issues_count": 1,
-      "owner_repo_count": 1,
-      "pushed_at": "2026-11-16T03:43:17Z",
-      "readme": "",
-      "readme_excerpt": "```\n  ███╗   ██╗ ██████╗ ██╗██████╗\n  ████╗  ██║██╔═══██╗██║██╔══██╗\n  ██╔██╗ ██║██║   ██║██║██████╔╝\n  ██║╚██╗██║██║   ██║██║██╔══██╗\n  ██║ ╚████║╚██████╔╝██║██║  ██║\n  ╚═╝  ╚═══╝ ╚═════╝ ╚═╝╚═╝  ╚═╝\n```\n\n# NOIR\n\n[![build](https://github.com/Verlintas/NOIR/actions/workflows/build.yml/badge.svg)](https://github.com/Verlintas/NOIR/actions/workflows/build.yml)\n[![release](https://img.shields.io/github/v/release/Verlintas/NOIR)](https://github.com/Verlintas/NOIR/releases)\n[![license](https://img.shields.io/github/license/Verlintas/NOIR)](LICENSE)\n![platforms](https://img.shields.io/badge/platforms-macOS%20%7C%20Windows%20%7C%20Linux-2ea44f)\n\n[![AtomGit G-Star](https://atomgit.com/Verlintas/NOIR/star/new_badge.svg)](https://atomgit.com/Verlintas/NOIR)<br>\n<a href=\"https://trendshift.io/repositories/330705?utm_source=trendshift-badge&amp;utm_medium=badge&amp;utm_campaign=badge-trendshift-330705\" target=\"_blank\" rel=\"noopener noreferrer\"><img src=\"https://trendshift.io/api/badge/trendshift/repositories/330705/weekly?language=Kotlin\" alt=\"Verlintas/NOIR | Trendshift — #1 Kotlin repository of the week\" width=\"250\" height=\"55\"></a>\n<a href=\"https://trendshift.io/repositories/330705?utm_sour",
-      "readme_len": 15393,
-      "repo_id": 1441272552,
-      "score": 86.058,
-      "source_name": "github_search",
-      "sources": [
-        "github_search"
-      ],
-      "stargazers_count": 3669,
-      "stars": 3669,
-      "topics": [
-        "adb",
-        "android",
-        "android-privacy",
-        "android-security",
-        "android-tools",
-        "apk-analysis",
-        "bloatware",
-        "cli",
-        "cross-platform",
-        "debloat",
-        "jadx",
-        "kotlin",
-        "kotlin-multiplatform",
-        "privacy",
-        "privacy-tools",
-        "security-audit",
-        "static-analysis",
-        "telemetry",
-        "terminal-ui",
-        "tui"
-      ],
-      "updated_at": "2026-11-20T18:15:47Z",
-      "url": "https://github.com/Verlintas/NOIR"
     },
     {
       "archived": false,
@@ -19749,8 +19798,8 @@
     "verlintas/noir": {
       "first_seen_at": "2026-11-04T12:14:31.141231Z",
       "full_name": "Verlintas/NOIR",
-      "last_decision": "queued",
-      "last_seen_at": "2026-11-21T00:25:24.782402Z",
+      "last_decision": "published",
+      "last_seen_at": "2026-11-21T18:14:12.307610Z",
       "repo_id": 1441272552,
       "sources": [
         "github_search",
