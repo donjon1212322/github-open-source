@@ -5627,7 +5627,10 @@
         "bluesky": {
           "attempts": 0,
           "due_at": "2026-11-21T18:00:00+00:00",
-          "status": "pending"
+          "error": "",
+          "published_at": "2026-11-21T18:17:56.835240Z",
+          "status": "published",
+          "url": "https://bsky.app/profile/githubopensource.bsky.social/post/3n2tpknvsga22"
         }
       },
       "description": "A small, fast container runtime for macOS, Windows and Linux with free Ngrok alternative",
@@ -6494,7 +6497,8 @@
         "bluesky": {
           "attempts": 0,
           "due_at": "2026-11-21T18:00:00+00:00",
-          "status": "pending"
+          "held_reason": "not_best_of_day",
+          "status": "held"
         }
       },
       "description": "The AI-native engine for teams and their agents. Multi-harness, multi-agent, self-hosted.",
@@ -9116,7 +9120,8 @@
         "bluesky": {
           "attempts": 0,
           "due_at": "2026-11-21T18:44:12.307235+00:00",
-          "status": "pending"
+          "held_reason": "not_best_of_day",
+          "status": "held"
         }
       },
       "description": "手机隐私审计：用 adb 扫出 Android 应用的权限、上报端点与数据流向，并给出可回滚的处置。Desktop Android leak audit: permissions, endpoints, data flows, reversible fixes.",
