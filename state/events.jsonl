@@ -653,3 +653,4 @@
 {"deleted": 0, "ts": "2026-11-21T09:47:55.679144Z", "type": "moderation_completed", "updates": 0}
 {"minutes_late": 123.0, "schedule": "47 */3 * * *", "ts": "2026-11-21T11:50:00.096487Z", "type": "late_schedule_ignored"}
 {"deleted": 0, "ts": "2026-11-21T12:47:49.863445Z", "type": "moderation_completed", "updates": 0}
+{"platform": "devto", "repo": "libracoder/kiri", "ts": "2026-11-21T13:33:55.652191Z", "type": "article_published", "url": "https://dev.to/githubopensource/lightweight-docker-desktop-alternative-kiri-container-runtime-29an"}

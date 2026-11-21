@@ -227,11 +227,11 @@
   ],
   "last_runs": {
     "article": {
-      "finished_at": "2026-11-20T13:33:54.085727Z",
+      "finished_at": "2026-11-21T13:33:55.652340Z",
       "published": true,
       "reason": "published",
-      "repo": "erkamyaman/rust-anything",
-      "url": "https://dev.to/githubopensource/migrate-legacy-code-to-rust-incrementally-rust-anything-36f5"
+      "repo": "libracoder/kiri",
+      "url": "https://dev.to/githubopensource/lightweight-docker-desktop-alternative-kiri-container-runtime-29an"
     },
     "collect": {
       "discovered": 430,
@@ -5612,7 +5612,13 @@
       "visual_kind": "readme"
     },
     "libracoder/kiri": {
-      "articles": {},
+      "articles": {
+        "devto": {
+          "id": 5088359,
+          "published_at": "2026-11-21T13:33:55.652166Z",
+          "url": "https://dev.to/githubopensource/lightweight-docker-desktop-alternative-kiri-container-runtime-29an"
+        }
+      },
       "card_style": "",
       "category": "DevTools",
       "contributors_count": 35,
@@ -5626,6 +5632,7 @@
       },
       "description": "A small, fast container runtime for macOS, Windows and Linux with free Ngrok alternative",
       "description_fp": "4c7d229763154fbd",
+      "devto_cover_url": "https://i.ibb.co/MDwNv80g/libracoder-kiri-devto-cover-dada7df828bf.png",
       "forks": 547,
       "full_name": "libracoder/kiri",
       "generated": {
