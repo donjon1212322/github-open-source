@@ -671,3 +671,4 @@
 {"devto_id": 5090186, "ts": "2026-11-21T19:53:49.365550Z", "type": "news_article_published", "url": "https://dev.to/githubopensource/thinking-machines-inkling-2-mini-google-genie-4-api-and-gpt-62-astra-defenses-1oa5", "words": 1033}
 {"minutes_late": 398.9, "schedule": "33 13 * * *", "ts": "2026-11-21T20:11:52.986217Z", "type": "late_schedule_ignored"}
 {"channel": "GitHub_Open_Source", "posts": 12, "ts": "2026-11-21T20:23:54.249770Z", "type": "metrics_collected", "updated": 12}
+{"minutes_late": 321.1, "schedule": "23 16 * * *", "ts": "2026-11-21T21:44:03.799511Z", "type": "late_schedule_ignored"}
