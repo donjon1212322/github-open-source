@@ -669,3 +669,4 @@
 {"Gemini_video_input": false, "models": 10, "official_url": "", "stories": 6, "topic": "looped-transformers-and-genie-api", "ts": "2026-11-21T19:19:13.028034Z", "type": "ai_brief_published", "video_id": "tg-20261121-573b1a2a4f"}
 {"minutes_late": 63.3, "schedule": "47 */3 * * *", "ts": "2026-11-21T19:50:15.232642Z", "type": "late_schedule_ignored"}
 {"devto_id": 5090186, "ts": "2026-11-21T19:53:49.365550Z", "type": "news_article_published", "url": "https://dev.to/githubopensource/thinking-machines-inkling-2-mini-google-genie-4-api-and-gpt-62-astra-defenses-1oa5", "words": 1033}
+{"minutes_late": 398.9, "schedule": "33 13 * * *", "ts": "2026-11-21T20:11:52.986217Z", "type": "late_schedule_ignored"}
