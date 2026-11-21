@@ -213,16 +213,16 @@
   "dead_letters": [],
   "gemini_daily": {
     "day": "2026-11-20",
-    "units": 21
+    "units": 27
   },
   "gemini_window": [
     [
-      1795198436.416553,
-      3896
+      1795223631.9765017,
+      3906
     ],
     [
-      1795198442.9138,
-      1381
+      1795223641.3531194,
+      1374
     ]
   ],
   "last_runs": {
@@ -320,9 +320,9 @@
       "telegram_message_id": 3550
     },
     "publish:us_evening": {
-      "finished_at": "2026-11-20T01:13:59.416850Z",
-      "repo": "erkamyaman/rust-anything",
-      "telegram_message_id": 3624
+      "finished_at": "2026-11-21T01:14:07.086487Z",
+      "repo": "libracoder/kiri",
+      "telegram_message_id": 3627
     },
     "publish:us_midday": {
       "finished_at": "2026-11-20T18:14:10.348907Z",
@@ -5611,6 +5611,112 @@
       "visual_host": "imgbb",
       "visual_kind": "readme"
     },
+    "libracoder/kiri": {
+      "articles": {},
+      "card_style": "",
+      "category": "DevTools",
+      "contributors_count": 35,
+      "created_at": "2026-11-02T16:11:30Z",
+      "crossposts": {
+        "bluesky": {
+          "attempts": 0,
+          "due_at": "2026-11-21T18:00:00+00:00",
+          "status": "pending"
+        }
+      },
+      "description": "A small, fast container runtime for macOS, Windows and Linux with free Ngrok alternative",
+      "description_fp": "4c7d229763154fbd",
+      "forks": 547,
+      "full_name": "libracoder/kiri",
+      "generated": {
+        "article_markdown": "## What it is\n\nKiri is a container runtime written in Rust designed to be a drop-in replacement for Docker Desktop. It implements the Docker Engine API, meaning your existing `docker` CLI, Compose files, and build scripts continue to work without modification. Instead of running a heavy, persistent VM in the background, Kiri uses a lightweight architecture that keeps the daemon footprint around 15MB and puts the VM to sleep after 60 seconds of inactivity.\n\n## Why it matters\n\nFor many developers, Docker Desktop has become a resource hog. It consumes significant memory even when idle and often suffers from slow startup times. Kiri addresses this by prioritizing efficiency. By waking up in about 0.15 seconds and keeping the daemon small, it removes the friction of waiting for your container environment to be ready. It also adds quality-of-life features like automatic local domains with HTTPS and built-in Kubernetes support, making it a practical tool for local development.\n\n## Key features\n\n* **Fast Startup:** Containers start in approximately 2.5ms via the Docker API.\n* **Resource Efficient:** The daemon stays at ~15MB and sleeps when idle to save battery.\n* **Local Domains:** Automatically generates `http://<name>.kiri.local` for containers and Compose services, complete with HTTPS.\n* **Kubernetes Ready:** Includes a single-node k3s cluster accessible via `kiri k8s`.\n* **Easy Migration:** Use `kiri import` to bring your existing images, volumes, and containers over from Docker Desktop or OrbStack.\n\n## Quick start\n\nFirst, install Kiri via your package manager or the website. Once installed, you can immediately start using it with your existing Docker commands:\n\n```bash\ndocker --context kiri run --rm alpine echo hello\n```\n\nYou can also use the `kiri` CLI directly for advanced features:\n\n```bash\nkiri compose up -d\nkiri k8s start\n```\n\n## Who should try it\n\nKiri is ideal for developers who are frustrated by the resource usage of Docker Desktop but rely on the Docker ecosystem. If you are working on a laptop where battery life and memory are at a premium, or if you simply want a faster feedback loop when spinning up containers, this is a strong candidate.\n\n## Verdict\n\nKiri is a mature, performant alternative to the standard Docker Desktop experience. It is well-suited for daily development tasks and offers a noticeable improvement in startup speed and resource management. While it handles most standard use cases, as with any container runtime switch, you should verify that your specific volume mount configurations and networking setups are supported before making it your primary environment.",
+        "article_title": "Kiri: A Lightweight Rust-Based Container Runtime for Developers",
+        "card_hook": "Run containers without the bloat",
+        "card_subline": "A lightweight, Rust-based container runtime that replaces Docker Desktop",
+        "category": "DevTools",
+        "discussion_question": "Are you sticking with Docker Desktop, or have you already switched to a lighter runtime like Kiri or OrbStack?",
+        "hook": "Kiri runs containers with a 2.5ms start time, replacing heavy Docker Desktop with a 15MB Rust-based daemon.",
+        "key_features": [
+          "Starts containers in ~2.5ms via the Docker API.",
+          "Maintains a 15MB daemon footprint that sleeps after 60s of inactivity.",
+          "Provides automatic local domains (e.g., http://app.kiri.local) with built-in HTTPS.",
+          "Includes a single-node k3s Kubernetes cluster managed via the CLI.",
+          "Supports 'kiri import' to migrate existing images and volumes from Docker Desktop."
+        ],
+        "llm_used": true,
+        "quick_start": "docker --context kiri run --rm alpine echo hello",
+        "safety": "ok",
+        "safety_reason": "Legitimate container runtime and developer tool.",
+        "scene": "You open your laptop, fire up Docker Desktop, and watch the menu bar icon spin for ten seconds while your fans ramp up before you can even run a simple docker ps.",
+        "social_text": "Tired of Docker Desktop eating your RAM? Kiri is a Rust-based container runtime that starts in milliseconds and sleeps when idle. It drops into your existing workflow without changing your CLI commands.",
+        "summary": "Kiri is a container runtime written in Rust that implements the Docker Engine API, allowing it to drop in as a replacement for Docker Desktop. It manages containers via a small Linux VM that sleeps when idle, keeping the daemon footprint around 15MB. It supports standard Docker CLI commands, Compose, and BuildKit without requiring changes to your existing workflows.",
+        "surfaces": {
+          "Facebook_body": "Running containers on your computer should not drain your battery or hog your memory. Many developers struggle with background tools that consume excessive resources even when idle, slowing down everyday work.\n\nThis project offers a clean replacement that drops right into your existing workflow. It starts up in milliseconds and uses a tiny fraction of the memory that standard tools require. When you walk away from your keyboard, it goes to sleep so your system stays fast and quiet.\n\nBuilt for developers on any major operating system who want a faster and lighter way to manage containers without changing how they write code or build projects. It supports your current commands and tools out of the box, making the switch seamless.",
+          "Facebook_headline": "Run containers without the heavy resource drain",
+          "Facebook_lead": "Stop letting heavy background apps slow down your computer. This small, fast alternative starts instantly and stays out of your way until you need it.",
+          "bluesky_headline": "Run containers instantly with a tiny setup",
+          "bluesky_lead": "A lightweight Rust-based container tool that starts in milliseconds and sleeps when idle.",
+          "devto_body": "## What it is\n\nKiri is an open-source container runtime written in Rust that provides a lightweight drop-in replacement for Docker Desktop. Built to solve the problem of high idle resource consumption, it operates with a tiny 15MB daemon footprint and achieves container start times of around 2.5ms.\n\n## How it works\n\nUnder the hood, Kiri manages containers via a small Linux virtual machine that automatically goes to sleep after 60 seconds of inactivity. It implements the standard Docker Engine API, meaning you can continue using your familiar CLI commands, Docker Compose files, and BuildKit workflows without modifying your existing scripts.\n\n## Key features\n\n- Starts containers in roughly 2.5ms via the Docker API\n- Maintains a 15MB daemon footprint with automatic idle suspension\n- Provides automatic local domains with built-in HTTPS support\n- Includes a single-node k3s Kubernetes cluster managed through the CLI\n- Supports image and volume migration from existing setups via simple commands\n\n## Getting started\n\nTo try Kiri on your local machine, clone the repository and install it according to the documentation provided in the project source.\n\n```bash\ngit clone https://github.com/libracoder/kiri\n```\n\n## When not to use it\n\nWhile Kiri is performant and suitable for daily development work, you should verify your specific edge-case volume mounts and specialized network configurations before adopting it in production or complex staging pipelines.",
+          "seo_description": "Discover Kiri, a fast and lightweight container runtime written in Rust that replaces Docker Desktop with a tiny 15MB footprint and instant start times.",
+          "seo_query": "lightweight docker desktop alternative rust",
+          "seo_title": "Lightweight Docker Desktop Alternative - Kiri Container Runtime",
+          "telegraph_angle": "Explain how Kiri solves the resource bloat of traditional container runtimes by leveraging a Rust daemon and an idle-sleeping virtual machine."
+        },
+        "tension": "That initial startup lag and the constant background memory consumption of a heavy VM are a tax on your machine's battery and your own patience.",
+        "turn": "Kiri replaces that heavy daemon with a Rust-based runtime that wakes up in 0.15s and stays at 15MB when idle, while still letting you use your existing docker CLI commands.",
+        "verdict": "A solid, performant alternative for anyone tired of Docker Desktop's resource footprint; it is mature enough for daily dev work, though you should verify your specific edge-case volume mounts.",
+        "who_for": "Developers on macOS, Windows, or Linux who find Docker Desktop too resource-heavy.",
+        "why_now": "The ecosystem is shifting toward lightweight, specialized container runtimes that prioritize low idle resource usage and fast startup times."
+      },
+      "homepage": "https://runkiri.com",
+      "id": 1443186633,
+      "image_url": "https://i.ibb.co/GQVffv6w/libracoder-kiri-readme-preview-ddb5ba38c0d8.jpg",
+      "is_dual_use": false,
+      "is_hidden_gem": false,
+      "language": "Rust",
+      "license": {
+        "key": "apache-2.0",
+        "name": "Apache License 2.0",
+        "node_id": "MDc6TGljZW5zZTI=",
+        "spdx_id": "Apache-2.0",
+        "url": "https://api.github.com/licenses/apache-2.0"
+      },
+      "media_urls": [
+        "https://raw.githubusercontent.com/libracoder/kiri/main/docs/images/kiri-window.png",
+        "https://raw.githubusercontent.com/libracoder/kiri/main/brand/logo/kiri-horizontal-light.svg"
+      ],
+      "name": "kiri",
+      "open_issues": 189,
+      "published_at": "2026-11-21T01:14:07.086133Z",
+      "pushed_at": "2026-11-20T23:03:02Z",
+      "readme_fp": "eb822146ee9f9a60",
+      "repo_id": 1443186633,
+      "revisit_of": "",
+      "revisit_reason": "",
+      "score": 89.845,
+      "slot": "us_evening",
+      "sources": [
+        "github_search"
+      ],
+      "stars": 11685,
+      "telegram_chat_id": "@GitHub_Open_Source",
+      "telegram_link": "https://t.me/GitHub_Open_Source/3627",
+      "telegram_message_id": 3627,
+      "telegraph_url": "https://telegra.ph/Kiri-A-Lightweight-Rust-Based-Container-Runtime-for-Developers-11-21",
+      "topics": [
+        "containers",
+        "docker",
+        "kubernetes",
+        "linux",
+        "macos",
+        "oci",
+        "windows"
+      ],
+      "updated_at": "2026-11-21T01:11:24Z",
+      "url": "https://github.com/libracoder/kiri",
+      "visual_host": "imgbb",
+      "visual_kind": "readme"
+    },
     "livliv-dev/player": {
       "articles": {},
       "card_style": "",
@@ -9746,63 +9852,6 @@
     }
   },
   "queue": [
-    {
-      "archived": false,
-      "contributors_count": 35,
-      "created_at": "2026-11-02T16:11:30Z",
-      "default_branch": "main",
-      "description": "A small, fast container runtime for macOS, Windows and Linux with free Ngrok alternative",
-      "disabled": false,
-      "fork": false,
-      "forks": 544,
-      "forks_count": 544,
-      "full_name": "libracoder/kiri",
-      "has_readme": true,
-      "homepage": "https://runkiri.com",
-      "id": 1443186633,
-      "is_dual_use": false,
-      "is_hidden_gem": false,
-      "language": "Rust",
-      "license": {
-        "key": "apache-2.0",
-        "name": "Apache License 2.0",
-        "node_id": "MDc6TGljZW5zZTI=",
-        "spdx_id": "Apache-2.0",
-        "url": "https://api.github.com/licenses/apache-2.0"
-      },
-      "media_urls": [
-        "https://raw.githubusercontent.com/libracoder/kiri/main/docs/images/kiri-window.png",
-        "https://raw.githubusercontent.com/libracoder/kiri/main/brand/logo/kiri-horizontal-light.svg"
-      ],
-      "name": "kiri",
-      "non_software_reason": "",
-      "open_issues": 189,
-      "open_issues_count": 189,
-      "owner_repo_count": 1,
-      "pushed_at": "2026-11-20T23:03:02Z",
-      "readme": "",
-      "readme_excerpt": "<div align=\"center\">\n\n<p align=\"center\">\n  <picture>\n    <source media=\"(prefers-color-scheme: dark)\" srcset=\"brand/logo/kiri-horizontal-dark.svg\">\n    <img src=\"brand/logo/kiri-horizontal-light.svg\" alt=\"Kiri\" width=\"300\">\n  </picture>\n</p>\n\n<h1>Kiri: a tiny, fast container runtime for macOS, Windows and Linux</h1>\n\n<p>Docker Desktop is slow to start and heavy when idle. Kiri is a lightweight replacement written in Rust. It runs your Docker images and works with the <code>docker</code> CLI, Compose and buildx you already use.</p>\n\n<p align=\"center\">\n  <a href=\"https://github.com/libracoder/kiri/actions/workflows/ui-tests.yml?query=branch%3Amain\"><img src=\"https://img.shields.io/github/actions/workflow/status/libracoder/kiri/ui-tests.yml?branch=main&style=for-the-badge&label=CI\" alt=\"CI status\"></a>\n  <a href=\"https://github.com/libracoder/kiri/releases/latest\"><img src=\"https://img.shields.io/github/v/release/libracoder/kiri?style=for-the-badge&label=release&color=2f6feb\" alt=\"Latest release\"></a>\n  <a href=\"LICENSE\"><img src=\"https://img.shields.io/badge/License-Apache%202.0-blue.svg?style=for-the-badge\" alt=\"Apache 2.0 License\"></a>\n  <a href=\"https://discord.gg/K5A8wuqcC\"><img ",
-      "readme_len": 15611,
-      "repo_id": 1443186633,
-      "score": 89.845,
-      "source_name": "github_search",
-      "sources": [
-        "github_search"
-      ],
-      "stargazers_count": 11671,
-      "stars": 11671,
-      "topics": [
-        "containers",
-        "docker",
-        "kubernetes",
-        "linux",
-        "macos",
-        "oci",
-        "windows"
-      ],
-      "updated_at": "2026-11-21T00:17:34Z",
-      "url": "https://github.com/libracoder/kiri"
-    },
     {
       "archived": false,
       "contributors_count": 41,
@@ -15953,8 +16002,8 @@
     "libracoder/kiri": {
       "first_seen_at": "2026-11-09T13:11:10.859756Z",
       "full_name": "libracoder/kiri",
-      "last_decision": "queued",
-      "last_seen_at": "2026-11-21T00:25:24.779396Z",
+      "last_decision": "published",
+      "last_seen_at": "2026-11-21T01:14:07.086474Z",
       "repo_id": 1443186633,
       "sources": [
         "github_search",
