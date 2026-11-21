@@ -292,9 +292,9 @@
     },
     "metrics": {
       "checked": 12,
-      "finished_at": "2026-11-20T20:23:49.628845Z",
+      "finished_at": "2026-11-21T20:23:48.928556Z",
       "reason": "measured",
-      "updated": 11
+      "updated": 12
     },
     "news": {
       "finished_at": "2026-11-21T19:19:13.028026Z",
@@ -2693,15 +2693,20 @@
       ],
       "updated_at": "2026-11-20T16:30:05Z",
       "url": "https://github.com/elementalsouls/Claude-BugHunter",
-      "value_score": 50.39,
-      "views": 39,
-      "views_age_hours": 3.9,
-      "views_at_24h": 103,
+      "value_score": 39.39,
+      "views": 87,
+      "views_age_hours": 27.9,
+      "views_at_24h": 82,
       "views_history": [
         {
           "at": "2026-11-20T20:23:54.831693Z",
           "reactions": 0,
           "views": 39
+        },
+        {
+          "at": "2026-11-21T20:23:51.166437Z",
+          "reactions": 0,
+          "views": 87
         }
       ],
       "visual_host": "imgbb",
@@ -2803,6 +2808,7 @@
       "open_issues": 1,
       "published_at": "2026-11-20T01:13:59.416552Z",
       "pushed_at": "2026-11-19T23:14:21Z",
+      "reactions": 0,
       "readme_fp": "b68bd615a45fcbdd",
       "repo_id": 1459971684,
       "revisit_of": "",
@@ -2843,6 +2849,17 @@
       ],
       "updated_at": "2026-11-20T01:13:28Z",
       "url": "https://github.com/erkamyaman/rust-anything",
+      "value_score": 36.05,
+      "views": 98,
+      "views_age_hours": 43.2,
+      "views_at_24h": 75,
+      "views_history": [
+        {
+          "at": "2026-11-21T20:23:51.607714Z",
+          "reactions": 0,
+          "views": 98
+        }
+      ],
       "visual_host": "imgbb",
       "visual_kind": "readme"
     },
@@ -2979,9 +2996,9 @@
       ],
       "updated_at": "2026-11-18T01:10:45Z",
       "url": "https://github.com/ersinkoc/phonebox",
-      "value_score": 33.17,
-      "views": 104,
-      "views_age_hours": 67.2,
+      "value_score": 33.28,
+      "views": 115,
+      "views_age_hours": 91.2,
       "views_at_24h": 69,
       "views_history": [
         {
@@ -2998,6 +3015,11 @@
           "at": "2026-11-20T20:23:59.152930Z",
           "reactions": 0,
           "views": 104
+        },
+        {
+          "at": "2026-11-21T20:23:54.248823Z",
+          "reactions": 0,
+          "views": 115
         }
       ],
       "visual_host": "imgbb",
@@ -3425,9 +3447,9 @@
       ],
       "updated_at": "2026-11-18T17:27:45Z",
       "url": "https://github.com/HeyPuter/everything",
-      "value_score": 28.88,
-      "views": 84,
-      "views_age_hours": 50.2,
+      "value_score": 28.8,
+      "views": 93,
+      "views_age_hours": 74.2,
       "views_at_24h": 60,
       "views_history": [
         {
@@ -3444,6 +3466,11 @@
           "at": "2026-11-20T20:23:58.266006Z",
           "reactions": 0,
           "views": 84
+        },
+        {
+          "at": "2026-11-21T20:23:53.368040Z",
+          "reactions": 0,
+          "views": 93
         }
       ],
       "visual_host": "imgbb",
@@ -5409,10 +5436,10 @@
       "topics": [],
       "updated_at": "2026-11-19T16:26:59Z",
       "url": "https://github.com/krisgfx9/Wireless-Device-Battery-Monitor",
-      "value_score": 34.3,
-      "views": 75,
-      "views_age_hours": 27.8,
-      "views_at_24h": 71,
+      "value_score": 32.75,
+      "views": 96,
+      "views_age_hours": 51.8,
+      "views_at_24h": 68,
       "views_history": [
         {
           "at": "2026-11-19T20:23:52.784947Z",
@@ -5423,6 +5450,11 @@
           "at": "2026-11-20T20:23:57.329178Z",
           "reactions": 0,
           "views": 75
+        },
+        {
+          "at": "2026-11-21T20:23:52.487966Z",
+          "reactions": 0,
+          "views": 96
         }
       ],
       "visual_host": "imgbb",
@@ -5845,6 +5877,7 @@
       "open_issues": 189,
       "published_at": "2026-11-21T01:14:07.086133Z",
       "pushed_at": "2026-11-20T23:03:02Z",
+      "reactions": 0,
       "readme_fp": "eb822146ee9f9a60",
       "repo_id": 1443186633,
       "revisit_of": "",
@@ -5870,6 +5903,17 @@
       ],
       "updated_at": "2026-11-21T01:11:24Z",
       "url": "https://github.com/libracoder/kiri",
+      "value_score": 44.7,
+      "views": 80,
+      "views_age_hours": 19.2,
+      "views_at_24h": 93,
+      "views_history": [
+        {
+          "at": "2026-11-21T20:23:50.284871Z",
+          "reactions": 0,
+          "views": 80
+        }
+      ],
       "visual_host": "imgbb",
       "visual_kind": "readme"
     },
@@ -6713,6 +6757,7 @@
       "open_issues": 294,
       "published_at": "2026-11-21T16:24:04.697760Z",
       "pushed_at": "2026-11-21T16:03:17Z",
+      "reactions": 0,
       "readme_fp": "3f310e8c12ef8a35",
       "repo_id": 1437869585,
       "revisit_of": "",
@@ -6751,6 +6796,17 @@
       ],
       "updated_at": "2026-11-21T16:22:56Z",
       "url": "https://github.com/mdiri-ai/SoduWork",
+      "value_score": 51.29,
+      "views": 41,
+      "views_age_hours": 4.0,
+      "views_at_24h": 107,
+      "views_history": [
+        {
+          "at": "2026-11-21T20:23:49.840472Z",
+          "reactions": 0,
+          "views": 41
+        }
+      ],
       "visual_host": "imgbb",
       "visual_kind": "card"
     },
@@ -6885,9 +6941,9 @@
       ],
       "updated_at": "2026-11-19T03:15:43.525276Z",
       "url": "https://github.com/microsoft/TokenEconomizer",
-      "value_score": 41.56,
-      "views": 113,
-      "views_age_hours": 43.2,
+      "value_score": 41.14,
+      "views": 129,
+      "views_age_hours": 67.2,
       "views_at_24h": 86,
       "views_history": [
         {
@@ -6899,6 +6955,11 @@
           "at": "2026-11-20T20:23:57.821541Z",
           "reactions": 0,
           "views": 113
+        },
+        {
+          "at": "2026-11-21T20:23:52.927286Z",
+          "reactions": 0,
+          "views": 129
         }
       ],
       "visual_host": "imgbb",
@@ -7669,9 +7730,9 @@
       ],
       "updated_at": "2026-11-18T16:04:21Z",
       "url": "https://github.com/openfilm/openfilm",
-      "value_score": 31.02,
-      "views": 91,
-      "views_age_hours": 52.0,
+      "value_score": 31.35,
+      "views": 102,
+      "views_age_hours": 76.0,
       "views_at_24h": 65,
       "views_history": [
         {
@@ -7688,6 +7749,11 @@
           "at": "2026-11-20T20:23:58.712705Z",
           "reactions": 0,
           "views": 91
+        },
+        {
+          "at": "2026-11-21T20:23:53.809196Z",
+          "reactions": 0,
+          "views": 102
         }
       ],
       "visual_host": "imgbb",
@@ -8641,10 +8707,10 @@
       ],
       "updated_at": "2026-11-19T18:06:56Z",
       "url": "https://github.com/storytold/figcraft",
-      "value_score": 31.44,
-      "views": 67,
-      "views_age_hours": 26.2,
-      "views_at_24h": 65,
+      "value_score": 28.88,
+      "views": 84,
+      "views_age_hours": 50.2,
+      "views_at_24h": 60,
       "views_history": [
         {
           "at": "2026-11-19T20:23:52.250908Z",
@@ -8655,6 +8721,11 @@
           "at": "2026-11-20T20:23:56.871654Z",
           "reactions": 0,
           "views": 67
+        },
+        {
+          "at": "2026-11-21T20:23:52.048719Z",
+          "reactions": 0,
+          "views": 84
         }
       ],
       "visual_host": "imgbb",
@@ -9334,6 +9405,7 @@
       "open_issues": 1,
       "published_at": "2026-11-21T18:14:12.307262Z",
       "pushed_at": "2026-11-21T18:05:50Z",
+      "reactions": 0,
       "readme_fp": "",
       "repo_id": 1441272552,
       "revisit_of": "",
@@ -9372,6 +9444,17 @@
       ],
       "updated_at": "2026-11-21T15:01:12Z",
       "url": "https://github.com/Verlintas/NOIR",
+      "value_score": 41.46,
+      "views": 23,
+      "views_age_hours": 2.2,
+      "views_at_24h": 85,
+      "views_history": [
+        {
+          "at": "2026-11-21T20:23:49.397211Z",
+          "reactions": 0,
+          "views": 23
+        }
+      ],
       "visual_host": "imgbb",
       "visual_kind": "readme"
     },
@@ -10232,15 +10315,20 @@
       ],
       "updated_at": "2026-11-20T18:11:46Z",
       "url": "https://github.com/yetone/magpie",
-      "value_score": 54.06,
-      "views": 30,
-      "views_age_hours": 2.2,
-      "views_at_24h": 111,
+      "value_score": 43.21,
+      "views": 93,
+      "views_age_hours": 26.2,
+      "views_at_24h": 90,
       "views_history": [
         {
           "at": "2026-11-20T20:23:53.355437Z",
           "reactions": 0,
           "views": 30
+        },
+        {
+          "at": "2026-11-21T20:23:50.726941Z",
+          "reactions": 0,
+          "views": 93
         }
       ],
       "visual_host": "imgbb",
