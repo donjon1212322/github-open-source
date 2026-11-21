@@ -11853,8 +11853,8 @@
       "skipped_brief": "duplicate_digest"
     },
     "2026-11-21": {
-      "last_schedule": "18 19 * * *",
-      "late_ignored": 16,
+      "last_schedule": "53 19 * * *",
+      "late_ignored": 17,
       "notified": true,
       "skipped_brief": ""
     }

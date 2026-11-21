@@ -677,3 +677,4 @@
 {"minutes_late": 304.1, "schedule": "13 18 * * *", "ts": "2026-11-21T23:17:07.343969Z", "type": "late_schedule_ignored"}
 {"minutes_late": 306.8, "schedule": "23 18 * * *", "ts": "2026-11-21T23:29:47.032057Z", "type": "late_schedule_ignored"}
 {"minutes_late": 271.8, "schedule": "18 19 * * *", "ts": "2026-11-21T23:49:47.551777Z", "type": "late_schedule_ignored"}
+{"minutes_late": 245.1, "schedule": "53 19 * * *", "ts": "2026-11-21T23:58:03.517454Z", "type": "late_schedule_ignored"}
