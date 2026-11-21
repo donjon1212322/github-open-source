@@ -2576,6 +2576,26 @@ def cleanup_test_posts(
     return {"ok": True, "deleted": len(deleted), "message_ids": deleted}
 
 
+def _news_concluded_without_brief(store: StateStore, today: str) -> bool:
+    """True when the day's news slot already ended without publishing a brief.
+
+    ``news_command`` records no marker while a brief may still arrive (a
+    transient Gemini skip stays retryable), but the CLI outcome recorder
+    writes a ``published: False`` marker for terminal refusals such as a
+    duplicate digest. That marker is the "nothing else is coming today"
+    fact this command needs.
+    """
+    marker = (store.data.get("last_runs") or {}).get("news") or {}
+    if not str(marker.get("finished_at") or "").startswith(today):
+        return False
+    if marker.get("published"):
+        return False
+    return not any(
+        str(item.get("published_at") or "").startswith(today)
+        for item in (store.data.get("news_topics") or [])
+    )
+
+
 def news_article_command(config: Config, store: StateStore) -> dict[str, Any]:
     """Owner decision (2026-11-07): a SECOND dev.to article for the day.
 
@@ -2589,15 +2609,37 @@ def news_article_command(config: Config, store: StateStore) -> dict[str, Any]:
     last_runs = store.data.setdefault("last_runs", {})
     marker = last_runs.get("news-article") or {}
     if str(marker.get("finished_at") or "").startswith(today):
-        return {"ok": True, "published": False, "reason": "news_article_already_done"}
+        # A retired slot stays retired only while the day truly ended
+        # without a brief. If the owner force-published a late brief after
+        # all, the companion article still deserves its chance. Legacy
+        # markers without an explicit ``published: False`` stay done.
+        if marker.get("published") is not False or _news_concluded_without_brief(store, today):
+            return {"ok": True, "published": False, "reason": "news_article_already_done"}
     if not config.feature_devto:
         return {"ok": True, "published": False, "reason": "feature_devto_disabled"}
     topics = store.data.get("news_topics") or []
-    if not topics:
-        return {"ok": True, "published": False, "reason": "no_brief_today"}
+    brief_today = bool(topics) and str(topics[-1].get("published_at") or "").startswith(today)
+    if not brief_today:
+        # Owner 21.11: on 20.11 the brief was terminally skipped (duplicate
+        # digest) and this command kept answering "no brief" without a
+        # marker, so the watchdog re-dispatched it until its cap. A merely
+        # late brief (19.11, recovered 20:01Z) must stay retryable; a day
+        # that ended without a brief retires the slot on a fact.
+        if _news_concluded_without_brief(store, today):
+            last_runs["news-article"] = {
+                "finished_at": iso_now(),
+                "reason": "brief_not_from_today",
+                "published": False,
+            }
+            news_marker = (store.data.get("last_runs") or {}).get("news") or {}
+            store.event("news_article_retired", reason="brief_not_from_today",
+                        news_reason=str(news_marker.get("reason") or ""))
+            store.save()
+            return {"ok": True, "published": False,
+                    "reason": "brief_not_from_today", "retired": True}
+        return {"ok": True, "published": False,
+                "reason": "no_brief_today" if not topics else "brief_not_from_today"}
     topic = topics[-1]
-    if not str(topic.get("published_at") or "").startswith(today):
-        return {"ok": True, "published": False, "reason": "brief_not_from_today"}
     config.require("DEV_API_KEY")
 
     markdown = str(topic.get("article_markdown") or "").strip()

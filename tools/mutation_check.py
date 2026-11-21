@@ -408,6 +408,17 @@ MUTATIONS: list[tuple[str, str, str, str]] = [
      "                lambda: client.generate_project(candidate), attempts=3",
      "                lambda: client.generate_project(candidate), attempts=1",
      "a two-minute Gemini spike kills the publish slot again (20.11)"),
+    # Owner 21.11: 20.11 the brief was terminally skipped (duplicate digest)
+    # and news-article answered "no brief" without a marker, so the watchdog
+    # dispatched it until its cap. A concluded day must retire the slot.
+    ("src/ghos_v6/pipeline.py",
+     "        if _news_concluded_without_brief(store, today):\n            last_runs[\"news-article\"] = {",
+     "        if False:\n            last_runs[\"news-article\"] = {",
+     "the watchdog pokes a finished news-article slot all evening again"),
+    ("src/ghos_v6/pipeline.py",
+     "        if marker.get(\"published\") is not False or _news_concluded_without_brief(store, today):",
+     "        if True:",
+     "a force-published late brief never gets its companion article"),
     (".github/workflows/pipeline.yml",
      'ghos-v6 preview-fix --repo "$PREVIEW_FIX_REPO"',
      'ghos-v6 preview-fix --repo ""',
