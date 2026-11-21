@@ -640,3 +640,4 @@
 {"discovered": 430, "enriched": 120, "passed_gate": 65, "queued": 28, "rejections": {"blocklist:collection of viral videos": 1, "blocklist:jailbreak": 1, "curation_repo": 1, "description_not_english": 5, "external_download_host": 24, "narrow:library:sdk": 1, "narrow:topic:awesome-list": 1, "narrow:topic:dataset": 1, "narrow:topic:plugin": 1, "no_community": 23, "no_license": 13, "no_push_date": 1, "no_readme": 1, "not_software:topic:awesome": 1, "not_software:topic:dataset": 1, "not_software:topic:music": 1, "readme_not_english": 10, "stars<100": 7}, "ts": "2026-11-21T00:25:24.830352Z", "type": "collect_completed"}
 {"deleted": 0, "ts": "2026-11-21T00:47:49.311104Z", "type": "moderation_completed", "updates": 0}
 {"minutes_late": 331.5, "schedule": "18 19 * * *", "ts": "2026-11-21T00:49:32.939635Z", "type": "late_schedule_ignored"}
+{"minutes_late": 305.4, "schedule": "53 19 * * *", "ts": "2026-11-21T00:58:24.704566Z", "type": "late_schedule_ignored"}
