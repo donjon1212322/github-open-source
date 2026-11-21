@@ -344,38 +344,11 @@
     },
     "telegram_update_offset": 165231142,
     "watchdog_caps": {
-      "2026-11-20": {
-        "notified": true,
-        "slots": [
-          "news-article"
-        ]
+      "2026-11-21": {
+        "notified": false
       }
     },
-    "watchdog_dispatches": {
-      "2026-11-20:facebook-handoff": {
-        "at": "2026-11-20T18:30:52.873643Z",
-        "attempts": 1,
-        "detail": "HTTP 204",
-        "dispatched": true,
-        "verified": true,
-        "verified_at": "2026-11-20T19:00:50.827042Z"
-      },
-      "2026-11-20:news-article": {
-        "at": "2026-11-20T22:01:12.957956Z",
-        "attempts": 3,
-        "detail": "HTTP 204",
-        "dispatched": true,
-        "verified": false
-      },
-      "2026-11-20:publish:us_morning": {
-        "at": "2026-11-20T16:30:58.267267Z",
-        "attempts": 1,
-        "detail": "HTTP 204",
-        "dispatched": true,
-        "verified": true,
-        "verified_at": "2026-11-20T17:00:50.461723Z"
-      }
-    }
+    "watchdog_dispatches": {}
   },
   "news_topics": [
     {
