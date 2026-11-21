@@ -302,13 +302,13 @@
       "telegram_message_id": 3630
     },
     "news-article": {
-      "devto_id": 5076688,
-      "finished_at": "2026-11-19T20:31:38.231335Z",
+      "devto_id": 5090186,
+      "finished_at": "2026-11-21T19:53:49.365529Z",
       "published": true,
-      "title": "Optimizing Token Costs and Mid-Tier Reasoning With Gemini 4 Neon",
-      "topic_key": "gemini-neon-releases",
-      "url": "https://dev.to/githubopensource/optimizing-token-costs-and-mid-tier-reasoning-with-gemini-4-neon-fld",
-      "words": 1205
+      "title": "Thinking Machines Inkling 2 Mini, Google Genie 4 API, and GPT-6.2 Astra Defenses",
+      "topic_key": "looped-transformers-and-genie-api",
+      "url": "https://dev.to/githubopensource/thinking-machines-inkling-2-mini-google-genie-4-api-and-gpt-62-astra-defenses-1oa5",
+      "words": 1033
     },
     "poll-close": {
       "finished_at": "2026-11-19T18:53:54.858983Z",
@@ -1861,6 +1861,7 @@
         ],
         "why_devs": "These releases give you new architectural primitives, interactive generative worlds, and practical tooling to build and secure applications."
       },
+      "devto_cover_url": "https://i.ibb.co/XZpnS8qN/project-devto-cover-a82e6198732b.png",
       "headline": "Inkling 2 Mini drops with looped transformer layers while Google opens Genie 4 API",
       "image_url": "https://i.ibb.co/gZwthKWH/ai-brief-bcaae541fa9c.png",
       "models": [
