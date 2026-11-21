@@ -665,3 +665,5 @@
 {"range": "facebook!A20:E20", "rows": 1, "ts": "2026-11-21T18:31:23.038564Z", "type": "facebook_handoff_queued"}
 {"deleted": 0, "ts": "2026-11-21T18:47:51.747022Z", "type": "moderation_completed", "updates": 2}
 {"slot": "facebook-handoff", "ts": "2026-11-21T19:00:49.903842Z", "type": "watchdog_verified"}
+{"title": "Thinking Machines Inkling 2 Mini, Google Genie 4 API, and GPT-6.2 Astra Defenses", "ts": "2026-11-21T19:19:11.277279Z", "type": "news_article_generated", "words": 1033}
+{"Gemini_video_input": false, "models": 10, "official_url": "", "stories": 6, "topic": "looped-transformers-and-genie-api", "ts": "2026-11-21T19:19:13.028034Z", "type": "ai_brief_published", "video_id": "tg-20261121-573b1a2a4f"}

@@ -145,75 +145,86 @@
       "ratio": 0.67,
       "reason": "duplicate_digest",
       "removed": 2
+    },
+    {
+      "date": "2026-11-21",
+      "fingerprint": "2026-11-21|True|published|0|0.0000|6",
+      "kept": 6,
+      "published": true,
+      "ratio": 0.0,
+      "reason": "published",
+      "removed": 0
     }
   ],
   "brief_memory": {
     "clusters": {
       "https://blog.google/innovation-and-ai/infrastructure-and-cloud/google-cloud/gtig-ai-threat-tracker-q4-2026": "2026-11-17",
       "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-neon": "2026-11-19",
+      "https://blog.google/innovation-and-ai/technology/developers-tools/genie-4-in-gemini-api": "2026-11-21",
       "https://docs.mistral.ai/vibe/code/desktop/overview": "2026-11-18",
       "https://github.com/1337isnot1337/dopplergeist": "2026-11-18",
       "https://github.com/anomalyco/browse": "2026-11-17",
       "https://github.com/anomalyco/opencode/releases/tag/v2.3.2": "2026-11-19",
-      "https://github.com/benjitaylor/skills": "2026-11-16",
-      "https://github.com/deepseek-ai/chat-demo": "2026-11-16",
       "https://github.com/donchitos/claude-code-game-studios": "2026-11-19",
       "https://github.com/edwardxlai/easyread": "2026-11-17",
-      "https://github.com/ggml-org/llama.cpp/releases/tag/v1.0.0": "2026-11-16",
       "https://github.com/google-research/paper-orchestra": "2026-11-19",
+      "https://github.com/justxor/minimind-llm-from-scratch-ru": "2026-11-21",
+      "https://github.com/nutlope/hallmark": "2026-11-21",
       "https://github.com/openai/codex/pull/60041": "2026-11-17",
+      "https://github.com/oritera/cairn": "2026-11-21",
       "https://github.com/storytold/craft-anything": "2026-11-18",
       "https://github.com/vllm-project/vllm/releases/tag/v0.34.0": "2026-11-18",
       "https://huggingface.co/spaces/huggingfaceswarms/pybot-msgboard": "2026-11-19",
+      "https://huggingface.co/thinkingmachines/inkling-2-mini": "2026-11-21",
       "https://nvidianews.nvidia.com/news/nvidia-board-of-directors-establishes-national-security-and-export-control-oversight-committee": "2026-11-17",
+      "https://openai.com/index/combatting-adversarial-distillation": "2026-11-21",
       "https://openai.com/index/introducing-gpt-6-2-astra-sol": "2026-11-17",
       "https://openai.com/index/strengthening-nato-allied-cyber-defences-ai": "2026-11-17",
-      "https://qwen.ai/blog": "2026-11-16",
       "post:data_secrets:10354": "2026-11-18",
       "story:cursor-live-apps": "2026-11-18",
       "story:gpt-6-cyber": "2026-11-17",
-      "story:metr-rnd": "2026-11-16",
+      "story:inkling-2-small": "2026-11-21",
       "text:ai-for-devs-новости-для-разработчиков-и": "2026-11-18",
       "text:anthropic-dario-amodei-rang-the-bell-on": "2026-11-19",
-      "text:anthropic-выпустили-для-claude-довольно-милое-обновление": "2026-11-16",
       "text:anthropic-вышли-на-ipo-они-уже-объявили": "2026-11-19",
       "text:anthropic-сегодня-выходит-на-биржу-вчера-компания": "2026-11-19",
       "text:gemini-4-argon-чаще-всех-моделей-объясняет": "2026-11-17",
-      "text:google-an-upcoming-comic-artifact-configuration-page": "2026-11-16",
       "text:google-gemini-4-neon-is-now-listed": "2026-11-19",
       "text:в-coding-agent-index-gpt62-astra-набрала": "2026-11-18",
       "text:главное-про-новые-gpt62-astra-и-sol": "2026-11-17",
       "text:ладно-может-быть-с-astra-мне-просто": "2026-11-18",
-      "text:наконецто-сьебастьян-рашка-подготовил-подробный-материал-позиционные": "2026-11-16",
       "text:несколько-ранних-тестеров-резко-раскритиковали-gpt62-ведущий": "2026-11-18",
-      "text:российские-исследователи-предложили-новые-методы-решения-проблемы": "2026-11-16",
+      "text:появились-реальные-кадры-с-выхода-anthropic-на": "2026-11-21",
       "text:руководители-банков-заявили-конгрессу-сша-что-все": "2026-11-19",
-      "text:тибо-пишет-что-команда-codex-похоже-починила": "2026-11-16"
+      "text:стартап-миры-мурати-thinking-machines-выпустили-зацикленный": "2026-11-21",
+      "text:там-известный-математик-левент-алпеге-из-anthropic": "2026-11-21"
     },
     "stories": {
       "169 changes cli codex trust": "2026-11-17",
-      "additions api deepseek tooling": "2026-11-16",
+      "access api genie google": "2026-11-21",
       "anything craft": "2026-11-18",
-      "api max qwen4": "2026-11-16",
+      "astra defenses gpt openai": "2026-11-21",
       "astra gpt launch sol": "2026-11-17",
       "browse mcp server": "2026-11-17",
+      "cairn search space state": "2026-11-21",
       "claude code harness opencode updates": "2026-11-19",
       "cloud lab": "2026-11-18",
       "dataset interaction pybot": "2026-11-19",
+      "design hallmark skill": "2026-11-21",
       "desktop mistral vibe": "2026-11-18",
       "dopplergeist": "2026-11-18",
       "easyread pdf translation": "2026-11-17",
       "gemini google neon": "2026-11-19",
-      "generator interactive stageshow": "2026-11-16",
+      "inkling machines mini thinking": "2026-11-21",
       "memory updates vllm": "2026-11-18",
-      "mobile moe runner smolmaxxing": "2026-11-16",
+      "minimind pytorch tutorial": "2026-11-21",
       "multi paperorchestra system": "2026-11-19"
     }
   },
   "dead_letters": [],
   "gemini_daily": {
     "day": "2026-11-21",
-    "units": 12
+    "units": 21
   },
   "gemini_window": [
     [
@@ -286,9 +297,9 @@
       "updated": 11
     },
     "news": {
-      "finished_at": "2026-11-20T19:19:08.723352Z",
-      "published": false,
-      "reason": "duplicate_digest"
+      "finished_at": "2026-11-21T19:19:13.028026Z",
+      "reason": "published",
+      "telegram_message_id": 3630
     },
     "news-article": {
       "devto_id": 5076688,
@@ -1760,6 +1771,126 @@
       "telegram_message_id": 3623,
       "topic_key": "gemini-neon-releases",
       "video_id": "tg-20261119-f4bf8ae1ac",
+      "video_url": "https://t.me/GitHub_Open_Source"
+    },
+    {
+      "Gemini_video_input": false,
+      "article_markdown": "> **TL;DR** Thinking Machines introduced Inkling 2 Mini using looped transformer layers to boost reasoning locally, Google opened the Genie 4 API for interactive world generation, and OpenAI tightened reasoning trace defenses in GPT-6.2 Astra.\n\n## What actually moved today\n\nThe landscape of architectural primitives and developer APIs shifted with several official releases hitting repositories and documentation portals. Instead of relying purely on massive parameter scaling, recent updates focus on architectural efficiency like looped layers, interactive physics engines, and strict distillation countermeasures. Developers now have concrete new primitives to experiment with locally and via cloud APIs.\n\n## The model watch\n\n### Thinking Machines Inkling 2 Mini\nThinking Machines released **Inkling 2 Mini**, a looped transformer model featuring 26.4B total parameters and 3.4B active parameters. The core architectural change involves running the middle 12 layers three times per token during inference. This design choice increases reasoning depth without inflating the total parameter footprint, allowing the model to compete with larger systems while running locally on consumer hardware equipped with 32 GB of memory. Developers should re-run local evaluation suites focusing on multi-step reasoning tasks to see how iterative layer execution impacts throughput and latency compared to standard feed-forward topologies. Under the hood, the recurrent reuse of weights introduces unique memory-access patterns during generation, shifting bottlenecks from sheer parameter bandwidth to cache efficiency across the looped segments.\n\n### Google Genie 4 API Access\nGoogle opened **Genie 4** directly within the Gemini API and AI Studio. Priced at approximately $0.10 per second, the model constructs a 720p interactive world complete with synchronized audio from simple text or image prompts. Developers can now programmatically generate physics-based environments without managing custom simulation engines. You should test this endpoint by passing structured initial frames to evaluate how well the system maintains temporal consistency and physical constraints across extended interaction loops. The underlying mechanics handle complex environmental dynamics natively, though developers must account for API latency when building real-time interactive loops.\n\n### OpenAI GPT-6.2 Astra Defenses\nOpenAI updated internal security controls for **GPT-6.2 Astra**, successfully reducing successful extractions of hidden reasoning traces down to 0.2% from 54% in the earlier **GPT-6 Astra**. Reasoning traces are now cryptographically and logically bound directly to the active dialogue history, preventing unauthorized side-channel extraction. This mitigation substantially thwarts adversarial distillation attempts targeting frontier reasoning capabilities. Security engineers should audit their red-teaming pipelines against these updated endpoints to verify that prompt-injection vectors can no longer bypass the tightened trace boundaries.\n\n### MiniMind PyTorch Tutorial\nAn educational implementation appeared on GitHub via the **MiniMind** repository, detailing how to train a small language model completely from scratch using pure PyTorch. The guide walks through custom JSONL corpora ingestion, token masking strategies, and local deployment pipelines. It provides an accessible sandbox for developers seeking to inspect the fundamental mechanics of transformer training without abstract framework overhead. You can modify the attention heads and context windows in the repository to observe how hyperparameters directly affect convergence rates during initial pre-training stages.\n\n### Hallmark AI Design Skill\n**Hallmark** launched as an open-source design skill targeting coding agents like **Claude Code**, **Cursor**, **Codex**, and OpenCode. Utilizing a curated set of 50 design themes, the skill guides AI agents to construct distinctive, non-generic web layouts and automatically audits codebases for repetitive aesthetic clichés. Developers integrating autonomous coding agents into frontend workflows can plug this skill in to enforce varied UI patterns and avoid cookie-cutter outputs. The system inspects DOM structures and CSS properties iteratively during generation to correct stylistic drift before final rendering.\n\n### Cairn State-Space Search\n**Cairn** debuted as a general-purpose AI state-space search system, initially demonstrated within automated penetration testing frameworks. It provides structured graph exploration capabilities designed for complex, branching decision tasks where traditional heuristic search falls short. Engineers working on automated agent loops can evaluate **Cairn** to manage complex exploration spaces, replacing ad-hoc search scripts with a dedicated state-management primitive. The system tracks visited states and prunes redundant paths dynamically to optimize resource consumption during deep execution trees.\n\n## Rumours, clearly labelled\n\nIt is worth noting unconfirmed claims circulating regarding future model architectures. Specifically, looped transformer designs purportedly form the underlying backbone of unreleased models like **GPT-6 Astra** and Fable 5.2. This claim remains entirely unverified by official sources and should be treated as speculative chatter until official model cards or technical papers are published.\n\n| Item | Status | Basis | Notes |\n| :--- | :--- | :--- | :--- |\n| **Inkling 2 Mini** | Confirmed | Model card | 26.4B total, 3.4B active parameters |\n| **Genie 4 API** | Confirmed | Documentation | Priced at $0.10 per second |\n| **GPT-6.2 Astra Defenses** | Confirmed | Security blog | Extraction rate down to 0.2% |\n| **Looped GPT-6 / Fable 5.2** | Unconfirmed | Rumour | Speculative architectural overlap |\n\n## Odd finds and small tools\n\nEcosystem toolchains often house overlooked utilities that streamline daily engineering tasks. The **MiniMind** PyTorch repository stands out as a clean, dependency-light reference implementation for understanding raw tensor manipulations during tokenization and backward passes. Similarly, the **Hallmark** design skill provides an automated guardrail against homogenization in agent-generated frontends, shifting the baseline aesthetic of automated web development.\n\n## What I would try this weekend\n\nI would pull down the **Inkling 2 Mini** weights to benchmark local inference latency on a 32 GB RAM machine, specifically measuring how the triple-pass looped layers affect tokens-per-second compared to standard baseline models of similar active size. Afterward, I would test the **Genie 4** API with a series of architectural blueprint images to see how accurately the physics engine translates static 2D designs into navigable 720p environments.\n\n## Where this leaves us\n\nArchitectural experimentation is clearly moving beyond simple parameter stacking toward clever inference-time compute loops and specialized search primitives. While tools like **Inkling 2 Mini** and **Genie 4** offer exciting new capabilities, questions remain regarding their long-term cost scaling and generalization limits in production environments. Developers must weigh these local efficiency gains against the operational complexities of managing new execution topologies.\n\nWhat custom environment will you test first with the Genie 4 API?\n\n---\n\n💬 Questions, corrections or a better way to run these evals? Feedback and discussion are in the channel: https://t.me/GitHub_Open_Source\n",
+      "article_title": "Thinking Machines Inkling 2 Mini, Google Genie 4 API, and GPT-6.2 Astra Defenses",
+      "brief": {
+        "discussion_question": "Are you planning to test looped transformer models locally, or will you stick to API-driven frontier models for heavy reasoning?",
+        "headline": "Inkling 2 Mini drops with looped transformer layers while Google opens Genie 4 API",
+        "hook": "10 exact names, 5 official launches, 0 only announced, 1 unverified claim. Inkling 2 Mini leads the watch — what would you actually re-run first?",
+        "models": [
+          "Inkling 2 Mini",
+          "Genie 4",
+          "GPT-6 Astra",
+          "GPT-6.2 Astra",
+          "Qwen3.8-27B",
+          "MiniMind",
+          "Claude Code",
+          "Cursor",
+          "Codex",
+          "Cairn"
+        ],
+        "stories": [
+          {
+            "basis": "the model card is up",
+            "bullets": [
+              "Thinking Machines released Inkling 2 Mini, a looped transformer model with 26.4B parameters and 3.4B active.",
+              "The model runs the middle 12 layers three times per token to increase reasoning depth without increasing parameter count."
+            ],
+            "status": "official_release",
+            "title": "Thinking Machines Inkling 2 Mini",
+            "why": "It offers competitive performance relative to larger models while running locally on consumer hardware with 32 GB memory."
+          },
+          {
+            "basis": "the official documentation is up",
+            "bullets": [
+              "Google opened Genie 4 in Gemini API and AI Studio.",
+              "The model builds a 720p interactive world with sound from text or image prompts, priced at approximately $0.10 per second."
+            ],
+            "status": "official_release",
+            "title": "Google Genie 4 API Access",
+            "why": "Developers can now programmatically generate interactive physics-based environments straight from text or images."
+          },
+          {
+            "basis": "the security blogpost is up",
+            "bullets": [
+              "OpenAI updated internal checks to reduce successful extraction of hidden reasoning traces in GPT-6.2 Astra down to 0.2% compared to 54% in GPT-6 Astra.",
+              "Reasoning traces are now strictly tied to dialog history."
+            ],
+            "status": "official_release",
+            "title": "OpenAI GPT-6.2 Astra Defenses",
+            "why": "It heavily mitigates adversarial distillation attacks on frontier reasoning models."
+          },
+          {
+            "basis": "the repository is up",
+            "bullets": [
+              "A comprehensive guide on GitHub demonstrates how to train an LLM completely from scratch using PyTorch.",
+              "The guide covers JSONL corpora, token masking, and local deployment."
+            ],
+            "status": "demo_or_benchmark",
+            "title": "MiniMind PyTorch Tutorial",
+            "why": "It provides a clear, hands-on educational pipeline for developers looking to understand transformer architectures from the ground up."
+          },
+          {
+            "basis": "the repository is up",
+            "bullets": [
+              "Hallmark launched as a free, open-source design skill for coding agents like Claude Code, Cursor, Codex, and OpenCode.",
+              "It uses 50 design themes to help AI agents build distinctive websites and audit layouts for common clichés."
+            ],
+            "status": "official_release",
+            "title": "Hallmark AI Design Skill",
+            "why": "It helps developers easily avoid generic, cookie-cutter aesthetic outputs from AI coding agents."
+          },
+          {
+            "basis": "the repository is up",
+            "bullets": [
+              "Cairn was released as a general-purpose AI state-space search system, initially tested in autonomous penetration testing.",
+              "It provides structured search capabilities for complex exploration tasks."
+            ],
+            "status": "official_release",
+            "title": "Cairn State-Space Search",
+            "why": "It offers an alternative approach to automated decision-making and security evaluation workflows."
+          }
+        ],
+        "summary": "This week features the release of Thinking Machines Inkling 2 Mini with looped transformer layers, Google opening Genie 4 in Gemini API at $0.10 per second, OpenAI hardening defenses on GPT-6.2 Astra, a PyTorch tutorial for training LLMs from scratch, Hallmark for AI-generated website design, and the Cairn state-space search system.",
+        "unconfirmed_claims": [
+          "Looped transformer architectures purportedly form the backbone of unreleased models like GPT-6 Astra and Fable 5.2."
+        ],
+        "why_devs": "These releases give you new architectural primitives, interactive generative worlds, and practical tooling to build and secure applications."
+      },
+      "headline": "Inkling 2 Mini drops with looped transformer layers while Google opens Genie 4 API",
+      "image_url": "https://i.ibb.co/gZwthKWH/ai-brief-bcaae541fa9c.png",
+      "models": [
+        "Inkling 2 Mini",
+        "Genie 4",
+        "GPT-6 Astra",
+        "GPT-6.2 Astra",
+        "Qwen3.8-27B",
+        "MiniMind",
+        "Claude Code",
+        "Cursor",
+        "Codex",
+        "Cairn"
+      ],
+      "narrative_hook": "Three model launches showed up in four channels this week. The thing I can't stop thinking about is a looped transformer architecture that quietly dropped with 26.4 billion parameters.",
+      "official_url": "",
+      "post_text": "🛰️ <b>AI Brief</b> · <i>no ads, no hype</i>\n\n<b>Three model launches showed up in four channels this week. The thing I can't stop thinking about is a looped transformer architecture that quietly dropped with 26.4 billion parameters.</b>\n\n🧬 <b>In this brief:</b> Inkling 2 Mini · Genie 4 · GPT-6 Astra · GPT-6.2 Astra · Qwen3.8-27B · MiniMind · Claude Code · Cursor · Codex · Cairn\n\n<b>1/ Thinking Machines Inkling 2 Mini</b>\nThinking Machines released Inkling 2 Mini, a looped transformer model with 26.4B parameters and 3.4B active.\nThe model runs the middle 12 layers three times per token to increase reasoning depth without increasing parameter count.\nIt offers competitive performance relative to larger models while running locally on consumer hardware with 32 GB memory.\n<i>the model card is up</i>\n\n<b>2/ Google Genie 4 API Access</b>\nGoogle opened Genie 4 in Gemini API and AI Studio.\nThe model builds a 720p interactive world with sound from text or image prompts, priced at approximately $0.10 per second.\nDevelopers can now programmatically generate interactive physics-based environments straight from text or images.\n<i>the official documentation is up</i>\n\n<b>3/ OpenAI GPT-6.2 Astra Defenses</b>\nOpenAI updated internal checks to reduce successful extraction of hidden reasoning traces in GPT-6.2 Astra down to 0.2% compared to 54% in GPT-6 Astra.\nReasoning traces are now strictly tied to dialog history.\nIt heavily mitigates adversarial distillation attacks on frontier reasoning models.\n<i>the security blogpost is up</i>\n\n<b>4/ MiniMind PyTorch Tutorial</b>\nA comprehensive guide on GitHub demonstrates how to train an LLM completely from scratch using PyTorch.\nThe guide covers JSONL corpora, token masking, and local deployment.\nIt provides a clear, hands-on educational pipeline for developers looking to understand transformer architectures from the ground up.\n<i>the repository is up</i>\n\n<b>5/ Hallmark AI Design Skill</b>\nHallmark launched as a free, open-source design skill for coding agents like Claude Code, Cursor, Codex, and OpenCode.\nIt uses 50 design themes to help AI agents build distinctive websites and audit layouts for common clichés.\nIt helps developers easily avoid generic, cookie-cutter aesthetic outputs from AI coding agents.\n<i>the repository is up</i>\n\n<b>6/ Cairn State-Space Search</b>\nCairn was released as a general-purpose AI state-space search system, initially tested in autonomous penetration testing.\nIt provides structured search capabilities for complex exploration tasks.\nIt offers an alternative approach to automated decision-making and security evaluation workflows.\n<i>the repository is up</i>\n\n<b>◻️ Rumours we're keeping an eye on</b>\n\n◻️ <i>Looped transformer architectures purportedly form the backbone of unreleased models like GPT-6 Astra and Fable 5.2.</i>\n\n<i>Are you planning to test looped transformer models locally, or will you stick to API-driven frontier models for heavy reasoning?</i>\n\n📣 <a href=\"https://t.me/GitHub_Open_Source\"><b>@GitHub_Open_Source</b></a>\n\n========================================\n#AINews #OpenSource",
+      "published_at": "2026-11-21T19:19:13.027881Z",
+      "statuses": [
+        "official_release",
+        "official_release",
+        "official_release",
+        "demo_or_benchmark",
+        "official_release",
+        "official_release"
+      ],
+      "stories": 6,
+      "telegram_message_id": 3630,
+      "topic_key": "looped-transformers-and-genie-api",
+      "video_id": "tg-20261121-573b1a2a4f",
       "video_url": "https://t.me/GitHub_Open_Source"
     }
   ],
@@ -11564,11 +11695,10 @@
     }
   ],
   "rumour_memory": {
-    "100 analysis argon artificial gemini metaphoricity rating scored": "2026-11-17",
     "agent astra coding gpt index points scored": "2026-11-18",
     "amodei anthropic bell dario nasdaq rang": "2026-11-19",
     "anthropic going public share": "2026-11-19",
-    "astra cached dropped price tokens": "2026-11-17",
+    "architectures astra backbone fable form gpt like looped models purportedly transformer unreleased": "2026-11-21",
     "astra calling criticized difficult early gpt prone stopping testers use": "2026-11-18",
     "garden gcp gemini listed model neon vertex": "2026-11-19"
   },
