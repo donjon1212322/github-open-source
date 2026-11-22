@@ -238,11 +238,11 @@
   ],
   "last_runs": {
     "article": {
-      "finished_at": "2026-11-21T13:33:55.652340Z",
+      "finished_at": "2026-11-22T13:33:51.026963Z",
       "published": true,
       "reason": "published",
-      "repo": "libracoder/kiri",
-      "url": "https://dev.to/githubopensource/lightweight-docker-desktop-alternative-kiri-container-runtime-29an"
+      "repo": "kianuni/erosion-cn",
+      "url": "https://dev.to/githubopensource/how-to-modify-ios-mobilegestalt-settings-safely-erosion-cn-2gdg"
     },
     "collect": {
       "discovered": 418,
@@ -5169,7 +5169,13 @@
       "visual_kind": "card"
     },
     "kianuni/erosion-cn": {
-      "articles": {},
+      "articles": {
+        "devto": {
+          "id": 5093974,
+          "published_at": "2026-11-22T13:33:51.026806Z",
+          "url": "https://dev.to/githubopensource/how-to-modify-ios-mobilegestalt-settings-safely-erosion-cn-2gdg"
+        }
+      },
       "card_style": "",
       "category": "DevTools",
       "contributors_count": 2,
@@ -5183,6 +5189,7 @@
       },
       "description": "iOS / iPadOS 国行 Apple 智能、eSIM 与 MobileGestalt 系统配置工具箱（中英双语 · 防白苹果安全加固版） | Bootloop-Safe iOS / iPadOS MobileGestalt, Apple Intelligence & eSIM Toolbox (EN/ZH)",
       "description_fp": "94545fc51ea713dc",
+      "devto_cover_url": "https://i.ibb.co/pgp231h/kianuni-erosion-cn-devto-cover-3b668e33cce8.png",
       "forks": 464,
       "full_name": "Kianuni/Erosion-CN",
       "generated": {
