@@ -711,3 +711,4 @@
 {"minutes_late": 72.5, "schedule": "47 */3 * * *", "ts": "2026-11-22T19:59:28.270236Z", "type": "late_schedule_ignored"}
 {"channel": "GitHub_Open_Source", "posts": 12, "ts": "2026-11-22T20:23:55.884730Z", "type": "metrics_collected", "updated": 12}
 {"minutes_late": 413.1, "schedule": "33 13 * * *", "ts": "2026-11-22T20:26:04.539659Z", "type": "late_schedule_ignored"}
+{"minutes_late": 330.9, "schedule": "13 16 * * 0", "ts": "2026-11-22T21:43:51.764866Z", "type": "late_schedule_ignored"}
