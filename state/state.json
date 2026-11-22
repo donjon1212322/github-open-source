@@ -252,17 +252,17 @@
   },
   "dead_letters": [],
   "gemini_daily": {
-    "day": "2026-11-21",
-    "units": 27
+    "day": "2026-11-22",
+    "units": 6
   },
   "gemini_window": [
     [
-      1795310029.7823026,
-      3956
+      1795364634.5934935,
+      3971
     ],
     [
-      1795310033.3069413,
-      1396
+      1795364638.166337,
+      1412
     ]
   ],
   "last_runs": {
@@ -363,9 +363,9 @@
       "telegram_message_id": 3629
     },
     "publish:us_morning": {
-      "finished_at": "2026-11-21T16:24:04.698165Z",
-      "repo": "mdiri-ai/soduwork",
-      "telegram_message_id": 3628
+      "finished_at": "2026-11-22T16:25:04.979229Z",
+      "repo": "n1neman/sapper-v2",
+      "telegram_message_id": 3634
     },
     "publish:us_peak": {
       "finished_at": "2026-11-11T17:19:17.006267Z",
@@ -7423,6 +7423,122 @@
       "visual_host": "imgbb",
       "visual_kind": "readme"
     },
+    "n1neman/sapper-v2": {
+      "articles": {},
+      "card_style": "",
+      "category": "AI",
+      "contributors_count": 2,
+      "created_at": "2026-10-30T15:12:35Z",
+      "crossposts": {
+        "bluesky": {
+          "attempts": 0,
+          "due_at": "2026-11-22T18:00:00+00:00",
+          "status": "pending"
+        }
+      },
+      "description": "The first fruit of the Nüwa tree — an autonomous AI pentest legion (634-team champion, 8h unattended, 1B tokens beat 4.5B). Not just a tool: evolvable by design. Grow your own fruit on the Nüwa Foundation (Create/Language/History).",
+      "description_fp": "ced9f95d80978892",
+      "forks": 1233,
+      "full_name": "N1nEmAn/sapper-v2",
+      "generated": {
+        "article_markdown": "## What it is\n\nsapper-v2 is a multi-agent orchestration harness built to coordinate multiple AI instances as a unified workforce. Rather than relying on a single monolithic model or rigid script, it allows developers to swap out agent CLIs and models freely across roles like commanders, generals, and scouts.\n\n## Why it matters\n\nTraditional single-agent setups often suffer from context saturation and fragile state management. By introducing an external memory layer and structured division of labor, this framework allows long-horizon tasks to persist even when individual agent sessions fail or die.\n\n## Key features\n\n- Spawn and manage multiple agent CLIs dynamically via tmux panes\n- Maintain shared external memory through a layered fact-intent graph\n- Implement model tiering with high-capability commanders and light task workers\n- Run autonomously for up to 8 hours with self-healing doctrine and watchdog monitoring\n\n## Quick start\n\n```bash\ngit clone https://github.com/N1nEmAn/nvwabase\ncd nvwabase && bash install.sh\n```\n\n## Who should try it\n\nDevelopers and researchers experimenting with multi-agent orchestration, cooperative AI workflows, and automated system testing.\n\n## Verdict\n\nA sophisticated framework for multi-agent coordination, though utilizing it outside of its designed competition or benchmark environment requires wiring up custom platform interfaces and model gateways.",
+        "article_title": "sapper-v2: Autonomous Multi-Agent Pentest Legion and Orchestration Harness",
+        "card_hook": "Autonomous AI pentest legion",
+        "card_subline": "Multi-agent orchestration harness for long-horizon cooperative work",
+        "category": "AI",
+        "discussion_question": "Which agent CLI do you currently rely on for multi-step tasks?",
+        "hook": "Orchestrate an autonomous AI pentest legion across 634 competition teams with 1B tokens instead of 4.5B.",
+        "key_features": [
+          "Spawn and manage multiple agent CLIs dynamically via tmux panes",
+          "Maintain shared external memory through a layered fact-intent graph",
+          "Implement model tiering with high-capability commanders and light task workers",
+          "Run autonomously for up to 8 hours with self-healing doctrine and watchdog monitoring",
+          "Adapt doctrine and roles through 18 iterated versions from challenge environments"
+        ],
+        "llm_used": true,
+        "quick_start": "git clone https://github.com/N1nEmAn/nvwabase\ncd nvwabase && bash install.sh",
+        "safety": "dual_use",
+        "safety_reason": "The repository is an autonomous penetration testing harness and security research tool which can be dual-use.",
+        "scene": "You are managing multiple long-horizon AI coding sessions, and a context window saturation or quota limit quietly kills your primary agent, erasing all ongoing progress.",
+        "social_text": "An autonomous multi-agent orchestration harness that coordinates AI security testing teams through a shared fact graph.",
+        "summary": "sapper-v2 sits on top of a multi-agent orchestration framework, using tmux to spawn agent CLIs like Claude Code and DeepSeek. It coordinates a hierarchy of commanders, generals, and soldiers via a layered fact-intent graph. This replaces single-agent setups with a structured civilization model where individual AI sessions can die while the shared graph survives.",
+        "surfaces": {
+          "Facebook_body": "Managing complex digital tasks often feels overwhelming when you rely on a single AI assistant. This new approach changes the dynamic by allowing you to organize a team of specialized AI agents that work together. Instead of one agent trying to do everything, you can set up a hierarchy where different assistants handle specific parts of a project, acting like a coordinated workforce.\n\nThe system uses a structured method to keep track of goals and facts, ensuring that if one individual AI session fails, the overall project progress remains intact. This design was originally built to manage large-scale security simulations, where it successfully handled hundreds of teams simultaneously. By splitting the workload into commanders and workers, it significantly reduces the amount of data processing required compared to traditional methods.\n\nThis is designed for developers and security researchers who are building automated systems. It requires some technical setup to connect your own AI models, but it offers a robust way to create long-running, autonomous workflows that can operate for hours without manual intervention.",
+          "Facebook_headline": "Manage a team of AI assistants for complex tasks",
+          "Facebook_lead": "Instead of relying on one AI to do everything, this system lets you coordinate a hierarchy of specialized agents to work together efficiently.",
+          "bluesky_headline": "Run an autonomous AI security team with fewer tokens",
+          "bluesky_lead": "This system coordinates a hierarchy of AI agents to handle complex tasks, saving 75% on token usage.",
+          "devto_body": "## What it is\n\nSapper-v2 is a Python-based multi-agent orchestration framework designed for complex, long-running tasks. Originally developed for competitive security environments, it moves away from the single-agent paradigm by implementing a hierarchical \"civilization\" model. Using tmux to manage CLI sessions, it coordinates a structure of commanders and soldiers that interact via a shared fact-intent graph.\n\n## How it works\n\nThe core of the system is a layered fact-intent graph. Unlike systems where agents operate in silos, Sapper-v2 maintains a persistent memory layer. The architecture uses tmux to spawn and monitor individual agent sessions. If an individual agent session crashes or hits a limit, the shared graph ensures the state is preserved, allowing the system to self-heal and continue operations.\n\n## Key features\n\n- **Hierarchical Delegation:** Implements model tiering where high-capability commanders delegate granular tasks to light-weight workers.\n- **Shared Memory:** Uses a layered fact-intent graph to maintain state across sessions.\n- **Autonomous Resilience:** Designed for long-running tasks (up to 8 hours) with watchdog monitoring.\n- **Efficiency:** Demonstrated 1B token usage to achieve results that previously required 4.5B tokens in competition scenarios.\n\n## Getting started\n\nThis project is written in Python. To begin, you will need to clone the repository and configure your model gateways. Because it relies on tmux for process management, it is best suited for Linux environments.\n\n```bash\ngit clone https://github.com/N1nEmAn/sapper-v2\ncd sapper-v2\n# Configure your platform interfaces and model gateways\n```\n\n## When not to use it\n\nSapper-v2 is highly specialized for competition-style environments and multi-agent orchestration. It is not a \"plug-and-play\" chatbot interface. If you are looking for a simple, single-purpose AI wrapper or do not have the capacity to configure custom platform interfaces and model gateways, this framework will introduce unnecessary complexity. It requires significant upfront engineering to integrate with your specific environment.",
+          "seo_description": "Learn how to build a hierarchical multi-agent AI system using Sapper-v2. Efficiently coordinate AI agents for complex tasks with shared memory.",
+          "seo_query": "how to build multi-agent ai orchestration",
+          "seo_title": "Multi-Agent AI Orchestration Framework - Sapper-v2",
+          "telegraph_angle": "Explain the shift from single-agent AI architectures to hierarchical, multi-agent systems and the efficiency gains of using shared state graphs."
+        },
+        "tension": "Wasted API tokens, broken agent state, and manual babysitting of unresponsive terminal panes stall your multi-hour automation workflows.",
+        "turn": "This harness introduces a persistent fact-intent graph and a commander-soldier division of labor so agents can hand over state and survive individual crashes.",
+        "verdict": "An impressive multi-agent architecture for competition scenarios, though adapting it outside the benchmark requires setting up your own platform interfaces and model gateways.",
+        "who_for": "Security researchers and developers building multi-agent automation systems.",
+        "why_now": "Large language models have reached a stage where orchestrating multi-agent civilizations with division of labor is practically viable for complex tasks."
+      },
+      "homepage": "https://github.com/N1nEmAn/nvwabase",
+      "id": 1439885901,
+      "image_url": "https://i.ibb.co/hJTt8bbM/n1neman-sapper-v2-readme-preview-966c8a2b2b77.jpg",
+      "is_dual_use": true,
+      "is_hidden_gem": false,
+      "language": "Python",
+      "license": {
+        "key": "mit",
+        "name": "MIT License",
+        "node_id": "MDc6TGljZW5zZTEz",
+        "spdx_id": "MIT",
+        "url": "https://api.github.com/licenses/mit"
+      },
+      "media_urls": [
+        "https://raw.githubusercontent.com/N1nEmAn/sapper-v2/master/docs/assets/banner.jpg",
+        "https://raw.githubusercontent.com/N1nEmAn/sapper-v2/master/docs/assets/foundation-three-capabilities.jpg",
+        "https://raw.githubusercontent.com/N1nEmAn/sapper-v2/master/docs/assets/six-institutions.jpg",
+        "https://raw.githubusercontent.com/N1nEmAn/sapper-v2/master/docs/assets/runtime-tmux.jpg",
+        "https://raw.githubusercontent.com/N1nEmAn/sapper-v2/master/docs/assets/token-comparison.jpg",
+        "https://raw.githubusercontent.com/N1nEmAn/sapper-v2/master/docs/assets/score-curve.jpg",
+        "https://raw.githubusercontent.com/N1nEmAn/sapper-v2/master/docs/assets/ape-stargazing.jpg"
+      ],
+      "name": "sapper-v2",
+      "open_issues": 5,
+      "published_at": "2026-11-22T16:25:04.978946Z",
+      "pushed_at": "2026-11-11T12:18:45Z",
+      "readme_fp": "477d2a5f349a7483",
+      "repo_id": 1439885901,
+      "revisit_of": "",
+      "revisit_reason": "",
+      "score": 85.153,
+      "slot": "us_morning",
+      "sources": [
+        "github_search"
+      ],
+      "stars": 2549,
+      "telegram_chat_id": "@GitHub_Open_Source",
+      "telegram_link": "https://t.me/GitHub_Open_Source/3634",
+      "telegram_message_id": 3634,
+      "telegraph_url": "https://telegra.ph/sapper-v2-Autonomous-Multi-Agent-Pentest-Legion-and-Orchestration-Harness-11-22",
+      "topics": [
+        "agentic-workflows",
+        "ai-agents",
+        "ai-security",
+        "autonomous-agents",
+        "claude-code",
+        "ctf",
+        "cybersecurity",
+        "fact-graph",
+        "llm",
+        "multi-agent",
+        "pentest",
+        "swarm-intelligence"
+      ],
+      "updated_at": "2026-11-22T15:46:45Z",
+      "url": "https://github.com/N1nEmAn/sapper-v2",
+      "visual_host": "imgbb",
+      "visual_kind": "readme"
+    },
     "nyblnet/bento": {
       "articles": {},
       "card_style": "editorial_daily",
@@ -10632,73 +10748,6 @@
       "topics": [],
       "updated_at": "2026-11-22T00:19:15Z",
       "url": "https://github.com/tradermonty/claude-trading-skills"
-    },
-    {
-      "archived": false,
-      "contributors_count": 2,
-      "created_at": "2026-10-30T15:12:35Z",
-      "default_branch": "master",
-      "description": "The first fruit of the Nüwa tree — an autonomous AI pentest legion (634-team champion, 8h unattended, 1B tokens beat 4.5B). Not just a tool: evolvable by design. Grow your own fruit on the Nüwa Foundation (Create/Language/History).",
-      "disabled": false,
-      "fork": false,
-      "forks": 1231,
-      "forks_count": 1231,
-      "full_name": "N1nEmAn/sapper-v2",
-      "has_readme": true,
-      "homepage": "https://github.com/N1nEmAn/nvwabase",
-      "id": 1439885901,
-      "is_dual_use": true,
-      "is_hidden_gem": false,
-      "language": "Python",
-      "license": {
-        "key": "mit",
-        "name": "MIT License",
-        "node_id": "MDc6TGljZW5zZTEz",
-        "spdx_id": "MIT",
-        "url": "https://api.github.com/licenses/mit"
-      },
-      "media_urls": [
-        "https://raw.githubusercontent.com/N1nEmAn/sapper-v2/master/docs/assets/banner.jpg",
-        "https://raw.githubusercontent.com/N1nEmAn/sapper-v2/master/docs/assets/foundation-three-capabilities.jpg",
-        "https://raw.githubusercontent.com/N1nEmAn/sapper-v2/master/docs/assets/six-institutions.jpg",
-        "https://raw.githubusercontent.com/N1nEmAn/sapper-v2/master/docs/assets/runtime-tmux.jpg",
-        "https://raw.githubusercontent.com/N1nEmAn/sapper-v2/master/docs/assets/token-comparison.jpg",
-        "https://raw.githubusercontent.com/N1nEmAn/sapper-v2/master/docs/assets/score-curve.jpg",
-        "https://raw.githubusercontent.com/N1nEmAn/sapper-v2/master/docs/assets/ape-stargazing.jpg"
-      ],
-      "name": "sapper-v2",
-      "non_software_reason": "",
-      "open_issues": 5,
-      "open_issues_count": 5,
-      "owner_repo_count": 1,
-      "pushed_at": "2026-11-11T12:18:45Z",
-      "readme": "",
-      "readme_excerpt": "# sapper-v2 — The Autonomous Pentest Legion\n\n<p align=\"center\"><img src=\"docs/assets/banner.jpg\" alt=\"sapper-v2 — the Nüwa Test: the first time an AI ape looked up at the stars (80.18/100 champion)\" width=\"860\"></p>\n\n> **Champion** of the 3rd Tencent Cloud Intelligent Attack-Defense Challenge online qualifier\n> (634 teams · 80.18/100 · 8 hours fully unattended) · **First Prize**, GeekCon 2026 AI Challenge\n>\n> Same 85 flags as the runner-up, 25 seconds faster — on **1B tokens** where they burned 4.5B.\n>\n> **This was the first time an AI ape looked up at the stars.**\n\n📖 **[Full design article (WeChat, in Chinese)](https://mp.weixin.qq.com/s/nibHYWmDTf6TkNhPhtvFdw)** — the Nüwa Test, the three-capability foundation, 18 iterations, emergence, and the taggant proposal.\n\n**English** | [中文](README.zh-CN.md)\n\n**⚠️ AUTHORIZED SECURITY TESTING ONLY — see [DISCLAIMER.md](DISCLAIMER.md).**\n\n## Meet sapper in 60 seconds\n\nhttps://github.com/user-attachments/assets/1560dc0c-2c92-42b8-a42f-698848fb5878\n\n🎬 中文版：[中文宣传片](https://github.com/user-attachments/assets/f300280a-4597-40a3-b036-8f235fbee00e)\n\n## What this is (and isn't)\n\n**sapper is a multi-agent orchestration harness, not a single agent.** I",
-      "readme_len": 15551,
-      "repo_id": 1439885901,
-      "score": 85.153,
-      "source_name": "github_search",
-      "sources": [
-        "github_search"
-      ],
-      "stargazers_count": 2537,
-      "stars": 2537,
-      "topics": [
-        "agentic-workflows",
-        "ai-agents",
-        "ai-security",
-        "autonomous-agents",
-        "claude-code",
-        "ctf",
-        "cybersecurity",
-        "fact-graph",
-        "llm",
-        "multi-agent",
-        "pentest",
-        "swarm-intelligence"
-      ],
-      "updated_at": "2026-11-21T23:09:49Z",
-      "url": "https://github.com/N1nEmAn/sapper-v2"
     },
     {
       "archived": false,
@@ -17749,8 +17798,8 @@
     "n1neman/sapper-v2": {
       "first_seen_at": "2026-11-06T12:20:43.205402Z",
       "full_name": "N1nEmAn/sapper-v2",
-      "last_decision": "queued",
-      "last_seen_at": "2026-11-22T00:25:30.689283Z",
+      "last_decision": "published",
+      "last_seen_at": "2026-11-22T16:25:04.979221Z",
       "repo_id": 1439885901,
       "sources": [
         "github_search",
