@@ -224,16 +224,16 @@
   "dead_letters": [],
   "gemini_daily": {
     "day": "2026-11-21",
-    "units": 21
+    "units": 27
   },
   "gemini_window": [
     [
-      1795284827.5333316,
-      3976
+      1795310029.7823026,
+      3956
     ],
     [
-      1795284838.1201081,
-      1403
+      1795310033.3069413,
+      1396
     ]
   ],
   "last_runs": {
@@ -324,9 +324,9 @@
       "telegram_message_id": 3550
     },
     "publish:us_evening": {
-      "finished_at": "2026-11-21T01:14:07.086487Z",
-      "repo": "libracoder/kiri",
-      "telegram_message_id": 3627
+      "finished_at": "2026-11-22T01:14:00.497644Z",
+      "repo": "kianuni/erosion-cn",
+      "telegram_message_id": 3631
     },
     "publish:us_midday": {
       "finished_at": "2026-11-21T18:14:12.307620Z",
@@ -5167,6 +5167,117 @@
       ],
       "visual_host": "imgbb",
       "visual_kind": "card"
+    },
+    "kianuni/erosion-cn": {
+      "articles": {},
+      "card_style": "",
+      "category": "DevTools",
+      "contributors_count": 2,
+      "created_at": "2026-11-10T02:37:31Z",
+      "crossposts": {
+        "bluesky": {
+          "attempts": 0,
+          "due_at": "2026-11-22T18:00:00+00:00",
+          "status": "pending"
+        }
+      },
+      "description": "iOS / iPadOS 国行 Apple 智能、eSIM 与 MobileGestalt 系统配置工具箱（中英双语 · 防白苹果安全加固版） | Bootloop-Safe iOS / iPadOS MobileGestalt, Apple Intelligence & eSIM Toolbox (EN/ZH)",
+      "description_fp": "94545fc51ea713dc",
+      "forks": 464,
+      "full_name": "Kianuni/Erosion-CN",
+      "generated": {
+        "article_markdown": "## What it is\n\nErosion-CN is a bilingual Swift utility designed for iOS and iPadOS system configuration research. Built on top of the worse_query architecture, it provides a structured interface for reading and writing MobileGestalt caches, managing application containers, and testing region-specific system behaviors.\n\n## Why it matters\n\nModifying low-level iOS configurations has historically carried a high risk of bootlooping, often requiring a full DFU recovery when a plist edit fails or a cache key becomes corrupted. Erosion-CN introduces safety measures like runtime offset calculation and dual SHA-256 backups to ensure changes can be cleanly verified and reverted.\n\n## Key features\n\n- Perform atomic plist and MobileGestalt overwrites using pwrite and F_FULLFSYNC.\n- Calculate runtime offsets dynamically from libMobileGestalt.dylib without hardcoding.\n- Maintain dual SHA-256 backups in both sandbox and system vaults for one-click recovery.\n- Manage zero-space APFS clonefile application staging and file backups.\n- Expose an embedded dark-mode WebUI via NWListener with PIN authentication over Wi-Fi.\n\n## Quick start\n\nClone the repository to review the source code and build using Xcode:\n\n```bash\ngit clone https://github.com/Kianuni/Erosion-CN.git\n```\n\n## Who should try it\n\nDevelopers and security researchers who need to inspect or modify iOS system properties on supported development devices will find this toolkit useful. It is not intended for standard consumer use.\n\n## Verdict\n\nA well-engineered utility that brings much-needed safety checks to low-level iOS exploration.",
+        "article_title": "Erosion-CN: A Safe MobileGestalt and System Configuration Toolbox for iOS",
+        "card_hook": "Unlock iOS System Configuration",
+        "card_subline": "A secure MobileGestalt toolbox for iOS and iPadOS without risking bootloops",
+        "category": "DevTools",
+        "discussion_question": "Which iOS version are you currently using for your device testing?",
+        "hook": "Bypass iOS 27 system restrictions and unlock regional features safely with a bootloop-safe Swift toolbox.",
+        "key_features": [
+          "Perform atomic plist and MobileGestalt overwrites using pwrite and F_FULLFSYNC",
+          "Calculate runtime offsets dynamically from libMobileGestalt.dylib without hardcoding",
+          "Maintain dual SHA-256 backups in both sandbox and system vaults for one-click recovery",
+          "Manage zero-space APFS clonefile application staging and file backups",
+          "Expose an embedded dark-mode WebUI via NWListener with PIN authentication over Wi-Fi"
+        ],
+        "llm_used": true,
+        "quick_start": "git clone https://github.com/Kianuni/Erosion-CN.git",
+        "safety": "ok",
+        "safety_reason": "The repository is an open-source research toolbox for system configurations and educational study of iOS frameworks.",
+        "scene": "You modify a device configuration plist, trigger a system reboot, and stare at the Apple logo indefinitely.",
+        "social_text": "Safely explore and modify iOS system configurations and MobileGestalt caches without triggering bootloops.",
+        "summary": "Erosion-CN is a Swift-based system configuration and MobileGestalt research utility for iOS and iPadOS. It replaces unsafe system modification scripts by using atomic writes with F_FULLFSYNC, dynamic runtime offset calculation, and dual SHA-256 backups to prevent white-apple bootloops. The tool operates through a sandboxed application container requiring AltStore or SideStore deployment.",
+        "surfaces": {
+          "Facebook_body": "Many people want to access features on their iPhone or iPad that are restricted based on where the device was purchased, such as specific intelligence tools or cellular options. Modifying these system settings has historically been risky, often leading to devices getting stuck in a permanent restart loop, commonly known as a white-apple error.\n\nThis new tool provides a safer way to explore and adjust these configurations. Instead of using unreliable scripts that can corrupt your system files, it uses a more careful method to write changes. It creates two separate backups of your original settings before making any adjustments. If anything goes wrong, you can restore your device to its original state with a single click.\n\nDesigned for those who enjoy tinkering with their hardware, the tool runs within a secure environment on your device. It includes a simple web interface that you can access over your local Wi-Fi network, allowing you to manage your settings from a computer browser. It is a practical utility for anyone looking to research or customize their device's regional capabilities on the latest software versions.",
+          "Facebook_headline": "Safely change restricted settings on your iPhone or iPad",
+          "Facebook_lead": "If you want to access region-locked features on your Apple device, this new tool lets you modify system settings without the risk of getting stuck in a restart loop.",
+          "bluesky_headline": "Unlock regional iOS features without the bootloop risk",
+          "bluesky_lead": "A safe Swift toolbox for modifying system settings on iOS 27, featuring dual backups and atomic writes.",
+          "devto_body": "## What it is\n\nErosion-CN is a Swift-based utility designed for iOS and iPadOS system configuration and MobileGestalt research. It provides a safer alternative to traditional system modification scripts, specifically targeting the ability to bypass regional restrictions on iOS 27. The project focuses on preventing the dreaded 'white-apple' bootloop by implementing atomic write operations and robust backup mechanisms.\n\n## How it works\n\nUnlike legacy tools that rely on potentially destructive file overwrites, Erosion-CN utilizes `pwrite` combined with `F_FULLFSYNC` to ensure atomic operations. It dynamically calculates runtime offsets from `libMobileGestalt.dylib` rather than relying on hardcoded addresses, which makes it more resilient to minor system updates. The tool operates within a sandboxed application container, requiring deployment via AltStore or SideStore.\n\n## Key features\n\n- **Atomic Operations:** Uses `F_FULLFSYNC` to ensure data integrity during plist and MobileGestalt overwrites.\n- **Dynamic Offsets:** Calculates addresses at runtime, reducing the need for constant hardcoded updates.\n- **Safety Vaults:** Maintains dual SHA-256 backups (sandbox and system) for one-click recovery.\n- **Web Interface:** Exposes a dark-mode WebUI via `NWListener` with PIN authentication, allowing configuration management over Wi-Fi.\n- **APFS Management:** Handles zero-space APFS clonefile staging for safer file manipulation.\n\n## Getting started\n\n1. Ensure your device is running a supported iOS 27 version.\n2. Download the latest `.ipa` release from the repository.\n3. Deploy the application using AltStore or SideStore.\n4. Launch the app and connect to the provided local URL via your browser to access the configuration dashboard.\n\n## When not to use it\n\nThis tool is intended for research and advanced configuration. Do not use it if you are not comfortable with the risks associated with modifying system plists. Furthermore, this utility will become obsolete if Apple patches the underlying sandbox escape paths, rendering the tool unable to access the necessary system files.",
+          "seo_description": "Learn how to safely modify iOS system configurations and bypass regional restrictions using the Erosion-CN Swift toolbox with built-in bootloop protection.",
+          "seo_query": "how to modify ios mobilegestalt settings safely",
+          "seo_title": "How to modify iOS MobileGestalt settings safely - Erosion-CN",
+          "telegraph_angle": "Explain the technical necessity of atomic writes and dynamic offset calculation in modern iOS research to prevent bootloops."
+        },
+        "tension": "A single corrupted system cache key bricks your device, forcing a complete data wipe and DFU restore.",
+        "turn": "Erosion-CN intercepts configuration writes, verifies file integrity, and rolls back bad edits automatically.",
+        "verdict": "An essential utility for deep system research on supported iOS versions, though useless once upstream patches lock down the sandbox.",
+        "who_for": "iOS developers and advanced security researchers modifying local system configurations.",
+        "why_now": "Recent iOS 27 patch cycles block older sandbox escape paths, making a reliable and safe MobileGestalt exploration framework critical."
+      },
+      "homepage": "",
+      "id": 1452123445,
+      "image_url": "https://i.ibb.co/8nM1sQgB/kianuni-erosion-cn-readme-preview-f16840882839.jpg",
+      "is_dual_use": false,
+      "is_hidden_gem": false,
+      "language": "Swift",
+      "license": {
+        "key": "gpl-3.0",
+        "name": "GNU General Public License v3.0",
+        "node_id": "MDc6TGljZW5zZTk=",
+        "spdx_id": "GPL-3.0",
+        "url": "https://api.github.com/licenses/gpl-3.0"
+      },
+      "media_urls": [
+        "https://raw.githubusercontent.com/Kianuni/Erosion-CN/main/PreviewIcon.png"
+      ],
+      "name": "Erosion-CN",
+      "open_issues": 32,
+      "published_at": "2026-11-22T01:14:00.497292Z",
+      "pushed_at": "2026-11-19T13:48:22Z",
+      "readme_fp": "",
+      "repo_id": 1452123445,
+      "revisit_of": "",
+      "revisit_reason": "",
+      "score": 90.24,
+      "slot": "us_evening",
+      "sources": [
+        "github_search",
+        "telegram:gitbless"
+      ],
+      "stars": 2678,
+      "telegram_chat_id": "@GitHub_Open_Source",
+      "telegram_link": "https://t.me/GitHub_Open_Source/3631",
+      "telegram_message_id": 3631,
+      "telegraph_url": "https://telegra.ph/Erosion-CN-A-Safe-MobileGestalt-and-System-Configuration-Toolbox-for-iOS-11-22",
+      "topics": [
+        "apple-intelligence",
+        "esim",
+        "facetime-audio",
+        "ios",
+        "ios-tweaks",
+        "ipados",
+        "mobilegestalt",
+        "sandbox-escape",
+        "sideloading",
+        "swift",
+        "swiftui",
+        "system-customization"
+      ],
+      "updated_at": "2026-11-22T00:50:33Z",
+      "url": "https://github.com/Kianuni/Erosion-CN",
+      "visual_host": "imgbb",
+      "visual_kind": "readme"
     },
     "knifelemon/filee": {
       "articles": {},
@@ -10320,68 +10431,6 @@
     }
   },
   "queue": [
-    {
-      "archived": false,
-      "contributors_count": 2,
-      "created_at": "2026-11-10T02:37:31Z",
-      "default_branch": "main",
-      "description": "iOS / iPadOS 国行 Apple 智能、eSIM 与 MobileGestalt 系统配置工具箱（中英双语 · 防白苹果安全加固版） | Bootloop-Safe iOS / iPadOS MobileGestalt, Apple Intelligence & eSIM Toolbox (EN/ZH)",
-      "disabled": false,
-      "fork": false,
-      "forks": 464,
-      "forks_count": 464,
-      "full_name": "Kianuni/Erosion-CN",
-      "has_readme": true,
-      "homepage": "",
-      "id": 1452123445,
-      "is_dual_use": false,
-      "is_hidden_gem": false,
-      "language": "Swift",
-      "license": {
-        "key": "gpl-3.0",
-        "name": "GNU General Public License v3.0",
-        "node_id": "MDc6TGljZW5zZTk=",
-        "spdx_id": "GPL-3.0",
-        "url": "https://api.github.com/licenses/gpl-3.0"
-      },
-      "media_urls": [
-        "https://raw.githubusercontent.com/Kianuni/Erosion-CN/main/PreviewIcon.png"
-      ],
-      "name": "Erosion-CN",
-      "non_software_reason": "",
-      "open_issues": 32,
-      "open_issues_count": 32,
-      "owner_repo_count": 1,
-      "pushed_at": "2026-11-19T13:48:22Z",
-      "readme": "",
-      "readme_excerpt": "<div align=\"center\">\n  <br>\n  <a href=\"https://github.com/Kianuni/Erosion-CN/releases/latest\"><img src=\"./PreviewIcon.png\" alt=\"App Icon\" width=\"150\"></a>\n  <br>\n  <h1>Erosion-CN</h1>\n  <p>基于 <a href=\"https://github.com/forcequitOS/worse_query\">worse_query</a> 的 iOS / iPadOS 系统配置与 MobileGestalt 研究工具箱（中英双语 · 防白苹果安全加固版）</p>\n  <p>支持 iOS / iPadOS 27.0 – 27.2 / 27.3 beta 1（完整支持）以及 iOS / iPadOS 26.x（部分支持）。</p>\n  <p><strong>简体中文</strong> · <a href=\"./README_EN.md\">English Documentation</a> · <a href=\"https://github.com/Kianuni/AppleFlow\">AppleFlow 配套分流与排雷台</a> · <a href=\"https://github.com/Kianuni/AppleLens\">AppleLens 观测与排障台</a></p>\n  <p>\n    <a href=\"https://github.com/Kianuni/Erosion-CN/releases/latest\"><img alt=\"GitHub Releases\" src=\"https://img.shields.io/github/v/release/Kianuni/Erosion-CN?style=flat-square&color=CF7D46&label=%E6%9C%80%E6%96%B0%E7%89%88%E6%9C%AC\"></a>\n    <a href=\"https://github.com/Kianuni/Erosion-CN/releases\"><img alt=\"IPA Downloads\" src=\"https://img.shields.io/github/downloads/Kianuni/Erosion-CN/total?style=flat-square&color=10B981&label=IPA%20%E4%B8%8B%E8%BD%BD%E9%87%8F\"></a>\n    <a href=\"https://github.com/Kianuni/Erosion-CN/stargazers\"><img alt=\"GitHub Stars\" s",
-      "readme_len": 22206,
-      "repo_id": 1452123445,
-      "score": 90.24,
-      "source_name": "github_search",
-      "sources": [
-        "github_search",
-        "telegram:gitbless"
-      ],
-      "stargazers_count": 2677,
-      "stars": 2677,
-      "topics": [
-        "apple-intelligence",
-        "esim",
-        "facetime-audio",
-        "ios",
-        "ios-tweaks",
-        "ipados",
-        "mobilegestalt",
-        "sandbox-escape",
-        "sideloading",
-        "swift",
-        "swiftui",
-        "system-customization"
-      ],
-      "updated_at": "2026-11-22T00:01:45Z",
-      "url": "https://github.com/Kianuni/Erosion-CN"
-    },
     {
       "archived": false,
       "contributors_count": 158,
@@ -16275,8 +16324,8 @@
     "kianuni/erosion-cn": {
       "first_seen_at": "2026-11-15T00:27:15.352730Z",
       "full_name": "Kianuni/Erosion-CN",
-      "last_decision": "queued",
-      "last_seen_at": "2026-11-22T00:25:30.685954Z",
+      "last_decision": "published",
+      "last_seen_at": "2026-11-22T01:14:00.497633Z",
       "repo_id": 1452123445,
       "sources": [
         "github_search",
