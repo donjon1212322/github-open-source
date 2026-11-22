@@ -333,13 +333,13 @@
       "telegram_message_id": 3636
     },
     "news-article": {
-      "devto_id": 5090186,
-      "finished_at": "2026-11-21T19:53:49.365529Z",
+      "devto_id": 5095601,
+      "finished_at": "2026-11-22T19:53:58.479354Z",
       "published": true,
-      "title": "Thinking Machines Inkling 2 Mini, Google Genie 4 API, and GPT-6.2 Astra Defenses",
-      "topic_key": "looped-transformers-and-genie-api",
-      "url": "https://dev.to/githubopensource/thinking-machines-inkling-2-mini-google-genie-4-api-and-gpt-62-astra-defenses-1oa5",
-      "words": 1033
+      "title": "Local Adapters, CLI Harnesses, and Craftsmanship in Agentic Workflows",
+      "topic_key": "ai-coding-agents-and-harnesses",
+      "url": "https://dev.to/githubopensource/local-adapters-cli-harnesses-and-craftsmanship-in-agentic-workflows-25j8",
+      "words": 1185
     },
     "poll-close": {
       "finished_at": "2026-11-19T18:53:54.858983Z",
@@ -1992,6 +1992,7 @@
         ],
         "why_devs": "These updates directly alter how your local coding agents behave, consume tokens, and execute commands in the terminal."
       },
+      "devto_cover_url": "https://i.ibb.co/Hf3FJW39/project-devto-cover-3f2683fd5b82.png",
       "headline": "Hugging Face boosts Qwen3.8-27B on SWE-bench Pro while harness CLI tools roll out major updates",
       "image_url": "https://i.ibb.co/W4848tTX/ai-brief-428dea307f06.png",
       "models": [

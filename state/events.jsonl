@@ -707,3 +707,4 @@
 {"slot": "facebook-handoff", "ts": "2026-11-22T19:00:50.477579Z", "type": "watchdog_verified"}
 {"title": "Local Adapters, CLI Harnesses, and Craftsmanship in Agentic Workflows", "ts": "2026-11-22T19:19:23.978984Z", "type": "news_article_generated", "words": 1185}
 {"Gemini_video_input": false, "models": 4, "official_url": "", "stories": 4, "topic": "ai-coding-agents-and-harnesses", "ts": "2026-11-22T19:19:26.759450Z", "type": "ai_brief_published", "video_id": "tg-20261122-0c6601ca14"}
+{"devto_id": 5095601, "ts": "2026-11-22T19:53:58.479379Z", "type": "news_article_published", "url": "https://dev.to/githubopensource/local-adapters-cli-harnesses-and-craftsmanship-in-agentic-workflows-25j8", "words": 1185}
