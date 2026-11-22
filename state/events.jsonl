@@ -700,3 +700,4 @@
 {"projects_7d": 21, "sent": true, "ts": "2026-11-22T16:43:47.989132Z", "type": "weekly_report"}
 {"preview_host": "imgbb", "repo": "storytold/cadcraft", "ts": "2026-11-22T18:14:13.705134Z", "type": "published_as_text"}
 {"repo": "storytold/cadcraft", "score": 86.318, "telegram_message_id": 3635, "telegraph_url": "https://telegra.ph/CADCraft-An-Open-Source-Rust-Based-CAD-Tool-for-Developers-11-22", "ts": "2026-11-22T18:14:13.948619Z", "type": "project_published"}
+{"platform": "bluesky", "repo": "kianuni/erosion-cn", "ts": "2026-11-22T18:17:51.251793Z", "type": "crosspost_published", "url": "https://bsky.app/profile/githubopensource.bsky.social/post/3n2w7zfqskj2a"}

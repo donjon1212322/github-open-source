@@ -5213,7 +5213,10 @@
         "bluesky": {
           "attempts": 0,
           "due_at": "2026-11-22T18:00:00+00:00",
-          "status": "pending"
+          "error": "",
+          "published_at": "2026-11-22T18:17:51.251768Z",
+          "status": "published",
+          "url": "https://bsky.app/profile/githubopensource.bsky.social/post/3n2w7zfqskj2a"
         }
       },
       "description": "iOS / iPadOS 国行 Apple 智能、eSIM 与 MobileGestalt 系统配置工具箱（中英双语 · 防白苹果安全加固版） | Bootloop-Safe iOS / iPadOS MobileGestalt, Apple Intelligence & eSIM Toolbox (EN/ZH)",
@@ -7433,7 +7436,8 @@
         "bluesky": {
           "attempts": 0,
           "due_at": "2026-11-22T18:00:00+00:00",
-          "status": "pending"
+          "held_reason": "not_best_of_day",
+          "status": "held"
         }
       },
       "description": "The first fruit of the Nüwa tree — an autonomous AI pentest legion (634-team champion, 8h unattended, 1B tokens beat 4.5B). Not just a tool: evolvable by design. Grow your own fruit on the Nüwa Foundation (Create/Language/History).",
@@ -8857,7 +8861,8 @@
         "bluesky": {
           "attempts": 0,
           "due_at": "2026-11-22T18:44:13.948353+00:00",
-          "status": "pending"
+          "held_reason": "not_best_of_day",
+          "status": "held"
         }
       },
       "description": "CADCraft: computer-aided design and drafting — an open-source, clean-room CAD application in pure Rust",
