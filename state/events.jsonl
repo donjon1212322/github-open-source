@@ -679,3 +679,4 @@
 {"minutes_late": 271.8, "schedule": "18 19 * * *", "ts": "2026-11-21T23:49:47.551777Z", "type": "late_schedule_ignored"}
 {"minutes_late": 245.1, "schedule": "53 19 * * *", "ts": "2026-11-21T23:58:03.517454Z", "type": "late_schedule_ignored"}
 {"discovered": 418, "enriched": 120, "passed_gate": 63, "queued": 28, "rejections": {"blocklist:aimbot": 1, "description_not_english": 6, "external_download_host": 6, "narrow:topic:config": 1, "no_community": 6, "no_license": 37, "no_push_date": 2, "no_readme": 2, "not_software:topic:music": 1, "readme_not_english": 7, "stars<100": 9}, "ts": "2026-11-22T00:25:30.721591Z", "type": "collect_completed"}
+{"minutes_late": 243.3, "schedule": "23 20 * * *", "ts": "2026-11-22T00:26:17.827956Z", "type": "late_schedule_ignored"}
