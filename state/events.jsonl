@@ -710,3 +710,4 @@
 {"devto_id": 5095601, "ts": "2026-11-22T19:53:58.479379Z", "type": "news_article_published", "url": "https://dev.to/githubopensource/local-adapters-cli-harnesses-and-craftsmanship-in-agentic-workflows-25j8", "words": 1185}
 {"minutes_late": 72.5, "schedule": "47 */3 * * *", "ts": "2026-11-22T19:59:28.270236Z", "type": "late_schedule_ignored"}
 {"channel": "GitHub_Open_Source", "posts": 12, "ts": "2026-11-22T20:23:55.884730Z", "type": "metrics_collected", "updated": 12}
+{"minutes_late": 413.1, "schedule": "33 13 * * *", "ts": "2026-11-22T20:26:04.539659Z", "type": "late_schedule_ignored"}
