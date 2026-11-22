@@ -253,16 +253,16 @@
   "dead_letters": [],
   "gemini_daily": {
     "day": "2026-11-22",
-    "units": 6
+    "units": 12
   },
   "gemini_window": [
     [
-      1795364634.5934935,
-      3971
+      1795371229.491226,
+      3880
     ],
     [
-      1795364638.166337,
-      1412
+      1795371241.8962328,
+      1397
     ]
   ],
   "last_runs": {
@@ -358,9 +358,9 @@
       "telegram_message_id": 3631
     },
     "publish:us_midday": {
-      "finished_at": "2026-11-21T18:14:12.307620Z",
-      "repo": "verlintas/noir",
-      "telegram_message_id": 3629
+      "finished_at": "2026-11-22T18:14:13.948747Z",
+      "repo": "storytold/cadcraft",
+      "telegram_message_id": 3635
     },
     "publish:us_morning": {
       "finished_at": "2026-11-22T16:25:04.979229Z",
@@ -8847,6 +8847,110 @@
       "visual_host": "imgbb",
       "visual_kind": "readme"
     },
+    "storytold/cadcraft": {
+      "articles": {},
+      "card_style": "",
+      "category": "DevTools",
+      "contributors_count": 158,
+      "created_at": "2026-10-07T05:22:31Z",
+      "crossposts": {
+        "bluesky": {
+          "attempts": 0,
+          "due_at": "2026-11-22T18:44:13.948353+00:00",
+          "status": "pending"
+        }
+      },
+      "description": "CADCraft: computer-aided design and drafting — an open-source, clean-room CAD application in pure Rust",
+      "description_fp": "209c68ef60b6eb4a",
+      "forks": 3521,
+      "full_name": "storytold/cadcraft",
+      "generated": {
+        "article_markdown": "## What it is\n\nCADCraft is a 2D and 3D computer-aided design application built entirely in Rust. Unlike many modern CAD tools that rely on Electron or heavy web-view wrappers, CADCraft is a native binary that prioritizes performance and a classic, command-line-driven drafting experience. It handles standard drafting operations—lines, polylines, circles, arcs, and complex modifications like trim and extend—using the keyboard-centric workflow that many professionals have used for decades.\n\n## Why it matters\n\nFor developers and engineers, the biggest hurdle with traditional CAD software is the lack of true programmability. Most legacy tools are built as GUI-first silos where automation is an afterthought or locked behind expensive enterprise tiers. CADCraft changes this by treating the command line as the primary interface. Because every action is a command, the software is inherently scriptable. By integrating the Model Context Protocol (MCP), it allows AI agents to inspect, modify, and generate drawings programmatically, bridging the gap between design and code.\n\n## Key features\n\n- Native performance: Built in Rust with egui, it runs natively on macOS, Windows, Linux, and FreeBSD without the resource usage of Electron.\n- File compatibility: Native DXF read/write (R12–2018) and DWG support via the acadrust library.\n- Agent-ready: Built from the ground up for automation, allowing agents to drive the software via MCP or a JSON control channel.\n- Familiar workflow: Supports standard drafting habits like object snaps, polar tracking, ortho, and direct distance entry.\n- Web-capable: Includes a WebAssembly build for running directly in the browser.\n\n## Quick start\n\nTo get started with the local build, ensure you have Rust 1.95 or later installed:\n\n```sh\ngit clone https://github.com/storytold/cadcraft\ncd cadcraft\ncargo run --release -p cadcraft -- --sample\n```\n\nOnce open, you can interact with the command line by typing commands like `line`, `circle`, or `offset` directly.\n\n## Who should try it\n\nThis is for anyone tired of bloated, proprietary CAD suites who wants a lightweight, scriptable alternative. If you are a developer looking to integrate CAD generation into a pipeline, or an engineer who prefers a keyboard-driven workflow, this is a strong candidate. However, if your daily work depends on specialized, third-party plugins from legacy CAD vendors, you will likely find those missing here.\n\n## Verdict\n\nCADCraft is a refreshing, performance-oriented take on CAD. It is currently in early development, so expect some rough edges, but its commitment to open standards and agent-driven automation makes it a project worth watching for anyone who wants to treat their drafting process as code.",
+        "article_title": "CADCraft: An Open-Source, Rust-Based CAD Tool for Developers",
+        "card_hook": "CAD drafting in pure Rust",
+        "card_subline": "A fast, open-source CAD application with full DXF/DWG support and agent-ready automation",
+        "category": "DevTools",
+        "discussion_question": "If you could automate one part of your current design workflow, what would it be?",
+        "hook": "CADCraft brings a native, Rust-based 2D/3D drafting environment to your desktop that supports DXF/DWG files and MCP-driven automation.",
+        "key_features": [
+          "Native performance on macOS, Windows, Linux, and FreeBSD without Electron overhead",
+          "Full command-line drafting workflow with object snaps, polar tracking, and ortho",
+          "Native DXF read/write (R12–2018) and DWG support via the acadrust library",
+          "Agent-first architecture with MCP support for programmatic drawing manipulation",
+          "WebAssembly build available for browser-based usage"
+        ],
+        "llm_used": true,
+        "quick_start": "git clone https://github.com/storytold/cadcraft && cd cadcraft && cargo run --release -p cadcraft -- --sample",
+        "safety": "ok",
+        "safety_reason": "It is a legitimate open-source CAD application.",
+        "scene": "You are trying to automate a repetitive drafting task—like generating a series of mounting brackets—but your current CAD software is a bloated, proprietary monolith that fights your scripts.",
+        "social_text": "Tired of bloated CAD software? CADCraft is a fast, open-source 2D/3D drafting tool written in Rust that supports DXF/DWG and is built to be driven by AI agents via MCP.",
+        "summary": "CADCraft is a 2D and 3D CAD application built in Rust using the egui framework. It implements a traditional command-line drafting workflow—supporting standard commands like LINE, TRIM, and OFFSET—while providing native read/write support for DXF and DWG files. The architecture is designed for automation, allowing AI agents to control the drawing process via the Model Context Protocol (MCP) or a JSON control channel.",
+        "surfaces": {
+          "Facebook_body": "Many design and drafting programs are heavy, slow, and bloated, often forcing you to wait for the interface to catch up with your mouse. If you are an engineer or architect looking for a more responsive way to handle your 2D and 3D projects, there is a new option. This tool is built specifically to be lightweight and fast, running natively on your computer without the heavy background processes that usually slow down design work. It supports the standard drafting commands you already know, like drawing lines, trimming edges, and offsetting shapes, making the transition straightforward. Beyond just speed, it is designed to be easily controlled by external scripts or automated systems, allowing you to program your drafting workflow rather than clicking every single point manually. Whether you are working on complex architectural plans or simple mechanical parts, this software provides a clean, distraction-free environment. It is a practical choice for professionals who need reliability and performance over complex, proprietary features that often get in the way of the actual work.",
+          "Facebook_headline": "A faster way to design and draft on your computer",
+          "Facebook_lead": "If you are tired of slow drafting software, this new tool offers a clean, fast experience for 2D and 3D design without the usual bloat.",
+          "bluesky_headline": "Draft 2D and 3D designs with native speed",
+          "bluesky_lead": "A lightweight CAD tool built in Rust that supports standard drafting commands and common file formats.",
+          "devto_body": "## What it is\n\nCADCraft is an open-source, 2D and 3D drafting application written entirely in Rust. Unlike many modern CAD tools that rely on heavy web-based frameworks, CADCraft prioritizes native performance by utilizing the egui framework. It is designed for engineers, architects, and developers who require a scriptable, lightweight environment that avoids the overhead of Electron-based applications.\n\n## How it works\n\nThe architecture centers on a traditional command-line drafting workflow. It implements standard drafting primitives—such as LINE, TRIM, and OFFSET—allowing users to work with familiar commands. Under the hood, it leverages the `acadrust` library to handle DXF (R12–2018) and DWG file parsing natively. Because it is written in Rust, the application is highly performant and cross-platform, with builds available for macOS, Windows, Linux, and FreeBSD. It also supports a WebAssembly build for browser-based usage.\n\n## Key features\n\n- **Native Performance:** No Electron overhead, resulting in a snappy, responsive UI.\n- **Standard Drafting:** Full support for object snaps, polar tracking, and ortho modes.\n- **File Compatibility:** Native read/write support for DXF and DWG formats.\n- **Automation-Ready:** Built with an agent-first architecture, it supports the Model Context Protocol (MCP) and JSON control channels for programmatic drawing manipulation.\n\n## Getting started\n\nTo get started, you will need the Rust toolchain installed on your machine. You can clone the repository from GitHub:\n\n```bash\ngit clone https://github.com/storytold/cadcraft\ncd cadcraft\ncargo run --release\n```\n\nEnsure you have the necessary system dependencies for `egui` (such as `libxkbcommon-dev` on Linux) installed before building. Once running, you can begin drafting using the command input at the bottom of the viewport.\n\n## When not to use it\n\nCADCraft is an excellent choice for users who value performance and programmability. However, it is not a replacement for industry-standard suites if your workflow depends heavily on deep, legacy-specific plugins or proprietary add-ons. If your project requires complex, third-party plugin ecosystems found in established commercial CAD software, you may find the current feature set of CADCraft too limited for your production needs.",
+          "seo_description": "CADCraft is a lightweight, open-source CAD application for 2D and 3D drafting. Designed for engineers and architects, it supports DXF and DWG files.",
+          "seo_query": "open source cad software for engineers",
+          "seo_title": "Fast Open-Source 2D and 3D CAD Software - CADCraft",
+          "telegraph_angle": "Explain the problem it solves and who it is for, with the trade-offs."
+        },
+        "tension": "You spend more time wrestling with restrictive APIs or manual GUI clicking than actually designing, and the licensing costs for automation-friendly versions are prohibitive.",
+        "turn": "CADCraft replaces the GUI-only silo with a command-line-first, open-source engine that treats agents as first-class users, though it is still in early development and lacks the massive plugin ecosystem of legacy giants.",
+        "verdict": "A promising alternative for those who want to code their CAD workflows; skip it if you rely on deep, legacy-specific plugins.",
+        "who_for": "Engineers, architects, and developers who need a scriptable, lightweight CAD tool.",
+        "why_now": "The convergence of mature Rust UI frameworks and the Model Context Protocol (MCP) finally makes it possible to build a CAD tool that is both performant and natively programmable by LLMs."
+      },
+      "homepage": "",
+      "id": 1408289866,
+      "image_url": "https://i.ibb.co/wN7hxvrG/storytold-cadcraft-readme-preview-a2954506bc23.jpg",
+      "is_dual_use": false,
+      "is_hidden_gem": false,
+      "language": "Rust",
+      "license": {
+        "key": "apache-2.0",
+        "name": "Apache License 2.0",
+        "node_id": "MDc6TGljZW5zZTI=",
+        "spdx_id": "Apache-2.0",
+        "url": "https://api.github.com/licenses/apache-2.0"
+      },
+      "media_urls": [
+        "https://raw.githubusercontent.com/storytold/cadcraft/main/docs/images/ui-apartment.png",
+        "https://raw.githubusercontent.com/storytold/cadcraft/main/docs/images/ui-layout.png",
+        "https://raw.githubusercontent.com/storytold/cadcraft/main/docs/images/ui-bracket.png",
+        "https://raw.githubusercontent.com/storytold/cadcraft/main/docs/brand/artcraft-mark.svg",
+        "https://raw.githubusercontent.com/storytold/cadcraft/main/docs/brand/artcraft-logo.svg",
+        "https://raw.githubusercontent.com/storytold/cadcraft/main/assets/app-icon/hicolor/256x256/apps/ai.storyteller.cadcraft.png",
+        "https://raw.githubusercontent.com/storytold/photocraft/main/assets/app-icon/hicolor/64x64/apps/ai.storyteller.photocraft.png",
+        "https://raw.githubusercontent.com/storytold/vectorcraft/main/assets/app-icon/hicolor/64x64/apps/ai.storyteller.vectorcraft.png"
+      ],
+      "name": "cadcraft",
+      "open_issues": 1361,
+      "published_at": "2026-11-22T18:14:13.948378Z",
+      "pushed_at": "2026-11-22T15:25:44Z",
+      "readme_fp": "eba0f792af1f1192",
+      "repo_id": 1408289866,
+      "revisit_of": "",
+      "revisit_reason": "",
+      "score": 86.318,
+      "slot": "us_midday",
+      "sources": [
+        "github_search"
+      ],
+      "stars": 8376,
+      "telegram_chat_id": "@GitHub_Open_Source",
+      "telegram_link": "https://t.me/GitHub_Open_Source/3635",
+      "telegram_message_id": 3635,
+      "telegraph_url": "https://telegra.ph/CADCraft-An-Open-Source-Rust-Based-CAD-Tool-for-Developers-11-22",
+      "topics": [],
+      "updated_at": "2026-11-22T17:11:34Z",
+      "url": "https://github.com/storytold/cadcraft",
+      "visual_host": "imgbb",
+      "visual_kind": "readme"
+    },
     "storytold/figcraft": {
       "articles": {},
       "card_style": "",
@@ -10583,61 +10687,6 @@
     }
   },
   "queue": [
-    {
-      "archived": false,
-      "contributors_count": 158,
-      "created_at": "2026-10-07T05:22:31Z",
-      "default_branch": "main",
-      "description": "CADCraft: computer-aided design and drafting — an open-source, clean-room CAD application in pure Rust",
-      "disabled": false,
-      "fork": false,
-      "forks": 3510,
-      "forks_count": 3510,
-      "full_name": "storytold/cadcraft",
-      "has_readme": true,
-      "homepage": "",
-      "id": 1408289866,
-      "is_dual_use": false,
-      "is_hidden_gem": false,
-      "language": "Rust",
-      "license": {
-        "key": "apache-2.0",
-        "name": "Apache License 2.0",
-        "node_id": "MDc6TGljZW5zZTI=",
-        "spdx_id": "Apache-2.0",
-        "url": "https://api.github.com/licenses/apache-2.0"
-      },
-      "media_urls": [
-        "https://raw.githubusercontent.com/storytold/cadcraft/main/docs/images/ui-apartment.png",
-        "https://raw.githubusercontent.com/storytold/cadcraft/main/docs/images/ui-layout.png",
-        "https://raw.githubusercontent.com/storytold/cadcraft/main/docs/images/ui-bracket.png",
-        "https://raw.githubusercontent.com/storytold/cadcraft/main/docs/brand/artcraft-mark.svg",
-        "https://raw.githubusercontent.com/storytold/cadcraft/main/docs/brand/artcraft-logo.svg",
-        "https://raw.githubusercontent.com/storytold/cadcraft/main/assets/app-icon/hicolor/256x256/apps/ai.storyteller.cadcraft.png",
-        "https://raw.githubusercontent.com/storytold/photocraft/main/assets/app-icon/hicolor/64x64/apps/ai.storyteller.photocraft.png",
-        "https://raw.githubusercontent.com/storytold/vectorcraft/main/assets/app-icon/hicolor/64x64/apps/ai.storyteller.vectorcraft.png"
-      ],
-      "name": "cadcraft",
-      "non_software_reason": "",
-      "open_issues": 1366,
-      "open_issues_count": 1366,
-      "owner_repo_count": 2,
-      "pushed_at": "2026-11-21T10:27:26Z",
-      "readme": "",
-      "readme_excerpt": "<p align=\"center\">\n  <a href=\"https://getartcraft.com/\">\n    <picture>\n      <source media=\"(prefers-color-scheme: dark)\" srcset=\"docs/brand/artcraft-logo-white.svg\">\n      <img alt=\"ArtCraft\" src=\"docs/brand/artcraft-logo.svg\" width=\"200\">\n    </picture>\n  </a>\n</p>\n\n<p align=\"center\">\n  <img src=\"assets/app-icon/hicolor/256x256/apps/ai.storyteller.cadcraft.png\" width=\"128\" height=\"128\" alt=\"CADCraft icon: a drafting set square and compass arc on a blue grid tile\">\n</p>\n\n<h1 align=\"center\">CADCraft</h1>\n\n<p align=\"center\">\n  <b>Computer-aided design and drafting; an open-source, modern 2D and 3D CAD application, built in pure Rust.</b>\n</p>\n\n<p align=\"center\">\n  A fast, open-source CAD workflow: the command line, object snaps, layers,\n  dimensions, hatches, blocks and DXF drawings you already know. It runs natively on macOS,\n  Windows, Linux and FreeBSD, and in the browser via WebAssembly.<br>\n  <i>By the ArtCraft team.</i>\n</p>\n\n<p align=\"center\">\n  <img alt=\"Written in Rust\" src=\"https://img.shields.io/badge/written%20in-Rust-0b6f88?style=flat-square&logo=rust&logoColor=white\">\n  <img alt=\"Runs on macOS, Windows, Linux, FreeBSD and the web\" src=\"https://img.shields.io/badge/runs",
-      "readme_len": 34646,
-      "repo_id": 1408289866,
-      "score": 86.318,
-      "source_name": "github_search",
-      "sources": [
-        "github_search"
-      ],
-      "stargazers_count": 8359,
-      "stars": 8359,
-      "topics": [],
-      "updated_at": "2026-11-21T22:42:37Z",
-      "url": "https://github.com/storytold/cadcraft"
-    },
     {
       "archived": false,
       "contributors_count": 175,
@@ -19928,8 +19977,8 @@
     "storytold/cadcraft": {
       "first_seen_at": "2026-11-06T06:53:27.352787Z",
       "full_name": "storytold/cadcraft",
-      "last_decision": "queued",
-      "last_seen_at": "2026-11-22T00:25:30.688204Z",
+      "last_decision": "published",
+      "last_seen_at": "2026-11-22T18:14:13.948731Z",
       "repo_id": 1408289866,
       "sources": [
         "github_search"
