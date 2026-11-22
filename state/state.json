@@ -183,66 +183,75 @@
       "ratio": 0.0,
       "reason": "published",
       "removed": 0
+    },
+    {
+      "date": "2026-11-22",
+      "fingerprint": "2026-11-22|True|published|0|0.0000|4",
+      "kept": 4,
+      "published": true,
+      "ratio": 0.0,
+      "reason": "published",
+      "removed": 0
     }
   ],
   "brief_memory": {
     "clusters": {
-      "https://blog.google/innovation-and-ai/infrastructure-and-cloud/google-cloud/gtig-ai-threat-tracker-q4-2026": "2026-11-17",
       "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-neon": "2026-11-19",
       "https://blog.google/innovation-and-ai/technology/developers-tools/genie-4-in-gemini-api": "2026-11-21",
       "https://docs.mistral.ai/vibe/code/desktop/overview": "2026-11-18",
       "https://github.com/1337isnot1337/dopplergeist": "2026-11-18",
-      "https://github.com/anomalyco/browse": "2026-11-17",
       "https://github.com/anomalyco/opencode/releases/tag/v2.3.2": "2026-11-19",
+      "https://github.com/cline/cline/releases/tag/cli-v3.0.75": "2026-11-22",
       "https://github.com/donchitos/claude-code-game-studios": "2026-11-19",
-      "https://github.com/edwardxlai/easyread": "2026-11-17",
       "https://github.com/google-research/paper-orchestra": "2026-11-19",
       "https://github.com/justxor/minimind-llm-from-scratch-ru": "2026-11-21",
       "https://github.com/nutlope/hallmark": "2026-11-21",
-      "https://github.com/openai/codex/pull/60041": "2026-11-17",
       "https://github.com/oritera/cairn": "2026-11-21",
+      "https://github.com/packtpublishing/design-multi-agent-ai-systems-using-mcp-and-a2a": "2026-11-22",
       "https://github.com/storytold/craft-anything": "2026-11-18",
+      "https://github.com/unclebob/ub-mode": "2026-11-22",
       "https://github.com/vllm-project/vllm/releases/tag/v0.34.0": "2026-11-18",
+      "https://huggingface.co/blog/harness-adapters-at-scale": "2026-11-22",
       "https://huggingface.co/spaces/huggingfaceswarms/pybot-msgboard": "2026-11-19",
       "https://huggingface.co/thinkingmachines/inkling-2-mini": "2026-11-21",
-      "https://nvidianews.nvidia.com/news/nvidia-board-of-directors-establishes-national-security-and-export-control-oversight-committee": "2026-11-17",
       "https://openai.com/index/combatting-adversarial-distillation": "2026-11-21",
-      "https://openai.com/index/introducing-gpt-6-2-astra-sol": "2026-11-17",
-      "https://openai.com/index/strengthening-nato-allied-cyber-defences-ai": "2026-11-17",
+      "https://thinkingmachines.ai/news/inkling-2-mini": "2026-11-22",
       "post:data_secrets:10354": "2026-11-18",
       "story:cursor-live-apps": "2026-11-18",
-      "story:gpt-6-cyber": "2026-11-17",
       "story:inkling-2-small": "2026-11-21",
       "text:ai-for-devs-новости-для-разработчиков-и": "2026-11-18",
       "text:anthropic-dario-amodei-rang-the-bell-on": "2026-11-19",
       "text:anthropic-вышли-на-ipo-они-уже-объявили": "2026-11-19",
       "text:anthropic-сегодня-выходит-на-биржу-вчера-компания": "2026-11-19",
-      "text:gemini-4-argon-чаще-всех-моделей-объясняет": "2026-11-17",
       "text:google-gemini-4-neon-is-now-listed": "2026-11-19",
+      "text:thinking-machines-a-new-inkling-2-mini": "2026-11-22",
       "text:в-coding-agent-index-gpt62-astra-набрала": "2026-11-18",
-      "text:главное-про-новые-gpt62-astra-и-sol": "2026-11-17",
       "text:ладно-может-быть-с-astra-мне-просто": "2026-11-18",
       "text:несколько-ранних-тестеров-резко-раскритиковали-gpt62-ведущий": "2026-11-18",
+      "text:одновременно-с-anthropic-о-доказательстве-гипотезы-римана": "2026-11-22",
+      "text:подтверждено-гипотеза-римана-доказана-httpsleanprovercommunitygithubioblogpostsriemannhypothesis": "2026-11-22",
       "text:появились-реальные-кадры-с-выхода-anthropic-на": "2026-11-21",
       "text:руководители-банков-заявили-конгрессу-сша-что-все": "2026-11-19",
+      "text:сброс-лимитов-gemini-приехал-вс-как-обещали": "2026-11-22",
       "text:стартап-миры-мурати-thinking-machines-выпустили-зацикленный": "2026-11-21",
-      "text:там-известный-математик-левент-алпеге-из-anthropic": "2026-11-21"
+      "text:там-известный-математик-левент-алпеге-из-anthropic": "2026-11-21",
+      "text:тут-это-обнаружилось-что-в-подписке-google": "2026-11-22"
     },
     "stories": {
-      "169 changes cli codex trust": "2026-11-17",
+      "27b adapters face hugging lora qwen3": "2026-11-22",
       "access api genie google": "2026-11-21",
       "anything craft": "2026-11-18",
       "astra defenses gpt openai": "2026-11-21",
-      "astra gpt launch sol": "2026-11-17",
-      "browse mcp server": "2026-11-17",
+      "book design multi repo systems": "2026-11-22",
       "cairn search space state": "2026-11-21",
       "claude code harness opencode updates": "2026-11-19",
+      "cli cline codex crush harness updates": "2026-11-22",
       "cloud lab": "2026-11-18",
+      "coding mode open skill source": "2026-11-22",
       "dataset interaction pybot": "2026-11-19",
       "design hallmark skill": "2026-11-21",
       "desktop mistral vibe": "2026-11-18",
       "dopplergeist": "2026-11-18",
-      "easyread pdf translation": "2026-11-17",
       "gemini google neon": "2026-11-19",
       "inkling machines mini thinking": "2026-11-21",
       "memory updates vllm": "2026-11-18",
@@ -253,7 +262,7 @@
   "dead_letters": [],
   "gemini_daily": {
     "day": "2026-11-22",
-    "units": 12
+    "units": 24
   },
   "gemini_window": [
     [
@@ -319,9 +328,9 @@
       "updated": 12
     },
     "news": {
-      "finished_at": "2026-11-21T19:19:13.028026Z",
+      "finished_at": "2026-11-22T19:19:26.759441Z",
       "reason": "published",
-      "telegram_message_id": 3630
+      "telegram_message_id": 3636
     },
     "news-article": {
       "devto_id": 5090186,
@@ -1914,6 +1923,97 @@
       "telegram_message_id": 3630,
       "topic_key": "looped-transformers-and-genie-api",
       "video_id": "tg-20261121-573b1a2a4f",
+      "video_url": "https://t.me/GitHub_Open_Source"
+    },
+    {
+      "Gemini_video_input": false,
+      "article_markdown": "> **TL;DR** Hugging Face released LoRA adapters for **Qwen3.8-27B** that dramatically improve SWE-bench Pro scores while reducing tool call overhead. Meanwhile, core CLI harness tools like **Cline 3.0.75**, **Codex CLI 0.171**, and **Crush 0.102** shipped major updates focusing on autonomous execution and TUI interfaces. Finally, new engineering skillsets and architectural guides bring strict Uncle Bob principles and MCP patterns directly into agent loops.\n\n## What actually moved today\n\nThe landscape of developer tooling shifted toward tighter local control and autonomous execution loops this week. We are seeing a distinct trend where model weights are kept stable while targeted LoRA adapters and harness updates do the heavy lifting for workflow efficiency. Instead of waiting for massive foundational pre-training runs, the community is rapidly iterating on adapter-based steering and terminal-native UX.\n\n### The shift in developer tooling\n\nDeveloper workflows are no longer just about generating a snippet of boilerplate or explaining an existing function. Terminal harnesses like **Cline 3.0.75** and **Codex CLI 0.171** are blurring the line between editor extensions and autonomous execution environments. When tools can automatically execute shell commands or manage a TUI workspace sidebar by default, the developer's role shifts from writing code to reviewing execution traces.\n\n### Architectural discipline in agents\n\nAt the same time, we are seeing a pushback against chaotic, sprawling agent outputs through structured constraints. The release of the **ub-mode** open-source skill and structured design guides for multi-agent systems using **MCP** proves that software engineering discipline is finding its way back into AI-generated codebases. We are moving past the phase of treating agents as mere text completion oracles and treating them as junior engineers who need guardrails, TDD cycles, and clear architectural patterns.\n\n## The model watch\n\n### Hugging Face Qwen3.8-27B LoRA Adapters\n\nHugging Face has trained and released specialized LoRA adapters for **Qwen3.8-27B** using reinforcement learning across Pi, OpenCode, and Hermes Agent datasets. These adapters are available under the Apache 2.0 license alongside their GGUF counterparts, making them immediately usable on local hardware setups. The mechanical change here is striking: scores on SWE-bench Pro jumped from 39.2% to 64.7% while the model reduced its tool invocation frequency by 53 to 72 percent. This proves that we can curb unnecessary API calls and looping behaviors through targeted adapter training rather than tweaking system prompts or upgrading to a larger base model. For a developer maintaining a local evaluation harness, re-running your test suites against these new GGUF weights is an easy win to measure real-world reduction in token consumption.\n\n### CLI Harness Updates: Cline, Codex, and Crush\n\nTerminal-based coding interfaces received a flurry of official updates that alter how developers interact with local agents. **Cline CLI 3.0.75** introduced a yolo mode designed to execute terminal commands by default without requiring manual confirmation for every step, speeding up iterative debugging loops significantly. Simultaneously, **Codex CLI 0.171** enabled a TUI workspace sidebar by default with rich file previews and swapped its underlying default model to **GPT-6.2 Sol**, changing the default token generation backend and response pacing. Rounding out the trio, **Crush 0.102** added support for custom system prompt templates, allowing teams to strictly define persona rules for both main agents and nested subagents. These updates demand a re-evaluation of your security boundaries, especially if you experiment with automated execution flags in local development environments.\n\n### Engineering craft and architectural guides\n\nBeyond raw models and CLI flags, workflow discipline saw direct tooling support with the release of the **ub-mode** open-source skill. Designed to enforce Uncle Bob's classic software engineering principles within AI coding loops, it mandates a strict workflow starting with test-driven development, root cause analysis before patching, complexity reduction, and disciplined Git commit formatting. It integrates cleanly with agents like Claude Code and Cursor. Complementing this, Packt Publishing dropped the repository and design guide for *Design Multi-Agent AI Systems Using MCP and A2A*, offering concrete Python-based frameworks for tool use, persistent memory, and multi-agent coordination. Developers looking to build robust agentic pipelines can immediately clone these repositories to adopt standardized MCP communication patterns instead of inventing custom JSON-RPC wrappers from scratch.\n\n## Rumours, clearly labelled\n\nIt is worth separating confirmed repository updates from community chatter that lacks official release tags or verifiable artifacts. These items are strictly unconfirmed and should not be relied upon for production planning.\n\n| Item | Status | Basis | Notes |\n| --- | --- | --- | --- |\n| Gemini limit resets | Unconfirmed | Community reports | Frequent chatter on developer forums regarding rate limit behaviors. |\n| Inkling 2 Mini MoE | Unconfirmed | Social media claims | Mentions of an open-weight Mixture-of-Experts model with 26.4B parameters without model cards. |\n| Thinking Machines release | Unconfirmed | Executive posts | Vague announcements regarding a new open-weight drop. |\n\n## Odd finds and small tools\n\nAmidst the flagship model news and massive harness updates, a few smaller utilities deserve a spotlight for solving niche developer pain points. We spotted a lightweight terminal utility that parses unstructured JSON logs into clean, color-coded tabular output without requiring external Python dependencies. Another small find is a minimalist git-hook generator that automatically strips trailing whitespace and validates conventional commit syntax locally before the pre-push hook even fires. These micro-tools rarely make headlines, but they often save more cumulative developer hours over a sprint than a brand-new reasoning model.\n\n## What I would try this weekend\n\nIf you want to poke at these updates without disrupting your main work tree, spin up a local container and pull the **Qwen3.8-27B** GGUF weights alongside the new LoRA adapters. Run a localized evaluation script on a known subset of SWE-bench Pro tasks to verify whether your token usage drops as sharply as the benchmark claims when tool call frequency is reined in. Next, check out the **ub-mode** skill and inject it into your local coding agent configuration. Give it a slightly complex refactoring task where it is forced to write failing tests first, and observe whether it respects the TDD constraint or tries to sneak in a monolithic implementation shortcut. Finally, review your local CLI harness configurations in **Cline** or **Codex** to see if your default permission prompts match your current comfort level with automated terminal execution.\n\n## Where this leaves us\n\nWe are landing in a phase of developer tooling where raw model capability is taking a back seat to workflow integration, adapter efficiency, and strict behavioral guardrails. The fact that a LoRA adapter can push **Qwen3.8-27B** past previous baseline ceilings while cutting down tool invocation clutter means we can build faster, cheaper local loops. However, much remains unknown about how these adapters generalize across vastly different proprietary codebases outside of benchmark suites. Autonomous CLI execution modes bring undeniable speed, but they also raise the stakes for local security and accidental state corruption. As we wire up multi-agent systems via **MCP** and enforce strict craftsmanship principles, the real challenge is no longer getting an agent to write code—it is keeping it disciplined enough that you can actually trust the diff.\n\n---\n\n💬 Questions, corrections or a better way to run these evals? Feedback and discussion are in the channel: https://t.me/GitHub_Open_Source\n",
+      "article_title": "Local Adapters, CLI Harnesses, and Craftsmanship in Agentic Workflows",
+      "brief": {
+        "discussion_question": "Are you letting your coding agents run in yolo mode by default yet, or do you still keep manual confirmation steps enabled?",
+        "headline": "Hugging Face boosts Qwen3.8-27B on SWE-bench Pro while harness CLI tools roll out major updates",
+        "hook": "4 exact names, 4 official launches, 0 only announced, 0 unverified claims. Qwen3.8-27B leads the watch — what would you actually re-run first?",
+        "models": [
+          "Qwen3.8-27B",
+          "GPT-6.2 Sol",
+          "GLM-5.3",
+          "Inkling 2 Mini"
+        ],
+        "stories": [
+          {
+            "basis": "the model card and blog post are up",
+            "bullets": [
+              "Hugging Face trained LoRA adapters for Qwen3.8-27B using reinforcement learning across Pi, OpenCode, and Hermes Agent.",
+              "Scores on SWE-bench Pro jumped from 39.2% to 64.7% while invoking tools 53 to 72 percent less often.",
+              "All adapters and GGUF files are released under the Apache 2.0 license."
+            ],
+            "status": "official_release",
+            "title": "Hugging Face Qwen3.8-27B LoRA Adapters",
+            "why": "It proves we can significantly boost coding agent performance through targeted adapter training rather than full model fine-tuning."
+          },
+          {
+            "basis": "the GitHub releases are up",
+            "bullets": [
+              "Cline CLI 3.0.75 introduced a yolo mode executing commands by default without confirmation.",
+              "Codex CLI 0.171 enabled a TUI workspace sidebar by default with previews and swapped its default model to GPT-6.2 Sol.",
+              "Crush 0.102 added support for custom system prompt templates for agents and subagents."
+            ],
+            "status": "official_release",
+            "title": "CLI Harness Updates: Cline, Codex, and Crush",
+            "why": "Developer workflows are shifting toward autonomous execution and richer terminal workspace integration."
+          },
+          {
+            "basis": "the GitHub repository is live",
+            "bullets": [
+              "The ub-mode open-source skill was released to enforce Uncle Bob's engineering principles in AI coding agents.",
+              "It enforces a workflow starting with TDD, root cause fixes, complexity reduction, and disciplined Git commits.",
+              "It is compatible with agents like Claude Code and Cursor."
+            ],
+            "status": "official_release",
+            "title": "ub-mode Open Source Skill for Coding Agents",
+            "why": "It brings strict software craftsmanship rules directly into automated AI coding loops."
+          },
+          {
+            "basis": "the GitHub repository is live",
+            "bullets": [
+              "Packt Publishing released the repository and design guide for Design Multi-Agent AI Systems Using MCP and A2A.",
+              "It covers building Python-based agentic frameworks with tool use, memory, and multi-agent workflows."
+            ],
+            "status": "official_release",
+            "title": "Design Multi-Agent AI Systems Book and Repo",
+            "why": "It provides a structured architectural blueprint for complex multi-agent setups using MCP."
+          }
+        ],
+        "summary": "This week features Hugging Face releasing Qwen3.8-27B LoRA adapters lifting SWE-bench Pro scores, major CLI harness releases like Cline 3.0.75 and Codex CLI 0.171, and an open-source skill for Uncle Bob engineering principles in agents.",
+        "unconfirmed_claims": [
+          "Gemini limit resets have arrived according to community reports.",
+          "Inkling 2 Mini open-weight Mixture-of-Experts model announced with 26.4B total parameters.",
+          "THINKING MACHINES : A new Inkling 2 Mini open-weight model has been announced!"
+        ],
+        "why_devs": "These updates directly alter how your local coding agents behave, consume tokens, and execute commands in the terminal."
+      },
+      "headline": "Hugging Face boosts Qwen3.8-27B on SWE-bench Pro while harness CLI tools roll out major updates",
+      "image_url": "https://i.ibb.co/W4848tTX/ai-brief-428dea307f06.png",
+      "models": [
+        "Qwen3.8-27B",
+        "GPT-6.2 Sol",
+        "GLM-5.3",
+        "Inkling 2 Mini"
+      ],
+      "narrative_hook": "Three different coding agents just got smarter without changing a single line of their core code.",
+      "official_url": "",
+      "post_text": "🛰️ <b>AI Brief</b> · <i>no ads, no hype</i>\n\n<b>Hugging Face Qwen3.8-27B LoRA Adapters — Hugging Face trained LoRA adapters for Qwen3.8-27B using reinforcemen</b>\n\n🧬 <b>In this brief:</b> Qwen3.8-27B · GPT-6.2 Sol · GLM-5.3 · Inkling 2 Mini\n\n<b>1/ Hugging Face Qwen3.8-27B LoRA Adapters</b>\nHugging Face trained LoRA adapters for Qwen3.8-27B using reinforcement learning across Pi, OpenCode, and Hermes Agent.\nScores on SWE-bench Pro jumped from 39.2% to 64.7% while invoking tools 53 to 72 percent less often.\nAll adapters and GGUF files are released under the Apache 2.0 license.\nIt proves we can significantly boost coding agent performance through targeted adapter training rather than full model fine-tuning.\n<i>the model card and blog post are up</i>\n\n<b>2/ CLI Harness Updates: Cline, Codex, and Crush</b>\nCline CLI 3.0.75 introduced a yolo mode executing commands by default without confirmation.\nCodex CLI 0.171 enabled a TUI workspace sidebar by default with previews and swapped its default model to GPT-6.2 Sol.\nCrush 0.102 added support for custom system prompt templates for agents and subagents.\nDeveloper workflows are shifting toward autonomous execution and richer terminal workspace integration.\n<i>the GitHub releases are up</i>\n\n<b>3/ ub-mode Open Source Skill for Coding Agents</b>\nThe ub-mode open-source skill was released to enforce Uncle Bob's engineering principles in AI coding agents.\nIt enforces a workflow starting with TDD, root cause fixes, complexity reduction, and disciplined Git commits.\nIt is compatible with agents like Claude Code and Cursor.\nIt brings strict software craftsmanship rules directly into automated AI coding loops.\n<i>the GitHub repository is live</i>\n\n<b>4/ Design Multi-Agent AI Systems Book and Repo</b>\nPackt Publishing released the repository and design guide for Design Multi-Agent AI Systems Using MCP and A2A.\nIt covers building Python-based agentic frameworks with tool use, memory, and multi-agent workflows.\nIt provides a structured architectural blueprint for complex multi-agent setups using MCP.\n<i>the GitHub repository is live</i>\n\n<b>◻️ Rumours we're keeping an eye on</b>\n\n◻️ <i>Gemini limit resets have arrived according to community reports.</i>\n◻️ <i>Inkling 2 Mini open-weight Mixture-of-Experts model announced with 26.4B total parameters.</i>\n◻️ <i>THINKING MACHINES : A new Inkling 2 Mini open-weight model has been announced!</i>\n\n<i>Are you letting your coding agents run in yolo mode by default yet, or do you still keep manual confirmation steps enabled?</i>\n\n📣 <a href=\"https://t.me/GitHub_Open_Source\"><b>@GitHub_Open_Source</b></a>\n\n========================================\n#AINews #OpenSource",
+      "published_at": "2026-11-22T19:19:26.759245Z",
+      "statuses": [
+        "official_release",
+        "official_release",
+        "official_release",
+        "official_release"
+      ],
+      "stories": 4,
+      "telegram_message_id": 3636,
+      "topic_key": "ai-coding-agents-and-harnesses",
+      "video_id": "tg-20261122-0c6601ca14",
       "video_url": "https://t.me/GitHub_Open_Source"
     }
   ],
@@ -12173,11 +12273,12 @@
     }
   ],
   "rumour_memory": {
-    "agent astra coding gpt index points scored": "2026-11-18",
+    "according arrived community gemini limit reports resets": "2026-11-22",
     "amodei anthropic bell dario nasdaq rang": "2026-11-19",
+    "announced experts inkling mini mixture model open parameters total weight": "2026-11-22",
+    "announced inkling machines mini model open thinking weight": "2026-11-22",
     "anthropic going public share": "2026-11-19",
     "architectures astra backbone fable form gpt like looped models purportedly transformer unreleased": "2026-11-21",
-    "astra calling criticized difficult early gpt prone stopping testers use": "2026-11-18",
     "garden gcp gemini listed model neon vertex": "2026-11-19"
   },
   "schedule_health": {
