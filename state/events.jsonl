@@ -702,3 +702,4 @@
 {"repo": "storytold/cadcraft", "score": 86.318, "telegram_message_id": 3635, "telegraph_url": "https://telegra.ph/CADCraft-An-Open-Source-Rust-Based-CAD-Tool-for-Developers-11-22", "ts": "2026-11-22T18:14:13.948619Z", "type": "project_published"}
 {"platform": "bluesky", "repo": "kianuni/erosion-cn", "ts": "2026-11-22T18:17:51.251793Z", "type": "crosspost_published", "url": "https://bsky.app/profile/githubopensource.bsky.social/post/3n2w7zfqskj2a"}
 {"attempts": 1, "detail": "HTTP 204", "slot": "facebook-handoff", "ts": "2026-11-22T18:30:53.938591Z", "type": "watchdog_recovered", "verified": false}
+{"range": "facebook!A21:E21", "rows": 1, "ts": "2026-11-22T18:31:19.749832Z", "type": "facebook_handoff_queued"}
