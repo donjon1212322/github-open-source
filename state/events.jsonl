@@ -697,3 +697,4 @@
 {"gemini_fallback": true, "poll_message_id": 3633, "poll_type": "reality_check", "repos": ["erkamyaman/rust-anything", "HolyArrs/HolyArrs", "ersinkoc/phonebox", "microsoft/TokenEconomizer", "openfilm/openfilm"], "telegram_message_id": 3632, "ts": "2026-11-22T16:13:51.827348Z", "type": "digest_published"}
 {"preview_host": "imgbb", "repo": "n1neman/sapper-v2", "ts": "2026-11-22T16:25:04.513079Z", "type": "published_as_text"}
 {"repo": "n1neman/sapper-v2", "score": 85.153, "telegram_message_id": 3634, "telegraph_url": "https://telegra.ph/sapper-v2-Autonomous-Multi-Agent-Pentest-Legion-and-Orchestration-Harness-11-22", "ts": "2026-11-22T16:25:04.979141Z", "type": "project_published"}
+{"projects_7d": 21, "sent": true, "ts": "2026-11-22T16:43:47.989132Z", "type": "weekly_report"}
