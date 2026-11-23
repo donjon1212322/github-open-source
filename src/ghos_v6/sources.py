@@ -474,6 +474,13 @@ VERIFIED_DAILY_SOURCES: tuple[SourceChannel, ...] = (
     SourceChannel("gitbless", 5.8, 19, 20, "2026-11-01", ""),
     SourceChannel("bestofgithub", 1.1, 20, 20, "2026-11-01", ""),
     SourceChannel("github", 7.6, 19, 20, "2026-11-02", "highest volume of the set"),
+    # Owner request 2026-11-23. Measured the same way as the rest: 20 posts
+    # over 13 days (1.5/day, every day covered), 19/20 carry a GitHub link,
+    # 19 distinct repositories, and only 2 of those 19 also appear in the
+    # five channels above (11 % overlap) - so it adds candidates instead of
+    # re-reporting them. Posts are in Russian; only the github.com links are
+    # read, so the channel language does not reach the channel copy.
+    SourceChannel("GitHubRadar", 1.5, 19, 20, "2026-11-23", "11% overlap with the other five"),
 )
 
 # Dropped, with the measurement that dropped them. Kept here so nobody
@@ -529,6 +536,7 @@ def collect_telegram_web(merged: dict[str, dict[str, Any]], channels: tuple[str,
 #   github_repos         4.2 posts/day, 20/20 links
 #   gitbless             5.8 posts/day, 19/20 links
 #   bestofgithub         1.1 posts/day, 20/20 links
+#   GitHubRadar          1.5 posts/day, 19/20 links, 11 % overlap (2026-11-23)
 # Dropped because they are dead or empty:
 #   githubtrending  last post 2026-09-23 (~40 days), 2.2/day while alive
 #   gitradar_       0 posts in the preview
