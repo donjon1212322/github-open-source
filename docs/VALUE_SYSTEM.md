@@ -130,7 +130,7 @@ plugin markets.
 |---|---|---|
 | Anti-duplication | **ready** | 4 layers, 90-day milestone-only re-visits |
 | Gate (safety, licence, freshness, language, narrowness) | **ready** | 22 rejection reasons, all named in `events.jsonl` |
-| Ranking | **ready** | 10 сигналов, перцентили внутри пула, 0–100 (см. §3e) |
+| Ranking | **ready** | 12 сигналов, перцентили внутри пула, 0–100 (см. §3e) |
 | Measurement | **half** | views are live (public widget); votes need a poll that has actually closed; reactions are collected but not yet in the `value` formula |
 | Learning | **not exercised** | needs **20** measured posts (raised from 5 — see `docs/agents/SAMPLE_SIZE.md`); a fresh state dir has none |
 
@@ -149,20 +149,26 @@ candidates sat on the same freshness cap.
 
 The replacement has three properties.
 
-**1. Ten named signals, weighted out of 100** (`rank.WEIGHTS`):
+**1. Twelve named signals, weighted out of 100** (`rank.WEIGHTS`):
 
 | Signal | Weight | Where it comes from |
 |---|---|---|
-| growth | 26 | stars per day: **our own daily snapshots** when we have two, otherwise stars ÷ repo age |
-| burst | 10 | a brand-new repo taking off now (`stars / (age+2) / 50`, age ≤ 30 d) |
-| freshness | 10 | `pushed_at` — is anybody still working on it |
-| content | 10 | README length, topics, homepage, media (can we write about it) |
-| community | 8 | forks/stars reuse, contributors, open issues |
-| external | 8 | Hacker News points — validation outside GitHub |
-| appeal | 8 | `audience.appeal_signals` — a product, not a building block |
-| popularity | 8 | `log10(stars)` — deliberately the same size as appeal, not 30 |
-| reliability | 6 | licence present, not a repo farm (`owner_repo_count`) |
-| corroboration | 6 | how many independent sources found it |
+| growth | 24 | stars per day: **our own daily snapshots** when we have two, otherwise stars ÷ repo age |
+| acceleration | 12 | is it speeding up: rate of the newer half of the snapshots ÷ rate of the older half |
+| forks_rate | 8 | forks per day from the same snapshots (people actually reuse it, not just star it) |
+| burst | 6 | a brand-new repo taking off now (`stars / (age+2) / 50`, age ≤ 30 d) |
+| freshness | 8 | `pushed_at` — is anybody still working on it |
+| content | 8 | README length, topics, homepage, media (can we write about it) |
+| community | 5 | forks/stars reuse, contributors, open issues |
+| external | 7 | Hacker News points — validation outside GitHub |
+| appeal | 7 | `audience.appeal_signals` — a product, not a building block |
+| popularity | 5 | `log10(stars)` — the smallest weight on purpose (owner: "по звёздам судить не стоит") |
+| reliability | 5 | licence present, not a repo farm (`owner_repo_count`) |
+| corroboration | 5 | how many independent sources found it |
+
+Momentum (growth + acceleration + forks_rate + burst) is **50** of 100;
+absolute popularity is **5**. The ratio is exactly 10:1, so no shelf item can
+outrank a young project that is visibly speeding up.
 
 **2. Pool percentiles.** `rank_candidates()` converts each signal into a
 percentile inside the current pool, so the score uses the real 0..100 range
@@ -171,15 +177,29 @@ where the whole pool is identical map to 0.5 (no comparison, no claim).
 `score_candidate()` alone — tests, one-off lookups — falls back to raw values.
 
 **3. Measured growth, not guessed growth.** `StateStore.mark_seen()` now
-writes `star_history` (one snapshot per day, bounded to 8) for every
-repository it meets. From the second day on, growth is a measured fact:
-200 → 800 stars in three days is 200/day, whatever the repo's age says. When
-only one snapshot exists the model falls back to lifetime velocity and marks
-`growth_measured: 0` in `score_parts`, so the difference is visible in state.
+writes `star_history` (one snapshot per day, `[day, stars, forks]`, bounded
+to 8) for every repository it meets. From the second day on, growth is a
+measured fact: 200 → 800 stars in three days is 200/day, whatever the repo's
+age says. When only one snapshot exists the model falls back to lifetime
+velocity and marks `growth_measured: 0` in `score_parts`, so the difference is
+visible in state.
 
-Every candidate carries `score_parts` (all ten percentiles plus
-`stars_per_day`, `age_days`, `growth_measured`), so any pick can be explained
-after the fact.
+**4. Speed, and reuse, not just size.** Two signals read the snapshot history:
+
+* `acceleration` — snapshots are split in half by time; the rate of the newer
+  half ÷ the rate of the older half. `1.0` is a plateau, `3.0` is a take-off.
+  Needs ≥ 3 snapshots spanning ≥ 4 days; otherwise it is **unknown**, and an
+  unknown signal maps to the neutral percentile `0.5` — it is never punished
+  for being young (`rank.UNKNOWN_FLAGS`).
+* `forks_rate` — forks per day from the same snapshots (or forks ÷ age when
+  there is no history). Stars are a bookmark; a fork is someone building on
+  it. Log-scaled (`log1p(forks) / log1p(60)`).
+
+Every candidate carries `score_parts` (all twelve percentiles plus
+`stars_per_day`, `acceleration_ratio`, `forks_per_day`, `age_days`,
+`growth_measured`, `acceleration_known`, `forks_measured`), so any pick can be
+explained after the fact. The two flags are `0` when the signal could not be
+measured, so "scored low" and "not enough history yet" never look the same.
 
 Measured effect on the live queue (23.11, same 23 candidates):
 
@@ -188,6 +208,11 @@ Measured effect on the live queue (23.11, same 23 candidates):
 | spread across the pool | 7.1 points | **37.5 points** |
 | top pick | `XinaTian/MROffice` (2 112 ★, 12 d) | **`EL4CTEO/fast-anything` (2 d, ≈1 124 ★/day)** |
 | old top under the new model | — | 60.7 (5th) |
+
+Under the twelve-signal model the same queue re-ranks again: a repository that
+grew 40 → 90 → 210 stars over three days now outranks a three-year-old project
+with 20 000 stars and flat growth, because the first one answers all four
+momentum signals and the second answers one.
 
 The gate is unchanged and still rejects manufactured popularity
 (> 2 500 stars/day in the first two weeks answers `velocity_too_high`), so

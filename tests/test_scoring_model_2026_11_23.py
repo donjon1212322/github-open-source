@@ -55,9 +55,9 @@ def test_a_fresh_burst_outranks_a_big_old_repository():
 
 
 def test_absolute_popularity_cannot_dominate_the_score():
-    """Popularity is 8 of 100 points: stars alone must not win the day."""
-    assert rank.WEIGHTS["popularity"] == 8.0
-    assert rank.WEIGHTS["growth"] == 26.0
+    """Popularity is 5 of 100 points: stars alone must not win the day."""
+    assert rank.WEIGHTS["popularity"] == 5.0
+    assert rank.WEIGHTS["growth"] == 24.0
     popular = _repo(3000, 50000, readme_len=200, topics=[], homepage="", media_urls=[])
     steady = _repo(30, 800, forks=120, contributors_count=40)
     ranked = rank.rank_candidates([popular, steady])
@@ -191,3 +191,89 @@ def test_collect_passes_star_snapshots_into_the_ranking():
     body = Path("src/ghos_v6/pipeline.py").read_text(encoding="utf-8")
     assert 'rank_candidates(candidates, seen=store.data.get("seen_repos"))' in body
     assert 'rank_candidates(passing, seen=store.data.get("seen_repos"))' in body
+
+
+# --- 23.11, second pass: acceleration and forks per day ----------------------
+
+
+def _history(*pairs):
+    return [[day, stars] for day, stars in pairs]
+
+
+def test_acceleration_rewards_a_take_off():
+    now = datetime.now(timezone.utc)
+    day = lambda n: (now - timedelta(days=n)).date().isoformat()  # noqa: E731
+    launching = _repo(30, 700, star_history=_history((day(6), 100), (day(3), 200), (day(0), 700)))
+    plateau = _repo(30, 700, full_name="p/plateau",
+                    star_history=_history((day(6), 400), (day(3), 650), (day(0), 700)))
+    parts_launch = rank.score_components(launching)
+    parts_plateau = rank.score_components(plateau)
+    assert parts_launch["acceleration_known"] == 1
+    assert parts_launch["acceleration_ratio"] > 3.0
+    assert parts_launch["acceleration"] > parts_plateau["acceleration"]
+
+
+def test_acceleration_needs_real_history_and_is_neutral_when_unknown():
+    guessless = rank.score_components(_repo(10, 800))
+    assert guessless["acceleration_known"] == 0
+    ranked = rank.rank_candidates([_repo(10, 900), _repo(20, 400)])
+    for item in ranked:
+        assert item["score_parts"]["acceleration"] == 0.5
+
+
+def test_forks_per_day_separates_installed_from_starred():
+    fast = _repo(10, 2000, forks=400)
+    slow = _repo(2000, 2000, forks=400, full_name="s/slow")
+    assert rank.score_components(fast)["forks_per_day"] > rank.score_components(slow)["forks_per_day"]
+    ranked = rank.rank_candidates([fast, slow])
+    assert ranked[0]["full_name"] == fast["full_name"]
+
+
+def test_momentum_signals_outweigh_the_star_total():
+    momentum = rank.WEIGHTS["growth"] + rank.WEIGHTS["acceleration"] + rank.WEIGHTS["forks_rate"] + rank.WEIGHTS["burst"]
+    assert momentum == 50.0
+    assert rank.WEIGHTS["popularity"] == 5.0
+    assert momentum > 5 * rank.WEIGHTS["popularity"]
+
+
+def test_state_snapshots_carry_forks_too(tmp_path):
+    store = StateStore(tmp_path)
+    store.data = {}
+    repo = _repo(10, 500)
+    repo["forks"] = 120
+    store.mark_seen(repo, "queued")
+    history = store.data["seen_repos"][repo["full_name"]]["star_history"]
+    assert history[0][2] == 120
+
+
+def test_acceleration_handles_a_flat_past_without_dividing_by_zero():
+    now = datetime.now(timezone.utc)
+    day = lambda n: (now - timedelta(days=n)).date().isoformat()  # noqa: E731
+    latched = _repo(20, 400, star_history=_history((day(6), 100), (day(3), 100), (day(0), 400)))
+    parts = rank.score_components(latched)
+    assert parts["acceleration_known"] == 1
+    assert parts["acceleration_ratio"] == 2.0
+
+
+def test_every_new_signal_keeps_its_raw_value_in_score_parts():
+    """Owner 23.11: a score must be explainable after the fact."""
+    now = datetime(2026, 11, 23, 12, tzinfo=timezone.utc)
+    takeoff = _repo(8, 11000, forks=2200, star_history=[
+        ["2026-11-16", 1000, 100], ["2026-11-18", 2000, 300],
+        ["2026-11-20", 5000, 900], ["2026-11-22", 11000, 2200],
+    ])
+    ranked = rank.rank_candidates([takeoff], now=now)
+    parts = ranked[0]["score_parts"]
+    assert parts["acceleration_known"] == 1
+    assert parts["acceleration_ratio"] > 2.0
+    assert parts["forks_measured"] == 1
+    assert parts["forks_per_day"] > 0
+
+
+def test_an_unmeasured_signal_says_so_instead_of_pretending():
+    """One snapshot is not a trend: the flag must read 0, not 1."""
+    fresh = _repo(1, 200, star_history=[["2026-11-23", 200, 4]], forks=4)
+    parts = rank.rank_candidates([fresh])[0]["score_parts"]
+    assert parts["acceleration_known"] == 0
+    assert parts["acceleration_ratio"] == 0.0
+    assert parts["acceleration"] == 0.5  # neutral percentile, not a punishment

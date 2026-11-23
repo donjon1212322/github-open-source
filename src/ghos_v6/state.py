@@ -285,17 +285,31 @@ class StateStore:
                 stamp, value = str(entry[0])[:10], int(float(entry[1]))
             except (TypeError, ValueError, IndexError):
                 continue
-            history.append([stamp, value])
+            row: list[Any] = [stamp, value]
+            if len(entry) > 2:
+                try:
+                    row.append(int(float(entry[2])))
+                except (TypeError, ValueError):
+                    pass
+            history.append(row)
         try:
             stars = int(float(candidate.get("stars") or candidate.get("stargazers_count") or 0))
         except (TypeError, ValueError):
             stars = 0
+        try:
+            forks = int(float(candidate.get("forks") or candidate.get("forks_count") or 0))
+        except (TypeError, ValueError):
+            forks = 0
         if stars > 0:
             today = iso_now()[:10]
             if history and history[-1][0] == today:
                 history[-1][1] = stars
+                if len(history[-1]) > 2:
+                    history[-1][2] = forks
+                else:
+                    history[-1].append(forks)
             else:
-                history.append([today, stars])
+                history.append([today, stars, forks])
         return history[-self.STAR_HISTORY_POINTS:]
 
     def set_queue(self, candidates: list[dict[str, Any]], *, merge: bool = True) -> None:

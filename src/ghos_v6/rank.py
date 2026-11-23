@@ -37,18 +37,39 @@ from .gate import parse_dt
 
 #: Weights in points out of 100. Growth first because that is the owner's
 #: rule; popularity last-but-one because a famous repository is not news.
+#:
+#: 23.11 (second pass): three momentum signals instead of one -
+#: ``growth`` (rate over the whole observed window), ``acceleration`` (is the
+#: rate rising or flattening) and ``forks_rate`` (a fork means "I installed
+#: it", which is a stronger act than a star). Together they are 42 of 100;
+#: the absolute star count is 5.
 WEIGHTS: dict[str, float] = {
-    "growth": 26.0,        # stars per day, from real snapshots when available
-    "burst": 10.0,         # a brand-new project taking off right now
-    "freshness": 10.0,     # pushed_at: is anybody still working on it
-    "content": 10.0,       # README, topics, homepage, media: can we cover it
-    "community": 8.0,      # forks/stars reuse, contributors, open issues
-    "external": 8.0,       # Hacker News points: outside validation
-    "appeal": 8.0,         # audience appeal signals (product, not a building block)
-    "popularity": 8.0,     # log10 stars - deliberately small
-    "reliability": 6.0,    # licence, not archived, owner is not a farm
-    "corroboration": 6.0,  # how many independent sources found it
+    "growth": 24.0,        # stars per day, from real snapshots when available
+    "acceleration": 12.0,  # last window vs the one before: take-off or plateau
+    "forks_rate": 8.0,     # forks per day: people actually taking the project
+    "burst": 6.0,          # a brand-new project taking off right now
+    "freshness": 8.0,      # pushed_at: is anybody still working on it
+    "content": 8.0,        # README, topics, homepage, media: can we cover it
+    "community": 5.0,      # forks/stars reuse, contributors, open issues
+    "external": 7.0,       # Hacker News points: outside validation
+    "appeal": 7.0,         # audience appeal signals (product, not a building block)
+    "popularity": 5.0,     # log10 stars - deliberately small
+    "reliability": 5.0,    # licence, not archived, owner is not a farm
+    "corroboration": 5.0,  # how many independent sources found it
 }
+
+#: An acceleration signal needs a window to compare against. With fewer than
+#: this many daily snapshots (or a shorter span) we do not guess: the signal
+#: is reported as unknown and scores the neutral 0.5 percentile.
+#: Signals that may be unmeasurable for a given candidate. When the flag is 0
+#: the percentile is a neutral 0.5 instead of a punishing 0.
+UNKNOWN_FLAGS: dict[str, str] = {
+    "acceleration": "acceleration_known",
+    "forks_rate": "forks_measured",
+}
+
+ACCELERATION_MIN_POINTS = 3
+ACCELERATION_MIN_SPAN_DAYS = 4.0
 
 #: How many days of star history we keep per repository. Two snapshots are
 #: enough for a rate; more would only bloat the committed state file.
@@ -76,28 +97,39 @@ def _age_days(candidate: dict[str, Any], now: datetime) -> float | None:
     return max(0.0, (now - created).total_seconds() / 86400.0)
 
 
+def _snapshots(candidate: dict[str, Any]) -> list[tuple[datetime, float, float]]:
+    """Our own daily observations: ``[(day, stars, forks), ...]`` sorted.
+
+    ``star_history`` is written by ``StateStore.mark_seen``. Entries written
+    before 23.11 carry only ``[day, stars]``; forks then fall back to a
+    lifetime average, which is exactly the honest thing to do.
+    """
+    points: list[tuple[datetime, float, float]] = []
+    for item in (candidate.get("star_history") or [])[-STAR_HISTORY_POINTS:]:
+        try:
+            stamp = str(item[0])
+            stars = float(item[1])
+            forks = float(item[2]) if len(item) > 2 else -1.0
+        except (TypeError, ValueError, IndexError):
+            continue
+        parsed = parse_dt(f"{stamp}T00:00:00Z") if len(stamp) == 10 else parse_dt(stamp)
+        if parsed is not None:
+            points.append((parsed, stars, forks))
+    points.sort(key=lambda pair: pair[0])
+    return points
+
+
 def observed_growth(candidate: dict[str, Any], stars: float) -> tuple[float, float]:
     """Stars per day from our own snapshots: ``(rate, days_covered)``.
 
-    ``star_history`` is written by ``StateStore.mark_seen`` as
-    ``[["2026-11-20", 512], ["2026-11-23", 791]]``. Without at least two
-    points on different days we return ``(0.0, 0.0)`` and the caller falls
-    back to the age-based velocity - honest about what we do not know.
+    Without at least two points on different days we return ``(0.0, 0.0)``
+    and the caller falls back to the age-based velocity - honest about what
+    we do not know.
     """
-    history = candidate.get("star_history") or []
-    points: list[tuple[datetime, float]] = []
-    for item in history[-STAR_HISTORY_POINTS:]:
-        try:
-            stamp, value = item[0], float(item[1])
-        except (TypeError, ValueError, IndexError):
-            continue
-        parsed = parse_dt(f"{stamp}T00:00:00Z") if len(str(stamp)) == 10 else parse_dt(stamp)
-        if parsed is not None:
-            points.append((parsed, value))
+    points = _snapshots(candidate)
     if len(points) < 2:
         return 0.0, 0.0
-    points.sort(key=lambda pair: pair[0])
-    (first_day, first_stars), (last_day, last_stars) = points[0], points[-1]
+    (first_day, first_stars, _), (last_day, last_stars, _) = points[0], points[-1]
     days = (last_day - first_day).total_seconds() / 86400.0
     if days < 1.0:
         return 0.0, 0.0
@@ -106,10 +138,56 @@ def observed_growth(candidate: dict[str, Any], stars: float) -> tuple[float, flo
     return max(0.0, delta / days), days
 
 
+def observed_acceleration(candidate: dict[str, Any], stars: float) -> tuple[float, int]:
+    """``(ratio, known)``: is the star rate rising, or flattening?
+
+    The window is split in half: the daily rate of the newer half divided by
+    the daily rate of the older half. 1.0 is "same speed", 3.0 is a take-off,
+    0.2 is "the launch is over". Returns ``(0.0, 0)`` when there is not
+    enough history - three snapshots over four days at least.
+    """
+    points = _snapshots(candidate)
+    if len(points) < ACCELERATION_MIN_POINTS:
+        return 0.0, 0
+    first_day, last_day = points[0][0], points[-1][0]
+    span = (last_day - first_day).total_seconds() / 86400.0
+    if span < ACCELERATION_MIN_SPAN_DAYS:
+        return 0.0, 0
+    middle = points[0][0] + (points[-1][0] - points[0][0]) / 2
+    older = [p for p in points if p[0] <= middle]
+    newer = [p for p in points if p[0] >= middle]
+    if len(older) < 2 or len(newer) < 2:
+        return 0.0, 0
+    old_days = max(1.0, (older[-1][0] - older[0][0]).total_seconds() / 86400.0)
+    new_days = max(1.0, (last_day - newer[0][0]).total_seconds() / 86400.0)
+    old_rate = max(0.0, older[-1][1] - older[0][1]) / old_days
+    new_rate = max(0.0, max(stars, points[-1][1]) - newer[0][1]) / new_days
+    if old_rate <= 0:
+        # No history of growth at all: if it is growing now, that is a start,
+        # not an acceleration. One is the neutral answer.
+        return (2.0 if new_rate > 0 else 1.0), 1
+    return round(new_rate / old_rate, 3), 1
+
+
+def observed_forks_rate(candidate: dict[str, Any], age_days: float | None) -> tuple[float, int]:
+    """``(forks per day, known)`` - measured when snapshots carry forks."""
+    points = _snapshots(candidate)
+    forks_now = _num(candidate, "forks", "forks_count")
+    usable = [p for p in points if p[2] >= 0]
+    if len(usable) >= 2:
+        (first_day, _, first_forks), (last_day, _, last_forks) = usable[0], usable[-1]
+        days = (last_day - first_day).total_seconds() / 86400.0
+        if days >= 1.0:
+            return max(0.0, max(forks_now, last_forks) - first_forks) / days, 1
+    if age_days is not None and age_days > 0 and forks_now > 0:
+        return forks_now / max(1.0, age_days), 1
+    return 0.0, 0
+
+
 def star_signals(
     candidate: dict[str, Any], *, now: datetime | None = None
 ) -> dict[str, float]:
-    """The two star signals, in stars per day, before any normalisation."""
+    """The momentum signals, before any normalisation."""
     now = now or datetime.now(timezone.utc)
     stars = _num(candidate, "stars", "stargazers_count")
     age = _age_days(candidate, now)
@@ -128,6 +206,9 @@ def star_signals(
         growth = 0.0
         source = "unknown"
 
+    acceleration, acceleration_known = observed_acceleration(candidate, stars)
+    forks_rate, forks_known = observed_forks_rate(candidate, age)
+
     # A young repository that is already popular is the strongest signal we
     # can see: it means hundreds of people decided within days, not years.
     burst = 0.0
@@ -138,7 +219,12 @@ def star_signals(
         "stars": stars,
         "age_days": age if age is not None else -1.0,
         "growth": growth,
+        "growth_covered_days": covered,
         "growth_source": 1.0 if source == "snapshots" else 0.0,
+        "acceleration": acceleration,
+        "acceleration_known": float(acceleration_known),
+        "forks_rate": forks_rate,
+        "forks_known": float(forks_known),
         "burst": burst,
     }
 
@@ -203,8 +289,21 @@ def score_components(
 
     corroboration = _clamp(max(0, len(sources) - 1) / 2.0)
 
+    # Acceleration: 1.0 is "same speed", 3.0 is a take-off. Log so that a
+    # flattening project is not punished twice as hard as a take-off is
+    # rewarded; unknown history scores a neutral 0.5 percentile below.
+    acceleration = 0.0
+    if star["acceleration_known"]:
+        acceleration = _clamp(math.log(max(star["acceleration"], 0.2), 3) / 2.0 + 0.5)
+
+    # Forks per day, log-scaled like growth: 0.05/day and 50/day are years
+    # apart in reality but should not be on the same point of the scale.
+    forks_rate = _clamp(math.log1p(star["forks_rate"]) / math.log1p(60.0))
+
     return {
         "growth": growth,
+        "acceleration": acceleration,
+        "forks_rate": forks_rate,
         "burst": star["burst"],
         "freshness": freshness,
         "content": content,
@@ -215,9 +314,14 @@ def score_components(
         "reliability": reliability,
         "corroboration": corroboration,
         "stars": stars,
+        "forks": forks,
         "stars_per_day": star["growth"],
+        "acceleration_ratio": star["acceleration"],
+        "forks_per_day": star["forks_rate"],
         "age_days": star["age_days"],
         "growth_measured": star["growth_source"],
+        "acceleration_known": star["acceleration_known"],
+        "forks_measured": star["forks_known"],
     }
 
 
@@ -236,6 +340,22 @@ def _percentiles(candidates: list[dict[str, Any]], parts: list[dict[str, float]]
                 row[name] = 0.5
         return normalised
     for name in WEIGHTS:
+        flag = UNKNOWN_FLAGS.get(name)
+        if flag:
+            # A signal we could not measure is not a zero: it is silence.
+            # Percentile 0.5 keeps it out of the comparison instead of
+            # punishing a repository for our own missing history.
+            values = sorted(part[name] for part in parts if part.get(flag))
+            population = max(1, len(values))
+            for row, part in zip(normalised, parts):
+                if not part.get(flag):
+                    row[name] = 0.5
+                    continue
+                value = part[name]
+                below = sum(1 for other in values if other < value)
+                equal = sum(1 for other in values if other == value)
+                row[name] = (below + (equal - 1) / 2.0) / max(1, population - 1)
+            continue
         values = sorted(part[name] for part in parts)
         for row, part in zip(normalised, parts):
             value = part[name]
@@ -286,6 +406,13 @@ def rank_candidates(
         candidate["score_parts"]["stars_per_day"] = round(float(raw["stars_per_day"]), 2)
         candidate["score_parts"]["age_days"] = round(float(raw["age_days"]), 1)
         candidate["score_parts"]["growth_measured"] = int(raw["growth_measured"])
+        # The raw value behind every soft signal, plus a flag saying whether it
+        # was measured at all: after the fact the owner must be able to see why
+        # a repository scored 72 and not 45.
+        candidate["score_parts"]["acceleration_ratio"] = round(float(raw["acceleration_ratio"]), 2)
+        candidate["score_parts"]["forks_per_day"] = round(float(raw["forks_per_day"]), 2)
+        candidate["score_parts"]["acceleration_known"] = int(raw["acceleration_known"])
+        candidate["score_parts"]["forks_measured"] = int(raw["forks_measured"])
     return sorted(
         candidates,
         key=lambda c: (float(c.get("score") or 0),
