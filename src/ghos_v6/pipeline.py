@@ -53,11 +53,12 @@ from .news import (
 )
 from .telegram_discovery import build_digest_material
 from .platforms import BlueskyClient, DevToClient, PlatformError
-from .rank import rank_candidates, select_candidate
+from .rank import obligation_matches, rank_candidates, select_candidate
 from .sources import GitHubApi, collect_candidates, enrich_candidate, enrich_candidates
 from .state import StateStore, iso_now, iso_week_key
-from .polls_design import (audience_ranking_model, build_week_poll,
-                           merge_models, record_poll_result)
+from .polls_design import (audience_ranking_model, build_obligation,
+                           build_week_poll, merge_models, obligation_state,
+                           record_poll_result)
 
 from .telegram import TelegramClient, TelegramError, is_fatal_error, is_transient_telegram_error
 from .telegraph import TelegraphClient
@@ -136,6 +137,134 @@ def _purge_lookalikes(store: StateStore) -> None:
         return
     store.data["queue"] = keep
     store.event("queue_purged_lookalikes", removed=removed)
+
+
+def _live_obligation(store: StateStore, *, now: datetime | None = None) -> dict[str, Any] | None:
+    """The poll promise, if it is still open; expires it on the spot.
+
+    Owner question 23.11: "will what people voted for actually come out?"
+    The promise lives in ``state["poll_obligation"]`` with a due date. This
+    helper is the single place that decides whether selection should chase
+    it, and it is the only place that can expire it - so the promise can
+    never be silently forgotten: an expired one leaves an event and a line
+    in the weekly report.
+    """
+    obligation = dict(store.data.get("poll_obligation") or {})
+    if not obligation:
+        return None
+    status = obligation_state(obligation, now=now)
+    if status == "open":
+        return obligation
+    if status == "expired" and obligation.get("status") == "open":
+        obligation["status"] = "expired"
+        obligation["expired_at"] = iso_now()
+        store.data["poll_obligation"] = obligation
+        store.event(
+            "poll_obligation_expired",
+            winner=obligation.get("winner_label") or "",
+            terms=(obligation.get("topics") or []) + (obligation.get("keywords") or []),
+        )
+        store.save()
+    return None
+
+
+def _fulfil_obligation(store: StateStore, candidate: dict[str, Any]) -> None:
+    """A published post either keeps the promise or leaves it open."""
+    obligation = dict(store.data.get("poll_obligation") or {})
+    if obligation.get("status") != "open":
+        return
+    if not obligation_matches(candidate, obligation):
+        return
+    obligation["status"] = "fulfilled"
+    obligation["fulfilled_repo"] = str(candidate.get("full_name") or "")
+    obligation["fulfilled_at"] = iso_now()
+    store.data["poll_obligation"] = obligation
+    store.event(
+        "poll_obligation_fulfilled",
+        repo=obligation["fulfilled_repo"],
+        winner=obligation.get("winner_label") or "",
+        due_at=obligation.get("due_at") or "",
+    )
+
+
+def _poll_winner_preview(
+    config: Config,
+    store: StateStore,
+    candidate: dict[str, Any],
+) -> str:
+    """The winner card for a Telegram post that keeps a poll promise.
+
+    Owner decision 23.11: the newspaper card is *only* for the Telegram post
+    that delivers on a poll, every other platform keeps the standard card.
+    So this returns a URL for the Telegram preview and nothing else: the
+    caller's ``image_url`` (cross-posts, article, Telegraph) is untouched.
+
+    Any failure returns ``""`` and the caller falls back to the standard
+    card - a promise kept is worth more than a nicer picture of it.
+    """
+    from .cards_poll import render_poll_winner_card  # noqa: PLC0415 - keeps import cost off the hot path
+
+    obligation = dict(store.data.get("poll_obligation") or {})
+    if obligation.get("status") != "open" or not obligation_matches(candidate, obligation):
+        return ""
+    # Owner 23.11: the newspaper states a result only when there is a result.
+    # A promise opened off a poll with no counted vote can only exist through a
+    # bug in the tally, and a front page that says "the readers chose" over an
+    # empty tally is a lie printed in large type. Fall back to the standard card.
+    if int(obligation.get("votes") or 0) <= 0:
+        store.event(
+            "poll_card_skipped",
+            repo=str(candidate.get("full_name") or ""),
+            reason="no_counted_votes",
+        )
+        return ""
+    closed = _parse_iso(obligation.get("created_at"))
+    now = datetime.now(timezone.utc)
+    days = max(0, (now.date() - closed.date()).days) if closed else 0
+    path = Path(tempfile.mkdtemp(prefix="pollcard-")) / "poll-winner.png"
+    try:
+        render_poll_winner_card(
+            path,
+            question=str(obligation.get("question") or ""),
+            winner=str(obligation.get("winner_label") or ""),
+            repo=str(candidate.get("full_name") or ""),
+            description=str(candidate.get("description") or ""),
+            votes=int(obligation.get("votes") or 0),
+            total=int(obligation.get("total") or 0),
+            closed=closed.strftime("%Y-%m-%d") if closed else "",
+            published=now.strftime("%Y-%m-%d"),
+            days=days,
+            issue=len(store.published_records()) + 1,
+            tied=bool(obligation.get("tied")),
+        )
+        hosted, hosted_by = _host_local_image(
+            config,
+            path.read_bytes(),
+            filename="poll-winner.png",
+            content_type="image/png",
+        )
+    except Exception as exc:  # noqa: BLE001 - the card is decoration, the post is the point
+        store.event("poll_card_failed", repo=str(candidate.get("full_name") or ""),
+                    error=sanitize(str(exc))[:200])
+        return ""
+    finally:
+        try:
+            path.unlink()
+            path.parent.rmdir()
+        except OSError:
+            pass
+    if not hosted:
+        store.event("poll_card_unhosted", repo=str(candidate.get("full_name") or ""))
+        return ""
+    store.event(
+        "poll_card_published",
+        repo=str(candidate.get("full_name") or ""),
+        url=hosted,
+        host=hosted_by or "",
+        winner=str(obligation.get("winner_label") or ""),
+    )
+    store.data.setdefault("poll_obligation", {})["card_url"] = hosted
+    return hosted
 
 
 def _today_records(store: StateStore, now: datetime | None = None) -> list[dict[str, Any]]:
@@ -269,7 +398,15 @@ def collect_command(
     extra_pages: list[int] | None = None,
 ) -> dict[str, Any]:
     started = iso_now()
-    candidates = collect_candidates(config, extra_pages=extra_pages or [])
+    # While a poll promise is open, collect searches its terms explicitly, so
+    # the promised topic is present in the pool instead of depending on luck.
+    promise = _live_obligation(store)
+    terms = []
+    if promise:
+        terms = list(promise.get("topics") or []) + list(promise.get("keywords") or [])
+    candidates = collect_candidates(
+        config, extra_pages=extra_pages or [], obligation_terms=terms or None
+    )
     suppressed = store.data.get("suppressed") or {}
     candidates = [
         candidate
@@ -574,6 +711,7 @@ def publish_slot(config: Config, store: StateStore, slot: str = "manual") -> dic
             merge_models(store.data.get("value_model"),
                          audience_ranking_model(store.data.get("audience_profile"))),
             published_week,
+            _live_obligation(store),
         )
         if candidate is None:
             store.event("publish_skipped", slot=slot, reason="no_candidate")
@@ -754,6 +892,11 @@ def publish_slot(config: Config, store: StateStore, slot: str = "manual") -> dic
         # Never point the preview at the repository URL: Telegram would
         # unfold GitHub's default OpenGraph image, which the owner rejected.
         preview_url = image_url or telegraph_url
+        # Only Telegram, only when this post keeps a poll promise.
+        poll_card_url = _poll_winner_preview(config, store, candidate)
+        if poll_card_url:
+            preview_url = poll_card_url
+            visual_host = visual_host or "poll_card"
         try:
             sent = telegram.send_project(
                 chat_id,
@@ -844,6 +987,9 @@ def publish_slot(config: Config, store: StateStore, slot: str = "manual") -> dic
             record["telegram_link"] = ""
         store.record_published(record)
         store.mark_seen(record, "published")
+        # Was this the project the closed poll promised? Then the promise is
+        # kept in fact, not in a log line.
+        _fulfil_obligation(store, candidate)
         # A successful publish must clear the retry counter; otherwise the
         # next transient failure on a revisit would dead-letter the repo.
         store.data.get("publish_failures", {}).pop(key, None)
@@ -2164,6 +2310,23 @@ def close_poll_command(config: Config, store: StateStore) -> dict[str, Any]:
     )
     winner = polls.winner({"options": entries})
     store.data["active_poll"] = {}
+    # The verdict is not only a profile nudge any more: it becomes a dated
+    # promise that the winning topic is really covered within a week.
+    obligation = build_obligation(
+        {"options": [{"text": entry["label"], "votes": entry["votes"]} for entry in entries]},
+        poll,
+    )
+    if obligation:
+        store.data["poll_obligation"] = obligation
+        if obligation.get("status") == "open":
+            store.event(
+                "poll_obligation_opened",
+                kind=obligation.get("kind"),
+                winner=obligation.get("winner_label") or "",
+                terms=(obligation.get("topics") or []) + (obligation.get("keywords") or []),
+                due_at=obligation.get("due_at") or "",
+                tied=bool(obligation.get("tied")),
+            )
     store.event("poll_closed", total_voters=tally.get("total_voters"), winner=(winner or {}).get("label"),
                 poll_type=poll.get("type") or "", profile_result=profile.get("result") or "")
     mark_weekly(store, "poll-close", total_voters=tally.get("total_voters"))
@@ -2333,6 +2496,27 @@ def report_command(config: Config, store: StateStore) -> dict[str, Any]:
     audience = store.data.get("audience_profile") or {}
     if audience.get("last_result"):
         lines += ["", f"Audience poll: {html.escape(str(audience['last_result']))}"]
+    # Owner 23.11: the report must also say whether the promise was kept.
+    promise = store.data.get("poll_obligation") or {}
+    promise_status = obligation_state(promise)
+    if promise_status == "open":
+        lines.append(
+            "Poll promise: <b>open</b> until "
+            f"{html.escape(str(promise.get('due_at') or '')[:10])} — "
+            f"{html.escape(str(promise.get('winner_label') or '')[:60])}"
+        )
+    elif promise_status == "fulfilled":
+        lines.append(
+            "Poll promise: <b>kept</b> — "
+            f"{html.escape(str(promise.get('fulfilled_repo') or ''))} "
+            f"({html.escape(str(promise.get('fulfilled_at') or '')[:10])})"
+        )
+    elif promise_status == "expired":
+        lines.append(
+            "Poll promise: <b>not kept</b> — no project matching "
+            f"“{html.escape(str(promise.get('winner_label') or '')[:60])}” was published "
+            "before the deadline"
+        )
     if top:
         lines += ["", "<b>Top by editorial score</b>"]
         for index, record in enumerate(top, 1):

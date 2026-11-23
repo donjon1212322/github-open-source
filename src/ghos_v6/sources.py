@@ -305,7 +305,11 @@ class GitHubApi:
         return response.text[:80_000]
 
 
-def build_search_queries(now: datetime | None = None) -> list[tuple[str, str]]:
+def build_search_queries(
+    now: datetime | None = None,
+    *,
+    obligation_terms: list[str] | None = None,
+) -> list[tuple[str, str]]:
     """Rotation that favours *new arrivals* over the same evergreen hits.
 
     The previous rotation sorted broad queries by "stars", so every run
@@ -335,6 +339,17 @@ def build_search_queries(now: datetime | None = None) -> list[tuple[str, str]]:
     languages = languages_by_day[now.weekday() % len(languages_by_day)]
 
     queries: list[tuple[str, str]] = []
+    # 0. the poll promise. A winner like "notes app / rich-text editor" may
+    # simply not appear in today's rotation, and a promise that depends on
+    # luck is not a promise. These queries are the only targeted ones: at
+    # most three, only while a promise is open, and always behind the normal
+    # rotation so a popular keyword cannot crowd out discovery.
+    for term in (obligation_terms or [])[:3]:
+        clean = "".join(ch for ch in str(term) if ch.isalnum() or ch in " -_").strip()
+        if not clean:
+            continue
+        queries.append((f"topic:{clean} stars:>=50 archived:false fork:false", "updated"))
+        queries.append((f'{clean} in:name,description stars:>=100 archived:false fork:false', "updated"))
     # 1. fresh arrivals, any language, sorted by momentum
     queries.append((f"created:>={created_7} stars:>=10 archived:false fork:false", "stars"))
     queries.append((f"created:>={created_30} stars:>=50 archived:false fork:false", "stars"))
@@ -394,10 +409,11 @@ def collect_GitHub_search(
     merged: dict[str, dict[str, Any]],
     *,
     pages: list[int] | None = None,
+    obligation_terms: list[str] | None = None,
 ) -> None:
     now = datetime.now(timezone.utc)
     page_list = pages or [(now.timetuple().tm_yday % 4) + 1]
-    for query, sort in build_search_queries(now):
+    for query, sort in build_search_queries(now, obligation_terms=obligation_terms):
         for page in page_list:
             for item in api.search(query, sort=sort, per_page=25, page=page):
                 merge_candidate(merged, map_repo(item, "github_search"))
@@ -553,10 +569,11 @@ def collect_candidates(
     config: Any,
     *,
     extra_pages: list[int] | None = None,
+    obligation_terms: list[str] | None = None,
 ) -> list[dict[str, Any]]:
     api = GitHubApi(config.GitHub_token)
     merged: dict[str, dict[str, Any]] = {}
-    collect_GitHub_search(api, merged, pages=extra_pages)
+    collect_GitHub_search(api, merged, pages=extra_pages, obligation_terms=obligation_terms)
     collect_hn(merged)
     channels = tuple(config.telegram_source_channels or DEFAULT_TELEGRAM_SOURCES)
     collect_telegram_web(merged, channels)

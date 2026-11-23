@@ -54,7 +54,19 @@ MUTATIONS: list[tuple[str, str, str, str]] = [
     ("src/ghos_v6/pipeline.py", 'candidates = rank_candidates(candidates, seen=store.data.get("seen_repos"))',
      'candidates = rank_candidates(candidates)',
      "collect forgets the star snapshots again"),
-
+    ("src/ghos_v6/polls_design.py", '    if kind == "none" or not (topics or keywords):',
+     '    if True:', "a poll result stops obliging anybody again (23.11)"),
+    ("src/ghos_v6/polls_design.py", "    keywords = label_keywords(winner_label)",
+     "    keywords = []", "an empty topic list voids the promise again (the 19.11 failure)"),
+    ("src/ghos_v6/rank.py", '    if obligation and obligation.get("status") == "open":',
+     '    if False and obligation and obligation.get("status") == "open":',
+     "the poll promise no longer steers selection"),
+    ("src/ghos_v6/rank.py", "OBLIGATION_MIN_SCORE = 20.0", "OBLIGATION_MIN_SCORE = 0.0",
+     "a dead repository may be published just to keep a promise"),
+    ("src/ghos_v6/pipeline.py", '    if status == "expired" and obligation.get("status") == "open":',
+     "    if False:", "an overdue promise is silently forgotten"),
+    ("src/ghos_v6/sources.py", "    for term in (obligation_terms or [])[:3]:",
+     "    for term in []:", "collect stops searching the promised topic"),
     ("src/ghos_v6/rank.py", "if languages.get(language, 0) >= WEEK_LANGUAGE_LIMIT:",
      "if languages.get(language, 0) >= 99:",
      "the weekly language limit is silently disabled (23.11)"),
@@ -275,6 +287,51 @@ MUTATIONS: list[tuple[str, str, str, str]] = [
      '(116, 620, "MODELS IN THIS BRIEF", short_models),',
      '(116, 620, "OFFICIAL SOURCE", short_models),',
      "AI Brief card names an official source again"),
+    # --- winner card, 23.11: the "tabloid" variant and its hostile inputs ---
+    ("src/ghos_v6/cards_poll.py",
+     '    text = "".join(\n        " " if char in "\\t\\n\\r\\v\\f\\x1c\\x1d\\x1e\\x85\\u2028\\u2029" else char',
+     '    text = "".join(\n        "" if char in "\\t\\n\\r\\v\\f\\x1c\\x1d\\x1e\\x85\\u2028\\u2029" else char',
+     "control whitespace is deleted, gluing 'fast notes' into 'fastnotes'"),
+    ("src/ghos_v6/cards_poll.py",
+     "    return bool(mask.strip(b\"\\x00\")) and mask != _missing_mask(font)",
+     "    return bool(mask.strip(b\"\\x00\"))",
+     "a missing glyph is drawn as a tofu box instead of being dropped"),
+    ("src/ghos_v6/cards_poll.py",
+     "    words = [word for word in renderable(text, font).split() if _has_letter_or_digit(word)]",
+     "    words = renderable(text, font).split()",
+     "punctuation debris from a removed script survives as the headline"),
+    ("src/ghos_v6/cards_poll.py",
+     '            cut = max((chunk.rfind(sep) for sep in "-/_.:"), default=-1)',
+     "            cut = -1",
+     "a long token is cut mid-word instead of at a separator"),
+    ("src/ghos_v6/cards_poll.py",
+     "    if not force and draw.textlength(line, font=font) <= max_width:",
+     "    if draw.textlength(line, font=font) <= max_width:",
+     "a column that lost words looks complete instead of showing a ellipsis"),
+    ("src/ghos_v6/cards_poll.py",
+     "    everyone = max(_int(total), winner)",
+     "    everyone = _int(total)",
+     "'6 of 2 readers' - the total can fall below the winner count"),
+    ("src/ghos_v6/cards_poll.py",
+     '    return f"{value:,}".replace(",", "\\u2009") if value >= 10_000 else str(value)',
+     "    return str(value)",
+     "1234567 readers instead of a front-page number"),
+    ("src/ghos_v6/cards_poll.py",
+     '    y = FOOTER_Y - stamp_h - 12\n    fits = column_bottom + 6 <= y and stamp_w <= W - 2 * MARGIN',
+     "    y = column_bottom + 6\n    fits = True",
+     "the PROMISE KEPT stamp is drawn over text and off the page"),
+    ("src/ghos_v6/cards_poll.py",
+     '        vote_text = "The poll closed before a single vote was counted. "',
+     '        vote_text = "The channel asked which project to cover, and the readers chose. "',
+     "the card claims an election that no vote supports"),
+    ("src/ghos_v6/pipeline.py",
+     '    if int(obligation.get("votes") or 0) <= 0:',
+     "    if False:",
+     "a front page claims 'the readers chose' over an empty tally (owner rule 23.11)"),
+    ("src/ghos_v6/pipeline.py",
+     '    if obligation.get("status") != "open" or not obligation_matches(candidate, obligation):\n        return ""',
+     '    if False:\n        return ""',
+     "the winner card is attached to posts that keep no promise (owner rule 23.11)"),
     # Owner corrections, 04.11.2026 third pass: readable card and honest facts.
     ("src/ghos_v6/news.py",
      "    out = dict(brief)",
@@ -535,11 +592,18 @@ def main() -> int:
                 survived.append(label)
                 continue
             target.write_text(text.replace(old, new, 1), encoding="utf-8")
-            if _run_tests(work) == 0:
+            try:
+                red = _run_tests(work) != 0
+            finally:
+                # The baseline is ~50 MB; keeping every mutant copy alive filled
+                # the disk at mutation 135 and the run died with ENOSPC instead
+                # of a verdict.
+                shutil.rmtree(work, ignore_errors=True)
+            if red:
+                print(f"KILLED   {label}")
+            else:
                 print(f"SURVIVED {label}")
                 survived.append(label)
-            else:
-                print(f"KILLED   {label}")
 
         killed = len(MUTATIONS) - len(survived)
         print(f"\nmutation score: {killed}/{len(MUTATIONS)} killed")

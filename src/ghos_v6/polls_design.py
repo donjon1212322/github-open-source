@@ -485,3 +485,144 @@ def merge_models(base: dict[str, Any] | None, extra: dict[str, Any] | None) -> d
         if left:
             merged[field] = left
     return merged
+
+# --- The promise: "we will cover the winning job next week" ------------------
+#
+# Owner question 23.11: "people vote and wait for what they voted for - will
+# it actually come out?" Before this, no: the closed poll only wrote soft
+# multipliers into ``audience_profile``, and the *winning* option of 19.11 had
+# an empty topic list (the candidate had no GitHub topics), so the multiplier
+# was exactly 1.0 and ten posts later nothing of the kind had been covered.
+#
+# The obligation below turns the result into a dated commitment:
+#
+# * only ``job``/``direction`` polls (and ``reality_check``) create one - a
+#   format/depth poll never promised a specific project;
+# * the terms come from the option's GitHub topics *and* from the option text
+#   (``label_keywords``), so an empty topic list cannot void the promise;
+# * it lives in state with a due date (7 days), and every publish attempt
+#   either fulfils it, keeps it open, or expires it with an event;
+# * collect searches the obligation terms explicitly, so the pool is not just
+#   "whatever today's rotation happened to return".
+OBLIGATION_DAYS = 7
+
+#: Words that carry no topic meaning. Dropped when the promise is built from
+#: the option text, otherwise "app" or "fast" would match half the queue.
+_GENERIC_WORDS = {
+    "app", "apps", "application", "tool", "tools", "project", "projects",
+    "open", "source", "opensource", "free", "fast", "faster", "blazing",
+    "simple", "tiny", "lightweight", "modern", "native", "rich", "text",
+    "modify", "manage", "using", "without", "based", "that", "this", "with",
+    "from", "your", "into", "over", "more", "most", "best", "new", "which",
+    "would", "save", "time", "week", "real", "own", "any", "all", "and",
+    "the", "for", "you", "can", "its", "not", "but", "use", "way",
+}
+
+
+def label_keywords(label: str, *, limit: int = 6) -> list[str]:
+    """Topic words taken from the option text itself.
+
+    "Blazing-fast native notes app and rich-text editor for macOS, Windows,
+    and Linux" -> ["notes", "editor", "macos", "windows", "linux"].
+    """
+    words: list[str] = []
+    for raw in str(label or "").lower().replace("-", " ").replace(",", " ").split():
+        word = "".join(ch for ch in raw if ch.isalnum())
+        if len(word) < 4 or word in _GENERIC_WORDS or word.isdigit():
+            continue
+        if word not in words:
+            words.append(word)
+    return words[:limit]
+
+
+def build_obligation(
+    tally: dict[str, Any],
+    poll: dict[str, Any],
+    *,
+    now: Any = None,
+) -> dict[str, Any]:
+    """Turn a closed poll into a dated promise, or an empty obligation."""
+    from datetime import datetime, timedelta, timezone  # noqa: PLC0415
+
+    moment = now or datetime.now(timezone.utc)
+    keys = list(poll.get("option_keys") or [])
+    entries = tally.get("options") or []
+    winner_key = ""
+    winner_label = ""
+    best = -1
+    for index, option in enumerate(entries):
+        votes = int(option.get("votes") or 0)
+        if votes > best and index < len(keys):
+            best = votes
+            winner_key = keys[index]
+            winner_label = str(option.get("text") or "")
+    if not winner_key or best <= 0:
+        return {}
+
+    poll_type = str(poll.get("type") or "")
+    topics = [str(t).lower() for t in ((poll.get("option_topics") or {}).get(winner_key) or [])]
+    keywords = label_keywords(winner_label)
+
+    if poll_type in {"job", "direction"}:
+        # "We will cover the winning job with a real open-source tool next
+        # week" - a specific project is promised, so it is a hard preference.
+        kind = "cover_topic"
+    elif poll_type == "reality_check" and winner_key == "more_of_it":
+        # "Show more X tools" promises the *theme*, not one project, so it is
+        # satisfied by the first post in that family.
+        kind = "cover_theme"
+    else:
+        kind = "none"
+
+    if kind == "none" or not (topics or keywords):
+        return {
+            "status": "none",
+            "kind": kind,
+            "poll_type": poll_type,
+            "winner_key": winner_key,
+            "winner_label": winner_label,
+            "created_at": moment.isoformat().replace("+00:00", "Z"),
+            "note": "this poll promised no project",
+        }
+
+    # A tie is not a mandate: report it as such and use the words anyway.
+    tied = sum(1 for option in entries if int(option.get("votes") or 0) == best) > 1
+    return {
+        "status": "open",
+        "kind": kind,
+        "poll_type": poll_type,
+        # the winner card prints the question that was actually asked
+        "question": str(poll.get("question") or ""),
+        "winner_key": winner_key,
+        "winner_label": winner_label,
+        "tied": tied,
+        "topics": topics[:6],
+        "keywords": keywords[:6],
+        "votes": best,
+        "created_at": moment.isoformat().replace("+00:00", "Z"),
+        "due_at": (moment + timedelta(days=OBLIGATION_DAYS)).isoformat().replace("+00:00", "Z"),
+        "fulfilled_repo": "",
+        "fulfilled_at": "",
+    }
+
+
+def obligation_state(obligation: dict[str, Any] | None, *, now: Any = None) -> str:
+    """``open`` / ``fulfilled`` / ``expired`` / ``none`` - never guessed."""
+    from datetime import datetime, timezone  # noqa: PLC0415
+
+    if not obligation or obligation.get("status") in {"none", ""}:
+        return "none"
+    status = str(obligation.get("status"))
+    if status != "open":
+        return status
+    moment = now or datetime.now(timezone.utc)
+    due_raw = str(obligation.get("due_at") or "")
+    if due_raw:
+        try:
+            due = datetime.fromisoformat(due_raw.replace("Z", "+00:00"))
+        except ValueError:
+            return status
+        if moment > due:
+            return "expired"
+    return status
+

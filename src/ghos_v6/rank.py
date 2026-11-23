@@ -554,11 +554,56 @@ def value_multiplier(candidate: dict[str, Any], model: dict[str, Any] | None) ->
     return max(0.8, min(1.25, weight))
 
 
+#: A poll promise ("we will cover the winning job next week") is a
+#: commitment, not a nudge: a matching candidate is taken even when it is not
+#: the day's best-scoring one, as long as it clears this floor. Set low on
+#: purpose - everything in the queue already passed the gate; the floor only
+#: stops an obviously dead repository from being posted to keep a promise.
+OBLIGATION_MIN_SCORE = 20.0
+OBLIGATION_BOOST = 25.0
+
+
+def obligation_terms(obligation: dict[str, Any] | None) -> list[str]:
+    if not obligation:
+        return []
+    terms = [str(t).lower().strip() for t in (obligation.get("topics") or []) if str(t).strip()]
+    terms += [str(t).lower().strip() for t in (obligation.get("keywords") or []) if str(t).strip()]
+    seen: list[str] = []
+    for term in terms:
+        if term and term not in seen:
+            seen.append(term)
+    return seen
+
+
+def obligation_matches(candidate: dict[str, Any], obligation: dict[str, Any] | None) -> bool:
+    """Does this candidate keep the promise made by the closed poll?"""
+    terms = obligation_terms(obligation)
+    if not terms:
+        return False
+    topics = {str(t).lower() for t in (candidate.get("topics") or [])}
+    words = set(
+        str(candidate.get("name") or "").lower().replace("-", " ").replace("_", " ").split()
+        + str(candidate.get("description") or "").lower().replace("-", " ").split()
+        + str(candidate.get("full_name") or "").lower().replace("/", " ").replace("-", " ").split()
+    )
+    # Terms are curated by ``polls_design.label_keywords``: the generic words
+    # ("app", "tool", "fast") are dropped there, so a single full match is a
+    # real match - "editor" or "notes" is specific enough on its own.
+    for term in terms:
+        if term in topics:
+            return True
+        bits = term.replace("-", " ").split()
+        if bits and all(bit in words for bit in bits):
+            return True
+    return False
+
+
 def select_candidate(
     queue: list[dict[str, Any]],
     published_today: list[dict[str, Any]],
     model: dict[str, Any] | None = None,
     published_week: list[dict[str, Any]] | None = None,
+    obligation: dict[str, Any] | None = None,
 ) -> dict[str, Any] | None:
     if not queue:
         return None
@@ -576,11 +621,24 @@ def select_candidate(
         # instead of falling back to the whole queue, which would break the
         # owner's "one per day" rule.
         return None
-    return max(
-        eligible,
-        key=lambda c: (
-            float(c.get("score") or 0)
-            + diversity_bonus(c, published_today, published_week)
-        )
-        * value_multiplier(c, model),
-    )
+    def weight_of(candidate: dict[str, Any]) -> float:
+        return (
+            float(candidate.get("score") or 0)
+            + diversity_bonus(candidate, published_today, published_week)
+        ) * value_multiplier(candidate, model)
+
+    if obligation and obligation.get("status") == "open":
+        # The poll promised this topic. Prefer a matching candidate; the
+        # diversity penalties below still decide *which* match, so the
+        # promise cannot flood the week with one theme either.
+        matching = [
+            candidate for candidate in eligible
+            if obligation_matches(candidate, obligation)
+            and (
+                obligation.get("kind") == "cover_theme"
+                or float(candidate.get("score") or 0) >= OBLIGATION_MIN_SCORE
+            )
+        ]
+        if matching:
+            return max(matching, key=weight_of)
+    return max(eligible, key=weight_of)
