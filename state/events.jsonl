@@ -763,3 +763,4 @@
 {"Gemini_video_input": false, "models": 6, "official_url": "", "stories": 2, "topic": "model-benchmarks-and-metrics", "ts": "2026-11-23T19:19:18.286086Z", "type": "ai_brief_published", "video_id": "tg-20261123-c3b5de14d1"}
 {"error": "Gemini generateContent failed: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.", "reason": "article_gemini_unavailable", "ts": "2026-11-23T19:54:02.107892Z", "type": "news_article_skipped"}
 {"channel": "GitHub_Open_Source", "posts": 12, "ts": "2026-11-23T20:23:51.549031Z", "type": "metrics_collected", "updated": 12}
+{"attempts": 1, "detail": "HTTP 204", "slot": "news-article", "ts": "2026-11-23T20:30:55.326493Z", "type": "watchdog_recovered", "verified": false}
