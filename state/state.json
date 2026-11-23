@@ -405,7 +405,8 @@
       "2026-11-23": {
         "notified": true,
         "slots": [
-          "publish:us_morning"
+          "publish:us_morning",
+          "news-article"
         ]
       }
     },

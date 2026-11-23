@@ -770,3 +770,4 @@
 {"deleted": 0, "ts": "2026-11-23T21:47:48.971373Z", "type": "moderation_completed", "updates": 2}
 {"attempts": 3, "detail": "HTTP 204", "slot": "news-article", "ts": "2026-11-23T22:00:51.565829Z", "type": "watchdog_recovered", "verified": false}
 {"error": "Gemini generateContent failed: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.", "reason": "article_gemini_unavailable", "ts": "2026-11-23T22:01:18.284781Z", "type": "news_article_skipped"}
+{"max_attempts": 3, "max_daily": 24, "scope": "slot", "slot": "news-article", "ts": "2026-11-23T22:30:59.636312Z", "type": "watchdog_dispatch_capped"}
