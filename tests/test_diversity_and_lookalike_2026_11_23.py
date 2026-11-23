@@ -299,3 +299,26 @@ def test_purging_is_silent_when_the_queue_is_clean(tmp_path):
     assert not (tmp_path / "events.jsonl").exists() or "queue_purged" not in (
         tmp_path / "events.jsonl"
     ).read_text(encoding="utf-8")
+
+
+def test_collect_drops_the_stale_lookalike_from_the_inherited_queue(tmp_path, monkeypatch):
+    """The purge must run inside collect, not only when called by hand."""
+    store = StateStore(tmp_path)
+    stale = {"full_name": "muruganmylord/soundpad-desktop", "name": "soundpad-desktop",
+             "description": "SoundPad Desktop", "topics": ["soundpad-registration"], "stars": 336}
+    store.data = {"queue": [stale]}
+    store.save()
+    monkeypatch.setattr(pipeline, "collect_candidates", lambda config, **kwargs: [])
+    monkeypatch.setattr(pipeline, "rank_candidates", lambda candidates, **kwargs: candidates)
+    monkeypatch.setattr(pipeline, "enrich_candidates", lambda api, candidates, **kwargs: candidates)
+    monkeypatch.setattr(pipeline, "GitHubApi", lambda token: object())
+    pipeline.collect_command(_BareConfig(), store)
+    assert stale["full_name"] not in [c.get("full_name") for c in store.data.get("queue") or []]
+
+
+class _BareConfig:
+    GitHub_token = "test"
+    telegram_source_channels = ()
+
+    def __getattr__(self, _name):  # pragma: no cover - permissive stand-in
+        return ""
