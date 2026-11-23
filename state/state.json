@@ -276,11 +276,11 @@
   ],
   "last_runs": {
     "article": {
-      "finished_at": "2026-11-22T13:33:51.026963Z",
+      "finished_at": "2026-11-23T13:33:59.927107Z",
       "published": true,
       "reason": "published",
-      "repo": "kianuni/erosion-cn",
-      "url": "https://dev.to/githubopensource/how-to-modify-ios-mobilegestalt-settings-safely-erosion-cn-2gdg"
+      "repo": "iamajmeena/neonclipping",
+      "url": "https://dev.to/githubopensource/open-source-local-video-clipping-tool-neonclipping-5338"
     },
     "collect": {
       "discovered": 447,
@@ -4052,7 +4052,13 @@
       "visual_kind": "readme"
     },
     "iamajmeena/neonclipping": {
-      "articles": {},
+      "articles": {
+        "devto": {
+          "id": 5100740,
+          "published_at": "2026-11-23T13:33:59.926959Z",
+          "url": "https://dev.to/githubopensource/open-source-local-video-clipping-tool-neonclipping-5338"
+        }
+      },
       "card_style": "",
       "category": "AI",
       "contributors_count": 2,
@@ -4066,6 +4072,7 @@
       },
       "description": "Paste a link, get captioned 9:16 clips in ~2 min. Free, local, open-source clipping engine (audio-first, YouTube captions, local LLM).",
       "description_fp": "8d9a304fced008a3",
+      "devto_cover_url": "https://i.ibb.co/xqCcvc8n/iamajmeena-neonclipping-devto-cover-2a02271c4359.png",
       "forks": 119,
       "full_name": "iamajmeena/neonclipping",
       "generated": {
