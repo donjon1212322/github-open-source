@@ -764,3 +764,4 @@
 {"error": "Gemini generateContent failed: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.", "reason": "article_gemini_unavailable", "ts": "2026-11-23T19:54:02.107892Z", "type": "news_article_skipped"}
 {"channel": "GitHub_Open_Source", "posts": 12, "ts": "2026-11-23T20:23:51.549031Z", "type": "metrics_collected", "updated": 12}
 {"attempts": 1, "detail": "HTTP 204", "slot": "news-article", "ts": "2026-11-23T20:30:55.326493Z", "type": "watchdog_recovered", "verified": false}
+{"error": "Gemini generateContent failed: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.", "reason": "article_gemini_unavailable", "ts": "2026-11-23T20:31:25.308100Z", "type": "news_article_skipped"}
