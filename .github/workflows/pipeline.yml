@@ -30,6 +30,7 @@ on:
           - metrics
           - learn
           - poll-close
+          - requeue
       slot:
         description: Publish slot label (publish command only)
         type: string
@@ -48,6 +49,10 @@ on:
         default: ""
       preview_fix_repo:
         description: owner/name of a published project for preview-fix (blank image replacement)
+        type: string
+        default: ""
+      repo:
+        description: owner/name of a repository for requeue
         type: string
         default: ""
   schedule:
@@ -153,12 +158,13 @@ jobs:
           REFRESH_NEWS: ${{ inputs.refresh_news }}
           ARTICLE_IDS: ${{ inputs.article_ids }}
           PREVIEW_FIX_REPO: ${{ inputs.preview_fix_repo }}
+          REPO: ${{ inputs.repo }}
           EVENT_NAME: ${{ github.event_name }}
           SCHEDULE: ${{ github.event.schedule }}
         run: |
           if [[ "$EVENT_NAME" == "workflow_dispatch" ]]; then
             case "$COMMAND" in
-              collect|publish|crossposts|article|article-update|article-unseries|devto-remove|news|news-article|quality-fix|brief-dedup-fix|digest|digest-card-fix|preview-fix|poll-preview|poll-replace|report|moderation|facebook-handoff|metrics|learn|poll-close) ;;
+              collect|publish|crossposts|article|article-update|article-unseries|devto-remove|news|news-article|quality-fix|brief-dedup-fix|digest|digest-card-fix|preview-fix|poll-preview|poll-replace|report|moderation|facebook-handoff|metrics|learn|poll-close|requeue) ;;
               *) echo "::error::invalid command: $COMMAND"; exit 1 ;;
             esac
             if [[ "$COMMAND" == "publish" ]]; then
@@ -182,6 +188,11 @@ jobs:
               if [[ "$FORCE_NEWS" == "true" ]]; then news_flags+=(--force); fi
               if [[ "$REFRESH_NEWS" == "true" ]]; then news_flags+=(--refresh); fi
               ghos-v6 news "${news_flags[@]}"
+            elif [[ "$COMMAND" == "requeue" ]]; then
+              if [[ ! "$REPO" =~ ^[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]{1,120}$ ]]; then
+                echo "::error::invalid repo: $REPO"; exit 1
+              fi
+              ghos-v6 requeue --repo "$REPO"
             elif [[ "$COMMAND" == "preview-fix" ]]; then
               if [[ ! "$PREVIEW_FIX_REPO" =~ ^[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]{1,120}$ ]]; then
                 echo "::error::invalid repo: $PREVIEW_FIX_REPO"; exit 1

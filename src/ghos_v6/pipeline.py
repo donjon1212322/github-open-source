@@ -54,7 +54,13 @@ from .news import (
 from .telegram_discovery import build_digest_material
 from .platforms import BlueskyClient, DevToClient, PlatformError
 from .rank import obligation_matches, rank_candidates, select_candidate
-from .sources import GitHubApi, collect_candidates, enrich_candidate, enrich_candidates
+from .sources import (
+    GitHubApi,
+    collect_candidates,
+    enrich_candidate,
+    enrich_candidates,
+    map_repo,
+)
 from .state import StateStore, iso_now, iso_week_key
 from .polls_design import (audience_ranking_model, build_obligation,
                            build_week_poll, merge_models, obligation_state,
@@ -265,6 +271,46 @@ def _poll_winner_preview(
     )
     store.data.setdefault("poll_obligation", {})["card_url"] = hosted
     return hosted
+
+
+def requeue_command(config: Config, store: StateStore, repo: str) -> dict[str, Any]:
+    """Put one repository back into the queue, deliberately.
+
+    Needed because a transient provider outage used to be recorded as a
+    verdict on the project: on 23.11 ``valentderah/totk-pc-recomp`` was
+    dropped from the queue and marked seen after two 503s. The fix stops that
+    from happening again; this command repairs what it already did. It fetches
+    the repository fresh, so the entry is rebuilt from GitHub rather than
+    resurrected from a half-deleted record.
+    """
+    key = str(repo or "").strip().strip("/").lower()
+    if not re.fullmatch(r"[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]{1,120}", key):
+        return {"ok": False, "requeued": False, "reason": "invalid_repo", "repo": key}
+    api = GitHubApi(config.GitHub_token)
+    raw = api.repo(key)
+    if not raw:
+        return {"ok": False, "requeued": False, "reason": "repo_not_found", "repo": key}
+    candidate = enrich_candidate(api, map_repo(raw, "requeue"))
+    if not candidate.get("repo_id"):
+        return {"ok": False, "requeued": False, "reason": "enrich_failed", "repo": key}
+    store.data["queue"] = [c for c in store.data.get("queue") or [] if store.repo_key(c) != key]
+    store.set_queue([candidate], merge=True)
+    store.data.setdefault("seen_repos", {}).pop(key, None)
+    store.data.setdefault("publish_failures", {}).pop(key, None)
+    store.data["dead_letters"] = [
+        item for item in store.data.get("dead_letters") or []
+        if str(item.get("repo") or "").lower() != key
+    ]
+    store.event("candidate_requeued", repo=key, stars=candidate.get("stars"),
+                queue=len(store.data.get("queue") or []))
+    store.save()
+    return {
+        "ok": True,
+        "requeued": True,
+        "repo": key,
+        "stars": candidate.get("stars") or 0,
+        "queue": len(store.data.get("queue") or []),
+    }
 
 
 def _today_records(store: StateStore, now: datetime | None = None) -> list[dict[str, Any]]:
@@ -594,6 +640,13 @@ def _article_markdown(record_candidate: dict[str, Any], generated: dict[str, Any
     )
 
 MAX_PROJECT_POSTS_PER_DAY = 3
+# A provider-wide capacity spike (503 "high demand", 429 quota) says nothing
+# about the project it interrupted. It must not count towards the per-candidate
+# failure budget and must never remove anything from the queue: on 23.11 two
+# spikes in a row deleted a healthy candidate (valentderah/totk-pc-recomp) as
+# if the project itself were unwritable.
+CAPACITY_ERROR_CLASSES = frozenset({"capacity_503", "quota_429"})
+TRANSIENT_SKIP_REASONS = frozenset({"gemini_capacity"})
 
 
 def _publish_slot_key(slot: str) -> str:
@@ -748,6 +801,23 @@ def publish_slot(config: Config, store: StateStore, slot: str = "manual") -> dic
 
         generated = generate_project_content(Gemini, candidate)
         if not generated.get("llm_used"):
+            error_class = str(generated.get("error_class") or "unknown")
+            if error_class in CAPACITY_ERROR_CLASSES:
+                # Congested provider, untouched queue. The watchdog retries the
+                # slot; a green-ish run tells the owner only what it is: noise
+                # from Google, not a fault in the channel.
+                store.event("publish_skipped", slot=slot, reason="gemini_capacity",
+                            repo=key, gemini_error_class=error_class)
+                store.save()
+                return {
+                    "ok": False,
+                    "published": False,
+                    "reason": "gemini_capacity",
+                    "repo": key,
+                    "queue_unchanged": True,
+                    "retry": True,
+                    "gemini_error_class": error_class,
+                }
             # No model, no verdict. Retry once, but a project the model keeps
     # failing on must not block the queue forever.
             failures = store.data.setdefault("publish_failures", {})

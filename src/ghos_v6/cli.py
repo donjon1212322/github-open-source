@@ -14,6 +14,7 @@ from .doctor import run_doctor
 from .http import sanitize
 from .pipeline import (
     _news_slot_open,
+    TRANSIENT_SKIP_REASONS,
     alert_owner,
     article_of_day,
     brief_dedup_fix_command,
@@ -36,6 +37,7 @@ from .pipeline import (
     publish_slot,
     remove_devto_articles,
     report_command,
+    requeue_command,
     update_recent_article,
     unseries_articles,
 )
@@ -114,6 +116,10 @@ def _parser() -> argparse.ArgumentParser:
     cleanup.add_argument("--confirm", action="store_true", help="actually delete")
     cleanup.add_argument("--dry-run", action="store_true", help="list what would be deleted")
 
+    requeue = sub.add_parser(
+        "requeue", help="Put one repository back into the queue (owner/name)"
+    )
+    requeue.add_argument("--repo", required=True)
     sub.add_parser("watchdog", help="Recover missed scheduled slots idempotently")
     scheduled = sub.add_parser("scheduled", help="Dispatch by the GitHub cron string")
     scheduled.add_argument("--schedule", required=True)
@@ -470,14 +476,25 @@ def main(argv: list[str] | None = None) -> int:
                 ],
                 "rejected": REJECTED_SOURCES,
             }
+        elif args.command == "requeue":
+            result = requeue_command(config, store, args.repo)
         elif args.command == "scheduled":
             result = _run_scheduled(config, store, args.schedule)
         else:  # pragma: no cover - argparse prevents this
             raise RuntimeError(f"Unhandled command {args.command}")
         print(json.dumps(result, ensure_ascii=False, indent=2, sort_keys=True))
-        # A skipped slot (e.g. gemini_unavailable) is not success: the
-        # workflow must see a non-zero exit and alert the owner.
+        # A skipped slot is not success, but not every skip is a fault. A
+        # provider capacity spike (23.11: 503 "high demand" on both models)
+        # leaves the queue untouched and the watchdog retries the slot within
+        # two hours, so a red run and an email to the owner would be noise
+        # about Google's load, not about the channel. Everything else stays a
+        # hard failure.
         if isinstance(result, dict) and result.get("ok") is False:
+            reason = str(result.get("reason") or "")
+            if reason in TRANSIENT_SKIP_REASONS:
+                print(f"::warning::slot skipped: {reason} - provider congested, "
+                      "queue unchanged, the watchdog will retry")
+                return 0
             return 1
         return 0
     except Exception as exc:  # noqa: BLE001
