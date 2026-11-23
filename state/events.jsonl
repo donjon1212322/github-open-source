@@ -751,3 +751,4 @@
 {"gemini_error_class": "capacity_503", "reason": "gemini_capacity", "repo": "chuanqisun/spaceship", "slot": "us_morning", "ts": "2026-11-23T17:05:23.773253Z", "type": "publish_skipped"}
 {"attempts": 3, "detail": "HTTP 204", "slot": "publish:us_morning", "ts": "2026-11-23T17:30:54.348687Z", "type": "watchdog_recovered", "verified": false}
 {"gemini_error_class": "capacity_503", "reason": "gemini_capacity", "repo": "chuanqisun/spaceship", "slot": "us_morning", "ts": "2026-11-23T17:35:05.024584Z", "type": "publish_skipped"}
+{"max_attempts": 3, "max_daily": 24, "scope": "slot", "slot": "publish:us_morning", "ts": "2026-11-23T18:00:56.674211Z", "type": "watchdog_dispatch_capped"}
