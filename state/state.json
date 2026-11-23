@@ -389,20 +389,11 @@
     },
     "telegram_update_offset": 165231155,
     "watchdog_caps": {
-      "2026-11-22": {
+      "2026-11-23": {
         "notified": false
       }
     },
-    "watchdog_dispatches": {
-      "2026-11-22:facebook-handoff": {
-        "at": "2026-11-22T18:30:52.664805Z",
-        "attempts": 1,
-        "detail": "HTTP 204",
-        "dispatched": true,
-        "verified": true,
-        "verified_at": "2026-11-22T19:00:50.477450Z"
-      }
-    }
+    "watchdog_dispatches": {}
   },
   "news_topics": [
     {
