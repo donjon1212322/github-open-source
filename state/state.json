@@ -409,7 +409,8 @@
         "attempts": 1,
         "detail": "HTTP 204",
         "dispatched": true,
-        "verified": false
+        "verified": true,
+        "verified_at": "2026-11-23T19:00:48.486924Z"
       },
       "2026-11-23:publish:us_morning": {
         "at": "2026-11-23T17:30:52.999565Z",

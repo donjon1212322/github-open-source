@@ -758,3 +758,4 @@
 {"attempts": 1, "detail": "HTTP 204", "slot": "facebook-handoff", "ts": "2026-11-23T18:30:57.504551Z", "type": "watchdog_recovered", "verified": false}
 {"range": "facebook!A22:E22", "rows": 1, "ts": "2026-11-23T18:31:24.402310Z", "type": "facebook_handoff_queued"}
 {"deleted": 0, "ts": "2026-11-23T18:47:49.262162Z", "type": "moderation_completed", "updates": 2}
+{"slot": "facebook-handoff", "ts": "2026-11-23T19:00:48.487011Z", "type": "watchdog_verified"}
