@@ -743,3 +743,4 @@
 {"attempts": 1, "detail": "HTTP 204", "slot": "publish:us_morning", "ts": "2026-11-23T16:30:51.922175Z", "type": "watchdog_recovered", "verified": false}
 {"platform": "gemini", "repo": "valentderah/totk-pc-recomp", "ts": "2026-11-23T16:35:02.086441Z", "type": "dead_letter"}
 {"failures": 2, "reason": "gemini_failed_twice", "repo": "valentderah/totk-pc-recomp", "ts": "2026-11-23T16:35:02.086550Z", "type": "publish_candidate_dead"}
+{"queue": 28, "repo": "valentderah/totk-pc-recomp", "stars": 8121, "ts": "2026-11-23T16:40:41.206278Z", "type": "candidate_requeued"}
