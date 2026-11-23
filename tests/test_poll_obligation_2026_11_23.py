@@ -376,3 +376,32 @@ def test_a_promise_with_no_counted_vote_gets_no_card(tmp_path, monkeypatch):
     ) == ""
     assert seen == []  # nothing was even uploaded
     assert "poll_card_skipped" in (tmp_path / "events.jsonl").read_text(encoding="utf-8")
+
+
+def test_the_promise_post_text_carries_no_poll_line():
+    """Owner 23.11: the kept promise is visible in the card, not in the words.
+
+    The post that fulfils a poll must read exactly like any other post - no
+    "you voted for this", no mention of a poll. The card is the only tell.
+    """
+    from ghos_v6.formatter import format_project_post
+
+    candidate = _candidate("inkwell", 60.0, description="A notes app")
+    candidate.update(
+        {
+            "full_name": "owner/inkwell",
+            "url": "https://github.com/owner/inkwell",
+            "stars": 900,
+            "language": "Rust",
+        }
+    )
+    generated = {
+        "title": "A fast notes app",
+        "hook": "Notes that open before you blink.",
+        "body": ["It stores notes in a local file.", "Everything works offline."],
+        "why": "Fast.",
+    }
+    text = format_project_post({"candidate": candidate, "generated": generated})
+    assert len(text) > 200  # a real post, not an empty string passing by default
+    assert "poll" not in text.lower()
+    assert "vote" not in text.lower()
