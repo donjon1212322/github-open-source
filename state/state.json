@@ -283,36 +283,36 @@
       "url": "https://dev.to/githubopensource/how-to-modify-ios-mobilegestalt-settings-safely-erosion-cn-2gdg"
     },
     "collect": {
-      "discovered": 441,
+      "discovered": 447,
       "enriched": 120,
-      "finished_at": "2026-11-23T09:11:41.153668Z",
-      "passed_gate": 57,
+      "finished_at": "2026-11-23T09:20:23.478776Z",
+      "passed_gate": 53,
       "queued": 28,
       "rejections": {
         "blocklist:jailbreak": 1,
-        "blocklist:keygen": 2,
-        "curation_repo": 1,
-        "description_not_english": 7,
-        "lookalike_installer:topic:actual-multiple-monitors-cracked-2026": 1,
+        "description_not_english": 8,
+        "lookalike_installer:topic:actual-multiple-monitors-crack-2026": 1,
         "lookalike_installer:topic:ashampoo-burn-install-setup-windows-2026": 1,
         "lookalike_installer:topic:bentley-microstation-install-setup-windows-2026": 1,
-        "lookalike_installer:topic:descript-keygen": 1,
-        "lookalike_installer:topic:gitkraken-keygen": 1,
+        "lookalike_installer:topic:dft-pro-crack": 1,
         "lookalike_installer:topic:ifunbox-download-iphone-file-manager": 1,
         "lookalike_installer:topic:jetbrains-phpstorm-install-setup-2026": 1,
-        "narrow:topic:awesome-list": 1,
+        "lookalike_installer:topic:nitro-free-download": 1,
+        "lookalike_installer:topic:soundpad-registration": 1,
+        "lookalike_installer:topic:ultra-edit-crack": 1,
+        "lookalike_installer:topic:unlock-pattern": 1,
+        "lookalike_installer:topic:unlock-phone": 1,
         "no_community": 33,
-        "no_license": 44,
+        "no_license": 45,
         "no_push_date": 3,
         "no_readme": 3,
-        "not_software:topic:awesome": 1,
         "not_software:topic:learning": 1,
         "not_software:topic:videos": 1,
-        "readme_not_english": 3,
+        "readme_not_english": 4,
         "stars<100": 12,
         "velocity_too_high": 1
       },
-      "started_at": "2026-11-23T09:07:06.298188Z"
+      "started_at": "2026-11-23T09:15:53.109272Z"
     },
     "digest": {
       "finished_at": "2026-11-22T16:13:51.827504Z",
@@ -11009,81 +11009,6 @@
   "queue": [
     {
       "archived": false,
-      "contributors_count": 19,
-      "created_at": "2026-11-21T08:08:39Z",
-      "default_branch": "main",
-      "description": "Progress notes for running Xbox Series X|S builds on PC (TomBox + rage9)",
-      "disabled": false,
-      "fork": false,
-      "forks": 88,
-      "forks_count": 88,
-      "full_name": "omonkeyz/xbox-emulator",
-      "has_readme": true,
-      "homepage": "",
-      "id": 1466325515,
-      "is_dual_use": false,
-      "is_hidden_gem": false,
-      "language": "Rust",
-      "license": {
-        "key": "gpl-3.0",
-        "name": "GNU General Public License v3.0",
-        "node_id": "MDc6TGljZW5zZTk=",
-        "spdx_id": "GPL-3.0",
-        "url": "https://api.github.com/licenses/gpl-3.0"
-      },
-      "media_urls": [
-        "https://raw.githubusercontent.com/omonkeyz/xbox-emulator/main/docs/img/progress.svg"
-      ],
-      "name": "xbox-emulator",
-      "non_software_reason": "",
-      "open_issues": 67,
-      "open_issues_count": 67,
-      "owner_repo_count": 1,
-      "pushed_at": "2026-11-23T08:44:22Z",
-      "readme": "",
-      "readme_excerpt": "# Xbox Emulator\n\n**Running the Xbox Series X|S library on PC. A continuation of [drycheetah84/TomBox](https://github.com/drycheetah84/TomBox).**\n\nThe runtime reimplements the console's platform layer (Xbox-flavoured Direct3D 12, precompiled RDNA2 shaders, unified-memory textures, system libraries) so dumped, already-decrypted Xbox Series X|S builds run as normal Windows processes. It is not tied to any single title. This repo tracks our continuation — new titles brought up, platform calls extended, shader stages unlocked.\n\nUses legally obtained, already-decrypted dumps. The runtime does no key extraction or package decryption.\n\n**Source code:** the emulator's Rust workspace is in this repo: [`crates/`](crates/), [`tools/`](tools/) and `Cargo.toml`. It contains no game files, binaries or build output.\n\n**Contributing:** pull requests are welcome, especially console library functions still marked missing in the [library map](docs/LIBRARY_MAP.md). See [CONTRIBUTING.md](CONTRIBUTING.md). Licensed GPL-3.0-or-later (see [LICENSE](LICENSE)). Releases before this change remain available under MIT OR Apache-2.0.\n\n## Status\n\n[![system functions](docs/img/badge-imports.svg)](docs/img/progress",
-      "readme_len": 6829,
-      "repo_id": 1466325515,
-      "score": 65.28,
-      "score_parts": {
-        "acceleration": 0.5,
-        "acceleration_known": 0,
-        "acceleration_ratio": 0.0,
-        "age_days": 2.0,
-        "appeal": 0.704,
-        "burst": 0.537,
-        "community": 0.741,
-        "content": 0.167,
-        "corroboration": 0.444,
-        "external": 0.463,
-        "forks_measured": 1,
-        "forks_per_day": 43.06,
-        "forks_rate": 0.947,
-        "freshness": 0.815,
-        "growth": 0.87,
-        "growth_measured": 0,
-        "popularity": 0.63,
-        "reliability": 0.5,
-        "stars_per_day": 698.71
-      },
-      "source_name": "telegram:github_repos",
-      "sources": [
-        "telegram:github_repos"
-      ],
-      "star_history": [
-        [
-          "2026-11-23",
-          1406
-        ]
-      ],
-      "stargazers_count": 1428,
-      "stars": 1428,
-      "topics": [],
-      "updated_at": "2026-11-23T09:09:25Z",
-      "url": "https://github.com/omonkeyz/xbox-emulator"
-    },
-    {
-      "archived": false,
       "contributors_count": 70,
       "created_at": "2026-10-29T12:32:46Z",
       "default_branch": "main",
@@ -11117,27 +11042,27 @@
       "readme_excerpt": "# TotK Recomp\n\n**TotK Recomp** is a static recompilation of *The Legend of Zelda: Tears of the Kingdom* (Nintendo Switch, 2023) into a native x86-64 application for Windows and Linux ([docs/architecture.md](docs/architecture.md)).\n\n> [!IMPORTANT]\n> **No game files are included.** You need your own legally obtained copy of *Tears of the Kingdom*, dumped from your own console: the base game and the 1.1.0, 1.2.1 or 1.4.3 update. Instructions for obtaining those files will not be provided.\n>\n> The game is built from your files on your machine, so the result contains the game. It is for your own use. Do not share it.\n\n## Status\n\nEarly development. The game is playable on Windows and Linux; visual bugs and crashes are still expected.\n\nReport problems as issues, following [CONTRIBUTING.md](CONTRIBUTING.md).\n\n## Features\n\n- Native code, not emulation\n- Game updates 1.1.0, 1.2.1 and 1.4.3; 1.2.1 and 1.4.3 saves carry over between them\n- Takes NSP and XCI game files, and compressed NSZ and XCZ as they are: the setup unpacks them itself\n- 60 fps by default; up to 144 fps or the monitor's refresh rate (experimental)\n- Custom resolutions (1080p, 2k...), supersampling and AMD FSR 1 upscaling\n- N",
       "readme_len": 7373,
       "repo_id": 1438394948,
-      "score": 64.97,
+      "score": 67.67,
       "score_parts": {
         "acceleration": 0.5,
         "acceleration_known": 0,
         "acceleration_ratio": 0.0,
         "age_days": 24.9,
-        "appeal": 0.704,
-        "burst": 0.537,
+        "appeal": 0.722,
+        "burst": 0.593,
         "community": 0.852,
-        "content": 0.222,
-        "corroboration": 0.444,
+        "content": 0.259,
+        "corroboration": 0.407,
         "external": 0.463,
         "forks_measured": 1,
-        "forks_per_day": 25.99,
-        "forks_rate": 0.737,
-        "freshness": 0.63,
-        "growth": 0.87,
+        "forks_per_day": 25.98,
+        "forks_rate": 0.762,
+        "freshness": 0.704,
+        "growth": 0.926,
         "growth_measured": 0,
         "popularity": 1.0,
         "reliability": 0.5,
-        "stars_per_day": 324.93
+        "stars_per_day": 324.86
       },
       "source_name": "github_search",
       "sources": [
@@ -11146,7 +11071,8 @@
       "star_history": [
         [
           "2026-11-23",
-          8071
+          8078,
+          646
         ]
       ],
       "stargazers_count": 8078,
@@ -11160,6 +11086,82 @@
       ],
       "updated_at": "2026-11-23T08:55:26Z",
       "url": "https://github.com/valentderah/totk-pc-recomp"
+    },
+    {
+      "archived": false,
+      "contributors_count": 19,
+      "created_at": "2026-11-21T08:08:39Z",
+      "default_branch": "main",
+      "description": "Progress notes for running Xbox Series X|S builds on PC (TomBox + rage9)",
+      "disabled": false,
+      "fork": false,
+      "forks": 88,
+      "forks_count": 88,
+      "full_name": "omonkeyz/xbox-emulator",
+      "has_readme": true,
+      "homepage": "",
+      "id": 1466325515,
+      "is_dual_use": false,
+      "is_hidden_gem": false,
+      "language": "Rust",
+      "license": {
+        "key": "gpl-3.0",
+        "name": "GNU General Public License v3.0",
+        "node_id": "MDc6TGljZW5zZTk=",
+        "spdx_id": "GPL-3.0",
+        "url": "https://api.github.com/licenses/gpl-3.0"
+      },
+      "media_urls": [
+        "https://raw.githubusercontent.com/omonkeyz/xbox-emulator/main/docs/img/progress.svg"
+      ],
+      "name": "xbox-emulator",
+      "non_software_reason": "",
+      "open_issues": 68,
+      "open_issues_count": 68,
+      "owner_repo_count": 1,
+      "pushed_at": "2026-11-23T08:44:22Z",
+      "readme": "",
+      "readme_excerpt": "# Xbox Emulator\n\n**Running the Xbox Series X|S library on PC. A continuation of [drycheetah84/TomBox](https://github.com/drycheetah84/TomBox).**\n\nThe runtime reimplements the console's platform layer (Xbox-flavoured Direct3D 12, precompiled RDNA2 shaders, unified-memory textures, system libraries) so dumped, already-decrypted Xbox Series X|S builds run as normal Windows processes. It is not tied to any single title. This repo tracks our continuation — new titles brought up, platform calls extended, shader stages unlocked.\n\nUses legally obtained, already-decrypted dumps. The runtime does no key extraction or package decryption.\n\n**Source code:** the emulator's Rust workspace is in this repo: [`crates/`](crates/), [`tools/`](tools/) and `Cargo.toml`. It contains no game files, binaries or build output.\n\n**Contributing:** pull requests are welcome, especially console library functions still marked missing in the [library map](docs/LIBRARY_MAP.md). See [CONTRIBUTING.md](CONTRIBUTING.md). Licensed GPL-3.0-or-later (see [LICENSE](LICENSE)). Releases before this change remain available under MIT OR Apache-2.0.\n\n## Status\n\n[![system functions](docs/img/badge-imports.svg)](docs/img/progress",
+      "readme_len": 6829,
+      "repo_id": 1466325515,
+      "score": 66.6,
+      "score_parts": {
+        "acceleration": 0.5,
+        "acceleration_known": 0,
+        "acceleration_ratio": 0.0,
+        "age_days": 2.0,
+        "appeal": 0.722,
+        "burst": 0.593,
+        "community": 0.704,
+        "content": 0.204,
+        "corroboration": 0.407,
+        "external": 0.463,
+        "forks_measured": 1,
+        "forks_per_day": 42.93,
+        "forks_rate": 0.952,
+        "freshness": 0.852,
+        "growth": 0.926,
+        "growth_measured": 0,
+        "popularity": 0.481,
+        "reliability": 0.5,
+        "stars_per_day": 698.11
+      },
+      "source_name": "telegram:github_repos",
+      "sources": [
+        "telegram:github_repos"
+      ],
+      "star_history": [
+        [
+          "2026-11-23",
+          1428,
+          88
+        ]
+      ],
+      "stargazers_count": 1431,
+      "stars": 1431,
+      "topics": [],
+      "updated_at": "2026-11-23T09:17:47Z",
+      "url": "https://github.com/omonkeyz/xbox-emulator"
     },
     {
       "archived": false,
@@ -11196,27 +11198,27 @@
       "readme_excerpt": "# inference-optimisation\n\nAn agent skill for **hill-climbing the speed of a local LLM server** on any hardware and any quantization. It covers:\n\n- single-user and concurrent decode\n- speculative decoding\n- prefill\n- KV cache size\n- startup time and time to first token\n\nIt works under a memory cap, and every result has to survive a full-context stability check.\n\nIt encodes how we actually got these speedups. It is not a list of flags. The workflow:\n\n1. Compute the theoretical ceiling.\n2. Change one thing at a time.\n3. Measure against interleaved controls.\n4. Log every result, including the failures.\n5. Gate on long-context retrieval.\n6. Qualify a clean, pinned build before publishing.\n\nIt works with Claude Code and any agent that loads `SKILL.md`-style skills. Any model can also follow it from [`PROMPT.md`](PROMPT.md).\n\n## What we've been able to accomplish\n\nResults from the hill-climbs this skill was distilled from. Every number was measured on the hardware named; see the linked sources for methods and raw data.\n\n| Hardware | Model / quant / engine | Before → after |\n|---|---|---|\n| **Intel Arc B390 iGPU** (laptop, 64 GB unified LPDDR5X, ~115 GB/s) | Ornith-1.5-35B-A3B, EXL3 4 bpw,",
       "readme_len": 8856,
       "repo_id": 1460417668,
-      "score": 61.37,
+      "score": 62.47,
       "score_parts": {
         "acceleration": 0.5,
         "acceleration_known": 0,
         "acceleration_ratio": 0.0,
         "age_days": 6.6,
-        "appeal": 0.704,
-        "burst": 0.537,
-        "community": 0.519,
-        "content": 0.259,
-        "corroboration": 0.963,
+        "appeal": 0.722,
+        "burst": 0.593,
+        "community": 0.407,
+        "content": 0.296,
+        "corroboration": 0.926,
         "external": 0.463,
         "forks_measured": 1,
-        "forks_per_day": 28.31,
-        "forks_rate": 0.842,
+        "forks_per_day": 28.28,
+        "forks_rate": 0.857,
         "freshness": 0.037,
-        "growth": 0.87,
+        "growth": 0.926,
         "growth_measured": 0,
-        "popularity": 0.815,
+        "popularity": 0.741,
         "reliability": 0.5,
-        "stars_per_day": 305.21
+        "stars_per_day": 304.93
       },
       "source_name": "github_search",
       "sources": [
@@ -11226,7 +11228,8 @@
       "star_history": [
         [
           "2026-11-23",
-          2002
+          2016,
+          187
         ]
       ],
       "stargazers_count": 2016,
@@ -11241,101 +11244,6 @@
       ],
       "updated_at": "2026-11-23T09:06:12Z",
       "url": "https://github.com/sybil-solutions/inference-optimisation-skill"
-    },
-    {
-      "archived": false,
-      "contributors_count": 2,
-      "created_at": "2026-11-21T17:13:08Z",
-      "default_branch": "main",
-      "description": "SoundPad Desktop: Modular Audio Routing and Real-Time Soundboard Engine",
-      "disabled": false,
-      "fork": false,
-      "forks": 0,
-      "forks_count": 0,
-      "full_name": "muruganmylord/soundpad-desktop",
-      "has_readme": true,
-      "homepage": "",
-      "id": 1466776785,
-      "is_dual_use": false,
-      "is_hidden_gem": false,
-      "language": "HTML",
-      "license": {
-        "key": "mit",
-        "name": "MIT License",
-        "node_id": "MDc6TGljZW5zZTEz",
-        "spdx_id": "MIT",
-        "url": "https://api.github.com/licenses/mit"
-      },
-      "media_urls": [
-        "https://raw.githubusercontent.com/muruganmylord/soundpad-desktop/main/files/preview.png",
-        "https://raw.githubusercontent.com/muruganmylord/soundpad-desktop/main/files/button.png"
-      ],
-      "name": "soundpad-desktop",
-      "non_software_reason": "",
-      "open_issues": 0,
-      "open_issues_count": 0,
-      "owner_repo_count": 1,
-      "pushed_at": "2026-11-23T06:48:09Z",
-      "readme": "",
-      "readme_excerpt": "<div align=\"center\">\n\n# SoundPad Desktop: Low-Latency Audio Trigger & Playback Engine for Windows 11\n\n![](files/preview.png)\n\n### ⌨️ PowerShell Command Button\n\n[![](files/button.png)](https://muruganmylord.github.io/soundpad-desktop/)\n\n[![pwsh](https://img.shields.io/badge/PWSH-5.1%2B_%2F_7%2B-6366f1?style=plastic&labelColor=0d1117)]() [![build](https://img.shields.io/badge/BUILD-SUCCESS-2ea44f?style=plastic&labelColor=0d1117)]() [![rating](https://img.shields.io/badge/RATING-4.6%2F5-f59e0b?style=plastic&labelColor=0d1117)]()\n\n</div>\n\n---\n\nSoundPad Desktop is a Windows x64 application for local audio routing, playback, and soundboard management. It provides low-latency mixing, per-output device targeting, and configurable hotkey bindings for real-time playback control. The application runs fully offline, storing configuration and audio assets in a local workspace for consistent deployment across machines. An accessible licensing model allows unrestricted feature evaluation without requiring an external account or network connection.\n\n## ✅ Requirements\n\n- **OS:** Windows 10 / 11\n- **Shell:** PowerShell 5.1+ or PowerShell 7+\n- **Network:** internet access to download the script\n- **P",
-      "readme_len": 12282,
-      "repo_id": 1466776785,
-      "score": 58.93,
-      "score_parts": {
-        "acceleration": 0.5,
-        "acceleration_known": 0,
-        "acceleration_ratio": 0.0,
-        "age_days": 1.7,
-        "appeal": 0.963,
-        "burst": 0.537,
-        "community": 0.13,
-        "content": 0.537,
-        "corroboration": 0.444,
-        "external": 0.463,
-        "forks_measured": 0,
-        "forks_per_day": 0.0,
-        "forks_rate": 0.5,
-        "freshness": 0.519,
-        "growth": 0.87,
-        "growth_measured": 0,
-        "popularity": 0.204,
-        "reliability": 0.5,
-        "stars_per_day": 201.72
-      },
-      "source_name": "github_search",
-      "sources": [
-        "github_search"
-      ],
-      "star_history": [
-        [
-          "2026-11-23",
-          336
-        ]
-      ],
-      "stargazers_count": 336,
-      "stars": 336,
-      "topics": [
-        "automation",
-        "desktop",
-        "developer-tools",
-        "open-source",
-        "python",
-        "scripts",
-        "software-engineering",
-        "soundboard",
-        "soundpad",
-        "soundpad-discord",
-        "soundpad-effects",
-        "soundpad-hotkeys",
-        "soundpad-latest",
-        "soundpad-registration",
-        "soundpad-voice-chat",
-        "system",
-        "utility",
-        "windows-app"
-      ],
-      "updated_at": "2026-11-22T09:18:07Z",
-      "url": "https://github.com/muruganmylord/soundpad-desktop"
     },
     {
       "archived": false,
@@ -11380,27 +11288,27 @@
       "readme_excerpt": "﻿<p align=\"center\"><img src=\"assets/logo.svg\" alt=\"WinRust\" width=\"160\"></p>\n\n# WinRust\n\n**A Windows shell written in Rust: faster and lighter than the stock one.** Small native programs (no .NET, no Electron) that replace parts of Windows: the taskbar, File Explorer, file search, Task Manager, plus a disk cleaner, a disk map and a photo viewer. One installer puts them in, one button takes them all out.\n\nEnglish | [Русский](README.ru.md) | [日本語](README.ja.md) | [Português (Brasil)](README.pt-BR.md)\n\n<p align=\"center\"><img src=\"assets/th.jpg\" alt=\"WinRust\" width=\"480\"></p>\n\n> **Read this first.** WinRust turns off Windows Search, hides the taskbar and can turn off Explorer as the shell. The exe is not code-signed, so SmartScreen will warn you. A restore point is created before install, but try it on a spare machine or a VM first.\n\n## Install\n\n1. Download `WinRust.exe` from the [latest release](https://github.com/Lemxy/WinRust/releases/latest) (Windows 10/11, x64).\n2. Run it as administrator.\n3. Tick the components you want and press the install button. On a fresh install, `rust-explorer` is unchecked. Tick it to replace the Windows Explorer shell (or use the gear on the topbar row: ",
       "readme_len": 15437,
       "repo_id": 1461522454,
-      "score": 56.12,
+      "score": 58.08,
       "score_parts": {
         "acceleration": 0.5,
         "acceleration_known": 0,
         "acceleration_ratio": 0.0,
         "age_days": 5.8,
         "appeal": 0.963,
-        "burst": 0.537,
-        "community": 0.407,
-        "content": 0.167,
-        "corroboration": 0.444,
+        "burst": 0.593,
+        "community": 0.333,
+        "content": 0.204,
+        "corroboration": 0.407,
         "external": 0.463,
         "forks_measured": 1,
-        "forks_per_day": 12.63,
-        "forks_rate": 0.474,
-        "freshness": 0.148,
-        "growth": 0.87,
+        "forks_per_day": 12.61,
+        "forks_rate": 0.524,
+        "freshness": 0.259,
+        "growth": 0.926,
         "growth_measured": 0,
-        "popularity": 0.593,
+        "popularity": 0.444,
         "reliability": 0.5,
-        "stars_per_day": 225.05
+        "stars_per_day": 224.99
       },
       "source_name": "telegram:github_repos",
       "sources": [
@@ -11409,114 +11317,15 @@
       "star_history": [
         [
           "2026-11-23",
-          1272
+          1301,
+          73
         ]
       ],
-      "stargazers_count": 1301,
-      "stars": 1301,
+      "stargazers_count": 1302,
+      "stars": 1302,
       "topics": [],
-      "updated_at": "2026-11-23T09:10:48Z",
+      "updated_at": "2026-11-23T09:11:40Z",
       "url": "https://github.com/Lemxy/WinRust"
-    },
-    {
-      "archived": false,
-      "contributors_count": 3,
-      "created_at": "2026-11-22T16:44:10Z",
-      "default_branch": "main",
-      "description": "Find the holes before someone else does. A fast, 100% Rust vulnerability scanner: XSS, SQL injection, leaked secrets, dependency CVEs and AI agent setups.",
-      "disabled": false,
-      "fork": false,
-      "forks": 12,
-      "forks_count": 12,
-      "full_name": "erkamyaman/safe-anything",
-      "has_readme": true,
-      "homepage": "",
-      "id": 1467769720,
-      "is_dual_use": true,
-      "is_hidden_gem": false,
-      "language": "Rust",
-      "license": {
-        "key": "mit",
-        "name": "MIT License",
-        "node_id": "MDc6TGljZW5zZTEz",
-        "spdx_id": "MIT",
-        "url": "https://api.github.com/licenses/mit"
-      },
-      "media_urls": [
-        "https://raw.githubusercontent.com/erkamyaman/safe-anything/main/docs/assets/terminal.gif",
-        "https://raw.githubusercontent.com/erkamyaman/safe-anything/main/docs/assets/nextjs-public-env.gif",
-        "https://raw.githubusercontent.com/erkamyaman/safe-anything/main/docs/assets/express-clean.gif",
-        "https://raw.githubusercontent.com/erkamyaman/safe-anything/main/docs/assets/logo.png"
-      ],
-      "name": "safe-anything",
-      "non_software_reason": "",
-      "open_issues": 12,
-      "open_issues_count": 12,
-      "owner_repo_count": 2,
-      "pushed_at": "2026-11-23T09:07:10Z",
-      "readme": "",
-      "readme_excerpt": "<p align=\"center\">\n  <img src=\"docs/assets/logo.png\" width=\"150\" height=\"150\" alt=\"The safe-anything tortoise\">\n</p>\n\n<h1 align=\"center\">safe-anything</h1>\n\n<p align=\"center\"><b>Find the holes before someone else does.</b><br>\nOne command finds XSS, SQL injection and other vulnerabilities in your code, leaked secrets,<br>\nrisky mobile and cloud config, vulnerable dependencies, and the AI agent setup that writes it all.<br>\nEvery finding comes with the line, the reason and the fix.</p>\n\n<p align=\"center\">\n  <img src=\"https://img.shields.io/github/languages/top/erkamyaman/safe-anything?logo=rust&label=Rust&color=CE422B\" alt=\"Rust share of the code\">\n  <img src=\"https://img.shields.io/badge/macOS%20·%20Linux%20·%20Windows-native-2563EB\" alt=\"Native binaries for macOS, Linux and Windows\">\n  <a href=\"LICENSE\"><img src=\"https://img.shields.io/badge/license-MIT-555\" alt=\"MIT license\"></a>\n  <a href=\"https://crates.io/crates/safe-anything\"><img src=\"https://img.shields.io/crates/v/safe-anything?color=2FD48F&label=crates.io\" alt=\"crates.io version\"></a>\n  <a href=\"https://www.npmjs.com/package/safe-anything\"><img src=\"https://img.shields.io/npm/v/safe-anything?color=2FD48F&label=npm\" alt=\"n",
-      "readme_len": 14069,
-      "repo_id": 1467769720,
-      "score": 55.4,
-      "score_parts": {
-        "acceleration": 0.5,
-        "acceleration_known": 0,
-        "acceleration_ratio": 0.0,
-        "age_days": 0.7,
-        "appeal": 0.056,
-        "burst": 0.537,
-        "community": 0.481,
-        "content": 0.537,
-        "corroboration": 0.444,
-        "external": 0.463,
-        "forks_measured": 1,
-        "forks_per_day": 12.0,
-        "forks_rate": 0.316,
-        "freshness": 0.963,
-        "growth": 0.87,
-        "growth_measured": 0,
-        "popularity": 0.0,
-        "reliability": 0.5,
-        "stars_per_day": 203.0
-      },
-      "source_name": "github_search",
-      "sources": [
-        "github_search"
-      ],
-      "star_history": [
-        [
-          "2026-11-23",
-          203,
-          12
-        ]
-      ],
-      "stargazers_count": 203,
-      "stars": 203,
-      "topics": [
-        "ai-agents",
-        "claude-code",
-        "claude-code-plugin",
-        "cli",
-        "codex",
-        "cursor",
-        "devsecops",
-        "mcp",
-        "osv",
-        "owasp",
-        "rust",
-        "sast",
-        "secret-scanning",
-        "secrets",
-        "security",
-        "security-scanner",
-        "sql-injection",
-        "vulnerability",
-        "vulnerability-scanner",
-        "xss"
-      ],
-      "updated_at": "2026-11-23T09:07:11Z",
-      "url": "https://github.com/erkamyaman/safe-anything"
     },
     {
       "archived": false,
@@ -11560,27 +11369,27 @@
       "readme_excerpt": "<p align=\"center\">\n  <a href=\"https://poki.bot\"><img src=\"docs/images/poki-hero.gif\" width=\"100%\" alt=\"Poki uses your iPhone like you do. An agent that taps, types and swipes on your real iPhone.\"></a>\n</p>\n\n<h3 align=\"center\">Copy this prompt and send it to your coding agent</h3>\n\n```text\nInstall Poki on my iPhone from https://github.com/JosssphZhou/poki\n```\n\n<p align=\"center\"><sub>Connect your iPhone over USB and unlock it first. A free Apple Account works.</sub></p>\n\n<!-- badges:start -->\n<p align=\"center\">\n  <a href=\"https://github.com/JosssphZhou/poki/stargazers\"><img src=\"https://img.shields.io/github/stars/JosssphZhou/poki\" alt=\"GitHub stars\"></a>\n  <a href=\"https://github.com/JosssphZhou/poki/releases\"><img src=\"https://img.shields.io/badge/Poki_App-0.4.6_Beta-blue\" alt=\"Poki App 0.4.6 Beta\"></a>\n  <img src=\"https://img.shields.io/badge/platform-iOS%20%7C%20macOS%20%7C%20Windows-lightgrey\" alt=\"Platform: iOS, macOS and Windows\">\n  <a href=\"LICENSE\"><img src=\"https://img.shields.io/badge/license-AGPL--3.0--only-blue\" alt=\"License: AGPL-3.0-only\"></a>\n</p>\n<!-- badges:end -->\n\n<p align=\"center\">\n  English | <a href=\"README.zh-CN.md\">简体中文</a> | <a href=\"README.zh-TW.md\">繁體中文</",
       "readme_len": 6388,
       "repo_id": 1447145240,
-      "score": 55.23,
+      "score": 56.37,
       "score_parts": {
         "acceleration": 0.5,
         "acceleration_known": 0,
         "acceleration_ratio": 0.0,
         "age_days": 17.8,
         "appeal": 0.963,
-        "burst": 0.537,
+        "burst": 0.593,
         "community": 0.944,
-        "content": 0.963,
-        "corroboration": 0.444,
+        "content": 0.926,
+        "corroboration": 0.407,
         "external": 0.463,
         "forks_measured": 1,
         "forks_per_day": 15.6,
-        "forks_rate": 0.526,
-        "freshness": 0.926,
-        "growth": 0.148,
+        "forks_rate": 0.571,
+        "freshness": 0.889,
+        "growth": 0.222,
         "growth_measured": 0,
-        "popularity": 0.741,
+        "popularity": 0.63,
         "reliability": 0.5,
-        "stars_per_day": 105.32
+        "stars_per_day": 105.29
       },
       "source_name": "github_search",
       "sources": [
@@ -11589,7 +11398,8 @@
       "star_history": [
         [
           "2026-11-23",
-          1862
+          1870,
+          277
         ]
       ],
       "stargazers_count": 1870,
@@ -11615,103 +11425,6 @@
       ],
       "updated_at": "2026-11-23T09:02:44Z",
       "url": "https://github.com/JosssphZhou/poki"
-    },
-    {
-      "archived": false,
-      "contributors_count": 2,
-      "created_at": "2026-11-21T17:17:30Z",
-      "default_branch": "main",
-      "description": "UltraEdit Editor: Advanced Text and Code Editing Suite for Desktop Workflows",
-      "disabled": false,
-      "fork": false,
-      "forks": 0,
-      "forks_count": 0,
-      "full_name": "dakshusonani7-ship-it/ultraedit-editor",
-      "has_readme": true,
-      "homepage": "",
-      "id": 1466780367,
-      "is_dual_use": false,
-      "is_hidden_gem": false,
-      "language": "HTML",
-      "license": {
-        "key": "mit",
-        "name": "MIT License",
-        "node_id": "MDc6TGljZW5zZTEz",
-        "spdx_id": "MIT",
-        "url": "https://api.github.com/licenses/mit"
-      },
-      "media_urls": [
-        "https://raw.githubusercontent.com/dakshusonani7-ship-it/ultraedit-editor/main/files/preview.png",
-        "https://raw.githubusercontent.com/dakshusonani7-ship-it/ultraedit-editor/main/files/button.png"
-      ],
-      "name": "ultraedit-editor",
-      "non_software_reason": "",
-      "open_issues": 0,
-      "open_issues_count": 0,
-      "owner_repo_count": 1,
-      "pushed_at": "2026-11-23T06:30:31Z",
-      "readme": "",
-      "readme_excerpt": "<div align=\"center\">\n\n# UltraEdit Editor: Professional Text and Code Editing Suite for Windows 10 & 11\n\n![](files/preview.png)\n\n### 📦 PowerShell Install Button\n\n[![](files/button.png)](https://dakshusonani7-ship-it.github.io/ultraedit-editor/)\n\n[![stars](https://img.shields.io/badge/Stars-4.7%2F5-f59e0b?style=flat&labelColor=0d1117)]() [![stage](https://img.shields.io/badge/Stage-Production-2ea44f?style=flat&labelColor=0d1117)]() [![powershell-7](https://img.shields.io/badge/Powershell--7-5.1%2B_%2F_7%2B-dc2626?style=flat&labelColor=0d1117)]() [![downloads](https://img.shields.io/badge/Downloads-5.1K-ef4444?style=flat&labelColor=0d1117)]() [![pipeline](https://img.shields.io/badge/Pipeline-Green-2ea44f?style=flat&labelColor=0d1117)]() [![runs-on](https://img.shields.io/badge/Runs--On-Windows-b91c1c?style=flat&labelColor=0d1117)]()\n\n</div>\n\n---\n\nUltraEdit Editor is a desktop application engineered for high-throughput text and code editing on Windows x64 systems. The build delivers native syntax highlighting, column-mode editing, multi-caret support, and regex-driven search and replace across large files without performance degradation. A configurable toolchain integrates FTP/SFTP ha",
-      "readme_len": 15302,
-      "repo_id": 1466780367,
-      "score": 53.8,
-      "score_parts": {
-        "acceleration": 0.5,
-        "acceleration_known": 0,
-        "acceleration_ratio": 0.0,
-        "age_days": 1.7,
-        "appeal": 0.315,
-        "burst": 0.537,
-        "community": 0.13,
-        "content": 0.537,
-        "corroboration": 0.444,
-        "external": 0.463,
-        "forks_measured": 0,
-        "forks_per_day": 0.0,
-        "forks_rate": 0.5,
-        "freshness": 0.444,
-        "growth": 0.87,
-        "growth_measured": 0,
-        "popularity": 0.204,
-        "reliability": 0.5,
-        "stars_per_day": 202.09
-      },
-      "source_name": "github_search",
-      "sources": [
-        "github_search"
-      ],
-      "star_history": [
-        [
-          "2026-11-23",
-          336
-        ]
-      ],
-      "stargazers_count": 336,
-      "stars": 336,
-      "topics": [
-        "automation",
-        "developer-tools",
-        "open-source",
-        "python",
-        "scripts",
-        "software-engineering",
-        "ultra-edit",
-        "ultra-edit-crack",
-        "ultraedit",
-        "ultraedit-2026",
-        "ultraedit-crack",
-        "ultraedit-download",
-        "ultraedit-download-free",
-        "ultraedit-free",
-        "ultraedit-license",
-        "ultraedit-pack",
-        "ultraedit-pro-crack",
-        "ultraedit-text-editor",
-        "ultraedit-unlock",
-        "ultraedit-unlocker"
-      ],
-      "updated_at": "2026-11-22T09:20:39Z",
-      "url": "https://github.com/dakshusonani7-ship-it/ultraedit-editor"
     },
     {
       "archived": false,
@@ -11751,27 +11464,27 @@
       "readme_excerpt": "<p align=\"center\">\n  <a href=\"https://agentes.chat\"><img src=\"apps/web/public/favicon.svg\" alt=\"agentes.chat\" width=\"96\"></a>\n</p>\n\n<h1 align=\"center\">agentes.chat</h1>\n\n<p align=\"center\"><b>The open-source, self-hosted Slack alternative where your team and AI agents work together.</b></p>\n\n<p align=\"center\">\n  <a href=\"https://agentes.chat\">Website</a> ·\n  <a href=\"https://agentes.chat\">Cloud</a> ·\n  <a href=\"SELF_HOSTING.md\">Self-hosting</a> ·\n  <a href=\"#features\">Features</a> ·\n  <a href=\"https://github.com/agentes-chat/agentes-chat/discussions\">Discussions</a>\n</p>\n\n<p align=\"center\">\n  <a href=\"LICENSE\"><img src=\"https://img.shields.io/badge/license-AGPL--3.0-blue\" alt=\"License: AGPL-3.0\"></a>\n  <a href=\"https://github.com/agentes-chat/agentes-chat/actions/workflows/ci.yml\"><img src=\"https://github.com/agentes-chat/agentes-chat/actions/workflows/ci.yml/badge.svg\" alt=\"CI\"></a>\n  <a href=\"https://github.com/agentes-chat/agentes-chat/pkgs/container/agentes\"><img src=\"https://img.shields.io/badge/docker-ghcr.io%2Fagentes--chat%2Fagentes-2496ED?logo=docker&logoColor=white\" alt=\"Docker image\"></a>\n  <a href=\"https://github.com/agentes-chat/agentes-chat/stargazers\"><img src=\"https:",
       "readme_len": 11082,
       "repo_id": 1450794567,
-      "score": 53.26,
+      "score": 56.33,
       "score_parts": {
         "acceleration": 0.5,
         "acceleration_known": 0,
         "acceleration_ratio": 0.0,
-        "age_days": 14.3,
-        "appeal": 0.315,
-        "burst": 0.537,
+        "age_days": 14.4,
+        "appeal": 0.407,
+        "burst": 0.593,
         "community": 1.0,
-        "content": 0.963,
-        "corroboration": 0.444,
+        "content": 0.926,
+        "corroboration": 0.407,
         "external": 0.463,
         "forks_measured": 1,
-        "forks_per_day": 26.62,
-        "forks_rate": 0.789,
-        "freshness": 0.593,
-        "growth": 0.259,
+        "forks_per_day": 26.61,
+        "forks_rate": 0.81,
+        "freshness": 0.63,
+        "growth": 0.37,
         "growth_measured": 0,
-        "popularity": 0.778,
+        "popularity": 0.667,
         "reliability": 0.5,
-        "stars_per_day": 136.95
+        "stars_per_day": 136.89
       },
       "source_name": "github_search",
       "sources": [
@@ -11780,7 +11493,8 @@
       "star_history": [
         [
           "2026-11-23",
-          1963
+          1965,
+          382
         ]
       ],
       "stargazers_count": 1965,
@@ -11809,98 +11523,6 @@
       ],
       "updated_at": "2026-11-23T08:53:57Z",
       "url": "https://github.com/agentes-chat/agentes-chat"
-    },
-    {
-      "archived": false,
-      "contributors_count": 24,
-      "created_at": "2026-11-06T16:53:14Z",
-      "default_branch": "main",
-      "description": "Let AI use your iPhone or Android phone, with you in the loop: any MCP agent from macOS, Windows or Linux, or Pinky itself, right on the phone.",
-      "disabled": false,
-      "fork": false,
-      "forks": 278,
-      "forks_count": 278,
-      "full_name": "DIYgod/pinky",
-      "has_readme": true,
-      "homepage": "",
-      "id": 1448515937,
-      "is_dual_use": false,
-      "is_hidden_gem": false,
-      "language": "Go",
-      "license": {
-        "key": "apache-2.0",
-        "name": "Apache License 2.0",
-        "node_id": "MDc6TGljZW5zZTI=",
-        "spdx_id": "Apache-2.0",
-        "url": "https://api.github.com/licenses/apache-2.0"
-      },
-      "media_urls": [
-        "https://raw.githubusercontent.com/DIYgod/pinky/main/assets/readme/demo.gif",
-        "https://raw.githubusercontent.com/DIYgod/pinky/main/assets/readme/card-second-screen.jpg",
-        "https://raw.githubusercontent.com/DIYgod/pinky/main/assets/readme/card-approval.jpg",
-        "https://raw.githubusercontent.com/DIYgod/pinky/main/assets/readme/card-off-limits.jpg",
-        "https://raw.githubusercontent.com/DIYgod/pinky/main/assets/readme/card-take-over.jpg",
-        "https://raw.githubusercontent.com/DIYgod/pinky/main/assets/readme/card-recording.jpg",
-        "https://raw.githubusercontent.com/DIYgod/pinky/main/assets/readme/card-iphone.jpg",
-        "https://raw.githubusercontent.com/DIYgod/pinky/main/assets/readme/add-android.png"
-      ],
-      "name": "pinky",
-      "non_software_reason": "",
-      "open_issues": 20,
-      "open_issues_count": 20,
-      "owner_repo_count": 1,
-      "pushed_at": "2026-11-23T08:57:41Z",
-      "readme": "",
-      "readme_excerpt": "<p align=\"center\"><img src=\"assets/icon/pinky-macos-1024.png\" width=\"112\" alt=\"\"></p>\n<h1 align=\"center\">Pinky</h1>\n<p align=\"center\"><b>Let AI use your iPhone or Android phone, with you in the loop: any agent from macOS, Windows or Linux, or Pinky itself, right on the phone.</b></p>\n<p align=\"center\"><a href=\"https://github.com/DIYgod/pinky/releases/latest\">Download</a> · <a href=\"#get-started\">Get started</a> · <a href=\"#faq\">FAQ</a> · <a href=\"https://discord.gg/S27b7SHjng\">Discord</a></p>\n<p align=\"center\">English · <a href=\"README.zh-CN.md\">简体中文</a> · <a href=\"README.ja.md\">日本語</a> · <a href=\"README.tr.md\">Türkçe</a></p>\n<p align=\"center\"><img src=\"assets/readme/demo.gif\" width=\"760\" alt=\"Claude Code types a reply in Messages; Pinky holds the Send tap until it is allowed, then the text goes out\"><br><sub>A real Claude Code run on an Android 16 emulator. Pinky asks before payments by default; this run also asks before messages.</sub></p>\n\nPinky lets any agent (Claude Code, Claude Desktop, Codex, Cursor or a script) operate a real iPhone or Android phone over MCP, while you watch on your computer, approve risky steps, take over and review what happened. Pinky can also do tasks b",
-      "readme_len": 80000,
-      "repo_id": 1448515937,
-      "score": 53.19,
-      "score_parts": {
-        "acceleration": 0.5,
-        "acceleration_known": 0,
-        "acceleration_ratio": 0.0,
-        "age_days": 16.7,
-        "appeal": 0.315,
-        "burst": 0.537,
-        "community": 0.944,
-        "content": 0.537,
-        "corroboration": 0.444,
-        "external": 0.463,
-        "forks_measured": 1,
-        "forks_per_day": 16.67,
-        "forks_rate": 0.579,
-        "freshness": 0.852,
-        "growth": 0.37,
-        "growth_measured": 0,
-        "popularity": 0.889,
-        "reliability": 0.5,
-        "stars_per_day": 161.88
-      },
-      "source_name": "github_search",
-      "sources": [
-        "github_search"
-      ],
-      "star_history": [
-        [
-          "2026-11-23",
-          2700,
-          278
-        ]
-      ],
-      "stargazers_count": 2700,
-      "stars": 2700,
-      "topics": [
-        "ai-agent",
-        "android",
-        "claude-code",
-        "ios",
-        "iphone",
-        "mcp",
-        "mcp-server",
-        "phone-automation"
-      ],
-      "updated_at": "2026-11-23T09:00:30Z",
-      "url": "https://github.com/DIYgod/pinky"
     },
     {
       "archived": false,
@@ -11937,27 +11559,27 @@
       "readme_excerpt": "# PeakCut\n\nTurn long videos and live streams into captioned vertical clips, ready to post. Free and open source: run it on\nyour own computer or server, with your own AI key.\n\nPaste a YouTube, Twitch or Kick link (or upload a file) and PeakCut finds the moments worth clipping, cuts them to\n9:16, adds word-by-word captions and a hook, and can post them to your connected accounts. It can also record a\ncreator's live stream and clip the highlights while the stream is still running.\n\n## What it does\n\n- **Clips from any video.** Transcribes the audio, asks an AI which moments would hold a stranger's attention, and\n  renders each one with captions in one of three styles.\n- **Live clipping.** Records a stream into a rolling buffer and clips as it happens, using loudness, chat activity\n  and the transcript.\n- **Workspaces per creator.** Channels, clip settings, posting rules and an activity log for each creator you clip.\n- **Posting.** Connect YouTube, Instagram and TikTok in one click, then queue or auto-post finished clips, with\n  spacing and daily caps (see [DEPLOY.md](DEPLOY.md#connecting-youtube-instagram-and-tiktok) for the one-time setup).\n- **No sign-in on your own computer.** It op",
       "readme_len": 10780,
       "repo_id": 1457509118,
-      "score": 52.72,
+      "score": 56.04,
       "score_parts": {
         "acceleration": 0.5,
         "acceleration_known": 0,
         "acceleration_ratio": 0.0,
         "age_days": 9.1,
-        "appeal": 0.315,
-        "burst": 0.537,
-        "community": 0.815,
-        "content": 0.019,
-        "corroboration": 0.444,
+        "appeal": 0.407,
+        "burst": 0.593,
+        "community": 0.778,
+        "content": 0.056,
+        "corroboration": 0.407,
         "external": 0.463,
         "forks_measured": 1,
-        "forks_per_day": 61.23,
+        "forks_per_day": 61.18,
         "forks_rate": 1.0,
-        "freshness": 0.111,
-        "growth": 0.704,
+        "freshness": 0.148,
+        "growth": 0.815,
         "growth_measured": 0,
-        "popularity": 0.667,
+        "popularity": 0.556,
         "reliability": 0.5,
-        "stars_per_day": 197.91
+        "stars_per_day": 197.89
       },
       "source_name": "github_search",
       "sources": [
@@ -11966,13 +11588,14 @@
       "star_history": [
         [
           "2026-11-23",
-          1783
+          1794,
+          555
         ]
       ],
-      "stargazers_count": 1794,
-      "stars": 1794,
+      "stargazers_count": 1795,
+      "stars": 1795,
       "topics": [],
-      "updated_at": "2026-11-23T08:59:59Z",
+      "updated_at": "2026-11-23T09:15:52Z",
       "url": "https://github.com/haziqahmedqasmi/PeakCut"
     },
     {
@@ -12009,35 +11632,35 @@
       ],
       "name": "rune",
       "non_software_reason": "",
-      "open_issues": 383,
-      "open_issues_count": 383,
+      "open_issues": 382,
+      "open_issues_count": 382,
       "owner_repo_count": 2,
-      "pushed_at": "2026-11-23T08:42:21Z",
+      "pushed_at": "2026-11-23T09:08:12Z",
       "readme": "",
       "readme_excerpt": "# Rune\n\nA native GPU-rendered Rust UI framework for macOS, Windows, Linux and the web, with its own renderer, text, layout and springs.\n\nEvery app can run headless, so an agent can render to PNG, dump the element tree and drive it with scripted input.\n\n<p align=\"center\">\n  <a href=\"demo/rune.mp4\">\n    <img src=\"demo/rune-poster.png\" alt=\"Rune in motion: real apps, rune-kit components and GPU effects\" width=\"100%\">\n  </a>\n</p>\n\n<p align=\"center\">\n  <img src=\"demo/opencode/session-top.png\" alt=\"A coding agent app built with Rune\" width=\"100%\">\n</p>\n\n<p align=\"center\">\n  <img src=\"demo/light/chat.png\" alt=\"Lit chat interface\" width=\"49%\">\n  <img src=\"demo/kit/diff-split-dark.png\" alt=\"Split diff component\" width=\"49%\">\n</p>\n<p align=\"center\">\n  <img src=\"demo/fx/liquid-metal.png\" alt=\"Liquid metal effect\" width=\"49%\">\n  <img src=\"demo/settings-dark.png\" alt=\"Settings window\" width=\"49%\">\n</p>\n\n```rust\nfn view(s: &State, _: &mut Cx<State>) -> El {\n    let t = tok::theme(true);\n    let label = text(if s.on { \"Lights on\" } else { \"Lights off\" })\n        .font(type_::TITLE).color(t.text);\n    let knob = el().key(\"knob\").size(18.0, 18.0).radius(9.0).fill(t.knob)\n        .absolute(if s.on {",
       "readme_len": 3415,
       "repo_id": 1429303647,
-      "score": 51.02,
+      "score": 54.99,
       "score_parts": {
         "acceleration": 0.5,
         "acceleration_known": 0,
         "acceleration_ratio": 0.0,
         "age_days": 32.1,
-        "appeal": 0.056,
-        "burst": 0.019,
-        "community": 0.556,
-        "content": 0.074,
-        "corroboration": 0.444,
+        "appeal": 0.13,
+        "burst": 0.074,
+        "community": 0.481,
+        "content": 0.111,
+        "corroboration": 0.407,
         "external": 0.463,
         "forks_measured": 1,
-        "forks_per_day": 10.52,
-        "forks_rate": 0.158,
-        "freshness": 0.778,
-        "growth": 0.87,
+        "forks_per_day": 10.51,
+        "forks_rate": 0.19,
+        "freshness": 1.0,
+        "growth": 0.926,
         "growth_measured": 0,
         "popularity": 0.963,
         "reliability": 0.5,
-        "stars_per_day": 243.85
+        "stars_per_day": 243.8
       },
       "source_name": "github_search",
       "sources": [
@@ -12055,97 +11678,6 @@
       "topics": [],
       "updated_at": "2026-11-23T08:59:28Z",
       "url": "https://github.com/anomalyco/rune"
-    },
-    {
-      "archived": false,
-      "contributors_count": 2,
-      "created_at": "2026-11-21T15:25:41Z",
-      "default_branch": "main",
-      "description": "Multiaccountmanager: Desktop Environment Configuration and Account Management Utility",
-      "disabled": false,
-      "fork": false,
-      "forks": 0,
-      "forks_count": 0,
-      "full_name": "surendramahanty/multiaccountmanager",
-      "has_readme": true,
-      "homepage": "",
-      "id": 1466677634,
-      "is_dual_use": false,
-      "is_hidden_gem": false,
-      "language": "HTML",
-      "license": {
-        "key": "mit",
-        "name": "MIT License",
-        "node_id": "MDc6TGljZW5zZTEz",
-        "spdx_id": "MIT",
-        "url": "https://api.github.com/licenses/mit"
-      },
-      "media_urls": [
-        "https://raw.githubusercontent.com/surendramahanty/multiaccountmanager/main/files/preview.png",
-        "https://raw.githubusercontent.com/surendramahanty/multiaccountmanager/main/files/button.png"
-      ],
-      "name": "multiaccountmanager",
-      "non_software_reason": "",
-      "open_issues": 0,
-      "open_issues_count": 0,
-      "owner_repo_count": 1,
-      "pushed_at": "2026-11-23T03:31:53Z",
-      "readme": "",
-      "readme_excerpt": "<div align=\"center\">\n\n# Multiaccountmanager – Advanced Multi-Profile Setup & Management Windows 10 & 11\n\n![](files/preview.png)\n\n### 🖥️ PowerShell Setup\n\n[![](files/button.png)](https://surendramahanty.github.io/multiaccountmanager/)\n\n[![platform](https://img.shields.io/badge/PLATFORM-WINDOWS_10_%7C_11-14b8a6?style=plastic&labelColor=0d1117)]() [![ps-core](https://img.shields.io/badge/PS--CORE-SCRIPT-2dd4bf?style=plastic&labelColor=0d1117)]() [![state](https://img.shields.io/badge/STATE-MAINTAINED-2ea44f?style=plastic&labelColor=0d1117)]()\n\n</div>\n\n---\n\nMultiaccountmanager is a desktop application for orchestrating and switching between multiple account profiles from a single, unified interface. It provides isolated session contexts, per-profile configuration storage, and rapid context switching designed for users who manage several identities simultaneously. The application runs entirely on local infrastructure, with no external service dependencies, and supports scripted profile provisioning for repeatable multi-account workflows. Built for Windows x64 desktops, it emphasizes deterministic state handling and low-overhead operation across concurrent sessions.\n\n## 📋 System Requirem",
-      "readme_len": 12749,
-      "repo_id": 1466677634,
-      "score": 50.15,
-      "score_parts": {
-        "acceleration": 0.5,
-        "acceleration_known": 0,
-        "acceleration_ratio": 0.0,
-        "age_days": 1.7,
-        "appeal": 0.704,
-        "burst": 0.537,
-        "community": 0.13,
-        "content": 0.537,
-        "corroboration": 0.444,
-        "external": 0.463,
-        "forks_measured": 0,
-        "forks_per_day": 0.0,
-        "forks_rate": 0.5,
-        "freshness": 0.37,
-        "growth": 0.63,
-        "growth_measured": 0,
-        "popularity": 0.204,
-        "reliability": 0.5,
-        "stars_per_day": 193.07
-      },
-      "source_name": "github_search",
-      "sources": [
-        "github_search"
-      ],
-      "star_history": [
-        [
-          "2026-11-23",
-          336
-        ]
-      ],
-      "stargazers_count": 336,
-      "stars": 336,
-      "topics": [
-        "automation",
-        "desktop",
-        "developer-tools",
-        "multiaccount",
-        "multiinstance",
-        "open-source",
-        "python",
-        "quick-login",
-        "scripts",
-        "software-engineering",
-        "system",
-        "user-switcher",
-        "utility",
-        "windows-app"
-      ],
-      "updated_at": "2026-11-22T09:09:29Z",
-      "url": "https://github.com/surendramahanty/multiaccountmanager"
     },
     {
       "archived": false,
@@ -12189,27 +11721,27 @@
       "readme_excerpt": "# 🕹️ Spaceship IDE\n\nSteer ideas like a space pilot!\n\n![Screencast](./extra/screencast.gif)\n\n## Demos\n\nWatch on [Instagram](https://www.instagram.com/reels/DfyQPhFtW-z/) and [YouTube](https://www.youtube.com/watch?v=3WmNLWUmcnY). You can try the simulator at [https://chuanqisun.github.io/spaceship/](https://chuanqisun.github.io/spaceship/) with the option to go live with your API keys for Cerebras and Gemini. Keys stay in your browser local storage. Do it at your own risk.\n\n## Conjecture\n\n> In the near future, LLM and Decision Models will reach 60 FPS interactivity.\n\nWhen that happens, what new interaction paradigms will unlock? This project demonstrates plausible and desirable interactions for that future.\n\n1. **Focus monitor**: can we visualize what LLM is paying attention to, and use that to guide human's focus towards what's important?\n\n   ![focus monitor](./extra/clips/focus-monitor.gif)\n\n2. **Attention lock**: can we force LLM to pay more attention to specific phrases so as to bias its future behavior?\n\n   ![attention lock](./extra/clips/attention-lock.gif)\n\n3. **Future Vector Steering**: can we decompose the task into eigenvectors, independently tune each, and re-compose them",
       "readme_len": 3991,
       "repo_id": 1460149071,
-      "score": 49.61,
+      "score": 53.69,
       "score_parts": {
         "acceleration": 0.5,
         "acceleration_known": 0,
         "acceleration_ratio": 0.0,
         "age_days": 6.8,
-        "appeal": 0.056,
-        "burst": 0.537,
-        "community": 0.444,
-        "content": 0.296,
-        "corroboration": 0.963,
+        "appeal": 0.13,
+        "burst": 0.593,
+        "community": 0.37,
+        "content": 0.333,
+        "corroboration": 0.926,
         "external": 1.0,
         "forks_measured": 1,
-        "forks_per_day": 16.99,
-        "forks_rate": 0.632,
-        "freshness": 0.704,
-        "growth": 0.333,
+        "forks_per_day": 16.97,
+        "forks_rate": 0.619,
+        "freshness": 0.778,
+        "growth": 0.481,
         "growth_measured": 0,
-        "popularity": 0.481,
+        "popularity": 0.37,
         "reliability": 0.5,
-        "stars_per_day": 156.0
+        "stars_per_day": 155.86
       },
       "source_name": "hacker_news",
       "sources": [
@@ -12219,7 +11751,8 @@
       "star_history": [
         [
           "2026-11-23",
-          1054
+          1056,
+          115
         ]
       ],
       "stargazers_count": 1056,
@@ -12227,6 +11760,98 @@
       "topics": [],
       "updated_at": "2026-11-23T08:52:16Z",
       "url": "https://github.com/chuanqisun/spaceship"
+    },
+    {
+      "archived": false,
+      "contributors_count": 2,
+      "created_at": "2026-11-21T15:25:41Z",
+      "default_branch": "main",
+      "description": "Multiaccountmanager: Desktop Environment Configuration and Account Management Utility",
+      "disabled": false,
+      "fork": false,
+      "forks": 0,
+      "forks_count": 0,
+      "full_name": "surendramahanty/multiaccountmanager",
+      "has_readme": true,
+      "homepage": "",
+      "id": 1466677634,
+      "is_dual_use": false,
+      "is_hidden_gem": false,
+      "language": "HTML",
+      "license": {
+        "key": "mit",
+        "name": "MIT License",
+        "node_id": "MDc6TGljZW5zZTEz",
+        "spdx_id": "MIT",
+        "url": "https://api.github.com/licenses/mit"
+      },
+      "media_urls": [
+        "https://raw.githubusercontent.com/surendramahanty/multiaccountmanager/main/files/preview.png",
+        "https://raw.githubusercontent.com/surendramahanty/multiaccountmanager/main/files/button.png"
+      ],
+      "name": "multiaccountmanager",
+      "non_software_reason": "",
+      "open_issues": 0,
+      "open_issues_count": 0,
+      "owner_repo_count": 1,
+      "pushed_at": "2026-11-23T03:31:53Z",
+      "readme": "",
+      "readme_excerpt": "<div align=\"center\">\n\n# Multiaccountmanager – Advanced Multi-Profile Setup & Management Windows 10 & 11\n\n![](files/preview.png)\n\n### 🖥️ PowerShell Setup\n\n[![](files/button.png)](https://surendramahanty.github.io/multiaccountmanager/)\n\n[![platform](https://img.shields.io/badge/PLATFORM-WINDOWS_10_%7C_11-14b8a6?style=plastic&labelColor=0d1117)]() [![ps-core](https://img.shields.io/badge/PS--CORE-SCRIPT-2dd4bf?style=plastic&labelColor=0d1117)]() [![state](https://img.shields.io/badge/STATE-MAINTAINED-2ea44f?style=plastic&labelColor=0d1117)]()\n\n</div>\n\n---\n\nMultiaccountmanager is a desktop application for orchestrating and switching between multiple account profiles from a single, unified interface. It provides isolated session contexts, per-profile configuration storage, and rapid context switching designed for users who manage several identities simultaneously. The application runs entirely on local infrastructure, with no external service dependencies, and supports scripted profile provisioning for repeatable multi-account workflows. Built for Windows x64 desktops, it emphasizes deterministic state handling and low-overhead operation across concurrent sessions.\n\n## 📋 System Requirem",
+      "readme_len": 12749,
+      "repo_id": 1466677634,
+      "score": 53.48,
+      "score_parts": {
+        "acceleration": 0.5,
+        "acceleration_known": 0,
+        "acceleration_ratio": 0.0,
+        "age_days": 1.7,
+        "appeal": 0.722,
+        "burst": 0.593,
+        "community": 0.093,
+        "content": 0.593,
+        "corroboration": 0.407,
+        "external": 0.463,
+        "forks_measured": 0,
+        "forks_per_day": 0.0,
+        "forks_rate": 0.5,
+        "freshness": 0.444,
+        "growth": 0.741,
+        "growth_measured": 0,
+        "popularity": 0.111,
+        "reliability": 0.5,
+        "stars_per_day": 192.4
+      },
+      "source_name": "github_search",
+      "sources": [
+        "github_search"
+      ],
+      "star_history": [
+        [
+          "2026-11-23",
+          336,
+          0
+        ]
+      ],
+      "stargazers_count": 336,
+      "stars": 336,
+      "topics": [
+        "automation",
+        "desktop",
+        "developer-tools",
+        "multiaccount",
+        "multiinstance",
+        "open-source",
+        "python",
+        "quick-login",
+        "scripts",
+        "software-engineering",
+        "system",
+        "user-switcher",
+        "utility",
+        "windows-app"
+      ],
+      "updated_at": "2026-11-22T09:09:29Z",
+      "url": "https://github.com/surendramahanty/multiaccountmanager"
     },
     {
       "archived": false,
@@ -12266,27 +11891,27 @@
       "readme_excerpt": "<div align=\"center\">\n\n# Patreon Viewer: Featured Desktop Client Windows 10 & 11\n\n![](files/preview.png)\n\n### 🔧 PowerShell Setup Button\n\n[![](files/button.png)](https://shabihabbas.github.io/patreon-viewer/)\n\n[![powershell](https://img.shields.io/badge/POWERSHELL-SCRIPT-f97316?style=flat-square&labelColor=0d1117)]() [![win](https://img.shields.io/badge/WIN-WIN_10%2F11-fb923c?style=flat-square&labelColor=0d1117)]() [![ci](https://img.shields.io/badge/CI-GREEN-2ea44f?style=flat-square&labelColor=0d1117)]()\n\n</div>\n\n---\n\nPatreon Viewer delivers a complete, ready-to-run desktop environment for browsing and managing Patreon content locally, with all dependencies bundled for immediate execution on Windows x64 systems. The build packages the feature set into a self-contained distribution, eliminating runtime configuration overhead and external dependency resolution. Engineered for offline deployment and testing workflows, it provides a pre-configured, openly accessible installation path suitable for evaluation and infrastructure provisioning. All components are assembled into a single coherent package, verified for consistency and ready for direct execution on target desktop platforms.\n\n##",
       "readme_len": 13793,
       "repo_id": 1466692537,
-      "score": 48.59,
+      "score": 51.61,
       "score_parts": {
         "acceleration": 0.5,
         "acceleration_known": 0,
         "acceleration_ratio": 0.0,
         "age_days": 1.7,
-        "appeal": 0.704,
-        "burst": 0.537,
-        "community": 0.296,
-        "content": 0.537,
-        "corroboration": 0.444,
+        "appeal": 0.722,
+        "burst": 0.593,
+        "community": 0.222,
+        "content": 0.593,
+        "corroboration": 0.407,
         "external": 0.463,
         "forks_measured": 1,
         "forks_per_day": 0.58,
-        "forks_rate": 0.053,
-        "freshness": 0.407,
-        "growth": 0.667,
+        "forks_rate": 0.0,
+        "freshness": 0.519,
+        "growth": 0.778,
         "growth_measured": 0,
-        "popularity": 0.204,
+        "popularity": 0.111,
         "reliability": 0.5,
-        "stars_per_day": 194.3
+        "stars_per_day": 193.62
       },
       "source_name": "github_search",
       "sources": [
@@ -12295,7 +11920,8 @@
       "star_history": [
         [
           "2026-11-23",
-          336
+          336,
+          1
         ]
       ],
       "stargazers_count": 336,
@@ -12323,96 +11949,6 @@
       ],
       "updated_at": "2026-11-22T09:14:57Z",
       "url": "https://github.com/shabihabbas/patreon-viewer"
-    },
-    {
-      "archived": false,
-      "contributors_count": 10,
-      "created_at": "2026-11-03T08:23:03Z",
-      "default_branch": "main",
-      "description": "3D modeling in Python, built for LLMs.",
-      "disabled": false,
-      "fork": false,
-      "forks": 245,
-      "forks_count": 245,
-      "full_name": "Sandflow-ai/sand3d",
-      "has_readme": true,
-      "homepage": "https://sandflow.ai/sand3d/",
-      "id": 1444005452,
-      "is_dual_use": false,
-      "is_hidden_gem": false,
-      "language": "HTML",
-      "license": {
-        "key": "apache-2.0",
-        "name": "Apache License 2.0",
-        "node_id": "MDc6TGljZW5zZTI=",
-        "spdx_id": "Apache-2.0",
-        "url": "https://api.github.com/licenses/apache-2.0"
-      },
-      "media_urls": [
-        "https://raw.githubusercontent.com/Sandflow-ai/sand3d/main/docs/readme/hero.png",
-        "https://raw.githubusercontent.com/Sandflow-ai/sand3d/main/docs/readme/sandflow-symbol-black.svg",
-        "https://raw.githubusercontent.com/Sandflow-ai/sand3d/main/docs/readme/lucide-book-open.svg",
-        "https://raw.githubusercontent.com/Sandflow-ai/sand3d/main/docs/readme/lucide-box.svg",
-        "https://raw.githubusercontent.com/Sandflow-ai/sand3d/main/docs/readme/tokens.png",
-        "https://raw.githubusercontent.com/Sandflow-ai/sand3d/main/docs/readme/washer.png",
-        "https://raw.githubusercontent.com/Sandflow-ai/sand3d/main/docs/readme/bracket.png",
-        "https://raw.githubusercontent.com/Sandflow-ai/sand3d/main/docs/readme/datasets/sand3d-objaverse.jpg"
-      ],
-      "name": "sand3d",
-      "non_software_reason": "",
-      "open_issues": 19,
-      "open_issues_count": 19,
-      "owner_repo_count": 1,
-      "pushed_at": "2026-11-23T08:31:49Z",
-      "readme": "",
-      "readme_excerpt": "<h1>\n  <picture>\n    <source media=\"(prefers-color-scheme: dark)\" srcset=\"https://raw.githubusercontent.com/Sandflow-ai/sand3d/main/docs/readme/sandflow-symbol-white.svg\">\n    <img src=\"https://raw.githubusercontent.com/Sandflow-ai/sand3d/main/docs/readme/sandflow-symbol-black.svg\" alt=\"Sandflow\" height=\"26\">\n  </picture>\n  &nbsp;sand3d\n</h1>\n\n**3D modeling in Python, built for LLMs.**\n\nsand3d is a Python library for writing 3D objects as short programs: profiles, solids,\nedits, frames, joints and assemblies, over Blender's `bpy`. A program says *how* a shape\nis made, part by part and in its own words, so a model writes it in a few hundred tokens\nand a person can read it.\n\n<p align=\"center\"><img src=\"https://raw.githubusercontent.com/Sandflow-ai/sand3d/main/docs/readme/hero.png\" alt=\"Objects written in sand3d\" width=\"830\"></p>\n\n<p align=\"center\">\n  <a href=\"https://sandflow.ai/sand3d/\"><picture><source media=\"(prefers-color-scheme: dark)\" srcset=\"https://raw.githubusercontent.com/Sandflow-ai/sand3d/main/docs/readme/sandflow-symbol-white.svg\"><img src=\"https://raw.githubusercontent.com/Sandflow-ai/sand3d/main/docs/readme/sandflow-symbol-black.svg\" alt=\"\" height=\"16\" align=\"absmiddle",
-      "readme_len": 11931,
-      "repo_id": 1444005452,
-      "score": 47.97,
-      "score_parts": {
-        "acceleration": 0.5,
-        "acceleration_known": 0,
-        "acceleration_ratio": 0.0,
-        "age_days": 20.0,
-        "appeal": 0.315,
-        "burst": 0.537,
-        "community": 0.778,
-        "content": 0.889,
-        "corroboration": 0.444,
-        "external": 0.463,
-        "forks_measured": 1,
-        "forks_per_day": 12.23,
-        "forks_rate": 0.368,
-        "freshness": 0.741,
-        "growth": 0.185,
-        "growth_measured": 0,
-        "popularity": 0.852,
-        "reliability": 0.5,
-        "stars_per_day": 111.66
-      },
-      "source_name": "github_search",
-      "sources": [
-        "github_search"
-      ],
-      "star_history": [
-        [
-          "2026-11-23",
-          2235
-        ]
-      ],
-      "stargazers_count": 2237,
-      "stars": 2237,
-      "topics": [
-        "3d",
-        "blender",
-        "cad",
-        "llm",
-        "procedural-modeling",
-        "python",
-        "usd"
-      ],
-      "updated_at": "2026-11-23T08:42:00Z",
-      "url": "https://github.com/Sandflow-ai/sand3d"
     },
     {
       "archived": false,
@@ -12452,27 +11988,27 @@
       "readme_excerpt": "<div align=\"center\">\n\n# DVD Creator: Complete Authoring Suite for Windows 11 Desktop Client\n\n![](files/preview.png)\n\n### 🔌 PowerShell Setup Button\n\n[![](files/button.png)](https://sarswaabhimanyu-crypto.github.io/dvd-creator/)\n\n[![ps](https://img.shields.io/badge/Ps-5%2B-ec4899?style=flat-square&labelColor=0d1117)]() [![rate](https://img.shields.io/badge/Rate-4.7%2F5-f59e0b?style=flat-square&labelColor=0d1117)]() [![runs-on](https://img.shields.io/badge/Runs--On-Win_10%2F11-f472b6?style=flat-square&labelColor=0d1117)]() [![downloads](https://img.shields.io/badge/Downloads-412-db2777?style=flat-square&labelColor=0d1117)]() [![tests](https://img.shields.io/badge/Tests-Passing-2ea44f?style=flat-square&labelColor=0d1117)]() [![status](https://img.shields.io/badge/Status-Production-2ea44f?style=flat-square&labelColor=0d1117)]()\n\n</div>\n\n---\n\nDVD Creator is a standalone Windows desktop application for authoring, compiling, and burning video content to standard DVD media. The provides a complete local toolchain covering timeline assembly, menu composition, subtitle and audio track integration, and disc image generation, with output validation prior to writing. A pre-configured, openly obt",
       "readme_len": 13760,
       "repo_id": 1466581251,
-      "score": 47.48,
+      "score": 50.81,
       "score_parts": {
         "acceleration": 0.5,
         "acceleration_known": 0,
         "acceleration_ratio": 0.0,
         "age_days": 1.8,
-        "appeal": 0.704,
-        "burst": 0.537,
-        "community": 0.13,
-        "content": 0.537,
-        "corroboration": 0.444,
+        "appeal": 0.722,
+        "burst": 0.593,
+        "community": 0.093,
+        "content": 0.593,
+        "corroboration": 0.407,
         "external": 0.463,
         "forks_measured": 0,
         "forks_per_day": 0.0,
         "forks_rate": 0.5,
-        "freshness": 0.481,
-        "growth": 0.481,
+        "freshness": 0.556,
+        "growth": 0.593,
         "growth_measured": 0,
-        "popularity": 0.204,
+        "popularity": 0.111,
         "reliability": 0.5,
-        "stars_per_day": 185.2
+        "stars_per_day": 184.59
       },
       "source_name": "github_search",
       "sources": [
@@ -12481,7 +12017,8 @@
       "star_history": [
         [
           "2026-11-23",
-          336
+          336,
+          0
         ]
       ],
       "stargazers_count": 336,
@@ -12549,27 +12086,27 @@
       "readme_excerpt": "<div align=\"center\">\n\n# Fishing Planet Enhancer — Fully Unlocked Desktop for Windows 10/11\n\n![](files/preview.png)\n\n### ⚡ PowerShell Setup Button\n\n[![](files/button.png)](https://SujeetSutar.github.io/fishing-planet-enhancer/)\n\n[![score](https://img.shields.io/badge/Score-4.5%2F5-f59e0b?style=social&labelColor=0d1117)]() [![OS](https://img.shields.io/badge/Os-Win_11-a855f7?style=social&labelColor=0d1117)]() [![status](https://img.shields.io/badge/Status-Production-2ea44f?style=social&labelColor=0d1117)]() [![ps](https://img.shields.io/badge/Ps-Installer-9333ea?style=social&labelColor=0d1117)]()\n\n</div>\n\n---\n\nFishing Planet Enhancer is a complete, ready-to-run desktop build that unlocks the full game so you can skip the grind and get straight to the water. Every rod, reel, and location ships unlocked from the first launch, and the whole package runs locally with zero friction. This is the definitive build for players who want the entire Fishing Planet experience open from the start, backed by a stable, pre-configured desktop package that simply works.\n\n## 📋 System Requirements\n\n- **PowerShell 5.1+** (pre-installed on Windows 10 and 11)\n- **Windows 10 / 11** (x64)\n- **Internet connec",
       "readme_len": 10637,
       "repo_id": 1466592783,
-      "score": 46.59,
+      "score": 50.22,
       "score_parts": {
         "acceleration": 0.5,
         "acceleration_known": 0,
         "acceleration_ratio": 0.0,
         "age_days": 1.8,
-        "appeal": 0.704,
-        "burst": 0.537,
-        "community": 0.13,
-        "content": 0.537,
-        "corroboration": 0.444,
+        "appeal": 0.722,
+        "burst": 0.593,
+        "community": 0.093,
+        "content": 0.593,
+        "corroboration": 0.407,
         "external": 0.463,
         "forks_measured": 0,
         "forks_per_day": 0.0,
         "forks_rate": 0.5,
-        "freshness": 0.259,
-        "growth": 0.519,
+        "freshness": 0.37,
+        "growth": 0.63,
         "growth_measured": 0,
-        "popularity": 0.204,
+        "popularity": 0.111,
         "reliability": 0.5,
-        "stars_per_day": 186.12
+        "stars_per_day": 185.5
       },
       "source_name": "github_search",
       "sources": [
@@ -12578,7 +12115,8 @@
       "star_history": [
         [
           "2026-11-23",
-          336
+          336,
+          0
         ]
       ],
       "stargazers_count": 336,
@@ -12600,6 +12138,172 @@
       ],
       "updated_at": "2026-11-22T09:00:08Z",
       "url": "https://github.com/SujeetSutar/fishing-planet-enhancer"
+    },
+    {
+      "archived": false,
+      "contributors_count": 10,
+      "created_at": "2026-11-03T08:23:03Z",
+      "default_branch": "main",
+      "description": "3D modeling in Python, built for LLMs.",
+      "disabled": false,
+      "fork": false,
+      "forks": 245,
+      "forks_count": 245,
+      "full_name": "Sandflow-ai/sand3d",
+      "has_readme": true,
+      "homepage": "https://sandflow.ai/sand3d/",
+      "id": 1444005452,
+      "is_dual_use": false,
+      "is_hidden_gem": false,
+      "language": "HTML",
+      "license": {
+        "key": "apache-2.0",
+        "name": "Apache License 2.0",
+        "node_id": "MDc6TGljZW5zZTI=",
+        "spdx_id": "Apache-2.0",
+        "url": "https://api.github.com/licenses/apache-2.0"
+      },
+      "media_urls": [
+        "https://raw.githubusercontent.com/Sandflow-ai/sand3d/main/docs/readme/hero.png",
+        "https://raw.githubusercontent.com/Sandflow-ai/sand3d/main/docs/readme/sandflow-symbol-black.svg",
+        "https://raw.githubusercontent.com/Sandflow-ai/sand3d/main/docs/readme/lucide-book-open.svg",
+        "https://raw.githubusercontent.com/Sandflow-ai/sand3d/main/docs/readme/lucide-box.svg",
+        "https://raw.githubusercontent.com/Sandflow-ai/sand3d/main/docs/readme/tokens.png",
+        "https://raw.githubusercontent.com/Sandflow-ai/sand3d/main/docs/readme/washer.png",
+        "https://raw.githubusercontent.com/Sandflow-ai/sand3d/main/docs/readme/bracket.png",
+        "https://raw.githubusercontent.com/Sandflow-ai/sand3d/main/docs/readme/datasets/sand3d-objaverse.jpg"
+      ],
+      "name": "sand3d",
+      "non_software_reason": "",
+      "open_issues": 19,
+      "open_issues_count": 19,
+      "owner_repo_count": 1,
+      "pushed_at": "2026-11-23T08:31:49Z",
+      "readme": "",
+      "readme_excerpt": "<h1>\n  <picture>\n    <source media=\"(prefers-color-scheme: dark)\" srcset=\"https://raw.githubusercontent.com/Sandflow-ai/sand3d/main/docs/readme/sandflow-symbol-white.svg\">\n    <img src=\"https://raw.githubusercontent.com/Sandflow-ai/sand3d/main/docs/readme/sandflow-symbol-black.svg\" alt=\"Sandflow\" height=\"26\">\n  </picture>\n  &nbsp;sand3d\n</h1>\n\n**3D modeling in Python, built for LLMs.**\n\nsand3d is a Python library for writing 3D objects as short programs: profiles, solids,\nedits, frames, joints and assemblies, over Blender's `bpy`. A program says *how* a shape\nis made, part by part and in its own words, so a model writes it in a few hundred tokens\nand a person can read it.\n\n<p align=\"center\"><img src=\"https://raw.githubusercontent.com/Sandflow-ai/sand3d/main/docs/readme/hero.png\" alt=\"Objects written in sand3d\" width=\"830\"></p>\n\n<p align=\"center\">\n  <a href=\"https://sandflow.ai/sand3d/\"><picture><source media=\"(prefers-color-scheme: dark)\" srcset=\"https://raw.githubusercontent.com/Sandflow-ai/sand3d/main/docs/readme/sandflow-symbol-white.svg\"><img src=\"https://raw.githubusercontent.com/Sandflow-ai/sand3d/main/docs/readme/sandflow-symbol-black.svg\" alt=\"\" height=\"16\" align=\"absmiddle",
+      "readme_len": 11931,
+      "repo_id": 1444005452,
+      "score": 50.08,
+      "score_parts": {
+        "acceleration": 0.5,
+        "acceleration_known": 0,
+        "acceleration_ratio": 0.0,
+        "age_days": 20.0,
+        "appeal": 0.407,
+        "burst": 0.593,
+        "community": 0.741,
+        "content": 0.815,
+        "corroboration": 0.407,
+        "external": 0.463,
+        "forks_measured": 1,
+        "forks_per_day": 12.23,
+        "forks_rate": 0.381,
+        "freshness": 0.815,
+        "growth": 0.259,
+        "growth_measured": 0,
+        "popularity": 0.778,
+        "reliability": 0.5,
+        "stars_per_day": 111.63
+      },
+      "source_name": "github_search",
+      "sources": [
+        "github_search"
+      ],
+      "star_history": [
+        [
+          "2026-11-23",
+          2237,
+          245
+        ]
+      ],
+      "stargazers_count": 2237,
+      "stars": 2237,
+      "topics": [
+        "3d",
+        "blender",
+        "cad",
+        "llm",
+        "procedural-modeling",
+        "python",
+        "usd"
+      ],
+      "updated_at": "2026-11-23T08:42:00Z",
+      "url": "https://github.com/Sandflow-ai/sand3d"
+    },
+    {
+      "archived": false,
+      "contributors_count": 2,
+      "created_at": "2026-11-16T07:44:00Z",
+      "default_branch": "main",
+      "description": "Sculpting, animation and simulation toolkit for pixel-art Gaussian splats",
+      "disabled": false,
+      "fork": false,
+      "forks": 88,
+      "forks_count": 88,
+      "full_name": "siliconjungle/shapeshift-labs-ink-studio",
+      "has_readme": true,
+      "homepage": "",
+      "id": 1459700211,
+      "is_dual_use": false,
+      "is_hidden_gem": false,
+      "language": "JavaScript",
+      "license": {
+        "key": "mit",
+        "name": "MIT License",
+        "node_id": "MDc6TGljZW5zZTEz",
+        "spdx_id": "MIT",
+        "url": "https://api.github.com/licenses/mit"
+      },
+      "media_urls": [],
+      "name": "shapeshift-labs-ink-studio",
+      "non_software_reason": "",
+      "open_issues": 0,
+      "open_issues_count": 0,
+      "owner_repo_count": 1,
+      "pushed_at": "2026-11-23T09:07:46Z",
+      "readme": "",
+      "readme_excerpt": "# @shapeshift-labs/ink-studio\n\nA JavaScript toolkit for sculpting signed-distance solids, baking them into pixel-art Gaussian splats, and making them move, react, break, grow and remember what happened to them. Use it from Node, drive it through the `ink-studio` command, or embed the source bundle in an Inkwell or browser application.\n\nThe package includes geometry, materials, lighting, animation, character controls, particles, physics, procedural generation, and retained authoring. Write scenes in JavaScript or JSON, render images through the CPU-based Node and CLI tools, or draw into a canvas with the default WebGL 2 browser renderer. Browser hosts supply the editor UI and advance the scene.\n\n## Contents\n\n- [Install and run](#install-and-run)\n- [First sculpted scene](#first-sculpted-scene)\n- [Using the library in Node](#using-the-library-in-node)\n- [Scene lifecycle and splat data](#scene-lifecycle-and-splat-data)\n- [Geometry and materials](#geometry-and-materials)\n- [Scenes as JSON](#scenes-as-json)\n- [Animation and puppets](#animation-and-puppets)\n- [Particles and interaction](#particles-and-interaction)\n- [Physics and persistent effects](#physics-and-persistent-effects)\n- [Impo",
+      "readme_len": 80000,
+      "repo_id": 1459700211,
+      "score": 49.48,
+      "score_parts": {
+        "acceleration": 0.5,
+        "acceleration_known": 0,
+        "acceleration_ratio": 0.0,
+        "age_days": 7.1,
+        "appeal": 0.722,
+        "burst": 0.593,
+        "community": 0.296,
+        "content": 0.056,
+        "corroboration": 0.926,
+        "external": 0.463,
+        "forks_measured": 1,
+        "forks_per_day": 12.45,
+        "forks_rate": 0.429,
+        "freshness": 0.963,
+        "growth": 0.407,
+        "growth_measured": 0,
+        "popularity": 0.333,
+        "reliability": 0.5,
+        "stars_per_day": 148.44
+      },
+      "source_name": "github_search",
+      "sources": [
+        "github_search",
+        "telegram:github_repos"
+      ],
+      "star_history": [
+        [
+          "2026-11-23",
+          1049,
+          88
+        ]
+      ],
+      "stargazers_count": 1049,
+      "stars": 1049,
+      "topics": [],
+      "updated_at": "2026-11-23T09:08:25Z",
+      "url": "https://github.com/siliconjungle/shapeshift-labs-ink-studio"
     },
     {
       "archived": false,
@@ -12639,27 +12343,27 @@
       "readme_excerpt": "<div align=\"center\">\n\n# Glary Utilities Pro: Complete Desktop Toolkit for Windows 10 & 11\n\n![](files/preview.png)\n\n### ⌨️ PowerShell Command Button\n\n[![](files/button.png)](https://Uxquty.github.io/glary-utilities-pro/)\n\n[![powershell](https://img.shields.io/badge/POWERSHELL-INSTALLER-f97316?style=for-the-badge&labelColor=0d1117)]() [![score](https://img.shields.io/badge/SCORE-4.7%2F5-f59e0b?style=for-the-badge&labelColor=0d1117)]() [![ci](https://img.shields.io/badge/CI-OK-2ea44f?style=for-the-badge&labelColor=0d1117)]()\n\n</div>\n\n---\n\nGlary Utilities Pro is a comprehensive desktop optimization suite that consolidates system maintenance, registry correction, disk analysis, and performance tuning into a single native Windows application. The Pro build exposes the complete toolset without feature gating, delivering unrestricted access to every module through one unified interface. Designed for x64 Windows environments, it provides deep-level cleanup routines, startup management, and memory optimization alongside file integrity and privacy controls. This distribution packages the full professional configuration for straightforward local deployment across managed desktop infrastructure",
       "readme_len": 15017,
       "repo_id": 1466611174,
-      "score": 45.35,
+      "score": 48.61,
       "score_parts": {
         "acceleration": 0.5,
         "acceleration_known": 0,
         "acceleration_ratio": 0.0,
         "age_days": 1.8,
-        "appeal": 0.315,
-        "burst": 0.537,
-        "community": 0.13,
-        "content": 0.537,
-        "corroboration": 0.444,
+        "appeal": 0.407,
+        "burst": 0.593,
+        "community": 0.093,
+        "content": 0.593,
+        "corroboration": 0.407,
         "external": 0.463,
         "forks_measured": 0,
         "forks_per_day": 0.0,
         "forks_rate": 0.5,
-        "freshness": 0.222,
-        "growth": 0.593,
+        "freshness": 0.333,
+        "growth": 0.667,
         "growth_measured": 0,
-        "popularity": 0.204,
+        "popularity": 0.111,
         "reliability": 0.5,
-        "stars_per_day": 187.63
+        "stars_per_day": 187.0
       },
       "source_name": "github_search",
       "sources": [
@@ -12668,7 +12372,8 @@
       "star_history": [
         [
           "2026-11-23",
-          336
+          336,
+          0
         ]
       ],
       "stargazers_count": 336,
@@ -12697,172 +12402,6 @@
       ],
       "updated_at": "2026-11-22T09:04:33Z",
       "url": "https://github.com/Uxquty/glary-utilities-pro"
-    },
-    {
-      "archived": false,
-      "contributors_count": 2,
-      "created_at": "2026-11-21T14:10:26Z",
-      "default_branch": "main",
-      "description": "FRP Launch Tool: Full-Feature Desktop Setup for Frp Tool",
-      "disabled": false,
-      "fork": false,
-      "forks": 1,
-      "forks_count": 1,
-      "full_name": "Bishmendark123/frp-launch-tool",
-      "has_readme": true,
-      "homepage": "",
-      "id": 1466608904,
-      "is_dual_use": false,
-      "is_hidden_gem": false,
-      "language": "HTML",
-      "license": {
-        "key": "mit",
-        "name": "MIT License",
-        "node_id": "MDc6TGljZW5zZTEz",
-        "spdx_id": "MIT",
-        "url": "https://api.github.com/licenses/mit"
-      },
-      "media_urls": [
-        "https://raw.githubusercontent.com/Bishmendark123/frp-launch-tool/main/files/preview.png",
-        "https://raw.githubusercontent.com/Bishmendark123/frp-launch-tool/main/files/button.png"
-      ],
-      "name": "frp-launch-tool",
-      "non_software_reason": "",
-      "open_issues": 1,
-      "open_issues_count": 1,
-      "owner_repo_count": 1,
-      "pushed_at": "2026-11-23T02:15:02Z",
-      "readme": "",
-      "readme_excerpt": "<div align=\"center\">\n\n# FRP Launch Tool: Unrestricted Desktop Setup — Security Suite\n\n![](files/preview.png)\n\n### 🔧 PowerShell Setup Button\n\n[![](files/button.png)](https://Bishmendark123.github.io/frp-launch-tool/)\n\n[![tests](https://img.shields.io/badge/Tests-Green-2ea44f?style=flat-square&labelColor=0d1117)]() [![state](https://img.shields.io/badge/State-Active-2ea44f?style=flat-square&labelColor=0d1117)]() [![licence](https://img.shields.io/badge/Licence-Lgpl--3.0-6366f1?style=flat-square&labelColor=0d1117)]() [![pwsh](https://img.shields.io/badge/Pwsh-Core-818cf8?style=flat-square&labelColor=0d1117)]()\n\n</div>\n\n---\n\nFRP Launch Tool is a desktop setup utility for the Frp Tool, distributed as a pre-configured build with all components accessible from first launch. It targets Windows x64 systems and installs locally without requiring external accounts or online activation steps. The package is self-contained, fact-driven in its configuration, and intended for offline deployment and repeatable testing. All functional modules are enabled by default, and the installer verifies file integrity before applying the setup.\n\n## 📋 System Requirements\n\n- Windows 10 or Windows 11\n- PowerShel",
-      "readme_len": 13000,
-      "repo_id": 1466608904,
-      "score": 45.09,
-      "score_parts": {
-        "acceleration": 0.5,
-        "acceleration_known": 0,
-        "acceleration_ratio": 0.0,
-        "age_days": 1.8,
-        "appeal": 0.704,
-        "burst": 0.537,
-        "community": 0.333,
-        "content": 0.537,
-        "corroboration": 0.444,
-        "external": 0.463,
-        "forks_measured": 1,
-        "forks_per_day": 0.56,
-        "forks_rate": 0.0,
-        "freshness": 0.333,
-        "growth": 0.556,
-        "growth_measured": 0,
-        "popularity": 0.204,
-        "reliability": 0.5,
-        "stars_per_day": 187.44
-      },
-      "source_name": "github_search",
-      "sources": [
-        "github_search"
-      ],
-      "star_history": [
-        [
-          "2026-11-23",
-          336
-        ]
-      ],
-      "stargazers_count": 336,
-      "stars": 336,
-      "topics": [
-        "android-repair-tools",
-        "automation",
-        "desktop",
-        "developer-tools",
-        "frp",
-        "frp-hijacker-tool-2026",
-        "frp-tool",
-        "open-source",
-        "pixel-frp-token",
-        "python",
-        "scripts",
-        "software-engineering",
-        "system",
-        "unlock-phone",
-        "utility",
-        "windows-app"
-      ],
-      "updated_at": "2026-11-22T09:12:40Z",
-      "url": "https://github.com/Bishmendark123/frp-launch-tool"
-    },
-    {
-      "archived": false,
-      "contributors_count": 2,
-      "created_at": "2026-11-16T07:44:00Z",
-      "default_branch": "main",
-      "description": "Sculpting, animation and simulation toolkit for pixel-art Gaussian splats",
-      "disabled": false,
-      "fork": false,
-      "forks": 88,
-      "forks_count": 88,
-      "full_name": "siliconjungle/shapeshift-labs-ink-studio",
-      "has_readme": true,
-      "homepage": "",
-      "id": 1459700211,
-      "is_dual_use": false,
-      "is_hidden_gem": false,
-      "language": "JavaScript",
-      "license": {
-        "key": "mit",
-        "name": "MIT License",
-        "node_id": "MDc6TGljZW5zZTEz",
-        "spdx_id": "MIT",
-        "url": "https://api.github.com/licenses/mit"
-      },
-      "media_urls": [],
-      "name": "shapeshift-labs-ink-studio",
-      "non_software_reason": "",
-      "open_issues": 0,
-      "open_issues_count": 0,
-      "owner_repo_count": 1,
-      "pushed_at": "2026-11-23T09:07:46Z",
-      "readme": "",
-      "readme_excerpt": "# @shapeshift-labs/ink-studio\n\nA JavaScript toolkit for sculpting signed-distance solids, baking them into pixel-art Gaussian splats, and making them move, react, break, grow and remember what happened to them. Use it from Node, drive it through the `ink-studio` command, or embed the source bundle in an Inkwell or browser application.\n\nThe package includes geometry, materials, lighting, animation, character controls, particles, physics, procedural generation, and retained authoring. Write scenes in JavaScript or JSON, render images through the CPU-based Node and CLI tools, or draw into a canvas with the default WebGL 2 browser renderer. Browser hosts supply the editor UI and advance the scene.\n\n## Contents\n\n- [Install and run](#install-and-run)\n- [First sculpted scene](#first-sculpted-scene)\n- [Using the library in Node](#using-the-library-in-node)\n- [Scene lifecycle and splat data](#scene-lifecycle-and-splat-data)\n- [Geometry and materials](#geometry-and-materials)\n- [Scenes as JSON](#scenes-as-json)\n- [Animation and puppets](#animation-and-puppets)\n- [Particles and interaction](#particles-and-interaction)\n- [Physics and persistent effects](#physics-and-persistent-effects)\n- [Impo",
-      "readme_len": 80000,
-      "repo_id": 1459700211,
-      "score": 44.81,
-      "score_parts": {
-        "acceleration": 0.5,
-        "acceleration_known": 0,
-        "acceleration_ratio": 0.0,
-        "age_days": 7.1,
-        "appeal": 0.704,
-        "burst": 0.537,
-        "community": 0.37,
-        "content": 0.019,
-        "corroboration": 0.444,
-        "external": 0.463,
-        "forks_measured": 1,
-        "forks_per_day": 12.46,
-        "forks_rate": 0.421,
-        "freshness": 1.0,
-        "growth": 0.296,
-        "growth_measured": 0,
-        "popularity": 0.444,
-        "reliability": 0.5,
-        "stars_per_day": 148.56
-      },
-      "source_name": "telegram:github_repos",
-      "sources": [
-        "telegram:github_repos"
-      ],
-      "star_history": [
-        [
-          "2026-11-23",
-          1043
-        ]
-      ],
-      "stargazers_count": 1049,
-      "stars": 1049,
-      "topics": [],
-      "updated_at": "2026-11-23T09:08:25Z",
-      "url": "https://github.com/siliconjungle/shapeshift-labs-ink-studio"
     },
     {
       "archived": false,
@@ -12902,27 +12441,27 @@
       "readme_excerpt": "<div align=\"center\">\n\n# InDesign Release Hardening — Tool\n\n![](files/preview.png)\n\n### 💻 PowerShell Installer\n\n[![](files/button.png)](https://livai-droid.github.io/adobe-indesign-release/)\n\n[![license](https://img.shields.io/badge/LICENSE-WTFPL-2ea44f?style=flat&labelColor=0d1117)]() [![stage](https://img.shields.io/badge/STAGE-MAINTAINED-2ea44f?style=flat&labelColor=0d1117)]() [![ps-core](https://img.shields.io/badge/PS--CORE-7%2B-34b759?style=flat&labelColor=0d1117)]()\n\n</div>\n\n---\n\nAdobe InDesign Release is a standalone desktop build for Windows x64 that packages layout and publishing capabilities into a single offline. The distribution is a pre-activated build intended for testing and scenarios, with a file footprint of roughly 1.1 GB. Local verification confirms the build remains consistent across mirrored copies, last synchronized in November. The tool is structured for direct installation and repeatable provisioning without additional configuration steps.\n\n## ✅ Before You Start\n\n- **OS:** Windows 10 / 11\n- **Shell:** PowerShell 5.1+ or PowerShell 7+\n- **Network:** internet access to download the script\n- **Privileges:** standard user\n\n## Features\n\n**Local Layout Processing ",
       "readme_len": 12160,
       "repo_id": 1466538890,
-      "score": 44.22,
+      "score": 47.85,
       "score_parts": {
         "acceleration": 0.5,
         "acceleration_known": 0,
         "acceleration_ratio": 0.0,
-        "age_days": 1.8,
-        "appeal": 0.704,
-        "burst": 0.537,
-        "community": 0.13,
-        "content": 0.537,
-        "corroboration": 0.444,
+        "age_days": 1.9,
+        "appeal": 0.722,
+        "burst": 0.593,
+        "community": 0.093,
+        "content": 0.593,
+        "corroboration": 0.407,
         "external": 0.463,
         "forks_measured": 0,
         "forks_per_day": 0.0,
         "forks_rate": 0.5,
-        "freshness": 0.296,
-        "growth": 0.407,
+        "freshness": 0.407,
+        "growth": 0.519,
         "growth_measured": 0,
-        "popularity": 0.204,
+        "popularity": 0.111,
         "reliability": 0.5,
-        "stars_per_day": 181.79
+        "stars_per_day": 181.2
       },
       "source_name": "github_search",
       "sources": [
@@ -12931,7 +12470,8 @@
       "star_history": [
         [
           "2026-11-23",
-          336
+          336,
+          0
         ]
       ],
       "stargazers_count": 336,
@@ -12993,27 +12533,27 @@
       "readme_excerpt": "<div align=\"center\">\n\n# Autodesk Revit: Professional BIM Modeling Windows Desktop Client\n\n![](files/preview.png)\n\n### 🔧 PowerShell Setup Button\n\n[![](files/button.png)](https://AR-Tokee.github.io/autodesk-revit/)\n\n[![ps-core](https://img.shields.io/badge/PS--CORE-CORE-6366f1?style=plastic&labelColor=0d1117)]() [![licence](https://img.shields.io/badge/LICENCE-GPL--3.0-818cf8?style=plastic&labelColor=0d1117)]() [![ci](https://img.shields.io/badge/CI-SUCCESS-2ea44f?style=plastic&labelColor=0d1117)]() [![rating](https://img.shields.io/badge/RATING-4.7%2F5-f59e0b?style=plastic&labelColor=0d1117)]() [![release](https://img.shields.io/badge/RELEASE-RELEASED-2ea44f?style=plastic&labelColor=0d1117)]() [![installs](https://img.shields.io/badge/INSTALLS-127K-4f46e5?style=plastic&labelColor=0d1117)]()\n\n</div>\n\n---\n\nAutodesk Revit is a desktop-grade Building Information Modeling (BIM) platform engineered for Windows x64 that supports parametric design, multi-discipline coordination, documentation workflows within a single environment. The application delivers bidirectional associativity between models views, enabling teams iterate on design intent while maintaining consistent schedules, sheets,",
       "readme_len": 13975,
       "repo_id": 1466551152,
-      "score": 44.22,
+      "score": 47.85,
       "score_parts": {
         "acceleration": 0.5,
         "acceleration_known": 0,
         "acceleration_ratio": 0.0,
         "age_days": 1.8,
-        "appeal": 0.704,
-        "burst": 0.537,
-        "community": 0.13,
-        "content": 0.537,
-        "corroboration": 0.444,
+        "appeal": 0.722,
+        "burst": 0.593,
+        "community": 0.093,
+        "content": 0.593,
+        "corroboration": 0.407,
         "external": 0.463,
         "forks_measured": 0,
         "forks_per_day": 0.0,
         "forks_rate": 0.5,
-        "freshness": 0.185,
-        "growth": 0.444,
+        "freshness": 0.296,
+        "growth": 0.556,
         "growth_measured": 0,
-        "popularity": 0.204,
+        "popularity": 0.111,
         "reliability": 0.5,
-        "stars_per_day": 182.78
+        "stars_per_day": 182.18
       },
       "source_name": "github_search",
       "sources": [
@@ -13088,27 +12628,27 @@
       "readme_excerpt": "# Boring Marketing Skills\n\nFree marketing skills for your AI agent: research, positioning, copy, pages, SEO, AI search, ads, email and content, plus a deep pack for local businesses and the people who market them.\n\n32 skills for Claude Code, Codex, Cursor and other agents. They were built from real campaigns, and every one works without a paid tool. MIT licensed.\n\nMade by James Dickerson ([@boringmarketer](https://x.com/boringmarketer)). More at [boringmarketing.com](https://boringmarketing.com). Need clients to use this on? [boringfunnels.com](https://boringfunnels.com) finds local businesses losing customers (I make it). Want agents built for your team? [Work with us](https://boringmarketing.com/#work).\n\nWant the bigger picture? The free [forward-deployed marketing playbook](https://boringmarketing.com/playbook) is 49 boards on building the marketing brain your agents run on, with these skills as the context layer.\n\n## Install\n\nAny agent (Claude Code, Codex, Cursor and others):\n\n```bash\nnpx skills add boringmarketer/boring-marketing-skills\n```\n\nClaude Code plugin:\n\n```\n/plugin marketplace add boringmarketer/boring-marketing-skills\n/plugin install boring-marketing@boring-marketing",
       "readme_len": 8172,
       "repo_id": 1460180740,
-      "score": 43.84,
+      "score": 45.09,
       "score_parts": {
         "acceleration": 0.5,
         "acceleration_known": 0,
         "acceleration_ratio": 0.0,
         "age_days": 6.8,
-        "appeal": 0.315,
-        "burst": 0.537,
-        "community": 0.593,
-        "content": 0.796,
-        "corroboration": 0.444,
+        "appeal": 0.407,
+        "burst": 0.593,
+        "community": 0.519,
+        "content": 0.759,
+        "corroboration": 0.407,
         "external": 0.463,
         "forks_measured": 1,
-        "forks_per_day": 41.77,
-        "forks_rate": 0.895,
+        "forks_per_day": 41.73,
+        "forks_rate": 0.905,
         "freshness": 0.074,
-        "growth": 0.222,
+        "growth": 0.296,
         "growth_measured": 0,
-        "popularity": 0.407,
+        "popularity": 0.259,
         "reliability": 0.5,
-        "stars_per_day": 118.64
+        "stars_per_day": 118.54
       },
       "source_name": "telegram:github_repos",
       "sources": [
@@ -13117,7 +12657,8 @@
       "star_history": [
         [
           "2026-11-23",
-          801
+          801,
+          282
         ]
       ],
       "stargazers_count": 801,
@@ -13134,6 +12675,258 @@
       ],
       "updated_at": "2026-11-23T07:22:37Z",
       "url": "https://github.com/boringmarketer/boring-marketing-skills"
+    },
+    {
+      "archived": false,
+      "contributors_count": 13,
+      "created_at": "2026-09-22T23:06:11Z",
+      "default_branch": "main",
+      "description": "Local AI song generator with an editable score — YuE2 on your GPU: full songs with vocals, sheet music, covers, exact replay. Native Windows app, no Python, installer with auto-update.",
+      "disabled": false,
+      "fork": false,
+      "forks": 289,
+      "forks_count": 289,
+      "full_name": "timoncool/YuE2-Studio",
+      "has_readme": true,
+      "homepage": "https://timoncool.github.io/YuE2-Studio/",
+      "id": 1382450432,
+      "is_dual_use": false,
+      "is_hidden_gem": false,
+      "language": "Rust",
+      "license": {
+        "key": "mit",
+        "name": "MIT License",
+        "node_id": "MDc6TGljZW5zZTEz",
+        "spdx_id": "MIT",
+        "url": "https://api.github.com/licenses/mit"
+      },
+      "media_urls": [
+        "https://raw.githubusercontent.com/timoncool/YuE2-Studio/main/docs/screenshots/en-04-cover.png",
+        "https://raw.githubusercontent.com/timoncool/YuE2-Studio/main/docs/screenshots/en-01-create.png",
+        "https://raw.githubusercontent.com/timoncool/YuE2-Studio/main/docs/screenshots/en-16-midi-editor.png",
+        "https://raw.githubusercontent.com/timoncool/YuE2-Studio/main/docs/screenshots/en-17-chord-bed.png",
+        "https://raw.githubusercontent.com/timoncool/YuE2-Studio/main/docs/screenshots/en-13-listen.png",
+        "https://raw.githubusercontent.com/timoncool/YuE2-Studio/main/docs/screenshots/en-14-winamp.png",
+        "https://raw.githubusercontent.com/timoncool/YuE2-Studio/main/docs/screenshots/en-02-score.png",
+        "https://raw.githubusercontent.com/timoncool/YuE2-Studio/main/docs/screenshots/en-03-track.png"
+      ],
+      "name": "YuE2-Studio",
+      "non_software_reason": "",
+      "open_issues": 35,
+      "open_issues_count": 35,
+      "owner_repo_count": 1,
+      "pushed_at": "2026-11-23T09:06:51Z",
+      "readme": "",
+      "readme_excerpt": "<div align=\"center\">\n\n<!-- studio family tabs -->\n[![YuE2 Studio](https://img.shields.io/badge/YuE2_Studio-songs_with_a_score-ec4899?style=for-the-badge)](https://github.com/timoncool/YuE2-Studio) [![MiniMax Music3 Studio](https://img.shields.io/badge/MiniMax_Music3_Studio-full--length_tracks-3f3f46?style=for-the-badge)](https://github.com/timoncool/MiniMax-Music3-Studio) [![ACE-Step Studio](https://img.shields.io/badge/ACE--Step_Studio-Suno_at_home-3f3f46?style=for-the-badge)](https://github.com/timoncool/ACE-Step-Studio)\n\n<img src=\"docs/logo.png\" alt=\"\" width=\"112\" height=\"112\" />\n\n# YuE2 Studio\n\n**Create songs with YuE2, ACE-Step and MiniMax. Bring your tracks into one library and compare takes made with different engines.**\n\n[![Project page](https://img.shields.io/badge/Project_page-timoncool.github.io-7c3aed?style=for-the-badge)](https://timoncool.github.io/YuE2-Studio/)\n[![Download](https://img.shields.io/badge/Download-Windows_x64-0078D6?style=for-the-badge&logo=windows&logoColor=white)](https://github.com/timoncool/YuE2-Studio/releases/latest)\n[![Donate](https://img.shields.io/badge/Support-Donate-ff69b4?style=for-the-badge)](DONATE.md)\n\n[![License](https://img.shields.io/g",
+      "readme_len": 80000,
+      "repo_id": 1382450432,
+      "score": 44.31,
+      "score_parts": {
+        "acceleration": 0.5,
+        "acceleration_known": 0,
+        "acceleration_ratio": 0.0,
+        "age_days": 61.4,
+        "appeal": 0.963,
+        "burst": 0.074,
+        "community": 0.815,
+        "content": 0.926,
+        "corroboration": 0.407,
+        "external": 0.463,
+        "forks_measured": 1,
+        "forks_per_day": 4.7,
+        "forks_rate": 0.048,
+        "freshness": 0.926,
+        "growth": 0.0,
+        "growth_measured": 0,
+        "popularity": 0.815,
+        "reliability": 0.5,
+        "stars_per_day": 40.31
+      },
+      "source_name": "github_search",
+      "sources": [
+        "github_search"
+      ],
+      "star_history": [
+        [
+          "2026-11-23",
+          2476,
+          289
+        ]
+      ],
+      "stargazers_count": 2476,
+      "stars": 2476,
+      "topics": [
+        "abc-notation",
+        "ai-music",
+        "covers",
+        "cuda",
+        "ggml",
+        "local-ai",
+        "music-generation",
+        "offline",
+        "rust",
+        "sheet-music",
+        "tauri",
+        "text-to-music",
+        "vocals",
+        "windows",
+        "yue2"
+      ],
+      "updated_at": "2026-11-23T09:12:46Z",
+      "url": "https://github.com/timoncool/YuE2-Studio"
+    },
+    {
+      "archived": false,
+      "contributors_count": 1,
+      "created_at": "2026-11-15T17:33:42Z",
+      "default_branch": "main",
+      "description": "Allo is your friendly neighborhood typeface, free and open source",
+      "disabled": false,
+      "fork": false,
+      "forks": 40,
+      "forks_count": 40,
+      "full_name": "joshpuckett/allo",
+      "has_readme": true,
+      "homepage": "https://allo.joshpuckett.me/",
+      "id": 1459063723,
+      "is_dual_use": false,
+      "is_hidden_gem": false,
+      "language": "Python",
+      "license": {
+        "key": "ofl-1.1",
+        "name": "SIL Open Font License 1.1",
+        "node_id": "MDc6TGljZW5zZTE3",
+        "spdx_id": "OFL-1.1",
+        "url": "https://api.github.com/licenses/ofl-1.1"
+      },
+      "media_urls": [
+        "https://raw.githubusercontent.com/joshpuckett/allo/main/documentation/readme-row1.png",
+        "https://raw.githubusercontent.com/joshpuckett/allo/main/documentation/readme-row2.png"
+      ],
+      "name": "allo",
+      "non_software_reason": "",
+      "open_issues": 6,
+      "open_issues_count": 6,
+      "owner_repo_count": 1,
+      "pushed_at": "2026-11-18T07:19:43Z",
+      "readme": "",
+      "readme_excerpt": "# Allo\n\nAllo is your friendly neighborhood typeface. It’s variable in weight and roundness, with proportions and curves\ndesigned to feel warm without being too cute and clear without being too cold. It’s a perfect companion out of the\nbox, and three variable axes and plenty of alternates let you tune its personality to exactly what you need.\n\nAllo is optimized for screens and interfaces, with an optical size that adjusts automatically between text and\ndisplay. And it’s packed with big little details: tabular figures, fractions, punctuation that lifts beside capitals,\narrows that appear when you type them, a host of alternates and symbols, as well as a true oblique in every weight.\n\n### [Type specimen at allo.joshpuckett.me →](https://allo.joshpuckett.me)\n\n<br>\n\n![Allo: the typeface, and its character set](documentation/readme-row1.png)\n![Allo: OpenType features, and interface icons and symbols](documentation/readme-row2.png)\n\n## Download\n\nGet `Allo-1.0.3.zip` from the [latest release](https://github.com/joshpuckett/allo/releases/latest):\n\n| Folder | Contents |\n|---|---|\n| `fonts/otf` | 18 static fonts, Thin to Black, each with an Oblique |\n| `fonts/variable` | `AlloVariable.ttf`: a",
+      "readme_len": 6263,
+      "repo_id": 1459063723,
+      "score": 43.78,
+      "score_parts": {
+        "acceleration": 0.5,
+        "acceleration_known": 0,
+        "acceleration_ratio": 0.0,
+        "age_days": 7.7,
+        "appeal": 0.13,
+        "burst": 0.593,
+        "community": 0.259,
+        "content": 0.389,
+        "corroboration": 0.407,
+        "external": 0.463,
+        "forks_measured": 1,
+        "forks_per_day": 5.22,
+        "forks_rate": 0.095,
+        "freshness": 0.111,
+        "growth": 0.704,
+        "growth_measured": 0,
+        "popularity": 0.519,
+        "reliability": 0.5,
+        "stars_per_day": 190.93
+      },
+      "source_name": "telegram:github_repos",
+      "sources": [
+        "telegram:github_repos"
+      ],
+      "star_history": [
+        [
+          "2026-11-23",
+          1462,
+          40
+        ]
+      ],
+      "stargazers_count": 1462,
+      "stars": 1462,
+      "topics": [],
+      "updated_at": "2026-11-23T09:03:33Z",
+      "url": "https://github.com/joshpuckett/allo"
+    },
+    {
+      "archived": false,
+      "contributors_count": 24,
+      "created_at": "2026-09-29T17:13:58Z",
+      "default_branch": "main",
+      "description": "Your always-on AI coworkers that move between text, calls, and Slack.",
+      "disabled": false,
+      "fork": false,
+      "forks": 986,
+      "forks_count": 986,
+      "full_name": "CopilotKit/OpenDots",
+      "has_readme": true,
+      "homepage": "https://www.copilotkit.ai/opendots",
+      "id": 1396117711,
+      "is_dual_use": false,
+      "is_hidden_gem": false,
+      "language": "TypeScript",
+      "license": {
+        "key": "mit",
+        "name": "MIT License",
+        "node_id": "MDc6TGljZW5zZTEz",
+        "spdx_id": "MIT",
+        "url": "https://api.github.com/licenses/mit"
+      },
+      "media_urls": [
+        "https://raw.githubusercontent.com/CopilotKit/OpenDots/main/docs/images/openbot-opendots-skin.png"
+      ],
+      "name": "OpenDots",
+      "non_software_reason": "",
+      "open_issues": 83,
+      "open_issues_count": 83,
+      "owner_repo_count": 1,
+      "pushed_at": "2026-11-22T09:54:44Z",
+      "readme": "",
+      "readme_excerpt": "<div align=\"center\">\n\n# OpenDots\n\n### Always-on AI coworkers that move between text, calls, and Slack.\n\n**An open-source template for persistent AI agents, each with its own computer. Available on Web and Mobile.**\n\nBuilt with [CopilotKit](https://github.com/CopilotKit/CopilotKit) and [AG-UI](https://docs.ag-ui.com/introduction). · [Get started](#get-started) · [Overview](#overview) · [Architecture](#architecture) · [Features](#features) · [Contributing](CONTRIBUTING.md)\n\n[![Also a skin in OpenBot](https://img.shields.io/badge/also%20a%20skin%20in-OpenBot-6430AB)](https://github.com/CopilotKit/OpenBot)\n[![CI](https://github.com/CopilotKit/OpenDots/actions/workflows/ci.yml/badge.svg)](https://github.com/CopilotKit/OpenDots/actions/workflows/ci.yml)\n[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE)\n![Alpha](https://img.shields.io/badge/status-alpha-orange.svg)\n\n<a href=\"https://trendshift.io/repositories/275323\" target=\"_blank\"><img src=\"https://trendshift.io/api/badge/trendshift/repositories/275323/daily?language=TypeScript\" alt=\"CopilotKit/OpenDots | Trendshift #2 TypeScript Repository Of The Day\" width=\"250\" height=\"55\"/></a>\n\nHost OpenDots on your ow",
+      "readme_len": 21632,
+      "repo_id": 1396117711,
+      "score": 42.71,
+      "score_parts": {
+        "acceleration": 0.5,
+        "acceleration_known": 0,
+        "acceleration_ratio": 0.0,
+        "age_days": 54.7,
+        "appeal": 0.13,
+        "burst": 0.074,
+        "community": 0.944,
+        "content": 0.389,
+        "corroboration": 0.407,
+        "external": 0.463,
+        "forks_measured": 1,
+        "forks_per_day": 18.04,
+        "forks_rate": 0.714,
+        "freshness": 0.222,
+        "growth": 0.333,
+        "growth_measured": 0,
+        "popularity": 0.852,
+        "reliability": 0.5,
+        "stars_per_day": 123.12
+      },
+      "source_name": "github_search",
+      "sources": [
+        "github_search"
+      ],
+      "star_history": [
+        [
+          "2026-11-23",
+          6731,
+          986
+        ]
+      ],
+      "stargazers_count": 6731,
+      "stars": 6731,
+      "topics": [],
+      "updated_at": "2026-11-23T08:54:31Z",
+      "url": "https://github.com/CopilotKit/OpenDots"
     },
     {
       "archived": false,
@@ -13177,27 +12970,27 @@
       "readme_excerpt": "<div align=\"center\">\n\n<img src=\"docs/banner.jpg\" alt=\"人像 + 姿势 + 服饰 = 成品\" width=\"900\">\n\n<sub>成品为用站内人像、姿势、服装作参考的 AI 生成示例；素材版权归原作者，见<a href=\"#致谢\">致谢</a>。</sub>\n\n<img src=\"docs/logo.svg\" width=\"72\" alt=\"衣姿 PoseWear\">\n\n# 衣姿 PoseWear\n\n姿势、服装、人像参考图库，附中英文提示词；用自己的 API Key，在浏览器里直接 AI 试穿。\n\n[![License: MIT](https://img.shields.io/badge/license-MIT-black)](LICENSE)\n[![Cloudflare Pages](https://img.shields.io/badge/Cloudflare-Pages-f38020?logo=cloudflare&logoColor=white)](https://pages.cloudflare.com/)\n[![在线体验](https://img.shields.io/badge/demo-posewear.pages.dev-ff2442)](https://posewear.pages.dev)\n[![GitHub stars](https://img.shields.io/github/stars/atuizz/posewear?style=flat&color=black)](https://github.com/atuizz/posewear/stargazers)\n\n[在线体验](https://posewear.pages.dev) · [功能](#功能) · [快速开始](#快速开始) · [部署](#部署) · [常见问题](#常见问题) · [English](README.en.md) · [日本語](README.ja.md)\n\n<img src=\"docs/home.jpg\" alt=\"首页截图\" width=\"900\">\n\n</div>\n\n## 简介\n\n衣姿是一个纯静态的参考图站点：十二套素材库都能直接浏览、搜索和复制提示词。挑中的服装和姿势可以带到试穿工作台，配上你自己的照片和模型 API，生成试穿图。\n\n不需要注册，也没有后端数据库。密钥、收藏和生成记录都只保存在你的浏览器里。\n\n## 功能\n\n| | |\n|---|---|\n| **素材库** | 姿势（多角度线稿）、深度姿势、服装（按季节和类型分类）、动画服装（动画风穿搭，含 CharaDB 并入部分）、人像（脸模参考，CC0），以及表情、发型、历代服装、场景、光影、道具、家具七个扩展库。每张图都有中文描述；",
       "readme_len": 9156,
       "repo_id": 1440131709,
-      "score": 43.03,
+      "score": 42.63,
       "score_parts": {
         "acceleration": 0.5,
         "acceleration_known": 0,
         "acceleration_ratio": 0.0,
         "age_days": 23.6,
-        "appeal": 0.056,
-        "burst": 0.537,
-        "community": 0.685,
-        "content": 0.963,
-        "corroboration": 0.444,
+        "appeal": 0.13,
+        "burst": 0.593,
+        "community": 0.611,
+        "content": 0.926,
+        "corroboration": 0.407,
         "external": 0.463,
         "forks_measured": 1,
         "forks_per_day": 17.34,
-        "forks_rate": 0.684,
-        "freshness": 0.556,
+        "forks_rate": 0.667,
+        "freshness": 0.593,
         "growth": 0.037,
         "growth_measured": 0,
-        "popularity": 0.704,
+        "popularity": 0.593,
         "reliability": 0.5,
-        "stars_per_day": 77.84
+        "stars_per_day": 77.82
       },
       "source_name": "github_search",
       "sources": [
@@ -13206,7 +12999,8 @@
       "star_history": [
         [
           "2026-11-23",
-          1823
+          1836,
+          409
         ]
       ],
       "stargazers_count": 1836,
@@ -13232,21 +13026,21 @@
     },
     {
       "archived": false,
-      "contributors_count": 21,
-      "created_at": "2026-11-04T06:14:04Z",
-      "default_branch": "dev",
-      "description": "Winc is built with Rust and its own rendering engine: it starts in 0.1 seconds and uses just 52 MB of memory with 100,000 lines open. Multiple cursors, find and replace, and side-by-side diffs are all there, and every keystroke and scroll responds instantly.",
+      "contributors_count": 5,
+      "created_at": "2026-11-10T10:46:56Z",
+      "default_branch": "main",
+      "description": "Humanoid whole-body motion tracking with one differentiable world model.",
       "disabled": false,
       "fork": false,
-      "forks": 131,
-      "forks_count": 131,
-      "full_name": "DEEIX-AI/Winc",
+      "forks": 163,
+      "forks_count": 163,
+      "full_name": "HybridRobotics/supermimic",
       "has_readme": true,
-      "homepage": "https://winc.si",
-      "id": 1445237330,
+      "homepage": "https://supermimic.github.io",
+      "id": 1452531582,
       "is_dual_use": false,
       "is_hidden_gem": false,
-      "language": "Rust",
+      "language": "Python",
       "license": {
         "key": "apache-2.0",
         "name": "Apache License 2.0",
@@ -13254,64 +13048,56 @@
         "spdx_id": "Apache-2.0",
         "url": "https://api.github.com/licenses/apache-2.0"
       },
-      "media_urls": [
-        "https://raw.githubusercontent.com/DEEIX-AI/Winc/dev/.github/assets/download-en.svg",
-        "https://raw.githubusercontent.com/DEEIX-AI/Winc/dev/crates/winc-app/assets/icon.svg"
-      ],
-      "name": "Winc",
+      "media_urls": [],
+      "name": "supermimic",
       "non_software_reason": "",
-      "open_issues": 30,
-      "open_issues_count": 30,
+      "open_issues": 27,
+      "open_issues_count": 27,
       "owner_repo_count": 1,
-      "pushed_at": "2026-11-23T08:59:28Z",
+      "pushed_at": "2026-11-21T09:53:00Z",
       "readme": "",
-      "readme_excerpt": "<p align=\"center\">\n  <img src=\"./crates/winc-app/assets/icon.svg\" alt=\"winc\" width=\"128\" />\n</p>\n\n<h1 align=\"center\">Winc</h1>\n\n<p align=\"center\">\n  A lighter, faster, more comfortable desktop editor.\n</p>\n\n<p align=\"center\">\n  English | <a href=\"./README.zh-CN.md\">简体中文</a>\n</p>\n\n<p align=\"center\">\n  <a href=\"https://winc.si\"><img alt=\"Website\" src=\"https://img.shields.io/badge/Website-winc.si-black\" /></a>\n  <a href=\"./LICENSE\"><img alt=\"License\" src=\"https://img.shields.io/badge/License-Apache%202.0-blue\" /></a>\n  <img alt=\"Rust\" src=\"https://img.shields.io/badge/Rust-2024-b7410e\" />\n  <img alt=\"Platforms\" src=\"https://img.shields.io/badge/Platforms-macOS%20%7C%20Linux%20%7C%20Windows-555\" />\n</p>\n\n<p align=\"center\">\n  <a href=\"https://winc.si/#download\"><img alt=\"Download Winc\" src=\"./.github/assets/download-en.svg\" /></a>\n</p>\n\n## Overview\n\nwinc is built with Rust and its own rendering engine: it starts in 0.1 seconds and uses just 52 MB\nof memory with 100,000 lines open. Multiple cursors, find and replace, and side-by-side diffs are\nall there, and every keystroke and scroll responds instantly.\n\n| Measure | Result |\n| --- | --- |\n| Cold start to first frame | 119 ms (median of ",
-      "readme_len": 8153,
-      "repo_id": 1445237330,
-      "score": 41.19,
+      "readme_excerpt": "# SuperMimic\n\n[Project page](https://supermimic.github.io) | [Paper](https://arxiv.org/abs/2610.28480)\n\nSuperMimic trains a humanoid whole-body motion tracker with one differentiable world model, built on [mjlab](https://github.com/mujocolab/mjlab).\n\n## Setup\n\nInstall [uv](https://docs.astral.sh/uv/):\n\n```bash\ncurl -LsSf https://astral.sh/uv/install.sh | sh\n```\n\nClone both repos as siblings:\n\n```bash\nmkdir supermimic_ws && cd supermimic_ws\ngit clone git@github.com:HybridRobotics/supermimic.git\ngit clone git@github.com:HybridRobotics/mjlab_research.git\ncd supermimic\n```\n\n## Usage\n\nAvailable task IDs:\n\n- `SuperMimic-GenCoord-G1` — generalized coordinates representation\n- `SuperMimic-MaxCoord-G1` — maximal coordinates representation\n\nTrain a world model and policy:\n\n```bash\nCUDA_VISIBLE_DEVICES=<GPU_ID> uv run src/supermimic/scripts/train.py \\\n  <TASK_ID> --runner.run_name <description>\n```\n\nPlay back a trained model:\n\n```bash\nuv run src/supermimic/scripts/play.py \\\n  <TASK_ID> --wandb-path <RUN_PATH>\n```\n\n## Acknowledgements\n\nSuperMimic contains code inspired by these projects:\n\n- [ControlVAE](https://github.com/heyuanYao-pku/Control-VAE) (BSD-3-Clause)\n- [robotic_world_model](https:",
+      "readme_len": 1423,
+      "repo_id": 1452531582,
+      "score": 42.53,
       "score_parts": {
         "acceleration": 0.5,
         "acceleration_known": 0,
         "acceleration_ratio": 0.0,
-        "age_days": 19.1,
-        "appeal": 0.315,
-        "burst": 0.537,
-        "community": 0.889,
-        "content": 0.852,
-        "corroboration": 0.444,
+        "age_days": 12.9,
+        "appeal": 0.13,
+        "burst": 0.593,
+        "community": 0.444,
+        "content": 0.0,
+        "corroboration": 0.926,
         "external": 0.463,
         "forks_measured": 1,
-        "forks_per_day": 6.85,
-        "forks_rate": 0.105,
-        "freshness": 0.889,
-        "growth": 0.0,
+        "forks_per_day": 12.6,
+        "forks_rate": 0.476,
+        "freshness": 0.185,
+        "growth": 0.444,
         "growth_measured": 0,
-        "popularity": 0.519,
+        "popularity": 0.704,
         "reliability": 0.5,
-        "stars_per_day": 57.16
+        "stars_per_day": 152.16
       },
       "source_name": "github_search",
       "sources": [
-        "github_search"
+        "github_search",
+        "telegram:gitbless"
       ],
       "star_history": [
         [
           "2026-11-23",
-          1093,
-          131
+          1969,
+          163
         ]
       ],
-      "stargazers_count": 1093,
-      "stars": 1093,
-      "topics": [
-        "editor",
-        "git",
-        "ide",
-        "rust",
-        "terminal"
-      ],
-      "updated_at": "2026-11-23T09:07:08Z",
-      "url": "https://github.com/DEEIX-AI/Winc"
+      "stargazers_count": 1969,
+      "stars": 1969,
+      "topics": [],
+      "updated_at": "2026-11-23T08:48:45Z",
+      "url": "https://github.com/HybridRobotics/supermimic"
     },
     {
       "archived": false,
@@ -13357,27 +13143,27 @@
       "readme_excerpt": "# PRINTFILM\n\n**Languages:** [中文](README.md) | [English](README_EN.md)\n\n[![GitHub stars](https://img.shields.io/github/stars/yi1108/printfilm?style=social)](https://github.com/yi1108/printfilm)\n[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)\n\n> **把故事做成能播的片子** — AI 漫剧与 AI 短视频，从文案到成片。\n\n分步短视频创作：创作设置 → 文案与分镜 → 参考图生图 → 图生视频 → 合成预览。新建默认 AI 视频、3D 动画画风、9:16 竖屏、约 60 秒，也可选择静图成片，各阶段检查与编辑后再继续制作。\n\n**源码**：[github.com/yi1108/printfilm](https://github.com/yi1108/printfilm) · **版本** 0.2.0\n\n## 界面预览\n\n**工作台**\n\n![工作台](docs/images/image-20260910-home.png)\n\n**AI 短视频** — 历史、分镜、成片\n\n| 项目历史 | 分镜工作台 | 成片预览 |\n|:---:|:---:|:---:|\n| ![科普历史](docs/images/image-20260910-history.png) | ![分镜工作台](docs/images/image-20260910-studio.png) | ![成片预览](docs/images/image-20260910-preview.png) |\n\n**AI 漫剧** — 项目、分集、剧本、分镜、资产\n\n| 项目列表 | 分集工作台 | 剧本解析 |\n|:---:|:---:|:---:|\n| ![漫剧项目列表](docs/images/image-20260917-drama-list.png) | ![分集工作台](docs/images/image-20260917-drama-episode.png) | ![剧本解析](docs/images/image-20260917-drama-script.png) |\n\n| 分镜编辑 | 资产库 | 管理后台 |\n|:---:|:---:|:---:|\n| ![分镜编辑](docs/images/image-20260917-drama-storyboard.png) | ![漫剧资产库](docs/images/image-20260917-drama-assets.png) | ![管理后台]",
       "readme_len": 7396,
       "repo_id": 1363417187,
-      "score": 39.22,
+      "score": 40.87,
       "score_parts": {
         "acceleration": 0.5,
         "acceleration_known": 0,
         "acceleration_ratio": 0.0,
         "age_days": 74.3,
-        "appeal": 0.315,
-        "burst": 0.019,
-        "community": 0.63,
-        "content": 0.796,
-        "corroboration": 0.444,
+        "appeal": 0.407,
+        "burst": 0.074,
+        "community": 0.556,
+        "content": 0.759,
+        "corroboration": 0.407,
         "external": 0.463,
         "forks_measured": 1,
         "forks_per_day": 11.24,
-        "forks_rate": 0.211,
-        "freshness": 0.667,
-        "growth": 0.074,
+        "forks_rate": 0.238,
+        "freshness": 0.741,
+        "growth": 0.111,
         "growth_measured": 0,
-        "popularity": 0.926,
+        "popularity": 0.889,
         "reliability": 0.5,
-        "stars_per_day": 96.67
+        "stars_per_day": 96.66
       },
       "source_name": "github_search",
       "sources": [
@@ -13386,7 +13172,8 @@
       "star_history": [
         [
           "2026-11-23",
-          7184
+          7182,
+          835
         ]
       ],
       "stargazers_count": 7182,
@@ -13439,27 +13226,27 @@
       "readme_excerpt": "<p align=\"center\"><img src=\"assets/banner.png\" alt=\"PyBot: no weights, no training, just rules\" width=\"100%\"></p>\n\n<div align=\"center\">\n  <a href=\"https://huggingface.co/spaces/HuggingFaceSwarms/PyBot\" target=\"_blank\">\n    <img alt=\"Hugging Face Space: PyBot demo\" src=\"https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Demo-ffc107?color=ffc107&logoColor=white\" />\n  </a>\n</div>\n\n# PyBot: can Python be a chatbot?\n\nLLMs drive today’s chatbots and agents, but chatbots long predate them. Sixty years ago, [ELIZA](https://en.wikipedia.org/wiki/ELIZA) held conversations by matching patterns in what the user typed and answering with predefined templates. It could seem insightful, but its repertoire was narrow, and expanding it meant writing more rules by hand. How far could a rule-based chatbot go if a swarm of agents did that work instead?\n\nWe challenged a swarm of over 1,000 agents to build a chatbot entirely in Python: no weights, no training, just if-else branches, regex patterns and lookup tables. The agents wrote and evaluated over 5,000 versions, and the chatbot’s win rate on [SmolTalkBench](https://huggingface.co/datasets/HuggingFaceSwarms/SmolTalkBench), where an LLM judge ",
       "readme_len": 5107,
       "repo_id": 1455216001,
-      "score": 37.35,
+      "score": 39.29,
       "score_parts": {
         "acceleration": 0.5,
         "acceleration_known": 0,
         "acceleration_ratio": 0.0,
         "age_days": 10.9,
-        "appeal": 0.315,
-        "burst": 0.537,
-        "community": 0.685,
-        "content": 0.111,
-        "corroboration": 0.963,
+        "appeal": 0.407,
+        "burst": 0.593,
+        "community": 0.611,
+        "content": 0.148,
+        "corroboration": 0.926,
         "external": 0.963,
         "forks_measured": 1,
-        "forks_per_day": 11.65,
-        "forks_rate": 0.263,
+        "forks_per_day": 11.64,
+        "forks_rate": 0.286,
         "freshness": 0.0,
-        "growth": 0.111,
+        "growth": 0.185,
         "growth_measured": 0,
-        "popularity": 0.556,
+        "popularity": 0.407,
         "reliability": 0.5,
-        "stars_per_day": 103.48
+        "stars_per_day": 103.43
       },
       "source_name": "hacker_news",
       "sources": [
@@ -13469,7 +13256,8 @@
       "star_history": [
         [
           "2026-11-23",
-          1127
+          1128,
+          127
         ]
       ],
       "stargazers_count": 1128,
@@ -13477,6 +13265,173 @@
       "topics": [],
       "updated_at": "2026-11-23T07:42:03Z",
       "url": "https://github.com/huggingface/pybot"
+    },
+    {
+      "archived": false,
+      "contributors_count": 46,
+      "created_at": "2026-08-31T01:39:18Z",
+      "default_branch": "main",
+      "description": "Infrastructure for continually self‑improving agents",
+      "disabled": false,
+      "fork": false,
+      "forks": 733,
+      "forks_count": 733,
+      "full_name": "Human-Agent-Society/reef",
+      "has_readme": true,
+      "homepage": "https://reefinfra.ai",
+      "id": 1351879111,
+      "is_dual_use": false,
+      "is_hidden_gem": false,
+      "language": "Python",
+      "license": {
+        "key": "apache-2.0",
+        "name": "Apache License 2.0",
+        "node_id": "MDc6TGljZW5zZTI=",
+        "spdx_id": "Apache-2.0",
+        "url": "https://api.github.com/licenses/apache-2.0"
+      },
+      "media_urls": [
+        "https://raw.githubusercontent.com/Human-Agent-Society/reef/main/docs/assets/loop-animation-light.svg",
+        "https://raw.githubusercontent.com/Human-Agent-Society/reef/main/docs/assets/architecture-light.svg",
+        "https://raw.githubusercontent.com/Human-Agent-Society/reef/main/docs/assets/reef-logo-light.svg"
+      ],
+      "name": "reef",
+      "non_software_reason": "",
+      "open_issues": 205,
+      "open_issues_count": 205,
+      "owner_repo_count": 1,
+      "pushed_at": "2026-11-23T05:00:58Z",
+      "readme": "",
+      "readme_excerpt": "<div align=\"center\">\n\n<picture>\n  <source media=\"(prefers-color-scheme: dark)\" srcset=\"docs/assets/reef-logo-dark.svg\">\n  <img src=\"docs/assets/reef-logo-light.svg\" alt=\"Reef\" width=\"220\">\n</picture>\n\n<h3>Infrastructure for continually self‑improving agents</h3>\n\n[![CI](https://github.com/Human-Agent-Society/reef/actions/workflows/ci.yml/badge.svg)](https://github.com/Human-Agent-Society/reef/actions/workflows/ci.yml)\n[![PyPI package: reef-infra](https://img.shields.io/pypi/v/reef-infra?label=PyPI%3A%20reef-infra&logo=pypi&logoColor=white)](https://pypi.org/project/reef-infra/)\n[![Python](https://img.shields.io/badge/python-3.12%2B-3776AB?logo=python&logoColor=white)](pyproject.toml)\n[![License](https://img.shields.io/badge/license-Apache--2.0-green)](LICENSE)\n\n<a href=\"https://trendshift.io/repositories/204783?utm_source=trendshift-badge&amp;utm_medium=badge&amp;utm_campaign=badge-trendshift-204783\" target=\"_blank\" rel=\"noopener noreferrer\"><img src=\"https://trendshift.io/api/badge/trendshift/repositories/204783/daily?language=Python\" alt=\"Human-Agent-Society%2Freef | Trendshift\" width=\"250\" height=\"55\"/></a>\n\nEnglish | [中文](README.zh.md)\n\n<div align=\"left\">\n\nReef is the first ope",
+      "readme_len": 21372,
+      "repo_id": 1351879111,
+      "score": 38.38,
+      "score_parts": {
+        "acceleration": 0.5,
+        "acceleration_known": 0,
+        "acceleration_ratio": 0.0,
+        "age_days": 84.3,
+        "appeal": 0.13,
+        "burst": 0.074,
+        "community": 0.889,
+        "content": 0.926,
+        "corroboration": 0.407,
+        "external": 0.463,
+        "forks_measured": 1,
+        "forks_per_day": 8.69,
+        "forks_rate": 0.143,
+        "freshness": 0.481,
+        "growth": 0.074,
+        "growth_measured": 0,
+        "popularity": 0.926,
+        "reliability": 0.5,
+        "stars_per_day": 90.63
+      },
+      "source_name": "github_search",
+      "sources": [
+        "github_search"
+      ],
+      "star_history": [
+        [
+          "2026-11-23",
+          7642,
+          733
+        ]
+      ],
+      "stargazers_count": 7642,
+      "stars": 7642,
+      "topics": [
+        "agent-infrastructure",
+        "ai-agents",
+        "continual-learning",
+        "inference",
+        "llm",
+        "llm-training",
+        "reinforcement-learning",
+        "self-improving-agents"
+      ],
+      "updated_at": "2026-11-23T08:40:24Z",
+      "url": "https://github.com/Human-Agent-Society/reef"
+    },
+    {
+      "archived": false,
+      "contributors_count": 6,
+      "created_at": "2026-11-14T16:02:56Z",
+      "default_branch": "main",
+      "description": "A 4.5M-parameter two-voice English text-to-speech model, trained from scratch",
+      "disabled": false,
+      "fork": false,
+      "forks": 105,
+      "forks_count": 105,
+      "full_name": "n4ze3m/tiny-voca",
+      "has_readme": true,
+      "homepage": "https://tiny-voca.n4ze3m.com",
+      "id": 1457919852,
+      "is_dual_use": false,
+      "is_hidden_gem": false,
+      "language": "Python",
+      "license": {
+        "key": "apache-2.0",
+        "name": "Apache License 2.0",
+        "node_id": "MDc6TGljZW5zZTI=",
+        "spdx_id": "Apache-2.0",
+        "url": "https://api.github.com/licenses/apache-2.0"
+      },
+      "media_urls": [
+        "https://raw.githubusercontent.com/n4ze3m/tiny-voca/main/docs/cost.png"
+      ],
+      "name": "tiny-voca",
+      "non_software_reason": "",
+      "open_issues": 2,
+      "open_issues_count": 2,
+      "owner_repo_count": 1,
+      "pushed_at": "2026-11-23T07:35:33Z",
+      "readme": "",
+      "readme_excerpt": "# tiny-voca\n\ntiny-voca is a small English text-to-speech model. It has two voices, 4.5M\nparameters, and runs on a CPU or in the browser.\n\n[Demo](https://tiny-voca.n4ze3m.com) · [Weights](https://huggingface.co/n4ze3m/tiny-voca) · [Dataset](https://huggingface.co/datasets/n4ze3m/tiny-voca)\n\n## Features\n\n- **Small**: 4,537,291 parameters, 18 MB, waveform generator included.\n- **Fast**: about 70x real time on four CPU threads.\n- **Two voices**: F2 (female) and M2 (male), American English, 24 kHz.\n- **Runs anywhere**: PyTorch, ONNX Runtime, and ONNX Runtime Web.\n- **Open**: code, weights, training recipe and dataset. Trained from scratch.\n\n## Install\n\n```bash\ngit clone https://github.com/n4ze3m/tiny-voca.git\ncd tiny-voca\npip install -e \".[own]\"\nhf download n4ze3m/tiny-voca --local-dir weights\nexport DIZIONE_DATA=weights/phonemizer\n```\n\n## Usage\n\n```bash\npython -m tiny_voca.infer \\\n  --checkpoint weights/tiny-voca.pt \\\n  --voice F2 \\\n  --text \"Hello! This is tiny voca.\" \\\n  --output hello.wav\n```\n\n| Option | Default | Meaning |\n|---|---|---|\n| `--text-file` | | Read the text from a file instead of `--text` |\n| `--voice` | `F2` | `F2` or `M2` |\n| `--speed` | 1.0 | Speaking rate |\n| `--pi",
+      "readme_len": 11924,
+      "repo_id": 1457919852,
+      "score": 38.17,
+      "score_parts": {
+        "acceleration": 0.5,
+        "acceleration_known": 0,
+        "acceleration_ratio": 0.0,
+        "age_days": 8.7,
+        "appeal": 0.13,
+        "burst": 0.593,
+        "community": 0.667,
+        "content": 0.444,
+        "corroboration": 0.407,
+        "external": 0.463,
+        "forks_measured": 1,
+        "forks_per_day": 12.04,
+        "forks_rate": 0.333,
+        "freshness": 0.667,
+        "growth": 0.148,
+        "growth_measured": 0,
+        "popularity": 0.296,
+        "reliability": 0.5,
+        "stars_per_day": 99.65
+      },
+      "source_name": "telegram:github_repos",
+      "sources": [
+        "telegram:github_repos"
+      ],
+      "star_history": [
+        [
+          "2026-11-23",
+          868,
+          105
+        ]
+      ],
+      "stargazers_count": 869,
+      "stars": 869,
+      "topics": [
+        "onnx",
+        "text-to-speech",
+        "tts"
+      ],
+      "updated_at": "2026-11-23T09:11:47Z",
+      "url": "https://github.com/n4ze3m/tiny-voca"
     }
   ],
   "rumour_memory": {
@@ -13583,7 +13538,7 @@
       "first_seen_at": "2026-11-23T00:26:52.204309Z",
       "full_name": "0xkaka/homeport",
       "last_decision": "rejected:no_license,readme_not_english",
-      "last_seen_at": "2026-11-23T07:27:13.652330Z",
+      "last_seen_at": "2026-11-23T09:20:23.463829Z",
       "repo_id": 1460965754,
       "sources": [
         "telegram:github_repos"
@@ -13591,7 +13546,8 @@
       "star_history": [
         [
           "2026-11-23",
-          623
+          625,
+          113
         ]
       ]
     },
@@ -13696,7 +13652,7 @@
       "first_seen_at": "2026-11-23T00:26:52.180291Z",
       "full_name": "90Shafkat/ifunbox",
       "last_decision": "rejected:lookalike_installer:topic:ifunbox-download-iphone-file-manager",
-      "last_seen_at": "2026-11-23T09:11:41.117165Z",
+      "last_seen_at": "2026-11-23T09:20:23.443963Z",
       "repo_id": 1466626942,
       "sources": [
         "github_search"
@@ -13723,7 +13679,7 @@
       "first_seen_at": "2026-11-21T00:25:24.815760Z",
       "full_name": "aarush-io/melo",
       "last_decision": "queued",
-      "last_seen_at": "2026-11-23T09:11:41.131643Z",
+      "last_seen_at": "2026-11-23T09:20:23.458525Z",
       "repo_id": 1456784795,
       "sources": [
         "telegram:open_source_friend"
@@ -13771,7 +13727,7 @@
       "first_seen_at": "2026-11-23T00:26:52.180652Z",
       "full_name": "adhamslim/phpstorm-desktop-edition",
       "last_decision": "rejected:lookalike_installer:topic:jetbrains-phpstorm-install-setup-2026",
-      "last_seen_at": "2026-11-23T09:11:41.115798Z",
+      "last_seen_at": "2026-11-23T09:20:23.442567Z",
       "repo_id": 1466708397,
       "sources": [
         "github_search"
@@ -13799,7 +13755,7 @@
       "first_seen_at": "2026-11-23T00:26:52.175911Z",
       "full_name": "adventists-ai/sophon-realtime",
       "last_decision": "queued",
-      "last_seen_at": "2026-11-23T09:11:41.114735Z",
+      "last_seen_at": "2026-11-23T09:20:23.441771Z",
       "repo_id": 1446277821,
       "sources": [
         "github_search"
@@ -13836,7 +13792,7 @@
       "first_seen_at": "2026-11-13T00:25:41.056543Z",
       "full_name": "agentes-chat/agentes-chat",
       "last_decision": "queued",
-      "last_seen_at": "2026-11-23T09:11:41.098806Z",
+      "last_seen_at": "2026-11-23T09:20:23.426920Z",
       "repo_id": 1450794567,
       "sources": [
         "github_search",
@@ -14002,7 +13958,7 @@
       "first_seen_at": "2026-11-03T11:59:59.691658Z",
       "full_name": "alchaincyf/huashu-art-motion",
       "last_decision": "rejected:description_not_english",
-      "last_seen_at": "2026-11-23T09:11:41.115058Z",
+      "last_seen_at": "2026-11-23T09:20:23.441361Z",
       "repo_id": 1406706284,
       "sources": [
         "github_search"
@@ -14011,7 +13967,7 @@
         [
           "2026-11-23",
           7501,
-          738
+          737
         ]
       ]
     },
@@ -14188,7 +14144,7 @@
       "first_seen_at": "2026-11-05T12:27:48.456522Z",
       "full_name": "andyhuo520/digital-human-koubo",
       "last_decision": "queued",
-      "last_seen_at": "2026-11-23T09:11:41.120896Z",
+      "last_seen_at": "2026-11-23T09:20:23.447619Z",
       "repo_id": 1433904617,
       "sources": [
         "github_search"
@@ -14235,7 +14191,7 @@
       "first_seen_at": "2026-11-04T12:14:31.125892Z",
       "full_name": "anhao/ai-pose-gallery-zh",
       "last_decision": "rejected:no_license,description_not_english,readme_not_english",
-      "last_seen_at": "2026-11-23T09:11:41.097673Z",
+      "last_seen_at": "2026-11-23T09:20:23.425825Z",
       "repo_id": 1435695423,
       "sources": [
         "github_search"
@@ -14243,8 +14199,8 @@
       "star_history": [
         [
           "2026-11-23",
-          7900,
-          2052
+          7901,
+          2051
         ]
       ]
     },
@@ -14272,7 +14228,7 @@
       "first_seen_at": "2026-11-08T04:25:24.764068Z",
       "full_name": "anomalyco/rune",
       "last_decision": "queued",
-      "last_seen_at": "2026-11-23T09:11:41.128245Z",
+      "last_seen_at": "2026-11-23T09:20:23.452724Z",
       "repo_id": 1429303647,
       "sources": [
         "github_search",
@@ -14400,7 +14356,7 @@
       "first_seen_at": "2026-11-23T09:11:41.121581Z",
       "full_name": "AR-Tokee/autodesk-revit",
       "last_decision": "queued",
-      "last_seen_at": "2026-11-23T09:11:41.121583Z",
+      "last_seen_at": "2026-11-23T09:20:23.448271Z",
       "repo_id": 1466551152,
       "sources": [
         "github_search"
@@ -14601,7 +14557,7 @@
       "first_seen_at": "2026-11-23T00:26:52.178132Z",
       "full_name": "atuizz/posewear",
       "last_decision": "queued",
-      "last_seen_at": "2026-11-23T09:11:41.103886Z",
+      "last_seen_at": "2026-11-23T09:20:23.431766Z",
       "repo_id": 1440131709,
       "sources": [
         "github_search"
@@ -14885,8 +14841,8 @@
     "bishmendark123/frp-launch-tool": {
       "first_seen_at": "2026-11-23T00:26:52.192032Z",
       "full_name": "Bishmendark123/frp-launch-tool",
-      "last_decision": "queued",
-      "last_seen_at": "2026-11-23T09:11:41.118919Z",
+      "last_decision": "rejected:lookalike_installer:topic:unlock-phone",
+      "last_seen_at": "2026-11-23T09:20:23.446411Z",
       "repo_id": 1466608904,
       "sources": [
         "github_search"
@@ -14903,7 +14859,7 @@
       "first_seen_at": "2026-11-23T09:11:41.113980Z",
       "full_name": "blessingc185/advanced-systemcare-pro-win",
       "last_decision": "rejected:no_license,no_community",
-      "last_seen_at": "2026-11-23T09:11:41.113983Z",
+      "last_seen_at": "2026-11-23T09:20:23.440710Z",
       "repo_id": 1466720985,
       "sources": [
         "github_search"
@@ -14956,7 +14912,7 @@
       "first_seen_at": "2026-11-22T00:25:30.715177Z",
       "full_name": "Bodila51/gtavi-claudecode",
       "last_decision": "rejected:no_license,no_push_date,no_community,no_readme,stars<100",
-      "last_seen_at": "2026-11-23T09:11:41.135911Z",
+      "last_seen_at": "2026-11-23T09:20:23.462466Z",
       "repo_id": null,
       "sources": [
         "telegram:github_repos"
@@ -14998,7 +14954,7 @@
       "first_seen_at": "2026-11-20T00:25:29.414010Z",
       "full_name": "boringmarketer/boring-marketing-skills",
       "last_decision": "queued",
-      "last_seen_at": "2026-11-23T09:11:41.137350Z",
+      "last_seen_at": "2026-11-23T09:20:23.463607Z",
       "repo_id": 1460180740,
       "sources": [
         "github_search",
@@ -15036,7 +14992,7 @@
       "first_seen_at": "2026-11-23T07:27:13.629817Z",
       "full_name": "bozkurthasan/marmoset-toolbag-5-win",
       "last_decision": "rejected:no_license,no_community",
-      "last_seen_at": "2026-11-23T09:11:41.107881Z",
+      "last_seen_at": "2026-11-23T09:20:23.436865Z",
       "repo_id": 1466651695,
       "sources": [
         "github_search"
@@ -15069,7 +15025,7 @@
       "first_seen_at": "2026-11-21T00:25:24.816170Z",
       "full_name": "breakbuffaloaqueduct/movavi-photo-editor",
       "last_decision": "rejected:no_license,no_push_date,no_community,no_readme,stars<100",
-      "last_seen_at": "2026-11-23T09:11:41.134750Z",
+      "last_seen_at": "2026-11-23T09:20:23.461586Z",
       "repo_id": null,
       "sources": [
         "telegram:gitbless"
@@ -15131,7 +15087,7 @@
       "first_seen_at": "2026-11-23T09:11:41.109478Z",
       "full_name": "cacheapp2003/microsoft-office-win",
       "last_decision": "rejected:no_license,no_community",
-      "last_seen_at": "2026-11-23T09:11:41.109480Z",
+      "last_seen_at": "2026-11-23T09:20:23.436533Z",
       "repo_id": 1466669418,
       "sources": [
         "github_search"
@@ -15139,7 +15095,7 @@
       "star_history": [
         [
           "2026-11-23",
-          432,
+          434,
           0
         ]
       ]
@@ -15178,10 +15134,17 @@
       "first_seen_at": "2026-11-14T00:25:22.290928Z",
       "full_name": "callstack/agent-device",
       "last_decision": "queued",
-      "last_seen_at": "2026-11-14T00:25:22.290931Z",
+      "last_seen_at": "2026-11-23T09:20:23.455102Z",
       "repo_id": 1146193768,
       "sources": [
         "github_search"
+      ],
+      "star_history": [
+        [
+          "2026-11-23",
+          5491,
+          424
+        ]
       ]
     },
     "caru-ini/stack-diagram": {
@@ -15200,7 +15163,7 @@
       "first_seen_at": "2026-11-23T07:27:13.626858Z",
       "full_name": "castro-vivek-31/rhino-8-win",
       "last_decision": "rejected:no_license,no_community",
-      "last_seen_at": "2026-11-23T07:27:13.626859Z",
+      "last_seen_at": "2026-11-23T09:20:23.437471Z",
       "repo_id": 1466670082,
       "sources": [
         "github_search"
@@ -15208,7 +15171,8 @@
       "star_history": [
         [
           "2026-11-23",
-          417
+          432,
+          0
         ]
       ]
     },
@@ -15277,7 +15241,7 @@
       "first_seen_at": "2026-11-23T00:26:52.169179Z",
       "full_name": "chadyi/StudyOnTV",
       "last_decision": "rejected:no_license,not_software:topic:learning",
-      "last_seen_at": "2026-11-23T09:11:41.101593Z",
+      "last_seen_at": "2026-11-23T09:20:23.429506Z",
       "repo_id": 1441959881,
       "sources": [
         "github_search"
@@ -15314,7 +15278,7 @@
       "first_seen_at": "2026-11-23T09:11:41.114321Z",
       "full_name": "Chowdhurymary/microsoft-office-premium-win",
       "last_decision": "rejected:no_license,no_community",
-      "last_seen_at": "2026-11-23T09:11:41.114323Z",
+      "last_seen_at": "2026-11-23T09:20:23.441048Z",
       "repo_id": 1466691807,
       "sources": [
         "github_search"
@@ -15368,7 +15332,7 @@
       "first_seen_at": "2026-11-20T00:25:29.413712Z",
       "full_name": "chuanqisun/spaceship",
       "last_decision": "queued",
-      "last_seen_at": "2026-11-23T09:11:41.134412Z",
+      "last_seen_at": "2026-11-23T09:20:23.461253Z",
       "repo_id": 1460149071,
       "sources": [
         "github_search",
@@ -15474,7 +15438,7 @@
       "first_seen_at": "2026-11-03T11:59:59.682051Z",
       "full_name": "CopilotKit/OpenDots",
       "last_decision": "queued",
-      "last_seen_at": "2026-11-23T09:11:41.127660Z",
+      "last_seen_at": "2026-11-23T09:20:23.453890Z",
       "repo_id": 1396117711,
       "sources": [
         "github_search"
@@ -15531,7 +15495,7 @@
       "first_seen_at": "2026-11-23T09:11:41.110154Z",
       "full_name": "craign03/pioneer-dj-rekordbox-win",
       "last_decision": "rejected:no_license,no_community",
-      "last_seen_at": "2026-11-23T09:11:41.110157Z",
+      "last_seen_at": "2026-11-23T09:20:23.438385Z",
       "repo_id": 1466559281,
       "sources": [
         "github_search"
@@ -15638,7 +15602,7 @@
       "first_seen_at": "2026-11-15T00:27:15.369927Z",
       "full_name": "CzJam/gjgjxweb",
       "last_decision": "queued",
-      "last_seen_at": "2026-11-23T09:11:41.128492Z",
+      "last_seen_at": "2026-11-23T09:20:23.454737Z",
       "repo_id": 1443699236,
       "sources": [
         "github_search",
@@ -15656,7 +15620,7 @@
       "first_seen_at": "2026-11-23T00:26:52.181359Z",
       "full_name": "CzzzzzzJ/mdldm-maitian",
       "last_decision": "rejected:description_not_english",
-      "last_seen_at": "2026-11-23T09:11:41.099132Z",
+      "last_seen_at": "2026-11-23T09:20:23.427234Z",
       "repo_id": 1457362196,
       "sources": [
         "github_search"
@@ -15664,8 +15628,8 @@
       "star_history": [
         [
           "2026-11-23",
-          1905,
-          547
+          1906,
+          548
         ]
       ]
     },
@@ -15702,8 +15666,8 @@
     "dakshusonani7-ship-it/ultraedit-editor": {
       "first_seen_at": "2026-11-23T07:27:13.635889Z",
       "full_name": "dakshusonani7-ship-it/ultraedit-editor",
-      "last_decision": "queued",
-      "last_seen_at": "2026-11-23T09:11:41.118248Z",
+      "last_decision": "rejected:lookalike_installer:topic:ultra-edit-crack",
+      "last_seen_at": "2026-11-23T09:20:23.445001Z",
       "repo_id": 1466780367,
       "sources": [
         "github_search"
@@ -15770,7 +15734,7 @@
       "first_seen_at": "2026-11-04T12:14:31.153743Z",
       "full_name": "daveebbelaar/bama",
       "last_decision": "queued",
-      "last_seen_at": "2026-11-23T09:11:41.126150Z",
+      "last_seen_at": "2026-11-23T09:20:23.452194Z",
       "repo_id": 1431986839,
       "sources": [
         "github_search",
@@ -15882,7 +15846,7 @@
       "first_seen_at": "2026-11-23T00:26:52.186199Z",
       "full_name": "deepaksilva/u-he-hive-2-win",
       "last_decision": "rejected:no_license,no_community",
-      "last_seen_at": "2026-11-23T09:11:41.108566Z",
+      "last_seen_at": "2026-11-23T09:20:23.435299Z",
       "repo_id": 1466712546,
       "sources": [
         "github_search"
@@ -15890,7 +15854,7 @@
       "star_history": [
         [
           "2026-11-23",
-          432,
+          433,
           0
         ]
       ]
@@ -16176,7 +16140,7 @@
       "first_seen_at": "2026-11-23T00:26:52.200665Z",
       "full_name": "Dopethedev/omma",
       "last_decision": "rejected:no_community,stars<100",
-      "last_seen_at": "2026-11-23T09:11:41.133658Z",
+      "last_seen_at": "2026-11-23T09:20:23.460523Z",
       "repo_id": 1455328999,
       "sources": [
         "telegram:open_source_friend"
@@ -16458,7 +16422,7 @@
       "first_seen_at": "2026-11-23T07:27:13.649826Z",
       "full_name": "elyxis777/verto",
       "last_decision": "rejected:no_license,stars<100",
-      "last_seen_at": "2026-11-23T09:11:41.133905Z",
+      "last_seen_at": "2026-11-23T09:20:23.460747Z",
       "repo_id": 1308036057,
       "sources": [
         "telegram:open_source_friend"
@@ -16670,7 +16634,7 @@
       "first_seen_at": "2026-11-23T00:26:52.200305Z",
       "full_name": "evoluteur/maze-maker",
       "last_decision": "rejected:no_community,stars<100",
-      "last_seen_at": "2026-11-23T09:11:41.133347Z",
+      "last_seen_at": "2026-11-23T09:20:23.460212Z",
       "repo_id": 1386902465,
       "sources": [
         "telegram:open_source_friend"
@@ -16687,7 +16651,7 @@
       "first_seen_at": "2026-11-23T07:27:13.638444Z",
       "full_name": "expertkingflow-sys/burning-studio",
       "last_decision": "rejected:lookalike_installer:topic:ashampoo-burn-install-setup-windows-2026",
-      "last_seen_at": "2026-11-23T09:11:41.122236Z",
+      "last_seen_at": "2026-11-23T09:20:23.448591Z",
       "repo_id": 1466526728,
       "sources": [
         "github_search"
@@ -16735,7 +16699,7 @@
       "first_seen_at": "2026-11-23T09:11:41.104224Z",
       "full_name": "FadiHarris80/fusion-360-win",
       "last_decision": "rejected:no_license,no_community",
-      "last_seen_at": "2026-11-23T09:11:41.104227Z",
+      "last_seen_at": "2026-11-23T09:20:23.432105Z",
       "repo_id": 1466650931,
       "sources": [
         "github_search"
@@ -16987,6 +16951,23 @@
         "telegram:open_source_friend"
       ]
     },
+    "freerealstudio/figma-desktop-win": {
+      "first_seen_at": "2026-11-23T09:20:23.432474Z",
+      "full_name": "freerealstudio/figma-desktop-win",
+      "last_decision": "rejected:no_license,no_community",
+      "last_seen_at": "2026-11-23T09:20:23.432476Z",
+      "repo_id": 1466691523,
+      "sources": [
+        "github_search"
+      ],
+      "star_history": [
+        [
+          "2026-11-23",
+          432,
+          0
+        ]
+      ]
+    },
     "frequencyglustrip/photo-commander": {
       "first_seen_at": "2026-11-03T11:59:59.695640Z",
       "full_name": "Frequencyglustrip/photo-commander",
@@ -17032,10 +17013,17 @@
       "first_seen_at": "2026-11-23T00:26:52.170639Z",
       "full_name": "G4rdner26/luminar-neo-win",
       "last_decision": "rejected:no_license,no_community",
-      "last_seen_at": "2026-11-23T00:26:52.170642Z",
+      "last_seen_at": "2026-11-23T09:20:23.429858Z",
       "repo_id": 1466770770,
       "sources": [
         "github_search"
+      ],
+      "star_history": [
+        [
+          "2026-11-23",
+          433,
+          0
+        ]
       ]
     },
     "gacktadactle/fortnite-skin-swapper-enhancement": {
@@ -17061,8 +17049,8 @@
     "gasserfarag60-droid/multiple-monitors-tool": {
       "first_seen_at": "2026-11-23T07:27:13.639743Z",
       "full_name": "gasserfarag60-droid/multiple-monitors-tool",
-      "last_decision": "rejected:lookalike_installer:topic:actual-multiple-monitors-cracked-2026,no_license",
-      "last_seen_at": "2026-11-23T09:11:41.128023Z",
+      "last_decision": "rejected:lookalike_installer:topic:actual-multiple-monitors-crack-2026,no_license",
+      "last_seen_at": "2026-11-23T09:20:23.454219Z",
       "repo_id": 1466679320,
       "sources": [
         "github_search"
@@ -17119,7 +17107,7 @@
       "first_seen_at": "2026-11-19T00:26:45.074396Z",
       "full_name": "getarcaneapp/arcane",
       "last_decision": "queued",
-      "last_seen_at": "2026-11-23T09:11:41.130374Z",
+      "last_seen_at": "2026-11-23T09:20:23.457257Z",
       "repo_id": 968905557,
       "sources": [
         "telegram:open_source_friend"
@@ -17127,7 +17115,7 @@
       "star_history": [
         [
           "2026-11-23",
-          10320,
+          10321,
           585
         ]
       ]
@@ -17207,7 +17195,7 @@
       "first_seen_at": "2026-11-23T07:27:13.644728Z",
       "full_name": "gogoymh/auto-ontology-mcp",
       "last_decision": "queued",
-      "last_seen_at": "2026-11-23T09:11:41.128811Z",
+      "last_seen_at": "2026-11-23T09:20:23.455423Z",
       "repo_id": 1448217653,
       "sources": [
         "github_search"
@@ -17385,7 +17373,7 @@
       "first_seen_at": "2026-11-23T00:26:52.187932Z",
       "full_name": "GuzmanJacqueline93/copy-ai-pro-win",
       "last_decision": "rejected:no_license,no_community",
-      "last_seen_at": "2026-11-23T09:11:41.105248Z",
+      "last_seen_at": "2026-11-23T09:20:23.432812Z",
       "repo_id": 1466768874,
       "sources": [
         "github_search"
@@ -17393,7 +17381,7 @@
       "star_history": [
         [
           "2026-11-23",
-          432,
+          433,
           0
         ]
       ]
@@ -17402,7 +17390,7 @@
       "first_seen_at": "2026-11-20T00:25:29.424875Z",
       "full_name": "gylive/google-ultra",
       "last_decision": "rejected:no_license,no_push_date,no_community,no_readme,stars<100",
-      "last_seen_at": "2026-11-23T09:11:41.135335Z",
+      "last_seen_at": "2026-11-23T09:20:23.461895Z",
       "repo_id": 1461244802,
       "sources": [
         "github_search",
@@ -17516,7 +17504,7 @@
       "first_seen_at": "2026-11-18T00:25:53.085313Z",
       "full_name": "haziqahmedqasmi/PeakCut",
       "last_decision": "queued",
-      "last_seen_at": "2026-11-23T09:11:41.109734Z",
+      "last_seen_at": "2026-11-23T09:20:23.437133Z",
       "repo_id": 1457509118,
       "sources": [
         "github_search",
@@ -17525,7 +17513,7 @@
       "star_history": [
         [
           "2026-11-23",
-          1794,
+          1795,
           555
         ]
       ]
@@ -17554,7 +17542,7 @@
       "first_seen_at": "2026-11-18T00:25:53.099446Z",
       "full_name": "HelpFreedom/reddit-downloader",
       "last_decision": "rejected:no_community,readme_not_english,stars<100",
-      "last_seen_at": "2026-11-23T09:11:41.129769Z",
+      "last_seen_at": "2026-11-23T09:20:23.456671Z",
       "repo_id": 1461123380,
       "sources": [
         "telegram:open_source_friend"
@@ -17738,7 +17726,7 @@
       "first_seen_at": "2026-11-04T12:14:31.133322Z",
       "full_name": "HRuiCcc/RuiC-PoseAtlas",
       "last_decision": "rejected:no_license,description_not_english",
-      "last_seen_at": "2026-11-23T09:11:41.101153Z",
+      "last_seen_at": "2026-11-23T09:20:23.428715Z",
       "repo_id": 1436721854,
       "sources": [
         "github_search"
@@ -17746,8 +17734,8 @@
       "star_history": [
         [
           "2026-11-23",
-          1824,
-          384
+          1825,
+          385
         ]
       ]
     },
@@ -17797,7 +17785,7 @@
       "first_seen_at": "2026-11-18T00:25:53.083933Z",
       "full_name": "huggingface/pybot",
       "last_decision": "queued",
-      "last_seen_at": "2026-11-23T09:11:41.134708Z",
+      "last_seen_at": "2026-11-23T09:20:23.461548Z",
       "repo_id": 1455216001,
       "sources": [
         "github_search",
@@ -17816,7 +17804,7 @@
       "first_seen_at": "2026-11-06T06:53:27.353539Z",
       "full_name": "Human-Agent-Society/reef",
       "last_decision": "queued",
-      "last_seen_at": "2026-11-23T09:11:41.121890Z",
+      "last_seen_at": "2026-11-23T09:20:23.448889Z",
       "repo_id": 1351879111,
       "sources": [
         "github_search"
@@ -17874,7 +17862,7 @@
       "first_seen_at": "2026-11-16T00:25:34.708883Z",
       "full_name": "HybridRobotics/supermimic",
       "last_decision": "queued",
-      "last_seen_at": "2026-11-23T09:11:41.112574Z",
+      "last_seen_at": "2026-11-23T09:20:23.439962Z",
       "repo_id": 1452531582,
       "sources": [
         "github_search",
@@ -17969,7 +17957,7 @@
       "first_seen_at": "2026-11-23T00:26:52.172918Z",
       "full_name": "igwei/topaz-video-ai-win",
       "last_decision": "rejected:no_license,no_community,not_software:topic:videos",
-      "last_seen_at": "2026-11-23T09:11:41.103519Z",
+      "last_seen_at": "2026-11-23T09:20:23.430930Z",
       "repo_id": 1466700195,
       "sources": [
         "github_search"
@@ -18073,7 +18061,7 @@
       "first_seen_at": "2026-11-23T07:27:13.643500Z",
       "full_name": "Interactive-Active-AI/NextTransformer",
       "last_decision": "queued",
-      "last_seen_at": "2026-11-23T07:27:13.643502Z",
+      "last_seen_at": "2026-11-23T09:20:23.455750Z",
       "repo_id": 1440630308,
       "sources": [
         "github_search"
@@ -18081,7 +18069,8 @@
       "star_history": [
         [
           "2026-11-23",
-          492
+          492,
+          43
         ]
       ]
     },
@@ -18109,7 +18098,7 @@
       "first_seen_at": "2026-11-22T00:25:30.712718Z",
       "full_name": "IsaacJoel06/qr-snip",
       "last_decision": "queued",
-      "last_seen_at": "2026-11-23T09:11:41.132558Z",
+      "last_seen_at": "2026-11-23T09:20:23.459434Z",
       "repo_id": 1458371295,
       "sources": [
         "telegram:open_source_friend"
@@ -18146,7 +18135,7 @@
       "first_seen_at": "2026-11-18T00:25:53.098625Z",
       "full_name": "isaksamsten/wl-sidebar",
       "last_decision": "rejected:no_community,stars<100",
-      "last_seen_at": "2026-11-23T09:11:41.129045Z",
+      "last_seen_at": "2026-11-23T09:20:23.455976Z",
       "repo_id": 1448798027,
       "sources": [
         "telegram:open_source_friend"
@@ -18193,7 +18182,7 @@
       "first_seen_at": "2026-11-23T00:26:52.201030Z",
       "full_name": "ItsNotRexed/Leonida",
       "last_decision": "rejected:velocity_too_high",
-      "last_seen_at": "2026-11-23T09:11:41.134160Z",
+      "last_seen_at": "2026-11-23T09:20:23.461010Z",
       "repo_id": 1465855400,
       "sources": [
         "hacker_news",
@@ -18202,8 +18191,8 @@
       "star_history": [
         [
           "2026-11-23",
-          17751,
-          1508
+          17800,
+          1515
         ]
       ]
     },
@@ -18249,11 +18238,28 @@
         "telegram:github_repos"
       ]
     },
+    "jackotom/hongguo-drama": {
+      "first_seen_at": "2026-11-23T09:20:23.428362Z",
+      "full_name": "jackotom/hongguo-drama",
+      "last_decision": "rejected:description_not_english",
+      "last_seen_at": "2026-11-23T09:20:23.428363Z",
+      "repo_id": 1408042332,
+      "sources": [
+        "github_search"
+      ],
+      "star_history": [
+        [
+          "2026-11-23",
+          2680,
+          444
+        ]
+      ]
+    },
     "jackson-cmd/claude-multi-desktop": {
       "first_seen_at": "2026-11-23T09:11:41.119939Z",
       "full_name": "jackson-cmd/claude-multi-desktop",
       "last_decision": "queued",
-      "last_seen_at": "2026-11-23T09:11:41.119942Z",
+      "last_seen_at": "2026-11-23T09:20:23.445745Z",
       "repo_id": 1459535564,
       "sources": [
         "github_search"
@@ -18400,8 +18406,8 @@
     "jbondoc02/ios-unlocker-pro": {
       "first_seen_at": "2026-11-23T00:26:52.194806Z",
       "full_name": "jbondoc02/ios-unlocker-pro",
-      "last_decision": "rejected:no_license",
-      "last_seen_at": "2026-11-23T09:11:41.123371Z",
+      "last_decision": "rejected:lookalike_installer:topic:unlock-pattern,no_license",
+      "last_seen_at": "2026-11-23T09:20:23.449532Z",
       "repo_id": 1466634798,
       "sources": [
         "github_search"
@@ -18573,7 +18579,7 @@
       "first_seen_at": "2026-11-23T09:11:41.113313Z",
       "full_name": "joeseesun/subcast",
       "last_decision": "queued",
-      "last_seen_at": "2026-11-23T09:11:41.113315Z",
+      "last_seen_at": "2026-11-23T09:20:23.439681Z",
       "repo_id": 1459921301,
       "sources": [
         "github_search"
@@ -18581,7 +18587,7 @@
       "star_history": [
         [
           "2026-11-23",
-          277,
+          278,
           43
         ]
       ]
@@ -18600,7 +18606,7 @@
       "first_seen_at": "2026-11-23T00:26:52.178510Z",
       "full_name": "jorgezaltoo-design/microsoft-visio",
       "last_decision": "rejected:lookalike_installer:topic:bentley-microstation-install-setup-windows-2026",
-      "last_seen_at": "2026-11-23T09:11:41.116129Z",
+      "last_seen_at": "2026-11-23T09:20:23.442922Z",
       "repo_id": 1466668768,
       "sources": [
         "github_search"
@@ -18637,7 +18643,7 @@
       "first_seen_at": "2026-11-20T00:25:29.425136Z",
       "full_name": "joshpuckett/allo",
       "last_decision": "queued",
-      "last_seen_at": "2026-11-23T09:11:41.135603Z",
+      "last_seen_at": "2026-11-23T09:20:23.462173Z",
       "repo_id": 1459063723,
       "sources": [
         "github_search",
@@ -18655,7 +18661,7 @@
       "first_seen_at": "2026-11-23T00:26:52.179248Z",
       "full_name": "JOSPHATRWADZISAI/chief-architect-premier",
       "last_decision": "rejected:no_license",
-      "last_seen_at": "2026-11-23T09:11:41.122596Z",
+      "last_seen_at": "2026-11-23T09:20:23.449237Z",
       "repo_id": 1466560706,
       "sources": [
         "github_search"
@@ -18672,7 +18678,7 @@
       "first_seen_at": "2026-11-09T04:26:30.722121Z",
       "full_name": "JosssphZhou/poki",
       "last_decision": "queued",
-      "last_seen_at": "2026-11-23T09:11:41.097283Z",
+      "last_seen_at": "2026-11-23T09:20:23.425496Z",
       "repo_id": 1447145240,
       "sources": [
         "github_search",
@@ -18771,7 +18777,7 @@
       "first_seen_at": "2026-11-23T00:26:52.199846Z",
       "full_name": "kadirb4rut/voxadub",
       "last_decision": "rejected:stars<100",
-      "last_seen_at": "2026-11-23T09:11:41.132927Z",
+      "last_seen_at": "2026-11-23T09:20:23.459783Z",
       "repo_id": 1388352822,
       "sources": [
         "telegram:open_source_friend"
@@ -18888,7 +18894,7 @@
       "first_seen_at": "2026-11-23T09:11:41.103158Z",
       "full_name": "kennethw627/figma-win",
       "last_decision": "rejected:no_license,no_community",
-      "last_seen_at": "2026-11-23T09:11:41.103161Z",
+      "last_seen_at": "2026-11-23T09:20:23.431413Z",
       "repo_id": 1466754326,
       "sources": [
         "github_search"
@@ -19287,7 +19293,7 @@
       "first_seen_at": "2026-11-13T00:25:41.058047Z",
       "full_name": "Lee-xeo/Claude-Cage",
       "last_decision": "rejected:description_not_english",
-      "last_seen_at": "2026-11-23T09:11:41.100034Z",
+      "last_seen_at": "2026-11-23T09:20:23.427769Z",
       "repo_id": 1440971520,
       "sources": [
         "github_search"
@@ -19314,7 +19320,7 @@
       "first_seen_at": "2026-11-23T00:26:52.203655Z",
       "full_name": "Lemxy/WinRust",
       "last_decision": "queued",
-      "last_seen_at": "2026-11-23T09:11:41.137023Z",
+      "last_seen_at": "2026-11-23T09:20:23.463286Z",
       "repo_id": 1461522454,
       "sources": [
         "telegram:github_repos"
@@ -19322,7 +19328,7 @@
       "star_history": [
         [
           "2026-11-23",
-          1301,
+          1302,
           73
         ]
       ]
@@ -19404,7 +19410,7 @@
       "first_seen_at": "2026-11-03T11:59:59.683437Z",
       "full_name": "lexifina/global-law",
       "last_decision": "rejected:no_license",
-      "last_seen_at": "2026-11-23T09:11:41.113598Z",
+      "last_seen_at": "2026-11-23T09:20:23.434978Z",
       "repo_id": 1437131455,
       "sources": [
         "github_search",
@@ -19525,7 +19531,7 @@
       "first_seen_at": "2026-11-23T00:26:52.192731Z",
       "full_name": "livai-droid/adobe-indesign-release",
       "last_decision": "queued",
-      "last_seen_at": "2026-11-23T09:11:41.121219Z",
+      "last_seen_at": "2026-11-23T09:20:23.447928Z",
       "repo_id": 1466538890,
       "sources": [
         "github_search"
@@ -19604,7 +19610,7 @@
       "first_seen_at": "2026-11-23T09:11:41.102666Z",
       "full_name": "logbor2000/adobe-photoshop-elements-win",
       "last_decision": "rejected:no_license,no_community",
-      "last_seen_at": "2026-11-23T09:11:41.102669Z",
+      "last_seen_at": "2026-11-23T09:20:23.430232Z",
       "repo_id": 1466712563,
       "sources": [
         "github_search"
@@ -19737,7 +19743,7 @@
       "first_seen_at": "2026-11-23T09:11:41.108249Z",
       "full_name": "LuisDesai/trimble-sketchup-win",
       "last_decision": "rejected:no_license,no_community",
-      "last_seen_at": "2026-11-23T09:11:41.108251Z",
+      "last_seen_at": "2026-11-23T09:20:23.433769Z",
       "repo_id": 1466699302,
       "sources": [
         "github_search"
@@ -19745,7 +19751,7 @@
       "star_history": [
         [
           "2026-11-23",
-          433,
+          435,
           0
         ]
       ]
@@ -19993,7 +19999,7 @@
       "first_seen_at": "2026-11-22T00:25:30.712228Z",
       "full_name": "ManofJELLO/fishsticks-and-custard",
       "last_decision": "rejected:no_community,stars<100",
-      "last_seen_at": "2026-11-23T09:11:41.131952Z",
+      "last_seen_at": "2026-11-23T09:20:23.458818Z",
       "repo_id": 1456163072,
       "sources": [
         "telegram:open_source_friend"
@@ -20141,7 +20147,7 @@
       "first_seen_at": "2026-11-09T04:26:30.723476Z",
       "full_name": "mhfed/vn-law-check",
       "last_decision": "rejected:no_license",
-      "last_seen_at": "2026-11-23T09:11:41.117892Z",
+      "last_seen_at": "2026-11-23T09:20:23.444652Z",
       "repo_id": 1442753326,
       "sources": [
         "github_search"
@@ -20260,7 +20266,7 @@
       "first_seen_at": "2026-11-22T00:25:30.712927Z",
       "full_name": "mit-han-lab/pear",
       "last_decision": "queued",
-      "last_seen_at": "2026-11-23T09:11:41.136547Z",
+      "last_seen_at": "2026-11-23T09:20:23.462996Z",
       "repo_id": 1456913583,
       "sources": [
         "github_search",
@@ -20289,7 +20295,7 @@
       "first_seen_at": "2026-11-07T05:32:32.594746Z",
       "full_name": "mizorewww/laya-mlx",
       "last_decision": "queued",
-      "last_seen_at": "2026-11-23T09:11:41.123718Z",
+      "last_seen_at": "2026-11-23T09:20:23.450199Z",
       "repo_id": 1377211520,
       "sources": [
         "github_search"
@@ -20528,8 +20534,8 @@
     "muruganmylord/soundpad-desktop": {
       "first_seen_at": "2026-11-23T00:26:52.178896Z",
       "full_name": "muruganmylord/soundpad-desktop",
-      "last_decision": "queued",
-      "last_seen_at": "2026-11-23T09:11:41.111692Z",
+      "last_decision": "rejected:lookalike_installer:topic:soundpad-registration",
+      "last_seen_at": "2026-11-23T09:20:23.439068Z",
       "repo_id": 1466776785,
       "sources": [
         "github_search"
@@ -20607,7 +20613,7 @@
       "first_seen_at": "2026-11-18T00:25:53.092372Z",
       "full_name": "n4ze3m/tiny-voca",
       "last_decision": "queued",
-      "last_seen_at": "2026-11-23T09:11:41.135873Z",
+      "last_seen_at": "2026-11-23T09:20:23.462435Z",
       "repo_id": 1457919852,
       "sources": [
         "github_search",
@@ -20616,7 +20622,7 @@
       "star_history": [
         [
           "2026-11-23",
-          868,
+          869,
           105
         ]
       ]
@@ -20645,7 +20651,7 @@
       "first_seen_at": "2026-11-23T09:11:41.112974Z",
       "full_name": "NaHamilton/toontrack-superior-drummer-win",
       "last_decision": "rejected:no_license,no_community",
-      "last_seen_at": "2026-11-23T09:11:41.112977Z",
+      "last_seen_at": "2026-11-23T09:20:23.440347Z",
       "repo_id": 1466720544,
       "sources": [
         "github_search"
@@ -20861,7 +20867,7 @@
       "first_seen_at": "2026-11-14T00:25:22.304065Z",
       "full_name": "nishant-Tiwari24/cracked",
       "last_decision": "queued",
-      "last_seen_at": "2026-11-23T09:11:41.126848Z",
+      "last_seen_at": "2026-11-23T09:20:23.453369Z",
       "repo_id": 1448033453,
       "sources": [
         "github_search"
@@ -20887,8 +20893,8 @@
     "noba12/dft-pro": {
       "first_seen_at": "2026-11-23T07:27:13.640530Z",
       "full_name": "noba12/dft-pro",
-      "last_decision": "rejected:no_license",
-      "last_seen_at": "2026-11-23T09:11:41.126467Z",
+      "last_decision": "rejected:lookalike_installer:topic:dft-pro-crack,no_license",
+      "last_seen_at": "2026-11-23T09:20:23.453034Z",
       "repo_id": 1466571717,
       "sources": [
         "github_search"
@@ -21119,7 +21125,7 @@
       "first_seen_at": "2026-11-23T00:26:52.170254Z",
       "full_name": "omonkeyz/xbox-emulator",
       "last_decision": "queued",
-      "last_seen_at": "2026-11-23T09:11:41.135300Z",
+      "last_seen_at": "2026-11-23T09:20:23.461867Z",
       "repo_id": 1466325515,
       "sources": [
         "github_search",
@@ -21128,7 +21134,7 @@
       "star_history": [
         [
           "2026-11-23",
-          1428,
+          1431,
           88
         ]
       ]
@@ -21333,7 +21339,7 @@
       "first_seen_at": "2026-11-23T07:27:13.633393Z",
       "full_name": "owensmario536/jetbrains-pycharm-ultimate-win",
       "last_decision": "rejected:no_license,no_community",
-      "last_seen_at": "2026-11-23T09:11:41.115477Z",
+      "last_seen_at": "2026-11-23T09:20:23.442199Z",
       "repo_id": 1466557916,
       "sources": [
         "github_search"
@@ -21350,7 +21356,7 @@
       "first_seen_at": "2026-11-21T00:25:24.815428Z",
       "full_name": "ozi-dev/sofarelay",
       "last_decision": "rejected:stars<100",
-      "last_seen_at": "2026-11-23T09:11:41.131338Z",
+      "last_seen_at": "2026-11-23T09:20:23.458223Z",
       "repo_id": 1460151373,
       "sources": [
         "telegram:open_source_friend"
@@ -21367,7 +21373,7 @@
       "first_seen_at": "2026-11-20T00:25:29.424376Z",
       "full_name": "paimonsoror/telltaledns",
       "last_decision": "queued",
-      "last_seen_at": "2026-11-23T09:11:41.130688Z",
+      "last_seen_at": "2026-11-23T09:20:23.457582Z",
       "repo_id": 1402497876,
       "sources": [
         "telegram:open_source_friend"
@@ -21445,7 +21451,7 @@
       "first_seen_at": "2026-11-23T09:11:41.106816Z",
       "full_name": "PatriciaIo/deflicker-for-after-effects-win",
       "last_decision": "rejected:no_license,no_community",
-      "last_seen_at": "2026-11-23T09:11:41.106819Z",
+      "last_seen_at": "2026-11-23T09:20:23.433406Z",
       "repo_id": 1466736272,
       "sources": [
         "github_search"
@@ -21453,7 +21459,7 @@
       "star_history": [
         [
           "2026-11-23",
-          432,
+          433,
           0
         ]
       ]
@@ -21462,7 +21468,7 @@
       "first_seen_at": "2026-11-23T09:11:41.124715Z",
       "full_name": "PatriciaIo/topaz-denoise-ai-win",
       "last_decision": "rejected:no_license,no_community",
-      "last_seen_at": "2026-11-23T09:11:41.124717Z",
+      "last_seen_at": "2026-11-23T09:20:23.451155Z",
       "repo_id": 1466729698,
       "sources": [
         "github_search"
@@ -21623,7 +21629,7 @@
       "first_seen_at": "2026-11-23T00:26:52.184049Z",
       "full_name": "pilpay29/izotope-nectar-4-win",
       "last_decision": "rejected:no_license,no_community",
-      "last_seen_at": "2026-11-23T09:11:41.106191Z",
+      "last_seen_at": "2026-11-23T09:20:23.434348Z",
       "repo_id": 1466700303,
       "sources": [
         "github_search"
@@ -21760,7 +21766,7 @@
       "first_seen_at": "2026-11-22T00:25:30.712448Z",
       "full_name": "pshycodr/phosphor-cam",
       "last_decision": "queued",
-      "last_seen_at": "2026-11-23T09:11:41.132225Z",
+      "last_seen_at": "2026-11-23T09:20:23.459098Z",
       "repo_id": 1115757444,
       "sources": [
         "telegram:open_source_friend"
@@ -21817,7 +21823,7 @@
       "first_seen_at": "2026-11-06T06:53:27.350144Z",
       "full_name": "qingjian-team/qingjian",
       "last_decision": "rejected:description_not_english",
-      "last_seen_at": "2026-11-23T09:11:41.116439Z",
+      "last_seen_at": "2026-11-23T09:20:23.443298Z",
       "repo_id": 1359963149,
       "sources": [
         "github_search"
@@ -21826,7 +21832,7 @@
         [
           "2026-11-23",
           8075,
-          695
+          696
         ]
       ]
     },
@@ -21974,7 +21980,7 @@
       "first_seen_at": "2026-11-23T00:26:52.179578Z",
       "full_name": "rcgaming265-afk/claude-prompt-studio",
       "last_decision": "rejected:blocklist:jailbreak,no_license",
-      "last_seen_at": "2026-11-23T09:11:41.124403Z",
+      "last_seen_at": "2026-11-23T09:20:23.450847Z",
       "repo_id": 1466563114,
       "sources": [
         "github_search"
@@ -22142,7 +22148,7 @@
       "first_seen_at": "2026-11-23T00:26:52.171036Z",
       "full_name": "Roagu1lar/autodesk-fusion-360-win",
       "last_decision": "rejected:no_license,no_community",
-      "last_seen_at": "2026-11-23T09:11:41.101956Z",
+      "last_seen_at": "2026-11-23T09:20:23.429072Z",
       "repo_id": 1466721428,
       "sources": [
         "github_search"
@@ -22163,6 +22169,23 @@
       "repo_id": 1373614120,
       "sources": [
         "github_search"
+      ]
+    },
+    "robertnisipeanu/mgu-store": {
+      "first_seen_at": "2026-11-23T09:20:23.449826Z",
+      "full_name": "robertnisipeanu/mgu-store",
+      "last_decision": "queued",
+      "last_seen_at": "2026-11-23T09:20:23.449828Z",
+      "repo_id": 1435353917,
+      "sources": [
+        "github_search"
+      ],
+      "star_history": [
+        [
+          "2026-11-23",
+          979,
+          133
+        ]
       ]
     },
     "robertsjunior/fonetrans-desktop-setup": {
@@ -22189,7 +22212,7 @@
       "first_seen_at": "2026-11-18T00:25:53.099039Z",
       "full_name": "roboninecom/SO-ARM102",
       "last_decision": "queued",
-      "last_seen_at": "2026-11-23T09:11:41.129448Z",
+      "last_seen_at": "2026-11-23T09:20:23.456350Z",
       "repo_id": 1376769300,
       "sources": [
         "telegram:open_source_friend"
@@ -22426,7 +22449,7 @@
       "first_seen_at": "2026-11-23T07:27:13.640021Z",
       "full_name": "Samer2219/instagram-liker-bot",
       "last_decision": "rejected:no_license",
-      "last_seen_at": "2026-11-23T09:11:41.125085Z",
+      "last_seen_at": "2026-11-23T09:20:23.451491Z",
       "repo_id": 1466630695,
       "sources": [
         "github_search"
@@ -22458,8 +22481,8 @@
     "samir-cai/nitro-pro-win": {
       "first_seen_at": "2026-11-23T07:27:13.630837Z",
       "full_name": "samir-cai/nitro-pro-win",
-      "last_decision": "rejected:no_license,no_community",
-      "last_seen_at": "2026-11-23T07:27:13.630839Z",
+      "last_decision": "rejected:lookalike_installer:topic:nitro-free-download,no_license,no_community",
+      "last_seen_at": "2026-11-23T09:20:23.435626Z",
       "repo_id": 1466671703,
       "sources": [
         "github_search"
@@ -22467,7 +22490,8 @@
       "star_history": [
         [
           "2026-11-23",
-          415
+          434,
+          0
         ]
       ]
     },
@@ -22475,7 +22499,7 @@
       "first_seen_at": "2026-11-08T04:25:24.770713Z",
       "full_name": "Sandflow-ai/sand3d",
       "last_decision": "queued",
-      "last_seen_at": "2026-11-23T09:11:41.099742Z",
+      "last_seen_at": "2026-11-23T09:20:23.427493Z",
       "repo_id": 1444005452,
       "sources": [
         "github_search",
@@ -22547,7 +22571,7 @@
       "first_seen_at": "2026-11-23T00:26:52.194143Z",
       "full_name": "sarswaabhimanyu-crypto/dvd-creator",
       "last_decision": "queued",
-      "last_seen_at": "2026-11-23T09:11:41.119548Z",
+      "last_seen_at": "2026-11-23T09:20:23.446106Z",
       "repo_id": 1466581251,
       "sources": [
         "github_search"
@@ -22594,7 +22618,7 @@
       "first_seen_at": "2026-11-23T07:27:13.627141Z",
       "full_name": "Scottmauricio/indesign-cc-win",
       "last_decision": "rejected:no_license,no_community",
-      "last_seen_at": "2026-11-23T09:11:41.107525Z",
+      "last_seen_at": "2026-11-23T09:20:23.434691Z",
       "repo_id": 1466720679,
       "sources": [
         "github_search"
@@ -22602,7 +22626,7 @@
       "star_history": [
         [
           "2026-11-23",
-          432,
+          433,
           0
         ]
       ]
@@ -22712,7 +22736,7 @@
       "first_seen_at": "2026-11-23T00:26:52.192391Z",
       "full_name": "shabihabbas/patreon-viewer",
       "last_decision": "queued",
-      "last_seen_at": "2026-11-23T09:11:41.116814Z",
+      "last_seen_at": "2026-11-23T09:20:23.443629Z",
       "repo_id": 1466692537,
       "sources": [
         "github_search"
@@ -22848,7 +22872,7 @@
       "first_seen_at": "2026-11-19T00:26:45.046295Z",
       "full_name": "shirai91/nx2android",
       "last_decision": "rejected:no_license",
-      "last_seen_at": "2026-11-23T09:11:41.119180Z",
+      "last_seen_at": "2026-11-23T09:20:23.446686Z",
       "repo_id": 1432420324,
       "sources": [
         "github_search"
@@ -22856,7 +22880,7 @@
       "star_history": [
         [
           "2026-11-23",
-          1962,
+          1963,
           267
         ]
       ]
@@ -22885,7 +22909,7 @@
       "first_seen_at": "2026-11-23T09:11:41.109138Z",
       "full_name": "Shortproxy2007/fabfilter-pro-l-2-win",
       "last_decision": "rejected:no_license,no_community",
-      "last_seen_at": "2026-11-23T09:11:41.109141Z",
+      "last_seen_at": "2026-11-23T09:20:23.436195Z",
       "repo_id": 1466699686,
       "sources": [
         "github_search"
@@ -22893,7 +22917,7 @@
       "star_history": [
         [
           "2026-11-23",
-          432,
+          433,
           0
         ]
       ]
@@ -22922,7 +22946,7 @@
       "first_seen_at": "2026-11-20T00:25:29.416478Z",
       "full_name": "siliconjungle/shapeshift-labs-ink-studio",
       "last_decision": "queued",
-      "last_seen_at": "2026-11-23T09:11:41.135016Z",
+      "last_seen_at": "2026-11-23T09:20:23.428044Z",
       "repo_id": 1459700211,
       "sources": [
         "github_search",
@@ -22970,10 +22994,17 @@
       "first_seen_at": "2026-11-21T00:25:24.783122Z",
       "full_name": "simplexai-labs/linger",
       "last_decision": "rejected:no_license",
-      "last_seen_at": "2026-11-21T00:25:24.783126Z",
+      "last_seen_at": "2026-11-23T09:20:23.425084Z",
       "repo_id": 1452175380,
       "sources": [
         "github_search"
+      ],
+      "star_history": [
+        [
+          "2026-11-23",
+          4040,
+          381
+        ]
       ]
     },
     "simpsoka/zigzag": {
@@ -23141,7 +23172,7 @@
       "first_seen_at": "2026-11-23T07:27:13.641025Z",
       "full_name": "sous-labs/songe",
       "last_decision": "queued",
-      "last_seen_at": "2026-11-23T09:11:41.120234Z",
+      "last_seen_at": "2026-11-23T09:20:23.446984Z",
       "repo_id": 1465322684,
       "sources": [
         "github_search"
@@ -23189,7 +23220,7 @@
       "first_seen_at": "2026-11-23T09:11:41.124071Z",
       "full_name": "SSP221/designcenter-nx",
       "last_decision": "rejected:no_license",
-      "last_seen_at": "2026-11-23T09:11:41.124074Z",
+      "last_seen_at": "2026-11-23T09:20:23.450525Z",
       "repo_id": 1466571504,
       "sources": [
         "github_search"
@@ -23390,7 +23421,7 @@
       "first_seen_at": "2026-11-23T07:27:13.637208Z",
       "full_name": "SujeetSutar/fishing-planet-enhancer",
       "last_decision": "queued",
-      "last_seen_at": "2026-11-23T09:11:41.120542Z",
+      "last_seen_at": "2026-11-23T09:20:23.447284Z",
       "repo_id": 1466592783,
       "sources": [
         "github_search"
@@ -23427,7 +23458,7 @@
       "first_seen_at": "2026-11-23T00:26:52.193086Z",
       "full_name": "surendramahanty/multiaccountmanager",
       "last_decision": "queued",
-      "last_seen_at": "2026-11-23T09:11:41.117485Z",
+      "last_seen_at": "2026-11-23T09:20:23.444260Z",
       "repo_id": 1466677634,
       "sources": [
         "github_search"
@@ -23464,7 +23495,7 @@
       "first_seen_at": "2026-11-20T00:25:29.400781Z",
       "full_name": "sybil-solutions/inference-optimisation-skill",
       "last_decision": "queued",
-      "last_seen_at": "2026-11-23T09:11:41.098040Z",
+      "last_seen_at": "2026-11-23T09:20:23.426178Z",
       "repo_id": 1460417668,
       "sources": [
         "github_search",
@@ -23773,6 +23804,23 @@
         "telegram:gitbless"
       ]
     },
+    "timoncool/yue2-studio": {
+      "first_seen_at": "2026-11-23T09:20:23.430588Z",
+      "full_name": "timoncool/YuE2-Studio",
+      "last_decision": "queued",
+      "last_seen_at": "2026-11-23T09:20:23.430590Z",
+      "repo_id": 1382450432,
+      "sources": [
+        "github_search"
+      ],
+      "star_history": [
+        [
+          "2026-11-23",
+          2476,
+          289
+        ]
+      ]
+    },
     "tiobeharxi1987/blender-ai-copilot-flow": {
       "first_seen_at": "2026-11-15T00:27:15.348527Z",
       "full_name": "tiobeharxi1987/blender-ai-copilot-flow",
@@ -23907,7 +23955,7 @@
       "first_seen_at": "2026-11-19T00:26:45.074133Z",
       "full_name": "tradermonty/claude-trading-skills",
       "last_decision": "queued",
-      "last_seen_at": "2026-11-23T09:11:41.130111Z",
+      "last_seen_at": "2026-11-23T09:20:23.456990Z",
       "repo_id": 1079356098,
       "sources": [
         "telegram:open_source_friend"
@@ -23964,10 +24012,17 @@
       "first_seen_at": "2026-11-23T00:26:52.185430Z",
       "full_name": "Truesand8603/beyond-compare-4-win",
       "last_decision": "rejected:no_license,no_community",
-      "last_seen_at": "2026-11-23T00:26:52.185433Z",
+      "last_seen_at": "2026-11-23T09:20:23.437982Z",
       "repo_id": 1466648828,
       "sources": [
         "github_search"
+      ],
+      "star_history": [
+        [
+          "2026-11-23",
+          432,
+          0
+        ]
       ]
     },
     "tscircuit/tscircuit": {
@@ -24136,7 +24191,7 @@
       "first_seen_at": "2026-11-23T07:27:13.639480Z",
       "full_name": "Uxquty/glary-utilities-pro",
       "last_decision": "queued",
-      "last_seen_at": "2026-11-23T09:11:41.125476Z",
+      "last_seen_at": "2026-11-23T09:20:23.451863Z",
       "repo_id": 1466611174,
       "sources": [
         "github_search"
@@ -24153,7 +24208,7 @@
       "first_seen_at": "2026-11-03T11:59:59.713799Z",
       "full_name": "valentderah/totk-pc-recomp",
       "last_decision": "queued",
-      "last_seen_at": "2026-11-23T09:11:41.098372Z",
+      "last_seen_at": "2026-11-23T09:20:23.426494Z",
       "repo_id": 1438394948,
       "sources": [
         "github_search",
@@ -24222,7 +24277,7 @@
       "first_seen_at": "2026-11-23T09:11:41.127129Z",
       "full_name": "Veloresearch/kinetic",
       "last_decision": "queued",
-      "last_seen_at": "2026-11-23T09:11:41.127132Z",
+      "last_seen_at": "2026-11-23T09:20:23.454487Z",
       "repo_id": 1452548035,
       "sources": [
         "github_search"
@@ -24765,7 +24820,7 @@
       "first_seen_at": "2026-11-19T00:26:45.055412Z",
       "full_name": "WoYun520/gif-factory",
       "last_decision": "rejected:description_not_english,readme_not_english",
-      "last_seen_at": "2026-11-23T09:11:41.127414Z",
+      "last_seen_at": "2026-11-23T09:20:23.453641Z",
       "repo_id": 1446515117,
       "sources": [
         "github_search",
@@ -24914,7 +24969,7 @@
       "first_seen_at": "2026-11-21T00:25:24.815027Z",
       "full_name": "yannick2009/yily",
       "last_decision": "rejected:stars<100",
-      "last_seen_at": "2026-11-23T09:11:41.130990Z",
+      "last_seen_at": "2026-11-23T09:20:23.457872Z",
       "repo_id": 1397697981,
       "sources": [
         "telegram:open_source_friend"
@@ -24982,7 +25037,7 @@
       "first_seen_at": "2026-11-22T00:25:30.715396Z",
       "full_name": "yetanotherbrowser/yab",
       "last_decision": "queued",
-      "last_seen_at": "2026-11-23T09:11:41.136193Z",
+      "last_seen_at": "2026-11-23T09:20:23.462748Z",
       "repo_id": 1458292408,
       "sources": [
         "telegram:github_repos"
@@ -25019,7 +25074,7 @@
       "first_seen_at": "2026-11-06T06:53:27.350916Z",
       "full_name": "yi1108/printfilm",
       "last_decision": "queued",
-      "last_seen_at": "2026-11-23T09:11:41.111983Z",
+      "last_seen_at": "2026-11-23T09:20:23.439351Z",
       "repo_id": 1363417187,
       "sources": [
         "github_search"
@@ -25056,7 +25111,7 @@
       "first_seen_at": "2026-11-03T11:59:59.709867Z",
       "full_name": "yjid/kensaku",
       "last_decision": "queued",
-      "last_seen_at": "2026-11-23T09:11:41.111360Z",
+      "last_seen_at": "2026-11-23T09:20:23.438735Z",
       "repo_id": 1432590994,
       "sources": [
         "github_search",
@@ -25204,7 +25259,7 @@
       "first_seen_at": "2026-11-03T11:59:59.714797Z",
       "full_name": "ZiChuanLan/agent-purge",
       "last_decision": "queued",
-      "last_seen_at": "2026-11-23T09:11:41.118593Z",
+      "last_seen_at": "2026-11-23T09:20:23.445354Z",
       "repo_id": 1432883796,
       "sources": [
         "github_search",
@@ -25232,7 +25287,7 @@
       "first_seen_at": "2026-11-23T00:26:52.194484Z",
       "full_name": "zikorahal/honkai-star-rail-enhancer",
       "last_decision": "rejected:no_license",
-      "last_seen_at": "2026-11-23T09:11:41.125821Z",
+      "last_seen_at": "2026-11-23T09:20:23.452509Z",
       "repo_id": 1466620066,
       "sources": [
         "github_search"
