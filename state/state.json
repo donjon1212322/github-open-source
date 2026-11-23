@@ -2276,7 +2276,8 @@
         "bluesky": {
           "attempts": 0,
           "due_at": "2026-11-23T18:45:20.450134+00:00",
-          "status": "pending"
+          "held_reason": "not_best_of_day",
+          "status": "held"
         }
       },
       "description": "Steer ideas like a space pilot!",
@@ -4166,7 +4167,10 @@
         "bluesky": {
           "attempts": 0,
           "due_at": "2026-11-23T18:00:00+00:00",
-          "status": "pending"
+          "error": "",
+          "published_at": "2026-11-23T18:17:52.760714Z",
+          "status": "published",
+          "url": "https://bsky.app/profile/githubopensource.bsky.social/post/3n2yqiew6ju2x"
         }
       },
       "description": "Paste a link, get captioned 9:16 clips in ~2 min. Free, local, open-source clipping engine (audio-first, YouTube captions, local LLM).",
