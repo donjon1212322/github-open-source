@@ -748,3 +748,4 @@
 {"queue": 28, "repo": "omonkeyz/xbox-emulator", "stars": 1556, "ts": "2026-11-23T16:51:03.302663Z", "type": "candidate_requeued"}
 {"gemini_error_class": "capacity_503", "reason": "gemini_capacity", "repo": "chuanqisun/spaceship", "slot": "us_morning", "ts": "2026-11-23T16:57:31.810672Z", "type": "publish_skipped"}
 {"attempts": 2, "detail": "HTTP 204", "slot": "publish:us_morning", "ts": "2026-11-23T17:00:53.937018Z", "type": "watchdog_recovered", "verified": false}
+{"gemini_error_class": "capacity_503", "reason": "gemini_capacity", "repo": "chuanqisun/spaceship", "slot": "us_morning", "ts": "2026-11-23T17:05:23.773253Z", "type": "publish_skipped"}
