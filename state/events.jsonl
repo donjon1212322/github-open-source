@@ -756,3 +756,4 @@
 {"repo": "chuanqisun/spaceship", "score": 53.69, "telegram_message_id": 3638, "telegraph_url": "https://telegra.ph/Exploring-Spaceship-IDE-Real-time-LLM-Steering-and-Interaction-11-23", "ts": "2026-11-23T18:15:20.450427Z", "type": "project_published"}
 {"platform": "bluesky", "repo": "iamajmeena/neonclipping", "ts": "2026-11-23T18:17:52.760740Z", "type": "crosspost_published", "url": "https://bsky.app/profile/githubopensource.bsky.social/post/3n2yqiew6ju2x"}
 {"attempts": 1, "detail": "HTTP 204", "slot": "facebook-handoff", "ts": "2026-11-23T18:30:57.504551Z", "type": "watchdog_recovered", "verified": false}
+{"range": "facebook!A22:E22", "rows": 1, "ts": "2026-11-23T18:31:24.402310Z", "type": "facebook_handoff_queued"}
