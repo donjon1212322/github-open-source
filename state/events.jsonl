@@ -745,3 +745,4 @@
 {"failures": 2, "reason": "gemini_failed_twice", "repo": "valentderah/totk-pc-recomp", "ts": "2026-11-23T16:35:02.086550Z", "type": "publish_candidate_dead"}
 {"queue": 28, "repo": "valentderah/totk-pc-recomp", "stars": 8121, "ts": "2026-11-23T16:40:41.206278Z", "type": "candidate_requeued"}
 {"failures": 1, "gemini_error_class": "other", "reason": "gemini_unavailable", "repo": "omonkeyz/xbox-emulator", "slot": "us_morning", "ts": "2026-11-23T16:48:56.768412Z", "type": "publish_skipped"}
+{"queue": 28, "repo": "omonkeyz/xbox-emulator", "stars": 1556, "ts": "2026-11-23T16:51:03.302663Z", "type": "candidate_requeued"}
