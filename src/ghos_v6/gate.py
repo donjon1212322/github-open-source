@@ -81,6 +81,36 @@ _ARCHIVE_PASSWORD_RE = re.compile(
 )
 _BLOCK_RE = re.compile("|".join(f"(?:{p})" for p in BLOCK_PATTERNS), re.I)
 
+#: Lookalike "installer" repositories (found in the live queue on 23.11).
+#: Four different owners published the same template: a description copied
+#: from commercial software (PhpStorm, CLion, Microsoft Visio, iMobie
+#: AnyTrans), a real MIT license to satisfy the gate, the same 336 stars,
+#: and a topic list that advertises a *setup file* instead of a project:
+#: ``jetbrains-phpstorm-install-setup-2026``, ``clion-download-windows``,
+#: ``bentley-microstation-install-setup-windows-2026``,
+#: ``anytrans-download-iphone-manager``. A genuine open-source project never
+#: titles a topic with "install setup" or "download windows": that is how a
+#: download funnel dresses itself up, and publishing it would hand the
+#: audience a fake installer. The pattern is deliberately narrow - it needs
+#: an install/download word tied to a platform or a year - so ordinary tags
+#: such as ``setup``, ``installer`` or ``download-manager`` still pass.
+_LOOKALIKE_TOPIC_RE = re.compile(
+    r"(?:install[-_ ]?setup|setup[-_ ]?install|"
+    r"download[-_ ]?(?:windows|win|macos|mac|linux|ios|android|apk|pc|iphone|mobile)|"
+    r"(?:windows|win|macos|mac|linux|ios|android|apk|pc)[-_ ]?download|"
+    r"(?:repack|repacked|preactivated|pre-activated|cracked|keygen|activator)\b)",
+    re.I,
+)
+
+def lookalike_installer_reason(project: dict[str, Any]) -> str:
+    """Name the funnel signature, or ``""`` when the project looks honest."""
+    for topic in project.get("topics") or []:
+        text = str(topic).strip()
+        if text and _LOOKALIKE_TOPIC_RE.search(text):
+            return f"topic:{text.lower()}"
+    return ""
+
+
 _DUAL_USE_TERMS = {
     "security",
     "penetration-testing",
@@ -205,6 +235,13 @@ def evaluate(
     blocked = _BLOCK_RE.search(haystack)
     if blocked:
         reasons.append(f"blocklist:{blocked.group(0).lower()}")
+
+    # A lookalike installer is not software we can cover: the repository is a
+    # download funnel for someone else's commercial product (see the comment
+    # above _LOOKALIKE_TOPIC_RE for the four live examples from 23.11).
+    lookalike = lookalike_installer_reason(project)
+    if lookalike:
+        reasons.append(f"lookalike_installer:{lookalike}")
 
     if project.get("archived"):
         reasons.append("archived")

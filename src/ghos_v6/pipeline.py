@@ -522,11 +522,17 @@ def publish_slot(config: Config, store: StateStore, slot: str = "manual") -> dic
     while attempts < max_attempts:
         attempts += 1
         published_today = _today_records(store)
+        # Owner question 23.11: "same themes again". The day-scoped diversity
+        # band could not see yesterday's posts, so the first slot of every day
+        # picked the raw top of the queue. The seven-day list is passed to the
+        # same selector; it only subtracts from near-equal candidates.
+        published_week = _recent_records(store, days=7)
         candidate = select_candidate(
             list(store.data.get("queue") or []),
             published_today,
             merge_models(store.data.get("value_model"),
                          audience_ranking_model(store.data.get("audience_profile"))),
+            published_week,
         )
         if candidate is None:
             store.event("publish_skipped", slot=slot, reason="no_candidate")

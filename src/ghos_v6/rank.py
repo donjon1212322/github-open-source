@@ -83,10 +83,107 @@ def rank_candidates(candidates: list[dict[str, Any]]) -> list[dict[str, Any]]:
     )
 
 
-def diversity_bonus(candidate: dict[str, Any], published_today: list[dict[str, Any]]) -> float:
-    """Selection-time diversity adjustment in the reserved score band."""
-    if not published_today:
+#: Week-level limits, measured on the live channel on 23.11: 17 of the last
+#: 22 posts were DevTools, 15 of 22 were about AI agents and Rust was 46 % of
+#: the languages, because the day-scoped bonus below only ever compared a
+#: candidate with *today's* posts - the first slot of every day had no
+#: diversity pressure at all. These constants turn the same idea into a
+#: seven-day view. They are penalties, not hard quotas: a thin queue must
+#: still be able to publish, so nothing here can empty the queue or block a
+#: slot. The largest one (-12) is smaller than the usual distance between a
+#: great candidate and a mediocre one, so a genuinely better project still
+#: wins - it just stops the third post about the same theme in a row.
+WEEK_LANGUAGE_LIMIT = 3          # same language this many times -> we look further
+WEEK_LANGUAGE_PENALTY = 5.0
+WEEK_TOPIC_OVERLAP_PENALTY = 6.0
+WEEK_OWNER_PENALTY = 12.0        # one post per owner per week is plenty
+WEEK_FAMILY_LIMIT = 5            # five posts of one theme already flooded the week
+WEEK_FAMILY_PENALTY = 8.0
+
+#: Published records carry a Gemini ``category`` (DevTools / AI / Security),
+#: but a *queued* candidate has not been generated yet - so a category-based
+#: quota would never fire at selection time. These families are derived from
+#: the fields both shapes always have (topics, name, description) and are
+#: ordered: an "AI agent for iOS" is an AI-agent post first.
+FAMILY_KEYWORDS: tuple[tuple[str, tuple[str, ...]], ...] = (
+    ("ai-agents", ("agent", "agentic", "claude-code", "codex", "mcp", "llm",
+                   "openai", "anthropic", "gemini", "prompt", "chatbot")),
+    ("privacy", ("privacy", "security", "pentest", "audit", "permission",
+                 "malware", "vulnerability", "scanner", "exploit")),
+    ("media", ("video", "clip", "film", "stream", "media", "music", "audio",
+               "podcast", "image", "photo", "tv")),
+    ("games", ("game", "gaming", "emulator", "switch", "diablo", "retro",
+               "minecraft", "steam")),
+    ("apple", ("ios", "iphone", "ipad", "macos", "apple", "swift", "xcode")),
+    ("devtools", ("ide", "editor", "cli", "devtools", "developer-tools",
+                  "terminal", "debug", "compiler", "build", "linter", "docker",
+                  "kubernetes", "git")),
+)
+
+
+def theme_family(record: dict[str, Any]) -> str:
+    """Coarse theme of a candidate or a published record, or ``""``."""
+    parts = [
+        str(record.get("name") or ""),
+        str(record.get("description") or ""),
+        " ".join(str(t) for t in (record.get("topics") or [])),
+    ]
+    if record.get("category"):
+        parts.append(str(record.get("category")))
+    haystack = " ".join(parts).lower()
+    if not haystack.strip():
+        return ""
+    for family, keywords in FAMILY_KEYWORDS:
+        if any(keyword in haystack for keyword in keywords):
+            return family
+    return ""
+
+
+def _owner(record: dict[str, Any]) -> str:
+    full_name = str(record.get("full_name") or "")
+    if "/" in full_name:
+        return full_name.split("/")[0].lower()
+    return ""
+
+
+def week_diversity_bonus(candidate: dict[str, Any], published_week: list[dict[str, Any]]) -> float:
+    """Seven-day view of the same idea: no theme, language or owner loop."""
+    if not published_week:
         return 0.0
+    languages = Counter(str(p.get("language") or "") for p in published_week)
+    families = Counter(family for family in (theme_family(p) for p in published_week) if family)
+    topics = Counter(t for p in published_week for t in (p.get("topics") or []))
+    owners = Counter(owner for owner in (_owner(p) for p in published_week) if owner)
+
+    bonus = 0.0
+    language = str(candidate.get("language") or "")
+    if languages.get(language, 0) >= WEEK_LANGUAGE_LIMIT:
+        bonus -= WEEK_LANGUAGE_PENALTY
+    family = theme_family(candidate)
+    if family and families.get(family, 0) >= WEEK_FAMILY_LIMIT:
+        bonus -= WEEK_FAMILY_PENALTY
+    overlap = sum(1 for t in candidate.get("topics") or [] if topics.get(t, 0) > 0)
+    if overlap >= 2:
+        bonus -= min(WEEK_TOPIC_OVERLAP_PENALTY, (overlap - 1) * 2.0)
+    owner = _owner(candidate)
+    if owner and owners.get(owner, 0) >= 1:
+        bonus -= WEEK_OWNER_PENALTY
+    return bonus
+
+
+def diversity_bonus(
+    candidate: dict[str, Any],
+    published_today: list[dict[str, Any]],
+    published_week: list[dict[str, Any]] | None = None,
+) -> float:
+    """Selection-time diversity adjustment in the reserved score band.
+
+    ``published_today`` keeps the original day-scoped behaviour (that is what
+    the daily limits were tuned on). ``published_week`` adds the seven-day
+    view; when it is omitted the function behaves exactly as before.
+    """
+    if not published_today:
+        return week_diversity_bonus(candidate, published_week or [])
     languages = Counter(str(p.get("language") or "") for p in published_today)
     topics = Counter(t for p in published_today for t in (p.get("topics") or []))
     bonus = 0.0
@@ -96,7 +193,7 @@ def diversity_bonus(candidate: dict[str, Any], published_today: list[dict[str, A
         bonus -= 8.0
     overlap = sum(1 for t in candidate.get("topics") or [] if topics.get(t, 0) > 0)
     bonus -= min(5.0, overlap * 1.2)
-    return bonus
+    return bonus + week_diversity_bonus(candidate, published_week or [])
 
 
 def value_multiplier(candidate: dict[str, Any], model: dict[str, Any] | None) -> float:
@@ -123,6 +220,7 @@ def select_candidate(
     queue: list[dict[str, Any]],
     published_today: list[dict[str, Any]],
     model: dict[str, Any] | None = None,
+    published_week: list[dict[str, Any]] | None = None,
 ) -> dict[str, Any] | None:
     if not queue:
         return None
@@ -142,6 +240,9 @@ def select_candidate(
         return None
     return max(
         eligible,
-        key=lambda c: (float(c.get("score") or 0) + diversity_bonus(c, published_today))
+        key=lambda c: (
+            float(c.get("score") or 0)
+            + diversity_bonus(c, published_today, published_week)
+        )
         * value_multiplier(c, model),
     )
