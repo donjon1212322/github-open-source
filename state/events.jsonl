@@ -766,3 +766,4 @@
 {"attempts": 1, "detail": "HTTP 204", "slot": "news-article", "ts": "2026-11-23T20:30:55.326493Z", "type": "watchdog_recovered", "verified": false}
 {"error": "Gemini generateContent failed: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.", "reason": "article_gemini_unavailable", "ts": "2026-11-23T20:31:25.308100Z", "type": "news_article_skipped"}
 {"attempts": 2, "detail": "HTTP 204", "slot": "news-article", "ts": "2026-11-23T21:30:48.717119Z", "type": "watchdog_recovered", "verified": false}
+{"error": "Gemini generateContent failed: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.", "reason": "article_gemini_unavailable", "ts": "2026-11-23T21:31:14.599853Z", "type": "news_article_skipped"}
