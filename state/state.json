@@ -336,7 +336,7 @@
     },
     "metrics": {
       "checked": 12,
-      "finished_at": "2026-11-22T20:23:51.020557Z",
+      "finished_at": "2026-11-23T20:23:47.414786Z",
       "reason": "measured",
       "updated": 12
     },
@@ -2420,6 +2420,7 @@
       "open_issues": 0,
       "published_at": "2026-11-23T18:15:20.450161Z",
       "pushed_at": "2026-11-23T08:11:47Z",
+      "reactions": 0,
       "readme_fp": "6f8e2db4ea882c53",
       "repo_id": 1460149071,
       "revisit_of": "",
@@ -2438,6 +2439,17 @@
       "topics": [],
       "updated_at": "2026-11-23T15:10:23Z",
       "url": "https://github.com/chuanqisun/spaceship",
+      "value_score": 39.85,
+      "views": 22,
+      "views_age_hours": 2.1,
+      "views_at_24h": 84,
+      "views_history": [
+        {
+          "at": "2026-11-23T20:23:47.808734Z",
+          "reactions": 0,
+          "views": 22
+        }
+      ],
       "visual_host": "imgbb",
       "visual_kind": "readme"
     },
@@ -3000,10 +3012,10 @@
       ],
       "updated_at": "2026-11-20T16:30:05Z",
       "url": "https://github.com/elementalsouls/Claude-BugHunter",
-      "value_score": 33.43,
-      "views": 98,
-      "views_age_hours": 51.9,
-      "views_at_24h": 70,
+      "value_score": 35.06,
+      "views": 114,
+      "views_age_hours": 75.9,
+      "views_at_24h": 73,
       "views_history": [
         {
           "at": "2026-11-20T20:23:54.831693Z",
@@ -3019,6 +3031,11 @@
           "at": "2026-11-22T20:23:54.288636Z",
           "reactions": 0,
           "views": 98
+        },
+        {
+          "at": "2026-11-23T20:23:50.856942Z",
+          "reactions": 0,
+          "views": 114
         }
       ],
       "visual_host": "imgbb",
@@ -3161,10 +3178,10 @@
       ],
       "updated_at": "2026-11-20T01:13:28Z",
       "url": "https://github.com/erkamyaman/rust-anything",
-      "value_score": 32.85,
-      "views": 103,
-      "views_age_hours": 67.2,
-      "views_at_24h": 68,
+      "value_score": 34.68,
+      "views": 121,
+      "views_age_hours": 91.2,
+      "views_at_24h": 73,
       "views_history": [
         {
           "at": "2026-11-21T20:23:51.607714Z",
@@ -3175,6 +3192,11 @@
           "at": "2026-11-22T20:23:54.680478Z",
           "reactions": 0,
           "views": 103
+        },
+        {
+          "at": "2026-11-23T20:23:51.198509Z",
+          "reactions": 0,
+          "views": 121
         }
       ],
       "visual_host": "imgbb",
@@ -4327,6 +4349,7 @@
       "open_issues": 30,
       "published_at": "2026-11-23T01:14:07.417063Z",
       "pushed_at": "2026-11-21T22:46:46Z",
+      "reactions": 0,
       "readme_fp": "6e41e02a358d700f",
       "repo_id": 1463963309,
       "revisit_of": "",
@@ -4362,6 +4385,17 @@
       ],
       "updated_at": "2026-11-23T01:04:41Z",
       "url": "https://github.com/iamajmeena/neonclipping",
+      "value_score": 53.64,
+      "views": 96,
+      "views_age_hours": 19.2,
+      "views_at_24h": 111,
+      "views_history": [
+        {
+          "at": "2026-11-23T20:23:48.146979Z",
+          "reactions": 0,
+          "views": 96
+        }
+      ],
       "visual_host": "imgbb",
       "visual_kind": "readme"
     },
@@ -5757,15 +5791,20 @@
       ],
       "updated_at": "2026-11-22T00:50:33Z",
       "url": "https://github.com/Kianuni/Erosion-CN",
-      "value_score": 37.03,
-      "views": 65,
-      "views_age_hours": 19.2,
-      "views_at_24h": 75,
+      "value_score": 30.16,
+      "views": 82,
+      "views_age_hours": 43.2,
+      "views_at_24h": 63,
       "views_history": [
         {
           "at": "2026-11-22T20:23:52.291826Z",
           "reactions": 0,
           "views": 65
+        },
+        {
+          "at": "2026-11-23T20:23:49.158280Z",
+          "reactions": 0,
+          "views": 82
         }
       ],
       "visual_host": "imgbb",
@@ -6495,10 +6534,10 @@
       ],
       "updated_at": "2026-11-21T01:11:24Z",
       "url": "https://github.com/libracoder/kiri",
-      "value_score": 36.38,
-      "views": 97,
-      "views_age_hours": 43.2,
-      "views_at_24h": 74,
+      "value_score": 33.49,
+      "views": 105,
+      "views_age_hours": 67.2,
+      "views_at_24h": 70,
       "views_history": [
         {
           "at": "2026-11-21T20:23:50.284871Z",
@@ -6509,6 +6548,11 @@
           "at": "2026-11-22T20:23:53.486158Z",
           "reactions": 0,
           "views": 97
+        },
+        {
+          "at": "2026-11-23T20:23:50.179171Z",
+          "reactions": 0,
+          "views": 105
         }
       ],
       "visual_host": "imgbb",
@@ -7393,10 +7437,10 @@
       ],
       "updated_at": "2026-11-21T16:22:56Z",
       "url": "https://github.com/mdiri-ai/SoduWork",
-      "value_score": 35.47,
-      "views": 77,
-      "views_age_hours": 28.0,
-      "views_at_24h": 72,
+      "value_score": 30.68,
+      "views": 90,
+      "views_age_hours": 52.0,
+      "views_at_24h": 64,
       "views_history": [
         {
           "at": "2026-11-21T20:23:49.840472Z",
@@ -7407,6 +7451,11 @@
           "at": "2026-11-22T20:23:53.084071Z",
           "reactions": 0,
           "views": 77
+        },
+        {
+          "at": "2026-11-23T20:23:49.831727Z",
+          "reactions": 0,
+          "views": 90
         }
       ],
       "visual_host": "imgbb",
@@ -8014,15 +8063,20 @@
       ],
       "updated_at": "2026-11-22T15:46:45Z",
       "url": "https://github.com/N1nEmAn/sapper-v2",
-      "value_score": 44.32,
-      "views": 35,
-      "views_age_hours": 4.0,
-      "views_at_24h": 91,
+      "value_score": 28.92,
+      "views": 64,
+      "views_age_hours": 28.0,
+      "views_at_24h": 60,
       "views_history": [
         {
           "at": "2026-11-22T20:23:51.884586Z",
           "reactions": 0,
           "views": 35
+        },
+        {
+          "at": "2026-11-23T20:23:48.817695Z",
+          "reactions": 0,
+          "views": 64
         }
       ],
       "visual_host": "imgbb",
@@ -9439,15 +9493,20 @@
       "topics": [],
       "updated_at": "2026-11-22T17:11:34Z",
       "url": "https://github.com/storytold/cadcraft",
-      "value_score": 54.08,
-      "views": 30,
-      "views_age_hours": 2.2,
-      "views_at_24h": 111,
+      "value_score": 34.39,
+      "views": 74,
+      "views_age_hours": 26.2,
+      "views_at_24h": 71,
       "views_history": [
         {
           "at": "2026-11-22T20:23:51.478185Z",
           "reactions": 0,
           "views": 30
+        },
+        {
+          "at": "2026-11-23T20:23:48.479757Z",
+          "reactions": 0,
+          "views": 74
         }
       ],
       "visual_host": "imgbb",
@@ -9560,10 +9619,10 @@
       ],
       "updated_at": "2026-11-19T18:06:56Z",
       "url": "https://github.com/storytold/figcraft",
-      "value_score": 27.87,
-      "views": 90,
-      "views_age_hours": 74.2,
-      "views_at_24h": 58,
+      "value_score": 29.86,
+      "views": 107,
+      "views_age_hours": 98.2,
+      "views_at_24h": 63,
       "views_history": [
         {
           "at": "2026-11-19T20:23:52.250908Z",
@@ -9584,6 +9643,11 @@
           "at": "2026-11-22T20:23:55.091372Z",
           "reactions": 0,
           "views": 90
+        },
+        {
+          "at": "2026-11-23T20:23:51.548169Z",
+          "reactions": 0,
+          "views": 107
         }
       ],
       "visual_host": "imgbb",
@@ -10302,10 +10366,10 @@
       ],
       "updated_at": "2026-11-21T15:01:12Z",
       "url": "https://github.com/Verlintas/NOIR",
-      "value_score": 29.37,
-      "views": 62,
-      "views_age_hours": 26.2,
-      "views_at_24h": 60,
+      "value_score": 25.78,
+      "views": 75,
+      "views_age_hours": 50.2,
+      "views_at_24h": 54,
       "views_history": [
         {
           "at": "2026-11-21T20:23:49.397211Z",
@@ -10316,6 +10380,11 @@
           "at": "2026-11-22T20:23:52.682445Z",
           "reactions": 0,
           "views": 62
+        },
+        {
+          "at": "2026-11-23T20:23:49.497331Z",
+          "reactions": 0,
+          "views": 75
         }
       ],
       "visual_host": "imgbb",
@@ -11178,9 +11247,9 @@
       ],
       "updated_at": "2026-11-20T18:11:46Z",
       "url": "https://github.com/yetone/magpie",
-      "value_score": 35.75,
-      "views": 104,
-      "views_age_hours": 50.2,
+      "value_score": 35.62,
+      "views": 115,
+      "views_age_hours": 74.2,
       "views_at_24h": 74,
       "views_history": [
         {
@@ -11197,6 +11266,11 @@
           "at": "2026-11-22T20:23:53.884919Z",
           "reactions": 0,
           "views": 104
+        },
+        {
+          "at": "2026-11-23T20:23:50.514663Z",
+          "reactions": 0,
+          "views": 115
         }
       ],
       "visual_host": "imgbb",
