@@ -259,14 +259,22 @@
       "multi paperorchestra system": "2026-11-19"
     }
   },
-  "dead_letters": [],
+  "dead_letters": [
+    {
+      "created_at": "2026-11-23T16:35:02.086435Z",
+      "error": "gemini_unavailable twice",
+      "note": "removed from queue after 2 model failures",
+      "platform": "gemini",
+      "repo": "valentderah/totk-pc-recomp"
+    }
+  ],
   "gemini_daily": {
     "day": "2026-11-23",
-    "units": 9
+    "units": 18
   },
   "gemini_window": [
     [
-      1795451251.256868,
+      1795451676.1486866,
       3248
     ]
   ],
@@ -2102,7 +2110,7 @@
     }
   ],
   "publish_failures": {
-    "valentderah/totk-pc-recomp": 1
+    "valentderah/totk-pc-recomp": 2
   },
   "published": {
     "anefzaoui/misterdownloadmanager": {
@@ -11020,86 +11028,6 @@
     }
   },
   "queue": [
-    {
-      "archived": false,
-      "contributors_count": 70,
-      "created_at": "2026-10-29T12:32:46Z",
-      "default_branch": "main",
-      "description": "Static recompilation of The Legend of Zelda: Tears of the Kingdom to native Windows and Linux x86-64, with a Vulkan renderer. Game files not included.",
-      "disabled": false,
-      "fork": false,
-      "forks": 646,
-      "forks_count": 646,
-      "full_name": "valentderah/totk-pc-recomp",
-      "has_readme": true,
-      "homepage": "",
-      "id": 1438394948,
-      "is_dual_use": false,
-      "is_hidden_gem": false,
-      "language": "C",
-      "license": {
-        "key": "mit",
-        "name": "MIT License",
-        "node_id": "MDc6TGljZW5zZTEz",
-        "spdx_id": "MIT",
-        "url": "https://api.github.com/licenses/mit"
-      },
-      "media_urls": [],
-      "name": "totk-pc-recomp",
-      "non_software_reason": "",
-      "open_issues": 415,
-      "open_issues_count": 415,
-      "owner_repo_count": 1,
-      "pushed_at": "2026-11-23T07:36:59Z",
-      "readme": "",
-      "readme_excerpt": "# TotK Recomp\n\n**TotK Recomp** is a static recompilation of *The Legend of Zelda: Tears of the Kingdom* (Nintendo Switch, 2023) into a native x86-64 application for Windows and Linux ([docs/architecture.md](docs/architecture.md)).\n\n> [!IMPORTANT]\n> **No game files are included.** You need your own legally obtained copy of *Tears of the Kingdom*, dumped from your own console: the base game and the 1.1.0, 1.2.1 or 1.4.3 update. Instructions for obtaining those files will not be provided.\n>\n> The game is built from your files on your machine, so the result contains the game. It is for your own use. Do not share it.\n\n## Status\n\nEarly development. The game is playable on Windows and Linux; visual bugs and crashes are still expected.\n\nReport problems as issues, following [CONTRIBUTING.md](CONTRIBUTING.md).\n\n## Features\n\n- Native code, not emulation\n- Game updates 1.1.0, 1.2.1 and 1.4.3; 1.2.1 and 1.4.3 saves carry over between them\n- Takes NSP and XCI game files, and compressed NSZ and XCZ as they are: the setup unpacks them itself\n- 60 fps by default; up to 144 fps or the monitor's refresh rate (experimental)\n- Custom resolutions (1080p, 2k...), supersampling and AMD FSR 1 upscaling\n- N",
-      "readme_len": 7373,
-      "repo_id": 1438394948,
-      "score": 67.67,
-      "score_parts": {
-        "acceleration": 0.5,
-        "acceleration_known": 0,
-        "acceleration_ratio": 0.0,
-        "age_days": 24.9,
-        "appeal": 0.722,
-        "burst": 0.593,
-        "community": 0.852,
-        "content": 0.259,
-        "corroboration": 0.407,
-        "external": 0.463,
-        "forks_measured": 1,
-        "forks_per_day": 25.98,
-        "forks_rate": 0.762,
-        "freshness": 0.704,
-        "growth": 0.926,
-        "growth_measured": 0,
-        "popularity": 1.0,
-        "reliability": 0.5,
-        "stars_per_day": 324.86
-      },
-      "source_name": "github_search",
-      "sources": [
-        "github_search"
-      ],
-      "star_history": [
-        [
-          "2026-11-23",
-          8078,
-          646
-        ]
-      ],
-      "stargazers_count": 8078,
-      "stars": 8078,
-      "topics": [
-        "game",
-        "linux",
-        "port",
-        "recompilation",
-        "windows"
-      ],
-      "updated_at": "2026-11-23T08:55:26Z",
-      "url": "https://github.com/valentderah/totk-pc-recomp"
-    },
     {
       "archived": false,
       "contributors_count": 19,
@@ -24220,8 +24148,8 @@
     "valentderah/totk-pc-recomp": {
       "first_seen_at": "2026-11-03T11:59:59.713799Z",
       "full_name": "valentderah/totk-pc-recomp",
-      "last_decision": "queued",
-      "last_seen_at": "2026-11-23T09:20:23.426494Z",
+      "last_decision": "gemini_failed_twice",
+      "last_seen_at": "2026-11-23T16:35:02.086404Z",
       "repo_id": 1438394948,
       "sources": [
         "github_search",
@@ -24231,8 +24159,8 @@
       "star_history": [
         [
           "2026-11-23",
-          8078,
-          646
+          8120,
+          647
         ]
       ]
     },
