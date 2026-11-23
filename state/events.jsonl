@@ -739,3 +739,4 @@
 {"platform": "devto", "repo": "iamajmeena/neonclipping", "ts": "2026-11-23T13:33:59.926981Z", "type": "article_published", "url": "https://dev.to/githubopensource/open-source-local-video-clipping-tool-neonclipping-5338"}
 {"minutes_late": 56.2, "schedule": "47 */3 * * *", "ts": "2026-11-23T13:43:13.832451Z", "type": "late_schedule_ignored"}
 {"deleted": 0, "ts": "2026-11-23T15:47:47.409266Z", "type": "moderation_completed", "updates": 0}
+{"failures": 1, "gemini_error_class": "capacity_503", "reason": "gemini_unavailable", "repo": "valentderah/totk-pc-recomp", "slot": "us_morning", "ts": "2026-11-23T16:27:34.392591Z", "type": "publish_skipped"}

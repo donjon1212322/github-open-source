@@ -261,17 +261,13 @@
   },
   "dead_letters": [],
   "gemini_daily": {
-    "day": "2026-11-22",
-    "units": 30
+    "day": "2026-11-23",
+    "units": 9
   },
   "gemini_window": [
     [
-      1795396435.607449,
-      3970
-    ],
-    [
-      1795396440.2157092,
-      1375
+      1795451251.256868,
+      3248
     ]
   ],
   "last_runs": {
@@ -2097,7 +2093,9 @@
       "type": "job"
     }
   ],
-  "publish_failures": {},
+  "publish_failures": {
+    "valentderah/totk-pc-recomp": 1
+  },
   "published": {
     "anefzaoui/misterdownloadmanager": {
       "articles": {},
