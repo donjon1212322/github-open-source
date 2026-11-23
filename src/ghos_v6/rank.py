@@ -1,4 +1,30 @@
-"""Deterministic candidate ranking."""
+"""Candidate scoring and selection.
+
+The owner's rule (23.11): **a star count is not interest**. A repository
+created three days ago that already has 600 stars is a stronger signal than a
+two-year-old project sitting at 12 000, because the first one is what people
+are looking at *right now*. An additive, capped formula ("30 points for
+stars") cannot express that and, measured on the live queue, it collapsed:
+27 candidates spanned 80.28..87.40 - every project looked the same.
+
+So scoring here is a small, auditable model with three properties:
+
+1. **Ten named signals**, each mapped to 0..1. Growth (stars per day, taken
+   from real snapshots when we have them) carries the most weight; absolute
+   popularity keeps only 8 of 100.
+2. **Pool normalisation.** ``rank_candidates`` converts every signal into a
+   percentile inside the current pool, so the score uses the whole 0..100
+   range and "who is best today" is answered by comparison, not by caps.
+   ``score_candidate`` alone (used by tests and single lookups) falls back to
+   the raw 0..1 values.
+3. **Nothing invented.** Every signal comes from the repository's own API
+   data, our own star snapshots, or Hacker News points. No hidden weights,
+   no model, and ``score_parts`` is stored with each candidate so the reason
+   for a pick can be read back.
+
+Diversity and audience nudges stay outside this score: they reorder
+near-equal candidates at selection time (see the bottom of the file).
+"""
 from __future__ import annotations
 
 import math
@@ -8,6 +34,25 @@ from typing import Any
 
 from .audience import appeal_signals
 from .gate import parse_dt
+
+#: Weights in points out of 100. Growth first because that is the owner's
+#: rule; popularity last-but-one because a famous repository is not news.
+WEIGHTS: dict[str, float] = {
+    "growth": 26.0,        # stars per day, from real snapshots when available
+    "burst": 10.0,         # a brand-new project taking off right now
+    "freshness": 10.0,     # pushed_at: is anybody still working on it
+    "content": 10.0,       # README, topics, homepage, media: can we cover it
+    "community": 8.0,      # forks/stars reuse, contributors, open issues
+    "external": 8.0,       # Hacker News points: outside validation
+    "appeal": 8.0,         # audience appeal signals (product, not a building block)
+    "popularity": 8.0,     # log10 stars - deliberately small
+    "reliability": 6.0,    # licence, not archived, owner is not a farm
+    "corroboration": 6.0,  # how many independent sources found it
+}
+
+#: How many days of star history we keep per repository. Two snapshots are
+#: enough for a rate; more would only bloat the committed state file.
+STAR_HISTORY_POINTS = 8
 
 
 def _num(candidate: dict[str, Any], *keys: str) -> float:
@@ -20,65 +65,231 @@ def _num(candidate: dict[str, Any], *keys: str) -> float:
     return 0.0
 
 
-def score_candidate(candidate: dict[str, Any], *, now: datetime | None = None) -> float:
+def _clamp(value: float, low: float = 0.0, high: float = 1.0) -> float:
+    return max(low, min(high, value))
+
+
+def _age_days(candidate: dict[str, Any], now: datetime) -> float | None:
+    created = parse_dt(candidate.get("created_at"))
+    if created is None or created > now:
+        return None
+    return max(0.0, (now - created).total_seconds() / 86400.0)
+
+
+def observed_growth(candidate: dict[str, Any], stars: float) -> tuple[float, float]:
+    """Stars per day from our own snapshots: ``(rate, days_covered)``.
+
+    ``star_history`` is written by ``StateStore.mark_seen`` as
+    ``[["2026-11-20", 512], ["2026-11-23", 791]]``. Without at least two
+    points on different days we return ``(0.0, 0.0)`` and the caller falls
+    back to the age-based velocity - honest about what we do not know.
+    """
+    history = candidate.get("star_history") or []
+    points: list[tuple[datetime, float]] = []
+    for item in history[-STAR_HISTORY_POINTS:]:
+        try:
+            stamp, value = item[0], float(item[1])
+        except (TypeError, ValueError, IndexError):
+            continue
+        parsed = parse_dt(f"{stamp}T00:00:00Z") if len(str(stamp)) == 10 else parse_dt(stamp)
+        if parsed is not None:
+            points.append((parsed, value))
+    if len(points) < 2:
+        return 0.0, 0.0
+    points.sort(key=lambda pair: pair[0])
+    (first_day, first_stars), (last_day, last_stars) = points[0], points[-1]
+    days = (last_day - first_day).total_seconds() / 86400.0
+    if days < 1.0:
+        return 0.0, 0.0
+    # The freshest number is the live API value, not the last snapshot.
+    delta = max(stars, last_stars) - first_stars
+    return max(0.0, delta / days), days
+
+
+def star_signals(
+    candidate: dict[str, Any], *, now: datetime | None = None
+) -> dict[str, float]:
+    """The two star signals, in stars per day, before any normalisation."""
     now = now or datetime.now(timezone.utc)
     stars = _num(candidate, "stars", "stargazers_count")
+    age = _age_days(candidate, now)
+
+    measured, covered = observed_growth(candidate, stars)
+    if measured > 0:
+        growth = measured
+        source = "snapshots"
+    elif age is not None:
+        # Lifetime average. For a two-day-old repository this *is* the launch
+        # rate; for an old one it is history, which is why the pool
+        # normalisation below matters more than the number itself.
+        growth = stars / max(1.0, age)
+        source = "velocity"
+    else:
+        growth = 0.0
+        source = "unknown"
+
+    # A young repository that is already popular is the strongest signal we
+    # can see: it means hundreds of people decided within days, not years.
+    burst = 0.0
+    if age is not None and age <= 30:
+        burst = _clamp(stars / max(1.0, age + 2.0) / 50.0)
+
+    return {
+        "stars": stars,
+        "age_days": age if age is not None else -1.0,
+        "growth": growth,
+        "growth_source": 1.0 if source == "snapshots" else 0.0,
+        "burst": burst,
+    }
+
+
+def score_components(
+    candidate: dict[str, Any], *, now: datetime | None = None
+) -> dict[str, float]:
+    """Every signal as a raw 0..1 value, plus the stars behind them."""
+    now = now or datetime.now(timezone.utc)
+    star = star_signals(candidate, now=now)
+    stars = star["stars"]
     forks = _num(candidate, "forks", "forks_count")
     contributors = _num(candidate, "contributors_count")
     hn_points = _num(candidate, "hn_points")
+    sources = [str(s) for s in (candidate.get("sources") or [])]
 
-    quality = min(30.0, 6.2 * math.log10(stars + 1) + min(5.0, math.log10(forks + 1) * 1.6))
+    # Growth: log scale so 3 stars/day and 3000 stars/day are different but
+    # neither one saturates the whole scale on its own.
+    growth = _clamp(math.log1p(star["growth"]) / math.log1p(200.0))
 
     pushed = parse_dt(candidate.get("pushed_at") or candidate.get("updated_at"))
-    pushed_days = max(0, (now - pushed).days) if pushed else 180
-    freshness = max(0.0, 20.0 - pushed_days * 0.14)
-
-    created = parse_dt(candidate.get("created_at"))
-    age_days = max(1, (now - created).days) if created and created <= now else 365
-    velocity = stars / age_days
-    sources = candidate.get("sources") or []
-    momentum = min(12.0, math.log1p(velocity) * 3.2) + min(5.0, max(0, len(sources) - 1) * 2.5)
-    momentum += min(3.0, hn_points / 45.0)
-    momentum = min(20.0, momentum)
+    pushed_days = max(0.0, (now - pushed).total_seconds() / 86400.0) if pushed else 180.0
+    freshness = _clamp(1.0 - pushed_days / 90.0)
 
     readme_len = int(
         candidate.get("readme_len")
         or len(str(candidate.get("readme") or candidate.get("readme_excerpt") or ""))
     )
-    content = min(8.0, readme_len / 1800.0)
-    if candidate.get("homepage"):
-        content += 1.5
-    if candidate.get("topics"):
-        content += min(2.0, len(candidate.get("topics") or []) * 0.25)
-    if candidate.get("media_urls"):
-        content += 2.0
-    if contributors >= 2:
-        content += 1.5
-    content = min(15.0, content)
+    content = (
+        _clamp(readme_len / 6000.0)
+        + _clamp(len(candidate.get("topics") or []) / 8.0)
+        + (1.0 if candidate.get("homepage") else 0.4)
+        + (1.0 if candidate.get("media_urls") else 0.5)
+    ) / 4.0
 
-    # Repo farms: an owner with many young, similarly named repos is
-    # usually farming the trending page rather than shipping software.
-    same_owner = int(candidate.get("owner_repo_count") or 0)
+    reuse = _clamp((forks / stars) * 10.0) if stars > 0 else 0.0
+    community = (
+        reuse
+        + _clamp(contributors / 25.0)
+        + (0.5 if _num(candidate, "open_issues", "open_issues_count") > 0 else 0.0)
+    ) / 2.5
+
+    external = _clamp(hn_points / 300.0)
+    appeal = _clamp(len(appeal_signals(candidate)) / 3.0)
+    popularity = _clamp(math.log10(stars + 1.0) / 5.0)
+
+    reliability = 1.0
+    if stars <= 0:
+        reliability = 0.0
+    # Repo farms: an owner with many young, similarly named repos is usually
+    # farming the trending page rather than shipping software.
+    same_owner = _num(candidate, "owner_repo_count")
     if same_owner >= 5:
-        momentum -= min(10.0, (same_owner - 4) * 2.0)
+        reliability -= min(0.7, (same_owner - 4) * 0.15)
+    licence = candidate.get("license")
+    has_licence = bool(str((licence or {}).get("spdx_id") or licence or "").strip()) if isinstance(
+        licence, dict
+    ) else bool(licence)
+    if not has_licence:
+        reliability -= 0.3
+    reliability = _clamp(reliability)
 
-    # "Interesting project" bonus: something a reader can open and use
-    # outranks another library with the same numbers. Capped so it nudges
-    # ordering inside the queue instead of overriding the gate.
-    appeal = min(10.0, len(appeal_signals(candidate)) * 3.5)
+    corroboration = _clamp(max(0, len(sources) - 1) / 2.0)
 
-    base = quality + freshness + momentum + content + appeal
-    # Reserve up to 15 points for diversity at selection time. Give a small
-    # neutral baseline so single-candidate scores remain on a 0..100 scale.
-    return round(min(100.0, base + 10.0), 3)
+    return {
+        "growth": growth,
+        "burst": star["burst"],
+        "freshness": freshness,
+        "content": content,
+        "community": community,
+        "external": external,
+        "appeal": appeal,
+        "popularity": popularity,
+        "reliability": reliability,
+        "corroboration": corroboration,
+        "stars": stars,
+        "stars_per_day": star["growth"],
+        "age_days": star["age_days"],
+        "growth_measured": star["growth_source"],
+    }
 
 
-def rank_candidates(candidates: list[dict[str, Any]]) -> list[dict[str, Any]]:
+def _percentiles(candidates: list[dict[str, Any]], parts: list[dict[str, float]]) -> list[dict[str, float]]:
+    """Turn each raw signal into a 0..1 percentile inside the pool.
+
+    Ties share the middle of their range, so four clones with identical
+    numbers cannot outrank each other by accident. A single-candidate pool
+    maps every signal to 0.5: no comparison, no claim.
+    """
+    total = len(candidates)
+    normalised: list[dict[str, float]] = [dict(part) for part in parts]
+    if total <= 1:
+        for row in normalised:
+            for name in WEIGHTS:
+                row[name] = 0.5
+        return normalised
+    for name in WEIGHTS:
+        values = sorted(part[name] for part in parts)
+        for row, part in zip(normalised, parts):
+            value = part[name]
+            below = sum(1 for other in values if other < value)
+            equal = sum(1 for other in values if other == value)
+            row[name] = (below + (equal - 1) / 2.0) / (total - 1)
+    return normalised
+
+
+def _weighted(parts: dict[str, float]) -> float:
+    total = sum(WEIGHTS[name] * float(parts[name]) for name in WEIGHTS)
+    return round(min(100.0, max(0.0, total)), 2)
+
+
+def score_candidate(candidate: dict[str, Any], *, now: datetime | None = None) -> float:
+    """Single-candidate score 0..100 without pool normalisation.
+
+    Used where there is nothing to compare against (tests, one-off lookups,
+    the fallback in ``rank_candidates``). Production ranking goes through
+    ``rank_candidates`` so percentiles - and therefore the full 0..100
+    range - are used.
+    """
+    parts = score_components(candidate, now=now)
+    return _weighted({name: parts[name] for name in WEIGHTS})
+
+
+def rank_candidates(
+    candidates: list[dict[str, Any]],
+    *,
+    seen: dict[str, Any] | None = None,
+    now: datetime | None = None,
+) -> list[dict[str, Any]]:
+    """Score a pool, then sort. Star snapshots from ``state`` are attached first."""
+    moment = now or datetime.now(timezone.utc)
     for candidate in candidates:
-        candidate["score"] = score_candidate(candidate)
+        if seen is not None:
+            key = str(candidate.get("full_name") or "").strip().lower()
+            record = seen.get(key) if key else None
+            if isinstance(record, dict) and record.get("star_history"):
+                candidate.setdefault("star_history", record["star_history"])
+    parts = [score_components(candidate, now=moment) for candidate in candidates]
+    normalised = _percentiles(candidates, parts)
+    for candidate, raw, norm in zip(candidates, parts, normalised):
+        candidate["score"] = _weighted({name: norm[name] for name in WEIGHTS})
+        candidate["score_parts"] = {
+            name: round(float(norm[name]), 3) for name in WEIGHTS
+        }
+        candidate["score_parts"]["stars_per_day"] = round(float(raw["stars_per_day"]), 2)
+        candidate["score_parts"]["age_days"] = round(float(raw["age_days"]), 1)
+        candidate["score_parts"]["growth_measured"] = int(raw["growth_measured"])
     return sorted(
         candidates,
-        key=lambda c: (float(c.get("score") or 0), int(c.get("stars") or c.get("stargazers_count") or 0)),
+        key=lambda c: (float(c.get("score") or 0),
+                       int(c.get("stars") or c.get("stargazers_count") or 0)),
         reverse=True,
     )
 

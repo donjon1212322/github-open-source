@@ -257,7 +257,10 @@ def collect_command(
             or dedup.check(candidate, store.data)["verdict"] == "revisit"
         )
     ]
-    candidates = rank_candidates(candidates)
+    # Rank with the pool normalisation *and* our own star snapshots, so a
+    # young project with a real growth rate is compared on the rate, not on
+    # the total (owner rule 23.11).
+    candidates = rank_candidates(candidates, seen=store.data.get("seen_repos"))
     api = GitHubApi(config.GitHub_token)
     enriched = enrich_candidates(api, candidates, max_enrich=90)
 
@@ -286,13 +289,20 @@ def collect_command(
             rejection_counts.update(decision.reasons or ["unknown"])
             store.mark_seen(candidate, f"rejected:{reason}")
 
-    passing = rank_candidates(passing)
+    passing = rank_candidates(passing, seen=store.data.get("seen_repos"))
     # The queue is a buffer, not a warehouse: three slots a day means a
     # week of fuel is ~21 posts. Anything beyond that is inventory that
     # gets stale (stars change, projects get archived) and bloats the
     # committed state file. 28 = 9 days at the current cadence.
     queue = passing[:28]
     store.set_queue(queue)
+    # The merge in set_queue keeps yesterday's unpublished candidates. Their
+    # scores were percentiles of a different pool, so the final queue is
+    # ranked again as one pool: otherwise a stale number silently outranks a
+    # fresh one.
+    store.data["queue"] = rank_candidates(
+        list(store.data.get("queue") or []), seen=store.data.get("seen_repos")
+    )
     store.data.setdefault("last_runs", {})["collect"] = {
         "started_at": started,
         "finished_at": iso_now(),

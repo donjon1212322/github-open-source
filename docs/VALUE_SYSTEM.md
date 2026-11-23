@@ -130,13 +130,68 @@ plugin markets.
 |---|---|---|
 | Anti-duplication | **ready** | 4 layers, 90-day milestone-only re-visits |
 | Gate (safety, licence, freshness, language, narrowness) | **ready** | 22 rejection reasons, all named in `events.jsonl` |
-| Ranking | **ready** | quality + freshness + momentum + content + appeal, 0–100 |
+| Ranking | **ready** | 10 сигналов, перцентили внутри пула, 0–100 (см. §3e) |
 | Measurement | **half** | views are live (public widget); votes need a poll that has actually closed; reactions are collected but not yet in the `value` formula |
 | Learning | **not exercised** | needs **20** measured posts (raised from 5 — see `docs/agents/SAMPLE_SIZE.md`); a fresh state dir has none |
 
 So the system is *complete in design and wired end to end*, but only the
 first half has been proven on live data. The honest status is "ready to
 run a cycle", not "validated by a cycle".
+
+## 3e. The editorial score (rewritten 23.11, owner rule «звёзды — не интерес»)
+
+The old formula was additive with caps — `min(30, 6.2·log10(stars))` for
+quality, `min(20, …)` for momentum, `+10` neutral baseline. Measured on the
+live queue of 27 candidates it spanned **80.28 – 87.40**: seven points for
+every possible project, and a two-day-old repository with 1 123 stars per day
+competed on equal terms with a three-year-old shelf item. Ten of the 27
+candidates sat on the same freshness cap.
+
+The replacement has three properties.
+
+**1. Ten named signals, weighted out of 100** (`rank.WEIGHTS`):
+
+| Signal | Weight | Where it comes from |
+|---|---|---|
+| growth | 26 | stars per day: **our own daily snapshots** when we have two, otherwise stars ÷ repo age |
+| burst | 10 | a brand-new repo taking off now (`stars / (age+2) / 50`, age ≤ 30 d) |
+| freshness | 10 | `pushed_at` — is anybody still working on it |
+| content | 10 | README length, topics, homepage, media (can we write about it) |
+| community | 8 | forks/stars reuse, contributors, open issues |
+| external | 8 | Hacker News points — validation outside GitHub |
+| appeal | 8 | `audience.appeal_signals` — a product, not a building block |
+| popularity | 8 | `log10(stars)` — deliberately the same size as appeal, not 30 |
+| reliability | 6 | licence present, not a repo farm (`owner_repo_count`) |
+| corroboration | 6 | how many independent sources found it |
+
+**2. Pool percentiles.** `rank_candidates()` converts each signal into a
+percentile inside the current pool, so the score uses the real 0..100 range
+and "who is best today" is answered by comparison instead of caps. Signals
+where the whole pool is identical map to 0.5 (no comparison, no claim).
+`score_candidate()` alone — tests, one-off lookups — falls back to raw values.
+
+**3. Measured growth, not guessed growth.** `StateStore.mark_seen()` now
+writes `star_history` (one snapshot per day, bounded to 8) for every
+repository it meets. From the second day on, growth is a measured fact:
+200 → 800 stars in three days is 200/day, whatever the repo's age says. When
+only one snapshot exists the model falls back to lifetime velocity and marks
+`growth_measured: 0` in `score_parts`, so the difference is visible in state.
+
+Every candidate carries `score_parts` (all ten percentiles plus
+`stars_per_day`, `age_days`, `growth_measured`), so any pick can be explained
+after the fact.
+
+Measured effect on the live queue (23.11, same 23 candidates):
+
+| | old score | new score |
+|---|---|---|
+| spread across the pool | 7.1 points | **37.5 points** |
+| top pick | `XinaTian/MROffice` (2 112 ★, 12 d) | **`EL4CTEO/fast-anything` (2 d, ≈1 124 ★/day)** |
+| old top under the new model | — | 60.7 (5th) |
+
+The gate is unchanged and still rejects manufactured popularity
+(> 2 500 stars/day in the first two weeks answers `velocity_too_high`), so
+"fast" is rewarded inside the range a real launch produces.
 
 ## 4. Weekly cycle
 

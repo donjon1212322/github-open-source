@@ -262,7 +262,41 @@ class StateStore:
             "last_seen_at": iso_now(),
             "last_decision": decision,
             "sources": sorted(set(prev.get("sources") or []) | set(candidate.get("sources") or [])),
+            "star_history": self._star_history(prev, candidate),
         }
+
+    #: How many daily star snapshots we keep per repository. Two are enough
+    #: for a real growth rate; the rest is history nobody reads, and state is
+    #: committed on every run.
+    STAR_HISTORY_POINTS = 8
+
+    def _star_history(self, prev: dict[str, Any], candidate: dict[str, Any]) -> list[list[Any]]:
+        """One star snapshot per day, so ``rank`` can measure real growth.
+
+        Owner rule 23.11: interest is the *rate*, not the total. Without
+        our own snapshots that rate could only be guessed from the repo's
+        age, so every run now records what it saw - a repository that goes
+        from 300 to 900 stars in three days is then a measured fact, not an
+        assumption from the star count.
+        """
+        history: list[list[Any]] = []
+        for entry in (prev.get("star_history") or [])[-self.STAR_HISTORY_POINTS:]:
+            try:
+                stamp, value = str(entry[0])[:10], int(float(entry[1]))
+            except (TypeError, ValueError, IndexError):
+                continue
+            history.append([stamp, value])
+        try:
+            stars = int(float(candidate.get("stars") or candidate.get("stargazers_count") or 0))
+        except (TypeError, ValueError):
+            stars = 0
+        if stars > 0:
+            today = iso_now()[:10]
+            if history and history[-1][0] == today:
+                history[-1][1] = stars
+            else:
+                history.append([today, stars])
+        return history[-self.STAR_HISTORY_POINTS:]
 
     def set_queue(self, candidates: list[dict[str, Any]], *, merge: bool = True) -> None:
         """Replace or extend the pipeline.
