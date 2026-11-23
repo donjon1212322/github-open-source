@@ -262,16 +262,16 @@
   "dead_letters": [],
   "gemini_daily": {
     "day": "2026-11-22",
-    "units": 24
+    "units": 30
   },
   "gemini_window": [
     [
-      1795371229.491226,
-      3880
+      1795396435.607449,
+      3970
     ],
     [
-      1795371241.8962328,
-      1397
+      1795396440.2157092,
+      1375
     ]
   ],
   "last_runs": {
@@ -368,9 +368,9 @@
       "telegram_message_id": 3550
     },
     "publish:us_evening": {
-      "finished_at": "2026-11-22T01:14:00.497644Z",
-      "repo": "kianuni/erosion-cn",
-      "telegram_message_id": 3631
+      "finished_at": "2026-11-23T01:14:07.417381Z",
+      "repo": "iamajmeena/neonclipping",
+      "telegram_message_id": 3637
     },
     "publish:us_midday": {
       "finished_at": "2026-11-22T18:14:13.948747Z",
@@ -4043,6 +4043,123 @@
           "views": 96
         }
       ],
+      "visual_host": "imgbb",
+      "visual_kind": "readme"
+    },
+    "iamajmeena/neonclipping": {
+      "articles": {},
+      "card_style": "",
+      "category": "AI",
+      "contributors_count": 2,
+      "created_at": "2026-11-19T10:00:43Z",
+      "crossposts": {
+        "bluesky": {
+          "attempts": 0,
+          "due_at": "2026-11-23T18:00:00+00:00",
+          "status": "pending"
+        }
+      },
+      "description": "Paste a link, get captioned 9:16 clips in ~2 min. Free, local, open-source clipping engine (audio-first, YouTube captions, local LLM).",
+      "description_fp": "8d9a304fced008a3",
+      "forks": 119,
+      "full_name": "iamajmeena/neonclipping",
+      "generated": {
+        "article_markdown": "## What it is\n\nNeonClipping is a local, open-source clipping engine designed to turn long-form videos from YouTube, Twitch, Kick, or local MP4 files into vertical 9:16 captioned clips. It runs entirely on your machine using local tools like Python, FFmpeg, and Ollama, requiring no cloud subscription or file uploads.\n\n## Why it matters\n\nContent creators frequently rely on cloud-based SaaS tools to chop up long recordings, which often introduce privacy concerns, storage limits, and recurring subscription costs. NeonClipping shifts this entire workflow to local hardware, processing an 85-minute stream in under two minutes by downloading audio tracks first and fetching only the required video segments.\n\n## Key features\n\n- Audio-first highlight detection utilizing loudness jumps and energy spikes\n- Local LLM integration for scoring moments and writing titles\n- Eleven native layout presets for facecam and gameplay framing\n- Five built-in caption styles supporting 52 languages and Hinglish\n- Local feedback loop that adjusts ranking weights based on user ratings\n\n## Quick start\n\nClone the repository to get started with the local setup:\n\n```bash\ngit clone https://github.com/iamajmeena/neonclipping\ncd neonclipping\n```\n\n## Who should try it\n\nStreamers, video editors, and developers looking for a self-hosted, offline alternative to commercial cloud clipping services.\n\n## Verdict\n\nNeonClipping provides a practical, privacy-focused tool for automated video summarization, though your processing speed will depend directly on your local CPU and GPU capabilities.",
+        "article_title": "NeonClipping: Local Open-Source AI Video Clipper for Vertical Shorts",
+        "card_hook": "Local AI video clippers",
+        "card_subline": "Turn long streams into captioned 9:16 clips locally with no cloud uploads or subscriptions",
+        "category": "AI",
+        "discussion_question": "Which caption style do you use most often for vertical videos?",
+        "hook": "Turn long streams into 9:16 captioned clips locally in 97 seconds with zero cloud fees.",
+        "key_features": [
+          "Selects moments via loudness jumps, raised voices, and optional optical-flow motion analysis",
+          "Supports 11 native layouts including facecam positioning and split-screen configurations",
+          "Provides 5 caption styles across 52 languages with Hinglish support",
+          "Saves feedback locally in JSONL to adapt ranking weights over time",
+          "Runs entirely offline by binding exclusively to localhost"
+        ],
+        "llm_used": true,
+        "quick_start": "git clone https://github.com/iamajmeena/neonclipping && cd neonclipping",
+        "safety": "ok",
+        "safety_reason": "Legitimate open-source media utility tool for local video processing.",
+        "scene": "You finish an 80-minute streaming session, look at the VOD, and realize you need to spend hours cutting vertical highlights for TikTok and Shorts.",
+        "social_text": "Turn long video streams into local captioned 9:16 clips in minutes with zero cloud fees or subscriptions.",
+        "summary": "NeonClipping processes long video files entirely on local hardware by combining audio-first feature extraction with local LLMs and FFmpeg. It downloads only the necessary audio track or selected segments, scores moments using loudness and motion heuristics, and renders final vertical clips with burned-in captions without touching external APIs.",
+        "surfaces": {
+          "Facebook_body": "Making vertical clips for social media usually means uploading hours of footage to a paid cloud service and waiting a long time. Now you can process your videos directly on your own computer in just over a minute and a half without paying any subscription fees or sending your private files to third-party servers.\n\nThis tool works by downloading just the audio track first, then analyzing the recording for exciting moments using sound levels and motion detection. It finds the best parts automatically, arranges the layout for vertical screens, adds burnt-in captions, and saves the final file right to your hard drive.\n\nIt is built for video creators, streamers, and hobbyists who want to produce short clips without recurring software costs or privacy trade-offs. You just need a standard computer with a decent graphics card to run the entire process locally.",
+          "Facebook_headline": "Turn long videos into short vertical clips for free",
+          "Facebook_lead": "Create vertical clips with captions from your long videos entirely on your own computer without paying any monthly subscription fees.",
+          "bluesky_headline": "Turn long videos into captioned vertical clips offline",
+          "bluesky_lead": "Process hours of footage on your own hardware in 97 seconds with zero cloud fees.",
+          "devto_body": "## What it is\n\nNeonClipping is an open-source Python tool that turns long horizontal videos into captioned 9:16 vertical clips entirely on local hardware. It processes footage offline by combining audio feature extraction, local transcription, and FFmpeg rendering without relying on external cloud APIs.\n\n## How it works\n\nThe pipeline downloads only the necessary audio track or selected segments first, saving bandwidth and time. It scores moments using loudness jumps, raised voices, and optional motion analysis. Once the highlights are selected, it formats the video into one of 11 native layouts and renders burned-in captions locally.\n\n## Key features\n\n- Runs entirely offline by binding exclusively to localhost\n- Supports 11 native layouts including facecam positioning and split-screen\n- Provides 5 caption styles across 52 languages with Hinglish support\n- Saves user feedback locally in JSONL format to adapt ranking weights over time\n\n## Getting started\n\nClone the repository from GitHub, ensure you have Python and FFmpeg installed, and run the local setup to start clipping your videos immediately.\n\n## When not to use it\n\nIf you do not have a consumer GPU capable of running local audio transcription and lightweight language models smoothly, the processing time will increase significantly.",
+          "seo_description": "Turn long videos into captioned 9:16 vertical clips locally in 97 seconds with zero cloud fees using this free open-source Python engine.",
+          "seo_query": "open source local video clipper",
+          "seo_title": "Open-Source Local Video Clipping Tool - NeonClipping",
+          "telegraph_angle": "Explain the architectural shift from cloud-based video editing to local, offline processing and what it means for creator privacy."
+        },
+        "tension": "Cloud clipping services charge monthly subscription fees and force you to upload gigabytes of footage to third-party servers.",
+        "turn": "NeonClipping runs entirely on your local machine, parsing audio tracks and scoring highlights in minutes without uploading your data.",
+        "verdict": "An efficient local alternative for creators who want automated vertical clips without recurring software costs or privacy trade-offs.",
+        "who_for": "Content creators and streamers wanting automated vertical clips without cloud subscription fees.",
+        "why_now": "Local execution of audio transcription and lightweight LLMs via tools like Ollama makes fully offline video clipping practical on standard consumer GPUs."
+      },
+      "homepage": "",
+      "id": 1463963309,
+      "image_url": "https://i.ibb.co/YBpLxjwb/iamajmeena-neonclipping-readme-preview-0dfdd4ffd21a.jpg",
+      "is_dual_use": false,
+      "is_hidden_gem": false,
+      "language": "Python",
+      "license": {
+        "key": "mit",
+        "name": "MIT License",
+        "node_id": "MDc6TGljZW5zZTEz",
+        "spdx_id": "MIT",
+        "url": "https://api.github.com/licenses/mit"
+      },
+      "media_urls": [
+        "https://raw.githubusercontent.com/iamajmeena/neonclipping/main/docs/demo.gif",
+        "https://raw.githubusercontent.com/iamajmeena/neonclipping/main/docs/neonclipping-ui.jpg",
+        "https://raw.githubusercontent.com/iamajmeena/neonclipping/main/docs/saved-clip-editor.jpg"
+      ],
+      "name": "neonclipping",
+      "open_issues": 30,
+      "published_at": "2026-11-23T01:14:07.417063Z",
+      "pushed_at": "2026-11-21T22:46:46Z",
+      "readme_fp": "6e41e02a358d700f",
+      "repo_id": 1463963309,
+      "revisit_of": "",
+      "revisit_reason": "",
+      "score": 91.778,
+      "slot": "us_evening",
+      "sources": [
+        "github_search",
+        "telegram:github_repos"
+      ],
+      "stars": 2096,
+      "telegram_chat_id": "@GitHub_Open_Source",
+      "telegram_link": "https://t.me/GitHub_Open_Source/3637",
+      "telegram_message_id": 3637,
+      "telegraph_url": "https://telegra.ph/NeonClipping-Local-Open-Source-AI-Video-Clipper-for-Vertical-Shorts-11-23",
+      "topics": [
+        "ai-video-clipper",
+        "clipping",
+        "faster-whisper",
+        "ffmpeg",
+        "gameplay-clipper",
+        "local-llm",
+        "ollama",
+        "open-source-video-editor",
+        "opusclip-alternative",
+        "shorts",
+        "twitch-clips",
+        "vertical-video",
+        "video",
+        "whisper",
+        "youtube-shorts-generator",
+        "yt-dlp"
+      ],
+      "updated_at": "2026-11-23T01:04:41Z",
+      "url": "https://github.com/iamajmeena/neonclipping",
       "visual_host": "imgbb",
       "visual_kind": "readme"
     },
@@ -10888,74 +11005,6 @@
     {
       "archived": false,
       "contributors_count": 2,
-      "created_at": "2026-11-19T10:00:43Z",
-      "default_branch": "main",
-      "description": "Paste a link, get captioned 9:16 clips in ~2 min. Free, local, open-source clipping engine (audio-first, YouTube captions, local LLM).",
-      "disabled": false,
-      "fork": false,
-      "forks": 119,
-      "forks_count": 119,
-      "full_name": "iamajmeena/neonclipping",
-      "has_readme": true,
-      "homepage": "",
-      "id": 1463963309,
-      "is_dual_use": false,
-      "is_hidden_gem": false,
-      "language": "Python",
-      "license": {
-        "key": "mit",
-        "name": "MIT License",
-        "node_id": "MDc6TGljZW5zZTEz",
-        "spdx_id": "MIT",
-        "url": "https://api.github.com/licenses/mit"
-      },
-      "media_urls": [
-        "https://raw.githubusercontent.com/iamajmeena/neonclipping/main/docs/demo.gif",
-        "https://raw.githubusercontent.com/iamajmeena/neonclipping/main/docs/neonclipping-ui.jpg",
-        "https://raw.githubusercontent.com/iamajmeena/neonclipping/main/docs/saved-clip-editor.jpg"
-      ],
-      "name": "neonclipping",
-      "non_software_reason": "",
-      "open_issues": 30,
-      "open_issues_count": 30,
-      "owner_repo_count": 1,
-      "pushed_at": "2026-11-21T22:46:46Z",
-      "readme": "",
-      "readme_excerpt": "# NeonClipping\n\n**Paste a link. Get captioned 9:16 clips in about two minutes. Free, local, open-source.**\n\nNeonClipping turns long YouTube / Twitch / Kick videos (or your own MP4) into vertical, captioned clips with a title and hook for each. Everything runs on your machine: no account, no subscription, no upload.\n\n[![Star on GitHub](https://img.shields.io/github/stars/iamajmeena/neonclipping?style=for-the-badge&logo=github&label=Star%20on%20GitHub)](https://github.com/iamajmeena/neonclipping) [![Instagram](https://img.shields.io/badge/Follow-%40iamajmeena-E4405F?style=for-the-badge&logo=instagram&logoColor=white)](https://www.instagram.com/iamajmeena/)\n\n🌐 **Website with one-click Windows setup:** <https://iamajmeena.github.io/neonclipping/>\n\n**Made by [Ajay K Meena](https://www.instagram.com/iamajmeena/)** (Director, DOP, colorist, DaVinci Resolve educator, Jaipur). If NeonClipping saves you time, please ⭐ star the repo and follow [@iamajmeena](https://www.instagram.com/iamajmeena/) on Instagram.\n\n**Clip an 85-minute stream in 97 seconds, 100% locally, with zero API cost.** (measured, see [How it finds good moments](#how-it-finds-good-moments))\n\n### NeonClipping compared with oth",
-      "readme_len": 30530,
-      "repo_id": 1463963309,
-      "score": 91.778,
-      "source_name": "github_search",
-      "sources": [
-        "github_search",
-        "telegram:github_repos"
-      ],
-      "stargazers_count": 2094,
-      "stars": 2094,
-      "topics": [
-        "ai-video-clipper",
-        "clipping",
-        "faster-whisper",
-        "ffmpeg",
-        "gameplay-clipper",
-        "local-llm",
-        "ollama",
-        "open-source-video-editor",
-        "opusclip-alternative",
-        "shorts",
-        "twitch-clips",
-        "vertical-video",
-        "video",
-        "whisper",
-        "youtube-shorts-generator",
-        "yt-dlp"
-      ],
-      "updated_at": "2026-11-23T00:06:56Z",
-      "url": "https://github.com/iamajmeena/neonclipping"
-    },
-    {
-      "archived": false,
-      "contributors_count": 2,
       "created_at": "2026-11-10T17:54:07Z",
       "default_branch": "main",
       "description": "The editors of MR Office, the free office closest to Microsoft Office: documents, spreadsheets, presentations, PDF, handwriting and code in the browser. Embed them in your app with one line, or use them from AI apps via MCP.",
@@ -16432,8 +16481,8 @@
     "iamajmeena/neonclipping": {
       "first_seen_at": "2026-11-23T00:26:52.160341Z",
       "full_name": "iamajmeena/neonclipping",
-      "last_decision": "queued",
-      "last_seen_at": "2026-11-23T00:26:52.160354Z",
+      "last_decision": "published",
+      "last_seen_at": "2026-11-23T01:14:07.417372Z",
       "repo_id": 1463963309,
       "sources": [
         "github_search",
