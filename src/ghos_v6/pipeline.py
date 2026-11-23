@@ -640,12 +640,12 @@ def _article_markdown(record_candidate: dict[str, Any], generated: dict[str, Any
     )
 
 MAX_PROJECT_POSTS_PER_DAY = 3
-# A provider-wide capacity spike (503 "high demand", 429 quota) says nothing
-# about the project it interrupted. It must not count towards the per-candidate
+# A provider-wide capacity spike (503 "high demand", 429 quota) or a dropped
+# connection says nothing about the project it interrupted. It must not count towards the per-candidate
 # failure budget and must never remove anything from the queue: on 23.11 two
 # spikes in a row deleted a healthy candidate (valentderah/totk-pc-recomp) as
 # if the project itself were unwritable.
-CAPACITY_ERROR_CLASSES = frozenset({"capacity_503", "quota_429"})
+CAPACITY_ERROR_CLASSES = frozenset({"capacity_503", "quota_429", "network"})
 TRANSIENT_SKIP_REASONS = frozenset({"gemini_capacity"})
 
 

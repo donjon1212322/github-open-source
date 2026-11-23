@@ -153,13 +153,26 @@ def is_transient_error(exc: BaseException) -> bool:
 
 
 def classify_error(exc: BaseException) -> str:
-    """Separate quota exhaustion (429) from model capacity (503)."""
+    """Separate quota exhaustion, model capacity and network trouble.
+
+    23.11: a read timeout against generativelanguage.googleapis.com was
+    classified as ``other``, which made it look like a verdict on the project
+    being written about - the candidate had already lost one life to a 503
+    spike before that. A timeout, a dropped connection or a proxy failure is
+    the same kind of news as a 503: the provider is unreachable, the project
+    is unjudged.
+    """
     text = str(exc).lower()
     status = getattr(exc, "status", None) or getattr(exc, "status_code", None)
     if status == 429 or any(m in text for m in ("quota", "resource exhausted", "rate limit")):
         return "quota_429"
     if status == 503 or any(m in text for m in ("high demand", "overloaded", "unavailable")):
         return "capacity_503"
+    if any(
+        m in text
+        for m in ("timed out", "timeout", "connection", "network", "ssl", "proxy", "temporarily")
+    ):
+        return "network"
     return "other"
 
 

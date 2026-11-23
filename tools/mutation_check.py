@@ -320,6 +320,10 @@ MUTATIONS: list[tuple[str, str, str, str]] = [
      '    y = FOOTER_Y - stamp_h - 12\n    fits = column_bottom + 6 <= y and stamp_w <= W - 2 * MARGIN',
      "    y = column_bottom + 6\n    fits = True",
      "the PROMISE KEPT stamp is drawn over text and off the page"),
+    ("src/ghos_v6/Gemini.py",
+     '    if any(\n        m in text\n        for m in ("timed out", "timeout", "connection", "network", "ssl", "proxy", "temporarily")\n    ):\n        return "network"',
+     '    if False:\n        return "network"',
+     "a read timeout counts as a verdict on the project again"),
     # --- 23.11: a provider outage is not a verdict on the project -----------
     ("src/ghos_v6/pipeline.py",
      "            if error_class in CAPACITY_ERROR_CLASSES:",

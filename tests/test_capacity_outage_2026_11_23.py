@@ -82,6 +82,17 @@ def test_a_capacity_spike_never_touches_the_queue(tmp_path, monkeypatch):
     assert store.data.get("dead_letters") == []
 
 
+def test_a_read_timeout_is_the_same_kind_of_noise(tmp_path, monkeypatch):
+    """23.11, second attempt: the 503 became a 90 s read timeout and the
+    project lost a life for it. A timeout is the provider being unreachable."""
+    store = _store(tmp_path)
+    _stub(monkeypatch, "network")
+    result = pipeline.publish_slot(_config(), store, "manual")
+    assert result["reason"] == "gemini_capacity"
+    assert store.data.get("publish_failures", {}) == {}
+    assert len(store.data["queue"]) == 2
+
+
 def test_quota_exhaustion_is_the_same_kind_of_noise(tmp_path, monkeypatch):
     store = _store(tmp_path)
     _stub(monkeypatch, "quota_429")
@@ -119,9 +130,23 @@ def test_cli_exit_code_tells_a_spike_from_a_fault(monkeypatch):
         assert cli_module.main(["publish", "--slot", "manual"]) == expected, reason
 
 
+def test_the_error_classifier_does_not_call_a_timeout_a_project_defect():
+    import requests
+
+    from ghos_v6.Gemini import classify_error
+
+    exc = requests.exceptions.ReadTimeout(
+        "HTTPSConnectionPool(host='generativelanguage.googleapis.com', port=443): "
+        "Read timed out. (read timeout=90)"
+    )
+    assert classify_error(exc) == "network"
+    assert classify_error(ConnectionError("network unreachable")) == "network"
+    assert classify_error(ValueError("bad json")) == "other"
+
+
 def test_transient_skip_reasons_cover_capacity_only():
     assert pipeline.TRANSIENT_SKIP_REASONS == {"gemini_capacity"}
-    assert pipeline.CAPACITY_ERROR_CLASSES == {"capacity_503", "quota_429"}
+    assert pipeline.CAPACITY_ERROR_CLASSES == {"capacity_503", "quota_429", "network"}
 
 
 class _FakeApi:
