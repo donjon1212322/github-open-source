@@ -96,9 +96,15 @@ _BLOCK_RE = re.compile("|".join(f"(?:{p})" for p in BLOCK_PATTERNS), re.I)
 #: such as ``setup``, ``installer`` or ``download-manager`` still pass.
 _LOOKALIKE_TOPIC_RE = re.compile(
     r"(?:install[-_ ]?setup|setup[-_ ]?install|"
-    r"download[-_ ]?(?:windows|win|macos|mac|linux|ios|android|apk|pc|iphone|mobile)|"
+    r"download[-_ ]?(?:windows|win|macos|mac|linux|ios|android|apk|pc|iphone|mobile|free)|"
     r"(?:windows|win|macos|mac|linux|ios|android|apk|pc)[-_ ]?download|"
-    r"(?:repack|repacked|preactivated|pre-activated|cracked|keygen|activator)\b)",
+    r"(?:free[-_ ]?download)|"
+    # The same farm, second wave (23.11, evening collect): the topics stopped
+    # saying "install setup" and started saying what the funnel actually
+    # offers - "ultraedit-pro-crack", "soundpad-registration". Both repos had
+    # exactly 336 stars again, like the nine caught earlier.
+    r"(?:^|[-_ ])(?:repack|repacked|preactivated|pre-activated|crack|cracked|keygen|"
+    r"activator|activation|patcher|unlocker|unlock|registration|license[-_ ]?key)\b)",
     re.I,
 )
 

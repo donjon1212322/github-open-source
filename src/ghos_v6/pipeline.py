@@ -18,7 +18,7 @@ from .config import Config, telegram_message_link
 from .devto_cover import build_devto_cover
 from .content_adapters import build_crosspost_text, image_alt_text, public_telegram_link
 from .formatter import format_project_post
-from .gate import GateConfig, evaluate
+from .gate import GateConfig, evaluate, lookalike_installer_reason
 from .Gemini import GeminiClient, generate_project_content, is_transient_error
 from .rate_limit import GeminiBudget, GeminiDailyCap
 from .rumours import (
@@ -113,6 +113,29 @@ def _parse_iso(value: Any) -> datetime | None:
         return parsed if parsed.tzinfo else parsed.replace(tzinfo=timezone.utc)
     except ValueError:
         return None
+
+
+def _purge_lookalikes(store: StateStore) -> None:
+    """Drop queue entries that a tightened lookalike rule now rejects.
+
+    ``set_queue`` merges yesterday's survivors without re-checking them, which
+    is how a second wave of fake installers stayed at #4 and #8 of the live
+    queue after the first wave was filtered out. Re-running the check here
+    means a stricter rule cleans the queue on the next collect instead of
+    waiting for those entries to be published.
+    """
+    keep: list[dict[str, Any]] = []
+    removed: list[str] = []
+    for candidate in store.data.get("queue") or []:
+        reason = lookalike_installer_reason(candidate)
+        if reason:
+            removed.append(f"{store.repo_key(candidate)} ({reason})")
+            continue
+        keep.append(candidate)
+    if not removed:
+        return
+    store.data["queue"] = keep
+    store.event("queue_purged_lookalikes", removed=removed)
 
 
 def _today_records(store: StateStore, now: datetime | None = None) -> list[dict[str, Any]]:
@@ -296,6 +319,14 @@ def collect_command(
     # committed state file. 28 = 9 days at the current cadence.
     queue = passing[:28]
     store.set_queue(queue)
+    # The merge in set_queue keeps yesterday's unpublished candidates, and a
+    # candidate that passed the gate yesterday is never re-checked. That is how
+    # the second wave of fake installers ("ultraedit-pro-crack",
+    # "soundpad-registration") sat at #4 and #8 of the live queue after the
+    # first wave was already filtered out. Re-run the lookalike check on what
+    # survived, so tightening the rule cleans the queue on the next collect
+    # instead of waiting for those entries to be published.
+    _purge_lookalikes(store)
     # The merge in set_queue keeps yesterday's unpublished candidates. Their
     # scores were percentiles of a different pool, so the final queue is
     # ranked again as one pool: otherwise a stale number silently outranks a

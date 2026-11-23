@@ -464,6 +464,12 @@ MUTATIONS: list[tuple[str, str, str, str]] = [
      'candidate["score_parts"]["acceleration_known"] = int(raw["acceleration_known"])',
      'candidate["score_parts"]["acceleration_known"] = 1',
      "an unmeasured signal is reported as measured"),
+    ("src/ghos_v6/gate.py",
+     "    r\"(?:^|[-_ ])(?:repack|repacked|preactivated|pre-activated|crack|cracked|keygen|\"",
+     "    r\"(?:^|[-_ ])(?:repack|repacked|preactivated|pre-activated|cracked|keygen|\"",
+     "the second wave of fake installers passes the gate again (23.11)"),
+    ("src/ghos_v6/pipeline.py", "    _purge_lookalikes(store)",
+     "    pass", "a tightened rule never cleans the queue it already filled"),
 ]
 
 COPY_ITEMS = (

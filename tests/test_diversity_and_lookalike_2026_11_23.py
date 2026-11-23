@@ -21,12 +21,14 @@ from __future__ import annotations
 
 from datetime import datetime, timedelta, timezone
 
+from ghos_v6 import pipeline
 from ghos_v6.gate import evaluate, lookalike_installer_reason
 from ghos_v6.rank import (
     diversity_bonus,
     select_candidate,
     week_diversity_bonus,
 )
+from ghos_v6.state import StateStore
 
 LOOKALIKES = [
     {
@@ -245,3 +247,55 @@ def test_publish_path_really_passes_the_week_window():
     assert "published_week = _recent_records(store, days=7)" in body
     assert body.index("published_week = _recent_records") < body.index("select_candidate(")
     assert "published_week," in body
+
+
+def test_the_second_wave_of_fake_installers_is_rejected():
+    """23.11, evening: the same farm, new wording.
+
+    ``dakshusonani7-ship-it/ultraedit-editor`` and
+    ``muruganmylord/soundpad-desktop`` stood at #4 and #8 of the live queue:
+    336 stars each (the farm's signature), two days old, and topics that no
+    longer said "install setup" but said what the funnel sells —
+    ``ultraedit-pro-crack``, ``soundpad-registration``.
+    """
+    ultraedit = {"topics": ["automation", "developer-tools", "ultra-edit",
+                            "ultra-edit-crack", "ultraedit-pro-crack", "ultraedit-license"]}
+    soundpad = {"topics": ["automation", "desktop", "soundpad",
+                           "soundpad-registration", "windows-app"]}
+    assert lookalike_installer_reason(ultraedit)
+    assert lookalike_installer_reason(soundpad)
+
+
+def test_the_wider_rule_does_not_catch_honest_topics():
+    honest = [
+        {"topics": ["license-checker", "compliance", "cli"]},
+        {"topics": ["bootloader", "android"]},
+        {"topics": ["installer", "download-manager", "setup", "multi-platform"]},
+    ]
+    for project in honest:
+        assert lookalike_installer_reason(project) == ""
+
+
+def test_collect_purges_lookalikes_that_survived_a_previous_run(tmp_path):
+    store = StateStore(tmp_path)
+    store.data = {"queue": [
+        {"full_name": "owner/real-tool", "name": "real-tool",
+         "description": "A desktop app", "topics": ["cli", "desktop"], "stars": 900},
+        {"full_name": "dakshusonani7-ship-it/ultraedit-editor", "name": "ultraedit-editor",
+         "description": "UltraEdit Editor", "topics": ["ultraedit-pro-crack"], "stars": 336},
+    ]}
+    pipeline._purge_lookalikes(store)
+    assert [c["full_name"] for c in store.data["queue"]] == ["owner/real-tool"]
+    events = (tmp_path / "events.jsonl").read_text(encoding="utf-8")
+    assert "queue_purged_lookalikes" in events and "ultraedit-editor" in events
+
+
+def test_purging_is_silent_when_the_queue_is_clean(tmp_path):
+    store = StateStore(tmp_path)
+    store.data = {"queue": [{"full_name": "owner/ok", "topics": ["cli"], "stars": 900,
+                             "description": "A desktop app"}]}
+    pipeline._purge_lookalikes(store)
+    assert len(store.data["queue"]) == 1
+    assert not (tmp_path / "events.jsonl").exists() or "queue_purged" not in (
+        tmp_path / "events.jsonl"
+    ).read_text(encoding="utf-8")

@@ -329,3 +329,20 @@
   увидели.
 - **Обещание по опросу — отдельная задача владельца, в прод не пошло.**
   Сначала объяснение механизма, потом код; без подтверждения не пушится.
+
+## 23.11.2026 (второй заход) — сеть фальшивых «установщиков» шире, чем казалось
+
+- Вечерний `collect` на новой модели поставил на **4-е и 8-е место живой
+  очереди** ещё два репозитория той же сети: `dakshusonani7-ship-it/ultraedit-editor`
+  (`ultraedit-pro-crack`) и `muruganmylord/soundpad-desktop`
+  (`soundpad-registration`). Снова 336 звёзд у каждого, снова 2 дня от роду,
+  но темы сменили формулировку: вместо `install-setup` — `crack`,
+  `registration`, `license`.
+- Правило расширено внутри той же логики: `crack/cracked/keygen/activator/
+  activation/patcher/unlock/unlocker/registration/license-key/free-download`.
+  Обычные темы (`installer`, `setup`, `license-checker`, `bootloader`,
+  `download-manager`) по-прежнему проходят — это проверено тестом.
+- **Очередь теперь чистится при каждом `collect`.** Раньше `set_queue`
+  склеивал вчерашних выживших без повторной проверки, поэтому ужесточённое
+  правило не убирало то, что успело попасть в очередь раньше. Теперь
+  отклонённые удаляются с событием `queue_purged_lookalikes`.
