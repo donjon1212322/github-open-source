@@ -419,8 +419,8 @@
         "verified_at": "2026-11-23T19:00:48.486924Z"
       },
       "2026-11-23:news-article": {
-        "at": "2026-11-23T21:30:47.399783Z",
-        "attempts": 2,
+        "at": "2026-11-23T22:00:50.305502Z",
+        "attempts": 3,
         "detail": "HTTP 204",
         "dispatched": true,
         "verified": false
