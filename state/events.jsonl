@@ -759,3 +759,5 @@
 {"range": "facebook!A22:E22", "rows": 1, "ts": "2026-11-23T18:31:24.402310Z", "type": "facebook_handoff_queued"}
 {"deleted": 0, "ts": "2026-11-23T18:47:49.262162Z", "type": "moderation_completed", "updates": 2}
 {"slot": "facebook-handoff", "ts": "2026-11-23T19:00:48.487011Z", "type": "watchdog_verified"}
+{"error": "HttpError", "ts": "2026-11-23T19:19:16.404507Z", "type": "news_article_generation_failed"}
+{"Gemini_video_input": false, "models": 6, "official_url": "", "stories": 2, "topic": "model-benchmarks-and-metrics", "ts": "2026-11-23T19:19:18.286086Z", "type": "ai_brief_published", "video_id": "tg-20261123-c3b5de14d1"}
