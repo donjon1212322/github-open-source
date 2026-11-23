@@ -262,12 +262,12 @@
   "dead_letters": [],
   "gemini_daily": {
     "day": "2026-11-23",
-    "units": 54
+    "units": 63
   },
   "gemini_window": [
     [
-      1795455302.447643,
-      2305
+      1795457715.8079965,
+      1339
     ]
   ],
   "last_runs": {
@@ -374,9 +374,9 @@
       "telegram_message_id": 3637
     },
     "publish:us_midday": {
-      "finished_at": "2026-11-22T18:14:13.948747Z",
-      "repo": "storytold/cadcraft",
-      "telegram_message_id": 3635
+      "finished_at": "2026-11-23T18:15:20.450577Z",
+      "repo": "chuanqisun/spaceship",
+      "telegram_message_id": 3638
     },
     "publish:us_morning": {
       "finished_at": "2026-11-22T16:25:04.979229Z",
@@ -2263,6 +2263,98 @@
           "views": 102
         }
       ],
+      "visual_host": "imgbb",
+      "visual_kind": "readme"
+    },
+    "chuanqisun/spaceship": {
+      "articles": {},
+      "card_style": "",
+      "category": "AI",
+      "contributors_count": 4,
+      "created_at": "2026-11-16T14:43:45Z",
+      "crossposts": {
+        "bluesky": {
+          "attempts": 0,
+          "due_at": "2026-11-23T18:45:20.450134+00:00",
+          "status": "pending"
+        }
+      },
+      "description": "Steer ideas like a space pilot!",
+      "description_fp": "9f980ab6a952921b",
+      "forks": 117,
+      "full_name": "chuanqisun/spaceship",
+      "generated": {
+        "article_markdown": "## What it is\n\nSpaceship IDE is an experimental interface designed to challenge the standard chat-box paradigm of LLM interaction. Instead of sending a prompt and waiting for a static response, the project treats the model's output as a continuous stream that you can manipulate on the fly. It utilizes techniques like speculative generation to keep the UI responsive, allowing you to adjust the model's trajectory while it is still generating text.\n\n## Why it matters\n\nMost current developer tools for LLMs are built around the request-response cycle. You send a prompt, you wait, you get a result, and if it is wrong, you start over. As inference speeds increase, this cycle becomes a bottleneck. Spaceship IDE explores what happens when we treat LLM generation as a live, steerable stream. By decomposing tasks into eigenvectors and using attention locks, it moves the user from a passive observer to an active pilot.\n\n## Key features\n\n* **Real-time vector steering:** Decompose tasks into independent components and tune them individually to influence the incoming text.\n* **Attention lock:** Force the LLM to prioritize specific phrases, biasing its future behavior mid-generation.\n* **Speculative generation:** The engine manages aggressive caching and invalidation to maintain a responsive, 60 FPS-style interaction feel.\n* **Visual focus monitor:** A UI element that visualizes what the LLM is paying attention to, helping you guide the model toward relevant information.\n* **Local-first keys:** API keys for providers like Cerebras and Gemini are stored in your browser's local storage, keeping them out of the server-side logs.\n\n## Quick start\n\nTo explore the interface, clone the repository and run it locally:\n\n```bash\ngit clone https://github.com/chuanqisun/spaceship\n```\n\nYou can also try the live simulator directly in your browser at the project's homepage.\n\n## Who should try it\n\nThis project is for developers, UI/UX researchers, and AI enthusiasts who are interested in the future of human-computer interaction. If you are building tools that require fine-grained control over LLM output, or if you are simply tired of the standard chat interface, this provides a compelling look at alternative interaction models.\n\n## Verdict\n\nSpaceship IDE is a fascinating experiment that successfully demonstrates how we might interact with AI when latency is no longer the primary constraint. It is not a production-ready tool for your daily coding tasks, but it is a vital conceptual launchpad for anyone thinking about how to build better, more intuitive AI interfaces. If you want to see what the next generation of LLM tooling might look like, it is worth a look.",
+        "article_title": "Exploring Spaceship IDE: Real-time LLM Steering and Interaction",
+        "card_hook": "Steer LLM text in real-time",
+        "card_subline": "An experimental interface for manipulating AI generation using vector steering and attention locks",
+        "category": "AI",
+        "discussion_question": "If you could steer an LLM's output in real-time, would you prioritize tone, factual accuracy, or structural formatting?",
+        "hook": "Steer LLM text generation in real-time using vector-based controls instead of just typing prompts.",
+        "key_features": [
+          "Real-time vector steering to decompose and tune specific task components.",
+          "Attention lock mechanism to bias model behavior toward specific phrases.",
+          "Speculative generation engine for low-latency, 60 FPS-style interaction.",
+          "Browser-based local storage for API keys (Cerebras and Gemini).",
+          "Visual focus monitor to track what the LLM is prioritizing."
+        ],
+        "llm_used": true,
+        "quick_start": "git clone https://github.com/chuanqisun/spaceship",
+        "safety": "ok",
+        "safety_reason": "The project is an experimental UI for interacting with LLMs and does not perform malicious actions.",
+        "scene": "You are staring at a blinking cursor, waiting for an LLM to finish a paragraph, knowing it is going to be slightly off-target, but you cannot stop it without restarting the whole prompt.",
+        "social_text": "Stop waiting for LLMs to finish generating before you correct them. Spaceship IDE lets you steer the output stream in real-time using vector controls.",
+        "summary": "Spaceship IDE is a browser-based interface that treats LLM output as a stream you can manipulate. It uses speculative generation to provide low-latency feedback, allowing users to apply attention locks or decompose tasks into eigenvectors to influence the model's output path. It replaces static prompt-response loops with a dynamic, knob-based control system.",
+        "surfaces": {},
+        "tension": "You waste time re-prompting or editing the output after the fact, effectively fighting the model's black-box generation rather than guiding it.",
+        "turn": "This project treats the generation stream as a live input, letting you scrub through alternative futures and steer the model's attention mid-stream. It does not fix the underlying model logic, but it changes your relationship from requester to pilot.",
+        "verdict": "A fascinating UI experiment for those who want to move beyond the chat-box paradigm, though it requires a high tolerance for experimental, non-production-ready tooling.",
+        "who_for": "Developers and researchers exploring new interaction paradigms for LLMs.",
+        "why_now": "As LLM inference speeds approach 60 FPS, static chat interfaces are becoming the bottleneck for creative workflows."
+      },
+      "hn_points": 9,
+      "homepage": "https://chuanqisun.github.io/spaceship/",
+      "id": 1460149071,
+      "image_url": "https://i.ibb.co/VY6wsMCR/chuanqisun-spaceship-readme-preview-bbadfb046243.jpg",
+      "is_dual_use": false,
+      "is_hidden_gem": false,
+      "language": "HTML",
+      "license": {
+        "key": "mit",
+        "name": "MIT License",
+        "node_id": "MDc6TGljZW5zZTEz",
+        "spdx_id": "MIT",
+        "url": "https://api.github.com/licenses/mit"
+      },
+      "media_urls": [
+        "https://raw.githubusercontent.com/chuanqisun/spaceship/master/extra/screencast.gif",
+        "https://raw.githubusercontent.com/chuanqisun/spaceship/master/extra/clips/focus-monitor.gif",
+        "https://raw.githubusercontent.com/chuanqisun/spaceship/master/extra/clips/attention-lock.gif",
+        "https://raw.githubusercontent.com/chuanqisun/spaceship/master/extra/clips/future-steering.gif",
+        "https://raw.githubusercontent.com/chuanqisun/spaceship/master/extra/clips/realtime-regeneration.gif"
+      ],
+      "name": "spaceship",
+      "open_issues": 0,
+      "published_at": "2026-11-23T18:15:20.450161Z",
+      "pushed_at": "2026-11-23T08:11:47Z",
+      "readme_fp": "6f8e2db4ea882c53",
+      "repo_id": 1460149071,
+      "revisit_of": "",
+      "revisit_reason": "",
+      "score": 53.69,
+      "slot": "us_midday",
+      "sources": [
+        "hacker_news",
+        "telegram:github_repos"
+      ],
+      "stars": 1063,
+      "telegram_chat_id": "@GitHub_Open_Source",
+      "telegram_link": "https://t.me/GitHub_Open_Source/3638",
+      "telegram_message_id": 3638,
+      "telegraph_url": "https://telegra.ph/Exploring-Spaceship-IDE-Real-time-LLM-Steering-and-Interaction-11-23",
+      "topics": [],
+      "updated_at": "2026-11-23T15:10:23Z",
+      "url": "https://github.com/chuanqisun/spaceship",
       "visual_host": "imgbb",
       "visual_kind": "readme"
     },
@@ -11629,88 +11721,6 @@
     },
     {
       "archived": false,
-      "contributors_count": 4,
-      "created_at": "2026-11-16T14:43:45Z",
-      "default_branch": "master",
-      "description": "Steer ideas like a space pilot!",
-      "disabled": false,
-      "fork": false,
-      "forks": 115,
-      "forks_count": 115,
-      "full_name": "chuanqisun/spaceship",
-      "has_readme": true,
-      "hn_points": 9,
-      "homepage": "https://chuanqisun.github.io/spaceship/",
-      "id": 1460149071,
-      "is_dual_use": false,
-      "is_hidden_gem": false,
-      "language": "HTML",
-      "license": {
-        "key": "mit",
-        "name": "MIT License",
-        "node_id": "MDc6TGljZW5zZTEz",
-        "spdx_id": "MIT",
-        "url": "https://api.github.com/licenses/mit"
-      },
-      "media_urls": [
-        "https://raw.githubusercontent.com/chuanqisun/spaceship/master/extra/screencast.gif",
-        "https://raw.githubusercontent.com/chuanqisun/spaceship/master/extra/clips/focus-monitor.gif",
-        "https://raw.githubusercontent.com/chuanqisun/spaceship/master/extra/clips/attention-lock.gif",
-        "https://raw.githubusercontent.com/chuanqisun/spaceship/master/extra/clips/future-steering.gif",
-        "https://raw.githubusercontent.com/chuanqisun/spaceship/master/extra/clips/realtime-regeneration.gif"
-      ],
-      "name": "spaceship",
-      "non_software_reason": "",
-      "open_issues": 0,
-      "open_issues_count": 0,
-      "owner_repo_count": 1,
-      "pushed_at": "2026-11-23T08:11:47Z",
-      "readme": "",
-      "readme_excerpt": "# 🕹️ Spaceship IDE\n\nSteer ideas like a space pilot!\n\n![Screencast](./extra/screencast.gif)\n\n## Demos\n\nWatch on [Instagram](https://www.instagram.com/reels/DfyQPhFtW-z/) and [YouTube](https://www.youtube.com/watch?v=3WmNLWUmcnY). You can try the simulator at [https://chuanqisun.github.io/spaceship/](https://chuanqisun.github.io/spaceship/) with the option to go live with your API keys for Cerebras and Gemini. Keys stay in your browser local storage. Do it at your own risk.\n\n## Conjecture\n\n> In the near future, LLM and Decision Models will reach 60 FPS interactivity.\n\nWhen that happens, what new interaction paradigms will unlock? This project demonstrates plausible and desirable interactions for that future.\n\n1. **Focus monitor**: can we visualize what LLM is paying attention to, and use that to guide human's focus towards what's important?\n\n   ![focus monitor](./extra/clips/focus-monitor.gif)\n\n2. **Attention lock**: can we force LLM to pay more attention to specific phrases so as to bias its future behavior?\n\n   ![attention lock](./extra/clips/attention-lock.gif)\n\n3. **Future Vector Steering**: can we decompose the task into eigenvectors, independently tune each, and re-compose them",
-      "readme_len": 3991,
-      "repo_id": 1460149071,
-      "score": 53.69,
-      "score_parts": {
-        "acceleration": 0.5,
-        "acceleration_known": 0,
-        "acceleration_ratio": 0.0,
-        "age_days": 6.8,
-        "appeal": 0.13,
-        "burst": 0.593,
-        "community": 0.37,
-        "content": 0.333,
-        "corroboration": 0.926,
-        "external": 1.0,
-        "forks_measured": 1,
-        "forks_per_day": 16.97,
-        "forks_rate": 0.619,
-        "freshness": 0.778,
-        "growth": 0.481,
-        "growth_measured": 0,
-        "popularity": 0.37,
-        "reliability": 0.5,
-        "stars_per_day": 155.86
-      },
-      "source_name": "hacker_news",
-      "sources": [
-        "hacker_news",
-        "telegram:github_repos"
-      ],
-      "star_history": [
-        [
-          "2026-11-23",
-          1056,
-          115
-        ]
-      ],
-      "stargazers_count": 1056,
-      "stars": 1056,
-      "topics": [],
-      "updated_at": "2026-11-23T08:52:16Z",
-      "url": "https://github.com/chuanqisun/spaceship"
-    },
-    {
-      "archived": false,
       "contributors_count": 2,
       "created_at": "2026-11-21T15:25:41Z",
       "default_branch": "main",
@@ -15279,8 +15289,8 @@
     "chuanqisun/spaceship": {
       "first_seen_at": "2026-11-20T00:25:29.413712Z",
       "full_name": "chuanqisun/spaceship",
-      "last_decision": "queued",
-      "last_seen_at": "2026-11-23T09:20:23.461253Z",
+      "last_decision": "published",
+      "last_seen_at": "2026-11-23T18:15:20.450549Z",
       "repo_id": 1460149071,
       "sources": [
         "github_search",
@@ -15290,8 +15300,8 @@
       "star_history": [
         [
           "2026-11-23",
-          1056,
-          115
+          1063,
+          117
         ]
       ]
     },
