@@ -14131,8 +14131,8 @@
       "skipped_brief": ""
     },
     "2026-11-24": {
-      "last_schedule": "33 13 * * *",
-      "late_ignored": 13,
+      "last_schedule": "13 15 * * *",
+      "late_ignored": 14,
       "notified": true,
       "skipped_brief": ""
     }

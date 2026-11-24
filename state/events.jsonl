@@ -821,3 +821,4 @@
 {"slot": "news", "ts": "2026-11-24T23:30:46.862080Z", "type": "watchdog_verified"}
 {"attempts": 1, "detail": "HTTP 204", "slot": "news-article", "ts": "2026-11-24T23:30:48.461325Z", "type": "watchdog_recovered", "verified": false}
 {"devto_id": 5111866, "ts": "2026-11-24T23:31:17.806804Z", "type": "news_article_published", "url": "https://dev.to/githubopensource/navigating-the-latest-open-weights-formal-proofs-and-ebpf-shielding-tools-4olg", "words": 1054}
+{"minutes_late": 522.5, "schedule": "13 15 * * *", "ts": "2026-11-24T23:55:28.259570Z", "type": "late_schedule_ignored"}
