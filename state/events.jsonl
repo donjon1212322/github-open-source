@@ -776,3 +776,4 @@
 {"minutes_late": 694.2, "schedule": "33 13 * * *", "ts": "2026-11-24T01:07:12.120834Z", "type": "late_schedule_ignored"}
 {"preview_host": "imgbb", "repo": "zortos293/lichii", "ts": "2026-11-24T01:13:56.412355Z", "type": "published_as_text"}
 {"repo": "zortos293/lichii", "score": 56.69, "telegram_message_id": 3640, "telegraph_url": "https://telegra.ph/Lichii-Experimental-Nintendo-Switch-and-Switch-2-Emulator-in-C-11-24", "ts": "2026-11-24T01:13:56.820445Z", "type": "project_published"}
+{"minutes_late": 109.7, "schedule": "47 */3 * * *", "ts": "2026-11-24T02:36:42.345964Z", "type": "late_schedule_ignored"}
