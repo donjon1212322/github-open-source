@@ -218,3 +218,103 @@ def test_the_requeue_command_is_reachable_from_the_cli_and_the_workflow():
     assert "          - requeue" in workflow
     assert "ghos-v6 requeue --repo" in workflow
     assert cli is not None
+
+
+# --- 24.11: the outage must not spend the watchdog's recovery budget --------
+
+def test_a_transient_slot_keeps_its_recovery_budget(tmp_path, monkeypatch):
+    """23.11: the morning slot was abandoned at 18:00 after four 503s.
+
+    Gemini was answering normally at 18:14 and the slot was already retired by
+    the three-attempt ceiling, so the day ended one post short for no reason
+    the channel could act on. While state carries a fresh transient mark the
+    watchdog keeps trying (up to a wider, still bounded ceiling).
+    """
+    from datetime import datetime, timedelta, timezone
+
+    from ghos_v6 import watchdog
+    from ghos_v6.config import Config as RealConfig
+
+    calls: list[tuple[str, str]] = []
+    monkeypatch.setattr(
+        watchdog,
+        "_dispatch",
+        lambda repo, inputs, token: (
+            calls.append((inputs.get("command", ""), inputs.get("slot", ""))),
+            (True, "HTTP 204"),
+        )[1],
+    )
+    monkeypatch.setattr(watchdog, "_notify", lambda config, text: True)
+    monkeypatch.delenv("GITHUB_REPOSITORY", raising=False)
+    monkeypatch.setenv("GH_TOKEN", "")
+    monkeypatch.setattr(watchdog, "MAX_DAILY_DISPATCHES", 24)
+
+    now = datetime(2026, 11, 23, 19, 0, tzinfo=timezone.utc)
+    store = StateStore(tmp_path)
+    marks = store.data.setdefault("last_runs", {}).setdefault("watchdog_dispatches", {})
+    marks["2026-11-23:publish:us_morning"] = {
+        "at": (now - timedelta(hours=1)).isoformat().replace("+00:00", "Z"),
+        "dispatched": True, "verified": False, "attempts": 3,
+    }
+    store.data["transient_skips"] = {
+        "publish:us_morning": {"at": (now - timedelta(minutes=20)).isoformat().replace("+00:00", "Z"),
+                               "reason": "gemini_capacity"}
+    }
+    watchdog.watchdog_command(RealConfig(telegram_bot_token="x"), store, now=now)
+    assert ("publish", "us_morning") in calls, "a provider outage must not retire the slot"
+
+    # Without the mark the ceiling still holds: a genuinely broken slot stops.
+    calls.clear()
+    store2 = StateStore(tmp_path / "no-mark")
+    marks2 = store2.data.setdefault("last_runs", {}).setdefault("watchdog_dispatches", {})
+    marks2["2026-11-23:publish:us_morning"] = dict(marks["2026-11-23:publish:us_morning"])
+    watchdog.watchdog_command(RealConfig(telegram_bot_token="x"), store2, now=now)
+    assert ("publish", "us_morning") not in calls
+
+
+def test_a_stale_transient_mark_does_not_widen_the_budget(tmp_path):
+    from datetime import datetime, timedelta, timezone
+
+    from ghos_v6 import watchdog
+
+    now = datetime(2026, 11, 23, 23, 0, tzinfo=timezone.utc)
+    store = StateStore(tmp_path)
+    store.data["transient_skips"] = {
+        "publish:us_morning": {"at": (now - timedelta(hours=9)).isoformat().replace("+00:00", "Z"),
+                       "reason": "gemini_capacity"}
+    }
+    assert watchdog._transient_slot(store, "publish:us_morning", now) is False
+    store.data["transient_skips"]["publish:us_morning"]["at"] = (now - timedelta(minutes=30)).isoformat()
+    assert watchdog._transient_slot(store, "publish:us_morning", now) is True
+
+
+def test_the_transient_ceiling_is_wider_but_still_finite():
+    from ghos_v6 import watchdog
+
+    assert watchdog.MAX_TRANSIENT_ATTEMPTS_PER_SLOT > watchdog.MAX_ATTEMPTS_PER_SLOT
+    assert watchdog.MAX_TRANSIENT_ATTEMPTS_PER_SLOT <= watchdog.MAX_DAILY_DISPATCHES
+    assert watchdog.TRANSIENT_MARK_HOURS <= 6.0
+
+
+def test_a_finished_slot_forgets_its_transient_mark(tmp_path, monkeypatch):
+    store = _store(tmp_path)
+    _stub(monkeypatch, "capacity_503")
+    pipeline.publish_slot(_config(), store, "us_morning")
+    # the marker key must be the watchdog's slot key, not the bare slot name
+    assert (store.data.get("transient_skips") or {}).get("publish:us_morning")
+    pipeline._finish_publish_slot(store, "us_morning", {"ok": True, "published": True, "reason": "published"})
+    assert not (store.data.get("transient_skips") or {}).get("publish:us_morning")
+
+
+def test_the_news_article_skip_marks_its_slot(tmp_path):
+    store = StateStore(tmp_path)
+    result = pipeline._transient_gemini_skip(
+        store,
+        pipeline.is_transient_error and RuntimeError("503 high demand"),
+        event="news_article_skipped",
+        reason=pipeline.ARTICLE_GEMINI_SKIP,
+        slot="news-article",
+    )
+    assert result is not None and result["ok"] is True
+    assert (store.data["transient_skips"]["news-article"]["reason"]
+            == pipeline.ARTICLE_GEMINI_SKIP)

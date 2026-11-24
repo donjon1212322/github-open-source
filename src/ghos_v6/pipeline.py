@@ -88,16 +88,43 @@ POLL_ALREADY_CLOSED = "poll_already_closed"
 MODERATION_TELEGRAM_SKIP = "moderation_telegram_unavailable"
 
 
+def _mark_transient_skip(store: StateStore, slot: str, reason: str) -> None:
+    """Remember that a slot failed because the provider was down, not the work.
+
+    The watchdog used to spend a slot's three recovery attempts on an outage
+    it could not fix: on 23.11 the morning project slot was abandoned at 18:00
+    after four 503s, and Gemini was answering normally again at 18:14. A
+    marker in state lets the watchdog tell "tried three times and it is broken"
+    from "tried three times while Google was down".
+    """
+    if not slot:
+        return
+    marks = store.data.setdefault("transient_skips", {})
+    for old, value in list(marks.items()):
+        stamp = _parse_iso((value or {}).get("at"))
+        if stamp is None or (datetime.now(timezone.utc) - stamp) > timedelta(days=2):
+            del marks[old]
+    marks[slot] = {"at": iso_now(), "reason": reason}
+
+
+def _clear_transient_skip(store: StateStore, slot: str) -> None:
+    (store.data.get("transient_skips") or {}).pop(slot, None)
+
+
 def _transient_gemini_skip(store: StateStore, exc: BaseException, *,
-                           event: str, reason: str) -> dict[str, Any] | None:
+                           event: str, reason: str,
+                           slot: str = "") -> dict[str, Any] | None:
     """Turn a temporary model outage into a quiet, retryable no-op.
 
     Only transient 429/503-style errors are swallowed; a schema bug, a bad
     API key or a local exception still propagates to cli.main and alerts.
+    ``slot`` marks the recovery budget as unspent: the watchdog must keep
+    trying while the provider is down, not spend its attempts on it.
     """
     if not is_transient_error(exc):
         return None
     detail = sanitize(str(exc))[:300]
+    _mark_transient_skip(store, slot, reason)
     store.event(event, reason=reason, error=detail)
     store.save()
     logger.warning("Gemini temporarily unavailable (%s): %s", reason, detail)
@@ -675,6 +702,7 @@ def _finish_publish_slot(store: StateStore, slot: str, result: dict[str, Any]) -
     these UTC days. Without this marker the watchdog treated
     ``publish:us_midday`` as missed and escalated to a warning every 30 minutes.
     """
+    _clear_transient_skip(store, _publish_slot_key(slot))
     store.data.setdefault("last_runs", {})[_publish_slot_key(slot)] = {
         "finished_at": iso_now(),
         "reason": result.get("reason") or "done",
@@ -806,6 +834,7 @@ def publish_slot(config: Config, store: StateStore, slot: str = "manual") -> dic
                 # Congested provider, untouched queue. The watchdog retries the
                 # slot; a green-ish run tells the owner only what it is: noise
                 # from Google, not a fault in the channel.
+                _mark_transient_skip(store, _publish_slot_key(slot), "gemini_capacity")
                 store.event("publish_skipped", slot=slot, reason="gemini_capacity",
                             repo=key, gemini_error_class=error_class)
                 store.save()
@@ -1701,7 +1730,7 @@ def news_command(
             )
         except Exception as exc:  # noqa: BLE001
             skip = _transient_gemini_skip(store, exc, event="news_skipped",
-                                          reason=BRIEF_GEMINI_SKIP)
+                                          reason=BRIEF_GEMINI_SKIP, slot="news")
             if skip is None:
                 raise
             return skip
@@ -1722,7 +1751,7 @@ def news_command(
                 video_input = False
         except Exception as exc:  # noqa: BLE001
             skip = _transient_gemini_skip(store, exc, event="news_skipped",
-                                          reason=BRIEF_GEMINI_SKIP)
+                                          reason=BRIEF_GEMINI_SKIP, slot="news")
             if skip is None:
                 raise
             return skip
@@ -2961,7 +2990,7 @@ def news_article_command(config: Config, store: StateStore) -> dict[str, Any]:
             store.save()
         except Exception as exc:  # noqa: BLE001
             skip = _transient_gemini_skip(store, exc, event="news_article_skipped",
-                                          reason=ARTICLE_GEMINI_SKIP)
+                                          reason=ARTICLE_GEMINI_SKIP, slot="news-article")
             if skip is not None:
                 return skip
             reason = sanitize(str(exc))[:300]

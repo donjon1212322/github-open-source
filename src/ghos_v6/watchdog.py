@@ -99,6 +99,14 @@ ARTICLE_RECOVERY_WINDOW_HOURS = 6.0       # do not backfill yesterday's article
 # hard ceiling on the whole day's recovery traffic.
 MAX_ATTEMPTS_PER_SLOT = 3
 MAX_DAILY_DISPATCHES = 24
+# 24.11: an outage the slot cannot fix must not spend its attempts. The morning
+# project slot was abandoned at 18:00 on 23.11 after four 503s and Gemini was
+# answering again at 18:14 - the day ended one post short over Google's load.
+# While state carries a fresh transient mark for the slot, the budget is wider;
+# the daily ceiling still bounds the total, so a permanently dead slot cannot
+# loop forever.
+MAX_TRANSIENT_ATTEMPTS_PER_SLOT = 8
+TRANSIENT_MARK_HOURS = 4.0
 
 # Owner 11.11: an AI Brief that is honestly refused (only repeated stories,
 # fewer than two stories, feature off, already published) IS a completed
@@ -141,11 +149,26 @@ def _devto_published_at(record: dict[str, Any]) -> Any:
     return ((record.get("articles") or {}).get("devto") or {}).get("published_at")
 
 
-def _dispatch_allowed(marks: dict[str, Any], mark: str, today) -> tuple[bool, str]:
+def _transient_slot(store: StateStore, key: str, now: datetime) -> bool:
+    """True when the slot's last failure was the provider being down.
+
+    ``pipeline`` writes ``state["transient_skips"][slot]`` for capacity and
+    network outages and clears it when the slot finally completes, so a stale
+    mark cannot widen the budget of a slot that is broken for other reasons.
+    """
+    mark = ((store.data.get("transient_skips") or {}).get(key) or {})
+    stamp = _datetime_of(mark.get("at"))
+    if stamp is None:
+        return False
+    return (now - stamp) <= timedelta(hours=TRANSIENT_MARK_HOURS)
+
+
+def _dispatch_allowed(marks: dict[str, Any], mark: str, today,
+                      *, limit: int = MAX_ATTEMPTS_PER_SLOT) -> tuple[bool, str]:
     """Bound recovery traffic even when state never confirms a slot."""
     prev = marks.get(mark)
     tries = int((prev or {}).get("attempts", 0) or 0) if isinstance(prev, dict) else 0
-    if tries >= MAX_ATTEMPTS_PER_SLOT:
+    if tries >= limit:
         return False, "slot"
     used = sum(
         int((value or {}).get("attempts", 0) or 0)
@@ -321,7 +344,9 @@ def watchdog_command(config: Config, store: StateStore, *, now: datetime | None 
                 # firing a blind series of retries.
                 continue
 
-        allowed, cap_scope = _dispatch_allowed(marks, mark, today)
+        limit = (MAX_TRANSIENT_ATTEMPTS_PER_SLOT
+                 if _transient_slot(store, key, now) else MAX_ATTEMPTS_PER_SLOT)
+        allowed, cap_scope = _dispatch_allowed(marks, mark, today, limit=limit)
         if not allowed:
             _note_dispatch_cap(config, store, cap_state, cap_scope, key, alerts)
             continue
