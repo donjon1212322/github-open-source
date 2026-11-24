@@ -793,3 +793,4 @@
 {"platform": "devto", "repo": "zortos293/lichii", "ts": "2026-11-24T13:33:54.633917Z", "type": "article_published", "url": "https://dev.to/githubopensource/nintendo-switch-emulator-open-source-c-desktop-app-4dih"}
 {"minutes_late": 92.5, "schedule": "47 */3 * * *", "ts": "2026-11-24T14:19:31.684708Z", "type": "late_schedule_ignored"}
 {"gemini_error_class": "capacity_503", "reason": "gemini_capacity", "repo": "r0y00/xbox2windows", "slot": "us_morning", "ts": "2026-11-24T15:17:23.725274Z", "type": "publish_skipped"}
+{"attempts": 1, "detail": "HTTP 204", "slot": "publish:us_morning", "ts": "2026-11-24T15:23:25.058249Z", "type": "watchdog_recovered", "verified": false}
