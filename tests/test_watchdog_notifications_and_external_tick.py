@@ -39,7 +39,7 @@ def _wire(monkeypatch, ok: bool = True):
 def test_first_successful_dispatch_is_silent(monkeypatch, tmp_path):
     calls, sent = _wire(monkeypatch)
     store = StateStore(tmp_path)
-    result = watchdog_command(Config(), store, now=datetime(2026, 11, 5, 21, 0, tzinfo=timezone.utc))
+    result = watchdog_command(Config(), store, now=datetime(2026, 11, 5, 23, 0, tzinfo=timezone.utc))
     # 7 daily dispatches (article needs a project, news-article waits
     # for a brief) + Thursday's guarded weekly poll-close recovery.
     assert len(calls) == 8
@@ -51,7 +51,7 @@ def test_first_successful_dispatch_is_silent(monkeypatch, tmp_path):
 def test_state_confirmation_sends_a_closing_message(monkeypatch, tmp_path):
     calls, sent = _wire(monkeypatch)
     store = StateStore(tmp_path)
-    watchdog_command(Config(), store, now=datetime(2026, 11, 5, 21, 0, tzinfo=timezone.utc))
+    watchdog_command(Config(), store, now=datetime(2026, 11, 5, 23, 0, tzinfo=timezone.utc))
     assert sent == []
 
     store.data["last_runs"]["collect"] = {"finished_at": "2026-11-05T21:05:00Z"}
@@ -65,7 +65,7 @@ def test_state_confirmation_sends_a_closing_message(monkeypatch, tmp_path):
 def test_failed_dispatch_alerts_immediately(monkeypatch, tmp_path):
     _calls, sent = _wire(monkeypatch, ok=False)
     store = StateStore(tmp_path)
-    result = watchdog_command(Config(), store, now=datetime(2026, 11, 5, 21, 0, tzinfo=timezone.utc))
+    result = watchdog_command(Config(), store, now=datetime(2026, 11, 5, 23, 0, tzinfo=timezone.utc))
     assert len(result["failed"]) == 8
     assert len(sent) == 8
     assert all("не удался" in text and "Пропущен слот" in text for text in sent)
@@ -88,7 +88,7 @@ def test_no_alarm_is_sent_for_a_slot_that_already_ran(monkeypatch, tmp_path):
     _calls, sent = _wire(monkeypatch)
     store = StateStore(tmp_path)
     store.data["last_runs"]["collect"] = {"finished_at": "2026-11-05T06:00:00Z"}
-    result = watchdog_command(Config(), store, now=datetime(2026, 11, 5, 21, 0, tzinfo=timezone.utc))
+    result = watchdog_command(Config(), store, now=datetime(2026, 11, 5, 23, 0, tzinfo=timezone.utc))
     assert "collect" not in result["missed"]
     assert not any("collect" in text for text in sent)
 
@@ -126,7 +126,7 @@ def test_external_tick_recipe_is_complete_and_secret_free():
     assert "ежедневный маркер" in blob
     # Weekly commands are now idempotent (ISO-week guard) and ARE dispatched
     # on the exact minute, pinned to their UTC weekday.
-    assert '["16:13", { command: "digest" }, 0]' in blob
+    assert '["18:13", { command: "digest" }, 0]' in blob
     assert '["16:43", { command: "report" }, 0]' in blob
     assert '["18:53", { command: "poll-close" }, 4]' in blob
 
@@ -140,6 +140,6 @@ def test_operations_doc_uses_the_current_ai_brief_cron():
 def test_watchdog_result_reports_alerts_for_logs(monkeypatch, tmp_path):
     _calls, _sent = _wire(monkeypatch, ok=False)
     store = StateStore(tmp_path)
-    result = watchdog_command(Config(), store, now=datetime(2026, 11, 5, 21, 0, tzinfo=timezone.utc))
+    result = watchdog_command(Config(), store, now=datetime(2026, 11, 5, 23, 0, tzinfo=timezone.utc))
     assert isinstance(result["alerts"], list) and result["alerts"]
     assert json.dumps(result, ensure_ascii=False)

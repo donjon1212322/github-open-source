@@ -327,12 +327,19 @@ def _run_scheduled(config: Config, store: StateStore, schedule: str, *,
             return _note_late_schedule(config, store, normalized, late, moment)
     routes: dict[str, Any] = {
         "23 0 * * *": lambda: collect_command(config, store, extra_pages=[1, 2]),
-        # Owner 12.11: three posts for the US audience, fixed UTC minutes.
-        # 01:13Z = 20:13 EST / 17:13 PST (evening ET); 16:23Z = 11:23 EST /
-        # 08:23 PST (morning PT); 18:13Z = 13:13 EST / 10:13 PST (midday).
+        # Owner 24.11: even spacing instead of three posts inside three hours.
+        # 01:13Z = 20:13 EST / 17:13 PST (evening ET, the strongest slot);
+        # 15:13Z = 10:13 EST / 07:13 PST (morning PT); 18:13Z = 13:13 EST /
+        # 10:13 PST (midday). Gaps are 3 h 00 and 3 h 05.
         "13 1 * * *": lambda: publish_slot(config, store, "us_evening"),
-        "23 16 * * *": lambda: publish_slot(config, store, "us_morning"),
-        "13 18 * * *": lambda: publish_slot(config, store, "us_midday"),
+        "13 15 * * *": lambda: publish_slot(config, store, "us_morning"),
+        # Owner 24.11: on Sunday this chair belongs to the weekly digest and
+        # its poll. One cron, decided by the weekday, so the two never race.
+        "13 18 * * *": lambda: (
+            digest_command(config, store)
+            if moment.weekday() == 6
+            else publish_slot(config, store, "us_midday")
+        ),
         "17 0,18,19,20,21,22,23 * * *": lambda: process_crossposts(config, store),
         "33 13 * * *": lambda: article_of_day(config, store),
         # Daily since 2026-11-02: the video brief is a format with its own
@@ -340,17 +347,18 @@ def _run_scheduled(config: Config, store: StateStore, schedule: str, *,
         # Owner 10.11: GitHub once delivered this cron ~7h late (02:10 UTC),
         # so the brief went out at 05:11 Minsk with yesterday's material.
         # Refuse an out-of-slot SCHEDULE run without writing a marker; the
-        # 19:18 cron / 20:00 watchdog can still publish the evening brief.
-        "18 19 * * *": lambda: (
+        # 21:48 cron / 22:00 watchdog can still publish the evening brief.
+        "48 21 * * *": lambda: (
             {"ok": True, "published": False, "reason": "news_before_scheduled_slot"}
             if not _news_slot_open()
             else _record_news_outcome(config, store, news_command(config, store))
         ),
-        # Second dev.to article of the day (owner decision 2026-11-07).
-        "53 19 * * *": lambda: news_article_command(config, store),
-        # Weekly cycle: digest + poll on Sunday, poll closed on Thursday,
-        # metrics every evening, learning after closing.
-        "13 16 * * 0": lambda: digest_command(config, store),
+        # Second dev.to article of the day (owner decision 2026-11-07),
+        # 35 minutes after the brief it is built from.
+        "23 22 * * *": lambda: news_article_command(config, store),
+        # Weekly cycle: digest + poll on Sunday evening (see the 18:13 route),
+        # poll closed on Thursday, metrics every evening, learning after
+        # closing.
         # "53 18 * * 4" is handled by ``pairs`` below (close + learn).
         "23 20 * * *": lambda: metrics_command(config, store),
         "43 16 * * 0": lambda: report_command(config, store),

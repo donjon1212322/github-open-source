@@ -50,14 +50,14 @@ logger = logging.getLogger(__name__)
 # key -> (UTC deadline hour, minute) -> workflow_dispatch inputs
 SLOTS: tuple[tuple[str, tuple[int, int], dict[str, str]], ...] = (
     # Owner 12.11: US-audience timing. Deadlines follow the new due minutes:
-    # collect 00:23Z, evening 01:13Z, article 13:33Z, morning 16:23Z,
-    # midday 18:13Z. The Worker was redeployed 12.11 with the same minutes;
+    # collect 00:23Z, evening 01:13Z, article 13:33Z, morning 15:13Z,
+    # midday 18:13Z, brief 21:48Z, second article 22:23Z (owner 24.11). The Worker was redeployed 12.11 with the same minutes;
     # these deadlines remain the recovery net when a dispatch is lost to
     # Cloudflare jitter, a runner queue or a 503.
     ("collect", (0, 30), {"command": "collect"}),
     ("publish:us_evening", (1, 30), {"command": "publish", "slot": "us_evening"}),
     ("article", (14, 0), {"command": "article"}),
-    ("publish:us_morning", (16, 30), {"command": "publish", "slot": "us_morning"}),
+    ("publish:us_morning", (15, 20), {"command": "publish", "slot": "us_morning"}),
     ("publish:us_midday", (18, 30), {"command": "publish", "slot": "us_midday"}),
     # Owner 12.11: Facebook no longer waits for the late native GitHub cron.
     # facebook_handoff_command() writes a daily marker, so this dispatch and
@@ -66,10 +66,10 @@ SLOTS: tuple[tuple[str, tuple[int, int], dict[str, str]], ...] = (
     # so the watchdog ticks at 18:27/18:30 are the exact-minute recovery.
     # Keep Facebook ENABLED.
     ("facebook-handoff", (18, 30), {"command": "facebook-handoff"}),
-    ("news", (20, 0), {"command": "news"}),
+    ("news", (22, 0), {"command": "news"}),
     # 2026-11-07: the second dev.to article. Its own marker lives in
     # last_runs["news-article"], so _has_run() verifies it generically.
-    ("news-article", (20, 30), {"command": "news-article"}),
+    ("news-article", (22, 40), {"command": "news-article"}),
     # Owner 12.11: 11.11 20:23Z metrics dispatch was startup_failure, no
     # runner, no marker, and the late native cron was correctly ignored.
     # metrics_command() now writes a daily marker after a real measurement;
@@ -83,7 +83,7 @@ SLOTS: tuple[tuple[str, tuple[int, int], dict[str, str]], ...] = (
 # so they are idempotent and CAN be recovered. Weekday uses Python's
 # convention: Monday=0 ... Sunday=6 (worker.js uses JS getUTCDay: Sunday=0).
 WEEKLY_SLOTS: tuple[tuple[str, int, tuple[int, int], dict[str, str]], ...] = (
-    ("digest", 6, (16, 20), {"command": "digest"}),          # cron 16:13Z Sun
+    ("digest", 6, (18, 20), {"command": "digest"}),          # cron 18:13Z Sun
     ("report", 6, (16, 50), {"command": "report"}),          # cron 16:43Z Sun
     ("poll-close", 3, (19, 0), {"command": "poll-close"}),   # cron 18:53Z Thu
 )
@@ -329,6 +329,9 @@ def watchdog_command(config: Config, store: StateStore, *, now: datetime | None 
             if now > deadline + timedelta(hours=ARTICLE_RECOVERY_WINDOW_HOURS):
                 continue
 
+        if key == "publish:us_midday" and now.weekday() == 6 and _has_run(store, "digest", today):
+            # Owner 24.11: the Sunday midday chair belongs to the digest.
+            continue
         if key == "news-article" and not _has_run(store, "news", today):
             # The article needs today's brief. Never fire a blind dispatch
             # before the AI Brief has actually been published.

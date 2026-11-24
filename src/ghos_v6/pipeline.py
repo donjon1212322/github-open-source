@@ -760,6 +760,14 @@ def publish_slot(config: Config, store: StateStore, slot: str = "manual") -> dic
         }
         _finish_publish_slot(store, slot, result)
         return result
+    # Owner 24.11: on Sunday the 18:13Z chair belongs to the weekly digest and
+    # its poll. cli routes the cron by weekday, so this is the second barrier
+    # for a stale dispatch or a watchdog recovery: no project post there.
+    if slot == "us_midday" and datetime.now(timezone.utc).weekday() == 6:
+        store.event("publish_skipped", slot=slot, reason="sunday_digest_slot")
+        result = {"ok": True, "published": False, "reason": "sunday_digest_slot", "slot": slot}
+        _finish_publish_slot(store, slot, result)
+        return result
     if not store.data.get("queue"):
         collect_command(config, store)
 
@@ -2334,6 +2342,14 @@ def metrics_command(config: Config, store: StateStore, *, limit: int = 12,
         record["views_at_24h"] = round(
             insights.views_at_reference(stats["views"], record["views_age_hours"])
         )
+        # Owner 24.11: comparing slots needs the SAME post measured at the same
+        # age. The extrapolated value above is kept for the value model, but a
+        # snapshot taken in the 24-36 h window is the number the schedule
+        # questions are answered from - it is a measurement, not a projection.
+        age = float(record["views_age_hours"])
+        if 24.0 <= age <= 36.0 and not record.get("views_measured_24h"):
+            record["views_measured_24h"] = stats["views"]
+            record["views_measured_24h_age"] = round(age, 1)
         record["value_score"] = insights.value_score(record, median_views=insights.median_views(store.published_records()))
         updated += 1
     store.event("metrics_collected", posts=len(records), updated=updated, channel=channel)

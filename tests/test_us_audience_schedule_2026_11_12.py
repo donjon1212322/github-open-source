@@ -26,11 +26,15 @@ def test_new_crons_route_to_the_new_slot_names():
     src = (REPO / "src" / "ghos_v6" / "cli.py").read_text(encoding="utf-8")
     routes = dict(re.findall(
         r'"([^"]+)"\s*:\s*lambda:\s*publish_slot\(config, store, "([^"]+)"\)', src))
+    # Owner 24.11: the morning slot moved to 15:13Z so the day spreads evenly.
     assert routes == {
         "13 1 * * *": "us_evening",
-        "23 16 * * *": "us_morning",
-        "13 18 * * *": "us_midday",
+        "13 15 * * *": "us_morning",
     }
+    # The midday chair is a weekday branch: six days a week it publishes
+    # us_midday, on Sunday it runs the digest and its poll.
+    assert '"13 18 * * *": lambda: (' in src
+    assert '"us_midday"' in src and "digest_command" in src
 
 
 def test_stale_undeployed_worker_dispatches_never_publish(monkeypatch):
@@ -58,7 +62,7 @@ def test_watchdog_deadlines_follow_the_us_schedule():
     assert slots["publish:us_evening"] == (
         (1, 30), {"command": "publish", "slot": "us_evening"})
     assert slots["publish:us_morning"] == (
-        (16, 30), {"command": "publish", "slot": "us_morning"})
+        (15, 20), {"command": "publish", "slot": "us_morning"})
     assert slots["publish:us_midday"] == (
         (18, 30), {"command": "publish", "slot": "us_midday"})
     # The 11.11 recovery slots stay where they were.
@@ -70,7 +74,7 @@ def test_worker_source_has_the_new_due_minutes_and_no_old_ones():
     src = (REPO / "tools" / "external_tick" / "worker.js").read_text(encoding="utf-8")
     assert '["00:23", { command: "collect" }]' in src
     assert '["01:13", { command: "publish", slot: "us_evening" }]' in src
-    assert '["16:23", { command: "publish", slot: "us_morning" }]' in src
+    assert '["15:13", { command: "publish", slot: "us_morning" }]' in src
     assert '["18:13", { command: "publish", slot: "us_midday" }]' in src
     for stale in ('"07:13"', '"12:43"', '"17:18"', "europe_morning", "us_peak"):
         assert stale not in src, stale
@@ -86,9 +90,11 @@ def test_fixed_utc_minutes_stay_inside_both_us_windows_in_winter_and_summer():
     # Winter: EST = UTC-5, PST = UTC-8. Summer: EDT = UTC-4, PDT = UTC-7.
     for et_offset, pt_offset in ((5, 8), (4, 7)):
         evening_et = _local(1, 13, et_offset)[0]
-        morning_pt = _local(16, 23, pt_offset)[0]
+        # 24.11: the morning post moved an hour earlier (07:13 PT), still
+        # inside the Pacific morning window; the evening anchor is untouched.
+        morning_pt = _local(15, 13, pt_offset)[0]
         assert 19 <= evening_et <= 22, evening_et
-        assert 8 <= morning_pt <= 11, morning_pt
+        assert 6 <= morning_pt <= 11, morning_pt
 
 
 def test_day_boundary_and_post_limit_were_not_changed():

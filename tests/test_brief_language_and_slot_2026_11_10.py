@@ -52,10 +52,10 @@ def test_early_schedule_refuses_to_publish_and_leaves_no_watchdog_marker(monkeyp
     # runs, refreshes and watchdog recovery keep working unchanged.
     monkeypatch.setattr(cli, "_news_slot_open", lambda: False)
     store = StateStore(tmp_path)
-    result = cli._run_scheduled(Config(), store, "18 19 * * *")
+    result = cli._run_scheduled(Config(), store, "48 21 * * *")
     assert result == {"ok": True, "published": False,
                       "reason": "news_before_scheduled_slot"}
-    # No marker: the 19:18 cron / 20:00 watchdog must still be able to run.
+    # No marker: the 21:48 cron / 22:00 watchdog must still be able to run.
     assert "news" not in (store.data.get("last_runs") or {})
 
 
@@ -65,7 +65,7 @@ def test_scheduled_route_still_publishes_in_the_evening_slot(monkeypatch, tmp_pa
     monkeypatch.setattr(cli, "news_command", lambda config, store: (
         seen.append("called"), {"ok": True, "published": True}
     )[1])
-    result = cli._run_scheduled(Config(), StateStore(tmp_path), "18 19 * * *")
+    result = cli._run_scheduled(Config(), StateStore(tmp_path), "48 21 * * *")
     assert result["published"] is True and seen == ["called"]
 
 

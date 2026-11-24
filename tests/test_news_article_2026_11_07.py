@@ -211,7 +211,7 @@ def test_watchdog_covers_news_article_but_waits_for_the_brief(monkeypatch, tmp_p
     monkeypatch.setattr(watchdog, "_notify", lambda config, text: False)
 
     store = StateStore(tmp_path)
-    now = datetime(2026, 11, 5, 21, 0, tzinfo=timezone.utc)
+    now = datetime(2026, 11, 5, 23, 0, tzinfo=timezone.utc)
     first = watchdog.watchdog_command(Config(), store, now=now)
     # 05.11 is Thursday, so the weekly poll-close slot is checked too.
     assert first["checked"] == len(watchdog.SLOTS) + 1

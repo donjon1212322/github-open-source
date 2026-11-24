@@ -118,7 +118,7 @@ def _wire(monkeypatch):
 def test_watchdog_never_retries_a_slot_indefinitely(monkeypatch, tmp_path):
     calls, _sent = _wire(monkeypatch)
     store = StateStore(tmp_path)
-    now = datetime(2026, 11, 8, 21, 0, tzinfo=timezone.utc)
+    now = datetime(2026, 11, 8, 23, 0, tzinfo=timezone.utc)
     marks = store.data.setdefault("last_runs", {}).setdefault("watchdog_dispatches", {})
     marks["2026-11-08:news"] = {
         "at": (now - timedelta(hours=2)).isoformat().replace("+00:00", "Z"),
@@ -136,7 +136,7 @@ def test_watchdog_has_a_daily_dispatch_ceiling(monkeypatch, tmp_path):
     calls, sent = _wire(monkeypatch)
     monkeypatch.setattr("ghos_v6.watchdog.MAX_DAILY_DISPATCHES", 2)
     store = StateStore(tmp_path)
-    now = datetime(2026, 11, 8, 21, 0, tzinfo=timezone.utc)
+    now = datetime(2026, 11, 8, 23, 0, tzinfo=timezone.utc)
     result = watchdog_command(Config(), store, now=now)
     assert len(calls) <= 2
     assert any("Рековери остановлено" in text for text in sent)

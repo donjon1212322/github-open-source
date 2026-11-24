@@ -24,10 +24,10 @@ const SLOTS = [
   ["00:23", { command: "collect" }],
   ["01:13", { command: "publish", slot: "us_evening" }],   // 20:13 EST / 17:13 PST
   ["13:33", { command: "article" }],
-  ["16:23", { command: "publish", slot: "us_morning" }],   // 11:23 EST / 08:23 PST
+  ["15:13", { command: "publish", slot: "us_morning" }],   // 10:13 EST / 07:13 PST
   ["18:13", { command: "publish", slot: "us_midday" }],    // 13:13 EST / 10:13 PST
-  ["19:18", { command: "news" }],
-  ["19:53", { command: "news-article" }],
+  ["21:48", { command: "news" }],
+  ["22:23", { command: "news-article" }],
   ["20:23", { command: "metrics" }],
   ["00:17", { command: "crossposts" }],
   ["18:17", { command: "crossposts" }],
@@ -48,7 +48,7 @@ const SLOTS = [
   // in state, so a second trigger is a no-op instead of a duplicate post.
   // With the guard in place they can be dispatched on the exact minute.
   // JS getUTCDay(): 0 = Sunday, 4 = Thursday.
-  ["16:13", { command: "digest" }, 0],
+  ["18:13", { command: "digest" }, 0],
   ["16:43", { command: "report" }, 0],
   ["18:53", { command: "poll-close" }, 4],
   // Facebook is deliberately NOT added here, even after the 12.11 redeploy

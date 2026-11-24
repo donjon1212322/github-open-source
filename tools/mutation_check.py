@@ -24,6 +24,20 @@ MUTATIONS: list[tuple[str, str, str, str]] = [
     ("src/ghos_v6/news.py", "1000-1500 words. Do not stop early",
      "80-120 words. Keep it tiny",
      "owner decision: the second dev.to article becomes a stub again"),
+    # Owner 24.11: even spacing and a quiet Sunday. The morning slot must be
+    # 15:13Z; the midday chair must skip the project on Sunday; the digest
+    # deadline must follow that chair; view snapshots must be age-pinned.
+    ("src/ghos_v6/cli.py", '"13 15 * * *"', '"23 16 * * *"',
+     "the morning post drifts back to 16:23 and crowds 18:13 (24.11)"),
+    ("src/ghos_v6/cli.py", '"48 21 * * *"', '"18 19 * * *"',
+     "the AI Brief crowds the midday post again (24.11)"),
+    ("src/ghos_v6/pipeline.py",
+     'if slot == "us_midday" and datetime.now(timezone.utc).weekday() == 6:',
+     'if False and slot == "us_midday" and datetime.now(timezone.utc).weekday() == 6:',
+     "a Sunday project post returns next to the digest poll (24.11)"),
+    ("src/ghos_v6/pipeline.py", "if 24.0 <= age <= 36.0 and not record.get(\"views_measured_24h\"):",
+     "if age >= 0 and not record.get(\"views_measured_24h\"):",
+     "views are compared at whatever age they happened to be fetched (24.11)"),
     ("src/ghos_v6/pipeline.py", "MAX_PROJECT_POSTS_PER_DAY = 3",
      "MAX_PROJECT_POSTS_PER_DAY = 4", "owner rule: 3 posts a day becomes 4"),
     ("src/ghos_v6/dedup.py", "COOLDOWN_DAYS = 90", "COOLDOWN_DAYS = 30",

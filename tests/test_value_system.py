@@ -609,7 +609,7 @@ def test_every_cron_in_the_workflow_has_a_route_in_the_code():
     missing = crons - routed
     assert not missing, f"cron without a route in cli.py: {sorted(missing)}"
     # the daily brief specifically
-    assert "18 19 * * *" in crons and "18 19 * * *" in routed
+    assert "48 21 * * *" in crons and "48 21 * * *" in routed
 
 
 def test_brief_filters_take_reviews_and_launches_but_reject_gossip():

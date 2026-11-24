@@ -41,13 +41,15 @@ def test_cron_field_parser_handles_star_step_and_list():
 
 
 def test_late_minutes_match_the_real_incident():
-    # 19:18 UTC cron arrived at 02:11 UTC the next day: 6 h 53 m late.
+    # The 10.11 incident: a 19:18 UTC cron arrived at 02:11 UTC next day,
+    # 6 h 53 m late. The brief now runs at 21:48, so the same delivery is
+    # 4 h 23 m late - still far beyond the 15-minute tolerance.
     late = cli._late_schedule_minutes(
-        "18 19 * * *", datetime(2026, 11, 10, 2, 11, tzinfo=UTC))
-    assert late is not None and 410 < late < 416
+        "48 21 * * *", datetime(2026, 11, 10, 2, 11, tzinfo=UTC))
+    assert late is not None and 260 < late < 266
     # A one-minute jitter is still on time.
     assert cli._late_schedule_minutes(
-        "18 19 * * *", datetime(2026, 11, 10, 19, 19, tzinfo=UTC)) == 1.0
+        "48 21 * * *", datetime(2026, 11, 10, 21, 49, tzinfo=UTC)) == 1.0
     # 18:13Z midday slot, late-cron shape: still parseable.
     assert cli._late_schedule_minutes(
         "13 18 * * *", datetime(2026, 11, 10, 0, 44, tzinfo=UTC)) is not None
@@ -56,8 +58,8 @@ def test_late_minutes_match_the_real_incident():
         "47 */3 * * *", datetime(2026, 11, 11, 3, 48, tzinfo=UTC)) == 1.0
     # Weekly Sunday digest uses day-of-week 0.
     assert cli._latest_expected_run(
-        "13 16 * * 0", datetime(2026, 11, 11, 12, 0, tzinfo=UTC)
-    ) == datetime(2026, 11, 8, 16, 13, tzinfo=UTC)
+        "13 18 * * 0", datetime(2026, 11, 11, 12, 0, tzinfo=UTC)
+    ) == datetime(2026, 11, 8, 18, 13, tzinfo=UTC)
 
 
 def test_late_duplicate_cron_is_ignored_without_publishing(monkeypatch, tmp_path):
@@ -67,19 +69,19 @@ def test_late_duplicate_cron_is_ignored_without_publishing(monkeypatch, tmp_path
     monkeypatch.setattr(cli, "alert_owner", lambda config, title, details="": alerts.append(title))
     store = StateStore(tmp_path)
     moment = datetime(2026, 11, 10, 2, 11, tzinfo=UTC)
-    result = cli._run_scheduled(Config(), store, "18 19 * * *",
+    result = cli._run_scheduled(Config(), store, "48 21 * * *",
                                 now=moment, enforce_window=True)
     assert result["reason"] == "late_schedule_ignored"
-    assert result["minutes_late"] > 400
+    assert result["minutes_late"] > 250
     assert calls == [], "the late duplicate must never reach the publisher"
     assert len(alerts) == 1
     health = store.data["schedule_health"]["2026-11-10"]
     assert health["late_ignored"] == 1
-    assert health["last_schedule"] == "18 19 * * *"
+    assert health["last_schedule"] == "48 21 * * *"
     events = store.events_path.read_text(encoding="utf-8")
     assert "late_schedule_ignored" in events
     # Only ONE owner message per UTC day, even with a cascade of late crons.
-    cli._run_scheduled(Config(), store, "23 16 * * *",
+    cli._run_scheduled(Config(), store, "13 15 * * *",
                        now=moment + timedelta(minutes=3), enforce_window=True)
     assert len(alerts) == 1
     assert store.data["schedule_health"]["2026-11-10"]["late_ignored"] == 2
@@ -90,8 +92,8 @@ def test_on_time_cron_still_runs_its_command(monkeypatch, tmp_path):
     monkeypatch.setattr(cli, "_news_slot_open", lambda: True)
     monkeypatch.setattr(cli, "news_command", lambda config, store: (
         seen.append("news"), {"ok": True, "published": True})[1])
-    result = cli._run_scheduled(Config(), StateStore(tmp_path), "18 19 * * *",
-                                now=datetime(2026, 11, 10, 19, 19, tzinfo=UTC),
+    result = cli._run_scheduled(Config(), StateStore(tmp_path), "48 21 * * *",
+                                now=datetime(2026, 11, 10, 21, 49, tzinfo=UTC),
                                 enforce_window=True)
     assert result["published"] is True and seen == ["news"]
 
@@ -99,8 +101,8 @@ def test_on_time_cron_still_runs_its_command(monkeypatch, tmp_path):
 def test_guard_is_enabled_by_the_workflow_event_name(monkeypatch, tmp_path):
     monkeypatch.setenv("EVENT_NAME", "schedule")
     monkeypatch.setattr(cli, "alert_owner", lambda *a, **k: None)
-    result = cli._run_scheduled(Config(), StateStore(tmp_path), "23 16 * * *",
-                                now=datetime(2026, 11, 10, 19, 59, tzinfo=UTC))
+    result = cli._run_scheduled(Config(), StateStore(tmp_path), "13 15 * * *",
+                                now=datetime(2026, 11, 10, 23, 59, tzinfo=UTC))
     assert result["reason"] == "late_schedule_ignored"
 
 

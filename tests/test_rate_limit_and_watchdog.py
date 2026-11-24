@@ -83,7 +83,7 @@ def _wire(monkeypatch):
 def test_watchdog_is_idempotent_and_alerts_on_missed_slots(monkeypatch, tmp_path):
     calls = _wire(monkeypatch)
     store = StateStore(tmp_path)
-    now = datetime(2026, 11, 5, 21, 0, tzinfo=timezone.utc)
+    now = datetime(2026, 11, 5, 23, 0, tzinfo=timezone.utc)
     first = watchdog_command(Config(), store, now=now)
     second = watchdog_command(Config(), store, now=now)
     # 05.11 is Thursday, so the guarded weekly poll-close is also recovered.
@@ -174,7 +174,7 @@ def test_article_recovery_window_does_not_backfill_a_stale_day(monkeypatch, tmp_
     store.data["published"] = {
         "owner/repo": {"published_at": "2026-11-05T10:00:00Z"}
     }
-    result = watchdog_command(Config(), store, now=datetime(2026, 11, 5, 21, 0, tzinfo=timezone.utc))
+    result = watchdog_command(Config(), store, now=datetime(2026, 11, 5, 23, 0, tzinfo=timezone.utc))
     assert "article" not in result["missed"]
     assert "article" not in calls
 

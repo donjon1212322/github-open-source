@@ -29,12 +29,17 @@ def _ts(days_ago: int = 0) -> str:
 
 def _publish_crons_and_slots() -> dict[str, str]:
     src = (REPO / "src" / "ghos_v6" / "cli.py").read_text(encoding="utf-8")
-    return dict(
+    slots = dict(
         re.findall(
             r'"([^"]+)"\s*:\s*lambda:\s*publish_slot\(config, store, "([^"]+)"\)',
             src,
         )
     )
+    # Owner 24.11: the midday chair is a lambda with a weekday branch - six days
+    # a week it publishes us_midday, on Sunday it runs the digest and its poll.
+    if re.search(r'"13 18 \* \* \*":\s*lambda:\s*\(', src):
+        slots.setdefault("13 18 * * *", "us_midday")
+    return slots
 
 
 # --- three posts a day ----------------------------------------------------
@@ -48,6 +53,10 @@ def test_three_posts_per_day_is_pinned_in_code_docs_and_schedule():
     workflow = (REPO / ".github" / "workflows" / "pipeline.yml").read_text(encoding="utf-8")
     for cron in slots:
         assert f'cron: "{cron}"' in workflow
+    # The Sunday branch of that chair must run the digest, not a project post.
+    cli_src = (REPO / "src" / "ghos_v6" / "cli.py").read_text(encoding="utf-8")
+    midday = cli_src.split('"13 18 * * *": lambda: (')[1].split("),")[0]
+    assert "digest_command" in midday and "weekday() == 6" in midday
 
 
 def test_fourth_post_in_one_day_is_refused_before_any_network_call(tmp_path, monkeypatch):

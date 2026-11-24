@@ -17,7 +17,9 @@ from ghos_v6.config import Config
 from ghos_v6.state import StateStore, iso_week_key
 
 REPO = Path(__file__).resolve().parents[1]
-SUNDAY = datetime(2026, 11, 8, 17, 0, tzinfo=timezone.utc)
+# The digest moved to the 18:13Z chair on 24.11, so the fixture sits
+# after both weekly deadlines (digest 18:20, report 16:50).
+SUNDAY = datetime(2026, 11, 8, 18, 30, tzinfo=timezone.utc)
 THURSDAY = datetime(2026, 11, 12, 19, 10, tzinfo=timezone.utc)
 FRIDAY = datetime(2026, 11, 6, 19, 10, tzinfo=timezone.utc)
 
@@ -133,7 +135,7 @@ def test_watchdog_recovers_the_sunday_digest_and_then_stays_quiet(monkeypatch, t
     pipeline.mark_weekly(store, "digest", now=SUNDAY, telegram_message_id=1234)
     pipeline.mark_weekly(store, "report", now=SUNDAY, sent=True)
     calls.clear()
-    later = watchdog.watchdog_command(Config(), store, now=SUNDAY.replace(hour=17, minute=30))
+    later = watchdog.watchdog_command(Config(), store, now=SUNDAY.replace(hour=19, minute=30))
     assert "digest" not in later["dispatched"]
     assert "report" not in later["dispatched"]
     assert all(c.get("command") not in ("digest", "report") for c in calls)

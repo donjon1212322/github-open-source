@@ -100,7 +100,9 @@ def test_crons_and_routes_still_agree_after_any_schedule_change():
     keys |= set(re.findall(r'"([^"]+)"\s*:', pairs_block))
     assert crons == keys, f"cron/route mismatch: {sorted(crons ^ keys)}"
     # 2026-11-07: +53 19 * * * for the second daily dev.to article.
-    assert len(crons) == 14
+    # 2026-11-24: -13 16 * * 0 - the Sunday digest now takes the midday chair
+    # (18:13Z) instead of adding a fifth post to the evening.
+    assert len(crons) == 13
 
 
 def test_documentation_agrees_with_the_current_launch_decision():

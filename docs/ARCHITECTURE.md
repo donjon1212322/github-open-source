@@ -153,7 +153,8 @@ make.com. Прямого Graph API в v6 нет.
 
 ## AI Brief
 
-`pipeline.news_command()`, ежедневно 19:18 UTC / 22:18 по Минску.
+`pipeline.news_command()`, ежедневно 21:48 UTC / 00:48 по Минску
+(с 24.11.2026, было 19:18).
 
 ```
 1. fetch_worldofai_entries()      RSS канала WorldofAI
