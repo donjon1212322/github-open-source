@@ -17,7 +17,7 @@ from .cards import render_ai_brief_card, render_ai_brief_card_v4, render_digest_
 from .config import Config, telegram_message_link
 from .devto_cover import build_devto_cover
 from .content_adapters import build_crosspost_text, image_alt_text, public_telegram_link
-from .formatter import format_project_post
+from .formatter import CHANNEL_TAG_DIVIDER, format_project_post
 from .gate import GateConfig, evaluate, lookalike_installer_reason
 from .Gemini import GeminiClient, generate_project_content, is_transient_error
 from .rate_limit import GeminiBudget, GeminiDailyCap
@@ -2040,6 +2040,33 @@ def poll_decides_line(spec: dict[str, Any]) -> str:
     return "🗳️ " + decides[:1].upper() + decides[1:] + " — vote below, it shapes next week's picks."
 
 
+def digest_hashtags(records: list[dict[str, Any]], limit: int = 4) -> str:
+    """Discovery tags for the weekly digest.
+
+    Owner 24.11: every post type carried tags except the Sunday Top 5 - the
+    one post the channel asks readers to forward. The tags are derived from
+    what the week actually contained (the two most common languages), so the
+    digest is findable by "rust" or "python" and not just by the channel name.
+    """
+    from .formatter import _hashtags  # one tagifier, one set of rules
+
+    tags = ["#opensource"]
+    counts: Counter[str] = Counter()
+    for record in records:
+        for language in (record.get("language"),):
+            text = str(language or "").strip()
+            if text:
+                counts[text] += 1
+    for language, _count in counts.most_common(2):
+        tags.extend(_hashtags({"language": language}, limit=2).split())
+    tags.append("#weekly")
+    unique: list[str] = []
+    for tag in tags:
+        if tag and tag.lower() not in {t.lower() for t in unique}:
+            unique.append(tag)
+    return " ".join(unique[:limit])
+
+
 def digest_text(records: list[dict[str, Any]], *, poll_line: str = LEGACY_POLL_LINE) -> str:
     """The Sunday post text. Shared by the publisher and the in-place card fix.
 
@@ -2067,6 +2094,9 @@ def digest_text(records: list[dict[str, Any]], *, poll_line: str = LEGACY_POLL_L
         "↗️ <b>Forward this Top 5</b> to a teammate who should see it.",
         poll_line,
         '📣 <a href="https://t.me/GitHub_Open_Source"><b>@GitHub_Open_Source</b></a> — daily open-source picks',
+        "",
+        CHANNEL_TAG_DIVIDER,
+        digest_hashtags(records),
     ]
     return "\n".join(lines)
 

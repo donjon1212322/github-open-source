@@ -35,6 +35,12 @@ MUTATIONS: list[tuple[str, str, str, str]] = [
      'if slot == "us_midday" and datetime.now(timezone.utc).weekday() == 6:',
      'if False and slot == "us_midday" and datetime.now(timezone.utc).weekday() == 6:',
      "a Sunday project post returns next to the digest poll (24.11)"),
+    ("src/ghos_v6/formatter.py", "        if tag and not tag[0].isalpha():",
+     "        if tag and not tag[0].isalpha() and False:",
+     "a topic starting with a digit becomes a dead hashtag again (24.11)"),
+    ("src/ghos_v6/pipeline.py", "        CHANNEL_TAG_DIVIDER,\n        digest_hashtags(records),",
+     "        CHANNEL_TAG_DIVIDER,",
+     "the Sunday digest goes back to having no hashtags at all (24.11)"),
     ("src/ghos_v6/pipeline.py",
      '    _clear_transient_skip(store, _publish_slot_key(slot))\n'
      '    store.data.setdefault("last_runs", {})[_publish_slot_key(slot)] = {\n'

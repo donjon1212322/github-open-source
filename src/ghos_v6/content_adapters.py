@@ -298,6 +298,15 @@ def _camel_tag(value: Any) -> str:
         return "OpenSource"
     return "".join(_TAG_WORD_SPECIAL.get(word, word[:1].upper() + word[1:]) for word in words)
 
+def _valid_tag(tag: str) -> bool:
+    """A hashtag has to start with a letter on every platform we post to.
+
+    "#3d_modeling" is plain text on Telegram, Mastodon, Bluesky and dev.to, so
+    a topic that only yields a leading digit is dropped instead of published.
+    """
+    return bool(tag) and tag[0].isalpha()
+
+
 def _lower_tag(value: Any) -> str:
     raw = clean_text(value).lower()
     raw = _LANG_TAG.get(raw, raw)
@@ -336,7 +345,7 @@ def hashtags(
     for value in ["open source", *_raw_tag_values(record, generated)]:
         tag = formatter(value)
         key = tag.lower()
-        if tag and key not in seen:
+        if _valid_tag(tag) and key not in seen:
             tags.append(tag)
             seen.add(key)
         if len(tags) >= limit:
@@ -354,7 +363,7 @@ def devto_tags(record: dict[str, Any], generated: dict[str, Any] | None = None) 
         raw = clean_text(value).lower()
         raw = _DEVTO_TAG_ALIASES.get(raw, raw)
         tag = re.sub(r"[^a-z0-9]+", "", _LANG_TAG.get(raw, raw))[:30]
-        if tag and tag not in tags:
+        if _valid_tag(tag) and tag not in tags:
             tags.append(tag)
 
     add("opensource")

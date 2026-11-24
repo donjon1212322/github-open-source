@@ -192,6 +192,11 @@ def _hashtags(project: dict[str, Any], limit: int = 4) -> str:
         tag = re.sub(r"[^a-zA-Z0-9_]+", "_", str(raw).strip().lower()).strip("_")
         if any(term in tag for term in _BLOCKED_HASHTAG_TERMS):
             return  # never use evasion terms as discovery hashtags
+        # Telegram only links a hashtag that starts with a letter or "_".
+        # A topic like "3d-modeling" or "7z" would render as dead text
+        # "#3d_modeling", so it is dropped instead of published.
+        if tag and not tag[0].isalpha():
+            return
         if tag and tag not in tags and tag != "open_source" and len(tags) < limit:
             tags.append(tag)
 
