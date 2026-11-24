@@ -288,3 +288,49 @@ def test_the_0223_cron_is_the_night_pass_not_the_evening_one(monkeypatch, tmp_pa
     cli._run_scheduled(cli.Config(), store, "23 20 * * *",
                        now=datetime(2026, 11, 25, 20, 23, tzinfo=UTC), enforce_window=False)
     assert seen == ["metrics-night", "metrics"]
+
+
+# --- a blocked chair is retired, not paid back into the next hour -----------
+
+def test_a_late_chair_is_retired_instead_of_crowding_the_next_one(monkeypatch, tmp_path):
+    """24.11: the 15:13 chair published at 17:06, 67 minutes before 18:13.
+
+    Three 503s delayed it; the watchdog kept recovering it because the
+    transient budget is four hours, which is longer than the new three-hour
+    spacing. Inside the window recovery must still work, outside it the chair
+    is retired and the next chair keeps its time.
+    """
+    calls: list[dict] = []
+    monkeypatch.setenv("GH_TOKEN", "test-token")
+    monkeypatch.delenv("GITHUB_REPOSITORY", raising=False)
+    monkeypatch.setattr(watchdog, "_dispatch",
+                        lambda repo, inputs, token: (calls.append(dict(inputs)), (True, "HTTP 204"))[1])
+    monkeypatch.setattr(watchdog, "_notify", lambda config, text: True)
+
+    inside = StateStore(tmp_path / "inside")
+    watchdog.watchdog_command(watchdog.Config(telegram_bot_token="x"), inside,
+                              now=datetime(2026, 11, 24, 16, 0, tzinfo=UTC))
+    assert {"command": "publish", "slot": "us_morning"} in calls
+
+    calls.clear()
+    outside = StateStore(tmp_path / "outside")
+    watchdog.watchdog_command(watchdog.Config(telegram_bot_token="x"), outside,
+                              now=datetime(2026, 11, 24, 16, 30, tzinfo=UTC))
+    assert not [c for c in calls if c.get("slot") == "us_morning"]
+    assert "publish:us_morning" not in outside.data.get("last_runs", {}), \
+        "a retired chair is not written into state as a run"
+
+
+def test_the_late_limit_keeps_two_hours_between_any_two_posts():
+    chairs = sorted(_minutes(f"{h:02d}:{m:02d}") for h, m in watchdog.PROJECT_CHAIR_MINUTES.values())
+    gaps = [b - a for a, b in zip(chairs, chairs[1:])]
+    assert gaps == [840, 180], gaps  # overnight, then 15:13 -> 18:13
+    # Worst case: both neighbours run as late as the limit allows, so the
+    # shortest gap must still leave two hours between two posts.
+    assert min(gaps) - watchdog.LATE_POST_LIMIT_MINUTES >= 120
+
+
+def test_the_watchdog_chair_table_matches_the_crons():
+    crons = _workflow_crons()
+    for slot, (hour, minute) in watchdog.PROJECT_CHAIR_MINUTES.items():
+        assert f"{minute:02d} {hour} * * *" in crons, slot

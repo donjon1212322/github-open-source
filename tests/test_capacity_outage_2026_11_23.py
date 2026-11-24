@@ -249,7 +249,10 @@ def test_a_transient_slot_keeps_its_recovery_budget(tmp_path, monkeypatch):
     monkeypatch.setenv("GH_TOKEN", "")
     monkeypatch.setattr(watchdog, "MAX_DAILY_DISPATCHES", 24)
 
-    now = datetime(2026, 11, 23, 19, 0, tzinfo=timezone.utc)
+    # 15:30Z: the morning chair (15:13) is missed but still inside its
+    # late-post window (24.11: +60 min), so the recovery budget is what the
+    # test is about. At 19:00 the chair would already be retired.
+    now = datetime(2026, 11, 23, 15, 30, tzinfo=timezone.utc)
     store = StateStore(tmp_path)
     marks = store.data.setdefault("last_runs", {}).setdefault("watchdog_dispatches", {})
     marks["2026-11-23:publish:us_morning"] = {

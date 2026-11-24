@@ -40,9 +40,10 @@ def test_first_successful_dispatch_is_silent(monkeypatch, tmp_path):
     calls, sent = _wire(monkeypatch)
     store = StateStore(tmp_path)
     result = watchdog_command(Config(), store, now=datetime(2026, 11, 5, 23, 0, tzinfo=timezone.utc))
-    # 7 daily dispatches (article needs a project, news-article waits
-    # for a brief) + Thursday's guarded weekly poll-close recovery.
-    assert len(calls) == 8
+    # Owner 24.11: at 23:00 the three project chairs are past their late-post
+    # window and are retired (not dispatched). What remains: collect,
+    # facebook-handoff, news, metrics + Thursday's guarded poll-close.
+    assert len(calls) == 5
     assert result["failed"] == []
     assert sent == [], "an accepted HTTP 204 is not yet a problem to report"
     assert result["alerts"] == []
@@ -66,8 +67,8 @@ def test_failed_dispatch_alerts_immediately(monkeypatch, tmp_path):
     _calls, sent = _wire(monkeypatch, ok=False)
     store = StateStore(tmp_path)
     result = watchdog_command(Config(), store, now=datetime(2026, 11, 5, 23, 0, tzinfo=timezone.utc))
-    assert len(result["failed"]) == 8
-    assert len(sent) == 8
+    assert len(result["failed"]) == 5
+    assert len(sent) == 5
     assert all("не удался" in text and "Пропущен слот" in text for text in sent)
 
 

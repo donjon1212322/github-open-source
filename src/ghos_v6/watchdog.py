@@ -149,6 +149,30 @@ def _devto_published_at(record: dict[str, Any]) -> Any:
     return ((record.get("articles") or {}).get("devto") or {}).get("published_at")
 
 
+#: Owner 24.11: the chairs are three hours apart, so "post it whenever the
+#: provider comes back" is no longer harmless. On 24.11 the 15:13 chair finally
+#: published at 17:06 after three 503s - 67 minutes before the 18:13 chair, and
+#: a slightly longer outage would have produced a 13-minute pair. The watchdog
+#: therefore stops recovering a project chair this long after its time: the day
+#: keeps its rhythm and ends one post short instead of two posts in an hour.
+#: Nothing is wasted - the candidate stays in the queue for the next chair.
+PROJECT_CHAIR_MINUTES: dict[str, tuple[int, int]] = {
+    "us_evening": (1, 13),
+    "us_morning": (15, 13),
+    "us_midday": (18, 13),
+}
+LATE_POST_LIMIT_MINUTES = 60
+
+
+def chair_expired(slot: str, now: datetime) -> bool:
+    """Is this project chair past its late-post limit (or not a project chair)?"""
+    chair = PROJECT_CHAIR_MINUTES.get(slot)
+    if chair is None:
+        return False
+    due = now.replace(hour=chair[0], minute=chair[1], second=0, microsecond=0)
+    return now > due + timedelta(minutes=LATE_POST_LIMIT_MINUTES)
+
+
 def _transient_slot(store: StateStore, key: str, now: datetime) -> bool:
     """True when the slot's last failure was the provider being down.
 
@@ -329,6 +353,12 @@ def watchdog_command(config: Config, store: StateStore, *, now: datetime | None 
             if now > deadline + timedelta(hours=ARTICLE_RECOVERY_WINDOW_HOURS):
                 continue
 
+        if key.startswith("publish:") and chair_expired(key.split(":", 1)[1], now):
+            # Owner 24.11: the chairs are three hours apart, so a chair whose
+            # window closed is retired instead of being paid back into the
+            # next chair's slot. publish_slot writes the marker itself; this
+            # line only stops the dispatch when no run ever got that far.
+            continue
         if key == "publish:us_midday" and now.weekday() == 6 and _has_run(store, "digest", today):
             # Owner 24.11: the Sunday midday chair belongs to the digest.
             continue

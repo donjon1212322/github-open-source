@@ -87,13 +87,15 @@ def test_watchdog_is_idempotent_and_alerts_on_missed_slots(monkeypatch, tmp_path
     first = watchdog_command(Config(), store, now=now)
     second = watchdog_command(Config(), store, now=now)
     # 05.11 is Thursday, so the guarded weekly poll-close is also recovered.
-    assert first["missed"] == ["collect", "publish:us_evening",
-                               "publish:us_morning", "publish:us_midday",
-                               "facebook-handoff", "news", "metrics", "poll-close"]
-    assert len(calls) == 8       # article needs a project; news-article waits for a brief
+    # Owner 24.11: by 23:00 every project chair is more than an hour past its
+    # time, so the watchdog retires them instead of paying them back into the
+    # next chair's hour. Only the non-project slots are still recovered, and
+    # article still needs a project while news-article waits for a brief.
+    assert first["missed"] == ["collect", "facebook-handoff", "news",
+                               "metrics", "poll-close"]
+    assert len(calls) == 5
     assert second["dispatched"] == [] and second["failed"] == []
-    assert calls == ["collect", "publish", "publish", "publish",
-                     "facebook-handoff", "news", "metrics", "poll-close"]
+    assert calls == ["collect", "facebook-handoff", "news", "metrics", "poll-close"]
 
 
 def test_http_204_is_not_verified_without_state_confirmation(monkeypatch, tmp_path):
