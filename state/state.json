@@ -282,11 +282,11 @@
   ],
   "last_runs": {
     "article": {
-      "finished_at": "2026-11-23T13:33:59.927107Z",
+      "finished_at": "2026-11-24T13:33:54.634050Z",
       "published": true,
       "reason": "published",
-      "repo": "iamajmeena/neonclipping",
-      "url": "https://dev.to/githubopensource/open-source-local-video-clipping-tool-neonclipping-5338"
+      "repo": "zortos293/lichii",
+      "url": "https://dev.to/githubopensource/nintendo-switch-emulator-open-source-c-desktop-app-4dih"
     },
     "collect": {
       "discovered": 399,
@@ -11259,7 +11259,13 @@
       "visual_kind": "card"
     },
     "zortos293/lichii": {
-      "articles": {},
+      "articles": {
+        "devto": {
+          "id": 5108240,
+          "published_at": "2026-11-24T13:33:54.633893Z",
+          "url": "https://dev.to/githubopensource/nintendo-switch-emulator-open-source-c-desktop-app-4dih"
+        }
+      },
       "card_style": "",
       "category": "DevTools",
       "contributors_count": 693,
@@ -11273,6 +11279,7 @@
       },
       "description": "VERY experimental Nintendo Switch 2 emulator",
       "description_fp": "10eb47c343013a8c",
+      "devto_cover_url": "https://i.ibb.co/5gCqC9KS/zortos293-lichii-devto-cover-439375458ba7.png",
       "forks": 1617,
       "full_name": "zortos293/Lichii",
       "generated": {
