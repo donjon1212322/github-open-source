@@ -405,8 +405,8 @@
     },
     "watchdog_dispatches": {
       "2026-11-24:publish:us_morning": {
-        "at": "2026-11-24T15:23:23.599722Z",
-        "attempts": 1,
+        "at": "2026-11-24T16:00:53.853123Z",
+        "attempts": 2,
         "detail": "HTTP 204",
         "dispatched": true,
         "verified": false

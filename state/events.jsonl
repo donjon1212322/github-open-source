@@ -796,3 +796,4 @@
 {"attempts": 1, "detail": "HTTP 204", "slot": "publish:us_morning", "ts": "2026-11-24T15:23:25.058249Z", "type": "watchdog_recovered", "verified": false}
 {"gemini_error_class": "network", "reason": "gemini_capacity", "repo": "r0y00/xbox2windows", "slot": "us_morning", "ts": "2026-11-24T15:25:22.968022Z", "type": "publish_skipped"}
 {"deleted": 0, "ts": "2026-11-24T15:47:48.897489Z", "type": "moderation_completed", "updates": 0}
+{"attempts": 2, "detail": "HTTP 204", "slot": "publish:us_morning", "ts": "2026-11-24T16:00:55.201897Z", "type": "watchdog_recovered", "verified": false}
