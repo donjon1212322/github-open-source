@@ -333,7 +333,7 @@
     },
     "metrics": {
       "checked": 12,
-      "finished_at": "2026-11-23T20:23:47.414786Z",
+      "finished_at": "2026-11-24T20:23:48.899389Z",
       "reason": "measured",
       "updated": 12
     },
@@ -2434,17 +2434,24 @@
       "topics": [],
       "updated_at": "2026-11-23T15:10:23Z",
       "url": "https://github.com/chuanqisun/spaceship",
-      "value_score": 39.85,
-      "views": 22,
-      "views_age_hours": 2.1,
-      "views_at_24h": 84,
+      "value_score": 43.02,
+      "views": 93,
+      "views_age_hours": 26.1,
+      "views_at_24h": 90,
       "views_history": [
         {
           "at": "2026-11-23T20:23:47.808734Z",
           "reactions": 0,
           "views": 22
+        },
+        {
+          "at": "2026-11-24T20:23:50.195221Z",
+          "reactions": 0,
+          "views": 93
         }
       ],
+      "views_measured_24h": 93,
+      "views_measured_24h_age": 26.1,
       "visual_host": "imgbb",
       "visual_kind": "readme"
     },
@@ -2955,6 +2962,7 @@
       "open_issues": 225,
       "published_at": "2026-11-24T18:15:04.682136Z",
       "pushed_at": "2026-11-24T17:56:37Z",
+      "reactions": 0,
       "readme_fp": "b7731724c1d003a2",
       "repo_id": 1437774066,
       "revisit_of": "",
@@ -2977,6 +2985,17 @@
       ],
       "updated_at": "2026-11-24T18:03:28Z",
       "url": "https://github.com/Eglantine-Community/Eglantine",
+      "value_score": 32.25,
+      "views": 18,
+      "views_age_hours": 2.1,
+      "views_at_24h": 68,
+      "views_history": [
+        {
+          "at": "2026-11-24T20:23:49.254134Z",
+          "reactions": 0,
+          "views": 18
+        }
+      ],
       "visual_host": "imgbb",
       "visual_kind": "card"
     },
@@ -4469,15 +4488,20 @@
       ],
       "updated_at": "2026-11-23T01:04:41Z",
       "url": "https://github.com/iamajmeena/neonclipping",
-      "value_score": 53.64,
-      "views": 96,
-      "views_age_hours": 19.2,
-      "views_at_24h": 111,
+      "value_score": 48.09,
+      "views": 132,
+      "views_age_hours": 43.2,
+      "views_at_24h": 101,
       "views_history": [
         {
           "at": "2026-11-23T20:23:48.146979Z",
           "reactions": 0,
           "views": 96
+        },
+        {
+          "at": "2026-11-24T20:23:50.507730Z",
+          "reactions": 0,
+          "views": 132
         }
       ],
       "visual_host": "imgbb",
@@ -5875,10 +5899,10 @@
       ],
       "updated_at": "2026-11-22T00:50:33Z",
       "url": "https://github.com/Kianuni/Erosion-CN",
-      "value_score": 30.16,
-      "views": 82,
-      "views_age_hours": 43.2,
-      "views_at_24h": 63,
+      "value_score": 29.69,
+      "views": 94,
+      "views_age_hours": 67.2,
+      "views_at_24h": 62,
       "views_history": [
         {
           "at": "2026-11-22T20:23:52.291826Z",
@@ -5889,6 +5913,11 @@
           "at": "2026-11-23T20:23:49.158280Z",
           "reactions": 0,
           "views": 82
+        },
+        {
+          "at": "2026-11-24T20:23:51.460856Z",
+          "reactions": 0,
+          "views": 94
         }
       ],
       "visual_host": "imgbb",
@@ -6618,10 +6647,10 @@
       ],
       "updated_at": "2026-11-21T01:11:24Z",
       "url": "https://github.com/libracoder/kiri",
-      "value_score": 33.49,
-      "views": 105,
-      "views_age_hours": 67.2,
-      "views_at_24h": 70,
+      "value_score": 34.23,
+      "views": 120,
+      "views_age_hours": 91.2,
+      "views_at_24h": 72,
       "views_history": [
         {
           "at": "2026-11-21T20:23:50.284871Z",
@@ -6637,6 +6666,11 @@
           "at": "2026-11-23T20:23:50.179171Z",
           "reactions": 0,
           "views": 105
+        },
+        {
+          "at": "2026-11-24T20:23:52.412117Z",
+          "reactions": 0,
+          "views": 120
         }
       ],
       "visual_host": "imgbb",
@@ -7521,10 +7555,10 @@
       ],
       "updated_at": "2026-11-21T16:22:56Z",
       "url": "https://github.com/mdiri-ai/SoduWork",
-      "value_score": 30.68,
-      "views": 90,
-      "views_age_hours": 52.0,
-      "views_at_24h": 64,
+      "value_score": 31.05,
+      "views": 102,
+      "views_age_hours": 76.0,
+      "views_at_24h": 65,
       "views_history": [
         {
           "at": "2026-11-21T20:23:49.840472Z",
@@ -7540,6 +7574,11 @@
           "at": "2026-11-23T20:23:49.831727Z",
           "reactions": 0,
           "views": 90
+        },
+        {
+          "at": "2026-11-24T20:23:52.096755Z",
+          "reactions": 0,
+          "views": 102
         }
       ],
       "visual_host": "imgbb",
@@ -8147,10 +8186,10 @@
       ],
       "updated_at": "2026-11-22T15:46:45Z",
       "url": "https://github.com/N1nEmAn/sapper-v2",
-      "value_score": 28.92,
-      "views": 64,
-      "views_age_hours": 28.0,
-      "views_at_24h": 60,
+      "value_score": 26.68,
+      "views": 79,
+      "views_age_hours": 52.0,
+      "views_at_24h": 56,
       "views_history": [
         {
           "at": "2026-11-22T20:23:51.884586Z",
@@ -8161,6 +8200,11 @@
           "at": "2026-11-23T20:23:48.817695Z",
           "reactions": 0,
           "views": 64
+        },
+        {
+          "at": "2026-11-24T20:23:51.146391Z",
+          "reactions": 0,
+          "views": 79
         }
       ],
       "visual_host": "imgbb",
@@ -8986,6 +9030,7 @@
       "open_issues": 153,
       "published_at": "2026-11-24T17:06:22.003237Z",
       "pushed_at": "2026-11-24T17:00:37Z",
+      "reactions": 0,
       "readme_fp": "1dd5b2699b57b1ae",
       "repo_id": 1465728637,
       "revisit_of": "",
@@ -9012,6 +9057,17 @@
       ],
       "updated_at": "2026-11-24T17:00:05Z",
       "url": "https://github.com/R0Y00/Xbox2Windows",
+      "value_score": 51.95,
+      "views": 37,
+      "views_age_hours": 3.3,
+      "views_at_24h": 109,
+      "views_history": [
+        {
+          "at": "2026-11-24T20:23:49.566764Z",
+          "reactions": 0,
+          "views": 37
+        }
+      ],
       "visual_host": "imgbb",
       "visual_kind": "card"
     },
@@ -9680,10 +9736,10 @@
       "topics": [],
       "updated_at": "2026-11-22T17:11:34Z",
       "url": "https://github.com/storytold/cadcraft",
-      "value_score": 34.39,
-      "views": 74,
-      "views_age_hours": 26.2,
-      "views_at_24h": 71,
+      "value_score": 31.33,
+      "views": 92,
+      "views_age_hours": 50.2,
+      "views_at_24h": 66,
       "views_history": [
         {
           "at": "2026-11-22T20:23:51.478185Z",
@@ -9694,6 +9750,11 @@
           "at": "2026-11-23T20:23:48.479757Z",
           "reactions": 0,
           "views": 74
+        },
+        {
+          "at": "2026-11-24T20:23:50.830113Z",
+          "reactions": 0,
+          "views": 92
         }
       ],
       "visual_host": "imgbb",
@@ -10553,10 +10614,10 @@
       ],
       "updated_at": "2026-11-21T15:01:12Z",
       "url": "https://github.com/Verlintas/NOIR",
-      "value_score": 25.78,
-      "views": 75,
-      "views_age_hours": 50.2,
-      "views_at_24h": 54,
+      "value_score": 27.0,
+      "views": 88,
+      "views_age_hours": 74.2,
+      "views_at_24h": 57,
       "views_history": [
         {
           "at": "2026-11-21T20:23:49.397211Z",
@@ -10572,6 +10633,11 @@
           "at": "2026-11-23T20:23:49.497331Z",
           "reactions": 0,
           "views": 75
+        },
+        {
+          "at": "2026-11-24T20:23:51.774538Z",
+          "reactions": 0,
+          "views": 88
         }
       ],
       "visual_host": "imgbb",
@@ -11434,9 +11500,9 @@
       ],
       "updated_at": "2026-11-20T18:11:46Z",
       "url": "https://github.com/yetone/magpie",
-      "value_score": 35.62,
-      "views": 115,
-      "views_age_hours": 74.2,
+      "value_score": 35.28,
+      "views": 127,
+      "views_age_hours": 98.2,
       "views_at_24h": 74,
       "views_history": [
         {
@@ -11458,6 +11524,11 @@
           "at": "2026-11-23T20:23:50.514663Z",
           "reactions": 0,
           "views": 115
+        },
+        {
+          "at": "2026-11-24T20:23:52.725416Z",
+          "reactions": 0,
+          "views": 127
         }
       ],
       "visual_host": "imgbb",
@@ -11548,6 +11619,7 @@
       "open_issues": 665,
       "published_at": "2026-11-24T01:13:56.820282Z",
       "pushed_at": "2026-11-24T01:05:52Z",
+      "reactions": 0,
       "readme_fp": "02bba4f0c731125f",
       "repo_id": 1440927503,
       "revisit_of": "",
@@ -11565,6 +11637,17 @@
       "topics": [],
       "updated_at": "2026-11-24T01:13:38Z",
       "url": "https://github.com/zortos293/Lichii",
+      "value_score": 54.49,
+      "views": 98,
+      "views_age_hours": 19.2,
+      "views_at_24h": 114,
+      "views_history": [
+        {
+          "at": "2026-11-24T20:23:49.877317Z",
+          "reactions": 0,
+          "views": 98
+        }
+      ],
       "visual_host": "imgbb",
       "visual_kind": "readme"
     }
