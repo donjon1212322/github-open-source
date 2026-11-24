@@ -2893,7 +2893,8 @@
         "bluesky": {
           "attempts": 0,
           "due_at": "2026-11-24T18:45:04.682112+00:00",
-          "status": "pending"
+          "held_reason": "not_best_of_day",
+          "status": "held"
         }
       },
       "description": "An experimental Switch 2 Emulator built for Windows, Linux and MacOS.",
@@ -8913,7 +8914,10 @@
         "bluesky": {
           "attempts": 0,
           "due_at": "2026-11-24T18:00:00+00:00",
-          "status": "pending"
+          "error": "",
+          "published_at": "2026-11-24T18:17:52.213660Z",
+          "status": "published",
+          "url": "https://bsky.app/profile/githubopensource.bsky.social/post/3n33axbu23r27"
         }
       },
       "description": "Static recompilation research for Xbox Series X|S software on x64 Windows, with source-built CPU and GPU tests. Full-game startup is unverified.",
@@ -11462,7 +11466,8 @@
         "bluesky": {
           "attempts": 0,
           "due_at": "2026-11-24T18:00:00+00:00",
-          "status": "pending"
+          "held_reason": "not_best_of_day",
+          "status": "held"
         }
       },
       "description": "VERY experimental Nintendo Switch 2 emulator",
