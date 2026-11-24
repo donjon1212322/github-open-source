@@ -407,6 +407,13 @@
         "verified": true,
         "verified_at": "2026-11-24T19:00:51.824555Z"
       },
+      "2026-11-24:news": {
+        "at": "2026-11-24T22:00:51.738226Z",
+        "attempts": 1,
+        "detail": "HTTP 204",
+        "dispatched": true,
+        "verified": false
+      },
       "2026-11-24:publish:us_morning": {
         "at": "2026-11-24T17:00:52.478227Z",
         "attempts": 3,
