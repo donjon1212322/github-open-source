@@ -818,3 +818,5 @@
 {"title": "Navigating the Latest Open Weights, Formal Proofs, and eBPF Shielding Tools", "ts": "2026-11-24T23:01:50.493906Z", "type": "news_article_generated", "words": 1054}
 {"Gemini_video_input": false, "models": 12, "official_url": "", "stories": 5, "topic": "ai-model-releases-and-security", "ts": "2026-11-24T23:01:52.492421Z", "type": "ai_brief_published", "video_id": "tg-20261124-c32576f768"}
 {"minutes_late": 578.7, "schedule": "33 13 * * *", "ts": "2026-11-24T23:11:41.828260Z", "type": "late_schedule_ignored"}
+{"slot": "news", "ts": "2026-11-24T23:30:46.862080Z", "type": "watchdog_verified"}
+{"attempts": 1, "detail": "HTTP 204", "slot": "news-article", "ts": "2026-11-24T23:30:48.461325Z", "type": "watchdog_recovered", "verified": false}
