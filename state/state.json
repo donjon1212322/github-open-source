@@ -322,7 +322,7 @@
       "week": "2026-W47"
     },
     "facebook-handoff": {
-      "finished_at": "2026-11-23T18:31:23.363456Z",
+      "finished_at": "2026-11-24T18:31:29.244000Z",
       "queued": 1,
       "reason": "queued"
     },
@@ -8925,6 +8925,11 @@
           "published_at": "2026-11-24T18:17:52.213660Z",
           "status": "published",
           "url": "https://bsky.app/profile/githubopensource.bsky.social/post/3n33axbu23r27"
+        },
+        "facebook_sheet": {
+          "at": "2026-11-24T18:31:30.653420Z",
+          "status": "queued",
+          "via": "make.com"
         }
       },
       "description": "Static recompilation research for Xbox Series X|S software on x64 Windows, with source-built CPU and GPU tests. Full-game startup is unverified.",

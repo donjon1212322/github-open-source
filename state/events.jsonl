@@ -806,3 +806,4 @@
 {"repo": "eglantine-community/eglantine", "score": 52.91, "telegram_message_id": 3642, "telegraph_url": "https://telegra.ph/Eglantine-An-Open-Source-Switch-2-Emulator-in-C-11-24", "ts": "2026-11-24T18:15:04.682305Z", "type": "project_published"}
 {"platform": "bluesky", "repo": "r0y00/xbox2windows", "ts": "2026-11-24T18:17:52.213687Z", "type": "crosspost_published", "url": "https://bsky.app/profile/githubopensource.bsky.social/post/3n33axbu23r27"}
 {"attempts": 1, "detail": "HTTP 204", "slot": "facebook-handoff", "ts": "2026-11-24T18:30:55.915972Z", "type": "watchdog_recovered", "verified": false}
+{"range": "facebook!A23:E23", "rows": 1, "ts": "2026-11-24T18:31:30.653445Z", "type": "facebook_handoff_queued"}
