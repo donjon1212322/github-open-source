@@ -813,3 +813,4 @@
 {"deleted": 0, "ts": "2026-11-24T21:47:55.836369Z", "type": "moderation_completed", "updates": 0}
 {"error": "Gemini generateContent failed: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.", "reason": "brief_gemini_unavailable", "ts": "2026-11-24T21:49:00.289331Z", "type": "news_skipped"}
 {"attempts": 1, "detail": "HTTP 204", "slot": "news", "ts": "2026-11-24T22:00:53.081621Z", "type": "watchdog_recovered", "verified": false}
+{"error": "Gemini generateContent failed: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.", "reason": "brief_gemini_unavailable", "ts": "2026-11-24T22:01:30.023011Z", "type": "news_skipped"}
