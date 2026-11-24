@@ -409,7 +409,8 @@
         "attempts": 3,
         "detail": "HTTP 204",
         "dispatched": true,
-        "verified": false
+        "verified": true,
+        "verified_at": "2026-11-24T17:30:53.658837Z"
       }
     }
   },
