@@ -811,3 +811,4 @@
 {"slot": "facebook-handoff", "ts": "2026-11-24T19:00:51.824697Z", "type": "watchdog_verified"}
 {"channel": "GitHub_Open_Source", "posts": 12, "ts": "2026-11-24T20:23:52.726396Z", "type": "metrics_collected", "updated": 12}
 {"deleted": 0, "ts": "2026-11-24T21:47:55.836369Z", "type": "moderation_completed", "updates": 0}
+{"error": "Gemini generateContent failed: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.", "reason": "brief_gemini_unavailable", "ts": "2026-11-24T21:49:00.289331Z", "type": "news_skipped"}

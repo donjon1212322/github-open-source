@@ -201,16 +201,21 @@
       "ratio": 0.0,
       "reason": "published",
       "removed": 0
+    },
+    {
+      "date": "2026-11-24",
+      "fingerprint": "2026-11-24|False|brief_gemini_unavailable|0|0.0000|0",
+      "kept": 0,
+      "published": false,
+      "ratio": 0.0,
+      "reason": "brief_gemini_unavailable",
+      "removed": 0
     }
   ],
   "brief_memory": {
     "clusters": {
-      "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-neon": "2026-11-19",
       "https://blog.google/innovation-and-ai/technology/developers-tools/genie-4-in-gemini-api": "2026-11-21",
-      "https://github.com/anomalyco/opencode/releases/tag/v2.3.2": "2026-11-19",
       "https://github.com/cline/cline/releases/tag/cli-v3.0.75": "2026-11-22",
-      "https://github.com/donchitos/claude-code-game-studios": "2026-11-19",
-      "https://github.com/google-research/paper-orchestra": "2026-11-19",
       "https://github.com/hkuds/deeptutor": "2026-11-23",
       "https://github.com/justxor/minimind-llm-from-scratch-ru": "2026-11-21",
       "https://github.com/nutlope/hallmark": "2026-11-21",
@@ -218,17 +223,12 @@
       "https://github.com/packtpublishing/design-multi-agent-ai-systems-using-mcp-and-a2a": "2026-11-22",
       "https://github.com/unclebob/ub-mode": "2026-11-22",
       "https://huggingface.co/blog/harness-adapters-at-scale": "2026-11-22",
-      "https://huggingface.co/spaces/huggingfaceswarms/pybot-msgboard": "2026-11-19",
       "https://huggingface.co/thinkingmachines/inkling-2-mini": "2026-11-21",
       "https://nvidianews.nvidia.com/news/nvidia-board-reinstates-jensen-huang-as-president-ceo-and-board-director": "2026-11-23",
       "https://openai.com/index/combatting-adversarial-distillation": "2026-11-21",
       "https://openai.com/index/perplexity-and-intelligence": "2026-11-23",
       "https://thinkingmachines.ai/news/inkling-2-mini": "2026-11-22",
       "story:inkling-2-small": "2026-11-21",
-      "text:anthropic-dario-amodei-rang-the-bell-on": "2026-11-19",
-      "text:anthropic-вышли-на-ipo-они-уже-объявили": "2026-11-19",
-      "text:anthropic-сегодня-выходит-на-биржу-вчера-компания": "2026-11-19",
-      "text:google-gemini-4-neon-is-now-listed": "2026-11-19",
       "text:thinking-machines-a-new-inkling-2-mini": "2026-11-22",
       "text:zai-официально-представила-glm54-главная-фишка-в": "2026-11-23",
       "text:вышла-glm54-впервые-у-zai-вышел-loop": "2026-11-23",
@@ -237,7 +237,6 @@
       "text:одновременно-с-anthropic-о-доказательстве-гипотезы-римана": "2026-11-22",
       "text:подтверждено-гипотеза-римана-доказана-httpsleanprovercommunitygithubioblogpostsriemannhypothesis": "2026-11-22",
       "text:появились-реальные-кадры-с-выхода-anthropic-на": "2026-11-21",
-      "text:руководители-банков-заявили-конгрессу-сша-что-все": "2026-11-19",
       "text:рынок-облачных-сервисов-в-россии-в-2026": "2026-11-23",
       "text:сброс-лимитов-gemini-приехал-вс-как-обещали": "2026-11-22",
       "text:состояние-буквально-каждого-человека-в-мире-осознающего": "2026-11-23",
@@ -252,23 +251,19 @@
       "astra defenses gpt openai": "2026-11-21",
       "book design multi repo systems": "2026-11-22",
       "cairn search space state": "2026-11-21",
-      "claude code harness opencode updates": "2026-11-19",
       "cli cline codex crush harness updates": "2026-11-22",
       "coding mode open skill source": "2026-11-22",
-      "dataset interaction pybot": "2026-11-19",
       "deeptutor learning open platform source": "2026-11-23",
       "design hallmark skill": "2026-11-21",
-      "gemini google neon": "2026-11-19",
       "inkling machines mini thinking": "2026-11-21",
       "intelligence metrics openai perplexity": "2026-11-23",
-      "minimind pytorch tutorial": "2026-11-21",
-      "multi paperorchestra system": "2026-11-19"
+      "minimind pytorch tutorial": "2026-11-21"
     }
   },
   "dead_letters": [],
   "gemini_daily": {
     "day": "2026-11-24",
-    "units": 45
+    "units": 48
   },
   "gemini_window": [
     [
@@ -26869,6 +26864,10 @@
   },
   "suppressed": {},
   "transient_skips": {
+    "news": {
+      "at": "2026-11-24T21:49:00.289315Z",
+      "reason": "brief_gemini_unavailable"
+    },
     "publish:us_morning": {
       "at": "2026-11-24T16:05:33.544970Z",
       "reason": "gemini_capacity"
