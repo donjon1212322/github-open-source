@@ -362,13 +362,13 @@
       "telegram_message_id": 3643
     },
     "news-article": {
-      "devto_id": 5095601,
-      "finished_at": "2026-11-22T19:53:58.479354Z",
+      "devto_id": 5111866,
+      "finished_at": "2026-11-24T23:31:17.806781Z",
       "published": true,
-      "title": "Local Adapters, CLI Harnesses, and Craftsmanship in Agentic Workflows",
-      "topic_key": "ai-coding-agents-and-harnesses",
-      "url": "https://dev.to/githubopensource/local-adapters-cli-harnesses-and-craftsmanship-in-agentic-workflows-25j8",
-      "words": 1185
+      "title": "Navigating the Latest Open Weights, Formal Proofs, and eBPF Shielding Tools",
+      "topic_key": "ai-model-releases-and-security",
+      "url": "https://dev.to/githubopensource/navigating-the-latest-open-weights-formal-proofs-and-ebpf-shielding-tools-4olg",
+      "words": 1054
     },
     "poll-close": {
       "finished_at": "2026-11-19T18:53:54.858983Z",
@@ -2218,6 +2218,7 @@
         ],
         "why_devs": "These updates give developers new open models, formal theorem-proving capabilities, and eBPF production tools."
       },
+      "devto_cover_url": "https://i.ibb.co/hRtZZH8B/project-devto-cover-1b8e3a110d42.png",
       "headline": "Claude · ERNIE 5.5 Flash Preview · GLM-5.3 lead the model watch",
       "image_url": "https://i.ibb.co/2DGz7Qd/ai-brief-5a25da0ae43d.png",
       "models": [
