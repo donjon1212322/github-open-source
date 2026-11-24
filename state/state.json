@@ -268,12 +268,12 @@
   "dead_letters": [],
   "gemini_daily": {
     "day": "2026-11-24",
-    "units": 36
+    "units": 45
   },
   "gemini_window": [
     [
-      1795539977.6822097,
-      1380
+      1795544099.7773983,
+      1323
     ]
   ],
   "last_runs": {
@@ -377,9 +377,9 @@
       "telegram_message_id": 3640
     },
     "publish:us_midday": {
-      "finished_at": "2026-11-23T18:15:20.450577Z",
-      "repo": "chuanqisun/spaceship",
-      "telegram_message_id": 3638
+      "finished_at": "2026-11-24T18:15:04.682435Z",
+      "repo": "eglantine-community/eglantine",
+      "telegram_message_id": 3642
     },
     "publish:us_morning": {
       "finished_at": "2026-11-24T17:06:22.003669Z",
@@ -2882,6 +2882,94 @@
       ],
       "visual_host": "imgbb",
       "visual_kind": "readme"
+    },
+    "eglantine-community/eglantine": {
+      "articles": {},
+      "card_style": "editorial_daily",
+      "category": "DevTools",
+      "contributors_count": 598,
+      "created_at": "2026-10-29T00:25:18Z",
+      "crossposts": {
+        "bluesky": {
+          "attempts": 0,
+          "due_at": "2026-11-24T18:45:04.682112+00:00",
+          "status": "pending"
+        }
+      },
+      "description": "An experimental Switch 2 Emulator built for Windows, Linux and MacOS.",
+      "description_fp": "747c5a518b883c37",
+      "forks": 667,
+      "full_name": "Eglantine-Community/Eglantine",
+      "generated": {
+        "article_markdown": "## What it is\n\nEglantine is an experimental, open-source hardware emulator written in C++ designed to run on Windows, Linux, and macOS. Derived from earlier emulation ancestry including Eden, Yuzu, and Sudachi, the project focuses on cross-platform portability. It structures its source code to abstract platform-specific OS calls while exposing hooks for hardware translation.\n\n## Why it matters\n\nWriting modern console emulators requires deep systems programming, synchronization primitives, and high-performance translation layers. Eglantine provides an open codebase for developers interested in how contemporary hardware instructions map to standard desktop CPUs and GPUs. By maintaining an independent implementation, it serves as a study point for reverse engineering and virtualization.\n\n## Key features\n\n- Written in C++ with a focus on cross-platform portability.\n- Supports builds across Windows, Linux, and macOS environments.\n- Derived from previous community emulator projects like Eden and Yuzu.\n- Licensed under the GNU General Public License v3.0.\n\n## Quick start\n\nTo clone the repository and inspect the source code, run:\n\n```bash\ngit clone https://github.com/Eglantine-Community/Eglantine.git\n```\n\n## Who should try it\n\nSystems developers and emulation researchers looking to examine modern hardware translation techniques will find the codebase worth exploring.\n\n## Verdict\n\nEglantine is an intriguing technical exercise in multi-platform emulator design, best suited for developers rather than end users looking for a finished product.",
+        "article_title": "Eglantine: An Open-Source Switch 2 Emulator in C++",
+        "card_hook": "Switch 2 Emulation in C++",
+        "card_subline": "An open-source emulator for Windows, Linux, and macOS",
+        "category": "DevTools",
+        "discussion_question": "What is the biggest bottleneck when emulating modern graphics pipelines?",
+        "hook": "Eglantine brings experimental Switch 2 emulation to C++ for Windows, Linux, and macOS.",
+        "key_features": [
+          "Targets Windows, Linux, and macOS via a portable C++ codebase",
+          "Derived from established emulator lineage including Eden and Yuzu",
+          "Maintains open-source development under the GPLv3 license",
+          "Provides contributor documentation and development tooling directories"
+        ],
+        "llm_used": true,
+        "quick_start": "git clone https://github.com/Eglantine-Community/Eglantine.git",
+        "safety": "ok",
+        "safety_reason": "Emulators for hardware architectures are legal software tools for research and development; the repository explicitly disclaims copyright infringement and does not bundle proprietary firmware or games.",
+        "scene": "You want to test software behavior on next-generation console hardware, but physical dev kits are scarce and restricted.",
+        "social_text": "Explore Eglantine, an open-source C++ Switch 2 emulator built for Windows, Linux, and macOS.",
+        "summary": "Eglantine is built on top of heritage from previous emulation projects like Eden, Yuzu, and Sudachi. It is implemented in C++ with portability as a primary architectural goal, allowing it to target multiple desktop platforms simultaneously. The codebase relies on standard development toolchains for each target OS to compile its hardware translation layers.",
+        "surfaces": {},
+        "tension": "Waiting for hardware allocation slows down platform-specific validation and debugging cycles.",
+        "turn": "Eglantine offers an open-source desktop emulator codebase to test execution paths across major desktop operating systems.",
+        "verdict": "A fascinating project for systems programmers studying emulator design, though not yet a polished drop-in for everyday gaming.",
+        "who_for": "Developers and enthusiasts interested in low-level emulation and console architecture.",
+        "why_now": "The emergence of next-generation handheld and console architectures creates an immediate need for clean-room emulation implementations."
+      },
+      "homepage": "https://eglantine-emu.org/",
+      "id": 1437774066,
+      "image_url": "https://i.ibb.co/hxJpyRHk/Eglantine-Community-Eglantine-preview-052eaa987423.jpg",
+      "is_dual_use": false,
+      "is_hidden_gem": false,
+      "language": "C++",
+      "license": {
+        "key": "gpl-3.0",
+        "name": "GNU General Public License v3.0",
+        "node_id": "MDc6TGljZW5zZTk=",
+        "spdx_id": "GPL-3.0",
+        "url": "https://api.github.com/licenses/gpl-3.0"
+      },
+      "media_urls": [],
+      "name": "Eglantine",
+      "open_issues": 225,
+      "published_at": "2026-11-24T18:15:04.682136Z",
+      "pushed_at": "2026-11-24T17:56:37Z",
+      "readme_fp": "b7731724c1d003a2",
+      "repo_id": 1437774066,
+      "revisit_of": "",
+      "revisit_reason": "",
+      "score": 52.91,
+      "slot": "us_midday",
+      "sources": [
+        "github_search"
+      ],
+      "stars": 6224,
+      "telegram_chat_id": "@GitHub_Open_Source",
+      "telegram_link": "https://t.me/GitHub_Open_Source/3642",
+      "telegram_message_id": 3642,
+      "telegraph_url": "https://telegra.ph/Eglantine-An-Open-Source-Switch-2-Emulator-in-C-11-24",
+      "topics": [
+        "eden",
+        "emulator",
+        "switch2",
+        "switch2-emulator"
+      ],
+      "updated_at": "2026-11-24T18:03:28Z",
+      "url": "https://github.com/Eglantine-Community/Eglantine",
+      "visual_host": "imgbb",
+      "visual_kind": "card"
     },
     "elementalsouls/claude-bughunter": {
       "articles": {},
@@ -11829,85 +11917,6 @@
     },
     {
       "archived": false,
-      "contributors_count": 598,
-      "created_at": "2026-10-29T00:25:18Z",
-      "default_branch": "nx2",
-      "description": "An experimental Switch 2 Emulator built for Windows, Linux and MacOS.",
-      "disabled": false,
-      "fork": false,
-      "forks": 667,
-      "forks_count": 667,
-      "full_name": "Eglantine-Community/Eglantine",
-      "has_readme": true,
-      "homepage": "https://eglantine-emu.org/",
-      "id": 1437774066,
-      "is_dual_use": false,
-      "is_hidden_gem": false,
-      "language": "C++",
-      "license": {
-        "key": "gpl-3.0",
-        "name": "GNU General Public License v3.0",
-        "node_id": "MDc6TGljZW5zZTk=",
-        "spdx_id": "GPL-3.0",
-        "url": "https://api.github.com/licenses/gpl-3.0"
-      },
-      "media_urls": [],
-      "name": "Eglantine",
-      "non_software_reason": "",
-      "open_issues": 224,
-      "open_issues_count": 224,
-      "owner_repo_count": 1,
-      "pushed_at": "2026-11-23T21:52:27Z",
-      "readme": "",
-      "readme_excerpt": "<!--\n# SPDX-FileCopyrightText: Copyright 2025 Eden Emulator Project\n# SPDX-License-Identifier: GPL-3.0-or-later\n\n# SPDX-FileCopyrightText: 2018 yuzu Emulator Project\n# SPDX-License-Identifier: GPL-2.0-or-later\n-->\n<!-- lang: en-GB -->\n\n<h1 align=\"center\">\n  <br>\n  <a href=\"https://git.eden-emu.dev/eden-emu/eden\"><img src=\"https://github.com/user-attachments/assets/35031845-4bfa-4916-8bf5-bc3bce67d5e2\" alt=\"Eglantine\" width=\"200\"></a>\n  <br>\n  <b>Eglantine</b>\n  <br>\n</h1>\n\n<h4 align=\"center\"><b>Eglantine</b> is a free and opensource (FOSS) Switch 2 emulator, derived from Eden, Yuzu and Sudachi - started by developer Djihad Mahboubi.\nIt's written in C++ with portability in mind, with builds for Windows, Linux and macOS\n</h4>\n\n<p align=\"center\">\n    </a>\n    <a href=\"https://discord.gg/XkS5NVPTUY\">\n        <img src=\"https://img.shields.io/discord/1367654015269339267?color=5865F2&label=Eglantine&logo=discord&logoColor=white\"\n            alt=\"Discord\">\n    </a>\n  \n</p>\n\n<p align=\"center\">\n  <a href=\"#compatibility\">Compatibility</a> |\n  <a href=\"#development\">Development</a> |\n  <a href=\"#building\">Building</a> |\n  <a href=\"#download\">Download</a> |\n  <a href=\"#support\">Support</a> |\n ",
-      "readme_len": 3802,
-      "repo_id": 1437774066,
-      "score": 52.91,
-      "score_parts": {
-        "acceleration": 0.5,
-        "acceleration_known": 0,
-        "acceleration_ratio": 0.0,
-        "age_days": 26.0,
-        "appeal": 0.741,
-        "burst": 0.648,
-        "community": 0.833,
-        "content": 0.296,
-        "corroboration": 0.407,
-        "external": 0.463,
-        "forks_measured": 1,
-        "forks_per_day": 25.65,
-        "forks_rate": 0.296,
-        "freshness": 0.63,
-        "growth": 0.556,
-        "growth_measured": 0,
-        "popularity": 0.481,
-        "reliability": 0.574,
-        "stars_per_day": 239.07
-      },
-      "source_name": "github_search",
-      "sources": [
-        "github_search"
-      ],
-      "star_history": [
-        [
-          "2026-11-24",
-          6216,
-          667
-        ]
-      ],
-      "stargazers_count": 6216,
-      "stars": 6216,
-      "topics": [
-        "eden",
-        "emulator",
-        "switch2",
-        "switch2-emulator"
-      ],
-      "updated_at": "2026-11-23T23:20:19Z",
-      "url": "https://github.com/Eglantine-Community/Eglantine"
-    },
-    {
-      "archived": false,
       "contributors_count": 108,
       "created_at": "2026-04-15T05:27:37Z",
       "default_branch": "main",
@@ -16982,8 +16991,8 @@
     "eglantine-community/eglantine": {
       "first_seen_at": "2026-11-08T11:27:12.988132Z",
       "full_name": "Eglantine-Community/Eglantine",
-      "last_decision": "queued",
-      "last_seen_at": "2026-11-24T00:26:58.895772Z",
+      "last_decision": "published",
+      "last_seen_at": "2026-11-24T18:15:04.682415Z",
       "repo_id": 1437774066,
       "sources": [
         "github_search"
@@ -16991,7 +17000,7 @@
       "star_history": [
         [
           "2026-11-24",
-          6216,
+          6224,
           667
         ]
       ]
