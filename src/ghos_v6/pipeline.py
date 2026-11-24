@@ -695,6 +695,24 @@ def _publish_slot_done_today(store: StateStore, slot: str) -> bool:
     return bool(finished and finished.date() == datetime.now(timezone.utc).date())
 
 
+def _remember_publish_slot(store: StateStore, slot: str, *, repo: str,
+                           message_id: int | None) -> None:
+    """Write the proof of a published slot AND forget the outage that delayed it.
+
+    Owner 24.11: the successful path used to write ``last_runs`` on its own and
+    never cleared ``transient_skips``. On 24.11 the morning slot published at
+    17:06 after three 503s and the stale mark stayed in state for the rest of
+    the day (it is still there at 18:16), widening the watchdog's retry budget
+    for a slot that was already done. One helper for both facts.
+    """
+    _clear_transient_skip(store, _publish_slot_key(slot))
+    store.data.setdefault("last_runs", {})[_publish_slot_key(slot)] = {
+        "finished_at": iso_now(),
+        "repo": repo,
+        "telegram_message_id": message_id,
+    }
+
+
 def _finish_publish_slot(store: StateStore, slot: str, result: dict[str, Any]) -> None:
     """Record an honest refusal so the watchdog retires the slot on a fact.
 
@@ -1100,11 +1118,7 @@ def publish_slot(config: Config, store: StateStore, slot: str = "manual") -> dic
         # A successful publish must clear the retry counter; otherwise the
         # next transient failure on a revisit would dead-letter the repo.
         store.data.get("publish_failures", {}).pop(key, None)
-        store.data.setdefault("last_runs", {})[f"publish:{slot}"] = {
-            "finished_at": iso_now(),
-            "repo": key,
-            "telegram_message_id": message_id,
-        }
+        _remember_publish_slot(store, slot, repo=key, message_id=message_id)
         store.save()
         return {
             "ok": True,

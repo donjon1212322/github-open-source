@@ -35,6 +35,15 @@ MUTATIONS: list[tuple[str, str, str, str]] = [
      'if slot == "us_midday" and datetime.now(timezone.utc).weekday() == 6:',
      'if False and slot == "us_midday" and datetime.now(timezone.utc).weekday() == 6:',
      "a Sunday project post returns next to the digest poll (24.11)"),
+    ("src/ghos_v6/pipeline.py",
+     '    _clear_transient_skip(store, _publish_slot_key(slot))\n'
+     '    store.data.setdefault("last_runs", {})[_publish_slot_key(slot)] = {\n'
+     '        "finished_at": iso_now(),\n'
+     '        "repo": repo,',
+     '    store.data.setdefault("last_runs", {})[_publish_slot_key(slot)] = {\n'
+     '        "finished_at": iso_now(),\n'
+     '        "repo": repo,',
+     "a published chair keeps the 503 mark that delayed it (24.11)"),
     ("src/ghos_v6/watchdog.py", "LATE_POST_LIMIT_MINUTES = 60",
      "LATE_POST_LIMIT_MINUTES = 240",
      "a blocked chair is paid back into the next chair's hour again (24.11)"),

@@ -334,3 +334,21 @@ def test_the_watchdog_chair_table_matches_the_crons():
     crons = _workflow_crons()
     for slot, (hour, minute) in watchdog.PROJECT_CHAIR_MINUTES.items():
         assert f"{minute:02d} {hour} * * *" in crons, slot
+
+
+def test_a_published_chair_forgets_the_outage_that_delayed_it(tmp_path):
+    """24.11: the 15:13 chair published at 17:06 and kept its 503 mark all day.
+
+    A stale ``transient_skips`` entry lets the watchdog spend the wider
+    eight-attempt budget on a slot that is already done, and it lies about the
+    state of the day to anyone reading it.
+    """
+    store = _store(tmp_path)
+    store.data["transient_skips"] = {
+        "publish:us_morning": {"at": "2026-11-24T16:05:33Z", "reason": "gemini_capacity"}
+    }
+    pipeline._remember_publish_slot(store, "us_morning", repo="owner/demo", message_id=3641)
+    assert "publish:us_morning" not in (store.data.get("transient_skips") or {})
+    marker = store.data["last_runs"]["publish:us_morning"]
+    assert marker["repo"] == "owner/demo" and marker["telegram_message_id"] == 3641
+    assert marker["finished_at"].endswith("Z")
