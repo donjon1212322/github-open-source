@@ -106,6 +106,9 @@ def _parser() -> argparse.ArgumentParser:
     sub.add_parser("report", help="Send the weekly owner report")
     metrics = sub.add_parser("metrics", help="Read views for recent posts from the public widget")
     metrics.add_argument("--limit", type=int, default=12)
+    # Owner 24.11: the 02:23Z reading that puts every post inside the 24-36 h
+    # measuring window. Same work, its own daily marker.
+    sub.add_parser("metrics-night", help="Second views snapshot so evening posts are measured, not projected")
     sub.add_parser("poll-close", help="Stop this week's poll and store the tally")
     sub.add_parser("learn", help="Update ranking multipliers from measured performance")
     fb = sub.add_parser("facebook-handoff", help="Append Facebook rows to the make.com sheet")
@@ -361,6 +364,12 @@ def _run_scheduled(config: Config, store: StateStore, schedule: str, *,
         # closing.
         # "53 18 * * 4" is handled by ``pairs`` below (close + learn).
         "23 20 * * *": lambda: metrics_command(config, store),
+        # Owner 24.11: the snapshot that answers "which slot reads better"
+        # must be a measurement, not a projection. One reading a day at 20:23
+        # left the evening posts outside the 24-36 h window, so a second pass
+        # reads them at 25-29 h. Its own marker keeps the watchdog's
+        # ownership of the evening chair intact.
+        "23 2 * * *": lambda: metrics_command(config, store, marker="metrics-night"),
         "43 16 * * 0": lambda: report_command(config, store),
         "47 */3 * * *": lambda: moderation_command(config, store),
         "23 18 * * *": lambda: facebook_handoff_command(config, store),
@@ -449,6 +458,8 @@ def main(argv: list[str] | None = None) -> int:
             result = report_command(config, store)
         elif args.command == "metrics":
             result = metrics_command(config, store, limit=args.limit)
+        elif args.command == "metrics-night":
+            result = metrics_command(config, store, marker="metrics-night")
         elif args.command == "poll-close":
             result = close_poll_command(config, store)
         elif args.command == "learn":

@@ -218,3 +218,73 @@ def test_views_are_snapshotted_once_at_a_fixed_age(tmp_path, monkeypatch):
     monkeypatch.setattr(insights, "age_hours", lambda published_at: 30.0)
     pipeline.metrics_command(config, store)
     assert store.data["published"]["owner/young"]["views_measured_24h"] == 200
+
+
+# --- every post gets a real measurement, not a projection -------------------
+
+METRICS_PASSES = ("20:23", "02:23")  # UTC minutes of the two views snapshots
+POST_MINUTES = ("01:13", "15:13", "18:13", "21:48")
+
+
+def _minutes(value: str) -> int:
+    hour, minute = value.split(":")
+    return int(hour) * 60 + int(minute)
+
+
+def test_each_slot_is_read_once_between_24_and_36_hours():
+    """A single 20:23 reading left the evening posts outside the window.
+
+    The 01:13 post was 43 h old at its first reading and the 21:48/22:23 posts
+    were 22 h: one was projected from a 19-hour sample, the others never
+    measured at all. The night pass closes that hole; this test keeps it shut.
+    """
+    for post in POST_MINUTES:
+        ages = []
+        for offset in (0, 1440, 2880):  # the pass on the same day and the two after
+            for pass_minute in METRICS_PASSES:
+                age = _minutes(pass_minute) + offset - _minutes(post)
+                if age > 0:
+                    ages.append(age / 60)
+        inside = [age for age in ages if 24.0 <= age <= 36.0]
+        assert inside, f"{post} is never measured inside 24-36 h: {ages}"
+
+
+def test_the_night_pass_has_its_own_marker_so_the_watchdog_still_owns_20_23(
+    tmp_path, monkeypatch):
+    from ghos_v6 import insights
+
+    store = _store(tmp_path)
+    record = dict(store.data["queue"][0])
+    record.update({"telegram_message_id": 123, "published_at": "2026-11-23T21:48:00Z"})
+    store.data["published"] = {"owner/demo": record}
+    store.data["queue"] = []
+    monkeypatch.setattr(insights, "fetch_post_stats",
+                        lambda channel, message_id: {"ok": True, "views": 61, "reactions": 1,
+                                                     "fetched_at": "2026-11-24T02:23:00Z"})
+    monkeypatch.setattr(insights, "age_hours", lambda published_at: 28.6)
+    monkeypatch.setattr(insights, "views_at_reference", lambda views, age: 62)
+    monkeypatch.setattr(insights, "median_views", lambda records: 61)
+    monkeypatch.setattr(insights, "value_score", lambda record, median_views: 1.0)
+    monkeypatch.setattr(pipeline, "_channel_handle", lambda config: "GitHub_Open_Source")
+    config = pipeline.Config(telegram_bot_token="x", telegram_test_channel_id=123)
+
+    pipeline.metrics_command(config, store, marker="metrics-night")
+    assert store.data["published"]["owner/demo"]["views_measured_24h"] == 61
+    assert "metrics-night" in store.data["last_runs"]
+    # The evening chair stays the watchdog's business: a night pass must not
+    # look like proof that the 20:23 snapshot already happened.
+    assert "metrics" not in store.data["last_runs"]
+
+
+def test_the_0223_cron_is_the_night_pass_not_the_evening_one(monkeypatch, tmp_path):
+    """The route, not the command, decides which marker a pass writes."""
+    seen: list[str] = []
+    monkeypatch.setattr(cli, "metrics_command",
+                        lambda config, store, **kwargs: (seen.append(kwargs.get("marker", "metrics")),
+                                                         {"ok": True})[1])
+    store = StateStore(tmp_path)
+    cli._run_scheduled(cli.Config(), store, "23 2 * * *",
+                       now=datetime(2026, 11, 25, 2, 23, tzinfo=UTC), enforce_window=False)
+    cli._run_scheduled(cli.Config(), store, "23 20 * * *",
+                       now=datetime(2026, 11, 25, 20, 23, tzinfo=UTC), enforce_window=False)
+    assert seen == ["metrics-night", "metrics"]

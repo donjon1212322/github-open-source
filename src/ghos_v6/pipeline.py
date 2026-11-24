@@ -2295,18 +2295,25 @@ def _channel_handle(config: Config) -> str:
 
 
 def metrics_command(config: Config, store: StateStore, *, limit: int = 12,
-                     now: datetime | None = None) -> dict[str, Any]:
+                     now: datetime | None = None,
+                     marker: str = "metrics") -> dict[str, Any]:
     """Read views for recent posts from the public widget (no credentials).
 
     Telegram gives nobody a client-side session here, so this is the only
     free way to know whether a card worked. Runs are idempotent. Owner 12.11:
     a daily marker lets the watchdog recover a snapshot GitHub never started
     (11.11 20:23Z was ``startup_failure``, no runner, no marker, no retry).
+
+    Owner 24.11: a second pass at 02:23Z exists only so that every post is
+    *measured* once inside the 24-36 h window. One pass a day at 20:23Z missed
+    the whole evening: the 01:13 post was 43 h old at the next reading and the
+    21:48/22:23 posts were 22 h - a projection, never a measurement. The night
+    pass writes its own marker so the watchdog still owns the 20:23 chair.
     """
     moment = now or datetime.now(timezone.utc)
     channel = _channel_handle(config)
     if not channel:
-        mark_daily(store, "metrics", now=moment, reason="channel_not_public",
+        mark_daily(store, marker, now=moment, reason="channel_not_public",
                    checked=0, updated=0)
         store.event("metrics_skipped", reason="channel_not_public")
         store.save()
@@ -2357,7 +2364,7 @@ def metrics_command(config: Config, store: StateStore, *, limit: int = 12,
     # updated none is a transient fetch failure: leave the slot recoverable
     # instead of writing a false "done" marker.
     if updated or not records:
-        mark_daily(store, "metrics", now=moment,
+        mark_daily(store, marker, now=moment,
                    reason="measured" if updated else "no_posts",
                    checked=len(records), updated=updated)
     store.save()

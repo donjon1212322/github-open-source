@@ -28,6 +28,7 @@ on:
           - moderation
           - facebook-handoff
           - metrics
+          - metrics-night
           - learn
           - poll-close
           - requeue
@@ -66,7 +67,8 @@ on:
     - cron: "13 18 * * *"    # US midday · Sunday this chair belongs to the digest
     # Weekly cycle: digest + poll on Sunday, close + learn on Thursday.
     - cron: "53 18 * * 4"    # close poll, update value model (after crossposts/handoff)
-    - cron: "23 20 * * *"    # daily views snapshot
+    - cron: "23 20 * * *"    # daily views snapshot (value model)
+    - cron: "23 2 * * *"     # second snapshot: evening posts at 25-29h (24.11)
     - cron: "43 16 * * 0"    # weekly owner report
     # Continuous housekeeping.
     - cron: "17 0,18,19,20,21,22,23 * * *"   # crossposts: 7 checks after the last project slot (was 48/day)
@@ -163,7 +165,7 @@ jobs:
         run: |
           if [[ "$EVENT_NAME" == "workflow_dispatch" ]]; then
             case "$COMMAND" in
-              collect|publish|crossposts|article|article-update|article-unseries|devto-remove|news|news-article|quality-fix|brief-dedup-fix|digest|digest-card-fix|preview-fix|poll-preview|poll-replace|report|moderation|facebook-handoff|metrics|learn|poll-close|requeue) ;;
+              collect|publish|crossposts|article|article-update|article-unseries|devto-remove|news|news-article|quality-fix|brief-dedup-fix|digest|digest-card-fix|preview-fix|poll-preview|poll-replace|report|moderation|facebook-handoff|metrics|metrics-night|learn|poll-close|requeue) ;;
               *) echo "::error::invalid command: $COMMAND"; exit 1 ;;
             esac
             if [[ "$COMMAND" == "publish" ]]; then

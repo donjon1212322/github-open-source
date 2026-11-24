@@ -29,6 +29,9 @@ const SLOTS = [
   ["21:48", { command: "news" }],
   ["22:23", { command: "news-article" }],
   ["20:23", { command: "metrics" }],
+  // Owner 24.11: a second reading so every post is measured once at 24-36 h;
+  // the 01:13 and 21:48/22:23 posts were never inside that window otherwise.
+  ["02:23", { command: "metrics-night" }],
   ["00:17", { command: "crossposts" }],
   ["18:17", { command: "crossposts" }],
   ["19:17", { command: "crossposts" }],
