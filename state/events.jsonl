@@ -815,3 +815,5 @@
 {"attempts": 1, "detail": "HTTP 204", "slot": "news", "ts": "2026-11-24T22:00:53.081621Z", "type": "watchdog_recovered", "verified": false}
 {"error": "Gemini generateContent failed: This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.", "reason": "brief_gemini_unavailable", "ts": "2026-11-24T22:01:30.023011Z", "type": "news_skipped"}
 {"attempts": 2, "detail": "HTTP 204", "slot": "news", "ts": "2026-11-24T23:01:01.264292Z", "type": "watchdog_recovered", "verified": false}
+{"title": "Navigating the Latest Open Weights, Formal Proofs, and eBPF Shielding Tools", "ts": "2026-11-24T23:01:50.493906Z", "type": "news_article_generated", "words": 1054}
+{"Gemini_video_input": false, "models": 12, "official_url": "", "stories": 5, "topic": "ai-model-releases-and-security", "ts": "2026-11-24T23:01:52.492421Z", "type": "ai_brief_published", "video_id": "tg-20261124-c32576f768"}

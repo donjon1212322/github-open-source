@@ -210,11 +210,22 @@
       "ratio": 0.0,
       "reason": "brief_gemini_unavailable",
       "removed": 0
+    },
+    {
+      "date": "2026-11-24",
+      "fingerprint": "2026-11-24|True|published|0|0.0000|5",
+      "kept": 5,
+      "published": true,
+      "ratio": 0.0,
+      "reason": "published",
+      "removed": 0
     }
   ],
   "brief_memory": {
     "clusters": {
       "https://blog.google/innovation-and-ai/technology/developers-tools/genie-4-in-gemini-api": "2026-11-21",
+      "https://github.com/anthropics/formal-math/tree/main/vp-vnp": "2026-11-24",
+      "https://github.com/brilliant-hq/pequalnp-proofs/pulls": "2026-11-24",
       "https://github.com/cline/cline/releases/tag/cli-v3.0.75": "2026-11-22",
       "https://github.com/hkuds/deeptutor": "2026-11-23",
       "https://github.com/justxor/minimind-llm-from-scratch-ru": "2026-11-21",
@@ -222,23 +233,31 @@
       "https://github.com/oritera/cairn": "2026-11-21",
       "https://github.com/packtpublishing/design-multi-agent-ai-systems-using-mcp-and-a2a": "2026-11-22",
       "https://github.com/unclebob/ub-mode": "2026-11-22",
+      "https://help.openai.com/en/articles/20001498-how-resets-work-in-codex": "2026-11-24",
+      "https://huggingface.co/aleph-alpha/kolibri-1.1": "2026-11-24",
+      "https://huggingface.co/baidu/ernie-5.5-flash-preview": "2026-11-24",
       "https://huggingface.co/blog/harness-adapters-at-scale": "2026-11-22",
       "https://huggingface.co/thinkingmachines/inkling-2-mini": "2026-11-21",
       "https://nvidianews.nvidia.com/news/nvidia-board-reinstates-jensen-huang-as-president-ceo-and-board-director": "2026-11-23",
       "https://openai.com/index/combatting-adversarial-distillation": "2026-11-21",
+      "https://openai.com/index/introducing-shirudo": "2026-11-24",
       "https://openai.com/index/perplexity-and-intelligence": "2026-11-23",
+      "https://openrouter.ai/blog/announcements/data-processing-incidents-on-inference-providers": "2026-11-24",
       "https://thinkingmachines.ai/news/inkling-2-mini": "2026-11-22",
       "story:inkling-2-small": "2026-11-21",
+      "text:google-gemini-carbon-is-now-available-on": "2026-11-24",
       "text:thinking-machines-a-new-inkling-2-mini": "2026-11-22",
       "text:zai-официально-представила-glm54-главная-фишка-в": "2026-11-23",
       "text:вышла-glm54-впервые-у-zai-вышел-loop": "2026-11-23",
       "text:дженсена-хуанга-восстановили-в-должности-ceo-nvidia": "2026-11-23",
       "text:на-четвртый-день-после-выхода-gemini-4": "2026-11-23",
+      "text:никогда-такого-не-было-и-вот-опять": "2026-11-24",
       "text:одновременно-с-anthropic-о-доказательстве-гипотезы-римана": "2026-11-22",
       "text:подтверждено-гипотеза-римана-доказана-httpsleanprovercommunitygithubioblogpostsriemannhypothesis": "2026-11-22",
       "text:появились-реальные-кадры-с-выхода-anthropic-на": "2026-11-21",
       "text:рынок-облачных-сервисов-в-россии-в-2026": "2026-11-23",
       "text:сброс-лимитов-gemini-приехал-вс-как-обещали": "2026-11-22",
+      "text:сколько-самостоятельности-мы-готовы-делегировать-ai-на": "2026-11-24",
       "text:состояние-буквально-каждого-человека-в-мире-осознающего": "2026-11-23",
       "text:стартап-миры-мурати-thinking-machines-выпустили-зацикленный": "2026-11-21",
       "text:там-известный-математик-левент-алпеге-из-anthropic": "2026-11-21",
@@ -248,9 +267,14 @@
     "stories": {
       "27b adapters face hugging lora qwen3": "2026-11-22",
       "access api genie google": "2026-11-21",
+      "aleph alpha kolibri moe releases": "2026-11-24",
+      "anthropic claude conjecture proves valiant": "2026-11-24",
       "astra defenses gpt openai": "2026-11-21",
+      "audit data endpoints following openrouter providers removes retention": "2026-11-24",
+      "baidu ernie flash releases weights": "2026-11-24",
       "book design multi repo systems": "2026-11-22",
       "cairn search space state": "2026-11-21",
+      "cisco ebpf introduce openai patching shirudo vulnerability": "2026-11-24",
       "cli cline codex crush harness updates": "2026-11-22",
       "coding mode open skill source": "2026-11-22",
       "deeptutor learning open platform source": "2026-11-23",
@@ -263,7 +287,7 @@
   "dead_letters": [],
   "gemini_daily": {
     "day": "2026-11-24",
-    "units": 51
+    "units": 60
   },
   "gemini_window": [
     [
@@ -333,9 +357,9 @@
       "updated": 12
     },
     "news": {
-      "finished_at": "2026-11-23T19:19:18.286076Z",
+      "finished_at": "2026-11-24T23:01:52.492414Z",
       "reason": "published",
-      "telegram_message_id": 3639
+      "telegram_message_id": 3643
     },
     "news-article": {
       "devto_id": 5095601,
@@ -2103,6 +2127,120 @@
       "telegram_message_id": 3639,
       "topic_key": "model-benchmarks-and-metrics",
       "video_id": "tg-20261123-c3b5de14d1",
+      "video_url": "https://t.me/GitHub_Open_Source"
+    },
+    {
+      "Gemini_video_input": false,
+      "article_markdown": "> **TL;DR** This engineering digest explores Claude helping prove Valiant's conjecture, Baidu's new open weights for ERNIE 5.5 Flash Preview, and an open-source eBPF shielding tool from OpenAI and Cisco. It also covers Aleph Alpha's latest Mixture of Experts release and recent infrastructure security updates from OpenRouter.\n\nRecent shifts in machine learning engineering are moving past basic chat interfaces and focusing heavily on specialized execution environments, verifiable outputs, and large-scale architectural efficiency. Developers today face a landscape where model weights are larger and more accessible, but runtime security and data retention auditing require much tighter oversight. Understanding these changes means looking closely at how models interact with formal logic, Linux kernels, and distributed inference providers.\n\n## What actually moved today\n\nThe boundary between theoretical computer science and practical machine learning shifted noticeably when Anthropic published a major formalization using Claude. At the same time, infrastructure tooling saw significant additions with OpenAI and Cisco releasing Shirudo, an eBPF-based vulnerability mitigation tool. These developments point toward a broader trend where artificial intelligence is increasingly used to reason about and secure low-level system mechanics rather than simply generating natural language prose. Infrastructure stability and verifiable correctness are taking center stage in production environments.\n\nInfrastructure providers are also facing stricter compliance requirements, as evidenced by OpenRouter's recent security audit and subsequent endpoint removals. When inference providers fail to maintain zero data retention guarantees, developers must adapt their data governance strategies immediately. This operational reality demands a rigorous approach to logging, payload inspection, and third-party API dependencies.\n\n## The model watch\n\n### Claude and Valiant's conjecture\n\nAnthropic published a 70-stanza paper paired with a Lean 4 formalization proving Valiant's conjecture regarding VP versus VNP. The core discovery came from an internal research model capable of constructing long-form algebraic proofs. For developers, this demonstrates that current architectures can handle rigorous symbolic logic when paired with automated theorem provers. You might want to re-run your complex logic evals to see how modern models handle multi-step deterministic constraints.\n\nThe mechanics of this achievement rely on combining generative inference with strict proof assistants that reject invalid logical leaps. While the paper represents a substantial theoretical milestone, the exact prompt chaining and verification loops used internally remain proprietary. Developers cannot yet replicate this exact automated proving pipeline locally, but the public Lean 4 repository offers valuable insight into how the final proofs were structured and validated.\n\n### ERNIE 5.5 Flash Preview and Kolibri 1.1\n\nBaidu released ERNIE 5.5 Flash Preview under the Apache 2.0 license, featuring 280 billion parameters and a 1 million token context window. The model achieves 46.5 percent on Terminal-Bench 4.0, making it a compelling option for tasks requiring massive context ingestion. Meanwhile, Aleph Alpha published weights for Kolibri 1.1, a 75 billion parameter Mixture of Experts model optimized specifically for code generation and agentic workflows. Kolibri 1.1 reduces required GPU time by 3.4 times compared to its predecessor while maintaining competitive benchmark metrics.\n\nBoth releases give backend engineers new options for local and self-hosted deployments where data privacy is paramount. Evaluating ERNIE 5.5 Flash Preview involves provisioning hardware capable of handling high token concurrency, while Kolibri 1.1 offers a more lightweight MoE alternative for routine code synthesis. Developers should benchmark both against their specific domain datasets to determine if the architectural trade-offs align with their latency and throughput requirements.\n\n## Rumours, clearly labelled\n\nSpeculation often outpaces official documentation, and several unconfirmed claims are currently circulating across developer communities. These items lack official repository releases, formal paper publications, or verified public endpoints.\n\n| Item | Status | Basis | Verified |\n| :--- | :--- | :--- | :--- |\n| Gemini Carbon availability | Unconfirmed | Google AI Pro plan chatter | No |\n| Unreleased frontier models | Unconfirmed | Executive hints and leaks | No |\n\nTreating these claims with caution is essential for maintaining stable system architectures. Relying on unannounced features or unverified endpoints can introduce unexpected breaking changes into production pipelines.\n\n## Odd finds and small tools\n\nBeyond flagship model releases and massive parameter counts, smaller utilities continue to solve highly specific developer pain points. Shirudo, jointly introduced by OpenAI and Cisco, stands out as a practical tool for mitigating vulnerabilities on running Linux servers without requiring system restarts. An integrated AI agent writes a targeted eBPF filter to block active exploit paths while allowing normal application traffic to pass uninterrupted.\n\nThis approach bridges the historical gap between vulnerability discovery and emergency patch deployment in production environments. By operating at the kernel level via eBPF, Shirudo minimizes performance overhead while providing immediate runtime protection against zero-day exploits. Developers managing large fleets of Linux instances should review the open-source repository to understand how the generated filters are verified before insertion.\n\n## What I would try this weekend\n\nTesting new open weights is the best way to separate marketing claims from practical utility. I would start by spinning up Aleph Alpha's Kolibri 1.1 to benchmark its code generation speed against existing internal pipelines, measuring both token generation latency and memory overhead. Following that, running a localized evaluation of ERNIE 5.5 Flash Preview's million-token context window using a large legacy codebase can reveal how well it handles broad dependency mapping.\n\nFor infrastructure security, setting up a staging environment to test eBPF filter generation using the new tooling from OpenAI and Cisco offers a hands-on look at runtime vulnerability mitigation. Observing how the agent constructs filters under simulated attack conditions provides valuable perspective on the current reliability of automated kernel-level defense mechanisms.\n\n## Where this leaves us\n\nWe are navigating a phase where model capabilities are expanding into formal verification and kernel-level security, yet fundamental operational risks remain. Data retention incidents on third-party routing platforms remind us that API privacy cannot be taken for granted. While open weights like Kolibri 1.1 and ERNIE 5.5 Flash Preview give engineering teams greater control, they also demand deeper local infrastructure expertise.\n\nMany questions remain regarding the long-term reliability of AI-generated security filters and the true cost of hosting massive context windows in production. Balancing innovation with rigorous verification is the only way to build resilient systems moving forward. What specific metric do you prioritize when evaluating a new open-weights model for your team?\n\n---\n\n💬 Questions, corrections or a better way to run these evals? Feedback and discussion are in the channel: https://t.me/GitHub_Open_Source\n",
+      "article_title": "Navigating the Latest Open Weights, Formal Proofs, and eBPF Shielding Tools",
+      "brief": {
+        "discussion_question": "How comfortable are you relying on AI-generated eBPF filters to protect running production servers?",
+        "headline": "Claude · ERNIE 5.5 Flash Preview · GLM-5.3 lead the model watch",
+        "hook": "12 exact names, 4 official launches, 0 only announced, 1 unverified claim. Claude leads the watch — what would you actually re-run first?",
+        "models": [
+          "Claude",
+          "ERNIE 5.5 Flash Preview",
+          "GLM-5.3",
+          "Claude Opus 5.5",
+          "Kolibri 1.1",
+          "Kolibri 1.0",
+          "Qwen3.8 Flash Next",
+          "GLM-5.3 Flash",
+          "Codex",
+          "GPT-6.2 Sol",
+          "Astra",
+          "Gemini Carbon"
+        ],
+        "stories": [
+          {
+            "basis": "the official repository and paper are up",
+            "bullets": [
+              "Anthropic published a 70-stanza paper and Lean 4 formalization proving Valiant's conjecture VP != VNP.",
+              "The proof was discovered by an internal research model."
+            ],
+            "status": "research_report",
+            "title": "Anthropic proves Valiant's conjecture using Claude",
+            "why": "It demonstrates AI capable of handling complex long-form algebraic proofs verified by automated theorem provers."
+          },
+          {
+            "basis": "the model card and weights are available",
+            "bullets": [
+              "Baidu released ERNIE 5.5 Flash Preview under Apache 2.0 with 280 billion parameters and 1 million token context.",
+              "The model achieves 46.5 percent on Terminal-Bench 4.0."
+            ],
+            "status": "official_release",
+            "title": "Baidu releases ERNIE 5.5 Flash Preview weights",
+            "why": "Provides a massive context window and competitive benchmark scores for an open preview model."
+          },
+          {
+            "basis": "the Hugging Face weights and repository are up",
+            "bullets": [
+              "Aleph Alpha published weights for Kolibri 1.1, a 75 billion parameter MoE model for code and agents.",
+              "It improves benchmark performance while reducing required GPU time by 3.4 times."
+            ],
+            "status": "official_release",
+            "title": "Aleph Alpha releases Kolibri 1.1 MoE model",
+            "why": "Offers an efficient open MoE option optimized for code generation workflows."
+          },
+          {
+            "basis": "the official OpenAI blog post and GitHub repository are public",
+            "bullets": [
+              "OpenAI and Cisco open-sourced Shirudo to mitigate vulnerabilities on running Linux servers without restarts.",
+              "An AI agent writes a targeted eBPF filter to block exploit paths while passing normal traffic."
+            ],
+            "status": "official_release",
+            "title": "OpenAI and Cisco introduce Shirudo for eBPF vulnerability patching",
+            "why": "Bridges the gap between vulnerability discovery and patch deployment in production environments."
+          },
+          {
+            "basis": "the official OpenRouter incident announcement is published",
+            "bullets": [
+              "OpenRouter disconnected three providers and removed 125 endpoints from Zero Data Retention.",
+              "An audit by Dragos revealed honeytoken prompts were accessed or intercepted by third parties."
+            ],
+            "status": "official_release",
+            "title": "OpenRouter removes endpoints and providers following data retention audit",
+            "why": "Highlights critical security risks in third-party inference provider logging and data handling."
+          }
+        ],
+        "summary": "This week's engineering digest covers Claude proving Valiant's conjecture, open model weights from Baidu and Aleph Alpha, OpenAI and Cisco's eBPF shielding tool, and OpenRouter data retention updates.",
+        "unconfirmed_claims": [
+          "Gemini Carbon is now available on Google AI Pro plans",
+          "OpenAI and Anthropic have unreleased models much more powerful than current ones"
+        ],
+        "why_devs": "These updates give developers new open models, formal theorem-proving capabilities, and eBPF production tools."
+      },
+      "headline": "Claude · ERNIE 5.5 Flash Preview · GLM-5.3 lead the model watch",
+      "image_url": "https://i.ibb.co/2DGz7Qd/ai-brief-5a25da0ae43d.png",
+      "models": [
+        "Claude",
+        "ERNIE 5.5 Flash Preview",
+        "GLM-5.3",
+        "Claude Opus 5.5",
+        "Kolibri 1.1",
+        "Kolibri 1.0",
+        "Qwen3.8 Flash Next",
+        "GLM-5.3 Flash",
+        "Codex",
+        "GPT-6.2 Sol",
+        "Astra",
+        "Gemini Carbon"
+      ],
+      "narrative_hook": "Three model releases dropped new weights this week, but the thing I can't stop thinking about is an algebraic math proof from 1979 that a model quietly solved.",
+      "official_url": "",
+      "post_text": "🛰️ <b>AI Brief</b> · <i>no ads, no hype</i>\n\n<b>Three model releases dropped new weights this week, but the thing I can't stop thinking about is an algebraic math proof from 1979 that a model quietly solved.</b>\n\n🧬 <b>In this brief:</b> Claude · ERNIE 5.5 Flash Preview · GLM-5.3 · Claude Opus 5.5 · Kolibri 1.1 · Kolibri 1.0 · Qwen3.8 Flash Next · GLM-5.3 Flash · Codex · GPT-6.2 Sol · Astra · Gemini Carbon\n\n<b>1/ Anthropic proves Valiant's conjecture using Claude</b>\nAnthropic published a 70-stanza paper and Lean 4 formalization proving Valiant's conjecture VP != VNP.\nThe proof was discovered by an internal research model.\nIt demonstrates AI capable of handling complex long-form algebraic proofs verified by automated theorem provers.\n<i>the official repository and paper are up</i>\n\n<b>2/ Baidu releases ERNIE 5.5 Flash Preview weights</b>\nBaidu released ERNIE 5.5 Flash Preview under Apache 2.0 with 280 billion parameters and 1 million token context.\nThe model achieves 46.5 percent on Terminal-Bench 4.0.\nProvides a massive context window and competitive benchmark scores for an open preview model.\n<i>the model card and weights are available</i>\n\n<b>3/ Aleph Alpha releases Kolibri 1.1 MoE model</b>\nAleph Alpha published weights for Kolibri 1.1, a 75 billion parameter MoE model for code and agents.\nIt improves benchmark performance while reducing required GPU time by 3.4 times.\nOffers an efficient open MoE option optimized for code generation workflows.\n<i>the Hugging Face weights and repository are up</i>\n\n<b>4/ OpenAI and Cisco introduce Shirudo for eBPF vulnerability patching</b>\nOpenAI and Cisco open-sourced Shirudo to mitigate vulnerabilities on running Linux servers without restarts.\nAn AI agent writes a targeted eBPF filter to block exploit paths while passing normal traffic.\nBridges the gap between vulnerability discovery and patch deployment in production environments.\n<i>the official OpenAI blog post and GitHub repository are public</i>\n\n<b>5/ OpenRouter removes endpoints and providers following data retention audit</b>\nOpenRouter disconnected three providers and removed 125 endpoints from Zero Data Retention.\nAn audit by Dragos revealed honeytoken prompts were accessed or intercepted by third parties.\nHighlights critical security risks in third-party inference provider logging and data handling.\n<i>the official OpenRouter incident announcement is published</i>\n\n<b>◻️ Rumours we're keeping an eye on</b>\n\n◻️ <i>Gemini Carbon is now available on Google AI Pro plans</i>\n◻️ <i>OpenAI and Anthropic have unreleased models much more powerful than current ones</i>\n\n<i>How comfortable are you relying on AI-generated eBPF filters to protect running production servers?</i>\n\n📣 <a href=\"https://t.me/GitHub_Open_Source\"><b>@GitHub_Open_Source</b></a>\n\n========================================\n#AINews #OpenSource",
+      "published_at": "2026-11-24T23:01:52.492261Z",
+      "statuses": [
+        "research_report",
+        "official_release",
+        "official_release",
+        "official_release",
+        "official_release"
+      ],
+      "stories": 5,
+      "telegram_message_id": 3643,
+      "topic_key": "ai-model-releases-and-security",
+      "video_id": "tg-20261124-c32576f768",
       "video_url": "https://t.me/GitHub_Open_Source"
     }
   ],
@@ -13899,8 +14037,10 @@
     "according arrived community gemini limit reports resets": "2026-11-22",
     "announced experts inkling mini mixture model open parameters total weight": "2026-11-22",
     "announced inkling machines mini model open thinking weight": "2026-11-22",
+    "anthropic current models much ones openai powerful unreleased": "2026-11-24",
     "architecture glm loop officially presented transformer": "2026-11-23",
-    "architectures astra backbone fable form gpt like looped models purportedly transformer unreleased": "2026-11-21"
+    "architectures astra backbone fable form gpt like looped models purportedly transformer unreleased": "2026-11-21",
+    "available carbon gemini google plans pro": "2026-11-24"
   },
   "schedule_health": {
     "2026-11-11": {
