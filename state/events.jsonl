@@ -799,3 +799,5 @@
 {"attempts": 2, "detail": "HTTP 204", "slot": "publish:us_morning", "ts": "2026-11-24T16:00:55.201897Z", "type": "watchdog_recovered", "verified": false}
 {"gemini_error_class": "capacity_503", "reason": "gemini_capacity", "repo": "r0y00/xbox2windows", "slot": "us_morning", "ts": "2026-11-24T16:05:33.544989Z", "type": "publish_skipped"}
 {"attempts": 3, "detail": "HTTP 204", "slot": "publish:us_morning", "ts": "2026-11-24T17:00:53.938468Z", "type": "watchdog_recovered", "verified": false}
+{"preview_host": "imgbb", "repo": "r0y00/xbox2windows", "ts": "2026-11-24T17:06:21.744046Z", "type": "published_as_text"}
+{"repo": "r0y00/xbox2windows", "score": 61.04, "telegram_message_id": 3641, "telegraph_url": "https://telegra.ph/R0Y00Xbox2Windows-Static-Recompilation-of-Xbox-Series-X-Software-11-24", "ts": "2026-11-24T17:06:22.003483Z", "type": "project_published"}

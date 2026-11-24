@@ -268,12 +268,12 @@
   "dead_letters": [],
   "gemini_daily": {
     "day": "2026-11-24",
-    "units": 21
+    "units": 36
   },
   "gemini_window": [
     [
-      1795536304.5173788,
-      3924
+      1795539977.6822097,
+      1380
     ]
   ],
   "last_runs": {
@@ -382,9 +382,9 @@
       "telegram_message_id": 3638
     },
     "publish:us_morning": {
-      "finished_at": "2026-11-22T16:25:04.979229Z",
-      "repo": "n1neman/sapper-v2",
-      "telegram_message_id": 3634
+      "finished_at": "2026-11-24T17:06:22.003669Z",
+      "repo": "r0y00/xbox2windows",
+      "telegram_message_id": 3641
     },
     "publish:us_peak": {
       "finished_at": "2026-11-11T17:19:17.006267Z",
@@ -8814,6 +8814,101 @@
       "visual_host": "imgbb",
       "visual_kind": "readme"
     },
+    "r0y00/xbox2windows": {
+      "articles": {},
+      "card_style": "editorial_daily",
+      "category": "DevTools",
+      "contributors_count": 95,
+      "created_at": "2026-11-20T17:43:52Z",
+      "crossposts": {
+        "bluesky": {
+          "attempts": 0,
+          "due_at": "2026-11-24T18:00:00+00:00",
+          "status": "pending"
+        }
+      },
+      "description": "Static recompilation research for Xbox Series X|S software on x64 Windows, with source-built CPU and GPU tests. Full-game startup is unverified.",
+      "description_fp": "2375c6822c7db1da",
+      "forks": 210,
+      "full_name": "R0Y00/Xbox2Windows",
+      "generated": {
+        "article_markdown": "## What it is\n\nXbox2Windows is a research project focused on static recompilation, moving software designed for the Xbox Series X/S (Scarlett) architecture to x64 Windows. Rather than emulating the hardware at runtime, it attempts to translate the binary's x64 machine code into C++ and convert the console-specific gfx1013 shaders into desktop-compatible DXIL. It uses a shim-based approach to redirect D3D12 calls and memory allocations, allowing the recompiled code to interact with the Windows environment.\n\n## Why it matters\n\nBridging the gap between console-specific binaries and desktop execution is a significant challenge in reverse engineering and systems research. This project provides a transparent look at how one might map console-specific graphics pipelines and memory management to standard PC APIs. By providing tools to compare native, mapped, and recompiled builds, it allows developers to verify if the translation layer is producing identical results at the pixel and byte level.\n\n## Key features\n\n*   **Machine Code Translation:** Converts x64 machine code into C++ for native compilation.\n*   **Shader Mapping:** Translates gfx1013 shaders into standard desktop DXIL.\n*   **Verification Suite:** Includes tests that validate output against native Windows, mapped PE, and AOT builds to ensure pixel-perfect parity.\n*   **D3D12 Compatibility:** Implements shims for D3D12 root signatures, heap allocation, and software rendering.\n*   **Offline Inspection:** Provides tools to inspect PE package imports and export closures without needing to execute the binary.\n\n## Quick start\n\nEnsure you have Python 3.11+ and the Visual Studio Desktop development with C++ workload installed. Then run:\n\n```powershell\ngit clone https://github.com/R0Y00/Xbox2Windows.git\ncd Xbox2Windows\n.\\tools\\dev.ps1\ncmake --preset dev\ncmake --build --preset dev\n```\n\n## Who should try it\n\nThis project is for developers and researchers who want to study binary translation and shader architecture. If you are interested in how console-specific graphics calls can be shimmed to run on Windows, this provides a concrete, documented codebase to explore. It is not intended for end-users looking to run retail games, as full game startup and menu navigation are not yet supported.\n\n## Verdict\n\nXbox2Windows is a highly technical research sandbox. It is excellent for those who want to understand the mechanics of static recompilation and binary mapping. However, if you are looking for a functional emulator to play games, you should skip this project, as it is currently focused on low-level diagnostic and architectural research.",
+        "article_title": "R0Y00/Xbox2Windows: Static Recompilation of Xbox Series X Software",
+        "card_hook": "Run Xbox Series X binaries on Windows",
+        "card_subline": "Research-grade static recompilation translating Scarlett machine code and shaders for desktop environments",
+        "category": "DevTools",
+        "discussion_question": "If you were debugging a recompiled binary, would you prioritize matching pixel output or instruction-level trace parity first?",
+        "hook": "Translate Xbox Series X/S software to run on x64 Windows with this static recompilation research project.",
+        "key_features": [
+          "Translates x64 machine code into C++ for native execution",
+          "Maps gfx1013 shaders to desktop-compatible DXIL",
+          "Validates output against native Windows, mapped PE, and AOT builds",
+          "Supports D3D12 root signature, heap allocation, and software rendering smoke tests",
+          "Includes offline tools to inspect PE package imports and export closures"
+        ],
+        "llm_used": true,
+        "quick_start": "git clone https://github.com/R0Y00/Xbox2Windows.git && cd Xbox2Windows && .\\tools\\dev.ps1 && cmake --preset dev && cmake --build --preset dev",
+        "safety": "ok",
+        "safety_reason": "The project is a research-oriented static recompilation tool for binary analysis and does not contain malicious code or piracy-enabling features.",
+        "scene": "You are staring at a proprietary binary designed for a closed console environment, knowing the logic is sound but the platform is locked. You have the code, but no way to execute it outside the specific hardware constraints of the Xbox Series X/S.",
+        "social_text": "Explore static recompilation of Xbox Series X/S software to x64 Windows. This research project translates machine code and shaders for desktop execution, focusing on binary-level compatibility and D3D12 mapping.",
+        "summary": "This project implements static recompilation by translating x64 machine code into C++ and converting gfx1013 shaders into desktop-compatible DXIL. It uses a shim-based architecture to handle D3D12 calls and memory management, allowing developers to compare recompiled output against native Windows execution.",
+        "surfaces": {},
+        "tension": "The status quo forces you to rely on proprietary hardware for every test cycle, wasting time on deployment and limiting your ability to debug low-level shader or memory issues in a standard desktop environment.",
+        "turn": "This project attempts to bridge that gap by statically recompiling the binary and translating its shaders to run on standard Windows, though full game startup and menu navigation remain unverified.",
+        "verdict": "A fascinating, highly technical research sandbox for those who want to understand how console binaries map to PC architecture; skip it if you are looking for a plug-and-play emulator.",
+        "who_for": "Developers interested in binary translation, static recompilation, and GPU shader architecture.",
+        "why_now": "The project has reached a point where it can run specific diagnostic EXEs and match pixel-perfect output across native and recompiled builds, making it a tangible research target."
+      },
+      "homepage": "",
+      "id": 1465728637,
+      "image_url": "https://i.ibb.co/Jjg40Pks/R0-Y00-Xbox2-Windows-preview-9987cb30b820.jpg",
+      "is_dual_use": false,
+      "is_hidden_gem": false,
+      "language": "Python",
+      "license": {
+        "key": "mit",
+        "name": "MIT License",
+        "node_id": "MDc6TGljZW5zZTEz",
+        "spdx_id": "MIT",
+        "url": "https://api.github.com/licenses/mit"
+      },
+      "media_urls": [
+        "https://raw.githubusercontent.com/R0Y00/Xbox2Windows/refs/heads/coverage-dashboard/dashboard.svg"
+      ],
+      "name": "Xbox2Windows",
+      "open_issues": 153,
+      "published_at": "2026-11-24T17:06:22.003237Z",
+      "pushed_at": "2026-11-24T17:00:37Z",
+      "readme_fp": "1dd5b2699b57b1ae",
+      "repo_id": 1465728637,
+      "revisit_of": "",
+      "revisit_reason": "",
+      "score": 61.04,
+      "slot": "us_morning",
+      "sources": [
+        "github_search",
+        "telegram:github_repos"
+      ],
+      "stars": 1852,
+      "telegram_chat_id": "@GitHub_Open_Source",
+      "telegram_link": "https://t.me/GitHub_Open_Source/3641",
+      "telegram_message_id": 3641,
+      "telegraph_url": "https://telegra.ph/R0Y00Xbox2Windows-Static-Recompilation-of-Xbox-Series-X-Software-11-24",
+      "topics": [
+        "d3d12",
+        "directx-raytracing",
+        "scarlett",
+        "static-recompilation",
+        "windows",
+        "xbox",
+        "xbox-series-x"
+      ],
+      "updated_at": "2026-11-24T17:00:05Z",
+      "url": "https://github.com/R0Y00/Xbox2Windows",
+      "visual_host": "imgbb",
+      "visual_kind": "card"
+    },
     "rehan-remade/universal-modder": {
       "articles": {
         "devto_duplicate": {
@@ -11469,91 +11564,6 @@
       ],
       "updated_at": "2026-11-24T00:23:22Z",
       "url": "https://github.com/EL4CTEO/fast-anything"
-    },
-    {
-      "archived": false,
-      "contributors_count": 70,
-      "created_at": "2026-11-20T17:43:52Z",
-      "default_branch": "main",
-      "description": "Static recompilation research for Xbox Series X|S software on x64 Windows, with source-built CPU and GPU tests. Full-game startup is unverified.",
-      "disabled": false,
-      "fork": false,
-      "forks": 157,
-      "forks_count": 157,
-      "full_name": "R0Y00/Xbox2Windows",
-      "has_readme": true,
-      "homepage": "",
-      "id": 1465728637,
-      "is_dual_use": false,
-      "is_hidden_gem": false,
-      "language": "Python",
-      "license": {
-        "key": "mit",
-        "name": "MIT License",
-        "node_id": "MDc6TGljZW5zZTEz",
-        "spdx_id": "MIT",
-        "url": "https://api.github.com/licenses/mit"
-      },
-      "media_urls": [
-        "https://raw.githubusercontent.com/R0Y00/Xbox2Windows/refs/heads/coverage-dashboard/dashboard.svg"
-      ],
-      "name": "Xbox2Windows",
-      "non_software_reason": "",
-      "open_issues": 69,
-      "open_issues_count": 69,
-      "owner_repo_count": 1,
-      "pushed_at": "2026-11-24T00:21:15Z",
-      "readme": "",
-      "readme_excerpt": "# Xbox2Windows\n\n**[Join the Xbox2Windows Dev Discord](https://discord.gg/DMcmNtpd6R)** · [Project status](#current-results-and-open-work) · [Get involved](#community-and-contributions) · [Build on Windows](#first-build) · [Run the GPU check](#run-the-gpu-check)\n\nXbox2Windows researches static recompilation from Xbox Series X|S (Scarlett) to x64 Windows. It translates selected x64 machine code into C++ and selected gfx1013 shaders into desktop DXIL. You can run the public tests without a game installation.\n\n> **Current status.** Source-built programs run from PE entry to exit, and selected shader fixtures produce checked D3D12 output. Execution of the title's CPU code, full-game startup and frame rate remain unverified.\n\n## Community and contributions\n\n- **Follow the project or ask a question.** Start in `#start-here` on Discord. Read `#announcements` for verified progress or ask in `#general`. Everyone is welcome to follow along. For a build problem that others may hit, post the commit, command and error in [Development Q&A](https://github.com/R0Y00/Xbox2Windows/discussions/categories/development-q-a).\n- **Test your GPU without building.** Run the [standalone Windows GPU check](#ru",
-      "readme_len": 50292,
-      "repo_id": 1465728637,
-      "score": 61.04,
-      "score_parts": {
-        "acceleration": 0.5,
-        "acceleration_known": 0,
-        "acceleration_ratio": 0.0,
-        "age_days": 3.3,
-        "appeal": 0.741,
-        "burst": 0.648,
-        "community": 0.833,
-        "content": 0.481,
-        "corroboration": 0.907,
-        "external": 0.463,
-        "forks_measured": 1,
-        "forks_per_day": 47.87,
-        "forks_rate": 0.63,
-        "freshness": 1.0,
-        "growth": 0.556,
-        "growth_measured": 0,
-        "popularity": 0.185,
-        "reliability": 0.574,
-        "stars_per_day": 461.9
-      },
-      "source_name": "github_search",
-      "sources": [
-        "github_search",
-        "telegram:github_repos"
-      ],
-      "star_history": [
-        [
-          "2026-11-24",
-          1515,
-          157
-        ]
-      ],
-      "stargazers_count": 1515,
-      "stars": 1515,
-      "topics": [
-        "d3d12",
-        "directx-raytracing",
-        "scarlett",
-        "static-recompilation",
-        "windows",
-        "xbox",
-        "xbox-series-x"
-      ],
-      "updated_at": "2026-11-24T00:22:39Z",
-      "url": "https://github.com/R0Y00/Xbox2Windows"
     },
     {
       "archived": false,
@@ -22993,8 +23003,8 @@
     "r0y00/xbox2windows": {
       "first_seen_at": "2026-11-22T00:25:30.703023Z",
       "full_name": "R0Y00/Xbox2Windows",
-      "last_decision": "queued",
-      "last_seen_at": "2026-11-24T00:26:58.894377Z",
+      "last_decision": "published",
+      "last_seen_at": "2026-11-24T17:06:22.003641Z",
       "repo_id": 1465728637,
       "sources": [
         "github_search",
@@ -23003,8 +23013,8 @@
       "star_history": [
         [
           "2026-11-24",
-          1515,
-          157
+          1852,
+          210
         ]
       ]
     },
