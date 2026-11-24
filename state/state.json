@@ -268,12 +268,16 @@
   "dead_letters": [],
   "gemini_daily": {
     "day": "2026-11-23",
-    "units": 81
+    "units": 87
   },
   "gemini_window": [
     [
-      1795457715.8079965,
-      1339
+      1795482827.3247592,
+      3100
+    ],
+    [
+      1795482831.0775158,
+      1387
     ]
   ],
   "last_runs": {
@@ -372,9 +376,9 @@
       "telegram_message_id": 3550
     },
     "publish:us_evening": {
-      "finished_at": "2026-11-23T01:14:07.417381Z",
-      "repo": "iamajmeena/neonclipping",
-      "telegram_message_id": 3637
+      "finished_at": "2026-11-24T01:13:56.820650Z",
+      "repo": "zortos293/lichii",
+      "telegram_message_id": 3640
     },
     "publish:us_midday": {
       "finished_at": "2026-11-23T18:15:20.450577Z",
@@ -11253,6 +11257,103 @@
       ],
       "visual_host": "imgbb",
       "visual_kind": "card"
+    },
+    "zortos293/lichii": {
+      "articles": {},
+      "card_style": "",
+      "category": "DevTools",
+      "contributors_count": 693,
+      "created_at": "2026-10-31T14:17:26Z",
+      "crossposts": {
+        "bluesky": {
+          "attempts": 0,
+          "due_at": "2026-11-24T18:00:00+00:00",
+          "status": "pending"
+        }
+      },
+      "description": "VERY experimental Nintendo Switch 2 emulator",
+      "description_fp": "10eb47c343013a8c",
+      "forks": 1617,
+      "full_name": "zortos293/Lichii",
+      "generated": {
+        "article_markdown": "## What it is\n\nLichii is an experimental, open-source Nintendo Switch and Switch 2 emulator written in C++. It builds upon the foundations of several previous emulation projects, including Eglantine, Eden, yuzu, and Sudachi. Rather than starting entirely from scratch, it preserves their accumulated contributions while focusing specifically on improving game compatibility and refining renderer fixes for modern desktop setups.\n\n## Why it matters\n\nThe emulation landscape for modern Nintendo consoles has experienced significant fragmentation and project closures. Developers and enthusiasts often found themselves relying on abandoned codebases or incompatible forks. Lichii addresses this by consolidating these efforts into a single, actively developed repository that handles community-driven compatibility reporting and profile migrations smoothly.\n\n## Key features\n\n- Imports existing profiles and saves from Eden and other detected emulators on first launch.\n- Integrates with a community compatibility reporting website to track working titles.\n- Follows standard platform configuration paths including AppData on Windows and XDG directories on Unix systems.\n- Offers command-line utility support via eden-cli for configuration management.\n\n## Quick start\n\nTo build Lichii from source, configure the project using CMake:\n\n```bash\ncmake -B build -S .\n```\n\n## Who should try it\n\nThis project is aimed at developers and emulation researchers interested in exploring C++ console emulators, contributing renderer fixes, or testing game compatibility on desktop hardware using their own legally dumped system files.\n\n## Verdict\n\nLichii provides a valuable continuation of past emulation ecosystems, but it remains highly experimental. Expect occasional crashes, rendering glitches, and stutters depending on your hardware and game choice.",
+        "article_title": "Lichii: Experimental Nintendo Switch and Switch 2 Emulator in C++",
+        "card_hook": "Switch 2 emulation in C++",
+        "card_subline": "An experimental open-source emulator building on past console projects",
+        "category": "DevTools",
+        "discussion_question": "Which precursor emulator did you use most before switching to current forks?",
+        "hook": "Lichii is an experimental C++ emulator for Nintendo Switch and Switch 2, building on past projects like yuzu and Eden.",
+        "key_features": [
+          "Supports importing existing profiles and saves from Eden and other detected emulators",
+          "Provides a game compatibility tracking website and integrated reporting tools",
+          "Uses standard profile directories under AppData on Windows and XDG paths on Linux and macOS",
+          "Includes CLI support via eden-cli with configuration initialization controls",
+          "Written in C++ with continuous renderer and compatibility fixes"
+        ],
+        "llm_used": true,
+        "quick_start": "cmake -B build -S .",
+        "safety": "ok",
+        "safety_reason": "Lichii is an open-source emulator project and does not contain malicious code or bypass exploits directly.",
+        "scene": "You want to test a Switch 2 title on your desktop, but older emulators lack the updates or community compatibility data needed to get past a black screen.",
+        "social_text": "Lichii is an experimental open-source Nintendo Switch and Switch 2 emulator written in C++.",
+        "summary": "Lichii operates as an independent open-source fork combining code and architecture from previous emulation projects like Eglantine, Eden, yuzu, and Sudachi. It provides a dedicated desktop interface to manage profiles, configure rendering settings, and track game compatibility through community reports. Users can import existing profiles from older tools or start fresh while handling their own legally dumped firmware and keys.",
+        "surfaces": {
+          "Facebook_body": "Playing your favorite console games on a computer is now easier with a new open source desktop application. Instead of losing progress when previous projects shut down, this tool combines past emulation codebases into a single actively maintained platform.\n\nUsers can manage their user profiles, configure rendering settings, and track game compatibility through integrated community reports. You can import existing saves and profiles from older tools or start fresh, while handling your own legally dumped firmware and encryption keys.\n\nBuilt for developers and enthusiasts interested in console emulation architecture, this experimental tool offers a promising path forward. Whether you want to study the code or test game compatibility on your desktop, it provides a dedicated environment for your emulation needs. Expect experimental behavior and variable performance as development continues.",
+          "Facebook_headline": "Run console games on your computer",
+          "Facebook_lead": "Want to play your console games on your computer? This open source desktop app lets you manage profiles and track game compatibility easily.",
+          "bluesky_headline": "Play console games on your desktop",
+          "bluesky_lead": "An open source Nintendo console emulator combining previous emulation codebases into a single platform.",
+          "devto_body": "## What it is\nLichii is an experimental open source C++ emulator designed for Nintendo console hardware. It combines architecture and code from discontinued projects like yuzu, Eden, and Eglantine into a unified desktop application.\n\n## How it works\nThe project uses a dedicated desktop interface to manage user profiles, configure rendering options, and link to compatibility tracking tools. It relies on standard system paths for configuration data and supports command line operations through included utilities.\n\n## Key features\n- Imports existing profiles and save data from older emulation tools\n- Integrated game compatibility tracking and reporting\n- Standard profile directory support across Windows, Linux, and macOS\n- Command line interface for configuration and initialization\n\n## Getting started\nClone the repository from GitHub and ensure you have a C++ compiler set up. You will need to provide your own legally dumped firmware and encryption keys to run software.\n\n## When not to use it\nThis is a heavily experimental codebase. If you need stable, flawless performance out of the box, you should wait for more mature releases.",
+          "seo_description": "Run and manage console games on your desktop with this open-source C++ emulator fork. Built for enthusiasts and developers.",
+          "seo_query": "open source switch emulator",
+          "seo_title": "Nintendo Switch Emulator - Open Source C++ Desktop App",
+          "telegraph_angle": "Explain the architectural history of console emulation forks and what consolidating these codebases means for the future of preservation."
+        },
+        "tension": "Upstream projects have stalled or shut down, leaving you with fragmented forks, broken renderers, and no reliable way to verify game compatibility.",
+        "turn": "Lichii steps in by unifying codebases like yuzu, Eden, and Eglantine into a single C++ emulator with active renderer fixes, though rendering errors and stutters still occur.",
+        "verdict": "A promising continuation for emulation enthusiasts, but expect experimental behavior and variable game performance.",
+        "who_for": "Developers and enthusiasts interested in console emulation architecture and game compatibility tracking.",
+        "why_now": "With the evolution of multiple discontinued or precursor emulation projects, Lichii consolidates these codebases into a single actively maintained fork for ongoing research."
+      },
+      "homepage": "",
+      "id": 1440927503,
+      "image_url": "https://i.ibb.co/ZRwp88Vb/zortos293-lichii-readme-preview-95424a25d687.jpg",
+      "is_dual_use": false,
+      "is_hidden_gem": false,
+      "language": "C++",
+      "license": {
+        "key": "gpl-3.0",
+        "name": "GNU General Public License v3.0",
+        "node_id": "MDc6TGljZW5zZTk=",
+        "spdx_id": "GPL-3.0",
+        "url": "https://api.github.com/licenses/gpl-3.0"
+      },
+      "media_urls": [
+        "https://raw.githubusercontent.com/zortos293/Lichii/nx2/dist/branding/lichii_icon_with_logo.png"
+      ],
+      "name": "Lichii",
+      "open_issues": 665,
+      "published_at": "2026-11-24T01:13:56.820282Z",
+      "pushed_at": "2026-11-24T01:05:52Z",
+      "readme_fp": "02bba4f0c731125f",
+      "repo_id": 1440927503,
+      "revisit_of": "",
+      "revisit_reason": "",
+      "score": 56.69,
+      "slot": "us_evening",
+      "sources": [
+        "github_search"
+      ],
+      "stars": 10154,
+      "telegram_chat_id": "@GitHub_Open_Source",
+      "telegram_link": "https://t.me/GitHub_Open_Source/3640",
+      "telegram_message_id": 3640,
+      "telegraph_url": "https://telegra.ph/Lichii-Experimental-Nintendo-Switch-and-Switch-2-Emulator-in-C-11-24",
+      "topics": [],
+      "updated_at": "2026-11-24T01:13:38Z",
+      "url": "https://github.com/zortos293/Lichii",
+      "visual_host": "imgbb",
+      "visual_kind": "readme"
     }
   },
   "queue": [
@@ -11521,82 +11622,6 @@
       ],
       "updated_at": "2026-11-24T00:23:49Z",
       "url": "https://github.com/ivall/xcl"
-    },
-    {
-      "archived": false,
-      "contributors_count": 693,
-      "created_at": "2026-10-31T14:17:26Z",
-      "default_branch": "nx2",
-      "description": "VERY experimental Nintendo Switch 2 emulator",
-      "disabled": false,
-      "fork": false,
-      "forks": 1617,
-      "forks_count": 1617,
-      "full_name": "zortos293/Lichii",
-      "has_readme": true,
-      "homepage": "",
-      "id": 1440927503,
-      "is_dual_use": false,
-      "is_hidden_gem": false,
-      "language": "C++",
-      "license": {
-        "key": "gpl-3.0",
-        "name": "GNU General Public License v3.0",
-        "node_id": "MDc6TGljZW5zZTk=",
-        "spdx_id": "GPL-3.0",
-        "url": "https://api.github.com/licenses/gpl-3.0"
-      },
-      "media_urls": [
-        "https://raw.githubusercontent.com/zortos293/Lichii/nx2/dist/branding/lichii_icon_with_logo.png"
-      ],
-      "name": "Lichii",
-      "non_software_reason": "",
-      "open_issues": 664,
-      "open_issues_count": 664,
-      "owner_repo_count": 1,
-      "pushed_at": "2026-11-24T00:14:49Z",
-      "readme": "",
-      "readme_excerpt": "<!--\n# SPDX-FileCopyrightText: Copyright 2025 Eden Emulator Project\n# SPDX-License-Identifier: GPL-3.0-or-later\n\n# SPDX-License-Identifier: GPL-2.0-or-later\n-->\n\n<h2 align=\"center\">⚠️ Lichii has no official website ⚠️</h2>\n\n> [!CAUTION]\n> **Lichii has no official website.** The only site run by this project is the **game compatibility website, [lichii.zortos.me](https://lichii.zortos.me)**, for compatibility reports only. Download Lichii **only** from this repository's [releases page](https://github.com/zortos293/Lichii/releases). Any other \"Lichii\" website or download (such as lichii.org) is not ours and may contain malware ([#545](https://github.com/zortos293/Lichii/issues/545)).\n\n<p align=\"center\">\n  <img src=\"dist/branding/lichii_icon_with_logo.png\" alt=\"Lichii\" width=\"600\">\n</p>\n\n# Lichii\n\n[![Total downloads](https://img.shields.io/github/downloads/zortos293/Lichii/total)](https://github.com/zortos293/Lichii/releases) [![Latest release downloads](https://img.shields.io/github/downloads/zortos293/Lichii/latest/total)](https://github.com/zortos293/Lichii/releases) [![Latest release](https://img.shields.io/github/v/release/zortos293/Lichii)](https://github.com/zortos293/Lichii/re",
-      "readme_len": 7352,
-      "repo_id": 1440927503,
-      "score": 56.69,
-      "score_parts": {
-        "acceleration": 0.5,
-        "acceleration_known": 0,
-        "acceleration_ratio": 0.0,
-        "age_days": 23.4,
-        "appeal": 0.407,
-        "burst": 0.648,
-        "community": 0.833,
-        "content": 0.13,
-        "corroboration": 0.407,
-        "external": 0.463,
-        "forks_measured": 1,
-        "forks_per_day": 69.03,
-        "forks_rate": 0.852,
-        "freshness": 0.889,
-        "growth": 0.556,
-        "growth_measured": 0,
-        "popularity": 0.667,
-        "reliability": 0.574,
-        "stars_per_day": 433.33
-      },
-      "source_name": "github_search",
-      "sources": [
-        "github_search"
-      ],
-      "star_history": [
-        [
-          "2026-11-24",
-          10150,
-          1617
-        ]
-      ],
-      "stargazers_count": 10150,
-      "stars": 10150,
-      "topics": [],
-      "updated_at": "2026-11-24T00:13:34Z",
-      "url": "https://github.com/zortos293/Lichii"
     },
     {
       "archived": false,
@@ -26673,8 +26698,8 @@
     "zortos293/lichii": {
       "first_seen_at": "2026-11-06T06:53:27.356443Z",
       "full_name": "zortos293/Lichii",
-      "last_decision": "queued",
-      "last_seen_at": "2026-11-24T00:26:58.900563Z",
+      "last_decision": "published",
+      "last_seen_at": "2026-11-24T01:13:56.820622Z",
       "repo_id": 1440927503,
       "sources": [
         "github_search",
@@ -26684,7 +26709,7 @@
       "star_history": [
         [
           "2026-11-24",
-          10150,
+          10154,
           1617
         ]
       ]
