@@ -287,12 +287,16 @@
   "dead_letters": [],
   "gemini_daily": {
     "day": "2026-11-25",
-    "units": 18
+    "units": 24
   },
   "gemini_window": [
     [
-      1795620891.3884938,
+      1795630435.3685462,
       3882
+    ],
+    [
+      1795630468.995662,
+      1409
     ]
   ],
   "last_runs": {
@@ -398,9 +402,9 @@
       "telegram_message_id": 3644
     },
     "publish:us_midday": {
-      "finished_at": "2026-11-24T18:15:04.682435Z",
-      "repo": "eglantine-community/eglantine",
-      "telegram_message_id": 3642
+      "finished_at": "2026-11-25T18:15:03.130751Z",
+      "repo": "seedds/nxnative",
+      "telegram_message_id": 3645
     },
     "publish:us_morning": {
       "finished_at": "2026-11-24T17:06:22.003669Z",
@@ -9655,6 +9659,101 @@
       "visual_host": "imgbb",
       "visual_kind": "readme"
     },
+    "seedds/nxnative": {
+      "articles": {},
+      "card_style": "editorial_daily",
+      "category": "DevTools",
+      "contributors_count": 26,
+      "created_at": "2026-10-13T05:20:14Z",
+      "crossposts": {
+        "bluesky": {
+          "attempts": 0,
+          "due_at": "2026-11-25T18:45:03.130349+00:00",
+          "status": "pending"
+        }
+      },
+      "description": "Switch games running natively on iPhone, iPad and Mac: an NSP folder becomes an unsigned IPA (NSO rewriter, Horizon HLE host, NVN→Metal)",
+      "description_fp": "916022fec1484d9a",
+      "forks": 3094,
+      "full_name": "seedds/nxnative",
+      "generated": {
+        "article_markdown": "## What it is\\n\\nnxnative is a rewriter that bridges the gap between Nintendo Switch game binaries and Apple Silicon. Unlike traditional emulators that interpret instructions and translate calls in real-time, this tool processes the game's NSO (Nintendo Switch Object) binaries and converts them into code that runs natively on the M-series chips. It also intercepts the game's NVN graphics calls and maps them to Metal, Apple's low-level graphics API. The output is a standard macOS application or an iOS IPA that you can run directly on your hardware.\\n\\n## Why it matters\\n\\nTraditional emulation is inherently expensive. It requires a massive amount of overhead to simulate the hardware environment, which leads to thermal throttling, high battery drain, and inconsistent frame rates. By moving to a native execution model, you remove the emulation layer. This allows the game to utilize the CPU and GPU resources directly, which is the difference between a game that stutters on an emulator and one that runs smoothly on your hardware. It essentially turns your Mac or iPad into a custom development environment for these titles.\\n\\n## Key features\\n\\n* Native Execution: Converts Switch NSO binaries to native Apple Silicon code instead of emulating them.\\n* Metal Translation: Translates NVN graphics commands directly to Metal for hardware-accelerated rendering.\\n* Flexible Packaging: Packages games as standard macOS apps or sideloadable iOS IPAs.\\n* Switch 2 Support: Supports Switch 2 NUP container files for streamlined game builds.\\n* Device Optimization: Includes build options for memory-constrained devices like iPhones.\\n\\n## Quick start\\n\\nTo build a game, ensure you have your game files in a folder and your prod.keys ready. Run the following command in your terminal:\\n\\n`python3 scripts/build_ipa_from_nsp.py ~/Games/MarioWonder -k ~/keys/prod.keys`\\n\\nThis will generate the necessary files for your platform. For a Mac app, add the `--platform mac-app` flag to the command.\\n\\n## Who should try it\\n\\nThis project is for developers and power users who are comfortable with the command line and understand the nuances of game file structures. If you are looking for a \"click-and-play\" solution, you might find the build process and the need for specific keys and game dumps to be a barrier. However, if you are interested in the mechanics of binary translation or want to see how well these games perform when running natively, this is the tool to use.\\n\\n## Verdict\\n\\nIt is an impressive technical feat that effectively turns your Mac into a Switch dev kit. While it is not a turnkey solution for every game, it provides a fascinating look at what is possible when you strip away the overhead of emulation. Expect to spend some time debugging build configurations for specific titles, but the performance gains are worth the effort for those who want to push their hardware.",
+        "article_title": "How to Run Nintendo Switch Games Natively on Apple Silicon with nxnative",
+        "card_hook": "Run Switch games natively on Apple Silicon",
+        "card_subline": "Turn NSP files into native macOS apps or iOS IPAs without an emulator",
+        "category": "DevTools",
+        "discussion_question": "If you could port one Switch title to run natively on your Mac today, which one would you pick?",
+        "hook": "Run Switch games natively on Apple Silicon by rewriting NSO binaries to Metal, bypassing emulation overhead entirely.",
+        "key_features": [
+          "Converts Switch NSO binaries to native Apple Silicon code instead of emulating them.",
+          "Translates NVN graphics commands directly to Metal for hardware-accelerated rendering.",
+          "Packages games as standard macOS apps or sideloadable iOS IPAs.",
+          "Supports Switch 2 NUP container files for streamlined game builds.",
+          "Includes build options for memory-constrained devices like iPhones."
+        ],
+        "llm_used": true,
+        "quick_start": "python3 scripts/build_ipa_from_nsp.py ~/Games/MarioWonder -k ~/keys/prod.keys",
+        "safety": "ok",
+        "safety_reason": "This is a compatibility layer and rewriter tool for game binaries, similar to Wine or other translation layers, and does not contain malicious code.",
+        "scene": "You are staring at your Mac, trying to get a game running, but the emulator is eating 80% of your CPU while the GPU struggles to keep up with the translation layer.",
+        "social_text": "Stop emulating and start running Switch games natively on your Mac. This tool rewrites NSO binaries to Metal, turning your game dumps into standalone Apple Silicon apps.",
+        "summary": "This project functions as a rewriter rather than an emulator, taking Nintendo Switch game files and converting their internal NSO binaries to execute directly on Apple Silicon. It maps the game's original NVN graphics calls to Metal, allowing the game code to run as a native process on your hardware. The result is a standalone .app or .ipa file that executes the game logic directly on the host chip.",
+        "surfaces": {
+          "Facebook_body": "If you have ever tried to play games from one console on another, you know that emulation usually comes with a performance cost. It often feels sluggish because your computer is pretending to be the original console. This project takes a different approach by rewriting the game files so they run as native applications on Apple Silicon chips.\n\nBy translating the original graphics commands directly into the language that Apple hardware understands, the software allows games to execute as if they were built for your Mac or iPhone from the start. This removes the overhead that usually slows down emulators.\n\nThis is a project for enthusiasts and developers who are comfortable with technical setup. Because it is rewriting code rather than just running it, you will need to spend time configuring the build for specific titles. It is an impressive way to turn your Apple hardware into a personal game development kit, provided you have the patience to troubleshoot the process for each game you want to play.",
+          "Facebook_headline": "Play Switch games natively on your Mac or iPhone",
+          "Facebook_lead": "Instead of using slow emulation, this new tool converts game files so they run directly on your Apple device's processor for better performance.",
+          "bluesky_headline": "Run Switch games natively on Apple Silicon",
+          "bluesky_lead": "This tool converts game files into native apps, bypassing emulation to run directly on your Mac or iPhone hardware.",
+          "devto_body": "## What it is\nnxnative is a rewriter that transforms Nintendo Switch game binaries into native executables for Apple Silicon. Unlike traditional emulators that interpret instructions in real-time, nxnative maps the game's original graphics calls to Metal, allowing the code to execute directly on the host chip.\n\n## How it works\nThe tool processes Switch game files (NSO binaries) and converts them into standard macOS .app or iOS .ipa files. It acts as a bridge, translating NVN graphics commands into Metal, Apple's proprietary graphics framework. By doing this, the game logic runs as a native process on the host processor, eliminating the performance penalty associated with standard emulation.\n\n## Key features\n- **Native Execution:** Converts binaries to run directly on Apple Silicon rather than emulating them.\n- **Metal Integration:** Translates graphics commands for hardware-accelerated rendering.\n- **Package Support:** Outputs standard macOS apps or sideloadable iOS IPAs.\n- **Container Compatibility:** Supports Switch 2 NUP container files for easier builds.\n- **Optimization:** Includes build flags for memory management on constrained devices like iPhones.\n\n## Getting started\nThis project is written in Objective-C. To use it, you will need to clone the repository and set up your build environment for your specific target (macOS or iOS). Because this is a rewriter, you must handle the build configurations for each game title individually. Expect to spend time debugging the build process for specific titles.\n\n## When not to use it\nThis is not a \"one-click\" emulator. If you are looking for a plug-and-play experience to launch games immediately, this is not the right tool. It is designed for experimentation and native porting. It requires technical knowledge of build systems and may not work out-of-the-box for every title.",
+          "seo_description": "Learn how to use nxnative to convert Nintendo Switch game binaries into native apps for Mac and iPhone, bypassing traditional emulation overhead.",
+          "seo_query": "how to run switch games natively on mac",
+          "seo_title": "Run Switch games natively on Apple Silicon - nxnative",
+          "telegraph_angle": "Explain the technical shift from software emulation to native binary rewriting and what this means for the future of game porting on Apple devices."
+        },
+        "tension": "Emulation is a resource hog; you are paying for the abstraction layer in heat, battery drain, and dropped frames, even when the underlying game logic is simple enough that it should run easily on your M-series chip.",
+        "turn": "This project ditches the emulator entirely, rewriting the game's binaries to talk to Metal directly, which finally lets the game run as a native process on your hardware.",
+        "verdict": "It is an impressive technical feat that effectively turns your Mac into a Switch dev kit, but expect to spend time debugging build configurations for specific titles.",
+        "who_for": "Developers and enthusiasts with Apple Silicon hardware who want to experiment with native game porting.",
+        "why_now": "The maturity of Apple Silicon and Metal now makes it viable to run Switch-native code directly on Apple hardware without the heavy overhead of traditional emulation."
+      },
+      "homepage": "",
+      "id": 1416502082,
+      "image_url": "https://i.ibb.co/zhGW5qZT/seedds-nxnative-preview-877c7f18fa7e.jpg",
+      "is_dual_use": false,
+      "is_hidden_gem": false,
+      "language": "Objective-C",
+      "license": {
+        "key": "mit",
+        "name": "MIT License",
+        "node_id": "MDc6TGljZW5zZTEz",
+        "spdx_id": "MIT",
+        "url": "https://api.github.com/licenses/mit"
+      },
+      "media_urls": [],
+      "name": "nxnative",
+      "open_issues": 976,
+      "published_at": "2026-11-25T18:15:03.130404Z",
+      "pushed_at": "2026-11-25T17:43:02Z",
+      "readme_fp": "0eaa661985752a9a",
+      "repo_id": 1416502082,
+      "revisit_of": "",
+      "revisit_reason": "",
+      "score": 53.33,
+      "slot": "us_midday",
+      "sources": [
+        "github_search"
+      ],
+      "stars": 16716,
+      "telegram_chat_id": "@GitHub_Open_Source",
+      "telegram_link": "https://t.me/GitHub_Open_Source/3645",
+      "telegram_message_id": 3645,
+      "telegraph_url": "https://telegra.ph/How-to-Run-Nintendo-Switch-Games-Natively-on-Apple-Silicon-with-nxnative-11-25",
+      "topics": [],
+      "updated_at": "2026-11-25T18:05:47Z",
+      "url": "https://github.com/seedds/nxnative",
+      "visual_host": "imgbb",
+      "visual_kind": "card"
+    },
     "shanselman/gputaskman": {
       "articles": {},
       "card_style": "",
@@ -12346,80 +12445,6 @@
       ],
       "updated_at": "2026-11-25T00:23:07Z",
       "url": "https://github.com/XinaTian/MROffice"
-    },
-    {
-      "archived": false,
-      "contributors_count": 26,
-      "created_at": "2026-10-13T05:20:14Z",
-      "default_branch": "main",
-      "description": "Switch games running natively on iPhone, iPad and Mac: an NSP folder becomes an unsigned IPA (NSO rewriter, Horizon HLE host, NVN→Metal)",
-      "disabled": false,
-      "fork": false,
-      "forks": 3078,
-      "forks_count": 3078,
-      "full_name": "seedds/nxnative",
-      "has_readme": true,
-      "homepage": "",
-      "id": 1416502082,
-      "is_dual_use": false,
-      "is_hidden_gem": false,
-      "language": "Objective-C",
-      "license": {
-        "key": "mit",
-        "name": "MIT License",
-        "node_id": "MDc6TGljZW5zZTEz",
-        "spdx_id": "MIT",
-        "url": "https://api.github.com/licenses/mit"
-      },
-      "media_urls": [],
-      "name": "nxnative",
-      "non_software_reason": "",
-      "open_issues": 1038,
-      "open_issues_count": 1038,
-      "owner_repo_count": 1,
-      "pushed_at": "2026-11-25T00:22:23Z",
-      "readme": "",
-      "readme_excerpt": "# nxnative\n\nPlay your own Nintendo Switch and Switch 2 games natively on Apple silicon Macs, iPhone and iPad. One script packs your game into a Mac app or an unsigned IPA that you sideload.\n\nIt is not an emulator: the game's own code runs directly on the Apple chip, with Switch graphics rebuilt on Metal. Nothing from any game is in this repository, and the project is not affiliated with Nintendo or any game publisher.\n\n[Games](#games) · [Community front ends](#community-front-ends) · [Requirements](#requirements) · [How to play](#how-to-play) · [Discussions](#discussions) · [For developers](#for-developers)\n\n## Games\n\nThe full [tested games table](dm/games/README.md#games) includes original Switch games, tested builds, engines and graphics APIs. Each game's note records its tested platforms, progress and known issues.\n\nThese Switch 2 games have passed Mac gameplay testing. Build them from a [`.nup` file or a dump folder](#switch-2-games):\n\n- [Donkey Kong Bananza](dm/games/040074A01BF12000/README.md)\n- [Fast Fusion](dm/games/040041E0212AE000/README.md)\n- [Fire Emblem Fortune's Weave](dm/games/04007EF01F8AE000/README.md) — up to 120 fps\n- [Hyrule Warriors: Age of Imprisonment](dm/gam",
-      "readme_len": 11684,
-      "repo_id": 1416502082,
-      "score": 53.33,
-      "score_parts": {
-        "acceleration": 0.5,
-        "acceleration_known": 0,
-        "acceleration_ratio": 0.0,
-        "age_days": 42.8,
-        "appeal": 0.241,
-        "burst": 0.074,
-        "community": 0.944,
-        "content": 0.037,
-        "corroboration": 0.407,
-        "external": 0.426,
-        "forks_measured": 1,
-        "forks_per_day": 71.92,
-        "forks_rate": 0.912,
-        "freshness": 0.926,
-        "growth": 0.556,
-        "growth_measured": 0,
-        "popularity": 0.926,
-        "reliability": 0.5,
-        "stars_per_day": 389.33
-      },
-      "source_name": "github_search",
-      "sources": [
-        "github_search"
-      ],
-      "star_history": [
-        [
-          "2026-11-25",
-          16662,
-          3078
-        ]
-      ],
-      "stargazers_count": 16662,
-      "stars": 16662,
-      "topics": [],
-      "updated_at": "2026-11-25T00:15:49Z",
-      "url": "https://github.com/seedds/nxnative"
     },
     {
       "archived": false,
@@ -25404,8 +25429,8 @@
     "seedds/nxnative": {
       "first_seen_at": "2026-11-04T12:14:31.131622Z",
       "full_name": "seedds/nxnative",
-      "last_decision": "queued",
-      "last_seen_at": "2026-11-25T00:27:10.135714Z",
+      "last_decision": "published",
+      "last_seen_at": "2026-11-25T18:15:03.130728Z",
       "repo_id": 1416502082,
       "sources": [
         "github_search"
@@ -25413,8 +25438,8 @@
       "star_history": [
         [
           "2026-11-25",
-          16662,
-          3078
+          16716,
+          3094
         ]
       ]
     },
