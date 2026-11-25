@@ -341,7 +341,7 @@
       "week": "2026-W47"
     },
     "facebook-handoff": {
-      "finished_at": "2026-11-24T18:31:29.244000Z",
+      "finished_at": "2026-11-25T18:31:13.609105Z",
       "queued": 1,
       "reason": "queued"
     },
@@ -8870,6 +8870,11 @@
           "published_at": "2026-11-25T18:17:49.380912Z",
           "status": "published",
           "url": "https://bsky.app/profile/githubopensource.bsky.social/post/3n35rg4kmuj2o"
+        },
+        "facebook_sheet": {
+          "at": "2026-11-25T18:31:14.984068Z",
+          "status": "queued",
+          "via": "make.com"
         }
       },
       "description": "make your macbook's trackpad talk using its haptic motor",
