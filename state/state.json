@@ -219,6 +219,15 @@
       "ratio": 0.0,
       "reason": "published",
       "removed": 0
+    },
+    {
+      "date": "2026-11-25",
+      "fingerprint": "2026-11-25|False|brief_gemini_unavailable|0|0.0000|0",
+      "kept": 0,
+      "published": false,
+      "ratio": 0.0,
+      "reason": "brief_gemini_unavailable",
+      "removed": 0
     }
   ],
   "brief_memory": {
@@ -287,7 +296,7 @@
   "dead_letters": [],
   "gemini_daily": {
     "day": "2026-11-25",
-    "units": 24
+    "units": 27
   },
   "gemini_window": [
     [
@@ -28707,7 +28716,7 @@
   "suppressed": {},
   "transient_skips": {
     "news": {
-      "at": "2026-11-24T22:01:30.022998Z",
+      "at": "2026-11-25T21:48:58.509533Z",
       "reason": "brief_gemini_unavailable"
     },
     "publish:us_morning": {
