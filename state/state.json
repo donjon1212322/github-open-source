@@ -8859,7 +8859,10 @@
         "bluesky": {
           "attempts": 0,
           "due_at": "2026-11-25T18:00:00+00:00",
-          "status": "pending"
+          "error": "",
+          "published_at": "2026-11-25T18:17:49.380912Z",
+          "status": "published",
+          "url": "https://bsky.app/profile/githubopensource.bsky.social/post/3n35rg4kmuj2o"
         }
       },
       "description": "make your macbook's trackpad talk using its haptic motor",
@@ -9669,7 +9672,8 @@
         "bluesky": {
           "attempts": 0,
           "due_at": "2026-11-25T18:45:03.130349+00:00",
-          "status": "pending"
+          "held_reason": "not_best_of_day",
+          "status": "held"
         }
       },
       "description": "Switch games running natively on iPhone, iPad and Mac: an NSP folder becomes an unsigned IPA (NSO rewriter, Horizon HLE host, NVN→Metal)",
