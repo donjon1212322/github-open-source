@@ -286,17 +286,13 @@
   },
   "dead_letters": [],
   "gemini_daily": {
-    "day": "2026-11-24",
-    "units": 66
+    "day": "2026-11-25",
+    "units": 9
   },
   "gemini_window": [
     [
-      1795569228.815945,
-      3000
-    ],
-    [
-      1795569233.4096572,
-      1346
+      1795619832.6313207,
+      3882
     ]
   ],
   "last_runs": {
@@ -28594,7 +28590,7 @@
       "reason": "brief_gemini_unavailable"
     },
     "publish:us_morning": {
-      "at": "2026-11-24T16:05:33.544970Z",
+      "at": "2026-11-25T15:17:14.692295Z",
       "reason": "gemini_capacity"
     }
   },

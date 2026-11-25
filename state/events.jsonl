@@ -843,3 +843,4 @@
 {"minutes_late": 547.1, "schedule": "23 2 * * *", "ts": "2026-11-25T11:30:08.269952Z", "type": "late_schedule_ignored"}
 {"deleted": 0, "ts": "2026-11-25T12:47:52.455616Z", "type": "moderation_completed", "updates": 0}
 {"platform": "devto", "repo": "os6/nospeaker", "ts": "2026-11-25T13:34:09.372350Z", "type": "article_published", "url": "https://dev.to/githubopensource/turn-macbook-trackpad-into-a-speaker-open-source-swift-tool-3lho"}
+{"gemini_error_class": "capacity_503", "reason": "gemini_capacity", "repo": "seedds/nxnative", "slot": "us_morning", "ts": "2026-11-25T15:17:14.692309Z", "type": "publish_skipped"}
