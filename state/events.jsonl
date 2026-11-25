@@ -849,3 +849,4 @@
 {"preview_host": "imgbb", "repo": "seedds/nxnative", "ts": "2026-11-25T18:15:02.792932Z", "type": "published_as_text"}
 {"repo": "seedds/nxnative", "score": 53.33, "telegram_message_id": 3645, "telegraph_url": "https://telegra.ph/How-to-Run-Nintendo-Switch-Games-Natively-on-Apple-Silicon-with-nxnative-11-25", "ts": "2026-11-25T18:15:03.130598Z", "type": "project_published"}
 {"platform": "bluesky", "repo": "os6/nospeaker", "ts": "2026-11-25T18:17:49.380961Z", "type": "crosspost_published", "url": "https://bsky.app/profile/githubopensource.bsky.social/post/3n35rg4kmuj2o"}
+{"attempts": 1, "detail": "HTTP 204", "slot": "facebook-handoff", "ts": "2026-11-25T18:30:49.836252Z", "type": "watchdog_recovered", "verified": false}

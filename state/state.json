@@ -429,6 +429,13 @@
       }
     },
     "watchdog_dispatches": {
+      "2026-11-25:facebook-handoff": {
+        "at": "2026-11-25T18:30:48.615535Z",
+        "attempts": 1,
+        "detail": "HTTP 204",
+        "dispatched": true,
+        "verified": false
+      },
       "2026-11-25:publish:us_morning": {
         "at": "2026-11-25T15:30:55.161667Z",
         "attempts": 1,
