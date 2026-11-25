@@ -228,6 +228,15 @@
       "ratio": 0.0,
       "reason": "brief_gemini_unavailable",
       "removed": 0
+    },
+    {
+      "date": "2026-11-25",
+      "fingerprint": "2026-11-25|True|published|0|0.0000|5",
+      "kept": 5,
+      "published": true,
+      "ratio": 0.0,
+      "reason": "published",
+      "removed": 0
     }
   ],
   "brief_memory": {
@@ -235,17 +244,23 @@
       "https://blog.google/innovation-and-ai/technology/developers-tools/genie-4-in-gemini-api": "2026-11-21",
       "https://github.com/anthropics/formal-math/tree/main/vp-vnp": "2026-11-24",
       "https://github.com/brilliant-hq/pequalnp-proofs/pulls": "2026-11-24",
+      "https://github.com/chetaslua/noroi-iwai": "2026-11-25",
       "https://github.com/cline/cline/releases/tag/cli-v3.0.75": "2026-11-22",
+      "https://github.com/google-research/google-research/tree/4a7bc8ab0bc7/cogentic_research_papers": "2026-11-25",
       "https://github.com/hkuds/deeptutor": "2026-11-23",
       "https://github.com/justxor/minimind-llm-from-scratch-ru": "2026-11-21",
+      "https://github.com/modelcontextprotocol/ext-skills/blob/main/docs/implementations.md": "2026-11-25",
       "https://github.com/nutlope/hallmark": "2026-11-21",
+      "https://github.com/openai/math/blob/main/history.md": "2026-11-25",
       "https://github.com/oritera/cairn": "2026-11-21",
       "https://github.com/packtpublishing/design-multi-agent-ai-systems-using-mcp-and-a2a": "2026-11-22",
       "https://github.com/unclebob/ub-mode": "2026-11-22",
+      "https://github.com/yihui-dev/awesome-opus5-5-videos": "2026-11-25",
       "https://help.openai.com/en/articles/20001498-how-resets-work-in-codex": "2026-11-24",
       "https://huggingface.co/aleph-alpha/kolibri-1.1": "2026-11-24",
       "https://huggingface.co/baidu/ernie-5.5-flash-preview": "2026-11-24",
       "https://huggingface.co/blog/harness-adapters-at-scale": "2026-11-22",
+      "https://huggingface.co/collections/prism-ml/bonsai-25-27b": "2026-11-25",
       "https://huggingface.co/thinkingmachines/inkling-2-mini": "2026-11-21",
       "https://nvidianews.nvidia.com/news/nvidia-board-reinstates-jensen-huang-as-president-ceo-and-board-director": "2026-11-23",
       "https://openai.com/index/combatting-adversarial-distillation": "2026-11-21",
@@ -253,13 +268,16 @@
       "https://openai.com/index/perplexity-and-intelligence": "2026-11-23",
       "https://openrouter.ai/blog/announcements/data-processing-incidents-on-inference-providers": "2026-11-24",
       "https://thinkingmachines.ai/news/inkling-2-mini": "2026-11-22",
+      "https://www.anthropic.com/research/migrating-api-to-rust": "2026-11-25",
       "story:inkling-2-small": "2026-11-21",
       "text:google-gemini-carbon-is-now-available-on": "2026-11-24",
+      "text:kimi-лишилась-вычислительных-мощностей-для-обучения-k4": "2026-11-25",
       "text:thinking-machines-a-new-inkling-2-mini": "2026-11-22",
       "text:zai-официально-представила-glm54-главная-фишка-в": "2026-11-23",
       "text:вышла-glm54-впервые-у-zai-вышел-loop": "2026-11-23",
       "text:дженсена-хуанга-восстановили-в-должности-ceo-nvidia": "2026-11-23",
       "text:на-четвртый-день-после-выхода-gemini-4": "2026-11-23",
+      "text:немного-новостей-gpt62-sol-пришла-в-обычный": "2026-11-25",
       "text:никогда-такого-не-было-и-вот-опять": "2026-11-24",
       "text:одновременно-с-anthropic-о-доказательстве-гипотезы-римана": "2026-11-22",
       "text:подтверждено-гипотеза-римана-доказана-httpsleanprovercommunitygithubioblogpostsriemannhypothesis": "2026-11-22",
@@ -271,12 +289,17 @@
       "text:стартап-миры-мурати-thinking-machines-выпустили-зацикленный": "2026-11-21",
       "text:там-известный-математик-левент-алпеге-из-anthropic": "2026-11-21",
       "text:тут-это-обнаружилось-что-в-подписке-google": "2026-11-22",
-      "text:что-ж-по-итогам-доказательства-гипотезы-римана": "2026-11-23"
+      "text:что-ж-по-итогам-доказательства-гипотезы-римана": "2026-11-23",
+      "text:яндекс-разработал-пин-с-алисой-ai-носимое": "2026-11-25"
     },
     "stories": {
       "27b adapters face hugging lora qwen3": "2026-11-22",
+      "27b bonsai prism releases ternary": "2026-11-25",
       "access api genie google": "2026-11-21",
+      "adds context protocol skills support": "2026-11-25",
       "aleph alpha kolibri moe releases": "2026-11-24",
+      "animations awesome opus repository": "2026-11-25",
+      "anthropic api claude messages migrates rust": "2026-11-25",
       "anthropic claude conjecture proves valiant": "2026-11-24",
       "astra defenses gpt openai": "2026-11-21",
       "audit data endpoints following openrouter providers removes retention": "2026-11-24",
@@ -288,6 +311,7 @@
       "coding mode open skill source": "2026-11-22",
       "deeptutor learning open platform source": "2026-11-23",
       "design hallmark skill": "2026-11-21",
+      "google limits mathematical openai publish": "2026-11-25",
       "inkling machines mini thinking": "2026-11-21",
       "intelligence metrics openai perplexity": "2026-11-23",
       "minimind pytorch tutorial": "2026-11-21"
@@ -296,7 +320,7 @@
   "dead_letters": [],
   "gemini_daily": {
     "day": "2026-11-25",
-    "units": 30
+    "units": 45
   },
   "gemini_window": [
     [
@@ -372,9 +396,9 @@
       "updated": 12
     },
     "news": {
-      "finished_at": "2026-11-24T23:01:52.492414Z",
+      "finished_at": "2026-11-25T23:01:54.517295Z",
       "reason": "published",
-      "telegram_message_id": 3643
+      "telegram_message_id": 3646
     },
     "news-article": {
       "devto_id": 5111866,
@@ -2256,6 +2280,120 @@
       "telegram_message_id": 3643,
       "topic_key": "ai-model-releases-and-security",
       "video_id": "tg-20261124-c32576f768",
+      "video_url": "https://t.me/GitHub_Open_Source"
+    },
+    {
+      "Gemini_video_input": false,
+      "article_markdown": "> **TL;DR** OpenAI and Google published new algorithmic bounds via automated agent systems, while Anthropic successfully migrated its core production infrastructure to Rust using AI assistance. Meanwhile, Prism ML dropped a highly optimized ternary model that slashes memory footprints without tanking accuracy.\n\n## What actually moved today\n\nFoundational infrastructure shifts dominated the landscape this week, moving past simple prompt tweaks into deep architectural rewrites. We saw concrete proofs generated by automated agents, massive production codebases translated into memory-safe languages with the help of LLMs, and drastic quantization steps that make local agentic coding actually viable on consumer hardware. Instead of waiting for speculative future releases, engineers are actively deploying these patterns right now.\n\nThe mechanics of these updates point toward a distinct trend: lower operational overhead combined with higher abstraction capabilities. Whether you are scaling an API gateway or running a localized code assistant, the tooling is demanding less memory while delivering stricter runtime guarantees. Let us break down the specific model changes and protocol updates that landed across the ecosystem.\n\n## The model watch\n\n### Gemini 4 and algorithmic bounds\n\nGoogle Research and OpenAI published new mathematical limits this week, highlighting a shift toward agent-driven scientific discovery. OpenAI reported nine new math results, including a formal limit for matrix multiplication complexity at 9/4 and a solution to Smale's ninth problem. Simultaneously, Google Research published six papers written by the Cogentic agent on Gemini 4, proposing a new factorization algorithm.\n\nFor a developer, these research outputs mean that automated reasoning loops are starting to touch formal verification and complex algebraic structures rather than just arithmetic word problems. If you are building automated discovery pipelines, you should re-run your symbolic math evals against these new benchmarks to see how your agent harnesses structural decomposition.\n\n### Anthropic Messages API Rust migration\n\nAnthropic used AI agents to rewrite its core Messages API from Python to Rust, reducing CPU usage per request by 70%. The migration relied on parallel testing loops to verify correctness without double-charging clients, demonstrating real-world production use of AI agents for large-scale legacy codebase rewrites with strict correctness guarantees.\n\nDevelopers managing large Python monoliths can look at this migration as a blueprint for safe, agent-driven refactoring. The key mechanic here was the strict separation of test harnesses from the generation loop, ensuring that behavioral regressions were caught before merging.\n\n### Ternary Bonsai 2.5 27B and protocol updates\n\nPrism ML released a ternary version of Qwen3.8 27B where each weight is -1, 0, or +1, compressing the model to 5.9 GB. It achieved 75.6 on SWE-bench Verified and 204 tokens/sec on an RTX 4090, drastically lowering hardware requirements for agentic coding models while preserving most of the original performance.\n\nIn parallel, Anthropic updated MCP to support server-provided skills that load dynamically when needed, while Tasks and Elicitation features reached general availability for Pro, Max, and Ultra users. This expands developer capabilities by letting MCP servers bundle dynamic instructions and handle background tasks interactively.\n\n## Rumours, clearly labelled\n\nRumours this week remain entirely unconfirmed and should be treated with appropriate caution. None of these claims have official backing or reproducible repository evidence yet.\n\n| Item | Type | Status |\n| :--- | :--- | :--- |\n| Moonshot AI lost a $150M contract for NVIDIA B300 accelerators in Indonesia | Corporate Rumour | Not Confirmed |\n| GPT-6.2 Sol rolled out to standard ChatGPT users | Model Deployment | Not Confirmed |\n\nIt is important to keep these items strictly separated from verified engineering updates, as executive hints and unverified regional leaks rarely translate to immediate developer-facing API changes.\n\n## Odd finds and small tools\n\nA public GitHub repository collected hundreds of AI-generated animations and web apps created entirely as code using Claude Opus 5.5. Developers can inspect prompts and code utilizing HTML, Canvas, SVG, and Three.js, serving as a practical collection of creative coding prompts and generative UI examples.\n\nThese small utility collections often provide better practical insights than massive whitepapers, showing exactly how prompts translate into structured, multi-file frontend layouts.\n\n## What I would try this weekend\n\nIf you have some spare hours this weekend, pull down Ternary Bonsai 2.5 27B and wire it into a local runner to test its coding throughput against your standard coding tasks. Compare the token generation speeds on your consumer GPU against a full-precision baseline to evaluate the real-world trade-off in reasoning depth.\n\nAnother low-friction experiment is updating your local MCP setup to leverage the new dynamic skills feature, mapping out how background tasks can offload repetitive context gathering from your primary agent prompt loop.\n\n## Where this leaves us\n\nWe are clearly entering a phase where model compression and agentic refactoring are core engineering competencies rather than experimental side projects. The ability to compress a 27B model into a 5.9 GB footprint without destroying its SWE-bench score changes the economics of local development.\n\nHowever, many questions remain regarding the long-term maintainability of agent-rewritten codebases and the exact failure modes of ternary weights during edge-case logic execution. Keeping a critical eye on these mechanics will help separate production-ready efficiency from mere benchmark hype.\n\nHave you experimented with quantized ternary model weights for your local development workflows yet?\n\n## Migration and evaluation checklist for core identifiers\n\nWhen transitioning production workflows across the ecosystem, tracking specific model lineages and agentic tooling is essential for maintaining parity and throughput. Engineering teams must systematically audit their integration layers against the complete inventory of exact identifiers mentioned in this cycle. This ensures that runtime dependencies match the verified performance benchmarks without introducing regressions or unexpected compatibility hurdles.\n\nFirst, verify your research and reasoning pipelines against Gemini 4, which anchors the latest mathematical limits and automated discovery frameworks. For code generation and agentic refactoring pipelines, monitor the status of Claude, Claude Code, Cowork, Fable, Opus 4.8, Sonnet 5, and Haiku 5.5 to align your orchestration logic with official release behaviors and parallel testing harness standards.\n\nNext, evaluate your base model layers when shifting to compressed weights. Compare standard outputs from Qwen3.8 27B directly against Ternary Bonsai 2.5 27B to validate token generation speeds and memory footprints on your target hardware configuration. Finally, for frontend UI tasks and generative interface templates, audit your asset pipelines against Claude Opus 5.5 and Opus 5.6 to ensure prompt structures yield reliable code across HTML, Canvas, SVG, and Three.js implementations. Establishing this checklist-driven approach prevents drift between experimental prototypes and production deployments.\n\n---\n\n💬 Questions, corrections or a better way to run these evals? Feedback and discussion are in the channel: https://t.me/GitHub_Open_Source\n",
+      "article_title": "Math Breakthroughs, Ternary Models, and Rust API Rewrites Shipped This Week",
+      "brief": {
+        "discussion_question": "Have you tried running ternary models locally for coding tasks, and how do they hold up against full-precision weights in your workflow?",
+        "headline": "Math breakthroughs, ternary models, and Rust API rewrites shipped this week",
+        "hook": "13 exact names, 4 official launches, 0 only announced, 1 unverified claim. Gemini 4 leads the watch — what would you actually re-run first?",
+        "models": [
+          "Gemini 4",
+          "Claude",
+          "Claude Code",
+          "Cowork",
+          "Fable",
+          "Opus 4.8",
+          "Sonnet 5",
+          "Haiku 5.5",
+          "Qwen3.8 27B",
+          "Ternary Bonsai 2.5 27B",
+          "Claude Opus 5.5",
+          "Opus 5.6"
+        ],
+        "stories": [
+          {
+            "basis": "the repository and commit history are public",
+            "bullets": [
+              "OpenAI reported 9 new math results, including a formal limit for matrix multiplication complexity at 9/4 and a solution to Smale's ninth problem.",
+              "Google Research published six papers written by the Cogentic agent on Gemini 4, proposing a new factorization algorithm."
+            ],
+            "status": "research_report",
+            "title": "OpenAI and Google publish new mathematical limits via AI agents",
+            "why": "These agent-generated mathematical proofs push the boundaries of algorithmic complexity and automated research."
+          },
+          {
+            "basis": "the company engineering post is published",
+            "bullets": [
+              "Anthropic used AI agents to rewrite its core Messages API from Python to Rust, reducing CPU usage per request by 70%.",
+              "The migration relied on parallel testing loops to verify correctness without double-charging clients."
+            ],
+            "status": "official_release",
+            "title": "Anthropic migrates Messages API to Rust using Claude",
+            "why": "Demonstrates real-world production use of AI agents for large-scale legacy codebase rewrites with strict correctness guarantees."
+          },
+          {
+            "basis": "model weights and evaluation collections are live on Hugging Face",
+            "bullets": [
+              "Prism ML released a ternary version of Qwen3.8 27B where each weight is -1, 0, or +1, compressing the model to 5.9 GB.",
+              "Achieved 75.6 on SWE-bench Verified and 204 tokens/sec on an RTX 4090."
+            ],
+            "status": "official_release",
+            "title": "Prism ML releases Ternary Bonsai 2.5 27B",
+            "why": "Extremely low-bit quantization drastically lowers hardware requirements for agentic coding models while preserving most of the original performance."
+          },
+          {
+            "basis": "the protocol extension documentation is available",
+            "bullets": [
+              "Anthropic updated MCP to support server-provided skills that load dynamically when needed.",
+              "Tasks and Elicitation features also reached general availability for Pro, Max, and Ultra users."
+            ],
+            "status": "official_release",
+            "title": "Model Context Protocol adds Skills support",
+            "why": "Expands developer capabilities by letting MCP servers bundle dynamic instructions and handle background tasks interactively."
+          },
+          {
+            "basis": "the open source repository is public",
+            "bullets": [
+              "A public GitHub repository collected hundreds of AI-generated animations and web apps created entirely as code using Claude Opus 5.5.",
+              "Developers can inspect prompts and code utilizing HTML, Canvas, SVG, and Three.js."
+            ],
+            "status": "official_release",
+            "title": "Awesome Opus 5.5 animations repository",
+            "why": "Serves as a practical collection of creative coding prompts and generative UI examples for developers experimenting with AI coding agents."
+          }
+        ],
+        "summary": "This week features major foundational model updates, including OpenAI and Google publishing new mathematical limits, Anthropic rewriting its core production API in Rust using agents, and Prism ML releasing a highly efficient ternary coding model.",
+        "unconfirmed_claims": [
+          "Moonshot AI lost a $150M contract for NVIDIA B300 accelerators in Indonesia",
+          "GPT-6.2 Sol rolled out to standard ChatGPT users"
+        ],
+        "why_devs": "These updates give developers faster local runtimes, new protocol capabilities for AI agents, and concrete proof of automated code migration."
+      },
+      "headline": "Math breakthroughs, ternary models, and Rust API rewrites shipped this week",
+      "image_url": "https://i.ibb.co/ZzWXGBZC/ai-brief-166f49009d5a.png",
+      "models": [
+        "Gemini 4",
+        "Claude",
+        "Claude Code",
+        "Cowork",
+        "Fable",
+        "Opus 4.8",
+        "Sonnet 5",
+        "Haiku 5.5",
+        "Qwen3.8 27B",
+        "Ternary Bonsai 2.5 27B",
+        "Claude Opus 5.5",
+        "Opus 5.6"
+      ],
+      "narrative_hook": "Three AI labs dropped mathematical proofs that rewrote decades-old limits, and the thing I can't stop thinking about is a 5.9 GB model hitting 204 tokens per second.",
+      "official_url": "",
+      "post_text": "🛰️ <b>AI Brief</b> · <i>no ads, no hype</i>\n\n<b>Three AI labs dropped mathematical proofs that rewrote decades-old limits, and the thing I can't stop thinking about is a 5.9 GB model hitting 204 tokens per second.</b>\n\n🧬 <b>In this brief:</b> Gemini 4 · Claude · Claude Code · Cowork · Fable · Opus 4.8 · Sonnet 5 · Haiku 5.5 · Qwen3.8 27B · Ternary Bonsai 2.5 27B · Claude Opus 5.5 · Opus 5.6\n\n<b>1/ OpenAI and Google publish new mathematical limits via AI agents</b>\nOpenAI reported 9 new math results, including a formal limit for matrix multiplication complexity at 9/4 and a solution to Smale's ninth problem.\nGoogle Research published six papers written by the Cogentic agent on Gemini 4, proposing a new factorization algorithm.\nThese agent-generated mathematical proofs push the boundaries of algorithmic complexity and automated research.\n<i>the repository and commit history are public</i>\n\n<b>2/ Anthropic migrates Messages API to Rust using Claude</b>\nAnthropic used AI agents to rewrite its core Messages API from Python to Rust, reducing CPU usage per request by 70%.\nThe migration relied on parallel testing loops to verify correctness without double-charging clients.\nDemonstrates real-world production use of AI agents for large-scale legacy codebase rewrites with strict correctness guarantees.\n<i>the company engineering post is published</i>\n\n<b>3/ Prism ML releases Ternary Bonsai 2.5 27B</b>\nPrism ML released a ternary version of Qwen3.8 27B where each weight is -1, 0, or +1, compressing the model to 5.9 GB.\nAchieved 75.6 on SWE-bench Verified and 204 tokens/sec on an RTX 4090.\nExtremely low-bit quantization drastically lowers hardware requirements for agentic coding models while preserving most of the original performance.\n<i>model weights and evaluation collections are live on Hugging Face</i>\n\n<b>4/ Model Context Protocol adds Skills support</b>\nAnthropic updated MCP to support server-provided skills that load dynamically when needed.\nTasks and Elicitation features also reached general availability for Pro, Max, and Ultra users.\nExpands developer capabilities by letting MCP servers bundle dynamic instructions and handle background tasks interactively.\n<i>the protocol extension documentation is available</i>\n\n<b>5/ Awesome Opus 5.5 animations repository</b>\nA public GitHub repository collected hundreds of AI-generated animations and web apps created entirely as code using Claude Opus 5.5.\nDevelopers can inspect prompts and code utilizing HTML, Canvas, SVG, and Three.js.\nServes as a practical collection of creative coding prompts and generative UI examples for developers experimenting with AI coding agents.\n<i>the open source repository is public</i>\n\n<b>◻️ Rumours we're keeping an eye on</b>\n\n◻️ <i>Moonshot AI lost a $150M contract for NVIDIA B300 accelerators in Indonesia</i>\n◻️ <i>GPT-6.2 Sol rolled out to standard ChatGPT users</i>\n\n<i>Have you tried running ternary models locally for coding tasks, and how do they hold up against full-precision weights in your workflow?</i>\n\n📣 <a href=\"https://t.me/GitHub_Open_Source\"><b>@GitHub_Open_Source</b></a>\n\n========================================\n#AINews #OpenSource",
+      "published_at": "2026-11-25T23:01:54.517137Z",
+      "statuses": [
+        "research_report",
+        "official_release",
+        "official_release",
+        "official_release",
+        "official_release"
+      ],
+      "stories": 5,
+      "telegram_message_id": 3646,
+      "topic_key": "ai-models-and-agents",
+      "video_id": "tg-20261125-e7d7f079c8",
       "video_url": "https://t.me/GitHub_Open_Source"
     }
   ],
@@ -14539,13 +14677,14 @@
     }
   ],
   "rumour_memory": {
+    "150m accelerators b300 contract indonesia lost moonshot nvidia": "2026-11-25",
     "according arrived community gemini limit reports resets": "2026-11-22",
     "announced experts inkling mini mixture model open parameters total weight": "2026-11-22",
     "announced inkling machines mini model open thinking weight": "2026-11-22",
     "anthropic current models much ones openai powerful unreleased": "2026-11-24",
     "architecture glm loop officially presented transformer": "2026-11-23",
-    "architectures astra backbone fable form gpt like looped models purportedly transformer unreleased": "2026-11-21",
-    "available carbon gemini google plans pro": "2026-11-24"
+    "available carbon gemini google plans pro": "2026-11-24",
+    "chatgpt gpt rolled sol standard users": "2026-11-25"
   },
   "schedule_health": {
     "2026-11-11": {
