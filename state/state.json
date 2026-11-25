@@ -287,12 +287,16 @@
   "dead_letters": [],
   "gemini_daily": {
     "day": "2026-11-24",
-    "units": 60
+    "units": 66
   },
   "gemini_window": [
     [
-      1795544099.7773983,
-      1323
+      1795569228.815945,
+      3000
+    ],
+    [
+      1795569233.4096572,
+      1346
     ]
   ],
   "last_runs": {
@@ -387,9 +391,9 @@
       "telegram_message_id": 3550
     },
     "publish:us_evening": {
-      "finished_at": "2026-11-24T01:13:56.820650Z",
-      "repo": "zortos293/lichii",
-      "telegram_message_id": 3640
+      "finished_at": "2026-11-25T01:13:58.278498Z",
+      "repo": "os6/nospeaker",
+      "telegram_message_id": 3644
     },
     "publish:us_midday": {
       "finished_at": "2026-11-24T18:15:04.682435Z",
@@ -8790,6 +8794,109 @@
       "visual_host": "imgbb",
       "visual_kind": "readme"
     },
+    "os6/nospeaker": {
+      "articles": {},
+      "card_style": "neon_terminal",
+      "category": "CLI",
+      "contributors_count": 3,
+      "created_at": "2026-11-22T12:05:54Z",
+      "crossposts": {
+        "bluesky": {
+          "attempts": 0,
+          "due_at": "2026-11-25T18:00:00+00:00",
+          "status": "pending"
+        }
+      },
+      "description": "make your macbook's trackpad talk using its haptic motor",
+      "description_fp": "45db4a4caea1bee1",
+      "forks": 89,
+      "full_name": "os6/nospeaker",
+      "generated": {
+        "article_markdown": "## What it is\n\nNospeaker is a single-file Swift utility that makes a MacBook trackpad talk, sing, or generate tones by driving its internal haptic motor up to 4,000 times a second. Because a trackpad lacks a traditional speaker, the tool oscillates the glass surface fast enough to create audible sound waves.\n\n## Why it matters\n\nApple's public haptic APIs restrict developers to a handful of fixed click sensations. By reaching into private frameworks like MultitouchSupport, this project demonstrates how to exercise fine-grained control over actuation dictionaries, turning standard hardware components into makeshift acoustic transducers.\n\n## Key features\n\n- Drives the trackpad motor at frequencies ranging from 98 Hz to 3,951 Hz.\n- Extracts two formants and pitch from macOS native speech every 10 milliseconds.\n- Turns unvoiced sibilants into quick bursts of high-frequency tones.\n- Runs as a zero-dependency single-file Swift implementation.\n\n## Quick start\n\n```sh\ncurl -fsSL a90.com/nospeaker | sh\n```\n\n## Who should try it\n\nMac developers and hardware enthusiasts interested in undocumented macOS APIs and creative peripheral hacking.\n\n## Verdict\n\nIt is a brilliant technical demonstration of hardware limits, though its robotic audio quality keeps it firmly in the category of fascinating experiments.",
+        "article_title": "os6/nospeaker: Turn Your MacBook Trackpad Into a Speaker Using Haptics",
+        "card_hook": "Make your trackpad talk",
+        "card_subline": "Turn a MacBook haptic motor into a voice without using any speakers",
+        "category": "CLI",
+        "discussion_question": "Would you rather listen to synthesized voice output through your trackpad or your keyboard switches?",
+        "hook": "Make a MacBook trackpad talk by driving its haptic motor up to 4,000 times a second using a single CLI command.",
+        "key_features": [
+          "Drives the trackpad motor at frequencies ranging from 98 Hz to 3,951 Hz",
+          "Extracts two strongest formants and pitch from macOS native speech every 10 ms",
+          "Translates unvoiced sounds like s, f, and t into high-tone bursts",
+          "Supports external Magic Trackpads alongside built-in MacBook trackpads",
+          "Single-file Swift implementation with zero external dependencies"
+        ],
+        "llm_used": true,
+        "quick_start": "curl -fsSL a90.com/nospeaker | sh",
+        "safety": "ok",
+        "safety_reason": "Uses undocumented private APIs for creative haptic audio synthesis without malicious intent.",
+        "scene": "You type a phrase into your terminal, mute your laptop speakers, and wait for sound to emerge.",
+        "social_text": "Make your MacBook trackpad talk using its haptic motor with this zero-dependency Swift CLI utility.",
+        "summary": "This tool bypasses standard public haptic limitations by tapping into private macOS frameworks like MultitouchSupport. It takes generated speech, breaks it down into formants every 10 milliseconds, and translates those frequencies into precise sine tones played directly on the trackpad glass. Because the motor vibrates fast enough to generate audible sound, the glass itself functions as a miniature speaker.",
+        "surfaces": {
+          "Facebook_body": "Have you ever wondered if your laptop trackpad could double as a speaker? A new open-source project lets you turn the glass surface of a MacBook or external trackpad into an audio device by vibrating the internal haptic motor at extreme speeds.\n\nInstead of playing sound through standard audio drivers, the tool takes generated speech, analyzes its frequencies every few milliseconds, and translates those tones into rapid physical vibrations on the trackpad glass. Because the motor can pulse up to 4,000 times a second, the surface itself acts as a tiny, makeshift speaker.\n\nBuilt entirely in Swift with zero external dependencies, this single-file utility is a fascinating afternoon experiment for Mac tinkerers who want to explore hidden hardware capabilities. While it is strictly a novelty rather than a replacement for your daily headphones, it offers a brilliant look at low-level hardware control on modern Apple laptops.",
+          "Facebook_headline": "Make your laptop trackpad speak out loud",
+          "Facebook_lead": "A clever new tool lets you turn your MacBook trackpad into a miniature speaker using hidden hardware controls, vibrating the glass fast enough to generate audible sound.",
+          "bluesky_headline": "Turn your trackpad into a speaker with a single command",
+          "bluesky_lead": "It drives the haptic motor up to 4,000 times a second to play speech directly from the glass.",
+          "devto_body": "## What it is\n\nnospeaker is a single-file Swift command-line utility that bypasses standard public haptic limitations on macOS. It taps into private frameworks like MultitouchSupport to drive a MacBook or external Magic Trackpad haptic motor at frequencies ranging from 98 Hz to 3,951 Hz, effectively turning the trackpad glass into a miniature speaker.\n\n## How it works\n\nThe tool takes generated speech, breaks it down into formants and pitch every 10 milliseconds, and translates those frequencies into precise sine tones. Unvoiced sounds such as s, f, and t are converted into high-tone bursts, which are then played directly on the trackpad glass via rapid motor vibrations.\n\n## Key features\n\n- Drives the trackpad motor up to 4,000 times a second\n- Extracts the two strongest formants and pitch from macOS native speech every 10 ms\n- Translates unvoiced sounds into high-tone bursts\n- Supports both built-in MacBook trackpads and external Magic Trackpads\n- Single-file Swift implementation with zero external dependencies\n\n## Getting started\n\nClone the repository and run the Swift file directly from your terminal using the provided command structure. Ensure you are running on compatible Apple Silicon hardware where private haptic frameworks can be tested.\n\n## When not to use it\n\nThis is strictly a hardware hack and a novelty for daily use. Do not rely on it for primary audio output or accessibility text-to-speech needs.",
+          "seo_description": "Learn how an open-source Swift tool uses private macOS frameworks to turn a MacBook trackpad into a miniature speaker using rapid haptic motor vibrations.",
+          "seo_query": "how to turn macbook trackpad into speaker",
+          "seo_title": "Turn MacBook Trackpad Into a Speaker - Open Source Swift Tool",
+          "telegraph_angle": "Explain how private macOS frameworks are misused to drive hardware haptics as audio drivers, and discuss the trade-offs of using a trackpad as a novelty speaker."
+        },
+        "tension": "MacBook trackpads contain no physical speakers, limiting feedback to standard tactile clicks.",
+        "turn": "Nospeaker bypasses the public three-tap haptic API to oscillate the glass into audible speech, though it still sounds heavily robotic.",
+        "verdict": "An impressive hardware hack for an afternoon, but strictly a novelty for daily use.",
+        "who_for": "Mac developers and tinkerers curious about macOS hardware internals and private APIs.",
+        "why_now": "It demonstrates a clever misuse of private haptic frameworks that became newly testable on modern Apple Silicon hardware."
+      },
+      "hn_points": 325,
+      "homepage": "https://x.com/codycollier",
+      "id": 1467519193,
+      "image_url": "https://i.ibb.co/7tXCdSQ2/os6-nospeaker-preview-d832849b5f7e.jpg",
+      "is_dual_use": false,
+      "is_hidden_gem": false,
+      "language": "Swift",
+      "license": {
+        "key": "mit",
+        "name": "MIT License",
+        "node_id": "MDc6TGljZW5zZTEz",
+        "spdx_id": "MIT",
+        "url": "https://api.github.com/licenses/mit"
+      },
+      "media_urls": [],
+      "name": "nospeaker",
+      "open_issues": 17,
+      "published_at": "2026-11-25T01:13:58.278139Z",
+      "pushed_at": "2026-11-24T02:43:05Z",
+      "readme_fp": "52e3d20df22067b6",
+      "repo_id": 1467519193,
+      "revisit_of": "",
+      "revisit_reason": "",
+      "score": 54.45,
+      "slot": "us_evening",
+      "sources": [
+        "hacker_news",
+        "telegram:open_source_friend",
+        "telegram:github_repos"
+      ],
+      "stars": 1760,
+      "telegram_chat_id": "@GitHub_Open_Source",
+      "telegram_link": "https://t.me/GitHub_Open_Source/3644",
+      "telegram_message_id": 3644,
+      "telegraph_url": "https://telegra.ph/os6nospeaker-Turn-Your-MacBook-Trackpad-Into-a-Speaker-Using-Haptics-11-25",
+      "topics": [
+        "haptics",
+        "macos",
+        "swift",
+        "trackpad"
+      ],
+      "updated_at": "2026-11-25T01:11:07Z",
+      "url": "https://github.com/os6/nospeaker",
+      "visual_host": "imgbb",
+      "visual_kind": "card"
+    },
     "patch-gg/pixelfx": {
       "articles": {},
       "card_style": "editorial_daily",
@@ -12051,88 +12158,6 @@
       ],
       "updated_at": "2026-11-25T00:24:59Z",
       "url": "https://github.com/tt-a1i/archify"
-    },
-    {
-      "archived": false,
-      "contributors_count": 3,
-      "created_at": "2026-11-22T12:05:54Z",
-      "default_branch": "main",
-      "description": "make your macbook's trackpad talk using its haptic motor",
-      "disabled": false,
-      "fork": false,
-      "forks": 88,
-      "forks_count": 88,
-      "full_name": "os6/nospeaker",
-      "has_readme": true,
-      "hn_points": 325,
-      "homepage": "https://x.com/codycollier",
-      "id": 1467519193,
-      "is_dual_use": false,
-      "is_hidden_gem": false,
-      "language": "Swift",
-      "license": {
-        "key": "mit",
-        "name": "MIT License",
-        "node_id": "MDc6TGljZW5zZTEz",
-        "spdx_id": "MIT",
-        "url": "https://api.github.com/licenses/mit"
-      },
-      "media_urls": [],
-      "name": "nospeaker",
-      "non_software_reason": "",
-      "open_issues": 17,
-      "open_issues_count": 17,
-      "owner_repo_count": 1,
-      "pushed_at": "2026-11-24T02:43:05Z",
-      "readme": "",
-      "readme_excerpt": "```text\n────────────────────────  a90.com presents  ─────────────────────────\n\n    _   __ ____      _____  ____   ______ ___     __ __  ______ ____\n   / | / // __ \\    / ___/ / __ \\ / ____//   |   / //_/ / ____// __ \\\n  /  |/ // / / /    \\__ \\ / /_/ // __/  / /| |  / ,<   / __/  / /_/ /\n / /|  // /_/ /    ___/ // ____// /___ / ___ | / /| | / /___ / _, _/\n/_/ |_/ \\____/    /____//_/    /_____//_/  |_|/_/ |_|/_____//_/ |_|\n\n─  haptic voice synthesis  ─────────────────────────────  trackpad  ─\n```\n\n**Mute your Mac. Your trackpad will still talk.**\n\nThere's no speaker in a MacBook trackpad, just a small haptic motor that taps the glass so you feel a click.\nNO SPEAKER drives that motor up to 4,000 times a second, fast enough to make sound you can hear, and turns it\ninto a voice. It talks, sings, raps, and becomes an instrument under your finger.\n\nOne command. About a minute and a half. No speakers used.\n\n[Watch the demo on X](https://x.com/codycollier/status/2124505859883716918), with the sound on.\n\n## 01 / before you start\n\n```text\n[ mute your mac ]        it still talks; that's the point\n[ put it on a table ]    on your lap it's much quieter\n[ hands off the glass ]  until it asks you ",
-      "readme_len": 6419,
-      "repo_id": 1467519193,
-      "score": 54.45,
-      "score_parts": {
-        "acceleration": 0.5,
-        "acceleration_known": 0,
-        "acceleration_ratio": 0.0,
-        "age_days": 2.5,
-        "appeal": 0.241,
-        "burst": 0.593,
-        "community": 0.407,
-        "content": 0.241,
-        "corroboration": 0.981,
-        "external": 1.0,
-        "forks_measured": 1,
-        "forks_per_day": 34.99,
-        "forks_rate": 0.647,
-        "freshness": 0.444,
-        "growth": 0.556,
-        "growth_measured": 0,
-        "popularity": 0.556,
-        "reliability": 0.5,
-        "stars_per_day": 698.67
-      },
-      "source_name": "hacker_news",
-      "sources": [
-        "hacker_news",
-        "telegram:open_source_friend",
-        "telegram:github_repos"
-      ],
-      "star_history": [
-        [
-          "2026-11-24",
-          1421,
-          67
-        ]
-      ],
-      "stargazers_count": 1757,
-      "stars": 1757,
-      "topics": [
-        "haptics",
-        "macos",
-        "swift",
-        "trackpad"
-      ],
-      "updated_at": "2026-11-25T00:24:54Z",
-      "url": "https://github.com/os6/nospeaker"
     },
     {
       "archived": false,
@@ -23635,8 +23660,8 @@
     "os6/nospeaker": {
       "first_seen_at": "2026-11-24T00:26:58.894691Z",
       "full_name": "os6/nospeaker",
-      "last_decision": "queued",
-      "last_seen_at": "2026-11-25T00:27:10.155107Z",
+      "last_decision": "published",
+      "last_seen_at": "2026-11-25T01:13:58.278461Z",
       "repo_id": 1467519193,
       "sources": [
         "github_search",
@@ -23652,8 +23677,8 @@
         ],
         [
           "2026-11-25",
-          1757,
-          88
+          1760,
+          89
         ]
       ]
     },

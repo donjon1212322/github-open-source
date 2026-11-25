@@ -825,3 +825,5 @@
 {"minutes_late": 142.3, "schedule": "47 */3 * * *", "ts": "2026-11-25T00:09:15.531683Z", "type": "late_schedule_ignored"}
 {"discovered": 361, "enriched": 120, "passed_gate": 72, "queued": 28, "rejections": {"archive_password": 10, "blocklist:collection of viral videos": 1, "blocklist:jailbreak": 1, "curation_repo": 1, "description_not_english": 7, "narrow:topic:awesome-list": 1, "no_community": 7, "no_license": 29, "no_push_date": 4, "no_readme": 4, "not_software:topic:awesome": 1, "not_software:topic:music": 1, "readme_not_english": 8, "stars<100": 11, "velocity_too_high": 1}, "ts": "2026-11-25T00:27:10.180883Z", "type": "collect_completed"}
 {"deleted": 0, "ts": "2026-11-25T00:47:50.161439Z", "type": "moderation_completed", "updates": 1}
+{"preview_host": "imgbb", "repo": "os6/nospeaker", "ts": "2026-11-25T01:13:58.042703Z", "type": "published_as_text"}
+{"repo": "os6/nospeaker", "score": 54.45, "telegram_message_id": 3644, "telegraph_url": "https://telegra.ph/os6nospeaker-Turn-Your-MacBook-Trackpad-Into-a-Speaker-Using-Haptics-11-25", "ts": "2026-11-25T01:13:58.278368Z", "type": "project_published"}
