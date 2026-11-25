@@ -434,7 +434,8 @@
         "attempts": 1,
         "detail": "HTTP 204",
         "dispatched": true,
-        "verified": false
+        "verified": true,
+        "verified_at": "2026-11-25T19:00:52.016932Z"
       },
       "2026-11-25:publish:us_morning": {
         "at": "2026-11-25T15:30:55.161667Z",
