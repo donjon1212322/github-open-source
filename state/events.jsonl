@@ -853,3 +853,4 @@
 {"range": "facebook!A24:E24", "rows": 1, "ts": "2026-11-25T18:31:14.984092Z", "type": "facebook_handoff_queued"}
 {"deleted": 0, "ts": "2026-11-25T18:47:48.409311Z", "type": "moderation_completed", "updates": 1}
 {"slot": "facebook-handoff", "ts": "2026-11-25T19:00:52.017047Z", "type": "watchdog_verified"}
+{"minutes_late": 50.1, "schedule": "47 */3 * * *", "ts": "2026-11-25T19:37:03.003047Z", "type": "late_schedule_ignored"}
