@@ -401,13 +401,13 @@
       "telegram_message_id": 3646
     },
     "news-article": {
-      "devto_id": 5111866,
-      "finished_at": "2026-11-24T23:31:17.806781Z",
+      "devto_id": 5119792,
+      "finished_at": "2026-11-25T23:31:12.997768Z",
       "published": true,
-      "title": "Navigating the Latest Open Weights, Formal Proofs, and eBPF Shielding Tools",
-      "topic_key": "ai-model-releases-and-security",
-      "url": "https://dev.to/githubopensource/navigating-the-latest-open-weights-formal-proofs-and-ebpf-shielding-tools-4olg",
-      "words": 1054
+      "title": "Math Breakthroughs, Ternary Models, and Rust API Rewrites Shipped This Week",
+      "topic_key": "ai-models-and-agents",
+      "url": "https://dev.to/githubopensource/math-breakthroughs-ternary-models-and-rust-api-rewrites-shipped-this-week-1j8j",
+      "words": 1088
     },
     "poll-close": {
       "finished_at": "2026-11-19T18:53:54.858983Z",
@@ -2371,6 +2371,7 @@
         ],
         "why_devs": "These updates give developers faster local runtimes, new protocol capabilities for AI agents, and concrete proof of automated code migration."
       },
+      "devto_cover_url": "https://i.ibb.co/cKcSw395/project-devto-cover-14f30a2e27fa.png",
       "headline": "Math breakthroughs, ternary models, and Rust API rewrites shipped this week",
       "image_url": "https://i.ibb.co/ZzWXGBZC/ai-brief-166f49009d5a.png",
       "models": [

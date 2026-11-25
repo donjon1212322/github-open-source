@@ -865,3 +865,4 @@
 {"Gemini_video_input": false, "models": 13, "official_url": "", "stories": 5, "topic": "ai-models-and-agents", "ts": "2026-11-25T23:01:54.517302Z", "type": "ai_brief_published", "video_id": "tg-20261125-e7d7f079c8"}
 {"slot": "news", "ts": "2026-11-25T23:30:50.762450Z", "type": "watchdog_verified"}
 {"attempts": 1, "detail": "HTTP 204", "slot": "news-article", "ts": "2026-11-25T23:30:52.277440Z", "type": "watchdog_recovered", "verified": false}
+{"devto_id": 5119792, "ts": "2026-11-25T23:31:12.997797Z", "type": "news_article_published", "url": "https://dev.to/githubopensource/math-breakthroughs-ternary-models-and-rust-api-rewrites-shipped-this-week-1j8j", "words": 1088}
