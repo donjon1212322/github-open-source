@@ -296,7 +296,7 @@
   "dead_letters": [],
   "gemini_daily": {
     "day": "2026-11-25",
-    "units": 27
+    "units": 30
   },
   "gemini_window": [
     [
@@ -28723,7 +28723,7 @@
   "suppressed": {},
   "transient_skips": {
     "news": {
-      "at": "2026-11-25T21:48:58.509533Z",
+      "at": "2026-11-25T22:01:42.034199Z",
       "reason": "brief_gemini_unavailable"
     },
     "publish:us_morning": {
