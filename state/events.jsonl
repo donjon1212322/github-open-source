@@ -863,3 +863,5 @@
 {"attempts": 2, "detail": "HTTP 204", "slot": "news", "ts": "2026-11-25T23:00:51.673085Z", "type": "watchdog_recovered", "verified": false}
 {"title": "Math Breakthroughs, Ternary Models, and Rust API Rewrites Shipped This Week", "ts": "2026-11-25T23:01:52.705406Z", "type": "news_article_generated", "words": 1088}
 {"Gemini_video_input": false, "models": 13, "official_url": "", "stories": 5, "topic": "ai-models-and-agents", "ts": "2026-11-25T23:01:54.517302Z", "type": "ai_brief_published", "video_id": "tg-20261125-e7d7f079c8"}
+{"slot": "news", "ts": "2026-11-25T23:30:50.762450Z", "type": "watchdog_verified"}
+{"attempts": 1, "detail": "HTTP 204", "slot": "news-article", "ts": "2026-11-25T23:30:52.277440Z", "type": "watchdog_recovered", "verified": false}
