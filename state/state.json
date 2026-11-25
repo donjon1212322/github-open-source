@@ -301,11 +301,11 @@
   ],
   "last_runs": {
     "article": {
-      "finished_at": "2026-11-24T13:33:54.634050Z",
+      "finished_at": "2026-11-25T13:34:09.372475Z",
       "published": true,
       "reason": "published",
-      "repo": "zortos293/lichii",
-      "url": "https://dev.to/githubopensource/nintendo-switch-emulator-open-source-c-desktop-app-4dih"
+      "repo": "os6/nospeaker",
+      "url": "https://dev.to/githubopensource/turn-macbook-trackpad-into-a-speaker-open-source-swift-tool-3lho"
     },
     "collect": {
       "discovered": 361,
@@ -8836,7 +8836,13 @@
       "visual_kind": "readme"
     },
     "os6/nospeaker": {
-      "articles": {},
+      "articles": {
+        "devto": {
+          "id": 5116753,
+          "published_at": "2026-11-25T13:34:09.372326Z",
+          "url": "https://dev.to/githubopensource/turn-macbook-trackpad-into-a-speaker-open-source-swift-tool-3lho"
+        }
+      },
       "card_style": "neon_terminal",
       "category": "CLI",
       "contributors_count": 3,
@@ -8850,6 +8856,7 @@
       },
       "description": "make your macbook's trackpad talk using its haptic motor",
       "description_fp": "45db4a4caea1bee1",
+      "devto_cover_url": "https://i.ibb.co/gFdXjM5x/os6-nospeaker-devto-cover-e7afd56446bd.png",
       "forks": 89,
       "full_name": "os6/nospeaker",
       "generated": {
