@@ -829,3 +829,4 @@
 {"repo": "os6/nospeaker", "score": 54.45, "telegram_message_id": 3644, "telegraph_url": "https://telegra.ph/os6nospeaker-Turn-Your-MacBook-Trackpad-Into-a-Speaker-Using-Haptics-11-25", "ts": "2026-11-25T01:13:58.278368Z", "type": "project_published"}
 {"minutes_late": 125.6, "schedule": "17 0,18,19,20,21,22,23 * * *", "ts": "2026-11-25T02:22:38.823163Z", "type": "late_schedule_ignored"}
 {"channel": "GitHub_Open_Source", "posts": 12, "ts": "2026-11-25T02:24:04.511541Z", "type": "metrics_collected", "updated": 12}
+{"minutes_late": 497.5, "schedule": "13 18 * * *", "ts": "2026-11-25T02:30:32.027972Z", "type": "late_schedule_ignored"}
