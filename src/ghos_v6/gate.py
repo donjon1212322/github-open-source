@@ -108,6 +108,47 @@ _LOOKALIKE_TOPIC_RE = re.compile(
     re.I,
 )
 
+#: Third wave of the same farm (25.11, live queue). Ten repositories, ten
+#: throwaway owners, all created on 23.11, 522-548 stars each, and every
+#: description opens with the same template instead of a project name:
+#:
+#:   "Free open-source FFmpeg GUI for Windows to convert video and audio..."
+#:   "Free Windows AV1 video encoder GUI for aomenc, rav1e, SVT-AV1..."
+#:   "Free Steam idler for trading card farming, achievement management..."
+#:   "Free offline file converter for Windows - convert PDF, documents..."
+#:
+#: The topics give them away as well: five or more near-synonyms stuffed in
+#: ("audio-converter", "conversion", "converter-encoding"), which no human
+#: curator writes and which padded the old star-count score.
+#: A real description starts with the project's own name ("KuroCat - Free
+#: open-source desktop typing...", "FreeCAD is...") or with a sentence, not
+#: with an advertising adjective. The rule is deliberately narrow: prefix
+#: "free ", a platform word, at least five topics and 200 stars - on 25.11 it
+#: matched exactly these ten repositories and none of the 62 already published.
+_FARM_PLATFORM_RE = re.compile(r"\b(?:windows|win|pc|macos|mac|linux)\b", re.I)
+FARM_MIN_TOPICS = 5
+FARM_MIN_STARS = 200
+
+
+def farm_template_reason(project: dict[str, Any]) -> str:
+    """Name the "Free <platform> <utility>" farm template, or ``""``."""
+    description = " ".join(str(project.get("description") or "").split())
+    lowered = description.lower()
+    if not lowered.startswith("free "):
+        return ""
+    if not _FARM_PLATFORM_RE.search(description):
+        return ""
+    if len([t for t in project.get("topics") or [] if str(t).strip()]) < FARM_MIN_TOPICS:
+        return ""
+    try:
+        stars = int(float(project.get("stars") or project.get("stargazers_count") or 0))
+    except (TypeError, ValueError):
+        stars = 0
+    if stars < FARM_MIN_STARS:
+        return ""
+    return "free_platform_template"
+
+
 def lookalike_installer_reason(project: dict[str, Any]) -> str:
     """Name the funnel signature, or ``""`` when the project looks honest."""
     for topic in project.get("topics") or []:
@@ -248,6 +289,12 @@ def evaluate(
     lookalike = lookalike_installer_reason(project)
     if lookalike:
         reasons.append(f"lookalike_installer:{lookalike}")
+
+    # The farm that learned to avoid the "install setup" topics now hides
+    # behind an advertising description instead (see FARM_MIN_STARS above).
+    farm = farm_template_reason(project)
+    if farm:
+        reasons.append(f"farm_template:{farm}")
 
     if project.get("archived"):
         reasons.append("archived")
