@@ -879,3 +879,4 @@
 {"deleted": 0, "ts": "2026-11-26T03:47:57.688140Z", "type": "moderation_completed", "updates": 1}
 {"deleted": 0, "ts": "2026-11-26T03:48:38.738628Z", "type": "moderation_completed", "updates": 0}
 {"minutes_late": 361.1, "schedule": "48 21 * * *", "ts": "2026-11-26T03:49:08.501657Z", "type": "late_schedule_ignored"}
+{"minutes_late": 349.9, "schedule": "23 22 * * *", "ts": "2026-11-26T04:12:53.661576Z", "type": "late_schedule_ignored"}
