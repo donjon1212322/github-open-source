@@ -390,13 +390,13 @@
       "telegram_message_id": 3650
     },
     "news-article": {
-      "devto_id": 5119792,
-      "finished_at": "2026-11-25T23:31:12.997768Z",
+      "devto_id": 5127756,
+      "finished_at": "2026-11-26T22:23:53.611132Z",
       "published": true,
-      "title": "Math Breakthroughs, Ternary Models, and Rust API Rewrites Shipped This Week",
-      "topic_key": "ai-models-and-agents",
-      "url": "https://dev.to/githubopensource/math-breakthroughs-ternary-models-and-rust-api-rewrites-shipped-this-week-1j8j",
-      "words": 1088
+      "title": "Six Major Model Drops and Math Proofs Hit the Channels",
+      "topic_key": "ai-models-and-math-proofs",
+      "url": "https://dev.to/githubopensource/six-major-model-drops-and-math-proofs-hit-the-channels-431",
+      "words": 1186
     },
     "poll-close": {
       "finished_at": "2026-11-26T18:53:57.526192Z",
@@ -2447,6 +2447,7 @@
         ],
         "why_devs": "These updates give you production-ready massive weights, readable reference implementations, and formal math proofs to study."
       },
+      "devto_cover_url": "https://i.ibb.co/s90pGvk1/project-devto-cover-0e4d82600101.png",
       "headline": "Six major model drops and math proofs hit the channels this week, led by GigaChat 4 and DeepSeek V3 in JAX.",
       "image_url": "https://i.ibb.co/C4cqz14/ai-brief-09cbf1bacf79.png",
       "models": [

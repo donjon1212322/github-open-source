@@ -905,3 +905,4 @@
 {"count": 1, "ts": "2026-11-26T21:48:58.513780Z", "type": "corporate_stories_dropped"}
 {"title": "Six Major Model Drops and Math Proofs Hit the Channels", "ts": "2026-11-26T21:49:14.641553Z", "type": "news_article_generated", "words": 1186}
 {"Gemini_video_input": false, "models": 5, "official_url": "", "stories": 5, "topic": "ai-models-and-math-proofs", "ts": "2026-11-26T21:49:16.257540Z", "type": "ai_brief_published", "video_id": "tg-20261126-631e14248d"}
+{"devto_id": 5127756, "ts": "2026-11-26T22:23:53.611159Z", "type": "news_article_published", "url": "https://dev.to/githubopensource/six-major-model-drops-and-math-proofs-hit-the-channels-431", "words": 1186}
