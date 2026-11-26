@@ -319,17 +319,17 @@
   },
   "dead_letters": [],
   "gemini_daily": {
-    "day": "2026-11-25",
-    "units": 51
+    "day": "2026-11-26",
+    "units": 6
   },
   "gemini_window": [
     [
-      1795655632.0109694,
-      3885
+      1795706032.136631,
+      4021
     ],
     [
-      1795655647.1993167,
-      1363
+      1795706039.747992,
+      1475
     ]
   ],
   "last_runs": {
@@ -441,9 +441,9 @@
       "telegram_message_id": 3645
     },
     "publish:us_morning": {
-      "finished_at": "2026-11-24T17:06:22.003669Z",
-      "repo": "r0y00/xbox2windows",
-      "telegram_message_id": 3641
+      "finished_at": "2026-11-26T15:14:06.263509Z",
+      "repo": "tt-a1i/archify",
+      "telegram_message_id": 3648
     },
     "publish:us_peak": {
       "finished_at": "2026-11-11T17:19:17.006267Z",
@@ -11148,6 +11148,132 @@
       "visual_host": "imgbb",
       "visual_kind": "card"
     },
+    "tt-a1i/archify": {
+      "articles": {},
+      "card_style": "",
+      "category": "AI",
+      "contributors_count": 108,
+      "created_at": "2026-04-15T05:27:37Z",
+      "crossposts": {
+        "bluesky": {
+          "attempts": 0,
+          "due_at": "2026-11-26T18:00:00+00:00",
+          "status": "pending"
+        }
+      },
+      "description": "Turn any idea, plan, or codebase into an interactive diagram or one-page answer: 10 diagram types, Architecture Diagnosis, Story video and PR walkthroughs. An Agent Skill for Claude Code, Codex, Cursor and more.",
+      "description_fp": "7c2972787249d885",
+      "forks": 6870,
+      "full_name": "tt-a1i/archify",
+      "generated": {
+        "article_markdown": "## What it is\n\nArchify is an agent skill designed for AI coding assistants like Claude Code, Codex, Cursor, OpenCode, and GitHub Copilot. Rather than requiring a separate modeling tool or manual flowchart creation, it allows developers to generate interactive HTML diagrams, architecture diagnoses, and explainer pages directly through conversational prompts. By leveraging your local codebase or a conceptual description, it compiles self-contained web pages featuring interactive nodes, source code citations, and clean visual themes.\n\n## Why it matters\n\nVisual documentation is notoriously difficult to keep in sync with fast-moving codebases. Architecture diagrams drafted in whiteboard tools or generic flowchart apps become outdated the moment a pull request merges. Archify bridges the gap between code and documentation by letting your AI agent construct diagrams that reference actual repository structures, complete with commit pins and step-by-step walkthroughs that can be exported as images, PDFs, or videos.\n\n## Key features\n\n- Generate 10 distinct diagram types and 4-style one-page explainers directly from natural language prompts.\n- Produce story walkthroughs with 1080p video exports for pull requests and system architectures.\n- Integrate seamlessly as an agent skill for Claude Code, Codex, Cursor, OpenCode, and GitHub Copilot.\n- Inspect codebases to build source-backed architecture diagrams pinned to specific commits.\n- Export visuals as PNG, WebP, JPG long images, or printable PDFs from a single self-contained HTML file.\n\n## Quick start\n\nTo install Archify with your AI agent, provide the following instruction:\n\n```text\nInstall Archify for me by reading https://raw.githubusercontent.com/tt-a1i/archify/main/llms.txt\n```\n\nOnce installed, you can ask your agent to diagram a specific flow:\n\n```text\nUse Archify to diagram a web request: Browser calls the API,\nthe API checks Redis, and a cache miss queries PostgreSQL and fills the cache.\n```\n\n## Who should try it\n\nThis tool fits developers, software architects, and technical leads who regularly use AI coding agents and need a fast way to communicate system designs, debug complex request flows, or document pull requests without reaching for external drawing software.\n\n## Verdict\n\nArchify brings diagramming directly into the developer workflow where the code already lives. While you will still want to verify the generated layouts for complex systems, its ability to turn plain text and repository contexts into clean, interactive web pages makes it a powerful addition to any AI-assisted development stack.",
+        "article_title": "Archify: Turn Codebases and Ideas into Interactive Architecture Diagrams with AI Agents",
+        "card_hook": "Interactive architecture diagrams from your AI agent",
+        "card_subline": "Turn ideas, plans, and codebases into interactive HTML visuals, explainer pages, and video walkthroughs",
+        "category": "AI",
+        "discussion_question": "Which diagram type do you find yourself needing most often during a pull request review?",
+        "hook": "Turn your codebase into interactive diagrams and 1080p walkthrough videos directly from Claude Code or Cursor.",
+        "key_features": [
+          "Generate 10 distinct diagram types and 4-style one-page explainers directly from natural language prompts",
+          "Produce story walkthroughs with 1080p video exports for pull requests and system architectures",
+          "Integrate seamlessly as an agent skill for Claude Code, Codex, Cursor, OpenCode, and GitHub Copilot",
+          "Inspect codebases to build source-backed architecture diagrams pinned to specific commits",
+          "Export visuals as PNG, WebP, JPG long images, or printable PDFs from a single self-contained HTML file"
+        ],
+        "llm_used": true,
+        "quick_start": "Install Archify for me by reading https://raw.githubusercontent.com/tt-a1i/archify/main/llms.txt",
+        "safety": "ok",
+        "safety_reason": "The project is a legitimate developer tool and AI agent skill for generating architecture diagrams and code visualizations.",
+        "scene": "You spend twenty minutes trying to explain a subtle caching bug or system refactor to a colleague using static screenshots and text blocks.",
+        "social_text": "Turn your codebase into interactive architecture diagrams and walkthrough videos directly from your AI coding agent.",
+        "summary": "Archify operates as an agent skill running on top of AI assistants like Claude Code, Codex, and Cursor, letting developers generate single-file HTML diagrams and explainer pages via natural language. Instead of manually drawing flowcharts, users prompt their coding agent to map out systems, analyze architecture, or trace pull requests using local repository contexts. The resulting visualizations pack interactive nodes, source code references, and multiple theme styles into portable web pages.",
+        "surfaces": {
+          "Facebook_body": "Explaining how a software project works usually takes hours of manual diagramming and documentation writing. Now, you can generate clear system maps, interactive charts, and video walkthroughs just by asking your coding assistant in plain language. Instead of starting from scratch, the tool reads your project files and builds complete, portable web pages featuring interactive nodes and source code references.\n\nThis system operates as an agent skill running on top of popular AI coding assistants. It understands your local repository context and can trace pull requests or map out complex architectures automatically. You can export the results as high-resolution videos, long images, or printable documents from a single self-contained file.\n\nIt is built for developers and technical leads who spend significant time documenting codebases, reviewing pull requests, or presenting system designs to their teams and need instant, accurate visual explanations without leaving the terminal.",
+          "Facebook_headline": "Turn your project files into visual diagrams with AI",
+          "Facebook_lead": "Stop drawing flowcharts by hand. Let your coding assistant map out your entire system and create video explanations directly from your project files.",
+          "bluesky_headline": "Turn your code into interactive diagrams instantly",
+          "bluesky_lead": "An AI assistant skill that creates system maps and video walkthroughs from your repository.",
+          "devto_body": "## What it is\n\nArchify is an open-source agent skill designed to run on top of AI coding assistants like Claude Code, Codex, and Cursor. Written in JavaScript and boasting over 100,000 stars, it allows developers to generate single-file HTML diagrams, architecture diagnoses, and explainer pages entirely through natural language prompts.\n\n## How it works\n\nThe tool inspects your local repository context to build source-backed architecture diagrams pinned to specific commits. Instead of manually drawing flowcharts, you prompt your coding agent to map out systems, analyze architecture, or trace pull requests. The output is packaged into portable web pages with interactive nodes and theme styles.\n\n## Key features\n\n- Generate 10 distinct diagram types and 4-style one-page explainers via natural language.\n- Produce story walkthroughs with high-resolution video exports for pull requests.\n- Integrate seamlessly as an agent skill for popular AI coding tools.\n- Export visuals as PNG, WebP, JPG, or PDFs from a self-contained HTML file.\n\n## Getting started\n\nClone the repository from `tt-a1i/archify` and install it as a skill in your preferred AI coding assistant environment to begin generating diagrams directly from your terminal.\n\n## When not to use it\n\nSkip this tool if you do not use AI coding assistants in your workflow or if your project requires strictly manual, highly customized vector illustrations that cannot be derived from repository analysis.",
+          "seo_description": "Turn your codebase into interactive diagrams and video walkthroughs using AI coding assistants. A practical open-source tool for developers.",
+          "seo_query": "generate diagrams from code repository open source",
+          "seo_title": "Generate diagrams from code - Archify open-source tool",
+          "telegraph_angle": "Explain how AI-driven diagram generation changes software documentation and team communication."
+        },
+        "tension": "Static diagrams go stale the moment a pull request merges, forcing you to constantly rebuild documentation by hand.",
+        "turn": "Archify lets your AI coding agent generate interactive architecture diagrams and explainer pages on demand, though you still need to review the output for layout nuances.",
+        "verdict": "An essential skill for developers using AI coding agents who want instant, code-backed system visualizations without leaving the terminal.",
+        "who_for": "Developers and technical leads who need to document, explain, or present system architectures and code flows quickly.",
+        "why_now": "AI coding assistants are handling larger refactors and system designs, making quick, agent-driven visual documentation essential for understanding complex changes."
+      },
+      "homepage": "https://archify.si",
+      "id": 1211139949,
+      "image_url": "https://i.ibb.co/S4MLckW7/tt-a1i-archify-readme-preview-2d4565f94076.jpg",
+      "is_dual_use": false,
+      "is_hidden_gem": false,
+      "language": "JavaScript",
+      "license": {
+        "key": "apache-2.0",
+        "name": "Apache License 2.0",
+        "node_id": "MDc6TGljZW5zZTI=",
+        "spdx_id": "Apache-2.0",
+        "url": "https://api.github.com/licenses/apache-2.0"
+      },
+      "media_urls": [
+        "https://raw.githubusercontent.com/tt-a1i/archify/main/docs/assets/archify-demo-reach.png",
+        "https://raw.githubusercontent.com/tt-a1i/archify/main/docs/assets/archify-demo-route.png",
+        "https://raw.githubusercontent.com/tt-a1i/archify/main/docs/assets/archify-demo-lens.png",
+        "https://raw.githubusercontent.com/tt-a1i/archify/main/docs/assets/archify-readme-hero.png",
+        "https://raw.githubusercontent.com/tt-a1i/archify/main/docs/assets/explainer-tls-en.png",
+        "https://raw.githubusercontent.com/tt-a1i/archify/main/docs/assets/mco-runtime-share-card.png",
+        "https://raw.githubusercontent.com/tt-a1i/archify/main/docs/assets/code-analysis-views/atlas.png",
+        "https://raw.githubusercontent.com/tt-a1i/archify/main/docs/assets/code-analysis-views/atlas-3d.png"
+      ],
+      "name": "archify",
+      "open_issues": 363,
+      "published_at": "2026-11-26T15:14:06.263017Z",
+      "pushed_at": "2026-11-26T01:45:04Z",
+      "readme_fp": "fe142774ca141fef",
+      "repo_id": 1211139949,
+      "revisit_of": "",
+      "revisit_reason": "",
+      "score": 71.61,
+      "slot": "us_morning",
+      "sources": [
+        "telegram:open_source_friend",
+        "telegram:github"
+      ],
+      "stars": 100380,
+      "telegram_chat_id": "@GitHub_Open_Source",
+      "telegram_link": "https://t.me/GitHub_Open_Source/3648",
+      "telegram_message_id": 3648,
+      "telegraph_url": "https://telegra.ph/Archify-Turn-Codebases-and-Ideas-into-Interactive-Architecture-Diagrams-with-AI-Agents-11-26",
+      "topics": [
+        "agent-skills",
+        "ai-agents",
+        "architecture-diagram",
+        "claude-code",
+        "claude-skills",
+        "code-analysis",
+        "codex",
+        "coding-agents",
+        "deepseek-harness",
+        "developer-tools",
+        "diagrams",
+        "diagrams-as-code",
+        "dsh-plugin",
+        "flowchart",
+        "llm",
+        "mermaid",
+        "opencode",
+        "software-architecture",
+        "system-design",
+        "visualization"
+      ],
+      "updated_at": "2026-11-26T15:13:00Z",
+      "url": "https://github.com/tt-a1i/archify",
+      "visual_host": "imgbb",
+      "visual_kind": "readme"
+    },
     "ubiquitarianism/leonida": {
       "articles": {
         "devto": {
@@ -12558,116 +12684,6 @@
       ],
       "updated_at": "2026-11-26T00:25:50Z",
       "url": "https://github.com/EL4CTEO/fast-anything"
-    },
-    {
-      "archived": false,
-      "contributors_count": 108,
-      "created_at": "2026-04-15T05:27:37Z",
-      "default_branch": "main",
-      "description": "Turn any idea, plan, or codebase into an interactive diagram or one-page answer: 10 diagram types, Architecture Diagnosis, Story video and PR walkthroughs. An Agent Skill for Claude Code, Codex, Cursor and more.",
-      "disabled": false,
-      "fork": false,
-      "forks": 6832,
-      "forks_count": 6832,
-      "full_name": "tt-a1i/archify",
-      "has_readme": true,
-      "homepage": "https://archify.si",
-      "id": 1211139949,
-      "is_dual_use": false,
-      "is_hidden_gem": false,
-      "language": "JavaScript",
-      "license": {
-        "key": "apache-2.0",
-        "name": "Apache License 2.0",
-        "node_id": "MDc6TGljZW5zZTI=",
-        "spdx_id": "Apache-2.0",
-        "url": "https://api.github.com/licenses/apache-2.0"
-      },
-      "media_urls": [
-        "https://raw.githubusercontent.com/tt-a1i/archify/main/docs/assets/archify-demo-reach.png",
-        "https://raw.githubusercontent.com/tt-a1i/archify/main/docs/assets/archify-demo-route.png",
-        "https://raw.githubusercontent.com/tt-a1i/archify/main/docs/assets/archify-demo-lens.png",
-        "https://raw.githubusercontent.com/tt-a1i/archify/main/docs/assets/archify-readme-hero.png",
-        "https://raw.githubusercontent.com/tt-a1i/archify/main/docs/assets/explainer-tls-en.png",
-        "https://raw.githubusercontent.com/tt-a1i/archify/main/docs/assets/mco-runtime-share-card.png",
-        "https://raw.githubusercontent.com/tt-a1i/archify/main/docs/assets/code-analysis-views/atlas.png",
-        "https://raw.githubusercontent.com/tt-a1i/archify/main/docs/assets/code-analysis-views/atlas-3d.png"
-      ],
-      "name": "archify",
-      "non_software_reason": "",
-      "open_issues": 362,
-      "open_issues_count": 362,
-      "owner_repo_count": 1,
-      "pushed_at": "2026-11-26T00:11:08Z",
-      "readme": "",
-      "readme_excerpt": "<p align=\"center\">\n  <picture>\n    <source media=\"(prefers-color-scheme: dark)\" srcset=\"docs/assets/archify-lockup-dark.svg\" />\n    <img src=\"docs/assets/archify-lockup-light.svg\" alt=\"Archify\" width=\"440\" height=\"121\" />\n  </picture>\n</p>\n<h3 align=\"center\">Turn anything you want to understand, plan, or share into an interactive visual.</h3>\n\n<p align=\"center\"><img src=\"docs/assets/archify-readme-hero.png\" alt=\"Archify — interactive diagrams\" width=\"960\" /></p>\n\n<p align=\"center\"><strong>Official channels：</strong> <a href=\"https://archify.si\">archify.si</a> · <a href=\"https://github.com/tt-a1i/archify\">GitHub</a><br/>Archify is free and open source. Third-party online services and paid plans are operated by their respective providers and do not represent Archify. <a href=\"#official-services\">Service details →</a></p>\n\n<p align=\"center\">Start with an idea, a question, or a plan. Describe it to your AI agent, and Archify turns it into an interactive HTML you can explore, customize, and share. From travel itineraries and learning maps to complex systems—make it your own.</p>\n\n<p align=\"center\"><strong>10 diagram types · One-page answers in 4 styles · Architecture Diagnosis · Story w",
-      "readme_len": 44273,
-      "repo_id": 1211139949,
-      "score": 71.61,
-      "score_parts": {
-        "acceleration": 0.5,
-        "acceleration_known": 0,
-        "acceleration_ratio": 0.0,
-        "age_days": 224.8,
-        "appeal": 0.796,
-        "burst": 0.111,
-        "community": 0.741,
-        "content": 0.944,
-        "corroboration": 0.944,
-        "external": 0.481,
-        "forks_measured": 1,
-        "forks_per_day": 54.0,
-        "forks_rate": 0.731,
-        "freshness": 0.778,
-        "growth": 0.852,
-        "growth_measured": 1,
-        "popularity": 1.0,
-        "reliability": 0.5,
-        "stars_per_day": 803.0
-      },
-      "source_name": "telegram:open_source_friend",
-      "sources": [
-        "telegram:open_source_friend",
-        "telegram:github"
-      ],
-      "star_history": [
-        [
-          "2026-11-24",
-          99111,
-          6778
-        ],
-        [
-          "2026-11-25",
-          99521,
-          6810
-        ]
-      ],
-      "stargazers_count": 99914,
-      "stars": 99914,
-      "topics": [
-        "agent-skills",
-        "ai-agents",
-        "architecture-diagram",
-        "claude-code",
-        "claude-skills",
-        "code-analysis",
-        "codex",
-        "coding-agents",
-        "deepseek-harness",
-        "developer-tools",
-        "diagrams",
-        "diagrams-as-code",
-        "dsh-plugin",
-        "flowchart",
-        "llm",
-        "mermaid",
-        "opencode",
-        "software-architecture",
-        "system-design",
-        "visualization"
-      ],
-      "updated_at": "2026-11-26T00:25:15Z",
-      "url": "https://github.com/tt-a1i/archify"
     },
     {
       "archived": false,
@@ -28486,8 +28502,8 @@
     "tt-a1i/archify": {
       "first_seen_at": "2026-11-24T00:26:58.933638Z",
       "full_name": "tt-a1i/archify",
-      "last_decision": "queued",
-      "last_seen_at": "2026-11-26T00:28:13.387810Z",
+      "last_decision": "published",
+      "last_seen_at": "2026-11-26T15:14:06.263472Z",
       "repo_id": 1211139949,
       "sources": [
         "telegram:github",
@@ -28506,8 +28522,8 @@
         ],
         [
           "2026-11-26",
-          99914,
-          6832
+          100380,
+          6870
         ]
       ]
     },
@@ -30199,10 +30215,6 @@
     "news": {
       "at": "2026-11-25T22:01:42.034199Z",
       "reason": "brief_gemini_unavailable"
-    },
-    "publish:us_morning": {
-      "at": "2026-11-25T15:34:53.761049Z",
-      "reason": "gemini_capacity"
     }
   },
   "value_model": {
