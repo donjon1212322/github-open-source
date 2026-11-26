@@ -375,7 +375,7 @@
       "week": "2026-W47"
     },
     "facebook-handoff": {
-      "finished_at": "2026-11-25T18:31:13.609105Z",
+      "finished_at": "2026-11-26T18:31:19.666078Z",
       "queued": 1,
       "reason": "queued"
     },
@@ -11266,6 +11266,11 @@
           "published_at": "2026-11-26T18:17:48.974066Z",
           "status": "published",
           "url": "https://bsky.app/profile/githubopensource.bsky.social/post/3n3abuzluwe22"
+        },
+        "facebook_sheet": {
+          "at": "2026-11-26T18:31:20.785094Z",
+          "status": "queued",
+          "via": "make.com"
         }
       },
       "description": "Turn any idea, plan, or codebase into an interactive diagram or one-page answer: 10 diagram types, Architecture Diagnosis, Story video and PR walkthroughs. An Agent Skill for Claude Code, Codex, Cursor and more.",
