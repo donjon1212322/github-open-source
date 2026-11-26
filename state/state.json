@@ -6714,7 +6714,8 @@
         "bluesky": {
           "attempts": 0,
           "due_at": "2026-11-26T18:44:25.391255+00:00",
-          "status": "pending"
+          "held_reason": "not_best_of_day",
+          "status": "held"
         }
       },
       "description": "Lean formalization of the Riemann Hypothesis (Alpöge, 2026-11-20) being cleaned up by members of the Lean community.",
@@ -11253,7 +11254,10 @@
         "bluesky": {
           "attempts": 0,
           "due_at": "2026-11-26T18:00:00+00:00",
-          "status": "pending"
+          "error": "",
+          "published_at": "2026-11-26T18:17:48.974066Z",
+          "status": "published",
+          "url": "https://bsky.app/profile/githubopensource.bsky.social/post/3n3abuzluwe22"
         }
       },
       "description": "Turn any idea, plan, or codebase into an interactive diagram or one-page answer: 10 diagram types, Architecture Diagnosis, Story video and PR walkthroughs. An Agent Skill for Claude Code, Codex, Cursor and more.",
@@ -11385,7 +11389,8 @@
         "bluesky": {
           "attempts": 0,
           "due_at": "2026-11-26T18:00:00+00:00",
-          "status": "pending"
+          "held_reason": "not_best_of_day",
+          "status": "held"
         }
       },
       "description": "A continuation of Leonida, the Xbox > PC port interface for GTA VI",
