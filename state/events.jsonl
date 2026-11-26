@@ -886,3 +886,4 @@
 {"deleted": 0, "ts": "2026-11-26T09:47:46.381687Z", "type": "moderation_completed", "updates": 0}
 {"minutes_late": 528.7, "schedule": "23 2 * * *", "ts": "2026-11-26T11:11:43.763987Z", "type": "late_schedule_ignored"}
 {"deleted": 0, "ts": "2026-11-26T12:47:52.230339Z", "type": "moderation_completed", "updates": 0}
+{"platform": "devto", "repo": "ubiquitarianism/leonida", "ts": "2026-11-26T13:33:53.396252Z", "type": "article_published", "url": "https://dev.to/githubopensource/run-xbox-binaries-on-pc-static-recompilation-guide-40c5"}

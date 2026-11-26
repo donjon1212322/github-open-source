@@ -334,11 +334,11 @@
   ],
   "last_runs": {
     "article": {
-      "finished_at": "2026-11-25T13:34:09.372475Z",
+      "finished_at": "2026-11-26T13:33:53.396369Z",
       "published": true,
       "reason": "published",
-      "repo": "os6/nospeaker",
-      "url": "https://dev.to/githubopensource/turn-macbook-trackpad-into-a-speaker-open-source-swift-tool-3lho"
+      "repo": "ubiquitarianism/leonida",
+      "url": "https://dev.to/githubopensource/run-xbox-binaries-on-pc-static-recompilation-guide-40c5"
     },
     "collect": {
       "discovered": 422,
@@ -11149,7 +11149,13 @@
       "visual_kind": "card"
     },
     "ubiquitarianism/leonida": {
-      "articles": {},
+      "articles": {
+        "devto": {
+          "id": 5125067,
+          "published_at": "2026-11-26T13:33:53.396232Z",
+          "url": "https://dev.to/githubopensource/run-xbox-binaries-on-pc-static-recompilation-guide-40c5"
+        }
+      },
       "card_style": "editorial_daily",
       "category": "DevTools",
       "contributors_count": 807,
@@ -11163,6 +11169,7 @@
       },
       "description": "A continuation of Leonida, the Xbox > PC port interface for GTA VI",
       "description_fp": "b070739e1e36a45c",
+      "devto_cover_url": "https://i.ibb.co/0pq5TxC7/ubiquitarianism-leonida-devto-cover-35ace96c48ce.png",
       "forks": 533,
       "full_name": "ubiquitarianism/leonida",
       "generated": {
