@@ -896,3 +896,4 @@
 {"platform": "bluesky", "repo": "tt-a1i/archify", "ts": "2026-11-26T18:17:48.974087Z", "type": "crosspost_published", "url": "https://bsky.app/profile/githubopensource.bsky.social/post/3n3abuzluwe22"}
 {"attempts": 1, "detail": "HTTP 204", "slot": "facebook-handoff", "ts": "2026-11-26T18:30:58.324073Z", "type": "watchdog_recovered", "verified": false}
 {"range": "facebook!A25:E25", "rows": 1, "ts": "2026-11-26T18:31:20.785116Z", "type": "facebook_handoff_queued"}
+{"deleted": 0, "ts": "2026-11-26T18:47:46.984170Z", "type": "moderation_completed", "updates": 1}
