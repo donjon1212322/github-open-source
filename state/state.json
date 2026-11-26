@@ -320,16 +320,16 @@
   "dead_letters": [],
   "gemini_daily": {
     "day": "2026-11-25",
-    "units": 45
+    "units": 51
   },
   "gemini_window": [
     [
-      1795630435.3685462,
-      3882
+      1795655632.0109694,
+      3885
     ],
     [
-      1795630468.995662,
-      1409
+      1795655647.1993167,
+      1363
     ]
   ],
   "last_runs": {
@@ -431,9 +431,9 @@
       "telegram_message_id": 3550
     },
     "publish:us_evening": {
-      "finished_at": "2026-11-25T01:13:58.278498Z",
-      "repo": "os6/nospeaker",
-      "telegram_message_id": 3644
+      "finished_at": "2026-11-26T01:14:17.520398Z",
+      "repo": "ubiquitarianism/leonida",
+      "telegram_message_id": 3647
     },
     "publish:us_midday": {
       "finished_at": "2026-11-25T18:15:03.130751Z",
@@ -11101,6 +11101,104 @@
       "visual_host": "imgbb",
       "visual_kind": "card"
     },
+    "ubiquitarianism/leonida": {
+      "articles": {},
+      "card_style": "editorial_daily",
+      "category": "DevTools",
+      "contributors_count": 807,
+      "created_at": "2026-11-23T23:54:39Z",
+      "crossposts": {
+        "bluesky": {
+          "attempts": 0,
+          "due_at": "2026-11-26T18:00:00+00:00",
+          "status": "pending"
+        }
+      },
+      "description": "A continuation of Leonida, the Xbox > PC port interface for GTA VI",
+      "description_fp": "b070739e1e36a45c",
+      "forks": 533,
+      "full_name": "ubiquitarianism/leonida",
+      "generated": {
+        "article_markdown": "## What it is\n\nLeonida is a static recompilation project designed to bring Xbox Series console binaries to Windows and Linux. Because the Xbox Series CPU uses the x86-64 architecture, the project focuses on loading the game's code natively while reimplementing the console's proprietary system software layer. Instead of relying on traditional emulation, it translates the console's precompiled RDNA2 GPU programs into SPIR-V, which can then be executed via Vulkan on standard PC hardware. The project is built entirely on your local machine using your own copy of the game files.\n\n## Why it matters\n\nFor developers, the barrier between console and PC is often enforced by proprietary system APIs and GPU-specific shader formats rather than fundamental hardware differences. Leonida demonstrates the feasibility of bridging this gap through static analysis and translation. By mapping console-specific ABI calls to native PC equivalents and handling the complex translation of thousands of shaders, the project provides a blueprint for how console-exclusive titles could theoretically run on open platforms.\n\n## Key features\n\n- **Shader Translation:** Successfully translates all 26,503 RDNA2 shaders to SPIR-V, with full validation passed on both Linux and Windows.\n- **Asset Extraction:** Decodes and exports 382,781 models from game archives, including full support for levels.rpf.\n- **Audio Handling:** Repackages audio banks losslessly, converting Opus to Ogg Opus and PCM to WAV for native playback.\n- **Vulkan Proxy:** Implements a D3D12-to-Vulkan proxy that handles command lists, descriptor heaps, and resource management.\n- **Input Support:** Integrates SDL3 to handle controller input, including rumble and trigger effects, mapping console inputs to PC hardware.\n\n## Quick start\n\nTo measure the progress of your own build and verify the translator contract on your hardware, run the following command from the repository root:\n\n```bash\npython -I tools/progress_dashboard.py --out ./build_report\n```\n\nAfter running this, you can open the generated `progress.html` file to see the status of your local build.\n\n## Who should try it\n\nThis project is for developers who want to study static recompilation, shader translation, and the intricacies of console-to-PC porting. If you are interested in how modern game engines handle D3D12 command lists or how to map console ABI calls to native OS functions, this codebase offers significant insight. It is not intended for users looking to play the game, as it is currently in an early, non-playable state.\n\n## Verdict\n\nLeonida is a highly technical, impressive exercise in static recompilation. While it is not yet a functional way to play the game, the progress made in shader translation and asset extraction is significant. It is a must-watch for anyone interested in the mechanics of game engine porting, but casual users should skip it until the project matures further.",
+        "article_title": "Leonida: Static Recompilation of Xbox Series Binaries for Windows",
+        "card_hook": "Run Xbox Series binaries on Windows",
+        "card_subline": "A static recompilation project that translates console-specific CPU and GPU code to native PC execution",
+        "category": "DevTools",
+        "discussion_question": "If you were porting a console title, would you prioritize the shader translator or the system ABI shims first?",
+        "hook": "Leonida recompiles Xbox Series GTA VI binaries to run natively on Windows and Linux via Vulkan translation.",
+        "key_features": [
+          "Translates 26,503 RDNA2 shaders to SPIR-V with full validation pass",
+          "Exports 382,781 models from game archives with zero readback failures",
+          "Repackages audio banks losslessly to Ogg Opus and WAV formats",
+          "Implements a D3D12-to-Vulkan proxy for console-specific command lists",
+          "Supports controller input via SDL3 with rumble and trigger effects"
+        ],
+        "llm_used": true,
+        "quick_start": "python -I tools/progress_dashboard.py --out ./build_report",
+        "safety": "ok",
+        "safety_reason": "The project is a static recompilation tool for research and porting purposes. It does not contain game files, keys, or executables and requires the user to provide their own legally obtained copy.",
+        "scene": "You are staring at a console-exclusive title, knowing the underlying CPU architecture is x86-64, yet the proprietary system software keeps it locked behind a closed-source wall.",
+        "social_text": "Leonida is a static recompilation project that aims to run Xbox Series binaries on Windows. It translates RDNA2 shaders to SPIR-V and reimplements console system software. Currently in early stages, it boots to the landing prompt.",
+        "summary": "Leonida performs static recompilation by loading Xbox Series x86-64 binaries and reimplementing the console's system software layer. It translates precompiled RDNA2 GPU programs into SPIR-V for Vulkan, allowing the game to interact with native PC hardware. The project relies on the user's own game files to build the runtime environment, mapping console-specific ABI calls to native PC equivalents.",
+        "surfaces": {
+          "Facebook_body": "Imagine taking a game built exclusively for a console and running it directly on your desktop computer without needing a separate emulator. A new project called Leonida is exploring exactly how to do this for high-end console titles. Instead of simulating the console hardware, this software takes the game files and translates the instructions so they can talk directly to your PC's graphics card and processor.\n\nThe process works by converting the console's specialized graphics shaders into a universal format that Windows and Linux can read. It also maps the console's system commands to native PC equivalents. This means the game interacts with your hardware as if it were built for a computer from the start.\n\nThis project is primarily for developers and tech enthusiasts who want to understand how game engines are built and how to bridge the gap between different hardware platforms. It is a complex technical undertaking that proves it is possible to bridge the divide between console and PC gaming architectures without relying on traditional emulation methods.",
+          "Facebook_headline": "Play console games directly on your computer",
+          "Facebook_lead": "A new tool allows console game files to run natively on Windows and Linux by translating the specialized instructions into a language your PC understands.",
+          "bluesky_headline": "Run Xbox game binaries natively on your PC",
+          "bluesky_lead": "Leonida translates console-specific game code to run on Windows and Linux using modern graphics standards.",
+          "devto_body": "## What it is\n\nLeonida is a static recompilation project written in Python that aims to run Xbox Series binaries natively on Windows and Linux. Unlike traditional emulators that simulate hardware at runtime, Leonida attempts to bridge the gap by reimplementing the console's system software layer and translating RDNA2 GPU programs into SPIR-V for Vulkan.\n\n## How it works\n\nLeonida functions by loading Xbox Series x86-64 binaries and mapping console-specific ABI calls to native PC equivalents. It performs a static recompilation process, which involves:\n\n1.  **Shader Translation:** It processes and validates over 26,000 RDNA2 shaders, converting them into SPIR-V.\n2.  **Asset Extraction:** It exports hundreds of thousands of models from game archives.\n3.  **Command Proxying:** It implements a D3D12-to-Vulkan proxy to handle console-specific command lists.\n\n## Key features\n\n- **Native Translation:** Transforms console-specific graphics instructions into Vulkan-compatible code.\n- **Asset Handling:** Lossless repackaging of audio banks into Ogg Opus and WAV.\n- **Input Support:** Native controller support via SDL3, including rumble and trigger feedback.\n- **Validation:** Full validation pass on all translated shaders.\n\n## Getting started\n\nThis project requires the user to provide their own game files to build the runtime environment. You can find the repository at `ubiquitarianism/leonida`. As it is a Python-based tool, ensure your environment is set up for binary analysis. Clone the repository and follow the documentation to map your local game archives.\n\n## When not to use it\n\nThis is a research project. It is not a \"plug-and-play\" solution for casual gaming. If you are looking to play games today without significant technical setup or debugging, this is not the right tool. It is strictly for developers interested in binary analysis, static recompilation, and game engine architecture.",
+          "seo_description": "Learn how static recompilation allows Xbox Series binaries to run natively on Windows and Linux by translating console instructions for PC hardware.",
+          "seo_query": "how to run xbox series binaries on pc",
+          "seo_title": "Run Xbox binaries on PC - Static Recompilation Guide",
+          "telegraph_angle": "Discuss the technical achievement of static recompilation versus traditional emulation, focusing on the trade-offs of translating console binaries for native hardware execution."
+        },
+        "tension": "You waste hours debugging compatibility layers or waiting for official ports that may never arrive, while the hardware you already own sits underutilized.",
+        "turn": "Leonida attempts to bridge this gap by recompiling the binary to run natively, though it currently only reaches the landing prompt and cannot yet render a playable world frame.",
+        "verdict": "A fascinating technical exercise in static recompilation that is strictly for those interested in the \"how\" rather than playing the game today.",
+        "who_for": "Developers interested in static recompilation, binary analysis, and game engine architecture.",
+        "why_now": "The project has reached a milestone where it successfully boots the game through the story load phase on both Windows and Linux."
+      },
+      "homepage": "https://leonida.now",
+      "id": 1469441675,
+      "image_url": "https://i.ibb.co/TDh4bT2j/ubiquitarianism-leonida-preview-907867a2b00c.jpg",
+      "is_dual_use": false,
+      "is_hidden_gem": false,
+      "language": "Python",
+      "license": {
+        "key": "gpl-3.0",
+        "name": "GNU General Public License v3.0",
+        "node_id": "MDc6TGljZW5zZTk=",
+        "spdx_id": "GPL-3.0",
+        "url": "https://api.github.com/licenses/gpl-3.0"
+      },
+      "media_urls": [
+        "https://raw.githubusercontent.com/ubiquitarianism/leonida/main/assets/logo.svg"
+      ],
+      "name": "leonida",
+      "open_issues": 1420,
+      "published_at": "2026-11-26T01:14:17.520040Z",
+      "pushed_at": "2026-11-26T00:56:14Z",
+      "readme_fp": "d972ddc2e7f74b25",
+      "repo_id": 1469441675,
+      "revisit_of": "",
+      "revisit_reason": "",
+      "score": 66.84,
+      "slot": "us_evening",
+      "sources": [
+        "github_search",
+        "telegram:github_repos"
+      ],
+      "stars": 2336,
+      "telegram_chat_id": "@GitHub_Open_Source",
+      "telegram_link": "https://t.me/GitHub_Open_Source/3647",
+      "telegram_message_id": 3647,
+      "telegraph_url": "https://telegra.ph/Leonida-Static-Recompilation-of-Xbox-Series-Binaries-for-Windows-11-26",
+      "topics": [],
+      "updated_at": "2026-11-26T01:04:15Z",
+      "url": "https://github.com/ubiquitarianism/leonida",
+      "visual_host": "imgbb",
+      "visual_kind": "card"
+    },
     "verlintas/noir": {
       "articles": {},
       "card_style": "",
@@ -12602,83 +12700,6 @@
       ],
       "updated_at": "2026-11-26T00:22:16Z",
       "url": "https://github.com/pierridotite/mobile-agent-testers"
-    },
-    {
-      "archived": false,
-      "contributors_count": 807,
-      "created_at": "2026-11-23T23:54:39Z",
-      "default_branch": "main",
-      "description": "A continuation of Leonida, the Xbox > PC port interface for GTA VI",
-      "disabled": false,
-      "fork": false,
-      "forks": 530,
-      "forks_count": 530,
-      "full_name": "ubiquitarianism/leonida",
-      "has_readme": true,
-      "homepage": "https://leonida.now",
-      "id": 1469441675,
-      "is_dual_use": false,
-      "is_hidden_gem": false,
-      "language": "Python",
-      "license": {
-        "key": "gpl-3.0",
-        "name": "GNU General Public License v3.0",
-        "node_id": "MDc6TGljZW5zZTk=",
-        "spdx_id": "GPL-3.0",
-        "url": "https://api.github.com/licenses/gpl-3.0"
-      },
-      "media_urls": [
-        "https://raw.githubusercontent.com/ubiquitarianism/leonida/main/assets/logo.svg"
-      ],
-      "name": "leonida",
-      "non_software_reason": "",
-      "open_issues": 1412,
-      "open_issues_count": 1412,
-      "owner_repo_count": 1,
-      "pushed_at": "2026-11-26T00:12:59Z",
-      "readme": "",
-      "readme_excerpt": "<h1 align=\"center\">\n  <br>\n  <a>\n  <img src=\"assets/logo.svg\" alt=\"Leonida Continued\" width=\"200\">\n</a>\n\n  <br>\n  <b>Leonida Continued</b>\n  <br>\n</h1>\n\n<h4 align=\"center\">Grand Theft Auto VI (Xbox Series) running natively on Windows, built on your PC from your own copy.\n</h4>\n\n<p align=\"center\">\n  <a href=\"docs/i18n/README.md\">Other languages</a> |\n  <a href=\"#project-status\">Status</a> |\n  <a href=\"#how-to-build\">How to build</a> |\n  <a href=\"#how-it-works\">How it works</a> |\n  <a href=\"#want-to-help\">Want to help?</a> |\n  <a href=\"#credits\">Credits</a> |\n  <a href=\"#license\">License</a> |\n  <a href=\"https://discord.gg/ETf4qj5acN\">Discord</a> |\n  <a href=\"https://t.me/mandyport\">Telegram</a>\n</p>\n\nLeonida is a static recompilation project. The Xbox Series CPU is x86-64 like a PC, so the game's code is loaded\nand run natively, and the console's system software is reimplemented. The console's precompiled RDNA2 GPU programs\nare translated to SPIR-V for Vulkan. The game's models, textures and audio are read from your package. All of this\nhappens **on your PC, from your own copy of the game**.\n\n> [!IMPORTANT]\n> This repository **does not contain the game, keys or an executable**, and ",
-      "readme_len": 30221,
-      "repo_id": 1469441675,
-      "score": 66.84,
-      "score_parts": {
-        "acceleration": 0.5,
-        "acceleration_known": 0,
-        "acceleration_ratio": 0.0,
-        "age_days": 2.0,
-        "appeal": 0.148,
-        "burst": 0.63,
-        "community": 0.944,
-        "content": 0.537,
-        "corroboration": 0.944,
-        "external": 0.481,
-        "forks_measured": 1,
-        "forks_per_day": 261.95,
-        "forks_rate": 0.904,
-        "freshness": 0.815,
-        "growth": 0.852,
-        "growth_measured": 0,
-        "popularity": 0.444,
-        "reliability": 0.5,
-        "stars_per_day": 1151.08
-      },
-      "source_name": "github_search",
-      "sources": [
-        "github_search",
-        "telegram:github_repos"
-      ],
-      "star_history": [
-        [
-          "2026-11-26",
-          2329,
-          530
-        ]
-      ],
-      "stargazers_count": 2329,
-      "stars": 2329,
-      "topics": [],
-      "updated_at": "2026-11-26T00:16:38Z",
-      "url": "https://github.com/ubiquitarianism/leonida"
     },
     {
       "archived": false,
@@ -28485,8 +28506,8 @@
     "ubiquitarianism/leonida": {
       "first_seen_at": "2026-11-26T00:28:13.357216Z",
       "full_name": "ubiquitarianism/leonida",
-      "last_decision": "queued",
-      "last_seen_at": "2026-11-26T00:28:13.357220Z",
+      "last_decision": "published",
+      "last_seen_at": "2026-11-26T01:14:17.520370Z",
       "repo_id": 1469441675,
       "sources": [
         "github_search",
@@ -28495,8 +28516,8 @@
       "star_history": [
         [
           "2026-11-26",
-          2329,
-          530
+          2336,
+          533
         ]
       ]
     },
