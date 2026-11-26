@@ -872,3 +872,4 @@
 {"preview_host": "imgbb", "repo": "ubiquitarianism/leonida", "ts": "2026-11-26T01:14:17.129212Z", "type": "published_as_text"}
 {"repo": "ubiquitarianism/leonida", "score": 66.84, "telegram_message_id": 3647, "telegraph_url": "https://telegra.ph/Leonida-Static-Recompilation-of-Xbox-Series-Binaries-for-Windows-11-26", "ts": "2026-11-26T01:14:17.520278Z", "type": "project_published"}
 {"minutes_late": 89.6, "schedule": "17 0,18,19,20,21,22,23 * * *", "ts": "2026-11-26T01:46:38.715820Z", "type": "late_schedule_ignored"}
+{"minutes_late": 454.6, "schedule": "13 18 * * *", "ts": "2026-11-26T01:47:37.681490Z", "type": "late_schedule_ignored"}
