@@ -891,3 +891,5 @@
 {"repo": "tt-a1i/archify", "score": 71.61, "telegram_message_id": 3648, "telegraph_url": "https://telegra.ph/Archify-Turn-Codebases-and-Ideas-into-Interactive-Architecture-Diagrams-with-AI-Agents-11-26", "ts": "2026-11-26T15:14:06.263340Z", "type": "project_published"}
 {"deleted": 0, "ts": "2026-11-26T15:47:48.371926Z", "type": "moderation_completed", "updates": 3}
 {"minutes_late": 94.7, "schedule": "47 */3 * * *", "ts": "2026-11-26T17:21:41.867677Z", "type": "late_schedule_ignored"}
+{"preview_host": "imgbb", "repo": "leanprover-community/riemann-hypothesis", "ts": "2026-11-26T18:14:25.155583Z", "type": "published_as_text"}
+{"repo": "leanprover-community/riemann-hypothesis", "score": 57.45, "telegram_message_id": 3649, "telegraph_url": "https://telegra.ph/leanprover-community-riemann-hypothesis-Formalizing-the-Riemann-Hypothesis-in-Lean-4-11-26", "ts": "2026-11-26T18:14:25.391488Z", "type": "project_published"}

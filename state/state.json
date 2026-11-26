@@ -320,16 +320,16 @@
   "dead_letters": [],
   "gemini_daily": {
     "day": "2026-11-26",
-    "units": 6
+    "units": 12
   },
   "gemini_window": [
     [
-      1795706032.136631,
-      4021
+      1795716828.195395,
+      2771
     ],
     [
-      1795706039.747992,
-      1475
+      1795716833.4590807,
+      1402
     ]
   ],
   "last_runs": {
@@ -436,9 +436,9 @@
       "telegram_message_id": 3647
     },
     "publish:us_midday": {
-      "finished_at": "2026-11-25T18:15:03.130751Z",
-      "repo": "seedds/nxnative",
-      "telegram_message_id": 3645
+      "finished_at": "2026-11-26T18:14:25.391637Z",
+      "repo": "leanprover-community/riemann-hypothesis",
+      "telegram_message_id": 3649
     },
     "publish:us_morning": {
       "finished_at": "2026-11-26T15:14:06.263509Z",
@@ -6701,6 +6701,101 @@
           "views": 89
         }
       ],
+      "visual_host": "imgbb",
+      "visual_kind": "card"
+    },
+    "leanprover-community/riemann-hypothesis": {
+      "articles": {},
+      "card_style": "editorial_daily",
+      "category": "DevTools",
+      "contributors_count": 57,
+      "created_at": "2026-11-20T14:47:49Z",
+      "crossposts": {
+        "bluesky": {
+          "attempts": 0,
+          "due_at": "2026-11-26T18:44:25.391255+00:00",
+          "status": "pending"
+        }
+      },
+      "description": "Lean formalization of the Riemann Hypothesis (Alpöge, 2026-11-20) being cleaned up by members of the Lean community.",
+      "description_fp": "2a497433bafa3a89",
+      "forks": 525,
+      "full_name": "leanprover-community/riemann-hypothesis",
+      "generated": {
+        "article_markdown": "## What it is\n\nThe `leanprover-community/riemann-hypothesis` repository is a community-led effort to clean up, modularize, and maintain a Lean 4 formalization of the 2026 proofs of the Riemann Hypothesis and the Generalized Riemann Hypothesis for Dirichlet L-functions. It contains hundreds of thousands of lines of code split between background results and the main reduction steps of the argument.\n\n## Why it matters\n\nFormalizing monumental mathematical proofs requires intense computational resources and meticulous code organization. This project tackles the immense complexity of the original proofs by improving build performance, establishing Mathlib-level code quality, and eliminating linter warnings. This makes it feasible for researchers to engage with the proof without needing a massive cluster.\n\n## Key features\n\n- Verifies five core theorem statements including `riemannHypothesis`, `riemannZeta_eq_zero_re`, and `LFunction_eq_zero_re`.\n- Fetches prebuilt caches for Mathlib and the project via `lake` to speed up local builds.\n- Organizes literature background results in `src/Lib` and novel proof steps in `src/New`.\n- Runs strict comparator checks ensuring only standard axioms like `propext` and `Classical.choice` are used.\n\n## Quick start\n\nTo fetch the cache and build the project locally, run:\n\n```bash\nlake exe cache get\nlake build\n```\n\n## Who should try it\n\nThis project is intended for mathematicians, researchers, and developers actively working within the Lean ecosystem who want to inspect or build upon formal number theory proofs.\n\n## Verdict\n\nAn invaluable artifact for the Lean community that turns a massive formal proof into a structured, maintainable codebase.",
+        "article_title": "leanprover-community riemann-hypothesis: Formalizing the Riemann Hypothesis in Lean 4",
+        "card_hook": "Formalizing the Riemann Hypothesis in Lean",
+        "card_subline": "A community-led effort to clean up and verify the 2026 proofs in Lean 4",
+        "category": "DevTools",
+        "discussion_question": "Which formal proof project are you currently following in Lean?",
+        "hook": "Verify the Lean formalization of the Riemann Hypothesis and GRH using Lake and Python.",
+        "key_features": [
+          "Verify five core theorem statements including riemannHypothesis and LFunction_eq_zero_re",
+          "Fetch prebuilt Mathlib and project caches automatically using lake exe cache get",
+          "Organize background literature and novel arguments across hundreds of modular files",
+          "Run comparator checks to ensure proofs use only standard Lean axioms",
+          "Maintain compatibility with both Lean's kernel and nanoda verification"
+        ],
+        "llm_used": true,
+        "quick_start": "lake exe cache get && lake build",
+        "safety": "ok",
+        "safety_reason": "",
+        "scene": "You sit at your terminal staring down hundreds of thousands of lines of advanced formal mathematics, trying to understand a proof without melting your laptop's CPU.",
+        "social_text": "Explore the community-led Lean formalization of the Riemann Hypothesis with optimized build caching and modular file organization.",
+        "summary": "This repository hosts a community-led effort to clean up, modularize, and maintain the Lean formalization of the 2026 proofs of the Riemann Hypothesis and generalized Riemann Hypothesis. Built on top of Lean 4 and Mathlib, it organizes hundreds of files spanning background results and novel arguments to make the proofs accessible and readable. Developers and researchers use Lake to fetch prebuilt caches, build the project locally, and run kernel checks to verify theorem statements.",
+        "surfaces": {
+          "Facebook_body": "For over a century, the Riemann Hypothesis has been the most famous unsolved problem in mathematics. Recently, new proofs were released, but verifying them is a monumental task that requires checking thousands of logical steps. A community of researchers is now using modern computer tools to organize, clean up, and rigorously verify these proofs to ensure they are logically sound.\n\nThis project takes the complex, dense arguments from the 2026 proofs and breaks them down into modular, readable sections. By using specialized software designed for formal logic, the team can run automated checks to confirm that every step follows standard mathematical rules without error. It acts as a digital verification layer, turning abstract mathematical papers into a structured, verifiable format.\n\nThis is a critical resource for mathematicians and researchers who need to trust the validity of these new proofs. If you are interested in formal number theory or how computers can help prove complex mathematical theorems, this repository provides the framework to explore the logic behind the solution.",
+          "Facebook_headline": "Checking the math behind the Riemann Hypothesis",
+          "Facebook_lead": "Researchers are using computer software to verify one of the most famous unsolved problems in mathematics.",
+          "bluesky_headline": "Verify the Riemann Hypothesis proof mathematically",
+          "bluesky_lead": "This community project organizes and checks the 2026 formal proofs of the Riemann Hypothesis in Lean.",
+          "devto_body": "## What it is\n\nThe `leanprover-community/riemann-hypothesis` repository is a collaborative effort to formalize and verify the 2026 proofs of the Riemann Hypothesis and the Generalized Riemann Hypothesis (GRH). Built using Lean 4 and Mathlib, this project transforms the dense, paper-based proofs into machine-verifiable code. It is designed to ensure that the mathematical arguments are not just theoretically sound, but logically consistent according to the Lean kernel.\n\n## How it works\n\nThe project leverages the Lean 4 proof assistant to structure mathematical arguments. It organizes hundreds of files, separating background results from novel arguments. Developers use `Lake`, the Lean build system, to manage dependencies and fetch prebuilt caches of Mathlib, significantly reducing build times. The core verification process involves running kernel checks to ensure that the theorem statements—such as `riemannHypothesis`—are derived strictly from standard axioms.\n\n## Key features\n\n- **Formal Verification:** Confirms five core theorem statements, including `riemannHypothesis` and `LFunction_eq_zero_re`.\n- **Optimized Builds:** Uses `lake exe cache get` to fetch prebuilt Mathlib and project caches, streamlining the local development environment.\n- **Modular Structure:** Organizes vast amounts of background literature and novel arguments into manageable, readable files.\n- **Compatibility:** Maintains strict compatibility with both the Lean kernel and `nanoda` verification tools.\n\n## Getting started\n\nTo begin, ensure you have a working Lean 4 environment installed. Clone the repository and use the Lake build system to initialize the project:\n\n```bash\ngit clone https://github.com/leanprover-community/riemann-hypothesis\ncd riemann-hypothesis\nlake exe cache get\nlake build\n```\n\nOnce built, you can navigate the files to inspect the formalization of the proofs. The project relies on Mathlib, so ensure your toolchain is up to date.\n\n## When not to use it\n\nThis project is strictly for formal mathematics and theorem proving. If you are looking for general-purpose scripting tools, data analysis libraries, or quick-start coding frameworks, this is not the right repository. It requires a deep understanding of Lean and formal logic to contribute effectively.",
+          "seo_description": "Explore the community-led effort to formalize and verify the 2026 Riemann Hypothesis proofs using the Lean 4 proof assistant and automated kernel checks.",
+          "seo_query": "how to verify riemann hypothesis proof in lean",
+          "seo_title": "Verify Riemann Hypothesis Proofs in Lean - Open Source",
+          "telegraph_angle": "Focus on the shift from paper-based mathematical proof to machine-verifiable formalization, explaining why this is necessary for modern high-stakes number theory."
+        },
+        "tension": "Massive formalization projects are notoriously opaque, slow to build, and difficult for researchers to engage with without massive compute clusters.",
+        "turn": "This repository restructures the proofs for better modularity and build performance, though it remains a heavy, complex mathematical artifact.",
+        "verdict": "Essential for researchers exploring formal number theory in Lean, but skip it if you are looking for quick scripting tools.",
+        "who_for": "Mathematicians and Lean developers working with formal proofs and number theory.",
+        "why_now": "The recent release of the 2026 proofs has created an urgent need for community-driven code cleanup and build optimization."
+      },
+      "homepage": "",
+      "id": 1465547415,
+      "image_url": "https://i.ibb.co/XfcDRv5w/leanprover-community-riemann-hypothesis-preview-b7887422f415.jpg",
+      "is_dual_use": false,
+      "is_hidden_gem": false,
+      "language": "Lean",
+      "license": {
+        "key": "apache-2.0",
+        "name": "Apache License 2.0",
+        "node_id": "MDc6TGljZW5zZTI=",
+        "spdx_id": "Apache-2.0",
+        "url": "https://api.github.com/licenses/apache-2.0"
+      },
+      "media_urls": [],
+      "name": "riemann-hypothesis",
+      "open_issues": 640,
+      "published_at": "2026-11-26T18:14:25.391279Z",
+      "pushed_at": "2026-11-26T15:32:03Z",
+      "readme_fp": "50d2223241c808a4",
+      "repo_id": 1465547415,
+      "revisit_of": "",
+      "revisit_reason": "",
+      "score": 57.45,
+      "slot": "us_midday",
+      "sources": [
+        "telegram:github_repos"
+      ],
+      "stars": 1420,
+      "telegram_chat_id": "@GitHub_Open_Source",
+      "telegram_link": "https://t.me/GitHub_Open_Source/3649",
+      "telegram_message_id": 3649,
+      "telegraph_url": "https://telegra.ph/leanprover-community-riemann-hypothesis-Formalizing-the-Riemann-Hypothesis-in-Lean-4-11-26",
+      "topics": [],
+      "updated_at": "2026-11-26T18:04:31Z",
+      "url": "https://github.com/leanprover-community/riemann-hypothesis",
       "visual_host": "imgbb",
       "visual_kind": "card"
     },
@@ -13058,85 +13153,6 @@
       ],
       "updated_at": "2026-11-26T00:14:36Z",
       "url": "https://github.com/sybil-solutions/inference-optimisation-skill"
-    },
-    {
-      "archived": false,
-      "contributors_count": 3,
-      "created_at": "2026-11-20T14:47:49Z",
-      "default_branch": "main",
-      "description": "Lean formalization of the Riemann Hypothesis (Alpöge, 2026-11-20) being cleaned up by members of the Lean community.",
-      "disabled": false,
-      "fork": false,
-      "forks": 489,
-      "forks_count": 489,
-      "full_name": "leanprover-community/riemann-hypothesis",
-      "has_readme": true,
-      "homepage": "",
-      "id": 1465547415,
-      "is_dual_use": false,
-      "is_hidden_gem": false,
-      "language": "Lean",
-      "license": {
-        "key": "apache-2.0",
-        "name": "Apache License 2.0",
-        "node_id": "MDc6TGljZW5zZTI=",
-        "spdx_id": "Apache-2.0",
-        "url": "https://api.github.com/licenses/apache-2.0"
-      },
-      "media_urls": [],
-      "name": "riemann-hypothesis",
-      "non_software_reason": "",
-      "open_issues": 1242,
-      "open_issues_count": 1242,
-      "owner_repo_count": 1,
-      "pushed_at": "2026-11-26T00:25:37Z",
-      "readme": "",
-      "readme_excerpt": "# riemann-hypothesis\n\nA community-led effort to clean up and maintain a Lean formalization of the 2026 proofs of the Riemann Hypothesis and of GRH for Dirichlet L-functions.\n\n> [!CAUTION]\n> This repo recently moved to a highly condensed version on November 25, 2026. Prior progress is preserved on the `alpoge` branch.\n\nThe purpose of this repo is to create an artifact that is:\n\n- **accessible**: we want to improve build performance and modularity to enable researchers to feasibly engage with the proof even without access to massive amounts of compute.\n- **readable**: we want to improve code quality, aspirationally to Mathlib levels. This includes lemma organization, formatting and idiomatic style, eliminating linter warnings, slop-free documentation, and more.\n- **integrated with the community**: we would like to add bibliographic references to prior work where appropriate, and rely on existing formalization projects when possible.\n\nPlease note: we are **not** looking for:\n\n- claims about your own machine's builds / comparator run\n- adding files which are not necessary for the Riemann Hypothesis proof\n\nThis work is taking place on the `main` branch, which is based on a copy of the r",
-      "readme_len": 5058,
-      "repo_id": 1465547415,
-      "score": 57.45,
-      "score_parts": {
-        "acceleration": 0.5,
-        "acceleration_known": 0,
-        "acceleration_ratio": 0.0,
-        "age_days": 5.4,
-        "appeal": 0.148,
-        "burst": 0.63,
-        "community": 0.407,
-        "content": 0.0,
-        "corroboration": 0.426,
-        "external": 0.481,
-        "forks_measured": 1,
-        "forks_per_day": 182.0,
-        "forks_rate": 0.904,
-        "freshness": 1.0,
-        "growth": 0.852,
-        "growth_measured": 1,
-        "popularity": 0.185,
-        "reliability": 0.5,
-        "stars_per_day": 374.0
-      },
-      "source_name": "telegram:github_repos",
-      "sources": [
-        "telegram:github_repos"
-      ],
-      "star_history": [
-        [
-          "2026-11-24",
-          865,
-          307
-        ],
-        [
-          "2026-11-25",
-          1050,
-          410
-        ]
-      ],
-      "stargazers_count": 1239,
-      "stars": 1239,
-      "topics": [],
-      "updated_at": "2026-11-26T00:21:12Z",
-      "url": "https://github.com/leanprover-community/riemann-hypothesis"
     },
     {
       "archived": false,
@@ -22535,8 +22551,8 @@
     "leanprover-community/riemann-hypothesis": {
       "first_seen_at": "2026-11-24T00:26:58.905588Z",
       "full_name": "leanprover-community/riemann-hypothesis",
-      "last_decision": "queued",
-      "last_seen_at": "2026-11-26T00:28:13.394999Z",
+      "last_decision": "published",
+      "last_seen_at": "2026-11-26T18:14:25.391609Z",
       "repo_id": 1465547415,
       "sources": [
         "github_search",
@@ -22555,8 +22571,8 @@
         ],
         [
           "2026-11-26",
-          1239,
-          489
+          1420,
+          525
         ]
       ]
     },
