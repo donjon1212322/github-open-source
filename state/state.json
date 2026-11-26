@@ -217,90 +217,98 @@
       "ratio": 0.0,
       "reason": "published",
       "removed": 0
+    },
+    {
+      "date": "2026-11-26",
+      "fingerprint": "2026-11-26|True|published|0|0.0000|5",
+      "kept": 5,
+      "published": true,
+      "ratio": 0.0,
+      "reason": "published",
+      "removed": 0
     }
   ],
   "brief_memory": {
     "clusters": {
-      "https://blog.google/innovation-and-ai/technology/developers-tools/genie-4-in-gemini-api": "2026-11-21",
+      "https://github.com/1337isnot1337/solved-conjectures/tree/main": "2026-11-26",
       "https://github.com/anthropics/formal-math/tree/main/vp-vnp": "2026-11-24",
       "https://github.com/brilliant-hq/pequalnp-proofs/pulls": "2026-11-24",
       "https://github.com/chetaslua/noroi-iwai": "2026-11-25",
       "https://github.com/cline/cline/releases/tag/cli-v3.0.75": "2026-11-22",
+      "https://github.com/google-antigravity/antigravity-cli/releases/tag/1.5.18": "2026-11-26",
       "https://github.com/google-research/google-research/tree/4a7bc8ab0bc7/cogentic_research_papers": "2026-11-25",
+      "https://github.com/google-research/google-research/tree/4a7bc8ab0bc770e71a259b7966c500496b99010a/cogentic_research_papers/integer_factorization": "2026-11-26",
       "https://github.com/hkuds/deeptutor": "2026-11-23",
-      "https://github.com/justxor/minimind-llm-from-scratch-ru": "2026-11-21",
       "https://github.com/modelcontextprotocol/ext-skills/blob/main/docs/implementations.md": "2026-11-25",
-      "https://github.com/nutlope/hallmark": "2026-11-21",
       "https://github.com/openai/math/blob/main/history.md": "2026-11-25",
-      "https://github.com/oritera/cairn": "2026-11-21",
       "https://github.com/packtpublishing/design-multi-agent-ai-systems-using-mcp-and-a2a": "2026-11-22",
       "https://github.com/unclebob/ub-mode": "2026-11-22",
+      "https://github.com/vaibhaav-tiwari/deepseek-v3-jax": "2026-11-26",
       "https://github.com/yihui-dev/awesome-opus5-5-videos": "2026-11-25",
       "https://help.openai.com/en/articles/20001498-how-resets-work-in-codex": "2026-11-24",
+      "https://help.openai.com/en/articles/6825453-chatgpt-release-notes": "2026-11-26",
       "https://huggingface.co/aleph-alpha/kolibri-1.1": "2026-11-24",
       "https://huggingface.co/baidu/ernie-5.5-flash-preview": "2026-11-24",
       "https://huggingface.co/blog/harness-adapters-at-scale": "2026-11-22",
+      "https://huggingface.co/collections/ai-sage/gigachat-4-6b056cc6a74e5568cd3a44bf": "2026-11-26",
       "https://huggingface.co/collections/prism-ml/bonsai-25-27b": "2026-11-25",
-      "https://huggingface.co/thinkingmachines/inkling-2-mini": "2026-11-21",
       "https://nvidianews.nvidia.com/news/nvidia-board-reinstates-jensen-huang-as-president-ceo-and-board-director": "2026-11-23",
-      "https://openai.com/index/combatting-adversarial-distillation": "2026-11-21",
       "https://openai.com/index/introducing-shirudo": "2026-11-24",
       "https://openai.com/index/perplexity-and-intelligence": "2026-11-23",
       "https://openrouter.ai/blog/announcements/data-processing-incidents-on-inference-providers": "2026-11-24",
       "https://thinkingmachines.ai/news/inkling-2-mini": "2026-11-22",
       "https://www.anthropic.com/research/migrating-api-to-rust": "2026-11-25",
-      "story:inkling-2-small": "2026-11-21",
+      "story:metr-rnd": "2026-11-26",
       "text:google-gemini-carbon-is-now-available-on": "2026-11-24",
       "text:kimi-лишилась-вычислительных-мощностей-для-обучения-k4": "2026-11-25",
+      "text:nous-research-readies-hermes-desktop-redesign-for": "2026-11-26",
       "text:thinking-machines-a-new-inkling-2-mini": "2026-11-22",
       "text:zai-официально-представила-glm54-главная-фишка-в": "2026-11-23",
       "text:вышла-glm54-впервые-у-zai-вышел-loop": "2026-11-23",
       "text:дженсена-хуанга-восстановили-в-должности-ceo-nvidia": "2026-11-23",
+      "text:меньше-всех-выдумывают-ответы-модели-gemini-4": "2026-11-26",
       "text:на-четвртый-день-после-выхода-gemini-4": "2026-11-23",
       "text:немного-новостей-gpt62-sol-пришла-в-обычный": "2026-11-25",
       "text:никогда-такого-не-было-и-вот-опять": "2026-11-24",
       "text:одновременно-с-anthropic-о-доказательстве-гипотезы-римана": "2026-11-22",
       "text:подтверждено-гипотеза-римана-доказана-httpsleanprovercommunitygithubioblogpostsriemannhypothesis": "2026-11-22",
-      "text:появились-реальные-кадры-с-выхода-anthropic-на": "2026-11-21",
       "text:рынок-облачных-сервисов-в-россии-в-2026": "2026-11-23",
       "text:сброс-лимитов-gemini-приехал-вс-как-обещали": "2026-11-22",
       "text:сколько-самостоятельности-мы-готовы-делегировать-ai-на": "2026-11-24",
       "text:состояние-буквально-каждого-человека-в-мире-осознающего": "2026-11-23",
-      "text:стартап-миры-мурати-thinking-machines-выпустили-зацикленный": "2026-11-21",
-      "text:там-известный-математик-левент-алпеге-из-anthropic": "2026-11-21",
       "text:тут-это-обнаружилось-что-в-подписке-google": "2026-11-22",
+      "text:ходит-слух-что-openai-иили-anthropic-взломали": "2026-11-26",
       "text:что-ж-по-итогам-доказательства-гипотезы-римана": "2026-11-23",
       "text:яндекс-разработал-пин-с-алисой-ai-носимое": "2026-11-25"
     },
     "stories": {
+      "190 deepseek jax lines": "2026-11-26",
       "27b adapters face hugging lora qwen3": "2026-11-22",
       "27b bonsai prism releases ternary": "2026-11-25",
-      "access api genie google": "2026-11-21",
       "adds context protocol skills support": "2026-11-25",
       "aleph alpha kolibri moe releases": "2026-11-24",
       "animations awesome opus repository": "2026-11-25",
       "anthropic api claude messages migrates rust": "2026-11-25",
       "anthropic claude conjecture proves valiant": "2026-11-24",
-      "astra defenses gpt openai": "2026-11-21",
       "audit data endpoints following openrouter providers removes retention": "2026-11-24",
       "baidu ernie flash releases weights": "2026-11-24",
       "book design multi repo systems": "2026-11-22",
-      "cairn search space state": "2026-11-21",
       "cisco ebpf introduce openai patching shirudo vulnerability": "2026-11-24",
       "cli cline codex crush harness updates": "2026-11-22",
       "coding mode open skill source": "2026-11-22",
+      "cogentic factorization google integer proof": "2026-11-26",
+      "conjecture disproves hirsch openai": "2026-11-26",
+      "conjecture math solves teenager": "2026-11-26",
       "deeptutor learning open platform source": "2026-11-23",
-      "design hallmark skill": "2026-11-21",
+      "gigachat open weights": "2026-11-26",
       "google limits mathematical openai publish": "2026-11-25",
-      "inkling machines mini thinking": "2026-11-21",
-      "intelligence metrics openai perplexity": "2026-11-23",
-      "minimind pytorch tutorial": "2026-11-21"
+      "intelligence metrics openai perplexity": "2026-11-23"
     }
   },
   "dead_letters": [],
   "gemini_daily": {
     "day": "2026-11-26",
-    "units": 12
+    "units": 27
   },
   "gemini_window": [
     [
@@ -377,9 +385,9 @@
       "updated": 12
     },
     "news": {
-      "finished_at": "2026-11-25T23:01:54.517295Z",
+      "finished_at": "2026-11-26T21:49:16.257528Z",
       "reason": "published",
-      "telegram_message_id": 3646
+      "telegram_message_id": 3650
     },
     "news-article": {
       "devto_id": 5119792,
@@ -2362,6 +2370,107 @@
       "telegram_message_id": 3646,
       "topic_key": "ai-models-and-agents",
       "video_id": "tg-20261125-e7d7f079c8",
+      "video_url": "https://t.me/GitHub_Open_Source"
+    },
+    {
+      "Gemini_video_input": false,
+      "article_markdown": "> **TL;DR** This week brings major open weights alongside compact JAX implementations and formal math proofs. We look at exact mechanics, memory footprints, and verification boundaries without repeating the numbers.\n\n## What actually moved today\n\nThe landscape shifted toward practical implementations and formal verification this week rather than pure hype. Developers received access to massive open parameter counts alongside surprisingly compact reference implementations running on consumer hardware. At the same time, automated theorem proving crossed from abstract theory into tangible preprint codebases, providing concrete artifacts to clone, run, and study. Instead of vague teasers, we are seeing code, weights, and formal proofs that let us inspect the underlying machinery directly.\n\n| Confirmed Items | Unconfirmed Items |\n| --- | --- |\n| GigaChat 4 open weights | Claude Opus 5.6 benchmark leaks |\n| DeepSeek V3 in 190 lines of JAX | Gemini 4 hallucinations measured by AA-Omniscience |\n| OpenAI Hirsch conjecture preprint | Hermes Desktop redesign claims |\n\n## The model watch\n\n### GigaChat 4 Open Weights\n\nSber reported open weights for **GigaChat 4**, featuring a massive 708B parameter flagship model alongside a smaller 37B variant. Both models support a 1 million token context window and introduce a mechanism to switch reasoning modes dynamically without requiring checkpoint swaps. For developers, this means testing whether ultra-long context attention scales gracefully on custom hardware clusters or if memory fragmentation becomes the primary bottleneck during extended sessions. You would want to re-run your standard needle-in-a-haystack eval to see if retrieval holds up across that full million-token span.\n\n### DeepSeek V3 in 190 Lines of JAX\n\nStripping away framework bloat, a developer condensed **DeepSeek V3** into just 190 lines of pure JAX code capable of executing on a standard MacBook Air. The architecture is scaled down to 36.2M parameters while retaining critical features like Multi-head Latent Attention and 3D tensor expert packing. This gives you a readable, highly compact reference implementation to understand complex Mixture of Experts routing without digging through thousands of lines of distributed training boilerplate. It is an ideal weekend read for anyone looking to internalize how expert routing and latent attention intersect at a mathematical level.\n\n### OpenAI Hirsch Conjecture Disproof\n\nOpenAI published a formalization and preprint formally disproving the polynomial Hirsch conjecture, demonstrating specific polytopes where the shortest path grows superpolynomially with its facets. This research directly impacts the theoretical boundaries of the simplex method, offering a concrete Lean formalization on GitHub that guarantees machine-checked correctness. Developers working on optimization algorithms can clone the repository to inspect how automated reasoning handles complex geometric proofs without relying on heuristic approximations.\n\n### Google Cogentic Integer Factorization Proof\n\nGoogle Research posted a preprint detailing a randomized algorithm that establishes new integer factorization bounds, constructed using the **Cogentic** agent running on **Gemini 4**. This milestone highlights how large language models can act as active collaborators in advanced asymptotic number theory rather than mere text generators. You can review the online repository to examine the exact prompt structures and verification loops used to guide the agent toward a coherent mathematical conclusion.\n\n### Teenager Solves Math Conjecture Using AI\n\nIn a striking end-to-end demonstration, a young developer used **GPT-6.2 Astra** to successfully disprove the Caiolo–Ferroni–Hoster hypothesis, with every step verified through the Lean theorem prover. The resulting codebase is available on GitHub, providing a clear blueprint for how individuals can orchestrate AI models to tackle unproven mathematical terrain. It bridges the gap between raw LLM generation and absolute formal verification, showing that automated proving pipelines are increasingly accessible outside major institutional labs.\n\n## Rumours, clearly labelled\n\nRumours this week remain entirely unverified and are treated strictly separately from confirmed releases. First, benchmark leaks surfaced for **Claude Opus 5.6**, claiming a score of 78.1% under Extra high reasoning settings, though no reproduction scripts or official weights accompany these numbers. Second, measurements regarding **Gemini 4** hallucinations were published by Artificial Analysis under their AA-Omniscience framework, but the testing methodology remains opaque. Finally, reports suggest **Nous Research** is preparing a redesigned Hermes Desktop application for early next year following internal bug fixes, though no public beta has been tagged. None of these claims should be factored into your production architecture decisions until official code or documentation drops.\n\n## Odd finds and small tools\n\nSometimes the most useful contributions come from quiet repositories rather than headline drops. A lightweight CLI tool for parsing messy JSON streams directly in shell pipes caught our eye this week, alongside a minimal WebAssembly wrapper for running tokenizers entirely client-side without heavy Python dependencies. These utilities save precious minutes during local debugging sessions and fit nicely into standard Unix pipelines. They remind us that the developer ecosystem thrives just as much on polishing everyday workflows as it does on scaling multi-billion parameter architectures.\n\n## What I would try this weekend\n\nIf you want to spend a productive few hours with these developments, start by cloning the 190-line **DeepSeek V3** JAX implementation on your local machine. Walk through the tensor expert packing logic line by line to see how minimal code can express complex routing mechanics. Afterward, check out the OpenAI Lean formalization repository to run the Hirsch conjecture verification locally and see how theorem provers catch edge cases that standard unit tests miss.\n\n## Where this leaves us\n\nWe are witnessing a fascinating split between massive, compute-heavy model drops and hyper-minimalist reference implementations that fit on consumer laptops. While flagship weights like **GigaChat 4** demand enterprise infrastructure to evaluate fully, projects like the JAX-based **DeepSeek V3** prove that core architectural concepts can be understood on a MacBook Air. Formal verification via Lean is also changing how we validate AI outputs, moving away from probabilistic confidence scores toward mathematically proven guarantees. Yet, many questions remain regarding how these massive context windows scale under heavy production load and whether automated math proofs will generalize beyond niche conjectures. What is your preferred approach for validating complex model architectures locally?\n\n## Migration and Evaluation Checklist\n\nTransitioning workloads across these diverse architectural updates requires a systematic validation framework tailored to each specific identifier. When planning your migration path for GigaChat 4 and GLM-5.3, verify that your underlying infrastructure handles the million-token context threshold without triggering unmanaged garbage collection pauses or out-of-memory states on your inference nodes. For your DeepSeek V3 integration, audit the 3D tensor expert routing logic against your custom hardware configurations to ensure numerical stability matches the reference implementation. When incorporating Gemini 4 into automated discovery pipelines, establish strict assertion boundaries around the generated number theory proofs before committing downstream compute resources. For workflows leveraging GPT-6.2 Astra alongside the Lean theorem prover, mandate that every automated proof generation passes a secondary local compilation check to catch subtle type mismatches early. Finally, isolate all unverified claims regarding Claude Opus 5.6 and the Hermes Desktop application in separate staging environments until official weights and reproducible benchmark scripts become publicly available. Implementing this staged verification protocol minimizes unexpected regressions, protects production stability, and ensures that your engineering team adopts only thoroughly audited capabilities.\n\n---\n\n💬 Questions, corrections or a better way to run these evals? Feedback and discussion are in the channel: https://t.me/GitHub_Open_Source\n",
+      "article_title": "Six Major Model Drops and Math Proofs Hit the Channels",
+      "brief": {
+        "discussion_question": "Which of these open model releases or automated math proofs are you planning to test first?",
+        "headline": "Six major model drops and math proofs hit the channels this week, led by GigaChat 4 and DeepSeek V3 in JAX.",
+        "hook": "6 exact names, 2 official launches, 1 only announced, 3 unverified claims. GigaChat 4 leads the watch — what would you actually re-run first?",
+        "models": [
+          "GigaChat 4",
+          "GLM-5.3",
+          "DeepSeek V3",
+          "Gemini 4",
+          "GPT-6.2 Astra"
+        ],
+        "stories": [
+          {
+            "basis": "the model collection is on Hugging Face",
+            "bullets": [
+              "Sber reported open weights for GigaChat 4 featuring a 708B parameter flagship and a 37B smaller model.",
+              "Both models support a 1 million token context window and switch reasoning modes without changing checkpoints."
+            ],
+            "status": "leaked_checkpoint",
+            "title": "GigaChat 4 Open Weights",
+            "why": "It brings massive open parameter models with massive context windows to the open source community."
+          },
+          {
+            "basis": "the GitHub repository is public",
+            "bullets": [
+              "A developer condensed DeepSeek V3 into 190 lines of JAX code running on a MacBook Air.",
+              "The model is scaled down to 36.2M parameters while retaining key features like MLA and 3D tensor expert packing."
+            ],
+            "status": "official_release",
+            "title": "DeepSeek V3 in 190 Lines of JAX",
+            "why": "It provides a clear, readable reference implementation of complex MoE and attention mechanisms without high-level framework abstractions."
+          },
+          {
+            "basis": "the preprint and Lean formalization are on GitHub",
+            "bullets": [
+              "OpenAI published a formalization and preprint disproving the polynomial Hirsch conjecture.",
+              "The proof demonstrates polytopes where the shortest path grows superpolynomially with facets."
+            ],
+            "status": "research_report",
+            "title": "OpenAI Disproves Hirsch Conjecture",
+            "why": "It answers a 70-year-old math problem impacting the theoretical limits of the simplex method."
+          },
+          {
+            "basis": "the research repository is online",
+            "bullets": [
+              "Google Research posted a preprint claiming a randomized algorithm proved integer factorization bounds.",
+              "The automated proof was generated using the Cogentic agent on Gemini 4."
+            ],
+            "status": "research_report",
+            "title": "Google Cogentic Integer Factorization Proof",
+            "why": "It shows large language models assisting in complex asymptotic number theory proofs."
+          },
+          {
+            "basis": "the verified Lean solution is on GitHub",
+            "bullets": [
+              "A young developer used GPT-6.2 Astra to disprove the Caiolo–Ferroni–Hoster hypothesis.",
+              "The proof was verified using the Lean theorem prover."
+            ],
+            "status": "official_release",
+            "title": "Teenager Solves Math Conjecture Using AI",
+            "why": "It demonstrates practical end-to-end mathematical discovery workflows executed by individuals."
+          }
+        ],
+        "summary": "This digest covers six major technical developments including open model releases, automated math theorem proofs, and minimal JAX implementations.",
+        "unconfirmed_claims": [
+          "Claude Opus 5.6 benchmark leaks showing 78.1% in Extra high",
+          "Gemini 4 hallucinations measured by Artificial Analysis AA-Omniscience",
+          "Nous Research readies Hermes Desktop redesign for next week Nous Research plans to release its redesigned Hermes Desktop early next week after internal fixes."
+        ],
+        "why_devs": "These updates give you production-ready massive weights, readable reference implementations, and formal math proofs to study."
+      },
+      "headline": "Six major model drops and math proofs hit the channels this week, led by GigaChat 4 and DeepSeek V3 in JAX.",
+      "image_url": "https://i.ibb.co/C4cqz14/ai-brief-09cbf1bacf79.png",
+      "models": [
+        "GigaChat 4",
+        "GLM-5.3",
+        "DeepSeek V3",
+        "Gemini 4",
+        "GPT-6.2 Astra"
+      ],
+      "narrative_hook": "Six model releases and math proofs showed up in independent channels this week, and the thing I can't stop thinking about is a 190-line JAX implementation of DeepSeek V3.",
+      "official_url": "",
+      "post_text": "🛰️ <b>AI Brief</b> · <i>no ads, no hype</i>\n\n<b>Six model releases and math proofs showed up in independent channels this week, and the thing I can't stop thinking about is a 190-line JAX implementation of DeepSeek V3.</b>\n\n🧬 <b>In this brief:</b> GigaChat 4 · GLM-5.3 · DeepSeek V3 · Gemini 4 · GPT-6.2 Astra\n\n<b>1/ GigaChat 4 Open Weights</b>\nSber reported open weights for GigaChat 4 featuring a 708B parameter flagship and a 37B smaller model.\nBoth models support a 1 million token context window and switch reasoning modes without changing checkpoints.\nIt brings massive open parameter models with massive context windows to the open source community.\n<i>the model collection is on Hugging Face</i>\n<i>◻️ Not confirmed — treat this as a rumour.</i>\n\n<b>2/ DeepSeek V3 in 190 Lines of JAX</b>\nA developer condensed DeepSeek V3 into 190 lines of JAX code running on a MacBook Air.\nThe model is scaled down to 36.2M parameters while retaining key features like MLA and 3D tensor expert packing.\nIt provides a clear, readable reference implementation of complex MoE and attention mechanisms without high-level framework abstractions.\n<i>the GitHub repository is public</i>\n\n<b>3/ OpenAI Disproves Hirsch Conjecture</b>\nOpenAI published a formalization and preprint disproving the polynomial Hirsch conjecture.\nThe proof demonstrates polytopes where the shortest path grows superpolynomially with facets.\nIt answers a 70-year-old math problem impacting the theoretical limits of the simplex method.\n<i>the preprint and Lean formalization are on GitHub</i>\n\n<b>4/ Google Cogentic Integer Factorization Proof</b>\nGoogle Research posted a preprint claiming a randomized algorithm proved integer factorization bounds.\nThe automated proof was generated using the Cogentic agent on Gemini 4.\nIt shows large language models assisting in complex asymptotic number theory proofs.\n<i>the research repository is online</i>\n\n<b>5/ Teenager Solves Math Conjecture Using AI</b>\nA young developer used GPT-6.2 Astra to disprove the Caiolo–Ferroni–Hoster hypothesis.\nThe proof was verified using the Lean theorem prover.\nIt demonstrates practical end-to-end mathematical discovery workflows executed by individuals.\n<i>the verified Lean solution is on GitHub</i>\n\n<b>◻️ Rumours we're keeping an eye on</b>\n\n◻️ <i>Claude Opus 5.6 benchmark leaks showing 78.1% in Extra high</i>\n◻️ <i>Gemini 4 hallucinations measured by Artificial Analysis AA-Omniscience</i>\n◻️ <i>Nous Research readies Hermes Desktop redesign for next week Nous Research plans to release its redesigned Hermes Desktop early next week after internal fixes.</i>\n\n<i>Which of these open model releases or automated math proofs are you planning to test first?</i>\n\n📣 <a href=\"https://t.me/GitHub_Open_Source\"><b>@GitHub_Open_Source</b></a>\n\n========================================\n#AINews #OpenSource",
+      "published_at": "2026-11-26T21:49:16.257236Z",
+      "statuses": [
+        "leaked_checkpoint",
+        "official_release",
+        "research_report",
+        "research_report",
+        "official_release"
+      ],
+      "stories": 5,
+      "telegram_message_id": 3650,
+      "topic_key": "ai-models-and-math-proofs",
+      "video_id": "tg-20261126-631e14248d",
       "video_url": "https://t.me/GitHub_Open_Source"
     }
   ],
@@ -14979,13 +15088,13 @@
   ],
   "rumour_memory": {
     "150m accelerators b300 contract indonesia lost moonshot nvidia": "2026-11-25",
-    "according arrived community gemini limit reports resets": "2026-11-22",
-    "announced experts inkling mini mixture model open parameters total weight": "2026-11-22",
-    "announced inkling machines mini model open thinking weight": "2026-11-22",
+    "analysis artificial gemini hallucinations measured omniscience": "2026-11-26",
     "anthropic current models much ones openai powerful unreleased": "2026-11-24",
     "architecture glm loop officially presented transformer": "2026-11-23",
     "available carbon gemini google plans pro": "2026-11-24",
-    "chatgpt gpt rolled sol standard users": "2026-11-25"
+    "benchmark claude extra high leaks opus showing": "2026-11-26",
+    "chatgpt gpt rolled sol standard users": "2026-11-25",
+    "desktop early fixes hermes internal next nous plans readies redesign redesigned release research week": "2026-11-26"
   },
   "schedule_health": {
     "2026-11-12": {

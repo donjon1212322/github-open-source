@@ -902,3 +902,6 @@
 {"slot": "facebook-handoff", "ts": "2026-11-26T19:00:51.359101Z", "type": "watchdog_verified"}
 {"channel": "GitHub_Open_Source", "posts": 12, "ts": "2026-11-26T20:23:55.014049Z", "type": "metrics_collected", "updated": 12}
 {"deleted": 0, "ts": "2026-11-26T21:47:49.302741Z", "type": "moderation_completed", "updates": 1}
+{"count": 1, "ts": "2026-11-26T21:48:58.513780Z", "type": "corporate_stories_dropped"}
+{"title": "Six Major Model Drops and Math Proofs Hit the Channels", "ts": "2026-11-26T21:49:14.641553Z", "type": "news_article_generated", "words": 1186}
+{"Gemini_video_input": false, "models": 5, "official_url": "", "stories": 5, "topic": "ai-models-and-math-proofs", "ts": "2026-11-26T21:49:16.257540Z", "type": "ai_brief_published", "video_id": "tg-20261126-631e14248d"}
