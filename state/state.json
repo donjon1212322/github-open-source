@@ -1,34 +1,5 @@
 {
-  "active_poll": {
-    "axis": "reality_check",
-    "chat_id": "@GitHub_Open_Source",
-    "clusters": [],
-    "gemini_fallback": true,
-    "message_id": 3633,
-    "opened_at": "2026-11-22T16:13:51.583117Z",
-    "option_keys": [
-      "more_of_it",
-      "keep_mix",
-      "topic_not_language"
-    ],
-    "option_map": {},
-    "option_topics": {
-      "keep_mix": [
-        "devtools"
-      ],
-      "more_of_it": [
-        "devtools"
-      ],
-      "topic_not_language": [
-        "devtools"
-      ]
-    },
-    "post_text": "📰 <b>The Open Source Daily — Top 5 of the Week</b>\n\n1. <b><a href=\"https://t.me/GitHub_Open_Source/3624\">rust-anything</a></b>\n   ⭐ 5 212 — Migrate your Node.js, Python, or Go code to Rust piece by piece and verify every output matches byte for byte.\n\n2. <b><a href=\"https://t.me/GitHub_Open_Source/3606\">HolyArrs</a></b>\n   ⭐ 1 264 — Replace six separate media management containers with HolyArrs, a single 16.1 MB binary for shows, movies, and music.\n\n3. <b><a href=\"https://t.me/GitHub_Open_Source/3614\">phonebox</a></b>\n   ⭐ 2 657 — Turn an old Android phone into a customizable desk panel for your PC with over 100 system and AI widgets.\n\n4. <b><a href=\"https://t.me/GitHub_Open_Source/3618\">TokenEconomizer</a></b>\n   ⭐ 7 666 — Cut coding agent costs by up to 30.9% across repeated repository tasks without altering the agent.\n\n5. <b><a href=\"https://t.me/GitHub_Open_Source/3615\">openfilm</a></b>\n   ⭐ 8 272 — Turn any coding agent into a video editor that lets you tweak every frame via CSS and HTML overrides.\n\n──────────────\n↗️ <b>Forward this Top 5</b> to a teammate who should see it.\n🗳️ Whether we change the mix — vote below, it shapes next week's picks.\n📣 <a href=\"https://t.me/GitHub_Open_Source\"><b>@GitHub_Open_Source</b></a> — daily open-source picks",
-    "question": "Devtools posts got more attention last week. Coincidence?",
-    "repos": {},
-    "simplified": false,
-    "type": "reality_check"
-  },
+  "active_poll": {},
   "audience_profile": {
     "axes": {
       "job": {
@@ -68,9 +39,9 @@
       ],
       "job_rust_1": []
     },
-    "last_result": "Last week: 8 votes picked “Blazing-fast native notes app and rich-text editor for macOS, Windows, and Linux”. We are leaning into that this week.",
+    "last_result": "Last week: not enough votes to change the mix — asking a simpler question this time.",
     "type_history": [],
-    "updated_at": "2026-11-19T18:53:54.858800Z",
+    "updated_at": "2026-11-26T18:53:57.525944Z",
     "version": 1,
     "weeks": [
       {
@@ -81,6 +52,15 @@
         "votes": 8,
         "week": "2026-W47",
         "winner_key": "job_rust_1"
+      },
+      {
+        "axis": "reality_check",
+        "gemini_fallback": true,
+        "low_confidence": true,
+        "type": "reality_check",
+        "votes": 4,
+        "week": "2026-W48",
+        "winner_key": "more_of_it"
       }
     ]
   },
@@ -411,9 +391,9 @@
       "words": 1088
     },
     "poll-close": {
-      "finished_at": "2026-11-19T18:53:54.858983Z",
-      "total_voters": 8,
-      "week": "2026-W47"
+      "finished_at": "2026-11-26T18:53:57.526192Z",
+      "total_voters": 4,
+      "week": "2026-W48"
     },
     "publish:europe_midday": {
       "finished_at": "2026-11-11T12:43:59.103591Z",
@@ -2459,8 +2439,61 @@
       "question": "Which of these would save you time this week? We will cover the winning job with a real open-source tool next week.",
       "total_voters": 8,
       "type": "job"
+    },
+    {
+      "axis": "reality_check",
+      "closed_at": "2026-11-26T18:53:57.525957Z",
+      "low_confidence": true,
+      "options": [
+        {
+          "key": "more_of_it",
+          "label": "Show more Devtools tools",
+          "repo": "",
+          "share": 0.75,
+          "votes": 3
+        },
+        {
+          "key": "keep_mix",
+          "label": "Keep the current mix",
+          "repo": "",
+          "share": 0.25,
+          "votes": 1
+        },
+        {
+          "key": "topic_not_language",
+          "label": "It was the topic, not the language",
+          "repo": "",
+          "share": 0.0,
+          "votes": 0
+        }
+      ],
+      "profile_result": "Last week: not enough votes to change the mix — asking a simpler question this time.",
+      "question": "Devtools posts got more attention last week. Coincidence?",
+      "total_voters": 4,
+      "type": "reality_check"
     }
   ],
+  "poll_obligation": {
+    "created_at": "2026-11-26T18:53:57.525976Z",
+    "due_at": "2026-12-03T18:53:57.525976Z",
+    "fulfilled_at": "",
+    "fulfilled_repo": "",
+    "keywords": [
+      "show",
+      "devtools"
+    ],
+    "kind": "cover_theme",
+    "poll_type": "reality_check",
+    "question": "Devtools posts got more attention last week. Coincidence?",
+    "status": "open",
+    "tied": false,
+    "topics": [
+      "devtools"
+    ],
+    "votes": 3,
+    "winner_key": "more_of_it",
+    "winner_label": "Show more Devtools tools"
+  },
   "publish_failures": {},
   "published": {
     "anefzaoui/misterdownloadmanager": {

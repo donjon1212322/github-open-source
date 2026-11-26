@@ -897,3 +897,5 @@
 {"attempts": 1, "detail": "HTTP 204", "slot": "facebook-handoff", "ts": "2026-11-26T18:30:58.324073Z", "type": "watchdog_recovered", "verified": false}
 {"range": "facebook!A25:E25", "rows": 1, "ts": "2026-11-26T18:31:20.785116Z", "type": "facebook_handoff_queued"}
 {"deleted": 0, "ts": "2026-11-26T18:47:46.984170Z", "type": "moderation_completed", "updates": 1}
+{"due_at": "2026-12-03T18:53:57.525976Z", "kind": "cover_theme", "terms": ["devtools", "show", "devtools"], "tied": false, "ts": "2026-11-26T18:53:57.526013Z", "type": "poll_obligation_opened", "winner": "Show more Devtools tools"}
+{"poll_type": "reality_check", "profile_result": "Last week: not enough votes to change the mix — asking a simpler question this time.", "total_voters": 4, "ts": "2026-11-26T18:53:57.526131Z", "type": "poll_closed", "winner": "Show more Devtools tools"}
