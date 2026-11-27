@@ -2774,7 +2774,8 @@
         "bluesky": {
           "attempts": 0,
           "due_at": "2026-11-27T18:00:00+00:00",
-          "status": "pending"
+          "held_reason": "not_best_of_day",
+          "status": "held"
         }
       },
       "description": "Native YouTube client for Windows in Rust, with SponsorBlock, DeArrow and Return YouTube Dislike built in",
@@ -4381,7 +4382,10 @@
         "bluesky": {
           "attempts": 0,
           "due_at": "2026-11-27T18:00:00+00:00",
-          "status": "pending"
+          "error": "",
+          "published_at": "2026-11-27T18:17:52.062179Z",
+          "status": "published",
+          "url": "https://bsky.app/profile/githubopensource.bsky.social/post/3n3cse222z22j"
         }
       },
       "description": "Work-in-progress fork of VIctory: getting an Xbox Series title to render and run on a Windows PC. No game files.",
@@ -10008,7 +10012,8 @@
         "bluesky": {
           "attempts": 0,
           "due_at": "2026-11-27T18:44:06.893930+00:00",
-          "status": "pending"
+          "held_reason": "not_best_of_day",
+          "status": "held"
         }
       },
       "description": "20 AI testers on 20 different phones, in parallel, on GitHub's free runners: Claude Code agents on iOS Simulators and Android emulators that find broken flows, translation, layout and accessibility bugs",

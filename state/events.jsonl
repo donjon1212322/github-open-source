@@ -935,3 +935,4 @@
 {"deleted": 0, "ts": "2026-11-27T15:47:49.183858Z", "type": "moderation_completed", "updates": 1}
 {"preview_host": "imgbb", "repo": "pierridotite/mobile-agent-testers", "ts": "2026-11-27T18:14:06.670687Z", "type": "published_as_text"}
 {"repo": "pierridotite/mobile-agent-testers", "score": 60.41, "telegram_message_id": 3653, "telegraph_url": "https://telegra.ph/mobile-agent-testers-Parallel-AI-Mobile-Testing-on-GitHub-Actions-11-27", "ts": "2026-11-27T18:14:06.894199Z", "type": "project_published"}
+{"platform": "bluesky", "repo": "fxceless/victory-fork", "ts": "2026-11-27T18:17:52.062208Z", "type": "crosspost_published", "url": "https://bsky.app/profile/githubopensource.bsky.social/post/3n3cse222z22j"}
