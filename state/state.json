@@ -308,16 +308,16 @@
   "dead_letters": [],
   "gemini_daily": {
     "day": "2026-11-26",
-    "units": 27
+    "units": 33
   },
   "gemini_window": [
     [
-      1795716828.195395,
-      2771
+      1795742035.434382,
+      3891
     ],
     [
-      1795716833.4590807,
-      1402
+      1795742038.8973014,
+      1389
     ]
   ],
   "last_runs": {
@@ -425,9 +425,9 @@
       "telegram_message_id": 3550
     },
     "publish:us_evening": {
-      "finished_at": "2026-11-26T01:14:17.520398Z",
-      "repo": "ubiquitarianism/leonida",
-      "telegram_message_id": 3647
+      "finished_at": "2026-11-27T01:14:03.717215Z",
+      "repo": "fxceless/victory-fork",
+      "telegram_message_id": 3651
     },
     "publish:us_midday": {
       "finished_at": "2026-11-26T18:14:25.391637Z",
@@ -4240,6 +4240,102 @@
       ],
       "visual_host": "imgbb",
       "visual_kind": "readme"
+    },
+    "fxceless/victory-fork": {
+      "articles": {},
+      "card_style": "editorial_daily",
+      "category": "DevTools",
+      "contributors_count": 67,
+      "created_at": "2026-11-24T18:02:37Z",
+      "crossposts": {
+        "bluesky": {
+          "attempts": 0,
+          "due_at": "2026-11-27T18:00:00+00:00",
+          "status": "pending"
+        }
+      },
+      "description": "Work-in-progress fork of VIctory: getting an Xbox Series title to render and run on a Windows PC. No game files.",
+      "description_fp": "206064641a5c33c1",
+      "forks": 988,
+      "full_name": "fxceless/victory-fork",
+      "generated": {
+        "article_markdown": "## What it is\n\nfxceless/victory-fork is an experimental, work-in-progress fork of the VIctory compatibility layer written in Rust. It aims to make an Xbox Series title render and run natively on a Windows PC using supplied game files, relying on a custom Direct3D 12 backend, runtime services, and a shader recompiler.\n\n## Why it matters\n\nTranslating console graphics workloads to desktop hardware involves massive synchronization and memory overhead. This project tackles those bottlenecks directly through custom optimization switches, masked memory patches, and fine-grained thread pool management, offering a transparent look at how modern graphics pipelines can be bridged.\n\n## Key features\n\n- Translates Direct3D 12 backends and shader recompilers for Windows execution\n- Implements masked patches for memory page changes under shader writes\n- Launches indirect mesh draws via amplification stages to reduce CPU overhead\n- Supports diagnostic switches for DRED fault tracking and pipeline blacklisting\n- Provides multi-threaded texture checking ahead of pipeline dispatches\n\n## Quick start\n\nTo build the project from source, use the standard Cargo workflow provided by the Rust toolchain:\n\n```bash\ncargo build --release\n```\n\n## Who should try it\n\nGraphics engineers, emulator developers, and systems programmers interested in low-level graphics API translation, memory management, and shader compilation will find plenty to study here.\n\n## Verdict\n\nIt is a fascinating deep dive into console architecture emulation that yields real progress on frame rendering, but hardware timeouts and missing lighting features mean it requires patience and experimentation.",
+        "article_title": "fxceless/victory-fork: Running Xbox Series Titles on Windows PC",
+        "card_hook": "Xbox Series titles on Windows PC",
+        "card_subline": "A Rust-based compatibility layer translating Direct3D 12 workloads for PC hardware",
+        "category": "DevTools",
+        "discussion_question": "Which translation bottleneck hurts your frame rates the most: shader compilation or memory page guards?",
+        "hook": "Run an Xbox Series title natively on Windows with 11 fps using an experimental Rust compatibility layer.",
+        "key_features": [
+          "Translates Direct3D 12 backends and shader recompilers for Windows execution",
+          "Implements masked patches for memory page changes under shader writes",
+          "Launches indirect mesh draws via amplification stages to reduce CPU overhead",
+          "Supports diagnostic switches for DRED fault tracking and pipeline blacklisting",
+          "Provides multi-threaded texture checking ahead of pipeline dispatches"
+        ],
+        "llm_used": true,
+        "quick_start": "cargo build --release",
+        "safety": "ok",
+        "safety_reason": "The project is a compatibility layer for research and educational purposes containing no proprietary game files.",
+        "scene": "You load a demanding console build on your desktop machine, watching the frame rate crawl to a single digit as the GPU submission queue backs up.",
+        "social_text": "Explore an experimental Rust compatibility layer designed to run Xbox Series titles natively on Windows hardware.",
+        "summary": "The project serves as a translation layer sitting between Xbox Series game assets and Windows PC hardware, utilizing a custom Direct3D 12 backend and shader recompiler. It processes title memory and maps graphics pipelines to execute console code directly on desktop GPUs without owning an actual console. Developers use it to experiment with custom memory page guards, thread pooling, and instruction lowering to achieve native rendering.",
+        "surfaces": {
+          "Facebook_body": "Running console games directly on a standard Windows computer is now possible for developers using an experimental translation tool. This software sits between game assets and computer hardware, utilizing a custom graphics backend and shader recompiler to process memory and map pipelines without needing an actual console.\n\nBy translating instructions and managing textures across multiple threads, the system allows graphics engineers to experiment with low-level hardware translation and custom memory management. Although current performance runs at a modest eleven frames per second, it provides a fascinating playground for systems programmers.\n\nThis project is built specifically for graphics developers and systems programmers who want to explore hardware emulation and low-level translation layers. It is not designed for casual players looking for smooth gameplay, but rather for engineers interested in how console code interacts with desktop hardware.",
+          "Facebook_headline": "Play console games on your PC",
+          "Facebook_lead": "An experimental tool lets developers run console game code directly on a Windows computer using a custom graphics backend.",
+          "bluesky_headline": "Run console games on a PC",
+          "bluesky_lead": "An experimental Rust translation layer achieves 11 frames per second for desktop GPUs.",
+          "devto_body": "## What it is\n\nvictory-fork is an experimental Rust-based compatibility layer designed to run Xbox Series console titles natively on Windows PC hardware. With over 3,200 stars on GitHub, it serves as an advanced low-level engineering playground for emulator developers and systems programmers interested in hardware translation.\n\n## How it works\n\nThe project acts as a translation layer sitting between console game assets and Windows PC hardware. It utilizes a custom Direct3D 12 backend and a shader recompiler to process title memory and map graphics pipelines. By lowering instructions and executing console code directly on desktop GPUs, it bypasses the need for an actual console.\n\n## Key features\n\n- Custom Direct3D 12 translation backend and shader recompiler for Windows execution\n- Masked patches for memory page changes under shader writes\n- Indirect mesh draws via amplification stages to reduce CPU overhead\n- Diagnostic switches for DRED fault tracking and pipeline blacklisting\n- Multi-threaded texture checking ahead of pipeline dispatches\n\n## Getting started\n\nClone the repository from GitHub and ensure you have a modern Rust toolchain installed alongside a compatible Direct3D 12 GPU. Note that the project requires you to supply your own game assets as no files are included.\n\n## When not to use it\n\nDo not use this project if you are looking for stable, casual gameplay. Operating at an experimental 11 frames per second, it is strictly intended for developers and researchers experimenting with low-level emulation.",
+          "seo_description": "Explore an open-source Rust translation layer for running console game assets on Windows PCs. Built for graphics developers and systems programmers.",
+          "seo_query": "run xbox series games on pc rust emulator",
+          "seo_title": "Run Xbox Series games on PC - open-source Rust compatibility layer",
+          "telegraph_angle": "Explain the low-level engineering challenges of console emulation on desktop hardware and the current performance trade-offs."
+        },
+        "tension": "The translation layer chokes on complex scene geometry, dropping frame rates down to 8 fps while consuming gigabytes of system memory and risking device removal errors.",
+        "turn": "This fork introduces targeted threading optimizations and masked patch logic that cut frame times significantly, though ray-traced lighting and complete stability remain out of reach.",
+        "verdict": "An impressive low-level engineering playground for emulator developers, but too unstable for casual gameplay.",
+        "who_for": "Graphics and systems developers experimenting with low-level hardware translation and emulation.",
+        "why_now": "Recent advances in shader translation and compute pipeline tuning make native execution of console workloads on desktop GPUs increasingly viable."
+      },
+      "homepage": "",
+      "id": 1470579726,
+      "image_url": "https://i.ibb.co/k6cTZ8sY/fxceless-victory-fork-preview-8c943a97bc91.jpg",
+      "is_dual_use": false,
+      "is_hidden_gem": false,
+      "language": "Rust",
+      "license": {
+        "key": "gpl-3.0",
+        "name": "GNU General Public License v3.0",
+        "node_id": "MDc6TGljZW5zZTk=",
+        "spdx_id": "GPL-3.0",
+        "url": "https://api.github.com/licenses/gpl-3.0"
+      },
+      "media_urls": [],
+      "name": "victory-fork",
+      "open_issues": 1217,
+      "published_at": "2026-11-27T01:14:03.716876Z",
+      "pushed_at": "2026-11-27T01:13:22Z",
+      "readme_fp": "a24ef6cab90b2850",
+      "repo_id": 1470579726,
+      "revisit_of": "",
+      "revisit_reason": "",
+      "score": 68.85,
+      "slot": "us_evening",
+      "sources": [
+        "github_search",
+        "telegram:github_repos"
+      ],
+      "stars": 3280,
+      "telegram_chat_id": "@GitHub_Open_Source",
+      "telegram_link": "https://t.me/GitHub_Open_Source/3651",
+      "telegram_message_id": 3651,
+      "telegraph_url": "https://telegra.ph/fxcelessvictory-fork-Running-Xbox-Series-Titles-on-Windows-PC-11-27",
+      "topics": [],
+      "updated_at": "2026-11-27T01:10:50Z",
+      "url": "https://github.com/fxceless/victory-fork",
+      "visual_host": "imgbb",
+      "visual_kind": "card"
     },
     "heyputer/everything": {
       "articles": {},
@@ -13110,81 +13206,6 @@
     },
     {
       "archived": false,
-      "contributors_count": 67,
-      "created_at": "2026-11-24T18:02:37Z",
-      "default_branch": "main",
-      "description": "Work-in-progress fork of VIctory: getting an Xbox Series title to render and run on a Windows PC. No game files.",
-      "disabled": false,
-      "fork": false,
-      "forks": 984,
-      "forks_count": 984,
-      "full_name": "fxceless/victory-fork",
-      "has_readme": true,
-      "homepage": "",
-      "id": 1470579726,
-      "is_dual_use": false,
-      "is_hidden_gem": false,
-      "language": "Rust",
-      "license": {
-        "key": "gpl-3.0",
-        "name": "GNU General Public License v3.0",
-        "node_id": "MDc6TGljZW5zZTk=",
-        "spdx_id": "GPL-3.0",
-        "url": "https://api.github.com/licenses/gpl-3.0"
-      },
-      "media_urls": [],
-      "name": "victory-fork",
-      "non_software_reason": "",
-      "open_issues": 1216,
-      "open_issues_count": 1216,
-      "owner_repo_count": 1,
-      "pushed_at": "2026-11-27T00:06:27Z",
-      "readme": "",
-      "readme_excerpt": "# VIctory fork (work in progress)\n\nA work-in-progress fork of [VIctory](https://github.com/Marvisak/VIctory), a\ncompatibility layer that runs an Xbox Series title natively on Windows from\nfiles the user supplies. This fork follows upstream\n`main` and adds fixes aimed at one goal: getting the game's world to render\ncorrectly and playably on one particular PC.\n\n**This repository contains no game files, code or assets.** You need your own\ncopy of the game. It is not affiliated with or endorsed by the game's\ndeveloper or publisher.\n\n## Credits\n\n- **[VIctory](https://github.com/Marvisak/VIctory)** by Marvisak and its\n  contributors is the base of everything here: the loader, the runtime\n  services, the Direct3D 12 back end and the shader recompiler. Licensed\n  GPL-3.0-or-later; so is this fork. Upstream's history is kept intact below\n  the single commit that carries this fork's changes.\n- **[XCL](https://github.com/ivall/xcl)** by ivall and its contributors\n  (GPL-2.0-only) was used as a reference for how the same title behaves under\n  another layer. Fixes inspired by it were written anew in VIctory's code.\n- The guard over every view of a memory page is code by **myokex**\n  ([victory-a",
-      "readme_len": 62876,
-      "repo_id": 1470579726,
-      "score": 68.85,
-      "score_parts": {
-        "acceleration": 0.5,
-        "acceleration_known": 0,
-        "acceleration_ratio": 0.0,
-        "age_days": 2.3,
-        "appeal": 0.981,
-        "burst": 0.741,
-        "community": 0.889,
-        "content": 0.074,
-        "corroboration": 0.907,
-        "external": 0.481,
-        "forks_measured": 1,
-        "forks_per_day": 434.02,
-        "forks_rate": 0.923,
-        "freshness": 0.852,
-        "growth": 0.796,
-        "growth_measured": 0,
-        "popularity": 0.556,
-        "reliability": 0.5,
-        "stars_per_day": 1447.19
-      },
-      "source_name": "github_search",
-      "sources": [
-        "github_search",
-        "telegram:github_repos"
-      ],
-      "star_history": [
-        [
-          "2026-11-27",
-          3281,
-          984
-        ]
-      ],
-      "stargazers_count": 3281,
-      "stars": 3281,
-      "topics": [],
-      "updated_at": "2026-11-27T00:23:04Z",
-      "url": "https://github.com/fxceless/victory-fork"
-    },
-    {
-      "archived": false,
       "contributors_count": 20,
       "created_at": "2026-11-22T18:50:17Z",
       "default_branch": "main",
@@ -20402,8 +20423,8 @@
     "fxceless/victory-fork": {
       "first_seen_at": "2026-11-27T00:27:19.535368Z",
       "full_name": "fxceless/victory-fork",
-      "last_decision": "queued",
-      "last_seen_at": "2026-11-27T00:27:19.535372Z",
+      "last_decision": "published",
+      "last_seen_at": "2026-11-27T01:14:03.717172Z",
       "repo_id": 1470579726,
       "sources": [
         "github_search",
@@ -20412,8 +20433,8 @@
       "star_history": [
         [
           "2026-11-27",
-          3281,
-          984
+          3280,
+          988
         ]
       ]
     },
