@@ -932,3 +932,4 @@
 {"platform": "devto", "repo": "fxceless/victory-fork", "ts": "2026-11-27T13:33:52.624647Z", "type": "article_published", "url": "https://dev.to/githubopensource/run-xbox-series-games-on-pc-open-source-rust-compatibility-layer-13lj"}
 {"preview_host": "imgbb", "repo": "avaneesh-inamdar/stream-tube-desktop", "ts": "2026-11-27T15:14:01.658133Z", "type": "published_as_text"}
 {"repo": "avaneesh-inamdar/stream-tube-desktop", "score": 62.14, "telegram_message_id": 3652, "telegraph_url": "https://telegra.ph/Stream-Tube-A-Native-Rust-YouTube-Client-for-Windows-11-27", "ts": "2026-11-27T15:14:02.040027Z", "type": "project_published"}
+{"deleted": 0, "ts": "2026-11-27T15:47:49.183858Z", "type": "moderation_completed", "updates": 1}
