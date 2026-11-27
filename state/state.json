@@ -307,17 +307,17 @@
   },
   "dead_letters": [],
   "gemini_daily": {
-    "day": "2026-11-26",
-    "units": 33
+    "day": "2026-11-27",
+    "units": 6
   },
   "gemini_window": [
     [
-      1795742035.434382,
-      3891
+      1795792429.334163,
+      3924
     ],
     [
-      1795742038.8973014,
-      1389
+      1795792433.4674778,
+      1398
     ]
   ],
   "last_runs": {
@@ -435,9 +435,9 @@
       "telegram_message_id": 3649
     },
     "publish:us_morning": {
-      "finished_at": "2026-11-26T15:14:06.263509Z",
-      "repo": "tt-a1i/archify",
-      "telegram_message_id": 3648
+      "finished_at": "2026-11-27T15:14:02.040209Z",
+      "repo": "avaneesh-inamdar/stream-tube-desktop",
+      "telegram_message_id": 3652
     },
     "publish:us_peak": {
       "finished_at": "2026-11-11T17:19:17.006267Z",
@@ -2761,6 +2761,120 @@
           "views": 102
         }
       ],
+      "visual_host": "imgbb",
+      "visual_kind": "readme"
+    },
+    "avaneesh-inamdar/stream-tube-desktop": {
+      "articles": {},
+      "card_style": "",
+      "category": "DevTools",
+      "contributors_count": 22,
+      "created_at": "2026-11-22T18:50:17Z",
+      "crossposts": {
+        "bluesky": {
+          "attempts": 0,
+          "due_at": "2026-11-27T18:00:00+00:00",
+          "status": "pending"
+        }
+      },
+      "description": "Native YouTube client for Windows in Rust, with SponsorBlock, DeArrow and Return YouTube Dislike built in",
+      "description_fp": "1f3f6b8a8c2d2e6b",
+      "forks": 138,
+      "full_name": "Avaneesh-Inamdar/Stream-Tube-Desktop",
+      "generated": {
+        "article_markdown": "## What it is\n\nStream Tube is a native desktop YouTube client built for Windows and Linux using Rust. Instead of running inside an electron wrapper or relying on browser tabs, it draws its user interface directly to the GPU via the GPUI framework and routes video playback through libmpv. This architecture allows the application to start instantly, scroll smoothly through large feeds, and consume significantly fewer system resources than a web browser.\n\n## Why it matters\n\nConsuming media on the web has become heavy and distracting. Standard browser sessions expose users to constant telemetry, heavy memory usage, unskippable ads, and algorithmic sidebars designed to fracture attention. Stream Tube removes this friction by treating YouTube as a raw media source, stripping away the browser entirely and integrating community tools like SponsorBlock directly into the playback stream.\n\n## Key features\n\n- GPU-accelerated interface rendering using the GPUI framework for smooth scrolling and minimal latency.\n- Native SponsorBlock integration to automatically skip sponsored segments, intro reminders, and filler.\n- DeArrow support to replace clickbait titles and generated thumbnails with clear community alternatives.\n- Return YouTube Dislike integration to surface community-driven rating metrics.\n- Flexible libmpv playback backend supporting hardware decoding, custom codecs, and audio-only data-saving modes.\n\n## Quick start\n\nClone the repository to inspect the source code and build the project locally:\n\n```bash\ngit clone https://github.com/Avaneesh-Inamdar/Stream-Tube-Desktop.git\n```\n\n## Who should try it\n\nThis client is well-suited for developers and power users on Windows who spend hours watching technical videos or listening to audio streams and want to eliminate browser bloat and ads completely.\n\n## Verdict\n\nStream Tube is a remarkably well-engineered utility that successfully reclaims desktop media consumption. While it is primarily targeted at Windows users, its Rust codebase and performance-first design make it a compelling alternative to browser-based viewing.",
+        "article_title": "Stream Tube: A Native Rust YouTube Client for Windows",
+        "card_hook": "Native YouTube client for Windows in Rust",
+        "card_subline": "Watch YouTube without ads, tracking, or a browser using a fast GPU-rendered Rust application",
+        "category": "DevTools",
+        "discussion_question": "Which browser extension do you miss most when watching videos outside your main setup?",
+        "hook": "Stream Tube brings an ad-free YouTube client to Windows in a native 25 MB Rust binary.",
+        "key_features": [
+          "Renders the user interface natively on the GPU using the GPUI framework",
+          "Integrates SponsorBlock to automatically skip sponsored segments in videos",
+          "Replaces clickbait titles and thumbnails via DeArrow integration",
+          "Restores dislike counts natively using the Return YouTube Dislike database",
+          "Supports hardware-accelerated video playback with libmpv and multiple codecs",
+          "Provides local subscription feeds without requiring a Google account"
+        ],
+        "llm_used": true,
+        "quick_start": "git clone https://github.com/Avaneesh-Inamdar/Stream-Tube-Desktop.git",
+        "safety": "ok",
+        "safety_reason": "The repository is a legitimate open-source native media client built with Rust.",
+        "scene": "You open a browser tab to watch a technical tutorial, and the page stutters while loading three pre-roll ads and a distracting recommendation sidebar.",
+        "social_text": "Stream Tube is a native YouTube client for Windows written in Rust with built-in SponsorBlock, DeArrow, and libmpv streaming.",
+        "summary": "Stream Tube renders its interface directly to the GPU using GPUI and streams video through libmpv, bypassing browser overhead entirely. It integrates community-driven extensions like SponsorBlock, DeArrow, and Return YouTube Dislike natively into the media pipeline. By communicating directly with video streams and leveraging built-in decoders, it functions independently of traditional web blockers.",
+        "surfaces": {
+          "Facebook_body": "Watching videos online often comes with heavy browser tabs, unwanted sponsors, and constant distractions. A new native desktop app for Windows lets you enjoy your favorite content without the resource overhead of a traditional web browser.\n\nThe application runs directly on your computer graphics hardware for a smooth interface and uses built-in media players to stream video efficiently. It automatically removes sponsored segments, replaces misleading titles and thumbnails, and restores public dislike counts natively without relying on browser extensions.\n\nDesigned for power users and developers on Windows who want total control over their viewing environment, it offers a fast, lightweight alternative to watching video in a standard web browser. If you want a clean viewing experience that saves system resources while blocking annoyances automatically, this tool is worth trying out.",
+          "Facebook_headline": "Watch ad-free YouTube without a web browser",
+          "Facebook_lead": "Enjoy a distraction-free viewing experience on your PC. This lightweight app skips sponsored segments, fixes clickbait titles, and brings back dislike counts without using web browser tabs.",
+          "bluesky_headline": "Watch YouTube without ads or browser bloat",
+          "bluesky_lead": "A native 25 MB Windows desktop app that skips sponsors and restores dislike counts automatically.",
+          "devto_body": "## What it is\nStream Tube Desktop is an open-source, native YouTube client written in Rust. Packaged as a 25 MB binary for Windows, it renders its interface directly to the GPU using GPUI and streams video via libmpv, completely bypassing browser resource overhead.\n\n## How it works\nBy communicating directly with video streams and leveraging built-in hardware decoders, the app functions independently of traditional web blockers. It integrates community extensions directly into the media pipeline to handle content adjustments before frames hit the screen.\n\n## Key features\n- GPU-accelerated interface rendering using the GPUI framework\n- Native integration with SponsorBlock for automatic sponsored segment skipping\n- DeArrow support to replace clickbait titles and thumbnails\n- Return YouTube Dislike integration to restore dislike metrics\n- Hardware-accelerated video playback with multiple codec supports via libmpv\n\n## Getting started\nClone the repository from Avaneesh-Inamdar/Stream-Tube-Desktop, ensure you have Rust installed, and build the project for Windows using cargo build --release.\n\n## When not to use it\nIf your primary daily operating system is Linux rather than Windows, support is currently secondary, and you may encounter missing polish or configuration hurdles.",
+          "seo_description": "Watch YouTube on Windows without browser overhead using this native 25 MB Rust app featuring built-in SponsorBlock and DeArrow integration.",
+          "seo_query": "open source youtube client for windows",
+          "seo_title": "Stream Tube Desktop - Lightweight Native YouTube Client",
+          "telegraph_angle": "Explain how native GPU-accelerated Rust applications achieve lower resource usage than web wrappers, along with the trade-offs of secondary Linux support."
+        },
+        "tension": "Keeping a browser open for media drains system resources, breaks focus with algorithmic clutter, and forces you to sit through unskippable ads.",
+        "turn": "Stream Tube strips away the browser and ads entirely, delivering a responsive desktop client built in Rust.",
+        "verdict": "An exceptionally polished desktop client for power users who want total control over their viewing experience, though Linux support is secondary to Windows.",
+        "who_for": "Windows and Linux developers who want a fast, distraction-free YouTube client without browser resource overhead.",
+        "why_now": "The maturity of modern GPU-accelerated Rust UI frameworks like GPUI makes it practical to build fluid, lightweight desktop clients that rival web apps in responsiveness."
+      },
+      "homepage": "",
+      "id": 1467880545,
+      "image_url": "https://i.ibb.co/q33TKXFR/avaneesh-inamdar-stream-tube-desktop-readme-preview-f4e40bc72db4.jpg",
+      "is_dual_use": false,
+      "is_hidden_gem": false,
+      "language": "Rust",
+      "license": {
+        "key": "mit",
+        "name": "MIT License",
+        "node_id": "MDc6TGljZW5zZTEz",
+        "spdx_id": "MIT",
+        "url": "https://api.github.com/licenses/mit"
+      },
+      "media_urls": [
+        "https://raw.githubusercontent.com/Avaneesh-Inamdar/Stream-Tube-Desktop/main/docs/screenshots/home.png",
+        "https://raw.githubusercontent.com/Avaneesh-Inamdar/Stream-Tube-Desktop/main/docs/screenshots/live.png",
+        "https://raw.githubusercontent.com/Avaneesh-Inamdar/Stream-Tube-Desktop/main/docs/screenshots/search.png",
+        "https://raw.githubusercontent.com/Avaneesh-Inamdar/Stream-Tube-Desktop/main/docs/screenshots/settings.png",
+        "https://raw.githubusercontent.com/Avaneesh-Inamdar/Stream-Tube-Desktop/main/docs/screenshots/stats.png",
+        "https://raw.githubusercontent.com/Avaneesh-Inamdar/Stream-Tube-Desktop/main/assets/logo.png"
+      ],
+      "name": "Stream-Tube-Desktop",
+      "open_issues": 14,
+      "published_at": "2026-11-27T15:14:02.039867Z",
+      "pushed_at": "2026-11-27T15:09:03Z",
+      "readme_fp": "f0da3491f3421822",
+      "repo_id": 1467880545,
+      "revisit_of": "",
+      "revisit_reason": "",
+      "score": 62.14,
+      "slot": "us_morning",
+      "sources": [
+        "telegram:open_source_friend",
+        "telegram:github_repos"
+      ],
+      "stars": 1619,
+      "telegram_chat_id": "@GitHub_Open_Source",
+      "telegram_link": "https://t.me/GitHub_Open_Source/3652",
+      "telegram_message_id": 3652,
+      "telegraph_url": "https://telegra.ph/Stream-Tube-A-Native-Rust-YouTube-Client-for-Windows-11-27",
+      "topics": [
+        "dearrow",
+        "desktop-app",
+        "gpui",
+        "mpv",
+        "rust",
+        "sponsorblock",
+        "windows",
+        "youtube",
+        "youtube-client"
+      ],
+      "updated_at": "2026-11-27T15:12:50Z",
+      "url": "https://github.com/Avaneesh-Inamdar/Stream-Tube-Desktop",
       "visual_host": "imgbb",
       "visual_kind": "readme"
     },
@@ -13282,103 +13396,6 @@
     },
     {
       "archived": false,
-      "contributors_count": 20,
-      "created_at": "2026-11-22T18:50:17Z",
-      "default_branch": "main",
-      "description": "Native YouTube client for Windows in Rust, with SponsorBlock, DeArrow and Return YouTube Dislike built in",
-      "disabled": false,
-      "fork": false,
-      "forks": 130,
-      "forks_count": 130,
-      "full_name": "Avaneesh-Inamdar/Stream-Tube-Desktop",
-      "has_readme": true,
-      "homepage": "",
-      "id": 1467880545,
-      "is_dual_use": false,
-      "is_hidden_gem": false,
-      "language": "Rust",
-      "license": {
-        "key": "mit",
-        "name": "MIT License",
-        "node_id": "MDc6TGljZW5zZTEz",
-        "spdx_id": "MIT",
-        "url": "https://api.github.com/licenses/mit"
-      },
-      "media_urls": [
-        "https://raw.githubusercontent.com/Avaneesh-Inamdar/Stream-Tube-Desktop/main/docs/screenshots/home.png",
-        "https://raw.githubusercontent.com/Avaneesh-Inamdar/Stream-Tube-Desktop/main/docs/screenshots/live.png",
-        "https://raw.githubusercontent.com/Avaneesh-Inamdar/Stream-Tube-Desktop/main/docs/screenshots/search.png",
-        "https://raw.githubusercontent.com/Avaneesh-Inamdar/Stream-Tube-Desktop/main/docs/screenshots/settings.png",
-        "https://raw.githubusercontent.com/Avaneesh-Inamdar/Stream-Tube-Desktop/main/docs/screenshots/stats.png",
-        "https://raw.githubusercontent.com/Avaneesh-Inamdar/Stream-Tube-Desktop/main/assets/logo.png"
-      ],
-      "name": "Stream-Tube-Desktop",
-      "non_software_reason": "",
-      "open_issues": 33,
-      "open_issues_count": 33,
-      "owner_repo_count": 1,
-      "pushed_at": "2026-11-26T11:03:33Z",
-      "readme": "",
-      "readme_excerpt": "<p align=\"center\">\n  <img src=\"assets/logo.png\" alt=\"Stream Tube\" width=\"120\">\n</p>\n\n<h1 align=\"center\">Stream Tube</h1>\n\n<p align=\"center\">\n  A native YouTube client for Windows and Linux, written in Rust.<br>\n  No browser, no ads, no tracking. SponsorBlock, DeArrow and Return YouTube Dislike built in.\n</p>\n\n<p align=\"center\">\n  <img src=\"https://img.shields.io/badge/platform-Windows%20%7C%20Linux-0078D6\" alt=\"Windows and Linux\">\n  <img src=\"https://img.shields.io/github/v/release/Avaneesh-Inamdar/Stream-Tube-Desktop?include_prereleases&sort=semver&label=release\" alt=\"Latest release\">\n  <a href=\"https://github.com/Avaneesh-Inamdar/Stream-Tube-Desktop/releases\"><img src=\"https://img.shields.io/github/downloads/Avaneesh-Inamdar/Stream-Tube-Desktop/total?label=downloads&color=FF0033&cacheSeconds=3600\" alt=\"Total downloads\"></a>\n  <img src=\"https://img.shields.io/badge/built%20with-Rust-B7410E\" alt=\"Rust\">\n  <img src=\"https://img.shields.io/badge/license-MIT-green\" alt=\"MIT license\">\n</p>\n\n<p align=\"center\">\n  <img src=\"docs/screenshots/home.png\" alt=\"Home feed\" width=\"900\">\n</p>\n\n## Why\n\nI wanted YouTube on my desktop without keeping a browser tab open, and without the\nads, autoplayi",
-      "readme_len": 21277,
-      "repo_id": 1467880545,
-      "score": 62.14,
-      "score_parts": {
-        "acceleration": 0.5,
-        "acceleration_known": 0,
-        "acceleration_ratio": 0.0,
-        "age_days": 4.2,
-        "appeal": 0.796,
-        "burst": 0.741,
-        "community": 0.519,
-        "content": 0.5,
-        "corroboration": 0.907,
-        "external": 0.481,
-        "forks_measured": 1,
-        "forks_per_day": 68.0,
-        "forks_rate": 0.923,
-        "freshness": 0.259,
-        "growth": 0.796,
-        "growth_measured": 1,
-        "popularity": 0.111,
-        "reliability": 0.5,
-        "stars_per_day": 619.0
-      },
-      "source_name": "telegram:open_source_friend",
-      "sources": [
-        "telegram:open_source_friend",
-        "telegram:github_repos"
-      ],
-      "star_history": [
-        [
-          "2026-11-25",
-          872,
-          62
-        ],
-        [
-          "2026-11-26",
-          1228,
-          95
-        ]
-      ],
-      "stargazers_count": 1491,
-      "stars": 1491,
-      "topics": [
-        "dearrow",
-        "desktop-app",
-        "gpui",
-        "mpv",
-        "rust",
-        "sponsorblock",
-        "windows",
-        "youtube",
-        "youtube-client"
-      ],
-      "updated_at": "2026-11-27T00:23:44Z",
-      "url": "https://github.com/Avaneesh-Inamdar/Stream-Tube-Desktop"
-    },
-    {
-      "archived": false,
       "contributors_count": 70,
       "created_at": "2026-10-29T12:32:46Z",
       "default_branch": "main",
@@ -17005,8 +17022,8 @@
     "avaneesh-inamdar/stream-tube-desktop": {
       "first_seen_at": "2026-11-25T00:27:10.156910Z",
       "full_name": "Avaneesh-Inamdar/Stream-Tube-Desktop",
-      "last_decision": "queued",
-      "last_seen_at": "2026-11-27T00:27:19.571411Z",
+      "last_decision": "published",
+      "last_seen_at": "2026-11-27T15:14:02.040164Z",
       "repo_id": 1467880545,
       "sources": [
         "telegram:github_repos",
@@ -17025,8 +17042,8 @@
         ],
         [
           "2026-11-27",
-          1491,
-          130
+          1619,
+          138
         ]
       ]
     },
