@@ -924,3 +924,4 @@
 {"minutes_late": 357.1, "schedule": "23 22 * * *", "ts": "2026-11-27T04:20:07.135982Z", "type": "late_schedule_ignored"}
 {"deleted": 0, "ts": "2026-11-27T06:47:50.498275Z", "type": "moderation_completed", "updates": 0}
 {"minutes_late": 508.7, "schedule": "23 0 * * *", "ts": "2026-11-27T08:51:40.888832Z", "type": "late_schedule_ignored"}
+{"minutes_late": 506.1, "schedule": "13 1 * * *", "ts": "2026-11-27T09:39:03.018236Z", "type": "late_schedule_ignored"}
