@@ -15580,8 +15580,8 @@
       "skipped_brief": ""
     },
     "2026-11-27": {
-      "last_schedule": "23 22 * * *",
-      "late_ignored": 7,
+      "last_schedule": "23 0 * * *",
+      "late_ignored": 8,
       "notified": true,
       "skipped_brief": ""
     }
