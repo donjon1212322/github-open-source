@@ -927,3 +927,4 @@
 {"minutes_late": 506.1, "schedule": "13 1 * * *", "ts": "2026-11-27T09:39:03.018236Z", "type": "late_schedule_ignored"}
 {"error": "Telegram getUpdates network failure: ConnectionError", "reason": "moderation_telegram_unavailable", "ts": "2026-11-27T09:47:56.670874Z", "type": "moderation_skipped"}
 {"minutes_late": 520.5, "schedule": "23 2 * * *", "ts": "2026-11-27T11:03:31.177779Z", "type": "late_schedule_ignored"}
+{"deleted": 0, "ts": "2026-11-27T12:47:49.768201Z", "type": "moderation_completed", "updates": 1}
