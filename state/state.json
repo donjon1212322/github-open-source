@@ -308,16 +308,16 @@
   "dead_letters": [],
   "gemini_daily": {
     "day": "2026-11-27",
-    "units": 6
+    "units": 12
   },
   "gemini_window": [
     [
-      1795792429.334163,
-      3924
+      1795803237.5940366,
+      3996
     ],
     [
-      1795792433.4674778,
-      1398
+      1795803241.9215984,
+      1453
     ]
   ],
   "last_runs": {
@@ -430,9 +430,9 @@
       "telegram_message_id": 3651
     },
     "publish:us_midday": {
-      "finished_at": "2026-11-26T18:14:25.391637Z",
-      "repo": "leanprover-community/riemann-hypothesis",
-      "telegram_message_id": 3649
+      "finished_at": "2026-11-27T18:14:06.894388Z",
+      "repo": "pierridotite/mobile-agent-testers",
+      "telegram_message_id": 3653
     },
     "publish:us_morning": {
       "finished_at": "2026-11-27T15:14:02.040209Z",
@@ -9998,6 +9998,129 @@
       "visual_host": "imgbb",
       "visual_kind": "readme"
     },
+    "pierridotite/mobile-agent-testers": {
+      "articles": {},
+      "card_style": "",
+      "category": "DevTools",
+      "contributors_count": 7,
+      "created_at": "2026-11-16T19:11:44Z",
+      "crossposts": {
+        "bluesky": {
+          "attempts": 0,
+          "due_at": "2026-11-27T18:44:06.893930+00:00",
+          "status": "pending"
+        }
+      },
+      "description": "20 AI testers on 20 different phones, in parallel, on GitHub's free runners: Claude Code agents on iOS Simulators and Android emulators that find broken flows, translation, layout and accessibility bugs",
+      "description_fp": "a20f1556daf0afe4",
+      "forks": 266,
+      "full_name": "pierridotite/mobile-agent-testers",
+      "generated": {
+        "article_markdown": "## What it is\n\nmobile-agent-testers is a testing automation framework that deploys multiple Claude Code agents onto iOS Simulators and Android emulators running on GitHub Actions. Instead of requiring developers to write brittle end-to-end test scripts, it spins up parallel instances configured with distinct user personas, languages, and accessibility text scales. Each agent interacts with the application dynamically, discovering layout flaws, translation gaps, and broken workflows.\n\n## Why it matters\n\nTraditional UI testing frameworks require substantial maintenance as apps evolve, and developers rarely have time to manually verify every supported screen size and locale. By leveraging free GitHub Actions runners and language models, this project shifts exploratory testing into continuous integration pipelines, catching subtle bugs before they reach production users.\n\n## Key features\n\n- Execute exploratory testing across 20 parallel devices in 14 different languages\n- Support Flutter, React Native, Expo, native Kotlin and Swift, Kotlin Multiplatform, and .NET MAUI\n- Generate reproducible bug reports with numbered screenshots for each device persona\n- Replay unexpected agent paths directly on Android devices as automated UI checks\n- Build interactive visual maps of app screens and exploration paths locally using Python\n\n## Quick start\n\nTo run a demo workflow using the repository template, use the following GitHub CLI commands:\n\n```bash\ngh repo create my-testers --public --template pierridotite/mobile-agent-testers --clone\ncd my-testers && ./setup.sh\ngh workflow run agent-testers.yml\n```\n\n## Who should try it\n\nMobile developers and QA engineers who want to scale their exploratory testing coverage across multiple locales and form factors without managing a dedicated physical device lab.\n\n## Verdict\n\nAn effective solution for catching unanticipated UI bugs and accessibility oversights in CI, though human verification remains necessary to triage the generated reports.",
+        "article_title": "mobile-agent-testers: Parallel AI Mobile Testing on GitHub Actions",
+        "card_hook": "AI mobile testing on free GitHub runners",
+        "card_subline": "Run 20 parallel Claude Code agents across devices and languages without writing test scripts",
+        "category": "DevTools",
+        "discussion_question": "Which device language or screen size do you forget to test most often?",
+        "hook": "Run 20 parallel mobile AI testers on iOS Simulators and Android emulators using free GitHub runners.",
+        "key_features": [
+          "Execute exploratory testing across 20 parallel devices in 14 different languages",
+          "Support Flutter, React Native, Expo, native Kotlin and Swift, Kotlin Multiplatform, and .NET MAUI",
+          "Generate reproducible bug reports with numbered screenshots for each device persona",
+          "Replay unexpected agent paths directly on Android devices as automated UI checks",
+          "Build interactive visual maps of app screens and exploration paths locally using Python"
+        ],
+        "llm_used": true,
+        "quick_start": "gh workflow run agent-testers.yml",
+        "safety": "ok",
+        "safety_reason": "Legitimate QA and testing automation tool for mobile applications.",
+        "scene": "You push a mobile update, and days later users complain about a broken layout on a localized device configuration you never tested.",
+        "social_text": "Run 20 parallel mobile AI testers on iOS and Android emulators using free GitHub runners and Claude Code.",
+        "summary": "This tool orchestrates Claude Code agents inside iOS Simulators and Android emulators hosted on GitHub Actions, allowing developers to execute exploratory and accessibility tests without maintaining traditional UI test scripts. Each agent assumes a specific persona with customized device settings, languages, and text scales, interacting with the application just like a new user would. The resulting session traces capture navigation paths and generate detailed bug reports complete with numbered screenshots.",
+        "surfaces": {
+          "Facebook_body": "Testing mobile applications across dozens of different phone settings, screen sizes, and languages is usually a tedious, manual process that requires expensive device infrastructure.\n\nThis open-source project lets you spin up twenty parallel automated assistants on iOS and Android emulators to explore your app just like real users would. Each assistant can be configured with specific languages, text scales, and user personas to uncover hidden layout bugs, broken flows, and accessibility issues early in development.\n\nInstead of maintaining complex testing scripts, the system watches how the assistants navigate your app and generates detailed bug reports complete with numbered screenshots and exact reproduction paths. It works smoothly with major mobile frameworks including Flutter, React Native, and native Swift or Kotlin.\n\nThis is a practical solution for mobile developers and quality assurance engineers who want thorough device testing without the overhead of maintaining traditional test scripts or paying for cloud testing services.",
+          "Facebook_headline": "Run 20 AI app testers for free on GitHub",
+          "Facebook_lead": "Automate mobile app testing across multiple devices and languages without writing traditional scripts or buying expensive device farms.",
+          "bluesky_headline": "Test your phone app with 20 parallel AI users",
+          "bluesky_lead": "Run exploratory and accessibility tests on iOS and Android using free GitHub runners.",
+          "devto_body": "## What it is\n\nmobile-agent-testers is an open-source Python tool that orchestrates Claude Code agents inside iOS Simulators and Android emulators. It leverages free GitHub Actions runners to execute exploratory and accessibility tests across twenty parallel devices without requiring paid device farm infrastructure.\n\n## How it works\n\nThe tool spins up emulators and simulators on GitHub runners, deploying autonomous agents that interact with your application based on assigned personas, languages, and accessibility settings. As the agents navigate the app, session traces capture their exact paths and generate reproducible bug reports with numbered screenshots. You can also build interactive visual maps of your app screens locally using Python.\n\n## Key features\n\n- Run exploratory tests across 20 parallel devices in 14 different languages\n- Compatible with Flutter, React Native, Expo, native Kotlin and Swift, Kotlin Multiplatform, and .NET MAUI\n- Generate reproducible bug reports with numbered screenshots for each device persona\n- Replay agent paths directly on Android devices as automated UI checks\n- Build interactive visual maps of app screens and exploration paths locally\n\n## Getting started\n\nTo use this project, clone the repository from GitHub and configure your workflow to run on your chosen mobile framework. Ensure you have the necessary Python environment set up locally for generating visual maps and managing agent configurations.\n\n## When not to use it\n\nThis tool is not a replacement for rigorous unit testing or deterministic integration test suites. Because the agents use probabilistic LLMs, reported bugs must be manually verified to rule out false positives.",
+          "seo_description": "Run 20 parallel AI testers on iOS and Android emulators using free GitHub runners to find layout, translation, and accessibility bugs.",
+          "seo_query": "open source mobile app testing with ai agents",
+          "seo_title": "Automate Mobile App Testing with AI Agents - Python Tool",
+          "telegraph_angle": "Explain how free GitHub runners and AI agents make parallel mobile device testing practical, focusing on the trade-offs of probabilistic exploratory testing."
+        },
+        "tension": "Writing manual test scripts for every screen, device size, and language combination eats up hours before release.",
+        "turn": "This setup spawns multiple parallel AI agents on standard CI runners to explore your app like diverse users, though complex multi-step workflows still require careful prompting.",
+        "verdict": "Great for catching unexpected layout bugs and localization oversights early, provided you verify the reported issues yourself.",
+        "who_for": "Mobile developers and QA engineers looking to automate exploratory device testing.",
+        "why_now": "The combination of free GitHub Actions runners and accessible LLM agents makes running parallel device farms practical without costly enterprise infrastructure."
+      },
+      "homepage": "",
+      "id": 1460452633,
+      "image_url": "https://i.ibb.co/JjNNQnFt/pierridotite-mobile-agent-testers-readme-preview-25339342b79a.jpg",
+      "is_dual_use": false,
+      "is_hidden_gem": false,
+      "language": "Python",
+      "license": {
+        "key": "mit",
+        "name": "MIT License",
+        "node_id": "MDc6TGljZW5zZTEz",
+        "spdx_id": "MIT",
+        "url": "https://api.github.com/licenses/mit"
+      },
+      "media_urls": [
+        "https://raw.githubusercontent.com/pierridotite/mobile-agent-testers/main/assets/launch-video.gif",
+        "https://raw.githubusercontent.com/pierridotite/mobile-agent-testers/main/assets/demo-try-light.svg",
+        "https://raw.githubusercontent.com/pierridotite/mobile-agent-testers/main/assets/linkedin-follow-light.svg",
+        "https://raw.githubusercontent.com/pierridotite/mobile-agent-testers/main/assets/dashboard.png",
+        "https://raw.githubusercontent.com/pierridotite/mobile-agent-testers/main/assets/ecr-button-light.svg",
+        "https://raw.githubusercontent.com/pierridotite/mobile-agent-testers/main/assets/logo.svg"
+      ],
+      "name": "mobile-agent-testers",
+      "open_issues": 7,
+      "published_at": "2026-11-27T18:14:06.893955Z",
+      "pushed_at": "2026-11-27T18:02:59Z",
+      "readme_fp": "dc56f99756d99822",
+      "repo_id": 1460452633,
+      "revisit_of": "",
+      "revisit_reason": "",
+      "score": 60.41,
+      "slot": "us_midday",
+      "sources": [
+        "telegram:github_repos"
+      ],
+      "stars": 2590,
+      "telegram_chat_id": "@GitHub_Open_Source",
+      "telegram_link": "https://t.me/GitHub_Open_Source/3653",
+      "telegram_message_id": 3653,
+      "telegraph_url": "https://telegra.ph/mobile-agent-testers-Parallel-AI-Mobile-Testing-on-GitHub-Actions-11-27",
+      "topics": [
+        "accessibility-testing",
+        "ai-agents",
+        "ai-testing",
+        "android",
+        "android-emulator",
+        "claude",
+        "claude-code",
+        "e2e-testing",
+        "exploratory-testing",
+        "expo",
+        "flutter",
+        "github-actions",
+        "ios",
+        "ios-simulator",
+        "llm",
+        "mobile-testing",
+        "qa",
+        "react-native",
+        "test-automation",
+        "ui-testing"
+      ],
+      "updated_at": "2026-11-27T17:59:05Z",
+      "url": "https://github.com/pierridotite/mobile-agent-testers",
+      "visual_host": "imgbb",
+      "visual_kind": "readme"
+    },
     "r0y00/xbox2windows": {
       "articles": {},
       "card_style": "editorial_daily",
@@ -13473,118 +13596,6 @@
       ],
       "updated_at": "2026-11-27T00:18:02Z",
       "url": "https://github.com/valentderah/totk-pc-recomp"
-    },
-    {
-      "archived": false,
-      "contributors_count": 7,
-      "created_at": "2026-11-16T19:11:44Z",
-      "default_branch": "main",
-      "description": "20 AI testers on 20 different phones, in parallel, on GitHub's free runners: Claude Code agents on iOS Simulators and Android emulators that find broken flows, translation, layout and accessibility bugs",
-      "disabled": false,
-      "fork": false,
-      "forks": 256,
-      "forks_count": 256,
-      "full_name": "pierridotite/mobile-agent-testers",
-      "has_readme": true,
-      "homepage": "",
-      "id": 1460452633,
-      "is_dual_use": false,
-      "is_hidden_gem": false,
-      "language": "Python",
-      "license": {
-        "key": "mit",
-        "name": "MIT License",
-        "node_id": "MDc6TGljZW5zZTEz",
-        "spdx_id": "MIT",
-        "url": "https://api.github.com/licenses/mit"
-      },
-      "media_urls": [
-        "https://raw.githubusercontent.com/pierridotite/mobile-agent-testers/main/assets/launch-video.gif",
-        "https://raw.githubusercontent.com/pierridotite/mobile-agent-testers/main/assets/demo-try-light.svg",
-        "https://raw.githubusercontent.com/pierridotite/mobile-agent-testers/main/assets/linkedin-follow-light.svg",
-        "https://raw.githubusercontent.com/pierridotite/mobile-agent-testers/main/assets/dashboard.png",
-        "https://raw.githubusercontent.com/pierridotite/mobile-agent-testers/main/assets/ecr-button-light.svg",
-        "https://raw.githubusercontent.com/pierridotite/mobile-agent-testers/main/assets/logo.svg"
-      ],
-      "name": "mobile-agent-testers",
-      "non_software_reason": "",
-      "open_issues": 6,
-      "open_issues_count": 6,
-      "owner_repo_count": 1,
-      "pushed_at": "2026-11-26T14:33:04Z",
-      "readme": "",
-      "readme_excerpt": "<div align=\"center\">\n\n<img src=\"assets/logo.svg\" alt=\"\" width=\"96\" height=\"96\">\n\n# mobile-agent-testers\n\n**20 AI testers on 20 different phones, in parallel, on GitHub's free runners.**\n\n[![Tests](https://github.com/pierridotite/mobile-agent-testers/actions/workflows/tests.yml/badge.svg)](https://github.com/pierridotite/mobile-agent-testers/actions/workflows/tests.yml)\n[![Stars](https://img.shields.io/github/stars/pierridotite/mobile-agent-testers?style=flat)](https://github.com/pierridotite/mobile-agent-testers/stargazers)\n[![License: MIT](https://img.shields.io/badge/license-MIT-green)](LICENSE)\n![iOS + Android](https://img.shields.io/badge/platforms-iOS%20%2B%20Android-blue)\n![Claude Code plugin](https://img.shields.io/badge/Claude%20Code-plugin-orange)\n\n**[Examples](docs/examples.md)** · **[Dashboard demo](https://pierridotite.github.io/mobile-agent-testers/)** · **[Compare](docs/compare.md)** · **[FAQ](docs/faq.md)** · **[Personas](personas.json)** · **[Contributing](CONTRIBUTING.md)**\n\n<sub>English · [简体中文](i18n/zh-CN/README.md) · [日本語](i18n/ja/README.md) · [Español](i18n/es/README.md) · [Português](i18n/pt-BR/README.md) · [Tiếng Việt](i18n/vi/README.md) · [Türkçe](i18n/tr/RE",
-      "readme_len": 12652,
-      "repo_id": 1460452633,
-      "score": 60.41,
-      "score_parts": {
-        "acceleration": 0.5,
-        "acceleration_known": 0,
-        "acceleration_ratio": 0.0,
-        "age_days": 10.2,
-        "appeal": 0.796,
-        "burst": 0.741,
-        "community": 0.407,
-        "content": 0.5,
-        "corroboration": 0.389,
-        "external": 0.481,
-        "forks_measured": 1,
-        "forks_per_day": 57.5,
-        "forks_rate": 0.808,
-        "freshness": 0.296,
-        "growth": 0.796,
-        "growth_measured": 1,
-        "popularity": 0.519,
-        "reliability": 0.5,
-        "stars_per_day": 525.0
-      },
-      "source_name": "telegram:github_repos",
-      "sources": [
-        "telegram:github_repos"
-      ],
-      "star_history": [
-        [
-          "2026-11-24",
-          1463,
-          141
-        ],
-        [
-          "2026-11-25",
-          1843,
-          180
-        ],
-        [
-          "2026-11-26",
-          2307,
-          235
-        ]
-      ],
-      "stargazers_count": 2513,
-      "stars": 2513,
-      "topics": [
-        "accessibility-testing",
-        "ai-agents",
-        "ai-testing",
-        "android",
-        "android-emulator",
-        "claude",
-        "claude-code",
-        "e2e-testing",
-        "exploratory-testing",
-        "expo",
-        "flutter",
-        "github-actions",
-        "ios",
-        "ios-simulator",
-        "llm",
-        "mobile-testing",
-        "qa",
-        "react-native",
-        "test-automation",
-        "ui-testing"
-      ],
-      "updated_at": "2026-11-27T00:24:05Z",
-      "url": "https://github.com/pierridotite/mobile-agent-testers"
     },
     {
       "archived": false,
@@ -26969,8 +26980,8 @@
     "pierridotite/mobile-agent-testers": {
       "first_seen_at": "2026-11-23T00:26:52.177120Z",
       "full_name": "pierridotite/mobile-agent-testers",
-      "last_decision": "queued",
-      "last_seen_at": "2026-11-27T00:27:19.579206Z",
+      "last_decision": "published",
+      "last_seen_at": "2026-11-27T18:14:06.894332Z",
       "repo_id": 1460452633,
       "sources": [
         "github_search",
@@ -26994,8 +27005,8 @@
         ],
         [
           "2026-11-27",
-          2513,
-          256
+          2590,
+          266
         ]
       ]
     },
