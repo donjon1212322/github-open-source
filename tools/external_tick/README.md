@@ -23,6 +23,16 @@ var `GH_REPO` и cron `* * * * *` сохранены. Первый естест�
 `missed: []`, `dispatched: []`, `failed: []`, `alerts: []`, без публикаций.
 Существующие приложения аккаунта (`ogonek-test`, `gpbot`) не тронуты.
 
+**27.11.2026, 01:40Z: передеплой под слот `learn` (18:57 ЧТ).** После аудита
+владельца выяснилось, что `learn` висел в паре с `poll-close` только на нативном
+кроне, а этот Worker дёргает `poll-close` отдельно — система ценности стояла с
+20.11. `wrangler deploy` (version `034d36e7`) загрузил `worker.js` со слотом
+`["18:57", { command: "learn" }, 4]`; секрет `GH_PAT` восстановлен сразу после
+деплоя, `secret list` показывает только `GH_PAT`; `GH_REPO` и cron `* * * * *`
+сохранены. Проверка: `GET https://ghos-v6-tick.sairusplay.workers.dev` →
+`ghos-v6 external tick: minute cron active`, dispatch-запуски идут по минутам
+(`01:13:31Z`, `00:23:31Z`, …).
+
 ## Зачем
 
 GitHub `schedule` не гарантирует доставку. 06.11 не пришли запуски в 07:27,
