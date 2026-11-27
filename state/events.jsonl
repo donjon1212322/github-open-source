@@ -912,3 +912,4 @@
 {"deleted": 0, "ts": "2026-11-27T00:47:48.748543Z", "type": "moderation_completed", "updates": 1}
 {"preview_host": "imgbb", "repo": "fxceless/victory-fork", "ts": "2026-11-27T01:14:03.494057Z", "type": "published_as_text"}
 {"repo": "fxceless/victory-fork", "score": 68.85, "telegram_message_id": 3651, "telegraph_url": "https://telegra.ph/fxcelessvictory-fork-Running-Xbox-Series-Titles-on-Windows-PC-11-27", "ts": "2026-11-27T01:14:03.717050Z", "type": "project_published"}
+{"minutes_late": 85.2, "schedule": "17 0,18,19,20,21,22,23 * * *", "ts": "2026-11-27T01:42:09.764685Z", "type": "late_schedule_ignored"}
