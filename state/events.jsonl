@@ -916,3 +916,4 @@
 {"minutes_late": 451.5, "schedule": "13 18 * * *", "ts": "2026-11-27T01:44:28.081470Z", "type": "late_schedule_ignored"}
 {"minutes_late": 447.5, "schedule": "23 18 * * *", "ts": "2026-11-27T01:50:30.043229Z", "type": "late_schedule_ignored"}
 {"median": 17.38, "samples": 69, "ts": "2026-11-27T01:57:29.900872Z", "type": "value_model_updated"}
+{"minutes_late": 71.1, "schedule": "47 */3 * * *", "ts": "2026-11-27T01:58:04.807730Z", "type": "late_schedule_ignored"}
