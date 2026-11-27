@@ -918,3 +918,4 @@
 {"median": 17.38, "samples": 69, "ts": "2026-11-27T01:57:29.900872Z", "type": "value_model_updated"}
 {"minutes_late": 71.1, "schedule": "47 */3 * * *", "ts": "2026-11-27T01:58:04.807730Z", "type": "late_schedule_ignored"}
 {"channel": "GitHub_Open_Source", "posts": 12, "ts": "2026-11-27T02:23:53.563485Z", "type": "metrics_collected", "updated": 12}
+{"minutes_late": 393.8, "schedule": "23 20 * * *", "ts": "2026-11-27T02:56:48.806407Z", "type": "late_schedule_ignored"}
