@@ -929,3 +929,4 @@
 {"minutes_late": 520.5, "schedule": "23 2 * * *", "ts": "2026-11-27T11:03:31.177779Z", "type": "late_schedule_ignored"}
 {"deleted": 0, "ts": "2026-11-27T12:47:49.768201Z", "type": "moderation_completed", "updates": 1}
 {"minutes_late": 24.5, "schedule": "47 */3 * * *", "ts": "2026-11-27T13:11:31.178693Z", "type": "late_schedule_ignored"}
+{"platform": "devto", "repo": "fxceless/victory-fork", "ts": "2026-11-27T13:33:52.624647Z", "type": "article_published", "url": "https://dev.to/githubopensource/run-xbox-series-games-on-pc-open-source-rust-compatibility-layer-13lj"}

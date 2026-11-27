@@ -322,11 +322,11 @@
   ],
   "last_runs": {
     "article": {
-      "finished_at": "2026-11-26T13:33:53.396369Z",
+      "finished_at": "2026-11-27T13:33:52.624772Z",
       "published": true,
       "reason": "published",
-      "repo": "ubiquitarianism/leonida",
-      "url": "https://dev.to/githubopensource/run-xbox-binaries-on-pc-static-recompilation-guide-40c5"
+      "repo": "fxceless/victory-fork",
+      "url": "https://dev.to/githubopensource/run-xbox-series-games-on-pc-open-source-rust-compatibility-layer-13lj"
     },
     "collect": {
       "discovered": 450,
@@ -4252,7 +4252,13 @@
       "visual_kind": "readme"
     },
     "fxceless/victory-fork": {
-      "articles": {},
+      "articles": {
+        "devto": {
+          "id": 5133019,
+          "published_at": "2026-11-27T13:33:52.624624Z",
+          "url": "https://dev.to/githubopensource/run-xbox-series-games-on-pc-open-source-rust-compatibility-layer-13lj"
+        }
+      },
       "card_style": "editorial_daily",
       "category": "DevTools",
       "contributors_count": 67,
@@ -4266,6 +4272,7 @@
       },
       "description": "Work-in-progress fork of VIctory: getting an Xbox Series title to render and run on a Windows PC. No game files.",
       "description_fp": "206064641a5c33c1",
+      "devto_cover_url": "https://i.ibb.co/p6grSYwt/fxceless-victory-fork-devto-cover-a1363528f775.png",
       "forks": 988,
       "full_name": "fxceless/victory-fork",
       "generated": {
