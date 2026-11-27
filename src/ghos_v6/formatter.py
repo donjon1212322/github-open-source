@@ -184,6 +184,34 @@ def _emoji(project: dict[str, Any]) -> str:
     return "🚀"
 
 
+#: Owner 26.11: ten of the last posts carried only three tags, because the
+#: repository itself has no GitHub topics at all ("seedds/nxnative",
+#: "ubiquitarianism/leonida", "leanprover-community/riemann-hypothesis"):
+#: the post fell back to #opensource + language + category and lost its niche
+#: tag. When the topics are empty, one honest tag is read from the project's
+#: own name and description - the word it uses to describe itself.
+_FALLBACK_TAG_WORDS: tuple[tuple[str, tuple[str, ...]], ...] = (
+    ("emulator", ("emulator", "emulation", "recompil")),
+    ("game", ("game", "gaming", "gameplay")),
+    ("cli", ("cli", "command line", "command-line", "terminal")),
+    ("agent", ("agent", "agentic")),
+    ("llm", ("llm", "language model")),
+    ("ai", (" ai ", "artificial intelligence", "machine learning")),
+    ("video", ("video",)),
+    ("audio", ("audio", "music", "sound")),
+    ("image", ("image", "photo", "picture")),
+    ("editor", ("editor",)),
+    ("browser", ("browser",)),
+    ("automation", ("automation", "automate")),
+    ("database", ("database", " sql")),
+    ("security", ("security", "malware", "vulnerab")),
+    ("bot", ("bot", "telegram")),
+    ("pdf", ("pdf",)),
+    ("ocr", ("ocr", "text recognition")),
+    ("docker", ("docker", "container")),
+)
+
+
 def _hashtags(project: dict[str, Any], limit: int = 4) -> str:
     """Telegram tags: four maximum, searchable topics before niche ones."""
     tags: list[str] = ["opensource"]
@@ -213,6 +241,16 @@ def _hashtags(project: dict[str, Any], limit: int = 4) -> str:
             add(priority)
     for topic in topics:
         add(topic)
+    if len(tags) < limit:
+        # No topics on GitHub: describe the project with one word of its own.
+        haystack = " " + " ".join(
+            [str(project.get("name") or ""), str(project.get("description") or "")]
+        ).lower() + " "
+        for word, needles in _FALLBACK_TAG_WORDS:
+            if any(needle in haystack for needle in needles):
+                add(word)
+            if len(tags) >= limit:
+                break
     return " ".join(f"#{t}" for t in tags[:limit])
 
 def visible_text(rendered_html: str) -> str:

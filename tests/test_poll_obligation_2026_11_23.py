@@ -191,7 +191,10 @@ def test_an_overdue_promise_is_expired_loudly(tmp_path):
     now = datetime(2026, 11, 19, 19, 0, tzinfo=timezone.utc)
     obligation = build_obligation(_tally(), _poll(), now=now)
     store = _store_with_promise(tmp_path, obligation)
-    assert pipeline._live_obligation(store) is not None
+    # 26.11: the assertion must not depend on the wall clock - the promise is
+    # built for 19.11 and its due date passes on 26.11, so a later test run
+    # saw an expired promise and a green suite turned red on its own.
+    assert pipeline._live_obligation(store, now=now) is not None
     later = now + timedelta(days=9)
     assert pipeline._live_obligation(store, now=later) is None
     assert store.data["poll_obligation"]["status"] == "expired"
@@ -262,14 +265,14 @@ def test_publishing_the_promised_project_marks_the_promise():
 def test_the_weekly_report_tells_the_truth_about_the_promise(tmp_path):
     now = datetime(2026, 11, 19, 19, 0, tzinfo=timezone.utc)
     store = _store_with_promise(tmp_path, build_obligation(_tally(), _poll(), now=now))
-    text = pipeline.report_command(_Config(), store)["text"]
+    text = pipeline.report_command(_Config(), store, now=now)["text"]
     assert "Poll promise" in text and "open" in text
 
     # A fresh store for the second report: the weekly guard allows one per week.
     second = _store_with_promise(tmp_path / "kept", build_obligation(_tally(), _poll(), now=now))
     pipeline._fulfil_obligation(second, _candidate("inkwell", 60.0, description="A notes app"))
     second.save()
-    text = pipeline.report_command(_Config(), second)["text"]
+    text = pipeline.report_command(_Config(), second, now=now)["text"]
     assert "kept" in text and "owner/inkwell" in text
 
 

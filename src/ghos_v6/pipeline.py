@@ -2642,7 +2642,8 @@ def facebook_handoff_command(config: Config, store: StateStore, *, limit: int = 
     return {"ok": True, "queued": len(rows), "range": result.get("range", ""), "projects": [r.get("full_name") for r in selected]}
 
 
-def report_command(config: Config, store: StateStore) -> dict[str, Any]:
+def report_command(config: Config, store: StateStore, *,
+                   now: datetime | None = None) -> dict[str, Any]:
     guard = weekly_guard(store, "report")
     if guard:
         return guard
@@ -2664,7 +2665,9 @@ def report_command(config: Config, store: StateStore) -> dict[str, Any]:
         lines += ["", f"Audience poll: {html.escape(str(audience['last_result']))}"]
     # Owner 23.11: the report must also say whether the promise was kept.
     promise = store.data.get("poll_obligation") or {}
-    promise_status = obligation_state(promise)
+    # 26.11: the clock is injectable, so a report about a promise can be
+    # written about the week that promise belonged to instead of about today.
+    promise_status = obligation_state(promise, now=now)
     if promise_status == "open":
         lines.append(
             "Poll promise: <b>open</b> until "

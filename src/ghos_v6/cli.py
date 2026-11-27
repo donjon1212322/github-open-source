@@ -371,6 +371,8 @@ def _run_scheduled(config: Config, store: StateStore, schedule: str, *,
         # ownership of the evening chair intact.
         "23 2 * * *": lambda: metrics_command(config, store, marker="metrics-night"),
         "43 16 * * 0": lambda: report_command(config, store),
+        # Owner 26.11: its own slot, so the external clock can fire it too.
+        "57 18 * * 4": lambda: learn_command(config, store),
         "47 */3 * * *": lambda: moderation_command(config, store),
         "23 18 * * *": lambda: facebook_handoff_command(config, store),
     }

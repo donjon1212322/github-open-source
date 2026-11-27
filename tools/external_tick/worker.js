@@ -54,6 +54,11 @@ const SLOTS = [
   ["18:13", { command: "digest" }, 0],
   ["16:43", { command: "report" }, 0],
   ["18:53", { command: "poll-close" }, 4],
+  // Owner 26.11: `learn` used to ride along with poll-close only on the native
+  // cron path, so the external clock (which dispatches poll-close on its own)
+  // never triggered it - the value model was frozen since 20.11. Its own slot
+  // four minutes later, weekly guard makes a repeat a no-op.
+  ["18:57", { command: "learn" }, 4],
   // Facebook is deliberately NOT added here, even after the 12.11 redeploy
   // for the US-audience slots: the owner asked to keep Make/Sheet untouched.
   // facebook_handoff_command() now carries a per-UTC-day idempotency marker,

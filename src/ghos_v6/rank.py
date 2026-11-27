@@ -435,7 +435,8 @@ WEEK_LANGUAGE_LIMIT = 3          # same language this many times -> we look furt
 WEEK_LANGUAGE_PENALTY = 5.0
 WEEK_TOPIC_OVERLAP_PENALTY = 6.0
 WEEK_OWNER_PENALTY = 12.0        # one post per owner per week is plenty
-WEEK_FAMILY_LIMIT = 5            # five posts of one theme already flooded the week
+SAME_FAMILY_TODAY_PENALTY = 30.0  # owner 26.11: not the same story twice a day
+WEEK_FAMILY_LIMIT = 3            # owner 26.11: three of one theme a week is enough
 WEEK_FAMILY_PENALTY = 8.0
 
 #: Published records carry a Gemini ``category`` (DevTools / AI / Security),
@@ -531,6 +532,15 @@ def diversity_bonus(
         bonus -= 8.0
     overlap = sum(1 for t in candidate.get("topics") or [] if topics.get(t, 0) > 0)
     bonus -= min(5.0, overlap * 1.2)
+    # Owner 26.11: "посты одни инструменты". On 24.11 three emulator projects
+    # went out in one day (Lichii, Xbox2Windows, Eglantine) and the day-scoped
+    # language/topic bonus saw nothing wrong: different owners, different
+    # languages, same story. A second post of the same family in one day now
+    # costs more than any score gap in the live queue (~25 points).
+    families_today = Counter(theme_family(p) for p in published_today)
+    family = theme_family(candidate)
+    if family and families_today.get(family, 0) >= 1:
+        bonus -= SAME_FAMILY_TODAY_PENALTY
     return bonus + week_diversity_bonus(candidate, published_week or [])
 
 
