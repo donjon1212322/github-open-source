@@ -406,13 +406,13 @@
       "telegram_message_id": 3654
     },
     "news-article": {
-      "devto_id": 5127756,
-      "finished_at": "2026-11-26T22:23:53.611132Z",
+      "devto_id": 5135349,
+      "finished_at": "2026-11-27T22:23:50.922701Z",
       "published": true,
-      "title": "Six Major Model Drops and Math Proofs Hit the Channels",
-      "topic_key": "ai-models-and-math-proofs",
-      "url": "https://dev.to/githubopensource/six-major-model-drops-and-math-proofs-hit-the-channels-431",
-      "words": 1186
+      "title": "OpenCode, GigaAM-v4, and NVIDIA GTP Shift the AI Engineering Landscape",
+      "topic_key": "ai-engineering-updates",
+      "url": "https://dev.to/githubopensource/opencode-gigaam-v4-and-nvidia-gtp-shift-the-ai-engineering-landscape-1bbc",
+      "words": 1093
     },
     "poll-close": {
       "finished_at": "2026-11-26T18:53:57.526192Z",
@@ -2567,6 +2567,7 @@
         ],
         "why_devs": "These updates directly impact local tooling, speech pipelines, and distributed training efficiency."
       },
+      "devto_cover_url": "https://i.ibb.co/JwBKcjNJ/project-devto-cover-9ecf3759f66d.png",
       "headline": "OpenCode, GigaAM-v4 and NVIDIA GTP shift the AI engineering landscape",
       "image_url": "https://i.ibb.co/fz4P8YXF/ai-brief-a29c59302954.png",
       "models": [
