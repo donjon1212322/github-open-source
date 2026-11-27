@@ -942,3 +942,5 @@
 {"slot": "facebook-handoff", "ts": "2026-11-27T19:00:52.526599Z", "type": "watchdog_verified"}
 {"channel": "GitHub_Open_Source", "posts": 12, "ts": "2026-11-27T20:23:51.639004Z", "type": "metrics_collected", "updated": 12}
 {"deleted": 0, "ts": "2026-11-27T21:47:46.782420Z", "type": "moderation_completed", "updates": 0}
+{"title": "OpenCode, GigaAM-v4, and NVIDIA GTP Shift the AI Engineering Landscape", "ts": "2026-11-27T21:49:07.362223Z", "type": "news_article_generated", "words": 1093}
+{"Gemini_video_input": false, "models": 8, "official_url": "", "stories": 5, "topic": "ai-engineering-updates", "ts": "2026-11-27T21:49:09.867764Z", "type": "ai_brief_published", "video_id": "tg-20261127-4641813fd7"}

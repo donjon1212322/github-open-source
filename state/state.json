@@ -226,43 +226,55 @@
       "ratio": 0.0,
       "reason": "published",
       "removed": 0
+    },
+    {
+      "date": "2026-11-27",
+      "fingerprint": "2026-11-27|True|published|0|0.0000|5",
+      "kept": 5,
+      "published": true,
+      "ratio": 0.0,
+      "reason": "published",
+      "removed": 0
     }
   ],
   "brief_memory": {
     "clusters": {
       "https://github.com/1337isnot1337/solved-conjectures/tree/main": "2026-11-26",
+      "https://github.com/anomalyco/opencode/releases/tag/v2.4.0": "2026-11-27",
       "https://github.com/anthropics/formal-math/tree/main/vp-vnp": "2026-11-24",
       "https://github.com/brilliant-hq/pequalnp-proofs/pulls": "2026-11-24",
       "https://github.com/chetaslua/noroi-iwai": "2026-11-25",
-      "https://github.com/cline/cline/releases/tag/cli-v3.0.75": "2026-11-22",
+      "https://github.com/eelbaz/recursive-self-improving-loopers": "2026-11-27",
       "https://github.com/google-antigravity/antigravity-cli/releases/tag/1.5.18": "2026-11-26",
       "https://github.com/google-research/google-research/tree/4a7bc8ab0bc7/cogentic_research_papers": "2026-11-25",
       "https://github.com/google-research/google-research/tree/4a7bc8ab0bc770e71a259b7966c500496b99010a/cogentic_research_papers/integer_factorization": "2026-11-26",
       "https://github.com/hkuds/deeptutor": "2026-11-23",
       "https://github.com/modelcontextprotocol/ext-skills/blob/main/docs/implementations.md": "2026-11-25",
       "https://github.com/openai/math/blob/main/history.md": "2026-11-25",
-      "https://github.com/packtpublishing/design-multi-agent-ai-systems-using-mcp-and-a2a": "2026-11-22",
-      "https://github.com/unclebob/ub-mode": "2026-11-22",
+      "https://github.com/sandflow-ai/sand3d": "2026-11-27",
       "https://github.com/vaibhaav-tiwari/deepseek-v3-jax": "2026-11-26",
       "https://github.com/yihui-dev/awesome-opus5-5-videos": "2026-11-25",
       "https://help.openai.com/en/articles/20001498-how-resets-work-in-codex": "2026-11-24",
       "https://help.openai.com/en/articles/6825453-chatgpt-release-notes": "2026-11-26",
       "https://huggingface.co/aleph-alpha/kolibri-1.1": "2026-11-24",
       "https://huggingface.co/baidu/ernie-5.5-flash-preview": "2026-11-24",
-      "https://huggingface.co/blog/harness-adapters-at-scale": "2026-11-22",
+      "https://huggingface.co/collections/ai-sage/gigaam": "2026-11-27",
       "https://huggingface.co/collections/ai-sage/gigachat-4-6b056cc6a74e5568cd3a44bf": "2026-11-26",
       "https://huggingface.co/collections/prism-ml/bonsai-25-27b": "2026-11-25",
+      "https://huggingface.co/dglhf/slonik": "2026-11-27",
       "https://nvidianews.nvidia.com/news/nvidia-board-reinstates-jensen-huang-as-president-ceo-and-board-director": "2026-11-23",
       "https://openai.com/index/introducing-shirudo": "2026-11-24",
       "https://openai.com/index/perplexity-and-intelligence": "2026-11-23",
       "https://openrouter.ai/blog/announcements/data-processing-incidents-on-inference-providers": "2026-11-24",
-      "https://thinkingmachines.ai/news/inkling-2-mini": "2026-11-22",
+      "https://research.nvidia.com/labs/nemotron/gtp": "2026-11-27",
       "https://www.anthropic.com/research/migrating-api-to-rust": "2026-11-25",
       "story:metr-rnd": "2026-11-26",
+      "text:google-develops-bundles-and-agent-creation-for": "2026-11-27",
       "text:google-gemini-carbon-is-now-available-on": "2026-11-24",
       "text:kimi-лишилась-вычислительных-мощностей-для-обучения-k4": "2026-11-25",
+      "text:new-york-times-в-честь-дня-благодарения": "2026-11-27",
       "text:nous-research-readies-hermes-desktop-redesign-for": "2026-11-26",
-      "text:thinking-machines-a-new-inkling-2-mini": "2026-11-22",
+      "text:reuters-пишут-что-изза-новых-антидистилляционных-мер": "2026-11-27",
       "text:zai-официально-представила-glm54-главная-фишка-в": "2026-11-23",
       "text:вышла-glm54-впервые-у-zai-вышел-loop": "2026-11-23",
       "text:дженсена-хуанга-восстановили-в-должности-ceo-nvidia": "2026-11-23",
@@ -270,20 +282,16 @@
       "text:на-четвртый-день-после-выхода-gemini-4": "2026-11-23",
       "text:немного-новостей-gpt62-sol-пришла-в-обычный": "2026-11-25",
       "text:никогда-такого-не-было-и-вот-опять": "2026-11-24",
-      "text:одновременно-с-anthropic-о-доказательстве-гипотезы-римана": "2026-11-22",
-      "text:подтверждено-гипотеза-римана-доказана-httpsleanprovercommunitygithubioblogpostsriemannhypothesis": "2026-11-22",
+      "text:получил-такое-письмо-счастья-от-openai-openai": "2026-11-27",
       "text:рынок-облачных-сервисов-в-россии-в-2026": "2026-11-23",
-      "text:сброс-лимитов-gemini-приехал-вс-как-обещали": "2026-11-22",
       "text:сколько-самостоятельности-мы-готовы-делегировать-ai-на": "2026-11-24",
       "text:состояние-буквально-каждого-человека-в-мире-осознающего": "2026-11-23",
-      "text:тут-это-обнаружилось-что-в-подписке-google": "2026-11-22",
       "text:ходит-слух-что-openai-иили-anthropic-взломали": "2026-11-26",
       "text:что-ж-по-итогам-доказательства-гипотезы-римана": "2026-11-23",
       "text:яндекс-разработал-пин-с-алисой-ai-носимое": "2026-11-25"
     },
     "stories": {
       "190 deepseek jax lines": "2026-11-26",
-      "27b adapters face hugging lora qwen3": "2026-11-22",
       "27b bonsai prism releases ternary": "2026-11-25",
       "adds context protocol skills support": "2026-11-25",
       "aleph alpha kolibri moe releases": "2026-11-24",
@@ -292,23 +300,25 @@
       "anthropic claude conjecture proves valiant": "2026-11-24",
       "audit data endpoints following openrouter providers removes retention": "2026-11-24",
       "baidu ernie flash releases weights": "2026-11-24",
-      "book design multi repo systems": "2026-11-22",
       "cisco ebpf introduce openai patching shirudo vulnerability": "2026-11-24",
-      "cli cline codex crush harness updates": "2026-11-22",
-      "coding mode open skill source": "2026-11-22",
       "cogentic factorization google integer proof": "2026-11-26",
       "conjecture disproves hirsch openai": "2026-11-26",
       "conjecture math solves teenager": "2026-11-26",
       "deeptutor learning open platform source": "2026-11-23",
+      "gigaam": "2026-11-27",
       "gigachat open weights": "2026-11-26",
       "google limits mathematical openai publish": "2026-11-25",
-      "intelligence metrics openai perplexity": "2026-11-23"
+      "gtp nvidia": "2026-11-27",
+      "intelligence metrics openai perplexity": "2026-11-23",
+      "opencode": "2026-11-27",
+      "sand3d": "2026-11-27",
+      "slonik": "2026-11-27"
     }
   },
   "dead_letters": [],
   "gemini_daily": {
     "day": "2026-11-27",
-    "units": 12
+    "units": 18
   },
   "gemini_window": [
     [
@@ -391,9 +401,9 @@
       "updated": 12
     },
     "news": {
-      "finished_at": "2026-11-26T21:49:16.257528Z",
+      "finished_at": "2026-11-27T21:49:09.867756Z",
       "reason": "published",
-      "telegram_message_id": 3650
+      "telegram_message_id": 3654
     },
     "news-article": {
       "devto_id": 5127756,
@@ -2478,6 +2488,112 @@
       "telegram_message_id": 3650,
       "topic_key": "ai-models-and-math-proofs",
       "video_id": "tg-20261126-631e14248d",
+      "video_url": "https://t.me/GitHub_Open_Source"
+    },
+    {
+      "Gemini_video_input": false,
+      "article_markdown": "> **TL;DR** OpenCode 2.4 introduces native cron and event-based execution to streamline background automation. Meanwhile, NVIDIA showcased Generalized Tensor Parallelism reaching 13 EFLOPS, and specialized fine-tunes like Slonik-27B are pushing domain-specific coding agents further.\n\nOpenCode 2.4 arrives with native cron and event-based prompt execution, shifting how developers handle background tasks. At the same time, hardware and speech pipelines are evolving rapidly, with NVIDIA pushing 13 EFLOPS on 12,288 NVIDIA GB300 GPUs using Generalized Tensor Parallelism. Understanding these concrete mechanics helps us evaluate where local tooling and distributed training are actually heading.\n\n## What actually moved today\n\nThe landscape of developer tooling has shifted toward tighter background integration and faster distributed execution. Instead of treating AI models as simple request-response APIs, recent releases focus on autonomous triggers, low-latency speech chunks, and specialized database-aware coding agents. These updates directly affect how we structure local development loops and manage compute clusters.\n\nInfrastructure constraints have historically limited how efficiently we train multi-trillion parameter models. Recent research papers and open-source weight drops demonstrate that memory bottlenecks are slowly giving way to smarter tensor slicing and streaming audio architectures. Let us look closer at the specific model releases that are driving these changes.\n\n## The model watch\n\n### OpenCode 2.4\n\nOpenCode 2.4 introduces built-in cron and event-based prompt execution. These automations are enabled by default, making background AI tasks much easier to schedule without requiring manual triggers or external cron wrappers. Developers can now orchestrate multi-step background refactoring or log analysis directly inside their local workspace environments.\n\nThe inclusion of default background automations means you might want to re-run your local evaluation scripts to check how background tasks interact with existing file watchers. Because the model handles execution triggers natively, the mental overhead of setting up complex job queues drops significantly. However, developers must watch out for unexpected token consumption if background triggers fire too frequently on dirty git working trees.\n\n### GigaAM-v4 and NVIDIA GTP\n\nSber released GigaAM-v4 featuring 238 million parameters alongside a streaming mode that handles chunks down to 160 ms. This gives developers a robust open-source speech recognition model with strong Russian language support and ultra-low latency for real-time audio pipelines. Compared to Whisper large-v3, the smaller footprint of GigaAM-v4 makes it much friendlier for local edge deployment where memory bandwidth is tight.\n\nOn the hardware acceleration side, NVIDIA showcased Generalized Tensor Parallelism for training 2-trillion parameter models. Utilizing 12,288 NVIDIA GB300 GPUs, this setup achieved 13 EFLOPS, significantly accelerating large model training and memory efficiency. If you manage cluster infrastructure, this architecture shifts how you partition weights across massive node arrays without hitting traditional interconnect bottlenecks.\n\n### Slonik and Sand3D\n\nPostgres Professional fine-tuned Qwen models on PostgreSQL C code, resulting in Slonik-27B. By leveraging underlying base weights from Qwen3.8-27B and Qwen3.5-9B, Slonik achieved 73.3% on SWE-bench Verified. This creates a specialized coding agent capable of navigating complex database source code, writing correct extensions, and handling intricate C-level bugs inside Postgres internals.\n\nMeanwhile, the release of Sand3D provides an open-source Python library designed for AI coding agents to build 3D models. It includes a pre-indexed library of 100,000 3D objects that can be directly exported to GLB, STL, and other standard formats. This simplifies 3D asset generation for LLMs, sparing developers from writing bulky procedural generation scripts from scratch.\n\n| Item | Status | Basis |\n| :--- | :--- | :--- |\n| OpenCode 2.4 | Official Release | GitHub Release Notes |\n| NVIDIA GTP | Research Report | NVIDIA Research Paper |\n| GigaAM-v4 | Official Release | Hugging Face Collection |\n| Slonik-27B | Official Release | Hugging Face Weights |\n| Sand3D | Official Release | GitHub Repository |\n| Antigravity Plugin Bundles | Unconfirmed Claim | Developer Community Rumour |\n\n## Rumours, clearly labelled\n\nWhile official repositories and research papers drive most of our workflows, the community is currently buzzing with unverified claims that require careful skepticism. These items are strictly unconfirmed and should not be factored into production planning yet.\n\nGoogle is reportedly developing plugin bundles and custom agent tools for Antigravity, though no official documentation or public beta flags have surfaced. Additionally, rumours suggest that upcoming Chinese model releases may experience delays into 2027 due to stricter domestic anti-distillation measures and compliance reviews. We will wait for official code pushes or sanctioned announcements before updating our integration strategies for these items.\n\n## Odd finds and small tools\n\nBeyond the headline-grabbing multi-billion parameter architectures, smaller utilities continue to solve acute developer friction. Specialized parsers, lightweight embedding utilities, and targeted format converters often save more engineering hours than another general-purpose chat interface.\n\nKeeping an eye on these repositories pays off when you need a quick drop-in solution for a niche pipeline problem. Sand3D is a great example of this, turning a tedious graphics scripting chore into a clean programmatic API call. When your agents need to output physical or spatial data, having a structured 100,000-object library ready to export into standard formats bypasses hours of custom geometry math.\n\n## What I would try this weekend\n\nIf I had an open block of time this weekend, I would spin up OpenCode 2.4 and configure a custom cron automation to handle nightly dependency auditing and automated pull request drafts. Letting the agent run locally against a dedicated branch with default event triggers gives you a clear view of how well it handles unattended refactoring tasks.\n\nNext, I would test Slonik-27B on a local database extension task to see how effectively its PostgreSQL C code fine-tuning handles custom indexing logic. Comparing its SWE-bench performance against a generic base model on your own proprietary database schema is a great way to measure domain-specific lift.\n\n## Where this leaves us\n\nWe are seeing a clear maturation in how AI engineering tools integrate into daily workflows. Moving from manual prompt submission to background event execution and domain-specific code fine-tuning reduces friction across the entire software development lifecycle. However, questions remain regarding how well these background cron agents manage security boundaries when given unattended write access to local repositories.\n\nHardware scaling breakthroughs like NVIDIA's 13 EFLOPS demonstration prove that raw compute is keeping pace with architectural demands, but local developers still face the realities of memory caps and inference latency. Balancing massive tensor-parallel clusters with lightweight edge tools like GigaAM-v4 requires a pragmatic approach to stack design.\n\nHow do you handle security permissions when running background AI agents with default execution rights in your local environment?\n\n---\n\n💬 Questions, corrections or a better way to run these evals? Feedback and discussion are in the channel: https://t.me/GitHub_Open_Source\n",
+      "article_title": "OpenCode, GigaAM-v4, and NVIDIA GTP Shift the AI Engineering Landscape",
+      "brief": {
+        "discussion_question": "Which of these harness automation features are you actually enabling in your daily workflow?",
+        "headline": "OpenCode, GigaAM-v4 and NVIDIA GTP shift the AI engineering landscape",
+        "hook": "8 exact names, 4 official launches, 0 only announced, 1 unverified claim. OpenCode 2.4 leads the watch — what would you actually re-run first?",
+        "models": [
+          "OpenCode 2.4",
+          "GigaAM-v4",
+          "Megatron-LM",
+          "Slonik-27B",
+          "Sand3D",
+          "Whisper large-v3",
+          "Qwen3.8-27B",
+          "Qwen3.5-9B"
+        ],
+        "stories": [
+          {
+            "basis": "github release notes",
+            "bullets": [
+              "OpenCode 2.4 adds cron and event-based prompt execution.",
+              "Automations are enabled by default."
+            ],
+            "status": "official_release",
+            "title": "OpenCode 2.4",
+            "why": "Makes background AI tasks much easier to schedule without manual triggers."
+          },
+          {
+            "basis": "nvidia research paper",
+            "bullets": [
+              "NVIDIA shown Generalized Tensor Parallelism for 2-trillion parameter models.",
+              "Achieved 13 EFLOPS on 12,288 NVIDIA GB300 GPUs."
+            ],
+            "status": "research_report",
+            "title": "NVIDIA GTP",
+            "why": "Significantly accelerates large model training and memory efficiency."
+          },
+          {
+            "basis": "hugging face collection",
+            "bullets": [
+              "Sber released GigaAM-v4 with 238 million parameters.",
+              "Introduced a streaming mode with chunks down to 160 ms."
+            ],
+            "status": "official_release",
+            "title": "GigaAM-v4",
+            "why": "Provides a robust open-source speech recognition model with strong Russian language support."
+          },
+          {
+            "basis": "hugging face weights",
+            "bullets": [
+              "Postgres Professional fine-tuned Qwen models on PostgreSQL C code.",
+              "Achieved 73.3% on SWE-bench Verified."
+            ],
+            "status": "official_release",
+            "title": "Slonik",
+            "why": "Creates a specialized coding agent capable of navigating complex database source code."
+          },
+          {
+            "basis": "github repository",
+            "bullets": [
+              "Released an open-source Python library for AI coding agents to build 3D models.",
+              "Includes a library of 100,000 3D objects exported to GLB, STL, and other formats."
+            ],
+            "status": "official_release",
+            "title": "Sand3D",
+            "why": "Simplifies 3D asset generation for LLMs without relying on bulky scripts."
+          }
+        ],
+        "summary": "An overview of recent AI engineering releases, including OpenCode 2.4, GigaAM-v4, NVIDIA GTP, Sand3D, and Slonik.",
+        "unconfirmed_claims": [
+          "Google develops plugin bundles and custom agent tools for Antigravity",
+          "Chinese models may be delayed until 2027 due to anti-distillation measures"
+        ],
+        "why_devs": "These updates directly impact local tooling, speech pipelines, and distributed training efficiency."
+      },
+      "headline": "OpenCode, GigaAM-v4 and NVIDIA GTP shift the AI engineering landscape",
+      "image_url": "https://i.ibb.co/fz4P8YXF/ai-brief-a29c59302954.png",
+      "models": [
+        "OpenCode 2.4",
+        "GigaAM-v4",
+        "Megatron-LM",
+        "Slonik-27B",
+        "Sand3D",
+        "Whisper large-v3",
+        "Qwen3.8-27B",
+        "Qwen3.5-9B"
+      ],
+      "narrative_hook": "Six different AI harnesses dropped updates in a single week, but the thing that caught my eye was a 2-trillion parameter training breakthrough.",
+      "official_url": "",
+      "post_text": "🛰️ <b>AI Brief</b> · <i>no ads, no hype</i>\n\n<b>Six different AI harnesses dropped updates in a single week, but the thing that caught my eye was a 2-trillion parameter training breakthrough.</b>\n\n🧬 <b>In this brief:</b> OpenCode 2.4 · GigaAM-v4 · Megatron-LM · Slonik-27B · Sand3D · Whisper large-v3 · Qwen3.8-27B · Qwen3.5-9B\n\n<b>1/ OpenCode 2.4</b>\nOpenCode 2.4 adds cron and event-based prompt execution.\nAutomations are enabled by default.\nMakes background AI tasks much easier to schedule without manual triggers.\n<i>github release notes</i>\n\n<b>2/ Nvidia GTP</b>\nNVIDIA shown Generalized Tensor Parallelism for 2-trillion parameter models.\nAchieved 13 EFLOPS on 12,288 NVIDIA GB300 GPUs.\nSignificantly accelerates large model training and memory efficiency.\n<i>nvidia research paper</i>\n\n<b>3/ GigaAM-v4</b>\nSber released GigaAM-v4 with 238 million parameters.\nIntroduced a streaming mode with chunks down to 160 ms.\nProvides a robust open-source speech recognition model with strong Russian language support.\n<i>hugging face collection</i>\n\n<b>4/ Slonik</b>\nPostgres Professional fine-tuned Qwen models on PostgreSQL C code.\nAchieved 73.3% on SWE-bench Verified.\nCreates a specialized coding agent capable of navigating complex database source code.\n<i>hugging face weights</i>\n\n<b>5/ Sand3D</b>\nReleased an open-source Python library for AI coding agents to build 3D models.\nIncludes a library of 100,000 3D objects exported to GLB, STL, and other formats.\nSimplifies 3D asset generation for LLMs without relying on bulky scripts.\n<i>github repository</i>\n\n<b>◻️ Rumours we're keeping an eye on</b>\n\n◻️ <i>Google develops plugin bundles and custom agent tools for Antigravity</i>\n◻️ <i>Chinese models may be delayed until 2027 due to anti-distillation measures</i>\n\n<i>Which of these harness automation features are you actually enabling in your daily workflow?</i>\n\n📣 <a href=\"https://t.me/GitHub_Open_Source\"><b>@GitHub_Open_Source</b></a>\n\n========================================\n#AINews #OpenSource",
+      "published_at": "2026-11-27T21:49:09.867608Z",
+      "statuses": [
+        "official_release",
+        "research_report",
+        "official_release",
+        "official_release",
+        "official_release"
+      ],
+      "stories": 5,
+      "telegram_message_id": 3654,
+      "topic_key": "ai-engineering-updates",
+      "video_id": "tg-20261127-4641813fd7",
       "video_url": "https://t.me/GitHub_Open_Source"
     }
   ],
@@ -15618,9 +15734,10 @@
   ],
   "rumour_memory": {
     "150m accelerators b300 contract indonesia lost moonshot nvidia": "2026-11-25",
+    "2027 anti chinese delayed distillation due measures models until": "2026-11-27",
+    "agent antigravity bundles custom develops google plugin tools": "2026-11-27",
     "analysis artificial gemini hallucinations measured omniscience": "2026-11-26",
     "anthropic current models much ones openai powerful unreleased": "2026-11-24",
-    "architecture glm loop officially presented transformer": "2026-11-23",
     "available carbon gemini google plans pro": "2026-11-24",
     "benchmark claude extra high leaks opus showing": "2026-11-26",
     "chatgpt gpt rolled sol standard users": "2026-11-25",
