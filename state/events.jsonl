@@ -955,3 +955,4 @@
 {"minutes_late": 69.0, "schedule": "17 0,18,19,20,21,22,23 * * *", "ts": "2026-11-28T01:26:02.066431Z", "type": "late_schedule_ignored"}
 {"minutes_late": 434.4, "schedule": "13 18 * * *", "ts": "2026-11-28T01:27:23.407232Z", "type": "late_schedule_ignored"}
 {"minutes_late": 429.4, "schedule": "23 18 * * *", "ts": "2026-11-28T01:32:25.059494Z", "type": "late_schedule_ignored"}
+{"channel": "GitHub_Open_Source", "posts": 12, "ts": "2026-11-28T02:23:53.762944Z", "type": "metrics_collected", "updated": 12}
