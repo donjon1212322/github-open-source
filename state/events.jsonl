@@ -968,3 +968,4 @@
 {"minutes_late": 498.1, "schedule": "23 2 * * *", "ts": "2026-11-28T10:41:08.729303Z", "type": "late_schedule_ignored"}
 {"deleted": 0, "ts": "2026-11-28T12:47:48.098510Z", "type": "moderation_completed", "updates": 0}
 {"platform": "devto", "repo": "alesha-pro/llm.asm", "ts": "2026-11-28T13:34:20.633360Z", "type": "article_published", "url": "https://dev.to/githubopensource/run-ai-in-pure-assembly-llmasm-open-source-548h"}
+{"repo": "alesha-pro/llm.asm", "ts": "2026-11-28T14:12:46.393836Z", "type": "article_updated", "url": "https://dev.to/githubopensource/run-ai-in-pure-assembly-llmasm-open-source-548h"}

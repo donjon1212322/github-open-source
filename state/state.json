@@ -2720,6 +2720,7 @@
         "devto": {
           "id": 5139291,
           "published_at": "2026-11-28T13:34:20.633338Z",
+          "updated_at": "2026-11-28T14:12:46.393809Z",
           "url": "https://dev.to/githubopensource/run-ai-in-pure-assembly-llmasm-open-source-548h"
         }
       },
@@ -2736,6 +2737,7 @@
       },
       "description": "Qwen3-0.6B inference (12 KB), bare-metal bootable OS (22 KB), and from-scratch Mini-GPT trainer with live Braille TUI (32 KB) in 100% pure x86-64 NASM assembly. Zero C, zero libc, zero dependencies.",
       "description_fp": "dcec960b9810a1cc",
+      "devto_cover_url": "https://i.ibb.co/rGs08VVm/alesha-pro-llm-asm-devto-cover-bc468be9171b.png",
       "forks": 338,
       "full_name": "alesha-pro/llm.asm",
       "generated": {
