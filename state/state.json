@@ -318,16 +318,16 @@
   "dead_letters": [],
   "gemini_daily": {
     "day": "2026-11-27",
-    "units": 18
+    "units": 24
   },
   "gemini_window": [
     [
-      1795803237.5940366,
-      3996
+      1795828435.2598317,
+      3947
     ],
     [
-      1795803241.9215984,
-      1453
+      1795828438.7676136,
+      1423
     ]
   ],
   "last_runs": {
@@ -429,9 +429,9 @@
       "telegram_message_id": 3550
     },
     "publish:us_evening": {
-      "finished_at": "2026-11-27T01:14:03.717215Z",
-      "repo": "fxceless/victory-fork",
-      "telegram_message_id": 3651
+      "finished_at": "2026-11-28T01:14:04.470848Z",
+      "repo": "alesha-pro/llm.asm",
+      "telegram_message_id": 3655
     },
     "publish:us_midday": {
       "finished_at": "2026-11-27T18:14:06.894388Z",
@@ -2715,6 +2715,118 @@
   },
   "publish_failures": {},
   "published": {
+    "alesha-pro/llm.asm": {
+      "articles": {},
+      "card_style": "editorial_daily",
+      "category": "DevTools",
+      "contributors_count": 1,
+      "created_at": "2026-11-25T07:28:51Z",
+      "crossposts": {
+        "bluesky": {
+          "attempts": 0,
+          "due_at": "2026-11-28T18:00:00+00:00",
+          "status": "pending"
+        }
+      },
+      "description": "Qwen3-0.6B inference (12 KB), bare-metal bootable OS (22 KB), and from-scratch Mini-GPT trainer with live Braille TUI (32 KB) in 100% pure x86-64 NASM assembly. Zero C, zero libc, zero dependencies.",
+      "description_fp": "dcec960b9810a1cc",
+      "forks": 338,
+      "full_name": "alesha-pro/llm.asm",
+      "generated": {
+        "article_markdown": "## What it is\n\nllm.asm is a collection of complete machine learning projects written entirely in pure x86-64 NASM assembly. It contains zero C, zero C++, zero Rust, and zero library dependencies, relying instead on hand-written assembly for every math kernel, AVX2 optimization, tokenizer, and thread pool.\n\n## Why it matters\n\nModern machine learning overwhelmingly relies on massive software stacks and heavy runtimes. By implementing transformer operations directly at the metal level, this project demonstrates extreme performance optimization and minimal footprint execution, achieving fast decode speeds and tiny binary sizes.\n\n## Key features\n\n- Assemble a Qwen3-0.6B inference engine in a 14 KB static Linux ELF binary\n- Boot a 24 KB bare-metal OS running Qwen3-0.6B with zero disk requirements\n- Train a Mini-GPT model from scratch with a live 80x24 Braille TUI in a 32 KB binary\n- Execute AVX2, FMA, and F16C accelerated GEMM/GEMV math kernels without external libraries\n- Run multi-turn chat sessions utilizing a custom contiguous head-major KV cache\n\n## Quick start\n\nClone the repository and build the projects using make:\n\n```bash\ngit clone https://github.com/alesha-pro/llm.asm.git\ncd llm.asm\nmake all\n```\n\n## Who should try it\n\nSystems programmers, operating system developers, and assembly enthusiasts who want to explore the absolute limits of low-level machine learning execution.\n\n## Verdict\n\nA brilliant engineering artifact that proves machine learning models can run on raw hardware without traditional runtime bloat.",
+        "article_title": "llm.asm: LLM Inference and Training in Pure x86-64 Assembly",
+        "card_hook": "LLMs in pure x86-64 assembly",
+        "card_subline": "Zero C, zero libc, and zero runtime dependencies across three complete LLM projects",
+        "category": "DevTools",
+        "discussion_question": "Would you ever drop down to assembly to optimize model inference speed?",
+        "hook": "Run Qwen3-0.6B inference, boot a bare-metal OS, and train Mini-GPT in pure x86-64 NASM assembly.",
+        "key_features": [
+          "Assemble a Qwen3-0.6B inference engine in a 14 KB static Linux ELF binary",
+          "Boot a 24 KB bare-metal OS running Qwen3-0.6B with zero disk requirements",
+          "Train a Mini-GPT model from scratch with a live 80x24 Braille TUI in a 32 KB binary",
+          "Execute AVX2, FMA, and F16C accelerated GEMM/GEMV math kernels without external libraries",
+          "Run multi-turn chat sessions utilizing a custom contiguous head-major KV cache"
+        ],
+        "llm_used": true,
+        "quick_start": "git clone https://github.com/alesha-pro/llm.asm.git && cd llm.asm && make all",
+        "safety": "ok",
+        "safety_reason": "Educational and research-oriented low-level systems project.",
+        "scene": "You are staring at a bloated software dependency tree just to run a small inference model, wondering why a simple task requires megabytes of runtime overhead.",
+        "social_text": "Run complete LLM inference, bootable bare-metal OS environments, and model training in pure x86-64 NASM assembly with zero external dependencies.",
+        "summary": "This repository implements complete machine learning workflows directly in x86-64 assembly language using NASM. It bypasses conventional runtimes, C libraries, and interpreters by implementing custom AVX2 kernels, tokenizers, thread pools, and training logic from scratch. The code compiles down to tiny static binaries that execute directly on Linux or boot straight onto bare metal.",
+        "surfaces": {
+          "Facebook_body": "Imagine running an intelligent chatbot using only the most basic instructions your computer's processor understands. This project lets you run a complete language model and even boot a tiny operating system directly from a file smaller than a standard photo. By skipping all conventional programming libraries and heavy software tools, it builds every mathematical calculation and memory manager from absolute scratch.\n\nEverything is written entirely in low-level processor instructions. Custom math routines push your computer chip to its absolute limit, performing complex calculations without asking any other software for help. You can chat with an AI model, watch a miniature neural network learn in real time with a text-based visual interface, or start a computer directly from a raw binary file with zero disk requirements.\n\nThis is an incredible showcase for low-level computer enthusiasts, systems programmers, and hobbyists who want to understand how hardware and software truly interact at the deepest possible level. While you would not build a mainstream commercial product with it, it remains an astonishing technical achievement for anyone curious about how computers actually work beneath the surface.",
+          "Facebook_headline": "Run AI without installing any software",
+          "Facebook_lead": "Experience complete artificial intelligence running entirely without traditional software libraries, operating systems, or heavy frameworks.",
+          "bluesky_headline": "Run artificial intelligence in pure assembly",
+          "bluesky_lead": "Execute a language model, boot bare-metal, and train a mini chat model using zero external dependencies.",
+          "devto_body": "## What it is\n\nllm.asm is an open-source repository written entirely in 100% pure x86-64 NASM assembly. It implements complete machine learning workflows—including Qwen3-0.6B inference, a bare-metal bootable OS, and a Mini-GPT training loop—without relying on C, libc, or any external dependencies.\n\n## How it works\n\nTraditional machine learning stacks rely on heavy runtimes, Python, and C/C++ libraries. This project bypasses all conventional layers by implementing custom AVX2, FMA, and F16C accelerated GEMM/GEMV math kernels, tokenizers, thread pools, and training logic directly from scratch. The code compiles down to tiny static binaries that run on Linux or boot straight onto bare metal.\n\n## Key features\n\n- Assemble a Qwen3-0.6B inference engine in a 14 KB static Linux ELF binary\n- Boot a 24 KB bare-metal OS running Qwen3-0.6B with zero disk requirements\n- Train a Mini-GPT model from scratch with a live 80x24 Braille TUI in a 32 KB binary\n- Execute hardware-accelerated math kernels without external libraries\n- Run multi-turn chat sessions utilizing a custom contiguous head-major KV cache\n\n## Getting started\n\nClone the repository and use NASM to assemble the binaries:\n\n```bash\ngit clone https://github.com/alesha-pro/llm.asm.git\ncd llm.asm\n# Follow Makefile instructions for your target binary\n```\n\n## When not to use it\n\nThis project is an extraordinary tour de force for systems hackers and assembly enthusiasts, but it is obviously impractical for standard production application development.",
+          "seo_description": "Run language model inference and training loops in pure x86-64 NASM assembly without C libraries or dependencies. Built for systems programmers.",
+          "seo_query": "run llm in assembly",
+          "seo_title": "Run AI in Pure Assembly - llm.asm Open Source",
+          "telegraph_angle": "Explain the architectural feat of building machine learning inference and training loops entirely in x86-64 assembly without standard libraries."
+        },
+        "tension": "Standard inference stacks drag in gigabytes of libraries, complex toolchains, and abstraction layers that obscure hardware execution details and bloat binary sizes.",
+        "turn": "This project strips away every abstraction layer, implementing the entire model lifecycle in pure assembly while matching or exceeding conventional CPU decode speeds.",
+        "verdict": "An extraordinary tour de force for systems hackers and assembly enthusiasts, though obviously impractical for production application development.",
+        "who_for": "Systems programmers and low-level engineers interested in bare-metal architecture and custom assembly optimization.",
+        "why_now": "The proliferation of compact language models makes it feasible to implement complete transformer inference and training loops entirely in low-level code without massive frameworks."
+      },
+      "hn_points": 234,
+      "homepage": "",
+      "id": 1471422729,
+      "image_url": "https://i.ibb.co/xSXmchdZ/alesha-pro-llm-asm-preview-2b9bfddcd40d.jpg",
+      "is_dual_use": false,
+      "is_hidden_gem": false,
+      "language": "Assembly",
+      "license": {
+        "key": "mit",
+        "name": "MIT License",
+        "node_id": "MDc6TGljZW5zZTEz",
+        "spdx_id": "MIT",
+        "url": "https://api.github.com/licenses/mit"
+      },
+      "media_urls": [
+        "https://raw.githubusercontent.com/alesha-pro/llm.asm/main/assets/baremetal-vga.png",
+        "https://raw.githubusercontent.com/alesha-pro/llm.asm/main/assets/proxmox-vm250-vga.png"
+      ],
+      "name": "llm.asm",
+      "open_issues": 22,
+      "published_at": "2026-11-28T01:14:04.470459Z",
+      "pushed_at": "2026-11-27T20:40:20Z",
+      "readme_fp": "eb239e38302d4d9b",
+      "repo_id": 1471422729,
+      "revisit_of": "",
+      "revisit_reason": "",
+      "score": 55.7,
+      "slot": "us_evening",
+      "sources": [
+        "github_search",
+        "hacker_news",
+        "telegram:github_repos"
+      ],
+      "stars": 2225,
+      "telegram_chat_id": "@GitHub_Open_Source",
+      "telegram_link": "https://t.me/GitHub_Open_Source/3655",
+      "telegram_message_id": 3655,
+      "telegraph_url": "https://telegra.ph/llmasm-LLM-Inference-and-Training-in-Pure-x86-64-Assembly-11-28",
+      "topics": [
+        "assembly",
+        "avx2",
+        "bare-metal",
+        "llm",
+        "machine-learning",
+        "nasm",
+        "osdev",
+        "qwen",
+        "transformer",
+        "x86-64"
+      ],
+      "updated_at": "2026-11-28T01:09:03Z",
+      "url": "https://github.com/alesha-pro/llm.asm",
+      "visual_host": "imgbb",
+      "visual_kind": "card"
+    },
     "anefzaoui/misterdownloadmanager": {
       "articles": {},
       "card_style": "",
@@ -14393,97 +14505,6 @@
     },
     {
       "archived": false,
-      "contributors_count": 1,
-      "created_at": "2026-11-25T07:28:51Z",
-      "default_branch": "main",
-      "description": "Qwen3-0.6B inference (12 KB), bare-metal bootable OS (22 KB), and from-scratch Mini-GPT trainer with live Braille TUI (32 KB) in 100% pure x86-64 NASM assembly. Zero C, zero libc, zero dependencies.",
-      "disabled": false,
-      "fork": false,
-      "forks": 336,
-      "forks_count": 336,
-      "full_name": "alesha-pro/llm.asm",
-      "has_readme": true,
-      "hn_points": 234,
-      "homepage": "",
-      "id": 1471422729,
-      "is_dual_use": false,
-      "is_hidden_gem": false,
-      "language": "Assembly",
-      "license": {
-        "key": "mit",
-        "name": "MIT License",
-        "node_id": "MDc6TGljZW5zZTEz",
-        "spdx_id": "MIT",
-        "url": "https://api.github.com/licenses/mit"
-      },
-      "media_urls": [
-        "https://raw.githubusercontent.com/alesha-pro/llm.asm/main/assets/baremetal-vga.png",
-        "https://raw.githubusercontent.com/alesha-pro/llm.asm/main/assets/proxmox-vm250-vga.png"
-      ],
-      "name": "llm.asm",
-      "non_software_reason": "",
-      "open_issues": 22,
-      "open_issues_count": 22,
-      "owner_repo_count": 1,
-      "pushed_at": "2026-11-27T20:40:20Z",
-      "readme": "",
-      "readme_excerpt": "# llm.asm\n\n**Three complete LLM projects written in 100% pure x86-64 NASM assembly.**\nZero C, zero C++, zero Rust, zero libc, zero libm, zero runtime dependencies.\n\nAssembled directly with `nasm` and linked with `ld`. Every math kernel (`expf`, `sincosf`, `RMSNorm`, `RoPE`, `SiLU`, `Softmax`), AVX2+FMA+F16C GEMM/GEMV engine, BPE tokenizer, `clone()`/`futex()` thread pool, bare-metal SMP kernel, analytical backward pass, AdamW optimizer, and live Unicode Braille TUI is hand-written x86-64 assembly (`17,252` lines total across all three projects).\n\n## The Projects\n\n| Project | Binary | Size | Deps | Key Numbers |\n|---|---|---:|---:|---|\n| **[01-qwen3-inference/](01-qwen3-inference/)** | `build/asm-llm` | **14,712 B** *(14,008 B `FAST_Q8=0`)* | **0** | Pure x86-64 NASM static Linux ELF running `Qwen/Qwen3-0.6B` (Q8_0, built-in BPE tokenizer, GQA + QK-Norm + RoPE + SwiGLU, single-shot & `--chat` multi-turn KV-cache REPL). **`FAST_Q8=1` (default):** **126.8 tok/s** decode at 40T (**20.7 tok/s** at 1T), **+18% to +36% faster than `llama.cpp` CPU (`Q8_0`) across 1..40T**, **`0.99965`** cosine & **64/64** exact greedy tokens vs PyTorch FP32. |\n| **[02-baremetal-os/](02-baremetal-os/)** | `",
-      "readme_len": 17058,
-      "repo_id": 1471422729,
-      "score": 55.7,
-      "score_parts": {
-        "acceleration": 0.5,
-        "acceleration_known": 0,
-        "acceleration_ratio": 0.0,
-        "age_days": 2.7,
-        "appeal": 0.111,
-        "burst": 0.63,
-        "community": 0.148,
-        "content": 0.389,
-        "corroboration": 0.981,
-        "external": 0.963,
-        "forks_measured": 1,
-        "forks_per_day": 124.16,
-        "forks_rate": 0.788,
-        "freshness": 0.481,
-        "growth": 0.611,
-        "growth_measured": 0,
-        "popularity": 0.407,
-        "reliability": 0.556,
-        "stars_per_day": 814.41
-      },
-      "source_name": "github_search",
-      "sources": [
-        "github_search",
-        "hacker_news",
-        "telegram:github_repos"
-      ],
-      "star_history": [
-        [
-          "2026-11-28",
-          2204,
-          336
-        ]
-      ],
-      "stargazers_count": 2204,
-      "stars": 2204,
-      "topics": [
-        "assembly",
-        "avx2",
-        "bare-metal",
-        "llm",
-        "machine-learning",
-        "nasm",
-        "osdev",
-        "qwen",
-        "transformer",
-        "x86-64"
-      ],
-      "updated_at": "2026-11-28T00:17:11Z",
-      "url": "https://github.com/alesha-pro/llm.asm"
-    },
-    {
-      "archived": false,
       "contributors_count": 119,
       "created_at": "2026-10-31T14:50:00Z",
       "default_branch": "main",
@@ -16992,8 +17013,8 @@
     "alesha-pro/llm.asm": {
       "first_seen_at": "2026-11-28T00:25:51.946112Z",
       "full_name": "alesha-pro/llm.asm",
-      "last_decision": "queued",
-      "last_seen_at": "2026-11-28T00:25:51.946114Z",
+      "last_decision": "published",
+      "last_seen_at": "2026-11-28T01:14:04.470799Z",
       "repo_id": 1471422729,
       "sources": [
         "github_search",
@@ -17003,8 +17024,8 @@
       "star_history": [
         [
           "2026-11-28",
-          2204,
-          336
+          2225,
+          338
         ]
       ]
     },

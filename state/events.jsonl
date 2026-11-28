@@ -950,3 +950,5 @@
 {"minutes_late": 118.5, "schedule": "47 */3 * * *", "ts": "2026-11-27T23:45:30.273207Z", "type": "late_schedule_ignored"}
 {"discovered": 482, "enriched": 120, "passed_gate": 76, "queued": 28, "rejections": {"curation_repo": 1, "description_not_english": 7, "farm_template:free_platform_template": 6, "narrow:library:generic-library": 1, "narrow:topic:plugin": 1, "narrow:topic:prompt-library": 1, "no_community": 6, "no_license": 19, "no_push_date": 4, "no_readme": 4, "not_software:topic:images": 1, "not_software:topic:prompt-library": 1, "not_software:topic:prompts": 1, "readme_not_english": 7, "stars<100": 12, "velocity_too_high": 1}, "ts": "2026-11-28T00:25:51.994778Z", "type": "collect_completed"}
 {"deleted": 0, "ts": "2026-11-28T00:47:54.033374Z", "type": "moderation_completed", "updates": 1}
+{"preview_host": "imgbb", "repo": "alesha-pro/llm.asm", "ts": "2026-11-28T01:14:04.215091Z", "type": "published_as_text"}
+{"repo": "alesha-pro/llm.asm", "score": 55.7, "telegram_message_id": 3655, "telegraph_url": "https://telegra.ph/llmasm-LLM-Inference-and-Training-in-Pure-x86-64-Assembly-11-28", "ts": "2026-11-28T01:14:04.470666Z", "type": "project_published"}
