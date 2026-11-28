@@ -317,17 +317,17 @@
   },
   "dead_letters": [],
   "gemini_daily": {
-    "day": "2026-11-27",
-    "units": 24
+    "day": "2026-11-28",
+    "units": 6
   },
   "gemini_window": [
     [
-      1795828435.2598317,
-      3947
+      1795878828.4686406,
+      3741
     ],
     [
-      1795828438.7676136,
-      1423
+      1795878831.6064665,
+      1365
     ]
   ],
   "last_runs": {
@@ -439,9 +439,9 @@
       "telegram_message_id": 3653
     },
     "publish:us_morning": {
-      "finished_at": "2026-11-27T15:14:02.040209Z",
-      "repo": "avaneesh-inamdar/stream-tube-desktop",
-      "telegram_message_id": 3652
+      "finished_at": "2026-11-28T15:13:56.721161Z",
+      "repo": "pixel679-cmyk/windows-titlebar-blur-customizer",
+      "telegram_message_id": 3656
     },
     "publish:us_peak": {
       "finished_at": "2026-11-11T17:19:17.006267Z",
@@ -10457,6 +10457,125 @@
       "visual_host": "imgbb",
       "visual_kind": "readme"
     },
+    "pixel679-cmyk/windows-titlebar-blur-customizer": {
+      "articles": {},
+      "card_style": "",
+      "category": "CLI",
+      "contributors_count": 7,
+      "created_at": "2026-11-26T21:26:56Z",
+      "crossposts": {
+        "bluesky": {
+          "attempts": 0,
+          "due_at": "2026-11-28T18:00:00+00:00",
+          "status": "pending"
+        }
+      },
+      "description": "Customize Windows 10 and 11 title bar effects with Aero, Acrylic, Mica and advanced DWM blur effects.",
+      "description_fp": "806741a0106c164e",
+      "forks": 1,
+      "full_name": "Pixel679-cmyk/windows-titlebar-blur-customizer",
+      "generated": {
+        "article_markdown": "## What it is\n\nWindows Titlebar Blur Customizer is an open-source C++ utility designed to modify application title bars on Windows 10 and 11. Instead of rewriting individual application interfaces, it interfaces with the Desktop Window Manager (DWM) to expose advanced rendering options.\n\n## Why it matters\n\nModern Windows environments limit how developers and users style basic window chrome. This project bridges the gap by making system-level blur parameters configurable, allowing for a cohesive aesthetic across mismatched desktop applications.\n\n## Key features\n\n- Configure DWM rendering with CustomBlur, AccentBlur, and SystemBackdrop approaches.\n- Bring back classic Windows Aero glass transparency and reflections.\n- Apply modern translucent Acrylic styling to supported window frames.\n- Enable Windows 11 Mica and Mica Alt material effects.\n- Adjust custom blending colors, text hues, and overall transparency.\n\n## Quick start\n\nTo obtain the source code repository, run:\n\n```bash\ngit clone https://github.com/Pixel679-cmyk/windows-titlebar-blur-customizer\n```\n\n## Who should try it\n\nDevelopers and power users running Windows 10 or 11 who want granular control over desktop aesthetics and window frame materials.\n\n## Verdict\n\nA straightforward utility for visual customization, though certain effects require specific Windows builds to function correctly.",
+        "article_title": "Windows Titlebar Blur Customizer: Add Aero, Acrylic, and Mica Effects",
+        "card_hook": "Custom Windows title bar blur effects",
+        "card_subline": "Transform standard desktop application frames with Aero, Acrylic, and Mica rendering",
+        "category": "CLI",
+        "discussion_question": "Which Windows title bar style do you prefer: classic Aero Glass or modern Mica?",
+        "hook": "Customize Windows 10 and 11 title bars with Aero, Acrylic, and Mica blur effects in C++.",
+        "key_features": [
+          "Configure DWM rendering with CustomBlur, AccentBlur, and SystemBackdrop approaches",
+          "Bring back classic Windows Aero glass transparency and reflections",
+          "Apply modern translucent Acrylic styling to supported window frames",
+          "Enable Windows 11 Mica and Mica Alt material effects",
+          "Adjust custom blending colors, text hues, and overall transparency",
+          "Manage independent appearance behaviors for light and dark themes"
+        ],
+        "llm_used": true,
+        "quick_start": "git clone https://github.com/Pixel679-cmyk/windows-titlebar-blur-customizer",
+        "safety": "ok",
+        "safety_reason": "Legitimate desktop customization utility.",
+        "scene": "You stare at stark, default white application title bars on a modern Windows display, wishing you could bring back readable glass transparency.",
+        "social_text": "Customize Windows 10 and 11 title bars with Aero, Acrylic, and Mica blur effects using this open-source C++ tool.",
+        "summary": "This desktop customization tool interacts directly with the Windows Desktop Window Manager to alter application frame rendering. It bundles native rendering approaches like AccentBlur and SystemBackdrop to modify transparency and blur intensity without replacing individual app engines. Users configure the executable alongside required libraries to override standard system appearance settings.",
+        "surfaces": {
+          "Facebook_body": "Give your Windows desktop a fresh look by adding classic glass transparency and modern blur styles directly to your application windows. If you miss the classic Aero glass look or want the sleek translucent styling found in newer Windows versions, this utility lets you adjust window frames easily without replacing your whole system theme.\n\nThe tool works by connecting straight to the built-in Windows window rendering system, applying effects like Acrylic and Mica without slowing down individual applications. You can fine-tune your setup by adjusting background transparency, blending colors, and text hues to match your personal style.\n\nIt is built specifically for Windows developers, power users, and desktop customization enthusiasts who want precise control over their interface appearance. Keep in mind that results can vary depending on your exact Windows version and system updates.",
+          "Facebook_headline": "Make your Windows title bars transparent",
+          "Facebook_lead": "Customize your Windows desktop with classic glass effects, modern blur styles, and custom colors without installing heavy themes.",
+          "bluesky_headline": "Bring classic glass transparency back to Windows",
+          "bluesky_lead": "Apply Aero, Acrylic, and Mica blur effects to any window frame on modern Windows 10 and 11 builds.",
+          "devto_body": "## What it is\n\nwindows-titlebar-blur-customizer is a lightweight C++ utility designed to interact directly with the Windows Desktop Window Manager. It allows developers and power users to override standard system window appearances by applying native rendering effects like Aero glass, Acrylic, and Mica to Windows 10 and 11 title bars.\n\n## How it works\n\nThe tool bypasses heavy third-party theming engines by hooking straight into undocumented or native DWM rendering approaches such as AccentBlur and SystemBackdrop. By configuring the executable alongside the required libraries, you can alter application frame transparency, blending colors, and text hues programmatically or via configuration.\n\n## Key features\n\n- Configure DWM rendering using CustomBlur, AccentBlur, and SystemBackdrop\n- Restore classic Windows Aero glass transparency and reflections\n- Apply modern translucent Acrylic styling to window frames\n- Enable Windows 11 Mica and Mica Alt material effects\n- Adjust custom blending colors, text hues, and overall transparency\n\n## Getting started\n\nClone the repository from GitHub, ensure you have a C++ environment configured for Windows development, and build the executable alongside the necessary system libraries. Run the utility against your target window frames to apply your preferred blur and transparency settings.\n\n## When not to use it\n\nAvoid this tool if you are looking for a complete GUI desktop customization suite with point-and-click themes, or if you are running older, unsupported Windows builds where DWM hooks frequently change with system updates.",
+          "seo_description": "Add classic Aero glass, Acrylic, and Mica blur effects to Windows 10 and 11 title bars with this lightweight open-source C++ customization utility.",
+          "seo_query": "customize windows title bar blur open source",
+          "seo_title": "Customize Windows Title Bar Blur - Open Source Tool",
+          "telegraph_angle": "Examine the technical mechanics of interacting with the Windows Desktop Window Manager and the trade-offs of using native rendering hooks versus traditional theme engines."
+        },
+        "tension": "Standard Windows themes lock down window frame appearance, forcing you to accept rigid styling without granular control over DWM blur levels.",
+        "turn": "This utility hooks into the Desktop Window Manager to let you dial in Aero, Acrylic, or Mica materials directly, though compatibility still depends heavily on your specific Windows build.",
+        "verdict": "An effective way to tweak Windows window frames, provided you keep your expectations managed around OS build limitations.",
+        "who_for": "Windows developers and desktop customization enthusiasts seeking native visual tweaks.",
+        "why_now": "It packages disparate Windows DWM rendering hooks into a single C++ utility for modern Windows 10 and 11 builds."
+      },
+      "homepage": "",
+      "id": 1473688485,
+      "image_url": "https://i.ibb.co/ycjVfzpd/pixel679-cmyk-windows-titlebar-blur-customizer-readme-preview-34760125f632.jpg",
+      "is_dual_use": false,
+      "is_hidden_gem": false,
+      "language": "C++",
+      "license": {
+        "key": "mit",
+        "name": "MIT License",
+        "node_id": "MDc6TGljZW5zZTEz",
+        "spdx_id": "MIT",
+        "url": "https://api.github.com/licenses/mit"
+      },
+      "media_urls": [
+        "https://raw.githubusercontent.com/Pixel679-cmyk/windows-titlebar-blur-customizer/main/assets/banner.png",
+        "https://raw.githubusercontent.com/Pixel679-cmyk/windows-titlebar-blur-customizer/main/assets/features.png"
+      ],
+      "name": "windows-titlebar-blur-customizer",
+      "open_issues": 0,
+      "published_at": "2026-11-28T15:13:56.720828Z",
+      "pushed_at": "2026-11-26T21:27:28Z",
+      "readme_fp": "fc0e96acfd0b906d",
+      "repo_id": 1473688485,
+      "revisit_of": "",
+      "revisit_reason": "",
+      "score": 46.5,
+      "slot": "us_morning",
+      "sources": [
+        "github_search"
+      ],
+      "stars": 1509,
+      "telegram_chat_id": "@GitHub_Open_Source",
+      "telegram_link": "https://t.me/GitHub_Open_Source/3656",
+      "telegram_message_id": 3656,
+      "telegraph_url": "https://telegra.ph/Windows-Titlebar-Blur-Customizer-Add-Aero-Acrylic-and-Mica-Effects-11-28",
+      "topics": [
+        "acrylic",
+        "aero",
+        "aeroglass",
+        "blur",
+        "cplusplus",
+        "cpp",
+        "desktop",
+        "desktop-customization",
+        "dwm",
+        "glassmorphism",
+        "mica",
+        "personalization",
+        "transparency",
+        "win10",
+        "win11",
+        "windows",
+        "windows-10",
+        "windows-11",
+        "windows-customization"
+      ],
+      "updated_at": "2026-11-28T13:31:04Z",
+      "url": "https://github.com/Pixel679-cmyk/windows-titlebar-blur-customizer",
+      "visual_host": "imgbb",
+      "visual_kind": "readme"
+    },
     "r0y00/xbox2windows": {
       "articles": {},
       "card_style": "editorial_daily",
@@ -15324,103 +15443,6 @@
       ],
       "updated_at": "2026-11-28T00:22:39Z",
       "url": "https://github.com/google/elephant-goldfish-model"
-    },
-    {
-      "archived": false,
-      "contributors_count": 7,
-      "created_at": "2026-11-26T21:26:56Z",
-      "default_branch": "main",
-      "description": "Customize Windows 10 and 11 title bar effects with Aero, Acrylic, Mica and advanced DWM blur effects.",
-      "disabled": false,
-      "fork": false,
-      "forks": 0,
-      "forks_count": 0,
-      "full_name": "Pixel679-cmyk/windows-titlebar-blur-customizer",
-      "has_readme": true,
-      "homepage": "",
-      "id": 1473688485,
-      "is_dual_use": false,
-      "is_hidden_gem": false,
-      "language": "C++",
-      "license": {
-        "key": "mit",
-        "name": "MIT License",
-        "node_id": "MDc6TGljZW5zZTEz",
-        "spdx_id": "MIT",
-        "url": "https://api.github.com/licenses/mit"
-      },
-      "media_urls": [
-        "https://raw.githubusercontent.com/Pixel679-cmyk/windows-titlebar-blur-customizer/main/assets/banner.png",
-        "https://raw.githubusercontent.com/Pixel679-cmyk/windows-titlebar-blur-customizer/main/assets/features.png"
-      ],
-      "name": "windows-titlebar-blur-customizer",
-      "non_software_reason": "",
-      "open_issues": 0,
-      "open_issues_count": 0,
-      "owner_repo_count": 1,
-      "pushed_at": "2026-11-26T21:27:28Z",
-      "readme": "",
-      "readme_excerpt": "![Windows Titlebar Blur Customizer](assets/banner.png)\n\n<p align=\"center\">\n  <img src=\"https://img.shields.io/badge/Platform-Windows%2010%20%7C%2011-blue?style=for-the-badge\" alt=\"Windows 10 and 11\">\n  <img src=\"https://img.shields.io/badge/License-LGPL--3.0-green?style=for-the-badge\" alt=\"License\">\n  <img src=\"https://img.shields.io/badge/Language-C%2B%2B-00599C?style=for-the-badge\" alt=\"C++\">\n  <img src=\"https://img.shields.io/badge/Customization-Advanced-purple?style=for-the-badge\" alt=\"Advanced customization\">\n</p>\n\n**Windows Titlebar Blur Customizer is a free, open-source Windows desktop customization tool that transforms standard application title bars with beautiful Aero, Acrylic, Mica, and glass blur effects.** Personalize the Windows 10 and Windows 11 desktop appearance without needing command-line knowledge.\n\n## ⬇️ Installation\n\n**Download the Windows application**\n\n1. Open the repository's [Releases](https://github.com/Pixel679-cmyk/windows-titlebar-blur-customizer/releases) page.\n2. Download the latest release archive **`Windows Titlebar Blur Customizer 4.4.2.zip`**.\n3. Extract the archive into a folder of your choice.\n4. Keep **`Windows Titlebar Blur Customizer 4.4.2.e",
-      "readme_len": 9213,
-      "repo_id": 1473688485,
-      "score": 46.5,
-      "score_parts": {
-        "acceleration": 0.5,
-        "acceleration_known": 0,
-        "acceleration_ratio": 0.0,
-        "age_days": 1.1,
-        "appeal": 0.667,
-        "burst": 0.63,
-        "community": 0.0,
-        "content": 0.389,
-        "corroboration": 0.37,
-        "external": 0.426,
-        "forks_measured": 0,
-        "forks_per_day": 0.0,
-        "forks_rate": 0.5,
-        "freshness": 0.148,
-        "growth": 0.611,
-        "growth_measured": 0,
-        "popularity": 0.296,
-        "reliability": 0.556,
-        "stars_per_day": 1338.66
-      },
-      "source_name": "github_search",
-      "sources": [
-        "github_search"
-      ],
-      "star_history": [
-        [
-          "2026-11-28",
-          1505,
-          0
-        ]
-      ],
-      "stargazers_count": 1505,
-      "stars": 1505,
-      "topics": [
-        "acrylic",
-        "aero",
-        "aeroglass",
-        "blur",
-        "cplusplus",
-        "cpp",
-        "desktop",
-        "desktop-customization",
-        "dwm",
-        "glassmorphism",
-        "mica",
-        "personalization",
-        "transparency",
-        "win10",
-        "win11",
-        "windows",
-        "windows-10",
-        "windows-11",
-        "windows-customization"
-      ],
-      "updated_at": "2026-11-27T21:38:14Z",
-      "url": "https://github.com/Pixel679-cmyk/windows-titlebar-blur-customizer"
     },
     {
       "archived": false,
@@ -28471,8 +28493,8 @@
     "pixel679-cmyk/windows-titlebar-blur-customizer": {
       "first_seen_at": "2026-11-28T00:25:51.963842Z",
       "full_name": "Pixel679-cmyk/windows-titlebar-blur-customizer",
-      "last_decision": "queued",
-      "last_seen_at": "2026-11-28T00:25:51.963843Z",
+      "last_decision": "published",
+      "last_seen_at": "2026-11-28T15:13:56.721111Z",
       "repo_id": 1473688485,
       "sources": [
         "github_search"
@@ -28480,8 +28502,8 @@
       "star_history": [
         [
           "2026-11-28",
-          1505,
-          0
+          1509,
+          1
         ]
       ]
     },
