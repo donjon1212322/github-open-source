@@ -332,11 +332,11 @@
   ],
   "last_runs": {
     "article": {
-      "finished_at": "2026-11-27T13:33:52.624772Z",
+      "finished_at": "2026-11-28T13:34:20.633481Z",
       "published": true,
       "reason": "published",
-      "repo": "fxceless/victory-fork",
-      "url": "https://dev.to/githubopensource/run-xbox-series-games-on-pc-open-source-rust-compatibility-layer-13lj"
+      "repo": "alesha-pro/llm.asm",
+      "url": "https://dev.to/githubopensource/run-ai-in-pure-assembly-llmasm-open-source-548h"
     },
     "collect": {
       "discovered": 482,
@@ -2716,7 +2716,13 @@
   "publish_failures": {},
   "published": {
     "alesha-pro/llm.asm": {
-      "articles": {},
+      "articles": {
+        "devto": {
+          "id": 5139291,
+          "published_at": "2026-11-28T13:34:20.633338Z",
+          "url": "https://dev.to/githubopensource/run-ai-in-pure-assembly-llmasm-open-source-548h"
+        }
+      },
       "card_style": "editorial_daily",
       "category": "DevTools",
       "contributors_count": 1,
