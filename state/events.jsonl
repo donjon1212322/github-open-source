@@ -953,3 +953,4 @@
 {"preview_host": "imgbb", "repo": "alesha-pro/llm.asm", "ts": "2026-11-28T01:14:04.215091Z", "type": "published_as_text"}
 {"repo": "alesha-pro/llm.asm", "score": 55.7, "telegram_message_id": 3655, "telegraph_url": "https://telegra.ph/llmasm-LLM-Inference-and-Training-in-Pure-x86-64-Assembly-11-28", "ts": "2026-11-28T01:14:04.470666Z", "type": "project_published"}
 {"minutes_late": 69.0, "schedule": "17 0,18,19,20,21,22,23 * * *", "ts": "2026-11-28T01:26:02.066431Z", "type": "late_schedule_ignored"}
+{"minutes_late": 434.4, "schedule": "13 18 * * *", "ts": "2026-11-28T01:27:23.407232Z", "type": "late_schedule_ignored"}
