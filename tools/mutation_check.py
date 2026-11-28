@@ -38,6 +38,16 @@ MUTATIONS: list[tuple[str, str, str, str]] = [
     ("src/ghos_v6/gate.py", "    if not lowered.startswith(\"free \"):",
      "    if not lowered.startswith(\"free \") and False:",
      "the \"Free <platform> <utility>\" farm wave passes the gate again (25.11)"),
+    # Owner 28.11: the generic #devtools on every post, a duplicated repo.
+    ("src/ghos_v6/formatter.py",
+     "        if category_key in _GENERIC_CATEGORY_TAGS and (\n"
+     "                set(families) & _NON_TOOL_FAMILIES):",
+     "        if category_key in _GENERIC_CATEGORY_TAGS and (\n"
+     "                False and set(families) & _NON_TOOL_FAMILIES):",
+     "a console game port is published as another developer tool (28.11)"),
+    ("src/ghos_v6/state.py", "            if key in deduped:",
+     "            if False and key in deduped:",
+     "one repository holds two pipeline slots again (28.11)"),
     # Owner 26.11: "посты одни инструменты", "3 хештега", frozen value model.
     ("src/ghos_v6/rank.py",
      "    if family and families_today.get(family, 0) >= 1:",

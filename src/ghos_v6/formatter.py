@@ -191,25 +191,55 @@ def _emoji(project: dict[str, Any]) -> str:
 #: tag. When the topics are empty, one honest tag is read from the project's
 #: own name and description - the word it uses to describe itself.
 _FALLBACK_TAG_WORDS: tuple[tuple[str, tuple[str, ...]], ...] = (
-    ("emulator", ("emulator", "emulation", "recompil")),
-    ("game", ("game", "gaming", "gameplay")),
+    ("games", ("game", "gaming", "gameplay", "xbox", "playstation",
+               "nintendo", "switch title", "console title")),
+    ("emulator", ("emulator", "emulation", "recompil", "compatibility layer",
+                  "compat layer")),
+    ("math", ("theorem", "formaliz", "prover", "riemann", "proof assistant")),
+    ("science", ("scientific", "physics", "biology", "chemistry",
+                 "astronomy", "simulation of")),
     ("cli", ("cli", "command line", "command-line", "terminal")),
     ("agent", ("agent", "agentic")),
-    ("llm", ("llm", "language model")),
+    ("llm", ("llm", "language model", "inference")),
     ("ai", (" ai ", "artificial intelligence", "machine learning")),
-    ("video", ("video",)),
+    ("video", ("video", "youtube", "twitch", "streaming player")),
     ("audio", ("audio", "music", "sound")),
     ("image", ("image", "photo", "picture")),
     ("editor", ("editor",)),
     ("browser", ("browser",)),
     ("automation", ("automation", "automate")),
     ("database", ("database", " sql")),
-    ("security", ("security", "malware", "vulnerab")),
+    ("security", ("security", "malware", "vulnerab", "pentest")),
     ("bot", ("bot", "telegram")),
     ("pdf", ("pdf",)),
     ("ocr", ("ocr", "text recognition")),
     ("docker", ("docker", "container")),
 )
+
+#: Owner 28.11: "посты одни инструменты". Six project posts in a row carried
+#: #devtools, because the model labels almost every repository a DevTools
+#: project ("Stream Tube", "mobile-agent-testers", "llm.asm" all came out as
+#: DevTools). When the project's own words name a concrete field - a console
+#: game port, a theorem prover, a video client - that word takes the place of
+#: the generic tag instead of being pushed out by it, so the feed stops reading
+#: "another developer tool" six times in a row.
+_GENERIC_CATEGORY_TAGS = frozenset({"devtools", "developer_tools", "tools",
+                                   "software", "utilities"})
+
+#: Not every field beats "DevTools": a browser-automation utility is a
+#: developer tool and should keep the tag. Only fields where the post is about
+#: the subject itself - a game port, a video client, a theorem prover - take
+#: the slot, because those are the posts that read as "another tool".
+_NON_TOOL_FAMILIES = frozenset({"games", "emulator", "math", "science", "video"})
+
+
+def _family_tags(project: dict[str, Any]) -> list[str]:
+    """The fields this project names in its own words, most specific first."""
+    haystack = " " + " ".join(
+        [str(project.get("name") or ""), str(project.get("description") or "")]
+    ).lower() + " "
+    return [word for word, needles in _FALLBACK_TAG_WORDS
+            if any(needle in haystack for needle in needles)]
 
 
 def _hashtags(project: dict[str, Any], limit: int = 4) -> str:
@@ -232,9 +262,18 @@ def _hashtags(project: dict[str, Any], limit: int = 4) -> str:
     if lang:
         add(_LANG_HASHTAG.get(lang, re.sub(r"[^a-z0-9]+", "", lang)))
     category = str(project.get("category") or "").strip()
+    families = _family_tags(project)
+    skipped_generic = ""
     if category:
         category_key = re.sub(r"[^a-zA-Z0-9_]+", "_", category.lower()).strip("_")
-        add(_CATEGORY_TAG_ALIASES.get(category_key, category_key))
+        # A generic "DevTools" yields to the concrete field the project names.
+        if category_key in _GENERIC_CATEGORY_TAGS and (
+                set(families) & _NON_TOOL_FAMILIES):
+            # Kept aside: if the concrete words run out before the tag slot is
+            # filled, the generic tag is better than a three-tag post.
+            skipped_generic = _CATEGORY_TAG_ALIASES.get(category_key, category_key)
+        else:
+            add(_CATEGORY_TAG_ALIASES.get(category_key, category_key))
     topics = [str(topic).strip().lower() for topic in project.get("topics") or []]
     for priority in _PRIORITY_TOPICS:
         if priority in topics:
@@ -242,15 +281,17 @@ def _hashtags(project: dict[str, Any], limit: int = 4) -> str:
     for topic in topics:
         add(topic)
     if len(tags) < limit:
-        # No topics on GitHub: describe the project with one word of its own.
-        haystack = " " + " ".join(
-            [str(project.get("name") or ""), str(project.get("description") or "")]
-        ).lower() + " "
-        for word, needles in _FALLBACK_TAG_WORDS:
-            if any(needle in haystack for needle in needles):
-                add(word)
+        # No topics on GitHub: describe the project with its own words.
+        for word in families:
+            add(word)
             if len(tags) >= limit:
                 break
+    if len(tags) < limit and skipped_generic:
+        add(skipped_generic)
+    if len(tags) < limit:
+        # A project with no topics and no field of its own: the channel is
+        # about GitHub, and that is the one true fourth tag left.
+        add("github")
     return " ".join(f"#{t}" for t in tags[:limit])
 
 def visible_text(rendered_html: str) -> str:

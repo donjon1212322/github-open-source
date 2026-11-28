@@ -109,3 +109,57 @@ def test_the_external_worker_fires_learn_on_thursday_too():
         "the external clock lost the learn slot again"
     workflow = (repo / ".github" / "workflows" / "pipeline.yml").read_text(encoding="utf-8")
     assert "57 18 * * 4" in workflow
+
+
+# --- 28.11: "посты одни инструменты" - the generic #devtools on every post --
+
+def test_a_console_game_port_is_not_tagged_as_another_developer_tool():
+    """fxceless/victory-fork went out 27.11 with three tags, #devtools among
+    them: the model calls almost every repository a DevTools project."""
+    tags = _hashtags({
+        "name": "victory-fork",
+        "description": "Run an Xbox Series title natively on Windows with 11 fps "
+                       "using an experimental Rust compatibility layer.",
+        "language": "Rust", "category": "DevTools", "topics": []})
+    assert "#games" in tags and "#devtools" not in tags, tags
+    assert len(tags.split()) == 4
+
+
+def test_a_video_client_keeps_its_own_field_instead_of_devtools():
+    tags = _hashtags({
+        "name": "Stream-Tube-Desktop",
+        "description": "An ad-free YouTube client for Windows in a native 25 MB "
+                       "Rust binary.",
+        "language": "Rust", "category": "DevTools",
+        "topics": ["dearrow", "youtube", "sponsorblock", "return-youtube-dislike"]})
+    assert "#devtools" not in tags and "#youtube" in tags, tags
+
+
+def test_a_real_developer_tool_still_says_devtools():
+    tags = _hashtags({
+        "name": "pdfcraft",
+        "description": "An open-source PDF reader and editor written from scratch.",
+        "language": "Rust", "category": "DevTools", "topics": ["pdf", "editor"]})
+    assert "#devtools" in tags, tags
+
+
+def test_a_project_with_nothing_to_say_still_gets_four_tags():
+    tags = _hashtags({"name": "plain", "description": "A tiny static site generator",
+                      "language": "Go", "category": "DevTools", "topics": []})
+    assert len(tags.split()) == 4, tags
+
+
+def test_one_repository_takes_one_slot_of_the_pipeline(tmp_path):
+    """28.11: xcl-dev/xcl arrived from GitHub search and from a Telegram
+    channel in the same run and held two of the 28 slots."""
+    from ghos_v6.state import StateStore
+
+    store = StateStore(tmp_path)
+    store.set_queue([
+        {"full_name": "xcl-dev/xcl", "repo_id": 1465852099, "sources": ["github_search"], "score": 59.8},
+        {"full_name": "xcl-dev/xcl", "repo_id": 1465852099, "sources": ["telegram:github_repos"], "score": 59.8},
+        {"full_name": "other/repo", "repo_id": 2, "sources": ["github_search"], "score": 50.0},
+    ])
+    queue = store.data["queue"]
+    assert [c["full_name"] for c in queue] == ["xcl-dev/xcl", "other/repo"]
+    assert queue[0]["sources"] == ["github_search", "telegram:github_repos"]

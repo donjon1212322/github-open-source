@@ -326,6 +326,20 @@ class StateStore:
         if not merge:
             self.data["queue"] = fresh
             return
+        # The same repository can arrive from two sources in one collect run
+        # (GitHub search and a Telegram channel): on 28.11 "xcl-dev/xcl" held
+        # two of the 28 pipeline slots. One repository, one slot.
+        deduped: dict[str, dict[str, Any]] = {}
+        for candidate in fresh:
+            key = self.repo_key(candidate).lower() or f"i{id(candidate)}"
+            if key in deduped:
+                previous = deduped[key]
+                previous["sources"] = sorted(
+                    set(previous.get("sources") or [])
+                    | set(candidate.get("sources") or []))
+                continue
+            deduped[key] = candidate
+        fresh = list(deduped.values())
         existing = list(self.data.get("queue") or [])
         fresh_keys = {self.repo_key(c).lower() for c in fresh}
         kept = [c for c in existing if self.repo_key(c).lower() not in fresh_keys]
