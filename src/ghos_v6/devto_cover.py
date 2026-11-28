@@ -16,7 +16,7 @@ from __future__ import annotations
 
 from io import BytesIO
 
-from PIL import Image, ImageDraw
+from PIL import Image, ImageDraw, ImageFile
 
 COVER_W, COVER_H = 1000, 420
 CARD_W, CARD_H = 1200, 630
@@ -30,10 +30,28 @@ RULE = (34, 54, 88)
 RED = (77, 216, 255)
 
 
+def _load_card(card_bytes: bytes) -> Image.Image:
+    """Decode the card even when the hosting CDN served it truncated.
+
+    Owner 28.11: the dev.to card of the llm.asm article came out cropped.
+    The preview JPEG on ImgBB was stored as 57 344 bytes instead of ~72 000
+    and had no end-of-image marker, so Pillow refused it, the cover render
+    raised, and the article fell back to the raw 1200x630 card - which
+    dev.to's fixed ``fit=cover`` then cut. A partially downloaded card still
+    shows the whole design (only blank margins are missing), so it is used.
+    """
+    previous = ImageFile.LOAD_TRUNCATED_IMAGES
+    ImageFile.LOAD_TRUNCATED_IMAGES = True
+    try:
+        with Image.open(BytesIO(card_bytes)) as source:
+            return source.convert("RGB")
+    finally:
+        ImageFile.LOAD_TRUNCATED_IMAGES = previous
+
+
 def build_devto_cover(card_bytes: bytes) -> bytes:
     """Return a 1000x420 PNG containing the entire card, uncropped."""
-    with Image.open(BytesIO(card_bytes)) as source:
-        card = source.convert("RGB")
+    card = _load_card(card_bytes)
     # Preserve the aspect ratio of whatever the renderer produced, while
     # fitting it inside the safe box. A future 1200x630 -> 1400x700 change
     # must not silently crop the design either.

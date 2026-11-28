@@ -45,6 +45,13 @@ MUTATIONS: list[tuple[str, str, str, str]] = [
      "    if category and category not in _GENERIC_CATEGORIES:",
      "    if category:",
      "the generic DevTools label turns every tool into one family again (28.11)"),
+    # Owner 28.11: the dev.to card came out cropped.
+    ("src/ghos_v6/devto_cover.py", "    ImageFile.LOAD_TRUNCATED_IMAGES = True",
+     "    ImageFile.LOAD_TRUNCATED_IMAGES = False",
+     "a truncated preview kills the cover and dev.to crops the card (28.11)"),
+    ("src/ghos_v6/media_host.py", "                        if stored is None or stored == len(data):",
+     "                        if True or stored is None or stored == len(data):",
+     "a half-stored upload is believed again (28.11)"),
     # Owner 28.11: the generic #devtools on every post, a duplicated repo.
     ("src/ghos_v6/formatter.py",
      "        if category_key in _GENERIC_CATEGORY_TAGS and (\n"

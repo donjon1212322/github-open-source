@@ -182,6 +182,12 @@ class GitHubReleaseMediaHost:
         raise self._error("asset upload", status, body)
 
 
+#: Below this size a lost byte or two is not our problem (and test payloads
+#: should not reach the network): from here up a truncated card is invisible
+#: to the vendor and costly to us, so the stored object gets measured.
+_MEASURE_FROM = 20_000
+
+
 class ImgBBMediaHost:
     """Upload an image to ImgBB and return its direct CDN URL.
 
@@ -201,15 +207,40 @@ class ImgBBMediaHost:
         expiration: int | None = None,
         post_fn: Callable[..., Any] | None = None,
         sleep_fn: Callable[[float], None] | None = None,
+        head_fn: Callable[..., Any] | None = None,
     ) -> None:
         self.api_key = (api_key or "").strip()
         self.expiration = expiration
         self._post = post_fn or requests.post
         self._sleep = sleep_fn or time.sleep
+        self._head = head_fn or requests.head
 
     @property
     def configured(self) -> bool:
         return bool(self.api_key)
+
+    def _stored_size(self, url: str) -> int | None:
+        """Bytes the CDN actually serves, or ``None`` when it cannot be told.
+
+        A HEAD request is one round trip and turns a silent half-upload into
+        a retry. Anything unexpected (no content-length, a network error)
+        returns ``None`` and the upload is accepted: the check exists to catch
+        a known failure, not to invent new ones.
+        """
+        try:
+            response = self._head(url, timeout=30, allow_redirects=True)
+        except Exception:  # noqa: BLE001 - never fail an upload on a probe
+            return None
+        # Only a served object can be measured: a 404, a redirect or a
+        # vendor hiccup means "cannot tell", not "half stored".
+        if int(getattr(response, "status_code", 0) or 0) != 200:
+            return None
+        headers = getattr(response, "headers", {}) or {}
+        raw = headers.get("content-length") or headers.get("Content-Length")
+        try:
+            return int(str(raw))
+        except (TypeError, ValueError):
+            return None
 
     def upload_image(
         self,
@@ -240,6 +271,7 @@ class ImgBBMediaHost:
         for attempt in range(4):
             status = 0
             body: Any = None
+            half_stored = False
             try:
                 response = self._post(self.API, data=payload, timeout=120)
                 status = int(getattr(response, "status_code", 0) or 0)
@@ -268,14 +300,32 @@ class ImgBBMediaHost:
                         or ""
                     )
                     if url.startswith("https://"):
-                        return url
-                    last_error = "ImgBB response has no usable image URL"
+                        # Owner 28.11: ImgBB once stored 57 344 of our 72 881
+                        # bytes (a JPEG without its end marker), reported
+                        # success, and the article card came out cropped. The
+                        # API is not believed: the stored object is measured.
+                        # Only a real card is measured: probing a three-byte
+                        # test payload would just add a network call.
+                        stored = (
+                            self._stored_size(url) if len(data) > _MEASURE_FROM
+                            else None
+                        )
+                        if stored is None or stored == len(data):
+                            return url
+                        # A half-stored object is a transport fault, not a
+                        # rejected key: send it again instead of raising.
+                        last_error = (
+                            f"ImgBB stored {stored} of {len(data)} bytes"
+                        )
+                        half_stored = True
+                    else:
+                        last_error = "ImgBB response has no usable image URL"
                 else:
                     detail: Any = body
                     if isinstance(body, dict) and isinstance(body.get("error"), dict):
                         detail = body["error"].get("message") or body["error"]
                     last_error = f"ImgBB upload failed HTTP {status}: {sanitize(str(detail))[:200]}"
-                if status < 500 and status != 429:
+                if status < 500 and status != 429 and not half_stored:
                     raise MediaHostError(last_error)
 
             if attempt < 3:
