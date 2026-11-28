@@ -163,3 +163,34 @@ def test_one_repository_takes_one_slot_of_the_pipeline(tmp_path):
     queue = store.data["queue"]
     assert [c["full_name"] for c in queue] == ["xcl-dev/xcl", "other/repo"]
     assert queue[0]["sources"] == ["github_search", "telegram:github_repos"]
+
+
+# --- 28.11: the same-family guard could not see the console-port streak -----
+
+def _fam(desc: str, **extra) -> str:
+    from ghos_v6.rank import theme_family
+    record = {"description": desc, "category": "DevTools"}
+    record.update(extra)
+    return theme_family(record)
+
+
+def test_an_xbox_recompilation_is_a_games_post_not_a_developer_tool():
+    """26.11 leonida and 27.11 victory-fork are the same story; both were filed
+    under "devtools" because the model labels everything DevTools, so the
+    week guard never saw six game posts in seven days."""
+    assert _fam("Leonida recompiles Xbox Series GTA VI binaries to run natively "
+                "on Windows and Linux via Vulkan translation.") == "games"
+    assert _fam("Run an Xbox Series title natively on Windows with 11 fps using "
+                "an experimental Rust compatibility layer.") == "games"
+    assert _fam("Switch games running natively on iPhone, no emulation layer"
+                ) == "games"
+
+
+def test_a_lean_formalization_is_math_not_a_developer_tool():
+    assert _fam("Verify the Lean formalization of the Riemann Hypothesis and GRH "
+                "using Lake and Python.") == "math"
+
+
+def test_the_generic_devtools_label_does_not_make_a_family():
+    assert _fam("CAD drafting in pure Rust") == ""
+    assert _fam("An IDE and debugger for embedded C") == "devtools"

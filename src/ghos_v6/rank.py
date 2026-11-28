@@ -444,15 +444,27 @@ WEEK_FAMILY_PENALTY = 8.0
 #: quota would never fire at selection time. These families are derived from
 #: the fields both shapes always have (topics, name, description) and are
 #: ordered: an "AI agent for iOS" is an AI-agent post first.
+#: The model calls almost every repository a DevTools project, so a category
+#: that generic must not decide the family: on 26-27.11 both
+#: "ubiquitarianism/leonida" (an Xbox Series recompilation) and
+#: "leanprover-community/riemann-hypothesis" (a Lean formalization) fell into
+#: "devtools" and the same-family guard could not see the console-port streak.
+_GENERIC_CATEGORIES = frozenset({"devtools", "developer tools", "tools",
+                                 "utilities", "software"})
+
 FAMILY_KEYWORDS: tuple[tuple[str, tuple[str, ...]], ...] = (
     ("ai-agents", ("agent", "agentic", "claude-code", "codex", "mcp", "llm",
                    "openai", "anthropic", "gemini", "prompt", "chatbot")),
+    ("games", ("game", "gaming", "emulator", "switch", "diablo", "retro",
+               "minecraft", "steam", "xbox", "playstation", "nintendo",
+               "console title", "console game", "recompil",
+               "compatibility layer")),
+    ("math", ("theorem", "formaliz", "proof assistant", "riemann",
+              "mathematic", "sat solver")),
     ("privacy", ("privacy", "security", "pentest", "audit", "permission",
                  "malware", "vulnerability", "scanner", "exploit")),
     ("media", ("video", "clip", "film", "stream", "media", "music", "audio",
                "podcast", "image", "photo", "tv")),
-    ("games", ("game", "gaming", "emulator", "switch", "diablo", "retro",
-               "minecraft", "steam")),
     ("apple", ("ios", "iphone", "ipad", "macos", "apple", "swift", "xcode")),
     ("devtools", ("ide", "editor", "cli", "devtools", "developer-tools",
                   "terminal", "debug", "compiler", "build", "linter", "docker",
@@ -467,8 +479,9 @@ def theme_family(record: dict[str, Any]) -> str:
         str(record.get("description") or ""),
         " ".join(str(t) for t in (record.get("topics") or [])),
     ]
-    if record.get("category"):
-        parts.append(str(record.get("category")))
+    category = str(record.get("category") or "").strip().lower()
+    if category and category not in _GENERIC_CATEGORIES:
+        parts.append(category)
     haystack = " ".join(parts).lower()
     if not haystack.strip():
         return ""

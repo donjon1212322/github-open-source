@@ -38,6 +38,13 @@ MUTATIONS: list[tuple[str, str, str, str]] = [
     ("src/ghos_v6/gate.py", "    if not lowered.startswith(\"free \"):",
      "    if not lowered.startswith(\"free \") and False:",
      "the \"Free <platform> <utility>\" farm wave passes the gate again (25.11)"),
+    ("src/ghos_v6/rank.py", '"console title", "console game", "recompil",',
+     '"console title", "console game", "recompiled-away",',
+     "an Xbox recompilation stops being a games post (28.11)"),
+    ("src/ghos_v6/rank.py",
+     "    if category and category not in _GENERIC_CATEGORIES:",
+     "    if category:",
+     "the generic DevTools label turns every tool into one family again (28.11)"),
     # Owner 28.11: the generic #devtools on every post, a duplicated repo.
     ("src/ghos_v6/formatter.py",
      "        if category_key in _GENERIC_CATEGORY_TAGS and (\n"
